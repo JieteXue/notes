@@ -1,0 +1,662 @@
+\documentclass{book}
+\include{封装模板.tex}
+
+\begin{document}
+\setlength{\parindent}{0em}
+\begin{box3}
+        \begin{center}
+            \Huge 
+    FUNDAMENTAL \\
+    ALGEBRA \& ANALYSIS
+        \end{center}
+    
+    \end{box3}
+\thispagestyle{empty}
+    \newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+
+
+\chapter{Basic Logic}
+\section{statement}
+\begin{definitionenv}
+    We call statement a declarative sentence that is either true or false, but not both(it can be potential).    
+\end{definitionenv}
+\begin{exampleenv}
+    "$2>1$"(True)\quad "$1<0$"(False)
+\end{exampleenv}
+If we specify the value of x ,then "$x>2$"becomes a statement, otherwise it is not a statement.
+\begin{definitionenv}
+    In a mathematical theory,
+    \newline 
+    axiom refer to statements that accepted to be true without justification.
+    \newline
+    theorem refer to statements that are proved by assuming axioms.
+    \newline
+    proposition refer to the statements that are either easy or not used many times.
+    \newline
+    corollary refer to direct consequence of a theorem.
+\end{definitionenv}
+
+
+
+
+\section{Negation}
+\begin{definitionenv}
+    Let $p$ be a statement, then the negation of $p$ is denoted by $\neg p$, which is a statement that is true if and only if $p$ is false.
+    In other words, $p$ and $\neg p$ has opposite truth values.
+\end{definitionenv}
+\begin{propositionenv}
+For any statement $p$, $\neg \neg p$and $p$ have the same value.
+\end{propositionenv}
+
+
+
+
+
+\section{Conjunction and Disjunction}
+\begin{definitionenv}
+    Let $p$ and $q$ be statements,
+    \newline
+    we denote by $p\wedge q $the statement "$p$ and $q$"
+    \newline
+    we denote by $p\vee q $the statement "$p$ or $q$"
+    
+\end{definitionenv}
+
+\begin{table}
+    \begin{center}
+\begin{tabular}{c|c|c|c}
+    p & q & $p\wedge q$ & $p\vee q$ \\
+    \hline
+    T & T & T & T \\
+    T & F & F & T \\
+    F & T & F & T \\
+    F & F & F & F \\    
+
+\end{tabular}
+\caption{Truth table for conjunction and disjunction} 
+\end{center}
+\end{table}
+
+\begin{propositionenv}
+    Let $P$and $Q$be statements $(\neg P)\vee (\neg Q)and \neg(P\wedge Q)$have the same truth value.
+\end{propositionenv}
+
+
+\section{Conditional statements}
+\begin{definitionenv}
+    Let $P$ and $Q$ be statements,we denote by $P\Rightarrow Q$ the statement(if P then Q)
+\end{definitionenv}
+\begin{remark}
+    It has the same truth value as that of $(\neg P\vee Q)$,only when $P$ s true and $Q$is false,otherwise it's true .
+    \newline
+    If one can prove Q is assuming that $P$is true ,then $P\Rightarrow Q$ is true .
+\end{remark}
+\begin{propositionenv}
+    Let $P$and $Q$ be statements.If $P$and $P\Rightarrow Q$ are true,then $Q$ is also true.
+\end{propositionenv}
+\begin{propositionenv}
+    Let $P,Q,R$ be statements.If $P \Rightarrow Q$and $Q\Rightarrow R$ are true,then $P\Rightarrow R$ is also true .
+\end{propositionenv}
+\begin{theoremenv}
+    Let $P$and $Q$ be statements.$P\Rightarrow Q$ and $(\neg Q)\Rightarrow (\neg P)$ have the same truth value.
+\end{theoremenv}
+$(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,if we prove $(\neg Q)\Rightarrow (\neg P)$,then $P\Rightarrow Q$ is also true .
+\begin{exampleenv}
+    Prove that ,let $n$be an integer,if $n^2$ is even ,then $n$ is even .
+    \begin{proofenv}
+        Since $n$is an integer,there exists$k\in \ZZ$ such that $n=2k+1$.Hence $n^2=4k^2+4k+1$is not even.
+    \end{proofenv}
+\end{exampleenv}
+
+
+
+\section{Biconditional statement}
+\begin{definitionenv}
+    Let $P$and $Q$ be statements.We denote by $P\Leftrightarrow Q$ the statement
+    \begin{center}
+        "$P$ if and only if $Q$"
+    \end{center}
+    its true when$P$and $Q$have the same truth value,it's false when they have the opposite truth value.
+\end{definitionenv}
+\begin{propositionenv}
+    Let P and Q be statements.$P \Leftrightarrow Q$ has the same truth value as 
+    $$(P\Rightarrow Q)\wedge (Q\Rightarrow P)$$
+\end{propositionenv}
+\begin{exampleenv}
+    Let $n$ be an integer.
+    \newline
+    $n$ is even if and only if $n^2$ is even 
+\end{exampleenv}
+\begin{definitionenv}
+    Let $P$ and $Q$ be statements.
+    \newline
+    $Q\Rightarrow P$ is called the converse of$P\Rightarrow Q$
+    \newline
+    $\neg P \Rightarrow \neg Q$is called the inverse of $P\Rightarrow Q$ 
+\end{definitionenv}
+\begin{remark}
+    If one proves $P\Rightarrow Q$and $\neg P\Rightarrow \neg Q$,then $P \Leftrightarrow Q$ is true.
+\end{remark}
+
+
+
+
+\section{Proof by Contradiction}
+\begin{definitionenv}
+    Let $P$ be a statement.If we assume $\neg P$is true and deduce that a certain statement is both true and false, then we say that a contradiction happens and the assumption $\neg P$ is false. Thus the statement $P$ is true. Such a reasoning is called proof by contradiction.
+\end{definitionenv}
+\begin{exampleenv}
+    Prove that the equation $x^2=2$ does not have solution in $\mathbb{Q}$
+    \begin{proofenv}
+        By contradiction,we assume that $x:=\frac{p}{q}$ is a solution,where $p$ and $q$ are integers ,which do not have common prime divisor.
+        \newline
+        By $x^2=2$ we obtain $p^2=2q^2$
+        So $p^2$ is even,$p$ is even.Let $p_1\in \ZZ$ such that $p=2p_1$
+        Then $p^2=4p_1^2=2q^2$,hence $q$ is even.
+        \newline
+        Therefore $2$ is a common prime divisor of $p$ and $q$,which leads to a contradiction.
+    \end{proofenv}
+\end{exampleenv}
+
+\section{Exercises}
+\begin{enumerate}
+    \item Let \(P\) and \(Q\) be statements. Use truth tables to determine the truth values of the following statements according to the truth values of \(P\) and \(Q\):
+    \[P\wedge\neg P,\;P\vee\neg P,\;(P\lor Q)\Rightarrow(P\wedge Q),\;(P \Rightarrow Q)\Rightarrow(Q\Rightarrow P)\]
+    
+    \item Let \(P\) and \(Q\) be statements.
+    \begin{enumerate}
+        \item Show that \(P\Rightarrow(Q\wedge\neg Q)\) has the same truth value as \(\neg P\).
+        \item Show that \((P\wedge\neg Q)\Rightarrow Q\) has the same truth value as \(P\Rightarrow Q\).
+    \end{enumerate}
+    
+    \item Consider the following statements:
+    \[P :=``\text{Little Bear is happy}",\]
+    \[Q :=``\text{Little Bear has done her math homework}",\]
+    \[R :=``\text{Little Rabbit is happy}".\]
+    Express the following statements using \(P\), \(Q\), and \(R\), along with logical connectives:
+    \begin{enumerate}
+        \item If Little Bear is happy and has done her math homework, then Little Rabbit is happy.
+        \item If Little Bear has done her math homework, then she is happy.
+        \item Little Bear is happy only if she has done her math homework.
+    \end{enumerate}
+    
+    \item Does the following reasoning hold? Justify your answer.
+    \begin{itemize}
+        \item It is known that Little Bear is both smart and lazy, or Little Bear is not smart.
+        \item It is also known that Little Bear is smart.
+        \item Therefore, Little Bear is lazy.
+    \end{itemize}
+    
+    \item Does the following reasoning hold? Justify your answer.
+    \begin{itemize}
+        \item It is known that at least one of the lion or the tiger is guilty.
+        \item It is also known that either the lion is lying or the tiger is innocent.
+        \item Therefore, the lion is either lying or guilty.
+    \end{itemize}
+    
+    \item An explorer arrives at a cave with three closed doors, numbered 1, 2, and 3. Exactly one door hides treasure, while the other two conceal deadly traps.
+    \begin{itemize}
+        \item Door 1 states: ``\textit{The treasure is not here}'';
+        \item Door 2 states: ``\textit{The treasure is not here}'';
+        \item Door 3 states: ``\textit{The treasure is behind Door 2}''.
+    \end{itemize}
+    Only one of these statements is true. Which door should the explorer open to find the treasure?
+    
+    \item The Kingdom of Truth sent an envoy to the capital of the Kingdom of Lies. Upon entering the border, the envoy encountered a fork with three paths: dirt, stone, and concrete. Each path had a signpost:
+    
+    \begin{itemize}
+        \item The concrete path's sign: ``\textit{This path leads to the capital, and if the dirt path leads to the capital, then the stone path also does.}''
+        \item The stone path's sign: ``\textit{Neither the concrete nor the dirt path leads to the capital.}''
+        \item The dirt path's sign: ``\textit{The concrete path leads to the capital, but the stone path does not.}''
+    \end{itemize}
+    All signposts lie. Which path should the envoy take?
+    
+    \item Let \(a\) and \(b\) be real numbers. Prove that, if \(a\neq-1\) and \(b\neq-1\), then \(ab+a+b\neq-1\).
+    
+    \item Let \(a\), \(b\), and \(c\) be positive real numbers such that \(abc>1\) and
+    \[a+b+c<\frac{1}{a}+\frac{1}{b}+\frac{1}{c}.\]
+    Prove the following:
+    \begin{enumerate}
+        \item None of \(a\), \(b\), or \(c\) equals 1.
+        \item At least one of \(a\), \(b\), or \(c\) is greater than 1.
+        \item At least one of \(a\), \(b\), or \(c\) is less than 1.
+    \end{enumerate}
+    
+    \item Let \(a\neq 0\) and \(b\) be real numbers. For real numbers \(x\) and \(y\), prove that if \(x\neq y\), then \(ax+b\neq ay+b\).
+    
+    \item Let \(n\geq 2\) be an integer. Prove that if \(n\) is composite, then there exists a prime number \(p\) dividing \(n\) such that \(p\leq\sqrt{n}\).
+    
+    \item Let \(n\) be an integer. Prove that either 4 divides \(n^{2}\) or 4 divides \(n^{2}-1\).
+    
+    \item Let \(n\) be an integer. Prove that 12 divides \(n^{2}(n^{2}-1)\).
+    
+    \item Prove that any integer divisible by 4 can be written as the difference of two perfect squares.
+    
+    \item Let \(x\) and \(y\) be non-zero integers. Prove that \(x^{2}-y^{2}\neq 1\).
+    
+    \item A plane has 300 seats and is fully booked. The first passenger ignores their assigned seat and chooses randomly. Subsequent passengers take their assigned seat if available; otherwise, they choose randomly. What is the probability that the last passenger sits in their assigned seat?
+    
+    \item Little Bear, Little Goat, and Little Rabbit are all wearing hats. A parrot prepared four red feathers and four blue feathers to decorate their hats. The parrot selected two feathers for each hat-wearing animal to place on their hats. Each animal cannot see the feathers on their own hat but can see the feathers on the other animals' hats. Here is their conversation:
+    \begin{itemize}
+        \item Little Bear: \textit{I don't know what color the feathers on my hat are, but I know the other animals also don't know what color the feathers on their hats are.}
+        \item Little Goat: \textit{Haha, now even without looking at Little Bear's hat, I know what color the feathers on my hat are.}
+        \item Little Rabbit: \textit{Now I know what color the feathers on my hat are.}
+        \item Little Bear: \textit{Hmm, now I also know what color the feathers on my hat are.}
+    \end{itemize}
+    Question: What color are the feathers on Little Goat's hat?
+    
+    \item The Sphinx tells the truth on one fixed weekday and lies on the other six. Cleopatra visits The Sphinx for three consecutive days:
+    \begin{itemize}
+        \item Day 1: The Sphinx declared, ``\textit{I lie on Monday and Tuesday.}''
+        \item Day 2: The Sphinx declared, ``\textit{Today is either Thursday, or Saturday, or Sunday.}''
+        \item Day 3: The Sphinx declared, ``\textit{I lie on Wednesday and Friday.}''
+    \end{itemize}
+    On which day does the Sphinx tell the truth? On which days of the week did Cleopatra visit the Sphinx?
+\end{enumerate}
+
+\chapter{Set Theory}
+\section{Roster Notation}
+\begin{definitionenv}
+    We call a set a certain collection of distinct objects.
+    \newline
+    An object in a collection considered as a set is called element of it .
+    \newline
+    Two sets $A$ and $B$ are said to be equal if they have the same elements.We denoted by $A=B$ the statement "A and B are equal"
+    \newline
+    If $A$ is a set and $x$ is an object,$x \in A$ denotes $x$ is an element of $A$ (reads x belongs to A),$x \notin A$ denotes "x is NOT an element of A" 
+\end{definitionenv}
+Notation Roster method:to be continue$\dots$
+\begin{exampleenv}
+    \{1,2,3\}=\{3,2,1\}=\{1,1,2,3\}
+\end{exampleenv}
+More generally ,if $I$ is a set ,and for any $i \in I$,we fix an $x_i$,then the set of all $x_i$ is noted as $$\{x_i|i\in I\}$$
+\begin{exampleenv}
+    $$\{2k+1|k\in \ZZ\}$$
+\end{exampleenv}
+\section{Set-builder Notation}
+\begin{definitionenv}
+    Let $A$ be a set .If for any $x\in A $ we fix a statement $P(x)$,then we say that $P(\cdot)$ is a \underline{condition} on $A$ 
+\end{definitionenv}
+\begin{exampleenv}
+    "n is even" is a condition on $\NN$, "x>2" is a condition on $\RR$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .If $x\in A$ is such that $P(x)$ is true, then we say that $x$ satisfies the condition $P(\cdot)$.We noted by $$\{x \in A|P(x)\}$$the set of $x\in A$ that satisfies the condition $P(\cdot)$
+\end{definitionenv}
+\begin{exampleenv}
+    $\{x\in \RR|x>2\}$ denotes the set of real numbers that are $x>2$.
+\end{exampleenv}
+sometimes we combine the two methods of representation.
+
+
+
+\section{Subsets and Set Difference}
+\begin{definitionenv}
+    Let $A$ and $B$ be sets. If any element of $A$ is an element of $B$, we say that $A$ is a subset of $B$,denoted as $A \subseteq B$ or $B\supseteq  A$.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+   \begin{itemize}
+    \item  We denote by $\varnothing $ the set that does not have any element.We consider it as a subset of any set.
+   \item  Let $A$ be a set ,then $A\subseteq A$
+    \end{itemize}
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ be a set ,we denote by $\mathcal{P} (A)$ the set of all subset of $A$ ,called the power set of $A$.
+\end{definitionenv}
+\begin{exampleenv}
+    $\mathcal{P} (\varnothing)=\{\varnothing\}$
+    ,
+    $\mathcal{P} (\mathcal{P} (\varnothing))=\{\varnothing,\{\varnothing\}\}$
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ and $B$ be sets. We denote by $B - A$ the set $\{x\in B|x\notin A\}$. This is a subset of $B$ called the set difference of $B$ and $A$.
+    \newline
+    If in condition $A \subseteq B$, we say that $B-A$ is the complement of $A$ inside $B$
+\end{definitionenv}
+\begin{exampleenv}
+    If $A$ is a set ,$P(\cdot)$ is  a condition on $A$, then $$\{x\in A |\neg P(x)\}=A-\{x\in A|P(x)\}$$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $A$ and $B$ be sets.Then $$B-A=\varnothing \Leftrightarrow B\subseteq A$$
+    If in condition $A$ is the subset of $B$, then $$B-A=\varnothing \Leftrightarrow A=B$$
+\end{propositionenv}
+
+
+\section{Quantifiers}
+\begin{definitionenv}
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .We denote by 
+    \newline
+    "$\forall x\in A, P(x)$" the statement $\{x\in A|P(x)\}=A$
+    \newline
+    "$\exists x\in A,P(x)$"denotes$\{x\in A|P(x)\}\not= \varnothing$.
+\end{definitionenv}
+\begin{exampleenv}
+    $\forall x\in \varnothing ,P(x)$ is true ;$\exists x\in varnothing|P(x)$ is false.
+\end{exampleenv}
+\begin{theoremenv}\label{theorem2.4.1}
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$
+    \newline
+    (1)$\exists x\in A,\neg P(x) $ and $ \forall x\in A,P(x)$ have opposite truth values.
+    \newline
+    (2)$\forall x\in A,\neg P(x)$ and $\exists x\in A,P(x)$ have opposite truth value.
+\end{theoremenv}
+
+
+
+\section{Sufficient and Necessary Condition}
+\begin{definitionenv}
+    Let $A$ be a set and $P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
+    If $$\{x\in A|P(x)\}\subseteq\{x\in A|Q(x)\}$$ we say that $P(\cdot)$ is a sufficient condition of $Q(\cdot)$.$Q(\cdot)$ is a necessary condition of $P(\cdot)$
+    \newline
+    If $\{x\in A|P(x)\}={x\in A|Q(x)}$,we say that $p(\cdot)$ and $Q(\cdot)$ are equivalent.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $A$ be a set ,$P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
+    \newline
+    (1)$P(\cdot)$ is a sufficient condition of $Q(\cdot)$ iff.$\forall x\in A,P(x)\Rightarrow Q(x)$
+    \newline
+    (2)$P(\cdot) $ is a necessary condition of $Q(\cdot)$ iff.$\forall x\in A,Q(x)\Rightarrow P(x)$
+    \newline
+    (3)$P(\cdot)$ and $Q(\cdot)$ are equivalent iff. $\forall x\in A,P(x)\Leftrightarrow Q(x)$
+\end{propositionenv}
+\begin{proofenv}
+\begin{align*}
+    \varnothing&=\{x\in A|P(x)\}- \{x\in A|Q(x)\}\\
+    &=\{x\in A|P(x)\wedge (\neg Q(x))\}\\
+    &=A-\{x\in A|(\neg P(x))\vee  Q(x)\}\\
+    &=A-\{x\in A |P(x)\Rightarrow Q(x)\}
+\end{align*}
+\end{proofenv}
+\textbf{Russell's paradox:}$P(A):=A\notin A$,The collection of all sets should not be considered as a set.
+
+
+\section{Union}
+\begin{definitionenv}
+    Let $I$ be a set ,and for any $i \in I$, let $A_i$ be a set ,we say that $(A_i)_{i\in I}$ is a family of sets parametrized by $I$.We denote by $\cup_{i \in I}A_i$ the set of all elements of all $A_i$.It is also called the \textbf{union} of the sets $A_i,i\in I$. By definition,a mathematical object $x$ belongs to $\cup_{i \in I}A_i$ if and only if $$\exists i\in I,x\in A_i$$ 
+\end{definitionenv}
+\begin{propositionenv}
+    $ \displaystyle \bigcup_{i\in I}A_i\subseteq B$ if and only if $$\forall i\in I,A_i\subseteq B$$
+\end{propositionenv}
+\begin{corollaryenv}\label{corollary2.6.1}
+    Let $P_i(\cdot) $be a condition on $B$,then
+    $$\{x\in B|\exists i\in I,P_i(x)\}=\bigcup_{i\in I}\{x\in B|P_i(x)\}$$
+\end{corollaryenv}
+\begin{propositionenv}
+    $$\left( \bigcup _{i\in I}A_i\right)\backslash B=\bigcup_{i\in I}\left( A_i\backslash B\right)$$
+\end{propositionenv}
+\section{Intersection}
+\begin{definitionenv}
+    Let $I$ be a \textbf{non-empty} set and $(A_i)_{i\in I} $ be a family os sets parametrized by $I$. We denote by $\displaystyle \bigcap_{i\in I}A_i $ the set of all common elements of $A_i,i\in I$.This set is called the \textbf{intersection} of $A_i,i\in I$.Note that ,if $i_0$ is an arbitrary element of $I$ ,the set-builder notation ensure that
+    $$\{x\in A_{i_0}|\forall i\in I,x\in A_i\}$$ is a set. This set id the intersection of $(A_i)_{i\in I}$.
+    \newline
+    By definition, an mathematical object $x$ belongs to $\cap _{i\in I}A_i$ if and only if $$\forall i\in I ,x\in A_i$$
+    
+\end{definitionenv}
+\begin{remark}
+    In set theory, it does not make sense to consider the intersection of an empty family of sets .In fact, if such an intersection exists as a sets ,for any mathematical object $x$, since the statement $$\forall i\in \varnothing,x \in A_i$$is true, we obtain that $x$ belongs to $\cap_{i\in \varnothing}A_i$.By Russell's paradox, this is impossible.
+\end{remark}
+\begin{propositionenv}\label{proposition2.7.1}
+Let \( I \) be a non-empty set and \( (A_i)_{i \in I} \) be a set parametrised by \( I \). Let \( B \) be a set. Then \( B \subseteq \bigcap_{i \in I} A_i \) if and only if
+\[
+\forall\, i \in I,\, B \subseteq A_i.
+\]
+\end{propositionenv}
+
+
+\begin{proofenv}
+Let \( A = \bigcap_{i \in I} A_i \).
+
+Suppose that \( B \subseteq A \). For any \( x \in B \), one has \( x \in A \), and hence
+\[
+\forall\, i \in I,\, x \in A_i.
+\]
+Therefore, for any \( i \in I \), \( B \) is contained in \( A_i \).
+
+Suppose that, for any \( i \in I \), \( B \subseteq A_i \). Then, for any \( x \in B \) and any \( i \in I \), one has \( x \in A_i \). Hence, for any \( x \in B \), one has \( x \in A \). Therefore,
+\( B \subseteq A \).
+\end{proofenv}
+
+\begin{corollaryenv}\label{corollary2.7.1}
+Let \( B \) be a set, \( I \) be a non-empty set. For any \( i \in I \), let \( P_i(\cdot) \) be a condition on \( B \). Then
+\[
+\{x \in B \mid \forall\, i \in I,\, P_i(x)\} = \bigcap_{i \in I} \{x \in B \mid P_i(x)\}.
+\]
+\end{corollaryenv}
+
+\begin{proofenv}
+Let
+\[
+A := \{x \in B \mid \forall\, i \in I,\, P_i(x)\}.
+\]
+For any \( i \in I \), let
+\[
+A_i := \{x \in B \mid P_i(x)\}.
+\]
+For any \( x \in A \) and any \( i \in I \), \( P_i(x) \) is true. Hence \( A \subseteq A_i \). By Proposition \ref{proposition2.7.1} we obtain
+\[
+A \subseteq \bigcap_{i \in I} A_i.
+\]
+Conversely, if \( x \in \bigcap_{i \in I} A_i \), then for any \( i \in I \), one has \( x \in A_i \). Hence \( x \in B \), and for any \( i \in I \), \( P_i(x) \) is true. Thus \( x \in A \).
+\end{proofenv}
+
+\begin{propositionenv}
+Let \( B \) be a set, \( (A_i)_{i \in I} \) be a family of sets. The following equality holds
+\[
+\left( \bigcap_{i \in I} A_i \right) \setminus B = \bigcap_{i \in I} (A_i \setminus B).
+\]
+\end{propositionenv}
+
+\begin{proofenv}
+Let \( A := \bigcap_{i \in I} A_i \). For any \( i \in I \), one has \( A \subseteq A_i \). Hence
+\[
+A \setminus B = \{x \in A \mid x \notin B\} \subseteq \{x \in A_i \mid x \notin B\}.
+\]
+By Proposition \ref{proposition2.7.1} we get
+\[
+A \setminus B \subseteq \bigcap_{i \in I} (A_i \setminus B).
+\]
+Conversely, if \( x \in \bigcap_{i \in I} (A_i \setminus B) \), then, for any \( i \in I \), one has \( x \in A_i \setminus B \), namely \( x \in A_i \) and \( x \notin B \). Thus \( x \in \bigcap_{i \in I} A_i \) and \( x \notin B \). Therefore \( x \in A \setminus B \).
+\end{proofenv}
+
+\begin{propositionenv}
+Let \( I \) be a set and \( (A_i)_{i \in I} \) be a family of sets parametrised by \( I \). For any set \( B \), the following statements hold.
+\begin{enumerate}
+    \item \( B \cap \left( \bigcup_{i \in I} A_i \right) = \bigcup_{i \in I} (B \cap A_i) \).
+    \item If \( I \neq \varnothing \), \( B \cup \left( \bigcap_{i \in I} A_i \right) = \bigcap_{i \in I} (B \cup A_i) \),
+    \item If \( I \neq \varnothing \), \( B \setminus \bigcup_{i \in I} A_i = \bigcap_{i \in I} (B \setminus A_i) \),
+    \item If \( I \neq \varnothing \), \( B \setminus \bigcap_{i \in I} A_i = \bigcup_{i \in I} (B \setminus A_i) \).
+\end{enumerate}
+\end{propositionenv}
+
+\begin{proofenv}
+\begin{enumerate}
+    \item By Corollary \ref{corollary2.7.1} we obtain
+    \begin{align*}
+    B \cap \left( \bigcup_{i \in I} A_i \right) &= \{x \in B \mid \exists\, i \in I,\; x \in A_i\} \\
+    &= \bigcup_{i \in I} \{x \in B \mid x \in A_i\} = \bigcup_{i \in I} (B \cap A_i).
+    \end{align*}
+    \item Let \( A := \bigcap_{i \in I} A_i \). By definition, for any \( i \in I \), one has \( A \subseteq A_i \) and hence \( B \cup A \subseteq B \cup A_i \). Thus, by Proposition \ref{proposition2.7.1} we obtain
+    \[
+    B \cup \left( \bigcap_{i \in I} A_i \right) \subseteq \bigcap_{i \in I} (B \cup A_i).
+    \]
+    Conversely, let \( x \in \bigcap_{i \in I} (B \cup A_i) \). For any \( i \in I \), one has \( x \in B \cup A_i \). If \( x \in B \), then \( x \in B \cup \left( \bigcap_{i \in I} A_i \right) \); otherwise one has
+    \[
+    \forall\, i \in I,\; x \in A_i,
+    \]
+    and we still get \( x \in B \cup \left( \bigcap_{i \in I} A_i \right) \).
+
+    \item By Theorem\ref{theorem2.4.1}
+    \begin{align*}
+    B \setminus \bigcup_{i \in I} A_i &= \{x \in B \mid \neg (\exists\, i \in I,\; x \in A_i) \} \\
+    &= \{x \in B \mid \forall\, i \in I,\; x \notin A_i \}.
+    \end{align*}
+    By Corollary \ref{corollary2.7.1} this is equal to
+    \[
+    \bigcap_{i \in I} \{x \in B \mid x \notin A_i\} = \bigcap_{i \in I} (B \setminus A_i).
+    \]
+
+    \item By Theorem\ref{theorem2.4.1}
+    \begin{align*}
+    B \setminus \bigcap_{i \in I} A_i &= \{x \in B \mid \neg (\forall\, i \in I,\; x \in A_i) \} \\
+    &= \{x \in B \mid \exists\, i \in I,\; x \notin A_i \}.
+    \end{align*}
+    By Corollary \ref{corollary2.6.1} this is equal to
+    \[
+    \bigcup_{i \in I} \{x \in B \mid x \notin A_i\} = \bigcup_{i \in I} (B \setminus A_i).
+    \]
+\end{enumerate}
+\end{proofenv}
+
+\section{Cartesian Product}
+
+\begin{definitionenv}
+Let \(A\) and \(B\) be sets. We denote by \(A \times B\) the following set of ordered pairs
+\[
+\{(x, y) \mid x \in A,\ y \in B\},
+\]
+and call it the \textbf{Cartesian product} of sets \(A\) and \(B\).
+
+More generally, if \(n\) is a positive integer and \(A_1, \ldots, A_n\) be sets, we denote by
+\[
+A_1 \times \cdots \times A_n
+\]
+the set of all \(n\)-tuples \((x_1, \ldots, x_n)\), where \(x_1 \in A_1, \ldots, x_n \in A_n\).
+\end{definitionenv}
+
+The following proposition shows that ordered pairs can be realized through set-theoretic constructions.
+
+\begin{propositionenv}
+Let \(x\), \(y\), \(x^{\prime}\), and \(y^{\prime}\) be mathematical objects. Then
+\[
+\{\{x\},\{x,y\}\}=\{\{x^{\prime}\},\{x^{\prime},y^{\prime}\}\}
+\]
+if and only if \(x=x^{\prime}\) and \(y=y^{\prime}\).
+\end{propositionenv}
+
+\begin{proofenv}
+If \(x=x^{\prime}\) and \(y=y^{\prime}\), then the equality
+\[
+\{\{x\},\{x,y\}\}=\{\{x^{\prime}\},\{x^{\prime},y^{\prime}\}\}
+\]
+certainly holds.
+
+Conversely, suppose the equality
+\[
+\{\{x\},\{x,y\}\}=\{\{x^{\prime}\},\{x^{\prime},y^{\prime}\}\}
+\]
+holds. If \(x\neq x^{\prime}\), then \(\{x\}\neq\{x^{\prime}\}\), so \(\{x\}=\{x^{\prime},y^{\prime}\}\). This still implies \(x=x^{\prime}\), leading to a contradiction. Therefore, \(x=x^{\prime}\) must hold.
+
+Now, assume \(y\neq y^{\prime}\). Then \(\{x,y\}\neq\{x^{\prime},y^{\prime}\}\), unless \(y=x^{\prime}\) and \(x=y^{\prime}\). Since \(x=x^{\prime}\), this would imply \(y=y^{\prime}\), which is a contradiction. Thus, \(\{x,y\}=\{x^{\prime}\}\) and \(\{x^{\prime},y^{\prime}\}=\{x\}\). This again leads to \(y=x^{\prime}\) and \(x=y^{\prime}\), resulting in a contradiction. Hence, \(y=y^{\prime}\) must hold.
+\end{proofenv}
+
+\chapter{Correspondence}
+\section{Direct product}
+\label{sec:direct-product}
+
+\begin{definitionenv}
+Let $I$ be a set and $(A_i)_{i \in I}$ be a family of sets parametrised by $I$. We denote by
+\[
+\prod_{i \in I} A_i
+\]
+the set of all mappings from $I$ to $\bigcup_{i \in I} A_i$ which send any $i \in I$ to an element of $A_i$. This set is called the \emph{direct product} of $(A_i)_{i \in I}$. Using Notation 3.7.2 we often write an element of the direct product in the form of a family $x := (x_i)_{i \in I}$ parametrised by $I$, where each $x_i$ is an element of $A_i$, called the $i$-th \emph{coordinate} of $x$. In the case where $I$ is the empty set, the union $\bigcup_{i \in I} A_i$ is empty. Therefore, the direct product contains a unique element (identity mapping of $\varnothing$).
+
+For each $j \in I$, we denote by
+\[
+\operatorname{pr}_j : \prod_{i \in I} A_i \longrightarrow A_j
+\]
+the mapping which sends each element $(a_i)_{i \in I}$ of the direct product to its $j$-th coordinate $a_j$. This mapping is called the \emph{projection to the $j$-th coordinate}.
+\end{definitionenv}
+
+\begin{notationenv}
+Let $n$ be a non-zero natural number. If $(A_i)_{i \in \{1, \ldots, n\}}$ is a family of sets parametrised by $\{1, \ldots, n\}$, then the set
+\[
+\prod_{i \in \{1, \ldots, n\}} A_i
+\]
+is often denoted as
+\[
+A_1 \times \cdots \times A_n.
+\]
+\end{notationenv}
+
+\begin{axiom}[Axiom of choice]
+In this book, we adopt the following axiom. If $I$ is a non-empty set and if $(A_i)_{i \in I}$ is a family of non-empty sets, then the direct product $\prod_{i \in I} A_i$ is not empty.
+\end{axiom}
+\begin{propositionenv}
+\label{prop:direct-product-bijection}
+Let $I$ be a set and $(A_i)_{i \in I}$ be a family of sets parametrised by $I$. For any set $X$, the mapping
+\[
+\left( \prod_{i \in I} A_i \right)^X \longrightarrow \prod_{i \in I} A_i^X,
+\]
+which sends $f$ to $(\operatorname{pr}_i \circ f)_{i \in I}$, is a bijection.
+\end{propositionenv}
+
+\begin{proofenv}
+Let $(f_i)_{i \in I}$ be an element of
+\[
+\prod_{i \in I} A_i^X,
+\]
+where each $f_i$ is a mapping from $X$ to $A_i$. Let $f : X \to \prod_{i \in I} A_i$ be the mapping which sends $x \in X$ to $(f_i(x))_{i \in I}$. By definition, for any $i \in I$ one has
+\[
+\forall x \in X, \quad \operatorname{pr}_i(f(x)) = f_i(x).
+\]
+Therefore the mapping is surjective.
+
+If $f$ and $g$ are two mappings from $X$ to $\prod_{i \in I} A_i$ such that $\operatorname{pr}_i \circ f = \operatorname{pr}_i \circ g$ for any $i \in I$, then, for any $x \in X$ one has
+\[
+\forall i \in I, \quad \operatorname{pr}_i(f(x)) = \operatorname{pr}_i(g(x)).
+\]
+Hence $f(x) = g(x)$ for any $x \in X$, namely $f = g$. Therefore the mapping is injective.
+\end{proofenv}
+
+\begin{notationenv}
+\label{not:direct-product-mappings}
+Let $I$ be a set, $(A_i)_{i \in I}$ be a family of sets parametrised by $I$.
+
+Let $X$ be a set. For any $i \in I$, let $f_i : X \to A_i$ be a mapping from $X$ to $A_i$. By Proposition~\ref{prop:direct-product-bijection} there exists a unique mapping $f : X \to \prod_{i \in I} A_i$ such that $\operatorname{pr}_i \circ f = f_i$ for any $i \in I$. By abuse of notation, we denote by $(f_i)_{i \in I}$ this mapping.
+
+Let $(B_i)_{i \in I}$ be a family of sets parametrised by $I$. For any $i \in I$, let $g_i : B_i \to A_i$ be a mapping from $B_i$ to $A_i$. We denote by
+\[
+\prod_{i \in I} g_i : \prod_{i \in I} B_i \longrightarrow \prod_{i \in I} A_i
+\]
+the mapping which sends $(b_i)_{i \in I}$ to $(g_i(b_i))_{i \in I}$. In the case where $I = \{1, \ldots, n\}$, where $n$ is a non-zero natural number, the mapping $\prod_{i \in \{1, \ldots, n\}} g_i$ is also denoted as
+\[
+g_1 \times \cdots \times g_n.
+\]
+\end{notationenv}
+
+\begin{propositionenv}
+\label{prop:direct-product-factorization}
+Let $f : X \to Y$ be a mapping.
+\begin{enumerate}
+    \item[(1)] If $f$ is surjective, then there exists an injective mapping $g : Y \to X$ such that $f \circ g = \operatorname{Id}_Y$.
+    \item[(2)] If $f$ is injective and $X$ is not empty, then there exists a surjective mapping $h : Y \to X$ such that $h \circ f = \operatorname{Id}_X$.
+\end{enumerate}
+\end{propositionenv}
+
+\begin{proofenv}
+(1) The case where $Y = \varnothing$ is trivial since in this case $X = \varnothing$ and $f$ is the identity mapping of $\varnothing$. In the following, we assume that $Y$ is not empty. Since $f$ is surjective, for any $y \in Y$, the set $f^{-1}(\{y\})$ is not empty. Hence the direct product
+\[
+\prod_{y \in Y} f^{-1}(\{y\})
+\]
+is not empty. In other words, there exists a mapping $g$ from $Y$ to $X$ such that $f(g(y)) = y$ for any $y \in Y$, that is $f \circ g = \operatorname{Id}_Y$. By (2) of Remark 3.6.3 $g$ is injective.
+
+(2) Let $x_0$ be an element of $X$. We define a mapping $h : Y \to X$ as follows:
+\[
+h(y) := 
+\begin{cases}
+f^{-1}(y), & \text{if } y \in \operatorname{Im}(f), \\
+x_0, & \text{else}.
+\end{cases}
+\]
+Then, by construction one has $h \circ f = \operatorname{Id}_X$. By (1) of Remark 3.5.2 $h$ is surjective.
+\end{proofenv}
+\end{document}

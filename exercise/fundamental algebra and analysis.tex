@@ -1,0 +1,33 @@
+\documentclass{article}
+\begin{document}
+\section{Basic Logic}
+\begin{enumerate}
+    \item truth value:
+\begin{table}[htpb]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$P$ & $Q$ & $P\wedge \neg P$ & $P \vee \neg P$ & $(P\vee Q)\Rightarrow(P\wedge Q) $ & $(P\Rightarrow Q) \Rightarrow(Q\Rightarrow P)$\\ \hline
+T & T &  F &   T&   T&   T\\ \hline
+F & T &  F &   T&   F&   F\\ \hline
+T & F &  F &   T&   F&   T\\ \hline
+F & F &  F &   T&   T&   T\\ \hline
+\end{tabular}
+\caption{truth value table}
+\end{table}
+\item (1)$Q\wedge \neg Q=$F,$P\Rightarrow (Q \wedge \neg Q)=\neg P \vee $F$=\neg P$
+\newline(2)$(P\wedge \neg Q)\Rightarrow Q=\neg P \vee Q\vee Q=\neg P\vee Q=P\Rightarrow Q$
+\item (1)$P\wedge Q\Rightarrow R$
+\newline
+(2)$Q\Rightarrow P$
+\newline
+(3)$P\Leftarrow Q$
+\item We denote that "bear is smart" as $P$,"bear is lazy" as $Q$, then "bear is not smart" can be denoted as $\neg P$. We have $(P\wedge Q\vee( \neg P))\wedge P$,it's equivalent to $P\wedge Q$,then $Q$ must be true .
+\setcounter{enumi}{5}
+\item We denote "At door 1,2,3" as $P,Q,R$ ,one of them is true ,while we can get another infomation:one of $\neg P,\neg Q,Q$ is true. Due to "not $Q$ then $\neg Q$",we can infer that $\neg P$ is false.(We can confirm while $Q=R=$false,it can satisifies the requirements of the question)
+\newline so the treasure is behind the Door 1! 
+\item We denote $\dots$can leads to the capital as $P,Q,R$, then $P\wedge (R\Rightarrow Q)=(\neg P)\wedge (\neg R)=P\wedge(\neg Q)=$False. Combine the first and the third formula $P\wedge(\neg R\vee Q\vee \neg Q)=P=$False, then from the second $\neg R=$False. We are not sure about the stone path ,but we are sure that the dirt path can lead to capital.
+\item Denote "$a+1==0$" as $P$ ,$b+1==0$ as $Q$,then $ab +a+b\not=-1=(a+1)(b+1)==0=\neg P\wedge\neg Q$
+\item (1)Use the proof by coontrodiction.Not losing generaity ,we assume that $a=1$,
+\end{enumerate}
+\end{document}
