@@ -587,9 +587,9 @@ A_1 \times \cdots \times A_n.
 \]
 \end{notationenv}
 
-\begin{axiom}[Axiom of choice]
+\begin{axiomenv}[Axiom of choice]
 In this book, we adopt the following axiom. If $I$ is a non-empty set and if $(A_i)_{i \in I}$ is a family of non-empty sets, then the direct product $\prod_{i \in I} A_i$ is not empty.
-\end{axiom}
+\end{axiomenv}
 \begin{propositionenv}
 \label{prop:direct-product-bijection}
 Let $I$ be a set and $(A_i)_{i \in I}$ be a family of sets parametrised by $I$. For any set $X$, the mapping
@@ -658,5 +658,131 @@ x_0, & \text{else}.
 \end{cases}
 \]
 Then, by construction one has $h \circ f = \operatorname{Id}_X$. By (1) of Remark 3.5.2 $h$ is surjective.
+\end{proofenv}
+\section{Restriction and Extension}
+\begin{definitionenv}
+    Let $f$ and $g$ be correspondence. If $\Gamma _f\subseteq \Gamma _g$, we say that $f$ is a \textbf{restriction} of $g$ and that $g$ is an \textbf{extension} of $f$
+    \newline
+    Let $X$ anf $Y$ be sets, $h$ be a correspondence from $X$ to $Y$ ,and $A$ be a subset of $X$.Denote by $h|_A$ the correspondence from $A$ to $Y$ such that$$\Gamma_{h|_A}=\Gamma_h\bigcap (A\times Y)$$ We call it the \textbf{restriction of $h$ to $A$}
+\end{definitionenv}
+\chapter{Binary Relations}
+\section{Generalities}
+\begin{definitionenv}
+    Let $X$ be a set ,we call \textbf{binary relation} on $X$ any correspondence from $X$ to $X$ .If $R$ is a binary relation on $X$ ,for any $(x,y)\in X\times X $ we denote by $x R y $ the statement $(x,y)\in \Gamma_R$
+\end{definitionenv}
+\begin{exampleenv}
+    We denote by" $=$" the correspondence $\mathrm{Id}_X$
+\end{exampleenv}
+\begin{definitionenv}
+    If $R$ is a binary relation on $X$, we denote by $\cancel{R} $ the binary relation such that $$x \cancel{R}  y \Leftrightarrow (x,y)\notin \Gamma_R$$
+\end{definitionenv}
+\section{Equivalent Relation}
+\begin{definitionenv}
+    Let $X$ be a set and $R$ a binary relation on $X$.
+    \newline
+    (1) If $\forall x \in X ,xRx$, we say that $R$ is \textbf{reflexive}
+    \newline
+    (2) If $\forall (x,y) \in X\times X,xRy\Rightarrow yRx$,we say that $R$ is \textbf{symmetric}.
+    \newline
+    (3) If for all $x,y,z$ of $X$, $xRy\wedge yRz\Rightarrow xRz$,we say that $R$ is transitive.
+    \newline
+    (4) If $R$ is reflexive,symmetric and transitive, we say that $R$ is an \textbf{equivalent relation}
+
+\end{definitionenv}
+\begin{definitionenv}
+    Let $\thicksim$ be an equivalent relation on $X$.For any $x\in X$, the set $$[x]:=\{y\in X|y\thicksim x\}$$ We call it the equivalent class of $x$ under $\thicksim$,we denote by $X/\thicksim$ the set $\{[x]|x\in X\}$ of all equivalent class.It is a subset of $\mathcal{P} (X)$.Moreover, since $\forall x\in X,x\in [x] $,one has $$X=\bigcup_{A\in X/\thicksim}A $$
+\end{definitionenv}
+\begin{propositionenv}
+    $\forall (x,y)\in X\times X$,either $[x]=[y]$ or $[x]\cap [y]=\varnothing$
+\end{propositionenv}
+\begin{definitionenv}
+    The mapping $\pi :X\rightarrow X/\thicksim$ is called the \textbf{projection mapping} of $\thicksim$
+\end{definitionenv}
+\begin{propositionenv}
+    $f:X\rightarrow Y$ be a mapping,if $\forall (x,y)\in X\times X,x\thicksim y\Rightarrow f(x)=f(y)$,then there exists a unique mapping$$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x)$$such that $$\tilde{f}\circ \pi =f$$
+\end{propositionenv}
+\section{Partial Order}
+\begin{definitionenv}
+    If 
+    \newline
+    (1) $R$ is reflexive.
+    \newline
+    (2) $R$ is antisymmetric $\forall (x,y)\in X^2,xRy $ and $yRx$ then $x=y$.
+    \newline
+    (3) $R$ is transitive.
+    \newline
+    then we say that $R$ is a \textbf{partial order} on $X$ and $(X,R) $ is a \textbf{partially ordered set}.If in addition ,$\forall (x,y)\in X ,xRy$ or $yRx$, we say that $R$ is a total order and $(X,R)$ is totally ordered set. 
+\end{definitionenv}
+\begin{exampleenv}
+    $(\RR ,\le)$ is a totally ordered set.$(\NN ,|)$ is a partial order set.  
+\end{exampleenv}
+\begin{definitionenv}
+    Let $(X,\underline{R})$ be a partially ordered set. We denote by $R$ the binary relation on $X$ defined as:$$xRy \Leftrightarrow x\underline{R}y \wedge x\not=y$$ we call $R$ the \textbf{strict partial order}(not a partial order) associated with $\underline{R}$.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+    \newline
+    (1)$<$ on $\RR$
+    \newline
+    (2)$\subset $on$ \mathcal{P} (X)$
+\end{exampleenv}
+\begin{propositionenv}
+    $R$ is the strict partial order associated with some partial order iff.the following condition are satisfied:
+    \newline
+    (1)Irreflexivity $\forall x\in X,x \cancel{R}x$
+    \newline
+    (2)Asymmetry.$\forall (x,y)\in X^2,xRy\Rightarrow y\cancel{R}x$
+    \newline
+    (3)Transitivity.
+\end{propositionenv}
+\begin{proofenv}
+    "$\Rightarrow$" :easy
+    \newline
+    "$\Leftarrow$":Suppose that $R$ is a binary relation satisfying $(1)\thicksim(3)$.Define another binary relation $\underline{R}$ on $X$ as:
+    $$x\underline{R}y\Leftrightarrow xRy \vee x=y$$
+    We claim that $xRy\Leftrightarrow x\underline{R}y \wedge x\not= y$:
+    \newline
+    Suppose that $xRy$, then by definition,$x\underline{R}y$.By the irreflexivity ,$x\not=y$
+    \newline
+    Conversely,if $x\underline{R}y\wedge x\not=y$,then $xRy$ should be true.
+\end{proofenv}
+\section{Monotonic Functions}
+\begin{definitionenv}
+    Let$(I,\le)$ and $(X,\le)$ be partially ordered sets,and $f$ be a function from $I$
+ to $X$.
+ \newline
+ (1) If $\forall(x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)\le f(y)$ we say that f is increasing 
+ \newline
+ (2) If $\forall (x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)< f(y)$, we say that $f$ is strictly increasing.
+ \newline
+  (3) If $\forall (x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)\geq  f(y)$, we say that $f$ is decreasing.
+\newline
+ (4) If $\forall (x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)\> f(y)$, we say that $f$ is strictly decreasing.
+ \newline
+increasing and decreasing functions are called \textbf{monotonic function},strictly increasing and decreasing functions are called \textbf{strictly monotonic function}
+\end{definitionenv}
+\begin{propositionenv}
+    Let $f,g$ be functions between partially ordered sets.
+    \newline
+    (1) If both $f$ and $g$ are increasing or both $f$ and $g$ are decreasing,then $g\circ f $ is increasing
+    \newline
+    (2) If one function between $f$ and $g$ is increasing while the order is decreasing,then $g\circ f $ is decreasing.
+\end{propositionenv}
+\begin{propositionenv}
+    Let $f$ be a function between partially ordered set. If $f$ is monotonic and injective,then $f$ is strictly monotonic.
+\end{propositionenv}
+\begin{propositionenv}
+    Let $I$ be a totally ordered set,$X$ be a partially ordered set ,and $f$ be a function from $I$ to $X$ .I f $f$ is strictly monotonic
+    ,then $f$ is injective.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(x,y)\in \mathrm{Dom}(f)^2$,such that $f(x)=f(y)$.Since $I$ is totally ordered, then $x<y$ or $x>y$ or $x=y$.Suppose that $f$ is strictly increasing.If $x<y $,then $f(x)<f(y)$,contradiction. If $x>y $,then $f(x)>f(y)$,contradiction.
+\end{proofenv}
+\begin{propositionenv}
+    Let $X$ be a totally ordered set ,$Y$ be an partially ordered set ,$f$ be an injective function from $X$ to $Y$. If $f$ is monotonic, then $f^{-1}$ is also monotonic,and they have the same monotonic direction.
+\end{propositionenv}
+\begin{proofenv}
+    We may suppose that $f$ is increasing.
+    Let $(a,b)\in \mathrm{Dom}(f^{-1})^2=\mathrm{Im}(f)^2,a<b$.Since $f^{-1}$ is a injective function,$f^{-1}(a)\not =f^{-1}(b)$,so either $f^{-1}(a)<f^{-1}(b)$ or $f^{-1}(a)>f^{-1}(b)$.If $$f^{-1}(a)>f^{-1}(b),a=f(f^{-1}(a))>f^{-1}(b)=b$$Contradiction.Therefore,$f^{-1}(a)<f^{-1}(b)$.Hence $f^{-1}$ is strictly increasing
 \end{proofenv}
 \end{document}

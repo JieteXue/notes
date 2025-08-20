@@ -5,6 +5,7 @@
 \usepackage{xpatch} % 用于去除amsthm定义的编号后面的点
 \usepackage[strict]{changepage} % 提供一个 adjustwidth 环境
 \usepackage{multicol} % 用于分栏
+\usepackage{cancel}
 \usepackage[fontsize=14pt]{fontsize} % 字号设置
 \usepackage{esvect} % 实现向量箭头输入（显示效果好于\vec{}和\overrightarrow{}），格式为\vv{⟨向量符号⟩}或\vv*{⟨向量符号⟩}{⟨下标⟩} 
 \usepackage[
@@ -178,6 +179,7 @@
 \newenvironment{exampleenv}{\begin{zise}\begin{example}}{\end{example}\end{zise}}
 \newenvironment{propositionenv}{\begin{huangse}\begin{proposition}}{\end{proposition}\end{huangse}}
 \newenvironment{corollaryenv}{\begin{huangse}\begin{corollary}}{\end{corollary}\end{huangse}}
+\newenvironment{axiomenv}{\begin{zise}\begin{axiom}}{\end{axiom}\end{zise}}
 % ————————————————————————————————————目录设置————————————————————————————————————
 \setcounter{tocdepth}{4} % 设置在 ToC 的显示的章节深度
 \setcounter{secnumdepth}{3} % 设置章节的编号深度
