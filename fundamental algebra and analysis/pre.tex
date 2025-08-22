@@ -785,4 +785,148 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     We may suppose that $f$ is increasing.
     Let $(a,b)\in \mathrm{Dom}(f^{-1})^2=\mathrm{Im}(f)^2,a<b$.Since $f^{-1}$ is a injective function,$f^{-1}(a)\not =f^{-1}(b)$,so either $f^{-1}(a)<f^{-1}(b)$ or $f^{-1}(a)>f^{-1}(b)$.If $$f^{-1}(a)>f^{-1}(b),a=f(f^{-1}(a))>f^{-1}(b)=b$$Contradiction.Therefore,$f^{-1}(a)<f^{-1}(b)$.Hence $f^{-1}$ is strictly increasing
 \end{proofenv}
+\section{Bounds}
+\begin{definitionenv}
+    Let $(X,\le)$ be a partially ordered set ,let $A$ be a subset of $X$.
+    \newline
+    (1) Let $M\in X$. If $\forall a \in A ,a\le M$, we say that $M$ is an upper bound of $A$. 
+    \newline
+    (2) Let $m\in X$. If $\forall a \in A ,m\le a$, we say that $m$ is an lower bound of $A$. 
+    \newline
+    Denote by $A^u$ the set of upper bounds of $A$ in $(X,\le)$
+    \newline
+     Denote by $A^l$ the set of lower bounds of $A$ in $(X,\le)$
+
+\end{definitionenv}
+\begin{exampleenv}
+    $\Omega=\{1,2,3,\},X=\mathcal{P} (\Omega).(X,\subseteq)$ forms a partially ordered set.Let $A=\{\{1\},\{2\},\{1,2\}\},A^u=\{\{1,2\},\{1,2,3\}\},A^l=\{\varnothing\}$
+\end{exampleenv}
+\begin{definitionenv}
+    Let $(X,\le)$ be a partially ordered set ,let $A$ be a subset of $X$.
+    \newline
+    (1)If $M \in A$ is an upper bound of $A$, we say that $M$ is the \textbf{greatest element} of $A$ ,denote as $\mathrm{max}_\le A$
+    \newline
+    (2)If $m \in A$ is an lower bound of $A$, we say that $m$ is the \textbf{least element} of $A$ ,denote as $\mathrm{min}_\le A$
+    \newline
+    If there is not ambiguity on $\le$,we can also write as $\mathrm{max}A,\mathrm{min}A$
+\end{definitionenv}
+\begin{definitionenv}
+    $A\subseteq Y\subseteq X$,let $A_Y^\mathrm{u}:=\{y\in Y|\forall a\in A,a\le y\}$ be the set of upper bounds of $A$ in $Y$.If $A_Y^\mathrm{u}$ has a least element ,we call it the \textbf{supremum} of $A$ in $Y$ ,denoted as $\mathrm{sup}_{(Y,\le)}A$ ,if there's no ambiguity on $\le$ we can also write as $\mathrm{sup}_{Y}A$.So as \textbf{infimum}
+\end{definitionenv}
+\begin{notationenv}
+    
+         Let $(X,\le)$ be a partially ordered set ,$f:I\rightarrow X$ be a function.$$\mathrm{max}f(I),\mathrm{min}f(I),\mathrm{sup}f(I),\mathrm{inf}f(I)$$ are written as $$\mathrm{max}f,\mathrm{min}f,\mathrm{sup}f,\mathrm{inf}f$$
+         Let $(X,\le)$ be a partially ordered set ,and $(x_i)_{i\in I}\in X^I$,$$\mathrm{max}\{x_i|i\in I\},\mathrm{min}\{x_i|i\in I\},\mathrm{sup}\{x_i|i\in I\},\mathrm{inf}\{x_i|i\in I\}$$ are denoted as $$\max _{i\in I}x_i,\min _{i\in I}x_i,\sup _{i\in I}x_i,\inf _{i\in I}x_i$$
+    
+\end{notationenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be a partially ordered set $(A,Z,Y)\in \mathcal{P} (X)^3,A\subseteq Z\subseteq Y$
+    \newline
+   (1) If $\max A$ exists,then it is also the supremum of $A$ in $(Y,\le)$.So as infimum
+    \newline
+    (2) If $\sup_{(Y,\le)}A$ exists and belongs to $Z$ ,then it i also the supremum of $A$ in $(Z,\le)$. So as infimum
+\end{propositionenv}
+\begin{proofenv}
+    \quad \newline
+   (1) By definition,$\max A $ is an upper bound of $A$. Since $A\subseteq Y, \max A \in Y$,Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $.Since $M$ is upper bound of $A$ and $\max A\in A,\max\le M$ .Then $\max A=\min A_Y^\mathrm{u}$
+\newline
+(2) Since $Z\subseteq Y,A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$,one has $\sup _{Y,\le}A\le M$.If $\sup_{(Y,\le)}A\in Z$,then $\sup_{(Y,\le)}A\in A_Z^\mathrm{u}$.Hence $\sup _{(Y,\le)}A=\min A_Z^\mathrm{u}$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\le )$ be a partially ordered set ,$(A,B,Y)\in \mathcal{P} (X)^3,A\subseteq B\subseteq Y$
+    \newline
+    (1) If $\sup_{(Y,\le)}A$ and $\sup_{(Y,\le)}B$ exist, then $$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$$
+    \newline
+    (2)If $\inf_{(Y,\le)}A$ and $\inf_{(Y,\le)}B$ exist, then $$\inf_{(Y,\le)}B \le \inf_{(Y,\le)}A$$
+    
+\end{propositionenv}
+\begin{propositionenv}
+    Let $(X,\le )$ be a partially ordered set ,$f,g$ be elements of $X^I$ where $I$ is a set .Suppose that ,$\forall i\in  I ,f(i)\le g(i)$
+ \newline
+ (1)If $\sup f,\sup g$ exist ,then $\sup f\le\sup g$
+ \newline
+ (2)So as infimum.
+\end{propositionenv}
+\begin{proofenv}
+    $\forall t\in I,f(t)\le g(t)\le \sup g$,hence $\sup g$ is an upper bound of $f$.Since $\sup f $ is a the least upper bound of $f(i)$,$\sup f\le\sup g$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $I$ be a totally ordered set $J\subseteq I $,and $f:I\rightarrow X $ be a mapping. Assume that $J$ does not have any upper bound in $I$.
+    \newline 
+    (1) If $f$ is increasing, then $f(I)^\mathrm{u}=f(J)^\mathrm{u}$
+    \newline
+    (2) If $f$ is decreasing, then $f(I)^\mathrm{l}=f(J)^\mathrm{l}$
+\end{propositionenv}
+\begin{proofenv}
+    \quad 
+    \newline
+    (1) $f(J)^\mathrm{u}\subseteq f(I)^\mathrm{u}$,let $M\in f(J)^\mathrm{u}$,for any $i\in I,\exists j\in J,i<j$. Hence $f(i)\le f(j)\le M$ .So $M\in f(I)^\mathrm{u}$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X,I$ be a set, and $(A_i)_{i\in I}\in \mathcal{P} (Y)^I$ .Let $A\bigcup _{i\in I}A_i$
+    \newline
+    (1) Suppose that ,$\forall i \in I,A_i$ has a supremum $y_i$ in $(Y,\le)$ and $\{y_i|i\in I\}$ has a supremum in $(Y,\le)$. Then $A$ has a supremum in $(Y,\le )$ and $$\sup_{(Y,\le)}A=\sup_{(Y,\le)}\{y_i|i\in I\}$$
+    \newline
+    (2)So as inf
+\end{propositionenv}
+\begin{proofenv}
+    Let $y=\sup_{(Y,\le)}\{y_i|i\in I\},\forall a\in A ,\exists i\in I,a\in A_i$. Hence $a\le y_i\le y$. Thus $y $ is an upper bound of $A$ in $Y$.Let $M\in A_Y^\mathrm{u},\forall i \in I,M\in (A_i)_Y^\mathrm{u}$, So $y_i \le M $We then deduce that $y\le M$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X$.$$\varnothing_Y^\mathrm{u}=\varnothing_Y^\mathrm{l}=Y$$
+\end{propositionenv}
+\section{Intervals}
+
+\begin{definitionenv}
+    Let $(X,\le)$ be a partially ordered set.$\forall (a,b)\in X^2$, let $$[a,b]:=\{x\in X|a\le x\le b \}$$ $$[a,b):=\{x\in X|a\le x <b\}$$ We say that a subset is a \textbf{interval} if $\forall (a,b)\in I^2 ,[a,b]\subseteq I$
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be a partially ordered set ,let $\Lambda$ be a non-empty set and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of interval in $X$, then 
+    \newline
+    (1) $\displaystyle I:=\bigcap _{\lambda\in \Lambda}I_\lambda$ is an Intervals
+    \newline
+    (2) If $\displaystyle \bigcap _{\lambda\in \Lambda}I_\lambda\not=\varnothing $,then $\displaystyle J:=\bigcup_{\lambda\in \Lambda}I_\lambda$ is an interval.
+\end{propositionenv}
+\begin{proofenv}
+    (2):Let $x\in I=\bigcap _{\lambda\in \Lambda}I_\lambda$,let $(a,b)\in J^2,\exists (\alpha,\beta )\in \Lambda^2,\alpha\in I_\alpha,\beta\in I_\beta$.We will show that $[a,b]\subseteq I_\alpha\cup I_\beta$. If $a\not\le b $, then $[a,b]\not =\varnothing\subseteq I_\alpha\cup I_\beta $. We may assume $a\le b $
+    \newline 
+    If $b\le x$, then $[a,b]\subseteq [a,x]\subseteq I_\alpha$, if $x\le a $, then $[a,b]\subseteq [x,b]\subseteq I_\beta$.Suppose that $a<x<b$,one has $[a,b]=[a,x]\cup[x,b]$ balabala $[a,b]=[a,x]\cup[x,b]\subseteq I_\alpha\cup I_\beta \subseteq J$
+
+\end{proofenv}
+\begin{definitionenv}
+    Let $(X,\le )$ be a partially ordered set and $I $ be a non-empty interval in $X$. 
+    \newline
+    If $\sup I$ exists ,we call it the right endpoint of $I$.
+    \newline
+    If $\inf I$ exists ,we call it the left endpoint of $I$.
+\end{definitionenv}
+\begin{propositionenv}
+   Let $(X,\le )$ be a totally ordered set and $I $ be a interval in $X$ 
+   \newline
+   (1) Suppose that $I$ has a supremum $b$ in $X,\forall x\in I,[x,b)\subseteq I$
+   \newline
+   (2) So as inf
+\end{propositionenv}
+\begin{propositionenv}
+   Let $(X,\le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$  .Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a,b],[a,b),(a,b],(a,b)$
+\end{propositionenv}
+\begin{proofenv}
+    $\forall x\in I ,a\le x\le b $,hence $I\subseteq [a,b]$
+    \newline
+    (i) if $\{a,b\}\in I$, then $I=[a,b]$
+    \newline
+    (ii) if $a\in I, b\notin I,I\subseteq[a,b)=[a,b]\backslash\{b\}$. Let $x\in [a,b)$, since $x<b$, $x$ is not an upper bound of $I$. Hence $\exists y\in I, x<y$. Note that $[a,y]\subseteq I$, hence $x\in I$, therefore $[a,b)\subseteq I$. Similarly , is $b\in I,a\notin I$, then $(a,b]=I$
+    \newline
+    (iii) if $\{a,b\}\cap I=\varnothing$, then $I\subseteq(a,b) .\forall x\in (a,b),\exists s,t\in I,s<x<t$ Hence $x\in [s,t]\subseteq I$. Therefore $(a,b)=I$
+
+\end{proofenv}
+\begin{definitionenv}[Dense]
+    Let $(X,\le )$ be a totally ordered set, if $\forall (x,z)\in X^2,x<z\Rightarrow (x,z)\not=\varnothing$ then we say that $(X,\le)$ is \textbf{dense}.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(X,\le )$ be a totally ordered set that is dense, $(a,b)\in X^2,a<b$. If $I$ is one of the intervals $[a,b],[a,b)\dots$, then $a=\inf I,b=\sup I$
+\end{propositionenv}
+\begin{proofenv}
+    By definition, $b$ is an upper bound of $I$, if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.Let $x\in I$,one has $x\le M <b$.Since $[x,b)\subseteq I,M\in I$, hence $M=\max I$. Since $X$ is dense ,pick $M'\in (M,b)$.Since $M\in I,b=\sup I,[M,b)\subseteq I$. Hence $M'\in I,M'\le M$.This contradicts $M<M'$.
+\end{proofenv}
 \end{document}
