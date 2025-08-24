@@ -1,5 +1,8 @@
 \documentclass{book}
 \include{封装模板.tex}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\numberwithin{equation}{section}
 
 \begin{document}
 \setlength{\parindent}{0em}
@@ -24,7 +27,7 @@
 
 
 \chapter{Basic Logic}
-\section{statement}
+\section{Statement}
 \begin{definitionenv}
     We call statement a declarative sentence that is either true or false, but not both(it can be potential).    
 \end{definitionenv}
@@ -310,12 +313,12 @@ sometimes we combine the two methods of representation.
     \end{itemize}
 \end{exampleenv}
 \begin{definitionenv}
-    Let $A$ be a set ,we denote by $\mathcal{P} (A)$ the set of all subset of $A$ ,called the power set of $A$.
+    Let $A$ be a set ,we denote by $\wp  (A)$ the set of all subset of $A$ ,called the power set of $A$.
 \end{definitionenv}
 \begin{exampleenv}
-    $\mathcal{P} (\varnothing)=\{\varnothing\}$
+    $\wp (\varnothing)=\{\varnothing\}$
     ,
-    $\mathcal{P} (\mathcal{P} (\varnothing))=\{\varnothing,\{\varnothing\}\}$
+    $\wp (\wp (\varnothing))=\{\varnothing,\{\varnothing\}\}$
 \end{exampleenv}
 \begin{definitionenv}
     Let $A$ and $B$ be sets. We denote by $B - A$ the set $\{x\in B|x\notin A\}$. This is a subset of $B$ called the set difference of $B$ and $A$.
@@ -340,7 +343,7 @@ sometimes we combine the two methods of representation.
     "$\exists x\in A,P(x)$"denotes$\{x\in A|P(x)\}\not= \varnothing$.
 \end{definitionenv}
 \begin{exampleenv}
-    $\forall x\in \varnothing ,P(x)$ is true ;$\exists x\in varnothing|P(x)$ is false.
+    $\forall x\in \varnothing ,P(x)$ is true ;$\exists x\in \varnothing,P(x)$ is false.
 \end{exampleenv}
 \begin{theoremenv}\label{theorem2.4.1}
     Let $A$ be a set and $P(\cdot)$ be a condition on $A$
@@ -559,6 +562,410 @@ Now, assume \(y\neq y^{\prime}\). Then \(\{x,y\}\neq\{x^{\prime},y^{\prime}\}\),
 \end{proofenv}
 
 \chapter{Correspondence}
+\section{Correspondence and its Inverse}
+\begin{definitionenv}
+    We call a \textbf{correspondence} any triplet of the form $$f=(\mathscr{D} _f,\mathscr{A}_f,\Gamma_f)$$
+    where $\mathscr{D}_f,\mathscr{A}_f$ are two sets, called respectively the \textbf{departure set }  and the \textbf{arrival set} of $f$ and $\Gamma_f$ is a subset of $\mathscr{D}_f\times \mathscr{A}_f$, called the \textbf{graph} of $f$.
+    \newline
+    If $X,Y$ are two sets and $f$ is a correspondence of the form $(X,Y,\Gamma_f)$,we say that $f$ is a correspondence from $X$ to $Y$. 
+\end{definitionenv}
+\begin{definitionenv}
+    Let $f$ be a correspondence.We denote by $f^{-1}$ the correspondence defined as follows:
+    $$\mathscr{D}_f^{-1}:=\mathscr{A}_f,\mathscr{A_f}^{-1}:=\mathscr{D}_f,$$
+    $$\Gamma_{f^{-1}}:=\{(y,x)\in \mathscr{D}_f\times \mathscr{A}_f|(x,y)\in \Gamma_f\}$$
+    The correspondence $f^{-1}$ is called the \textbf{inverse correspondence} of $f$. Clearly one has $$(f^{-1})^{-1}=f$$
+    namely $f$ is the inverse correspondence of $f^{-1}$
+\end{definitionenv}
+\section{Illustration of a Correspondence}
+\section{Image and Preimage}
+\begin{definitionenv}
+    Let $X,Y$ be sets ,and $f$ be a correspondence from $X$ to $Y$. If $(x,y)$ is an element of $\Gamma_f$, we say that $x$ is a \textbf{preimage } of $y$ under $f$, and $y$ is an \textbf{image} of $x$ under $f$.
+    \newline
+    If $A$ is a set , we denote by $f(A)$ the set :
+    $$\{y\in \mathscr{A}_f|\exists x\in A ,(x,y)\in \Gamma_f\}$$
+    called the image of $A$ by the correspondence $f$
+    \newline 
+    If $B$ is a set ,the set $f^{-1} (B)$ is called the preimage of $B$ by the correspondence $f$. Note that it is by definition the image of $B$ by the inverse correspondence $f^{-1}$.
+\end{definitionenv}
+\begin{definitionenv}
+    Let $f$ be correspondence. The set $f(\mathscr{D}_f)$ is called the \textbf{range} of $f$, denoted as $\mathrm{Im} (f)$. The set $f^{-1}(\mathscr{A}_f)$ is called the \textbf{domain of definition }of $f$, denoted as $\mathrm{Dom}( f) $.
+    Note that the domain of definition of a correspondence $f$ is the projection of the graph $\Gamma_f$ to the arrival set $\mathscr{A}_f$.
+\end{definitionenv}
+For any sets $ A$ and $B$,
+$$f(A)\subseteq \mathrm{Im}(f),f^{-1}(B)\subseteq\mathrm{Dom}(f),$$
+$$\mathrm{Dom}(f)=\mathrm{Im}(f^{-1}),\mathrm{Im }(f)=\mathrm{Dom}(f^{-1})$$
+\begin{propositionenv}\label{proposition3.3.1}
+    Let $f$ be a correspondence.
+    \newline
+    (1) If $A$ and $A'$ are two sets such that $A'\subseteq A$ ,then one has $f(A')\subseteq f(A)$.
+    \newline
+    (2) If $B$ and $B'$ are two sets such that $B'\subseteq B$ ,then one has $f^{-1}(B')\subseteq f^{-1}(B)$
+\end{propositionenv}
+\begin{proofenv}
+    \begin{align*}
+        f(B')&=\{y\in\mathrm{Im}(f)|\exists x\in B',(x,y)\in \Gamma_f\}\\
+        &\subseteq\{y\in\mathrm{Im}(f)|\exists x\in B',(x,y)\in \Gamma_f\}\\
+        &=f(B)
+    \end{align*}
+\end{proofenv}    
+\begin{propositionenv}\label{proposition3.3.2}
+    Let $f$ be a correspondence. The following equalities hold:
+    $$\mathrm{Im}(f)=f(\mathrm{Dom}(f)),\mathrm{Dom}(f)=f^{-1}(\mathrm{Im}(f))$$
+\end{propositionenv}
+\begin{proofenv}
+    Since $\mathrm{Dom}(f)\subseteq\mathscr{D}_f$, by proposition \ref{proposition3.3.1},one has 
+    $$f(\mathrm{Dom}(f))\subseteq f(\mathscr{D}_f)=\mathrm{Im}(f)$$
+    Let $y$ be an element of $\mathrm{Im}(f)$, there exist $x\in \mathscr{D}_f$ such that $(x,y)\in \Gamma_f$. By definition, one has $x\in \mathrm{Dom }(f)$ and hence $y\in f(\mathrm{Dom }(f)),\mathrm{Im}(f)\subseteq f(\mathrm{Dom }(f))$.Therefore the equality $\mathrm{Im}(f)=f(\mathrm{Dom}(f))$ is true .Applying this equality to $f^{-1}$ , we obtain the second equality.
+\end{proofenv}
+\begin{propositionenv}
+    Let $f$ be a correspondence,$A$ be a set and $y$ be an mathematical object. Then $y $ belongs to $f(A)$ if and only if $A\cap f^{-1}(\{y\})\not=\varnothing$
+\end{propositionenv}
+\begin{propositionenv}\label{proposition3.3.4}
+    Let $f$ be a correspondence, $I$ be a set and $(A_i)_{i\in I}$ be a family of sets parametrised by $I$. Then the equality
+    $$f\left( \bigcup_{i\in I}A_i\right)=\bigcup_{i\in I}f(A_i)$$
+    Moreover,if $I$ is not empty, then 
+    $$f\left( \bigcap_{i\in I}A_i\right)\subseteq \bigcap_{i\in I}f(A_i)$$
+
+\end{propositionenv}
+\begin{proofenv}
+   \begin{align*}
+         f\left( \bigcup_{i\in I}A_i\right)&=\left\{ y\in Y|\left( \bigcup_{i\in I}A_i\right)\cap f^{-1}(\{y\})\not=\varnothing  \right\}\\
+        &=\left\{ y\in Y|\bigcup_{i\in I}\left(A_i\cap f^{-1}(\{y\})\right)\not=\varnothing  \right\}\\
+        &=\left\{y\in Y|\exists i \in I,A_i\cap f^{-1}(\{y\})\not =\varnothing\right\}=\bigcup_{i\in I}f(A_i)
+   \end{align*}
+
+    \begin{align*}
+        f\left(\bigcap_{i\in I}A_i \right)&=\left\{ y\in Y|\left( \bigcap_{i\in I}A_i\right) \cap f^{-1}(\{y\})\not=\varnothing\right\}\\
+        &=\left\{ y\in Y| \bigcap_{i\in I}\left(A_i \cap f^{-1}(\{y\})\right)\not=\varnothing\right\}\\
+        &\subseteq \left\{  y\in Y|\forall i\in I, A_i\cap f^{-1}(\{y\})\not=\varnothing\right\}\\
+        &=\bigcap_{i\in I}f(A_i)
+    \end{align*}
+\end{proofenv}
+\section{Composition}
+\begin{definitionenv}
+    Let $f$ and $g$ be correspondences. We define the \textbf{composite } of $g$ and $f$ as the correspondence $g\circ f$ from $\mathscr{D}_f$  to $\mathscr{A}_g$ whose graph $\Gamma_{g\circ f }$ is composed of the element $(x,z)$ of $\mathscr{D}_f\times \mathscr{A}_g$ such that there exists some objet $y$ satisfying $(x,y)\in \Gamma_f $ and $(y,z)\in \Gamma_g$. In other words,
+    $$\Gamma_{g\circ f }=\{(x,z)\in \mathscr{D}_f\times \mathscr{A}_g|\exists y\in \mathscr{A}_f\cap\mathscr{D}_g,(x,y)\in \Gamma_f \wedge (y,z)\in \Gamma_g\}$$
+\end{definitionenv}
+\begin{propositionenv}
+    Let $f$ and $g$ be correspondences. The following equality holds:
+    \begin{equation}
+        (g\circ f)^{-1}=f^{-1}\circ g^{-1}
+    \end{equation}
+\end{propositionenv}
+\begin{propositionenv}\label{proposition3.4.2}
+    Let $f$ and $g$ be correspondences.The following equality holds:
+    \begin{equation}
+        h\circ (g\circ f)=(h\circ g)\circ f
+    \end{equation}
+\end{propositionenv}
+\begin{propositionenv}\label{proposition3.4.3}
+    Let $X$ and $Y$ be sets ,$f$ be a correspondence from $X$ to $Y$.Then the following equalities hold:
+    $$f\circ \mathrm{Id}_X=f=\mathrm{Id}_Y\circ f$$
+\end{propositionenv}
+Propositions above can be proved by definition.
+\begin{propositionenv}\label{proposition3.4.4}
+    Let $f$ and $g$ be correspondences.For any set $A$ ,one has 
+    $$(g\circ f)(A)=g(f(A))$$
+    In particular,
+    $$\mathrm{Im}(g\circ f)=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g)$$
+    If in addition $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$, then the equality $\mathrm{Im}(g\circ f)=\mathrm{Im}(g)$ holds.
+\end{propositionenv}
+\begin{proofenv}
+    By definition,
+    \begin{align*}
+        (g\circ f )(A)&=\{z\in \mathscr{A}_g|\exists x\in A,(x,z)\in \Gamma_{g\circ f}\}\\
+        &=\{z\in \mathscr{A}_g|\exists x\in A,\exists y\in \mathscr{A}_f,(x,y)\in \Gamma_f,(y,z)\in \Gamma_g\}\\
+        &=\{z\in \mathscr{A}_g|\exists  y\in f(A),(y,z)\in \Gamma_g\}=g(f(A))
+    \end{align*}
+    Applying this equality to the case where $A=\mathscr{D}_f$, we obtain
+    $$\mathrm{Im}(g\circ f)=(g\circ f)(\mathscr{D}_f)=g(f(\mathscr{D}_f))=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g)$$
+   In the case where $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$, by proposition \ref{proposition3.3.1} and \ref{proposition3.3.2} we obtain 
+   $$\mathrm{Im}(g)=g(\mathrm{Dom}(g))\subseteq g(\mathrm{Im}(f))=\mathrm{Im}(g\circ f)$$ 
+\end{proofenv}
+
+
+\section{Surjectivity}
+\begin{definitionenv}
+    Let $f$ be a correspondence. If $\mathscr{A}_f=\mathrm{Im}(f)$, we say that $f$ is \textbf{surjective}. If $f^{-1}$ is surjective , or equivalently $\mathrm{Dom}(f)=\mathscr{D}_f$ , we say that $f$ is a \textbf{multivalued mapping}.
+\end{definitionenv}
+\begin{remark}
+    multivalued mapping is not always a mapping
+\end{remark}
+\begin{propositionenv}\label{proposition3.5.1}
+    Let $f$ be a correspondence.Assume that $f$ is surjective. Then ,for any subset $B$ of $\mathscr{A}_f$, one has $B\subseteq f(f^{-1}(B))$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $y$ be an element of $B$. Since $f$ is surjective there exists $x\in \mathscr{D}_f$ such that $(x,y)\in \Gamma_f$ .Therefore, $x\in f^{-1}(B)$ and hence $y\in f(f^{-1}(B))$
+\end{proofenv}
+\begin{propositionenv}\label{proposition3.5.2}
+    Let $f$ and $g$ be correspondences.
+    \newline
+    (1) If $g\circ f$ is surjective, so is $g$.
+    \newline
+    (2) If $g\circ f$ is multivalued mapping, so is $f$.
+\end{propositionenv}
+\begin{proofenv}
+    One has 
+    $$\mathrm{Im}(g\circ f)\subseteq \mathrm{Im}(g)\subseteq \mathscr{A}_g=\mathscr{A}_{g\circ f}$$
+    If $g\circ f $ is surjective, namely $\mathrm{Im}(g\circ f )=\mathscr{A}_{g\circ f}$, then we deduce $\mathrm{Im}(g)=\mathscr{A}_g$, namely $g$ is surjective.
+\end{proofenv}
+\begin{propositionenv}\label{proposition3.5.3}
+    Let $f$ and $g$ be correspondences.
+    \newline
+    (1) If $g$ is surjective and $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$,then $g\circ f $ is also surjective.
+    \newline
+    (2) If $f$ is a multivalued mapping and $\mathrm{Im}(f)\subseteq \mathrm{Dom}(g)$, then $g\circ f $ is a multivalued mapping.
+\end{propositionenv}
+\begin{proofenv}
+    (1) Since $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$,by proposition\ref{proposition3.4.4},we obtain 
+    $$\mathrm{Im}(g\circ f )=\mathrm{g}$$
+    Since $g$ is surjective,
+    $$\mathrm{Im}(g)=\mathscr{A}_g=\mathscr{A}_{g\circ f}$$
+    Hence $g\circ f $ is also surjective.
+    \newline
+    Applying (1) to $g^{-1}$ and $f^{-1}$ ,we obtain (2).
+\end{proofenv}
+
+\section{injectivity}
+\begin{definitionenv}
+    Let $f$ be a correspondence. If each element of $\mathscr{D}_f$ has at most one image under $f$ , we say that $f$ is a \textbf{function}.If $f^{-1}$ is a function, we say that $f$ is \textbf{injective} .
+\end{definitionenv}
+\begin{notationenv}
+    Functions form a special case of correspondences.The definition feature of functions is that corresponding to each element in the domain of definition, is a unique element in the arrival set of function.
+    \newline
+    Let $f$ be a function,and let $x\in \mathrm{Dom}(f)$. We denote the unique image of $x$ under $f$ as $f(x)$ ,and we say that $f$ sends $x\in \mathrm{Dom}(f)$ to $f(x)$ or $f(x)$  is the \textbf{value} of $f$ at $x$ .we can also use the notation:
+    $$x\mapsto f(x)$$
+    to indicate the correspondence of $x$ to its image under $f$.
+\end{notationenv}
+\begin{propositionenv}\label{proposition3.6.1}
+    Let $f$ be a correspondence.
+    \newline
+    (1) Assume that $f$ is injective.For any set $A$ one has $f^{-1}(f(A))\subseteq A$.
+    \newline
+    (2) Assume that $f$ is a function. For any set $B$ on has $f(f^{-1}(B))\subseteq B$. 
+\end{propositionenv}
+\begin{proofenv}
+    Let $x$ be an element of $f^{-1}(f(A))$ ,By definition,there exists $y\in f(A)$ such that $(x,y)\in \Gamma_f$. Since $y\in f(A) $ there exist $x'\in A$ such that $(x',y)\in \Gamma_f$.Since $y$ admits at most one preimage, we obtain $x'=x$. Hence $x\in A$
+    \newline
+    Applying (1) to $f^{-1}$ we obtain(2).
+\end{proofenv}
+\begin{propositionenv}\label{proposition3.6.2}
+    Let \( f \) and \( g \) be correspondences.
+\newline
+    (1) If \( f \) and \( g \) are functions, so is \( g \circ f \). Moreover, for any \( x \in \text{Dom}(g \circ f) \), one has \((g \circ f)(x) = g(f(x))\).
+    \newline
+    (2) If \( f \) and \( g \) are injective, so is \( g \circ f \).
+
+\end{propositionenv}
+\begin{proofenv}
+Let \( x \) be an element of \(\text{Dom}(g \circ f)\). Assume that \( z \) and \( z' \) are images of \( x \) under \( g \circ f \). Let \( y \) and \( y' \) be such that
+
+\[
+(x, y) \in \Gamma_f, \quad (y, z) \in \Gamma_g, \quad (x, y') \in \Gamma_f, \quad (y', z') \in \Gamma_g.
+\]
+
+Since \( f \) is a function, one has \( y = y' = f(x) \). Since \( g \) is a function, we deduce that \( z = z' = g(f(x)) \). Therefore \( g \circ f \) is a function, and the equality \((g \circ f)(x) = g(f(x))\) holds for any \( x \in \text{Dom}(g \circ f) \).
+
+Applying (1) to \( g^{-1} \) and \( f^{-1} \), we obtain (2).
+\end{proofenv} 
+
+
+\begin{propositionenv}\label{proposition3.6.3}
+    Let $f$ and $g$ be correspondences.
+    \newline
+    (1) If \( g \circ f \) is injective and \(\mathrm{Im}(f) \subseteq \mathrm{Dom}(g)\), then \( f \) is also injective.
+\newline
+(2) If \( g \circ f \) is a function and \(\mathrm{Dom}(g) \subseteq \mathrm{Im}(f)\), then \( g \) is also a function.
+\end{propositionenv}
+
+
+
+
+\begin{proofenv}
+    (1)  Let \( y \) be an element of the image of \( f \). Let \( x \) and \( x' \) be preimages of \( y \) under \( f \). Since \(\mathrm{Im}(f) \subseteq \mathrm{Dom}(g)\), one has \( y \in \mathrm{Dom}(g) \). 
+    \newline
+    Hence there exists \( z \in \mathcal{A}_g \) such that \((y, z) \in \Gamma_g \). 
+    \newline
+    We then deduce that \((x, z)\) and \((x', z)\) are elements of \(\Gamma_{g \circ f}\). Since \( g \circ f \) is injective, we obtain \( x = x' \). Therefore, \( f \) is injective.
+\newline
+Applying (1)to \( g^{-1} \) and \( f^{-1} \), we obtain (2).
+\end{proofenv}
+
+
+
+\begin{propositionenv}\label{proposition3.6.4}
+     Let \( f \) be a correspondence, and \( I \) be a non-empty set.
+\newline
+     (1) Suppose that \( f \) is a function. For any family \((B_i)_{i \in I}\) of sets parametrised by \( I \), one has
+    \[
+    f^{-1}\left(\bigcap_{i \in I} B_i\right) = \bigcap_{i \in I} f^{-1}(B_i).
+    \]
+    \newline
+    (2) Suppose that \( f \) is injective. For any family \((A_i)_{i \in I}\) of sets parametrised by \( I \), one has
+    \[
+    f\left(\bigcap_{i \in I} A_i\right) = \bigcap_{i \in I} f(A_i).
+    \]
+\end{propositionenv}
+
+
+\begin{proofenv}
+    \quad
+    \newline
+(1) Let \( x \) be an element of \(\bigcap_{i \in I} f^{-1}(B_i)\). For any \( i \in I \), one has \( f(x) \in B_i \). Hence \( x \in f^{-1}(\bigcap_{i \in I} B_i) \). Therefore we obtain
+\[
+f^{-1}\left(\bigcap_{i \in I} B_i\right) \supseteq \bigcap_{i \in I} f^{-1}(B_i).
+\]
+\newline
+Combining with (2) of proposition\ref{proposition3.3.4} , we obtain the equality
+\[
+f^{-1}\left(\bigcap_{i \in I} B_i\right) = \bigcap_{i \in I} f^{-1}(B_i).
+\]
+
+Applying (1) to \( f^{-1} \), we obtain (2).
+\end{proofenv} 
+
+
+\section{Mapping}
+\begin{definitionenv}
+   A correspondence \( f \) is said to be a \textbf{mapping} if any element of \( \mathscr{D}_f \) has a unique image, or equivalently, \( f \) is a function and \( \mathscr{D}_f = \operatorname{Dom}(f) \). Note that \( f \) is a mapping if and only if \( f^{-1} \) is both injective and surjective.
+
+\end{definitionenv}
+
+
+
+
+
+\begin{notationenv}\label{notation3.7.1}
+    Let \( X \) and \( Y \) be sets. We denote by \( Y^X \) the set of all mappings from \( X \) to \( Y \). An element \( u \in Y^X \) is often written in the form of a family of elements of \( Y \) parametrised by \( X \) as follows
+\[
+(u(x))_{x \in X}.
+\]
+In the case where \( X = \{1, \ldots, n\} \), where \( n \) is a positive integer, the set \( Y^{\{1, \ldots, n\}} \) is also denoted as \( Y^n \). An element \( u \) of \( Y^n \) is often written as
+\[
+(u(1), \ldots, u(n)).
+\]
+\end{notationenv}
+
+
+\begin{exampleenv}
+    \quad
+    \begin{enumerate}
+    \item Let \( X \) be a set. The identity correspondence \( \operatorname{Id}_X \) is a mapping. It is also called the \textbf{identity mapping} of \( X \).
+    \item Let \( X \) and \( Y \) be sets and \( y \) be an element of \( Y \). The mapping from \( X \) to \( Y \) sending any \( x \in X \) to \( y \) is called the \textbf{constant mapping with value \( y \)}.
+    \item Let $X$ be a set and $A\subseteq X$, we define $\mathbbm{1}_A:X\rightarrow \mathbb{R}$   
+    $$\mathbbm{1}_A(x):=\begin{cases}
+ 1, \text{if}\space x \in A \\0,\text{if}\space x \notin A
+
+\end{cases}$$ 
+It is called \textbf{indicator function}
+\end{enumerate}
+\end{exampleenv}
+
+
+\begin{remark}
+   Let \( f: X \to Y \) be a mapping, \( I \) be a set.
+\begin{enumerate}
+    \item By (1) of Proposition\ref{proposition3.3.4}, for any family of sets \( (A_i)_{i \in I} \), one has
+    \[
+    f\left(\bigcup_{i \in I} A_i\right) = \bigcup_{i \in I} f(A_i).
+    \]
+    By (2) of Proposition \ref{proposition3.3.4}, for any family of sets \( (B_i)_{i \in I} \), one has
+    \[
+    f^{-1}\left(\bigcup_{i \in I} B_i\right) = \bigcup_{i \in I} f^{-1}(B_i).
+    \]
+    \item Assume that \( I \) is not empty. By (1) of Proposition \ref{proposition3.3.4}, for any family of sets \( (A_i)_{i \in I} \), one has
+    \[
+    f\left(\bigcap_{i \in I} A_i\right) \subseteq \bigcap_{i \in I} f(A_i).
+    \]
+    By (1) of Proposition \ref{proposition3.6.4}, for any family of sets \( (B_i)_{i \in I} \), one has
+    \[
+    f^{-1}\left(\bigcap_{i \in I} B_i\right) = \bigcap_{i \in I} f^{-1}(B_i).
+    \]
+    \item By (2) of Proposition \ref{proposition3.6.1}, for any set \( B \), one has \( f(f^{-1}(B)) \subseteq B \). Since \( f \) is a function and \( f^{-1} \) is injective, by (1) of Proposition \ref{proposition3.6.1} and (2) of Proposition \ref{proposition3.5.1}, for any subset \( A \) of \( X \) one has \( f^{-1}(f(A)) = A \).
+\end{enumerate}
+
+ 
+\end{remark}
+\begin{propositionenv}\label{proposition3.7.1}
+    Let \( f \) and \( g \) be mappings. Suppose that \( \operatorname{Im}(f) \subseteq \mathscr{D}_g \). Then \( g \circ f \) is also a mapping. Moreover, for any \( x \in \mathscr{D}_f = \mathscr{D}_{g \circ f} \) one has
+\[
+(g \circ f)(x) = g(f(x)).
+\]
+
+\end{propositionenv}
+
+\begin{proofenv}
+   Note that \( \mathscr{D}_g = \operatorname{Dom}(g) \) since \( g \) is a mapping. Hence the statement is a direct consequence of Propositions \ref{proposition3.6.2} and \ref{proposition3.5.3}
+ 
+\end{proofenv}
+
+\begin{remark}\label{remark3.7.2}
+    Let \( f: X \to Y \) and \( g: Y \to Z \) be mappings.
+\begin{enumerate}
+    \item By Proposition \ref{proposition3.5.3}, if \( f \) and \( g \) are both surjective, so is \( g \circ f \). By Proposition \ref{proposition3.5.2}, if \( g \circ f \) is surjective, so is \( g \).
+    \item By Proposition \ref{proposition3.6.2}, if \( f \) and \( g \) are both injective, so is \( g \circ f \). By Proposition \ref{proposition3.6.3}, if \( g \circ f \) is injective, so is \( f \).
+\end{enumerate}
+
+\end{remark}
+
+\section{Bijection}
+
+\begin{definitionenv}
+    Let \( f \) be a mapping, that is, a correspondence such that \( f^{-1} \) is injective and surjective. If \( f \) is injective and surjective, we say that \( f \) is a \textbf{bijection}, or a \textbf{one-to-one correspondence}. Note that a correspondence is a bijection if and only if its inverse is a bijection.
+
+\end{definitionenv}
+
+\begin{propositionenv}\label{proposition3.8.1}
+    Let \( X \) and \( Y \) be sets, \( f \) be a correspondence from \( X \) to \( Y \). If \( f \) is a bijection, then \( f^{-1} \circ f = \operatorname{Id}_X \) and \( f \circ f^{-1} = \operatorname{Id}_Y \). Conversely, if there exists a correspondence \( g \) such that \( g \circ f = \operatorname{Id}_X \) and \( f \circ g = \operatorname{Id}_Y \), then \( f \) is a bijection and \( g = f^{-1} \).
+
+\end{propositionenv}
+
+\begin{proofenv}
+    If \( f \) is a bijection, then \( f \) and \( f^{-1} \) are both mappings. By Proposition \ref{proposition3.7.1}, one has
+\[
+\forall x \in X, \quad (f^{-1} \circ f)(x) = f^{-1}(f(x)) = x,
+\]
+\[
+\forall y \in Y, \quad (f \circ f^{-1})(y) = f(f^{-1}(y)) = y.
+\]
+Hence \( f^{-1} \circ f = \operatorname{Id}_X \) and \( f \circ f^{-1} = \operatorname{Id}_Y \).
+
+Assume that \( g \) is a correspondence such that \( g \circ f = \operatorname{Id}_X \) and \( f \circ g = \operatorname{Id}_Y \). Since identity correspondences are surjective mappings, by Proposition \ref{proposition3.5.2}, we deduce from the equality \( g \circ f = \operatorname{Id}_X \) that \( g \) is surjective and \( \operatorname{Dom}(f) = X = \operatorname{Im}(g) \). Similarly, we deduce from the equality \( f \circ g = \operatorname{Id}_Y \) that \( f \) is surjective and \( \operatorname{Dom}(g) = Y = \operatorname{Im}(f) \).
+
+Since identity correspondences are injective, by Proposition 3.6.5, we deduce from \( g \circ f = \operatorname{Id}_X \) that \( f \) is injective. Similarly, we deduce from \( f \circ g = \operatorname{Id}_Y \) that \( f \) is a function. Therefore, \( f \) is a mapping which is injective and surjective, namely a bijection.
+
+Finally, by Propositions \ref{proposition3.4.3} and \ref{proposition3.4.2}, we obtain
+\[
+g = g \circ \operatorname{Id}_Y = g \circ (f \circ f^{-1}) = (g \circ f) \circ f^{-1} = \operatorname{Id}_X \circ f^{-1} = f^{-1}.
+\]
+\end{proofenv}
+
+
+
+\begin{propositionenv}\label{proposition3.8.2}
+    Let \( f: X \to Y \) and \( g: Y \to Z \) be bijections. Then the composite correspondence \( g \circ f \) is also a bijection.
+
+\end{propositionenv}
+
+\begin{proofenv}
+    This is a direct consequence of Propositions \ref{proposition3.7.1}, \ref{proposition3.6.2} and \ref{proposition3.5.3}
+
+\end{proofenv}
+
+\begin{propositionenv}\label{proposition3.8.3}
+    Let \( X \) and \( Y \) be sets, \( f \) be a correspondence from \( X \) to \( Y \), and \( g \) be a correspondence from \( Y \) to \( X \). If \( f \circ g \) and \( g \circ f \) are bijections, then \( f \) and \( g \) are both bijections.
+
+\end{propositionenv}
+
+\begin{proofenv}
+    By Proposition \ref{proposition3.5.2}, \( f \) and \( g \) are surjective and are multivalued mappings. In particular,
+\[
+\operatorname{Dom}(f) = X, \quad \operatorname{Im}(f) = Y, \quad \operatorname{Dom}(g) = Y, \quad \operatorname{Im}(g) = X.
+\]
+Therefore, by Proposition \ref{proposition3.6.3}, we deduce that \( f \) and \( g \) are injective and are functions. Hence \( f \) and \( g \) are both bijections. 
+
+\end{proofenv}
+
 \section{Direct product}
 \label{sec:direct-product}
 
@@ -567,7 +974,7 @@ Let $I$ be a set and $(A_i)_{i \in I}$ be a family of sets parametrised by $I$. 
 \[
 \prod_{i \in I} A_i
 \]
-the set of all mappings from $I$ to $\bigcup_{i \in I} A_i$ which send any $i \in I$ to an element of $A_i$. This set is called the \emph{direct product} of $(A_i)_{i \in I}$. Using Notation 3.7.2 we often write an element of the direct product in the form of a family $x := (x_i)_{i \in I}$ parametrised by $I$, where each $x_i$ is an element of $A_i$, called the $i$-th \emph{coordinate} of $x$. In the case where $I$ is the empty set, the union $\bigcup_{i \in I} A_i$ is empty. Therefore, the direct product contains a unique element (identity mapping of $\varnothing$).
+the set of all mappings from $I$ to $\bigcup_{i \in I} A_i$ which send any $i \in I$ to an element of $A_i$. This set is called the \textbf{direct product} of $(A_i)_{i \in I}$. Using Notation \ref{notation3.7.1} we often write an element of the direct product in the form of a family $x := (x_i)_{i \in I}$ parametrised by $I$, where each $x_i$ is an element of $A_i$, called the $i$-th \emph{coordinate} of $x$. In the case where $I$ is the empty set, the union $\bigcup_{i \in I} A_i$ is empty. Therefore, the direct product contains a unique element (identity mapping of $\varnothing$).
 
 For each $j \in I$, we denote by
 \[
@@ -597,8 +1004,16 @@ Let $I$ be a set and $(A_i)_{i \in I}$ be a family of sets parametrised by $I$. 
 \left( \prod_{i \in I} A_i \right)^X \longrightarrow \prod_{i \in I} A_i^X,
 \]
 which sends $f$ to $(\operatorname{pr}_i \circ f)_{i \in I}$, is a bijection.
-\end{propositionenv}
 
+
+
+\begin{center}
+    \begin{tikzcd}
+X \arrow[r, "f"] \arrow[dr, swap, "f_j"] &\displaystyle \prod_{i \in I} A_i \arrow[d, "\mathrm{pr}_j"] \\
+& A_j
+\end{tikzcd}
+\end{center}
+\end{propositionenv}
 \begin{proofenv}
 Let $(f_i)_{i \in I}$ be an element of
 \[
@@ -647,7 +1062,7 @@ Let $f : X \to Y$ be a mapping.
 \[
 \prod_{y \in Y} f^{-1}(\{y\})
 \]
-is not empty. In other words, there exists a mapping $g$ from $Y$ to $X$ such that $f(g(y)) = y$ for any $y \in Y$, that is $f \circ g = \operatorname{Id}_Y$. By (2) of Remark 3.6.3 $g$ is injective.
+is not empty. In other words, there exists a mapping $g$ from $Y$ to $X$ such that $f(g(y)) = y$ for any $y \in Y$, that is $f \circ g = \operatorname{Id}_Y$. By (2) of Remark \ref{remark3.7.2} $g$ is injective.
 
 (2) Let $x_0$ be an element of $X$. We define a mapping $h : Y \to X$ as follows:
 \[
@@ -657,7 +1072,9 @@ f^{-1}(y), & \text{if } y \in \operatorname{Im}(f), \\
 x_0, & \text{else}.
 \end{cases}
 \]
-Then, by construction one has $h \circ f = \operatorname{Id}_X$. By (1) of Remark 3.5.2 $h$ is surjective.
+Then, by construction one has $h \circ f = \operatorname{Id}_X$. 
+\newline
+By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
 \end{proofenv}
 \section{Restriction and Extension}
 \begin{definitionenv}
@@ -690,7 +1107,7 @@ Then, by construction one has $h \circ f = \operatorname{Id}_X$. By (1) of Remar
 
 \end{definitionenv}
 \begin{definitionenv}
-    Let $\thicksim$ be an equivalent relation on $X$.For any $x\in X$, the set $$[x]:=\{y\in X|y\thicksim x\}$$ We call it the equivalent class of $x$ under $\thicksim$,we denote by $X/\thicksim$ the set $\{[x]|x\in X\}$ of all equivalent class.It is a subset of $\mathcal{P} (X)$.Moreover, since $\forall x\in X,x\in [x] $,one has $$X=\bigcup_{A\in X/\thicksim}A $$
+    Let $\thicksim$ be an equivalent relation on $X$.For any $x\in X$, the set $$[x]:=\{y\in X|y\thicksim x\}$$ We call it the equivalent class of $x$ under $\thicksim$,we denote by $X/\thicksim$ the set $\{[x]|x\in X\}$ of all equivalent class.It is a subset of $\wp (X)$.Moreover, since $\forall x\in X,x\in [x] $,one has $$X=\bigcup_{A\in X/\thicksim}A $$
 \end{definitionenv}
 \begin{propositionenv}
     $\forall (x,y)\in X\times X$,either $[x]=[y]$ or $[x]\cap [y]=\varnothing$
@@ -711,7 +1128,7 @@ Then, by construction one has $h \circ f = \operatorname{Id}_X$. By (1) of Remar
     \newline
     (3) $R$ is transitive.
     \newline
-    then we say that $R$ is a \textbf{partial order} on $X$ and $(X,R) $ is a \textbf{partially ordered set}.If in addition ,$\forall (x,y)\in X ,xRy$ or $yRx$, we say that $R$ is a total order and $(X,R)$ is totally ordered set. 
+    then we say that $R$ is a \textbf{partial order} on $X$ and $(X,R) $ is a \textbf{partially ordered set}.If in addition ,$\forall (x,y)\in X ,xRy$ or $yRx$, we say that $R$ is a \textbf{total order} and $(X,R)$ is totally ordered set. 
 \end{definitionenv}
 \begin{exampleenv}
     $(\RR ,\le)$ is a totally ordered set.$(\NN ,|)$ is a partial order set.  
@@ -724,7 +1141,7 @@ Then, by construction one has $h \circ f = \operatorname{Id}_X$. By (1) of Remar
     \newline
     (1)$<$ on $\RR$
     \newline
-    (2)$\subset $on$ \mathcal{P} (X)$
+    (2)$\subset $on$ \wp (X)$
 \end{exampleenv}
 \begin{propositionenv}
     $R$ is the strict partial order associated with some partial order iff.the following condition are satisfied:
@@ -799,7 +1216,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 
 \end{definitionenv}
 \begin{exampleenv}
-    $\Omega=\{1,2,3,\},X=\mathcal{P} (\Omega).(X,\subseteq)$ forms a partially ordered set.Let $A=\{\{1\},\{2\},\{1,2\}\},A^u=\{\{1,2\},\{1,2,3\}\},A^l=\{\varnothing\}$
+    $\Omega=\{1,2,3\},X=\wp (\Omega).(X,\subseteq)$ forms a partially ordered set.Let $A=\{\{1\},\{2\},\{1,2\}\},A^u=\{\{1,2\},\{1,2,3\}\},A^l=\{\varnothing\}$
 \end{exampleenv}
 \begin{definitionenv}
     Let $(X,\le)$ be a partially ordered set ,let $A$ be a subset of $X$.
@@ -820,26 +1237,31 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     
 \end{notationenv}
 \begin{propositionenv}
-    Let $(X,\le)$ be a partially ordered set $(A,Z,Y)\in \mathcal{P} (X)^3,A\subseteq Z\subseteq Y$
+    Let $(X,\le)$ be a partially ordered set $(A,Z,Y)\in \wp (X)^3,A\subseteq Z\subseteq Y$
     \newline
    (1) If $\max A$ exists,then it is also the supremum of $A$ in $(Y,\le)$.So as infimum
     \newline
-    (2) If $\sup_{(Y,\le)}A$ exists and belongs to $Z$ ,then it i also the supremum of $A$ in $(Z,\le)$. So as infimum
+    (2) If $\sup_{(Y,\le)}A$ exists and belongs to $Z$ ,then it is also the supremum of $A$ in $(Z,\le)$. So as infimum
 \end{propositionenv}
 \begin{proofenv}
     \quad \newline
-   (1) By definition,$\max A $ is an upper bound of $A$. Since $A\subseteq Y, \max A \in Y$,Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $.Since $M$ is upper bound of $A$ and $\max A\in A,\max\le M$ .Then $\max A=\min A_Y^\mathrm{u}$
+   (1) By definition,$\max A $ is an upper bound of $A$. Since $A\subseteq Y, \max A \in Y$,Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $.Since $M$ is upper bound of $A$ and $\max A\in A,\max A\le M$ .Then $\max A=\min A_Y^\mathrm{u}$
 \newline
 (2) Since $Z\subseteq Y,A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$,one has $\sup _{Y,\le}A\le M$.If $\sup_{(Y,\le)}A\in Z$,then $\sup_{(Y,\le)}A\in A_Z^\mathrm{u}$.Hence $\sup _{(Y,\le)}A=\min A_Z^\mathrm{u}$
 \end{proofenv}
 \begin{propositionenv}
-    Let $(X,\le )$ be a partially ordered set ,$(A,B,Y)\in \mathcal{P} (X)^3,A\subseteq B\subseteq Y$
+    Let $(X,\le )$ be a partially ordered set ,$(A,B,Y)\in \wp (X)^3,A\subseteq B\subseteq Y$
     \newline
     (1) If $\sup_{(Y,\le)}A$ and $\sup_{(Y,\le)}B$ exist, then $$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$$
     \newline
     (2)If $\inf_{(Y,\le)}A$ and $\inf_{(Y,\le)}B$ exist, then $$\inf_{(Y,\le)}B \le \inf_{(Y,\le)}A$$
     
 \end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) $\forall x\in A$,since $A\subseteq B,x\in B \le \sup B$,by definition, $\sup B$ is an upper bound of $A$,$\sup B\in A_Y^\mathrm{u}$.$\sup A$ is the least in $A_Y^\mathrm{u}$.Hence,$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$
+\end{proofenv}
 \begin{propositionenv}
     Let $(X,\le )$ be a partially ordered set ,$f,g$ be elements of $X^I$ where $I$ is a set .Suppose that ,$\forall i\in  I ,f(i)\le g(i)$
  \newline
@@ -860,10 +1282,10 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \begin{proofenv}
     \quad 
     \newline
-    (1) $f(J)^\mathrm{u}\subseteq f(I)^\mathrm{u}$,let $M\in f(J)^\mathrm{u}$,for any $i\in I,\exists j\in J,i<j$. Hence $f(i)\le f(j)\le M$ .So $M\in f(I)^\mathrm{u}$
+    (1) $f(J)\subseteq f(I)$ Any upper bound of $f(I)$ is also an upper bound of $f(J)$,hence $f(I)^\mathrm{u}\subseteq f(J)^\mathrm{u}$.Let $M\in f(J)^\mathrm{u}$,for any $i\in I,\exists j\in J,i<j$. Hence $f(i)\le f(j)\le M$ .So $M\in f(I)^\mathrm{u}$,$f(J)^\mathrm{u}\subseteq f(I)^\mathrm{u}$.Therefore,$f(I)^\mathrm{u}=f(J)^\mathrm{u}$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X,I$ be a set, and $(A_i)_{i\in I}\in \mathcal{P} (Y)^I$ .Let $A\bigcup _{i\in I}A_i$
+    Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X,I$ be a set, and $(A_i)_{i\in I}\in \wp (Y)^I$ .Let $A=\bigcup _{i\in I}A_i$
     \newline
     (1) Suppose that ,$\forall i \in I,A_i$ has a supremum $y_i$ in $(Y,\le)$ and $\{y_i|i\in I\}$ has a supremum in $(Y,\le)$. Then $A$ has a supremum in $(Y,\le )$ and $$\sup_{(Y,\le)}A=\sup_{(Y,\le)}\{y_i|i\in I\}$$
     \newline
@@ -883,14 +1305,14 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \begin{propositionenv}
     Let $(X,\le)$ be a partially ordered set ,let $\Lambda$ be a non-empty set and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of interval in $X$, then 
     \newline
-    (1) $\displaystyle I:=\bigcap _{\lambda\in \Lambda}I_\lambda$ is an Intervals
+    (1) $\displaystyle I:=\bigcap _{\lambda\in \Lambda}I_\lambda$ is an intervals
     \newline
     (2) If $\displaystyle \bigcap _{\lambda\in \Lambda}I_\lambda\not=\varnothing $,then $\displaystyle J:=\bigcup_{\lambda\in \Lambda}I_\lambda$ is an interval.
 \end{propositionenv}
 \begin{proofenv}
     (2):Let $x\in I=\bigcap _{\lambda\in \Lambda}I_\lambda$,let $(a,b)\in J^2,\exists (\alpha,\beta )\in \Lambda^2,\alpha\in I_\alpha,\beta\in I_\beta$.We will show that $[a,b]\subseteq I_\alpha\cup I_\beta$. If $a\not\le b $, then $[a,b]\not =\varnothing\subseteq I_\alpha\cup I_\beta $. We may assume $a\le b $
     \newline 
-    If $b\le x$, then $[a,b]\subseteq [a,x]\subseteq I_\alpha$, if $x\le a $, then $[a,b]\subseteq [x,b]\subseteq I_\beta$.Suppose that $a<x<b$,one has $[a,b]=[a,x]\cup[x,b]$ balabala $[a,b]=[a,x]\cup[x,b]\subseteq I_\alpha\cup I_\beta \subseteq J$
+    If $b\le x$, then $[a,b]\subseteq [a,x]\subseteq I_\alpha$, if $x\le a $, then $[a,b]\subseteq [x,b]\subseteq I_\beta$.Suppose that $a<x<b$,one has $[a,b]=[a,x]\cup[x,b]$ and so on , $[a,b]=[a,x]\cup[x,b]\subseteq I_\alpha\cup I_\beta \subseteq J$
 
 \end{proofenv}
 \begin{definitionenv}
@@ -907,6 +1329,9 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
    \newline
    (2) So as inf
 \end{propositionenv}
+\begin{remark}
+    totally ordered set condition is used to prove (2)
+\end{remark}
 \begin{propositionenv}
    Let $(X,\le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$  .Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a,b],[a,b),(a,b],(a,b)$
 \end{propositionenv}
@@ -927,6 +1352,6 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     Let $(X,\le )$ be a totally ordered set that is dense, $(a,b)\in X^2,a<b$. If $I$ is one of the intervals $[a,b],[a,b)\dots$, then $a=\inf I,b=\sup I$
 \end{propositionenv}
 \begin{proofenv}
-    By definition, $b$ is an upper bound of $I$, if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.Let $x\in I$,one has $x\le M <b$.Since $[x,b)\subseteq I,M\in I$, hence $M=\max I$. Since $X$ is dense ,pick $M'\in (M,b)$.Since $M\in I,b=\sup I,[M,b)\subseteq I$. Hence $M'\in I,M'\le M$.This contradicts $M<M'$.
+    By definition, $b$ is an upper bound of $I$, since $(X,\le)$ is a totally ordered set,if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.Let $x\in I$,one has $x\le M <b$.Since $[x,b)\subseteq I,M\in I$, hence $M=\max I$. Since $X$ is dense ,pick $M'\in (M,b)$.Since $M\in I,b=\sup I,[M,b)\subseteq I$. Hence $M'\in I,M'\le M$.This contradicts $M<M'$.
 \end{proofenv}
 \end{document}

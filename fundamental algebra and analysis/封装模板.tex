@@ -2,6 +2,7 @@
 \usepackage{lmodern}
 \usepackage{newtxtext, geometry, amsmath, amssymb}
 \usepackage{amsthm} % 设置定理环境，要在amsmath后用
+\usepackage{bbm}
 \usepackage{xpatch} % 用于去除amsthm定义的编号后面的点
 \usepackage[strict]{changepage} % 提供一个 adjustwidth 环境
 \usepackage{multicol} % 用于分栏
@@ -16,6 +17,7 @@
             ]
             {hyperref} % 实现引用超链接功能
 \usepackage{tcolorbox} % 盒子效果
+\tcbuselibrary{breakable}
 \tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
 
 \geometry{a4paper,centering,scale=0.8}
@@ -103,22 +105,22 @@
 
 
     \newenvironment{lvse}{
-    \begin{tcolorbox}[enhanced, colback=qlv, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[breakable,enhanced, colback=qlv, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{slv}]
     }
     {\end{tcolorbox}}
 \newenvironment{lanse}{
-    \begin{tcolorbox}[enhanced, colback=qlan, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[breakable,enhanced, colback=qlan, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{slan}]
     }
     {\end{tcolorbox}}
 \newenvironment{huangse}{
-    \begin{tcolorbox}[enhanced, colback=qhuang, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[breakable,enhanced, colback=qhuang, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{shuang}]
     }
     {\end{tcolorbox}}
 \newenvironment{zise}{
-    \begin{tcolorbox}[enhanced, colback=qzi, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[breakable,enhanced, colback=qzi, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{szi}]
     }
     {\end{tcolorbox}}
