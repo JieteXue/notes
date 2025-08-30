@@ -321,16 +321,16 @@ sometimes we combine the two methods of representation.
     $\wp (\wp (\varnothing))=\{\varnothing,\{\varnothing\}\}$
 \end{exampleenv}
 \begin{definitionenv}
-    Let $A$ and $B$ be sets. We denote by $B - A$ the set $\{x\in B|x\notin A\}$. This is a subset of $B$ called the set difference of $B$ and $A$.
+    Let $A$ and $B$ be sets. We denote by $B \backslash A$ the set $\{x\in B|x\notin A\}$. This is a subset of $B$ called the set difference of $B$ and $A$.
     \newline
-    If in condition $A \subseteq B$, we say that $B-A$ is the complement of $A$ inside $B$
+    If in condition $A \subseteq B$, we say that $B\backslash A$ is the complement of $A$ inside $B$
 \end{definitionenv}
 \begin{exampleenv}
-    If $A$ is a set ,$P(\cdot)$ is  a condition on $A$, then $$\{x\in A |\neg P(x)\}=A-\{x\in A|P(x)\}$$
+    If $A$ is a set ,$P(\cdot)$ is  a condition on $A$, then $$\{x\in A |\neg P(x)\}=A\backslash\{x\in A|P(x)\}$$
 \end{exampleenv}
 \begin{propositionenv}
-    Let $A$ and $B$ be sets.Then $$B-A=\varnothing \Leftrightarrow B\subseteq A$$
-    If in condition $A$ is the subset of $B$, then $$B-A=\varnothing \Leftrightarrow A=B$$
+    Let $A$ and $B$ be sets.Then $$B\backslash A=\varnothing \Leftrightarrow B\subseteq A$$
+    If in condition $A$ is the subset of $B$, then $$B\backslash A=\varnothing \Leftrightarrow A=B$$
 \end{propositionenv}
 
 
@@ -375,8 +375,8 @@ sometimes we combine the two methods of representation.
 \begin{align*}
     \varnothing&=\{x\in A|P(x)\}- \{x\in A|Q(x)\}\\
     &=\{x\in A|P(x)\wedge (\neg Q(x))\}\\
-    &=A-\{x\in A|(\neg P(x))\vee  Q(x)\}\\
-    &=A-\{x\in A |P(x)\Rightarrow Q(x)\}
+    &=A\backslash\{x\in A|(\neg P(x))\vee  Q(x)\}\\
+    &=A\backslash\{x\in A |P(x)\Rightarrow Q(x)\}
 \end{align*}
 \end{proofenv}
 \textbf{Russell's paradox:}$P(A):=A\notin A$,The collection of all sets should not be considered as a set.
@@ -784,11 +784,11 @@ Applying (1) to \( g^{-1} \) and \( f^{-1} \), we obtain (2).
 \begin{proofenv}
     (1)  Let \( y \) be an element of the image of \( f \). Let \( x \) and \( x' \) be preimages of \( y \) under \( f \). Since \(\mathrm{Im}(f) \subseteq \mathrm{Dom}(g)\), one has \( y \in \mathrm{Dom}(g) \). 
     \newline
-    Hence there exists \( z \in \mathcal{A}_g \) such that \((y, z) \in \Gamma_g \). 
+    Hence there exists \( z \in \mathscr{A}_g \) such that \((y, z) \in \Gamma_g \). 
     \newline
     We then deduce that \((x, z)\) and \((x', z)\) are elements of \(\Gamma_{g \circ f}\). Since \( g \circ f \) is injective, we obtain \( x = x' \). Therefore, \( f \) is injective.
 \newline
-Applying (1)to \( g^{-1} \) and \( f^{-1} \), we obtain (2).
+Applying (1) to \( g^{-1} \) and \( f^{-1} \), we obtain (2).
 \end{proofenv}
 
 
@@ -1082,7 +1082,8 @@ By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
     \newline
     Let $X$ anf $Y$ be sets, $h$ be a correspondence from $X$ to $Y$ ,and $A$ be a subset of $X$.Denote by $h|_A$ the correspondence from $A$ to $Y$ such that$$\Gamma_{h|_A}=\Gamma_h\bigcap (A\times Y)$$ We call it the \textbf{restriction of $h$ to $A$}
 \end{definitionenv}
-\chapter{Binary Relations}
+\chapter{Binary Relations }
+$\dagger$This chapter was written in pre-course at first,then added some sections in make-up courses,which titled "Ordering".Some notations haven't been changed yet and some sections have the same knowledge.It's a bit mess.
 \section{Generalities}
 \begin{definitionenv}
     Let $X$ be a set ,we call \textbf{binary relation} on $X$ any correspondence from $X$ to $X$ .If $R$ is a binary relation on $X$ ,for any $(x,y)\in X\times X $ we denote by $x R y $ the statement $(x,y)\in \Gamma_R$
@@ -1101,7 +1102,7 @@ By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
     \newline
     (2) If $\forall (x,y) \in X\times X,xRy\Rightarrow yRx$,we say that $R$ is \textbf{symmetric}.
     \newline
-    (3) If for all $x,y,z$ of $X$, $xRy\wedge yRz\Rightarrow xRz$,we say that $R$ is transitive.
+    (3) If for all $x,y,z$ of $X$, $xRy\wedge yRz\Rightarrow xRz$,we say that $R$ is \textbf{transitive}.
     \newline
     (4) If $R$ is reflexive,symmetric and transitive, we say that $R$ is an \textbf{equivalent relation}
 
@@ -1117,7 +1118,16 @@ By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
 \end{definitionenv}
 \begin{propositionenv}
     $f:X\rightarrow Y$ be a mapping,if $\forall (x,y)\in X\times X,x\thicksim y\Rightarrow f(x)=f(y)$,then there exists a unique mapping$$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x)$$such that $$\tilde{f}\circ \pi =f$$
+
+
+\begin{center}
+\begin{tikzcd}
+    X\arrow[d,swap,"\pi"]\arrow[r,"f"]& Y\\
+    X/\sim \arrow[ur,swap,"\tilde{f}"]
+\end{tikzcd}
+\end{center}
 \end{propositionenv}
+
 \section{Partial Order}
 \begin{definitionenv}
     If 
@@ -1131,7 +1141,7 @@ By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
     then we say that $R$ is a \textbf{partial order} on $X$ and $(X,R) $ is a \textbf{partially ordered set}.If in addition ,$\forall (x,y)\in X ,xRy$ or $yRx$, we say that $R$ is a \textbf{total order} and $(X,R)$ is totally ordered set. 
 \end{definitionenv}
 \begin{exampleenv}
-    $(\RR ,\le)$ is a totally ordered set.$(\NN ,|)$ is a partial order set.  
+    $(\RR ,\le)$ is a totally ordered set.$(\NN ,|)$ is a partially ordered set.  
 \end{exampleenv}
 \begin{definitionenv}
     Let $(X,\underline{R})$ be a partially ordered set. We denote by $R$ the binary relation on $X$ defined as:$$xRy \Leftrightarrow x\underline{R}y \wedge x\not=y$$ we call $R$ the \textbf{strict partial order}(not a partial order) associated with $\underline{R}$.
@@ -1230,13 +1240,13 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \begin{definitionenv}
     $A\subseteq Y\subseteq X$,let $A_Y^\mathrm{u}:=\{y\in Y|\forall a\in A,a\le y\}$ be the set of upper bounds of $A$ in $Y$.If $A_Y^\mathrm{u}$ has a least element ,we call it the \textbf{supremum} of $A$ in $Y$ ,denoted as $\mathrm{sup}_{(Y,\le)}A$ ,if there's no ambiguity on $\le$ we can also write as $\mathrm{sup}_{Y}A$.So as \textbf{infimum}
 \end{definitionenv}
-\begin{notationenv}
+\begin{notationenv}\label{notation4.5.1}
     
          Let $(X,\le)$ be a partially ordered set ,$f:I\rightarrow X$ be a function.$$\mathrm{max}f(I),\mathrm{min}f(I),\mathrm{sup}f(I),\mathrm{inf}f(I)$$ are written as $$\mathrm{max}f,\mathrm{min}f,\mathrm{sup}f,\mathrm{inf}f$$
          Let $(X,\le)$ be a partially ordered set ,and $(x_i)_{i\in I}\in X^I$,$$\mathrm{max}\{x_i|i\in I\},\mathrm{min}\{x_i|i\in I\},\mathrm{sup}\{x_i|i\in I\},\mathrm{inf}\{x_i|i\in I\}$$ are denoted as $$\max _{i\in I}x_i,\min _{i\in I}x_i,\sup _{i\in I}x_i,\inf _{i\in I}x_i$$
     
 \end{notationenv}
-\begin{propositionenv}
+\begin{propositionenv}\label{proposition4.5.1}
     Let $(X,\le)$ be a partially ordered set $(A,Z,Y)\in \wp (X)^3,A\subseteq Z\subseteq Y$
     \newline
    (1) If $\max A$ exists,then it is also the supremum of $A$ in $(Y,\le)$.So as infimum
@@ -1249,7 +1259,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \newline
 (2) Since $Z\subseteq Y,A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$,one has $\sup _{Y,\le}A\le M$.If $\sup_{(Y,\le)}A\in Z$,then $\sup_{(Y,\le)}A\in A_Z^\mathrm{u}$.Hence $\sup _{(Y,\le)}A=\min A_Z^\mathrm{u}$
 \end{proofenv}
-\begin{propositionenv}
+\begin{propositionenv}\label{proposition4.5.2}
     Let $(X,\le )$ be a partially ordered set ,$(A,B,Y)\in \wp (X)^3,A\subseteq B\subseteq Y$
     \newline
     (1) If $\sup_{(Y,\le)}A$ and $\sup_{(Y,\le)}B$ exist, then $$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$$
@@ -1262,7 +1272,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     \newline
     (1) $\forall x\in A$,since $A\subseteq B,x\in B \le \sup B$,by definition, $\sup B$ is an upper bound of $A$,$\sup B\in A_Y^\mathrm{u}$.$\sup A$ is the least in $A_Y^\mathrm{u}$.Hence,$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$
 \end{proofenv}
-\begin{propositionenv}
+\begin{propositionenv}\label{proposition4.5.3}
     Let $(X,\le )$ be a partially ordered set ,$f,g$ be elements of $X^I$ where $I$ is a set .Suppose that ,$\forall i\in  I ,f(i)\le g(i)$
  \newline
  (1)If $\sup f,\sup g$ exist ,then $\sup f\le\sup g$
@@ -1297,10 +1307,14 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \begin{propositionenv}
     Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X$.$$\varnothing_Y^\mathrm{u}=\varnothing_Y^\mathrm{l}=Y$$
 \end{propositionenv}
+
+
 \section{Intervals}
 
 \begin{definitionenv}
-    Let $(X,\le)$ be a partially ordered set.$\forall (a,b)\in X^2$, let $$[a,b]:=\{x\in X|a\le x\le b \}$$ $$[a,b):=\{x\in X|a\le x <b\}$$ We say that a subset is a \textbf{interval} if $\forall (a,b)\in I^2 ,[a,b]\subseteq I$
+    Let $(X,\le)$ be a partially ordered set.$\forall (a,b)\in X^2$, let 
+    $$[a,b]:=\{x\in X|a\le x\le b \}$$
+     $$\interval[open right]{a}{b}:=\{x\in X|a\le x <b\}$$ We say that a subset is a \textbf{interval} if $\forall (a,b)\in I^2 ,[a,b]\subseteq I$
 \end{definitionenv}
 \begin{propositionenv}
     Let $(X,\le)$ be a partially ordered set ,let $\Lambda$ be a non-empty set and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of interval in $X$, then 
@@ -1325,33 +1339,95 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \begin{propositionenv}
    Let $(X,\le )$ be a totally ordered set and $I $ be a interval in $X$ 
    \newline
-   (1) Suppose that $I$ has a supremum $b$ in $X,\forall x\in I,[x,b)\subseteq I$
+   (1) Suppose that $I$ has a supremum $b$ in $X,\forall x\in I,\interval[open right]{x}{b}\subseteq I$
    \newline
-   (2) So as inf
+   (2) Suppose that $I$ has a infimum $b$ in $X,\forall x\in I,\interval[open left]{x}{b}\subseteq I$
 \end{propositionenv}
 \begin{remark}
     totally ordered set condition is used to prove (2)
 \end{remark}
 \begin{propositionenv}
-   Let $(X,\le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$  .Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a,b],[a,b),(a,b],(a,b)$
+   Let $(X,\le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$  .Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a,b],\interval[open right]{a}{b},\interval[open left]{a}{b},\interval[open]{a}{b}$
 \end{propositionenv}
 \begin{proofenv}
     $\forall x\in I ,a\le x\le b $,hence $I\subseteq [a,b]$
     \newline
     (i) if $\{a,b\}\in I$, then $I=[a,b]$
     \newline
-    (ii) if $a\in I, b\notin I,I\subseteq[a,b)=[a,b]\backslash\{b\}$. Let $x\in [a,b)$, since $x<b$, $x$ is not an upper bound of $I$. Hence $\exists y\in I, x<y$. Note that $[a,y]\subseteq I$, hence $x\in I$, therefore $[a,b)\subseteq I$. Similarly , is $b\in I,a\notin I$, then $(a,b]=I$
+    (ii) if $a\in I, b\notin I,I\subseteq\interval[open right]{a}{b}=[a,b]\backslash\{b\}$. Let $x\in \interval[open right]{a}{b}$, since $x<b$, $x$ is not an upper bound of $I$. Hence $\exists y\in I, x<y$. Note that $[a,y]\subseteq I$, hence $x\in I$, therefore $\interval[open right]{a}{b}\subseteq I$. Similarly , is $b\in I,a\notin I$, then $\interval[open left]{a}{b}=I$
     \newline
-    (iii) if $\{a,b\}\cap I=\varnothing$, then $I\subseteq(a,b) .\forall x\in (a,b),\exists s,t\in I,s<x<t$ Hence $x\in [s,t]\subseteq I$. Therefore $(a,b)=I$
+    (iii) if $\{a,b\}\cap I=\varnothing$, then $I\subseteq\interval[open]{a}{b} .\forall x\in \interval[open]{a}{b},\exists s,t\in I,s<x<t$ Hence $x\in [s,t]\subseteq I$. Therefore $\interval[open]{a}{b}=I$
 
 \end{proofenv}
 \begin{definitionenv}[Dense]
     Let $(X,\le )$ be a totally ordered set, if $\forall (x,z)\in X^2,x<z\Rightarrow (x,z)\not=\varnothing$ then we say that $(X,\le)$ is \textbf{dense}.
 \end{definitionenv}
 \begin{propositionenv}
-    Let $(X,\le )$ be a totally ordered set that is dense, $(a,b)\in X^2,a<b$. If $I$ is one of the intervals $[a,b],[a,b)\dots$, then $a=\inf I,b=\sup I$
+    Let $(X,\le )$ be a totally ordered set that is dense, $(a,b)\in X^2,a<b$. If $I$ is one of the intervals $[a,b],\interval[open right]{a}{b}\dots$, then $a=\inf I,b=\sup I$
 \end{propositionenv}
 \begin{proofenv}
-    By definition, $b$ is an upper bound of $I$, since $(X,\le)$ is a totally ordered set,if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.Let $x\in I$,one has $x\le M <b$.Since $[x,b)\subseteq I,M\in I$, hence $M=\max I$. Since $X$ is dense ,pick $M'\in (M,b)$.Since $M\in I,b=\sup I,[M,b)\subseteq I$. Hence $M'\in I,M'\le M$.This contradicts $M<M'$.
+    By definition, $b$ is an upper bound of $I$, since $(X,\le)$ is a totally ordered set,if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.
+    Let $x\in I$,one has $x\le M <b$.Since $\interval[open right]{x}{b}\subseteq I,M\in I$, hence $M=\max I$. Since $X$ is dense ,pick $M'\in \interval[open]{M}{b}$.Since $M\in I,b=\sup I,\interval[open right]{M}{b}\subseteq I$. Hence $M'\in I,M'\le M$.This contradicts $M<M'$.
 \end{proofenv}
+
+\section{Well-ordered Set}
+\begin{definitionenv}
+    Let $(X,\le)$ be a partially ordered set.If $\forall A\in \wp(X),A\not=\varnothing\Rightarrow A$ has a least element,we say that $(X,\le)$ is a \textbf{well-ordered set}.
+\end{definitionenv}
+\begin{axiomenv}
+    $(\NN,\le)$ is a well-ordered set 
+\end{axiomenv}
+\begin{propositionenv}
+    If $(X,\le)$ is a well-ordered set, then it is a totally ordered set.
+\end{propositionenv}
+\begin{propositionenv}
+    $(X,\le)$ is a well-ordered set,$Y\subseteq X$, then $(Y,\le)$ is a well-ordered set. 
+\end{propositionenv}
+\begin{theoremenv}
+    Let $(X,\le)$ be a well-ordered ste .Let $P(\cdot)$ be a condition on $X$. If 
+    $$\forall x\in X,(\forall y\in X_{<x} ,P(y))\Rightarrow P(x)$$
+    then $\forall x\in X,P(x)$
+\end{theoremenv}
+\begin{remark}
+    Suppose that $X\not=\varnothing$,There is a least element $m$ of $X$.The statement
+    $$\forall x\in X,(\forall y\in X_{<m} ,P(m))\Rightarrow P(x) \text{and} P(m) \text{have the same truth value}$$
+\end{remark}
+\begin{proofenv}
+    Let $A=\{x\in X|\neg P(x)\}$.If $A\not=\varnothing,\exists x\in A$ which is the least element of $A$.By definition,$(\forall y\in X_{<x} ,P(y))$ is true.It contradicts to .
+\end{proofenv}
+\begin{remark}
+    We add a formal element $+\infty$ to $\mathbb{N}$ and require $\forall n\in \NN, n<\infty$
+\end{remark}
+Fact:$\NN \cup \{+\infty\}$ is a well-ordered set.Let $P(\cdot)$ be a condition on $\NN \cup \{+\infty\}$ ,We need to check:
+\begin{enumerate}
+    \item $P(0)$
+    \item $\forall n\in \NN_{\leq 1},P(0)\wedge\dots\wedge P(n-1)\Rightarrow P(n)$
+    \item $(\forall n \in \NN,P(n))\Rightarrow P(+\infty)$
+\end{enumerate}
+\section{Order-completeness}
+\begin{definitionenv}
+    Let $(X,\le)$ be a partially ordered set .If any subset of $X$ has a supremum in $X$, we say that  $(X, \le)$ is \textbf{order-complete}. Note that an order-complete
+partially ordered set is never empty.
+\end{definitionenv}
+\begin{axiomenv}
+    Let $\overline{\mathbb{R}}:=\RR\cup\{-\infty,+\infty\}$, where $-\infty,+\infty$ are distinct formal elements that do not belongs to $\RR$.If we equip $\overline{\RR}$ with the total order extending that of $\RR$ such that 
+    $$\forall x\in \RR,-\infty<x<+\infty$$, then $(\overline{\RR},\le)$ is order complete.
+\end{axiomenv}
+\begin{exampleenv}
+    Let $\Omega$ be a set ,$X=\wp(\Omega)$.Then $(X,\subseteq)$ is  order complete.
+    \begin{proofenv}
+        Let $Y\subseteq X$.Then 
+        $$Y^{\mathrm{u}}=\{B\in\wp(\Omega)|\forall A\in Y,A\subseteq B\}$$
+        $\displaystyle \bigcup_{A\in Y}A$ is the least upper bound of $Y$ in $X$. So $\sup (Y)=\bigcup_{A\in Y}A$
+    \end{proofenv}
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be an order complete partially ordered set. Any subset of $X$ has an infimum in $X$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $A\subseteq X,m:=\sup A^\mathrm{l}$. We prove that $m\in A^\mathrm{l}$
+    \newline
+    Let $x\in A,\forall y \in A^\mathrm{l},y\le x $,so $x\in (A^\mathrm{l})^\mathrm{u}$.Hence $m\le x$
+\end{proofenv}
+Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1},then came to Proposition\ref{proposition4.5.1} and the following.
 \end{document}
