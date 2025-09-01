@@ -8,6 +8,7 @@
 \usepackage[strict]{changepage} % 提供一个 adjustwidth 环境
 \usepackage{multicol} % 用于分栏
 \usepackage{cancel}
+\usepackage{graphicx}
 \usepackage[fontsize=14pt]{fontsize} % 字号设置
 \usepackage{esvect} % 实现向量箭头输入（显示效果好于\vec{}和\overrightarrow{}），格式为\vv{⟨向量符号⟩}或\vv*{⟨向量符号⟩}{⟨下标⟩} 
 \usepackage[
@@ -174,11 +175,12 @@
 \newtheorem{remark}{Remark}[section]
 \newtheorem{axiom}{Axiom}
 \newtheorem{notation}{\color{slv}Notation}[section]
-\newtheorem{lemma}{Lemma}[section]
+\newtheorem{lemma}[theorem]{\color{shuang}Lemma}
 \newenvironment{definitionenv}{\begin{lvse}\begin{definitin}}{\end{definitin}\end{lvse}}
 \newenvironment{notationenv}{\begin{lvse}\begin{notation}}{\end{notation}\end{lvse}}
 \newenvironment{proofenv}{\begin{lanse}\begin{prof}}{$\hfill \square$\end{prof}\end{lanse}}
 \newenvironment{theoremenv}{\begin{huangse}\begin{theorem}}{\end{theorem}\end{huangse}}
+\newenvironment{lemmaenv}{\begin{huangse}\begin{lemma}}{\end{lemma}\end{huangse}}
 \newenvironment{exampleenv}{\begin{zise}\begin{example}}{\end{example}\end{zise}}
 \newenvironment{propositionenv}{\begin{huangse}\begin{proposition}}{\end{proposition}\end{huangse}}
 \newenvironment{corollaryenv}{\begin{huangse}\begin{corollary}}{\end{corollary}\end{huangse}}

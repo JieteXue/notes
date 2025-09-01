@@ -360,7 +360,7 @@ sometimes we combine the two methods of representation.
     Let $A$ be a set and $P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
     If $$\{x\in A|P(x)\}\subseteq\{x\in A|Q(x)\}$$ we say that $P(\cdot)$ is a sufficient condition of $Q(\cdot)$.$Q(\cdot)$ is a necessary condition of $P(\cdot)$
     \newline
-    If $\{x\in A|P(x)\}={x\in A|Q(x)}$,we say that $p(\cdot)$ and $Q(\cdot)$ are equivalent.
+    If $\{x\in A|P(x)\}=\{x\in A|Q(x)\}$,we say that $p(\cdot)$ and $Q(\cdot)$ are equivalent.
 \end{definitionenv}
 \begin{propositionenv}
     Let $A$ be a set ,$P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
@@ -1360,7 +1360,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 
 \end{proofenv}
 \begin{definitionenv}[Dense]
-    Let $(X,\le )$ be a totally ordered set, if $\forall (x,z)\in X^2,x<z\Rightarrow (x,z)\not=\varnothing$ then we say that $(X,\le)$ is \textbf{dense}.
+    Let $(X,\le )$ be a totally ordered set, if $\forall (x,z)\in X^2,x<z\Rightarrow \interval[open]{x}{z}\not=\varnothing$ then we say that $(X,\le)$ is \textbf{dense}.
 \end{definitionenv}
 \begin{propositionenv}
     Let $(X,\le )$ be a totally ordered set that is dense, $(a,b)\in X^2,a<b$. If $I$ is one of the intervals $[a,b],\interval[open right]{a}{b}\dots$, then $a=\inf I,b=\sup I$
@@ -1396,7 +1396,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     Let $A=\{x\in X|\neg P(x)\}$.If $A\not=\varnothing,\exists x\in A$ which is the least element of $A$.By definition,$(\forall y\in X_{<x} ,P(y))$ is true.It contradicts to .
 \end{proofenv}
 \begin{remark}
-    We add a formal element $+\infty$ to $\mathbb{N}$ and require $\forall n\in \NN, n<\infty$
+    We add a formal element $+\infty$ to $\mathbb{N}$ and require $\forall n\in \NN, n<+\infty$
 \end{remark}
 Fact:$\NN \cup \{+\infty\}$ is a well-ordered set.Let $P(\cdot)$ be a condition on $\NN \cup \{+\infty\}$ ,We need to check:
 \begin{enumerate}
@@ -1430,4 +1430,148 @@ partially ordered set is never empty.
     Let $x\in A,\forall y \in A^\mathrm{l},y\le x $,so $x\in (A^\mathrm{l})^\mathrm{u}$.Hence $m\le x$
 \end{proofenv}
 Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1},then came to Proposition\ref{proposition4.5.1} and the following.
+\begin{definitionenv}
+    Let $X$ be a set and $f:X\rightarrow X$ be a mapping. If $x\in X $ is such that $f(x)=x$, then we say that $x$ is a fixed point of $f$. 
+\end{definitionenv}
+\begin{theoremenv}[Knaster-Tarski fixed point]
+    \quad
+    \newline
+    Let $(X,\le)$ be an order complete partially ordered set ,$f:X\rightarrow X$ be an increasing mapping.Let 
+    $$F=\{x\in X|f(x)=x\}$$
+    Then $(F,\le)$ is order complete.In particular $F\not=\varnothing$
+    
+\end{theoremenv}
+\begin{proofenv}
+    Let $A$ be a subset of $F$.We consider 
+    $$S_A:=\{y\in A^\mathrm{u}|f(y)\le y\}$$
+    Let $m:=\inf S_A,\forall a\in A,a$ is a lower bound of $S_A$.So $a\le m$.So $m\in A^\mathrm{u},\sup A\le m$.For any $y\in S_A$,one has $m\le y$.Since $f$ is increasing, $f(m)\le f(y)\le y$ .So $f(m)$ is a lower bound of $S_A$, which leads to $f(m)\le m$ .That means $m\in S_A$.Hence $m=\min S_A$.For any $x\in A,x=f(x)\le f(m)$.So $f(m)\in A^\mathrm{u}$.Moreover ,since $f(m)\le m ,f(f(m))\le f(m)$.So $f(m)$ is an element of $S_A$, which leads to $m\le f(m)$.Hence $m\in F$.Therefore, $m=\sup_{(F,\le)}A$
+\end{proofenv}
+\begin{definitionenv}
+    Let $X,Y$ be sets.If there exists a bijection from $X$ to $Y$, we say that $X$ and $Y$ are equipotent.
+\end{definitionenv}
+
+
+
+\begin{figure}[htbp]
+    \begin{center}
+        
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.7,xscale=0.7]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Free Drawing [id:dp6757315742756932] 
+\draw  [line width=3] [line join = round][line cap = round] (432.84,94.51) .. controls (423.91,85.57) and (417.94,75.44) .. (407.84,67.51) .. controls (389.3,52.94) and (354.43,70.01) .. (348.84,90.51) .. controls (346.27,99.93) and (347.79,123.7) .. (347.84,125.51) .. controls (348,130.68) and (352.28,138.07) .. (347.84,142.51) .. controls (341.76,148.59) and (334.14,152.95) .. (326.84,157.51) .. controls (304.57,171.42) and (288.63,164.83) .. (285.84,195.51) .. controls (285.19,202.64) and (284.78,209.79) .. (290.84,214.51) .. controls (326.9,242.55) and (362.17,210.37) .. (399.84,204.51) .. controls (410.54,202.84) and (420.13,203.46) .. (429.84,207.51) .. controls (440.63,212) and (449.78,218.68) .. (461.84,213.51) .. controls (471.26,209.47) and (480.29,197.67) .. (485.84,190.51) .. controls (501.13,170.76) and (511.94,148.7) .. (509.84,123.51) .. controls (509.11,114.78) and (507.62,105.16) .. (499.84,99.51) .. controls (481.9,86.46) and (463.43,95.99) .. (445.84,99.51) .. controls (438.37,101) and (433.82,93.51) .. (432.84,93.51) ;
+%Shape: Free Drawing [id:dp6453905503802386] 
+\draw  [line width=3] [line join = round][line cap = round] (350.84,136.51) .. controls (383.1,136.51) and (418.59,137.55) .. (443.84,160.51) .. controls (450.93,166.95) and (452.72,176.06) .. (457.84,183.51) .. controls (464.34,192.96) and (469.88,195.54) .. (474.84,200.51) .. controls (475.08,200.74) and (474.84,201.17) .. (474.84,201.51) ;
+%Shape: Free Drawing [id:dp051216671495937005] 
+\draw  [line width=3] [line join = round][line cap = round] (53,95) .. controls (33.78,95) and (22.79,107.25) .. (25,126) .. controls (25.84,133.12) and (32.95,139.65) .. (34,147) .. controls (36.15,162.06) and (24.12,174.09) .. (40,186) .. controls (66.02,205.52) and (85.93,181.84) .. (111,175) .. controls (132.29,169.19) and (157.62,177.86) .. (179,180) .. controls (215.66,183.67) and (260.62,151.15) .. (267,115) .. controls (270.77,93.64) and (246.36,84.44) .. (230,87) .. controls (207.33,90.54) and (198.2,98.1) .. (174,97) .. controls (164.41,96.56) and (156.03,90.25) .. (147,87) .. controls (135.47,82.85) and (118.31,83.57) .. (107,84) .. controls (89,84.69) and (73.05,95) .. (52,95) ;
+%Shape: Free Drawing [id:dp8803974418610332] 
+\draw  [line width=3] [line join = round][line cap = round] (117.26,84.32) .. controls (117.26,103.03) and (141.03,112.34) .. (152.26,122.32) .. controls (165.02,133.66) and (168.29,145.45) .. (172.26,159.32) .. controls (174.86,168.42) and (181.26,168.66) .. (181.26,178.32) ;
+%Curve Lines [id:da948169565487457] 
+\draw    (207,114) .. controls (246.6,84.3) and (400.4,66) .. (410.98,120.64) ;
+\draw [shift={(411.26,122.32)}, rotate = 262.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da6547582412802545] 
+\draw    (358.26,201.32) .. controls (278.66,284.9) and (173.32,233.83) .. (108.97,158.14) ;
+\draw [shift={(108,157)}, rotate = 49.9] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (200,124.4) node [anchor=north west][inner sep=0.75pt]    {$C$};
+% Text Node
+\draw (314,61.4) node [anchor=north west][inner sep=0.75pt]    {$f$};
+% Text Node
+\draw (438,123.4) node [anchor=north west][inner sep=0.75pt]    {$f( C)$};
+% Text Node
+\draw (75,124.4) node [anchor=north west][inner sep=0.75pt]    {$X\backslash C$};
+% Text Node
+\draw (350,168.4) node [anchor=north west][inner sep=0.75pt]    {$Y\backslash f( C)$};
+% Text Node
+\draw (197,236.4) node [anchor=north west][inner sep=0.75pt]    {$g$};
+
+
+\end{tikzpicture}
+    \end{center}
+\end{figure}
+
+
+
+\begin{theoremenv}[Cantor-Bernstein]
+    Let $X$ and $Y$ be sets .Assume that there exists injective mappings $f:X\rightarrow Y$ and $g:Y\rightarrow X$.Then $X$ and $Y$ are equipotent.
+\end{theoremenv}
+\begin{proofenv}
+    Consider $\Phi:\wp(X)\rightarrow\wp(X),A\mapsto X\backslash g(Y\backslash f(A))$.If $(A,B)\in \wp(X)^2$ such that $A\subseteq B$, then $f(A)\subseteq f(B),Y\backslash f(A)\supseteq  Y\backslash f(B),g(Y\backslash f(A))\supseteq g(Y\backslash f(A)) ,\Phi(A)\subseteq\Phi(B)$.So $\Phi$ is increasing.By Knaster-Tarski theorem,$\exists C\in \wp(X),C=\Phi(C)$.Then $h:X\rightarrow Y,h(x):=\left\{\begin{matrix}
+ f(x),x\in C\\
+g^{-1}(x),x\in X\backslash C
+
+\end{matrix}\right.$
+is a bijection.
+\end{proofenv}
+
+\begin{lemmaenv}
+    Let $(X,\le)$ is a partially ordered set.
+    \newline
+    (1) Let $(A,B)\in \wp(X)^2$, if $A\subseteq B$, then $B^\mathrm{u}\subseteq A^\mathrm{u},B^\mathrm{l}\subseteq A^\mathrm{l}$
+    \newline
+    (2) $\forall A\in \wp(X),A\subseteq (A^\mathrm{u})^\mathrm{l}\cap (A^\mathrm{l})^\mathrm{u}$
+\end{lemmaenv}
+
+\begin{theoremenv}[Dedekind-MacNeille]
+    \quad
+    \newline
+    Let $(X,\le )$ be a partially ordered set.Let $\hat{X}:=\{A\in \wp (X)|(A^\mathrm{u})^\mathrm{l}=A\}$
+\newline
+(1) $(\hat{X},\subseteq)$ is order complete.
+\newline
+(2) $\forall A\in \wp(X),A^\mathrm{l}\in \hat{X}$
+\newline
+(3) $X\rightarrow \hat{X},x\mapsto \{x\}^\mathrm{l}$ is strictly increasing.
+\newline
+(4) $\forall A\in \hat{X}$ one has $A=\bigcup_{x\in A}\{x\}^\mathrm{l}=\bigcup_{x\in A}\hat{x}$.In particular, 
+$$A=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
+(5) Let $A\in \hat{X}$.If $A\mathrm{u}=\varnothing$,then $A=X$.If $A\mathrm{u}\not=\varnothing$,then 
+$$A=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}$$
+$$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
+\end{theoremenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) Consider $\Phi :\wp(X)\rightarrow\wp(X),A\mapsto(A^\mathrm{u})^\mathrm{l}$.By the lemma, $\Phi $  is increasing.Since $\wp(X)$ is complete,and $\hat{X}$ is the set of fixed point of $\Phi$. By Knaster-Tarski fixed point theorem,$(\hat{X},\subseteq)$ is order complete.
+    \newline
+    (2) Let $A\in \wp(X)$, we prove that $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$.Since $A\subseteq (A^\mathrm{l})^\mathrm{u}$(by the lemma),$((A^\mathrm{l})^\mathrm{u})^\mathrm{l}\subseteq A^\mathrm{l}$,by (2) of the lemma applied to $A^\mathrm{l}$.Hence $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$
+    \newline
+    (3) Let $x$ and $y$ be element of $X$ such that $x< y$ then $\{x\}^\mathrm{l}\subseteq\{y\}^\mathrm{l}$.In fact , if $z\in \{x\}^\mathrm{l},z\le x$ .Since $x<y,z<y$.Moreover,$y\in \{y\}^\mathrm{l}$,but $y\notin \{x\}^\mathrm{l}$ 
+    \newline
+    (4) $\forall x \in A,x\in \{x\}^\mathrm{l}=\hat{x}$. So $A\subseteq\bigcup_{x\in A}\hat{x}$.
+    Conversely,$\forall x\in A, x=\min (\{x\}^\mathrm{u})$.Hence $\{x\}^\mathrm{l}=(\{x\}^\mathrm{u})^\mathrm{l}\subseteq (A^\mathrm{u})^\mathrm{l}=A$.Therefore $\bigcup_{x\in A}\{x\}^\mathrm{l}\subseteq A$.Finally we get $\bigcup_{x\in A}\hat{x}=A\in \hat{X}$
+    \newline
+    (5) If $A^\mathrm{u}=\varnothing$ then $A=(A^\mathrm{u})^\mathrm{l}=\varnothing^\mathrm{l}=X$.We assume that $A^\mathrm{u}\not=\varnothing$.
+    $$\inf _{(\wp(X),\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\bigcap_{x\in A^\mathrm{u}}\{x\}^\mathrm{l}=(A^\mathrm{u})^\mathrm{l}=A$$
+    So it is equal to $\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A ^\mathrm{u}\}$
+\end{proofenv}
+\begin{remark}
+    $\forall A\in \hat{X},A=\{x\in X|\hat{x}\subseteq A\},A^\mathrm{u}=\{x\in X|A\subseteq \hat{x}\}$
+\end{remark}
+\begin{definitionenv}
+    $\hat{X}$ is called the Dedekind-MacNeille order completion of $(X,\le)$
+\end{definitionenv}
+\section{Recursive Construction}
+\begin{definitionenv}
+    Let $(X,\le)$ be a partially ordered set.Let $I\subseteq X$. If $\forall a\in I ,X_{<a}\subseteq I$, we say that $I$ is an initial segment of $X$. 
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be a totally ordered set, $I,J$ be initial segments of $X$. Either $I\subseteq J$ or $J\subseteq I$.
+\end{propositionenv}
+\begin{proofenv}
+    Assume that $I\backslash J\not=\varnothing$.take $x\in I\backslash J,\forall y\in J$, if $y\not\le x $,then $x<y$ and hence $x\in X_{<y}\subseteq J$,contradiction.Therefore $y\le x$.Then $y=x\in I$ or $y\in X_{<x}\subseteq I$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be a well-ordered set. $I$ be an initial segment of $X$, such that $I\not=X$.There is a unique $a\in X$ such that $I=X_{<a}$.
+\end{propositionenv}
+\begin{proofenv}
+    $X\backslash I\not=\varnothing$ Let $a=\min (X\backslash I)$.By definition,$I\subseteq X_{<a}$.In fact ,$\forall y\in I$ if $y\not< a $, then $a\le y$.
+    Since $I$ is an initial segment $a\in I$,contradiction.
+    \newline
+    Conversely,if $x\in X_{<a}$, then $x\notin X\backslash I$.Since otherwise $a\le x$.Therefore $x\in I$ .Uniqueness,$\forall a\in X,a=\min(X\backslash X_{<a})=\min(X_\leq a)$.Hence $X_{<a}=X_{<b}\Rightarrow a=b$
+\end{proofenv}
 \end{document}
