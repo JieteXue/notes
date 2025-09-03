@@ -1,0 +1,84 @@
+\documentclass{article}
+\title{QM HW1}
+\author{Jiete XUE}
+\date{2025/09/02}
+\usepackage{amsthm}
+\newtheoremstyle{t}{0pt}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{t}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pa}{\partial}
+\begin{document}
+
+\maketitle
+\begin{problem}[Canonical Transformation]
+(1)\begin{equation}
+   \dd \Phi(q,P,t)=p\dd q+Q\dd P+(H'-H)\dd t 
+\end{equation}
+\begin{equation}
+    \frac{\partial \Phi}{\partial q}=p,\frac{\partial \Phi}{\partial P}=Q,\frac{\partial \Phi}{\partial t}+H=H'.
+\end{equation}
+(2) We have proved:
+\begin{equation}
+    \frac{\partial S}{\partial q_t}=-p_t,\frac{\partial S}{\partial q_{t+\tau}}=p_{t+\tau},
+\end{equation}
+First, we can check:
+\begin{equation}
+    \frac{\partial \Psi}{\partial q_t}=-\frac{\partial S}{\partial q_t}=p_t
+\end{equation}
+Second ,by chain rule,we obtain
+\begin{equation}
+    \frac{\partial \Psi }{\partial p_{t+\tau}}=q_{t+\tau}+\left( p_{t+\tau}-\frac{\partial S}{\partial p_{t+\tau}}\right)\frac{\partial q_{t+\tau}}{\partial p_{t+\tau}}=q_{t+\tau}
+\end{equation}
+(3) \begin{equation}
+    \dd p_t\wedge\dd q_t=\dd p_{t+\tau}\wedge\dd q_{t+\tau},\frac{\partial(q_{t+\tau},p_{t+\tau})}{\partial(q_t,p_t)}=1
+\end{equation}
+\end{problem}
+\begin{problem}[Hamilton-Jacobi equation]
+    (1) \begin{equation}
+        \frac{\pa S}{\pa t}=\frac{\dd S}{\dd t}-\frac{\pa S}{\pa q}\dot{q}=L-p\dot{q}=-H
+    \end{equation}
+    (2) \begin{equation}
+        \beta=\frac{\pa S}{\pa \alpha}
+    \end{equation}
+    \begin{equation}
+        H'=H+\frac{\pa S}{\pa t}=0
+    \end{equation}
+\end{problem}
+\begin{problem}[Harmonic Oscillator]
+    (1) easy to check:
+    \begin{equation}
+        \frac{\pa S}{\pa x}=p,\frac{\pa S}{\pa t}=-E
+    \end{equation}
+    (2)\begin{equation}
+        \frac{\pa S}{\pa t_f}=-E
+    \end{equation}
+    \begin{equation}
+        \frac{\pa S}{\pa x_f}=p=\pm m \omega \sqrt{A^2-x^2}
+    \end{equation}
+    (3)
+    \begin{equation}
+        S=\pm m \omega \int \sqrt{\frac{2E}{m \omega^2}-x^2}\, \dd x-E t+\mathrm{const.}
+    \end{equation}
+    \begin{equation}
+        \frac{\pa S}{\pa E}=\pm \frac{\arcsin (\sqrt{\frac{m \omega^2}{2E}}x)}{\omega}-t
+    \end{equation}
+    New Hamitonian:
+    \begin{equation}
+        H'=H+\frac{\pa S}{\pa t}=0
+    \end{equation}
+    By Hamilton equation
+    \begin{equation}
+        \dot{\beta}=\frac{\pa H'}{\pa E}=0
+    \end{equation}
+    Therefore $\beta$ is a constant.It means the initial phase of  oscillator.
+\end{problem}
+\begin{problem}[Planck’s derivation of black body radiation]
+    Confused.
+\end{problem}
+\begin{problem}[Heisenberg’s magic]
+
+\end{problem}
+\end{document}
