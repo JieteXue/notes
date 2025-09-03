@@ -1341,7 +1341,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
    \newline
    (1) Suppose that $I$ has a supremum $b$ in $X,\forall x\in I,\interval[open right]{x}{b}\subseteq I$
    \newline
-   (2) Suppose that $I$ has a infimum $b$ in $X,\forall x\in I,\interval[open left]{x}{b}\subseteq I$
+   (2) Suppose that $I$ has a infimum $b$ in $X,\forall x\in I,\interval[open left]{b}{x}\subseteq I$
 \end{propositionenv}
 \begin{remark}
     totally ordered set condition is used to prove (2)
@@ -1447,7 +1447,7 @@ Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1},
     Let $m:=\inf S_A,\forall a\in A,a$ is a lower bound of $S_A$.So $a\le m$.So $m\in A^\mathrm{u},\sup A\le m$.For any $y\in S_A$,one has $m\le y$.Since $f$ is increasing, $f(m)\le f(y)\le y$ .So $f(m)$ is a lower bound of $S_A$, which leads to $f(m)\le m$ .That means $m\in S_A$.Hence $m=\min S_A$.For any $x\in A,x=f(x)\le f(m)$.So $f(m)\in A^\mathrm{u}$.Moreover ,since $f(m)\le m ,f(f(m))\le f(m)$.So $f(m)$ is an element of $S_A$, which leads to $m\le f(m)$.Hence $m\in F$.Therefore, $m=\sup_{(F,\le)}A$
 \end{proofenv}
 \begin{definitionenv}
-    Let $X,Y$ be sets.If there exists a bijection from $X$ to $Y$, we say that $X$ and $Y$ are equipotent.
+    Let $X,Y$ be sets.If there exists a bijection from $X$ to $Y$, we say that $X$ and $Y$ are \textbf{equipotent}.
 \end{definitionenv}
 
 
@@ -1529,7 +1529,7 @@ is a bijection.
 \newline
 (4) $\forall A\in \hat{X}$ one has $A=\bigcup_{x\in A}\{x\}^\mathrm{l}=\bigcup_{x\in A}\hat{x}$.In particular, 
 $$A=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
-(5) Let $A\in \hat{X}$.If $A\mathrm{u}=\varnothing$,then $A=X$.If $A\mathrm{u}\not=\varnothing$,then 
+(5) Let $A\in \hat{X}$.If $A\mathrm{u}=\varnothing$,then $A=X$.If $A^\mathrm{u}\not=\varnothing$,then 
 $$A=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}$$
 $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
 \end{theoremenv}
@@ -1573,5 +1573,179 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     Since $I$ is an initial segment $a\in I$,contradiction.
     \newline
     Conversely,if $x\in X_{<a}$, then $x\notin X\backslash I$.Since otherwise $a\le x$.Therefore $x\in I$ .Uniqueness,$\forall a\in X,a=\min(X\backslash X_{<a})=\min(X_\leq a)$.Hence $X_{<a}=X_{<b}\Rightarrow a=b$
+\end{proofenv}
+\chapter{Groups}
+
+\section{Composition Law}
+\begin{definitionenv}
+    Let $X$ be a set.
+    \begin{enumerate}[ (i)]
+        \item A \textbf{compositon law} on $X$ is a mapping
+        $$*:X\times X\rightarrow X,(x,y)\mapsto x * y$$
+        \item Let $Y\subseteq X$ be a set , $Y$ is \textbf{close under } $*$ if $\forall x,y \in Y, x*y\in Y$
+        \item $*$ is \textbf{communitative} if $\forall (x,y)\in X^2,x*y=y*x$
+        \item $*$ is \textbf{associative} if $\forall (x,y,z)\in X^3,(x*y)*z=x*(y*z)$.
+        If $*$ is associative, then we can define
+    $$x_1*x_2*\dots *x_n=(x_1*x_2*\dots *x_{n-1})*x_n$$
+    \item Let $G$ be a set , $*$ is a composition law on $G$. If $*$ is associative,then we say $(G,*)$ is a \textbf{semigroup}
+    \end{enumerate}
+    
+    
+
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+    \newline
+    (1) Let $(X,*)$ be a composition law .We define $(X,\hat{*})$ satisfies:
+    $$\hat{*}:X\times X\rightarrow X, (x,y)\mapsto y*x$$
+    By definition,$x=\hat{x}\Leftrightarrow *$ is communitative.If $*$ is associative, then so does $\hat{*}$.
+    Let $\mathfrak{M} _X$ the set of all mapping from $X$ to $X$.On $\mathfrak{M} _X$,the composition of mapping defines a composition law:
+    $$\begin{matrix}
+\mathfrak{M} _X\times \mathfrak{M} _X\rightarrow\mathfrak{M} _X \\
+(f,g)\mapsto f\circ g
+
+\end{matrix}$$
+It is associative but not communitative:
+\newline
+Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\circ f_a=f_b$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(X,*)$ be an associative composition law on a set $X$.If $n\in \NN_>0,x_1,\dots,x_n\in X$, then , $\forall 1\le i\le n-1$, we have 
+    $$x_1*\dots *x_n=x_1*\dots *(x_i*x_{i+1})*\dots *x_n$$
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    $i=1$: By definition,$x_1*\dots *x_n=(x_1*x_2)*\dots *x_n$.We suppose $i\geq 2 $, by the associativity of $*$, we have
+    $$x_1*\dots *x_{i+1}=(x_1*\dots *x_{i-1})*x_i*x_{i+1}=x_1*\dots *x_{i-1}*(x_i*x_{i+1})$$ 
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G,*)$ be a set equipped with a composition law , $g\in G$
+    \newline
+    If $\forall (x,y)\in G^2,g*x=g*y\Rightarrow x=y$,we say that $g$ is \textbf{left cancellative}.
+    \newline
+    If $\forall (x,y)\in G^2,x*g=y*g\Rightarrow x=y$,we say that $g$ is \textbf{right cancellative}.
+    \newline
+    If $*$ is communitative, left cancellative $\Leftrightarrow$ right cancellative.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+    \newline
+    In $(\NN,+)$, any element is cancellative.
+    \newline
+    In $(\NN,*)$, any positive natural number is cancellative.
+
+\end{exampleenv}
+\section{Neutral Element \& Invertible Element}
+\begin{definitionenv}
+    $(X,*),e\in X$ is called a \textbf{neutral element} if 
+    $$e*x=x=x*e$$
+\end{definitionenv}
+\begin{propositionenv}
+    Assume $(X,*)$ admits a neutral element, then its neutral element is unique.
+\end{propositionenv}
+\begin{proofenv}
+    Let $e,e'\in X$ be neutral elements.Then 
+    $$e=e*e'=e'$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G,*)$ be a semigroup. If $(G,*)$ has a neutral element , then we say $(G,*)$ is \textbf{monoid}.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+    \newline
+    (1) $X$ is a set, $(\mathfrak{M} _x,\circ)$ is a monoid with hte neutral element $\mathrm{Id}_X$
+    \newline
+    (2) $d\in \NN_>0$,$(d\NN,+)$ with neutral $0$,$(\NN,\times)$ with neutral $1$
+\end{exampleenv}
+\begin{definitionenv}
+    Let $(G,*)$ be a monoid with the neutral element $e$. $\forall (x,y)\in G^2$, if $x*y=e$ then we say $x$ is a \textbf{left inverse} of $y$,and $y$ is the \textbf{right inverse} of $x$.
+\end{definitionenv}
+\begin{remark}
+    We say $x$ is \textbf{left invertible} if $x$ has a left inverse.(resp. right invertible)
+\end{remark}
+\begin{remark}
+    $x$ is left invertible in $(G,*)\Leftrightarrow x $ is right invertible in $(G,\hat{*})$ 
+\end{remark}
+\begin{propositionenv}
+    Let $(G,*)$ be a monoid, $g\in G$ .If $g$ is both left invertible and right invertible, then $g$ has a unique left inverse and a unique right inverse,which actually coincide.
+\end{propositionenv}
+\begin{proofenv}
+    Let $x$ (resp. $y$) be a left (resp. right) inverse of $g$.Then , by the associativity law , we have 
+    $$x=x*e=x*(g*y)=(x*g)*y=y$$
+    Hence any left inverse is equal to $y$, hence it is unique.Similarly for the right.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G,*)$ be a monoid. If $g\in G$ is both left invertible and right invertible, then we say $g$ is \textbf{invertible}.
+    If $g$ is invertible, the left inverse is equal to right inverse, hence we called it the inverse of $g$, denote by $\iota(g)$
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(G,*)$ be a monoid, $g\in G$.If $g$ is right (resp. left) invertible, then it is right (resp. left) cancellative.
+\end{propositionenv}
+\begin{proofenv}
+    Let $h$ be the right inverse of $g$.If $x*g=y*g$, then 
+    $$x=x*e=x*(g*h)=(x*g)*h=(y*g)*h=y*(g*h)=y*e=y$$
+\end{proofenv}
+\begin{notationenv}
+    For a monoid $(G,*)$.
+    \newline
+    If $*$ is written multiplicatively,we usually denote $x*y$ as $x\cdot y$ or $xy$.If no ambiguity,neutral element as $1$,inverse of $x$ as $x^{-1}$.
+    \newline
+    If $*$ is written additively, $x*y$ as $x+y$,neutral element as $0$, inverse of $x$ as $-x$
+\end{notationenv}
+\begin{propositionenv}
+    Let $(G,*)$ be a monoid.
+    \newline
+    (1) If $x\in G$ is an invertible element , then $\iota (x)$ is also invertible, and $\iota(\iota(x))=x$.
+    \newline
+    (2) If $x,y\in G$ are invertible, so does $x*y$ and $\iota(x*y)=\iota(y)*\iota(x)$
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    (1) $$x*\iota(x)=\iota(x)*x=e$$
+    (2) $$(xy)(\iota(y)\iota(x))=xy\iota(y)\iota(x)=xe\iota(x)=x=\iota(x)=e$$
+    $$(\iota(y)\iota(x))(xy)=\iota(y)\iota(x)xy=\iota(y)ey=\iota(y)y=e$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G,*)$ be a monoid.If any element of $G$ is invertible, then we say $G$ with the composition law is a \textbf{group}.A communitative group is also called \textbf{abelian group}.
+\end{definitionenv}
+\begin{box2}
+   Now we have : 
+   \newline
+   {\color{mlv} (binary operations on $X$ )$\supseteq$(semigroup)$\supseteq$(monoids)$\supseteq$(group)$\supseteq$(abelian group)}
+
+\end{box2}
+\begin{exampleenv}
+    \quad
+    \newline
+    (1) $(\ZZ,+)$ is an abelian group.
+    \newline
+    (2) Let $X$ be a set $\mathfrak{S}_X$ the set of bijections from $X$ to $X$.$(\mathfrak{S}_X ,\circ)$ is a monoid with the neutral element $\mathrm{Id}_X$.Since $f\in \mathfrak{S}_X $ is bijective, hence there exists a unique inverse $f^{-1}\in \mathfrak{S} _X$.So $(\mathfrak{S} _x,\circ)$ is a group (but not abelian in general),called the symmetric group of $X$.
+    \newline
+    Let $\mathfrak{S} _n$ be the symmetric group of the set $\NN_{\le n}$, its element $f$ can be denoted as a table:
+    $$\begin{pmatrix}
+  1&2  &\dots &n \\
+  f(1)& f(2) &\dots   &f(n)
+\end{pmatrix}$$
+\end{exampleenv}
+\section{Substructure}
+\begin{definitionenv}
+    Let $(G,*)$ be a semigroup, $H$ be a subset of $G$.If $H$ is close under $*$ ,then we say $H$ is a \textbf{subsemigroup} of $(G,*)$.Note that $H$ equipped with the restriction of $*$ forms a semigroup.
+    Let $(G,*)$ be a monoid.If a sub-semigroup $H$ of $(G,*)$ contains the neutral element of $(G,*)$, then we say $H$ is a submonoid of $(G,*)$.
+\end{definitionenv}
+\begin{exampleenv}
+   \quad
+   \newline
+   (1) Let $d\in \NN^*$, then $d\NN$ forms a submonoid of $(\NN,+)$.
+   \newline
+   $d\NN$ is a subsemigroup of $(\NN,\cdot)$
+    \newline
+    (2) $\mathfrak{S} _X$ is submonoid of $(\mathfrak{M} _X,\circ)$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(M,*)$ be a monoid, $H\subseteq M$ be a non-empty subset. Suppose that any element of $H$ is invertible in $M$ , and ($\forall x,y \in H,(x,y)\mapsto x*\iota(y)$),if $\forall x,y\in H, x*\iota(y)\in H$, then $H$ is a submonoid of $M$,Moreover, $H$ equipped with the restriction of $*$ forms a group. 
+\end{propositionenv}
+\begin{proofenv}
+    Let $e$ be the neutral element of $(M,*)$.Let $a\in H$, then $e=a\circ\iota(a)\in H$.For any $y\in H$, one has $\iota(y)=e*\iota(y)\in H$.For any $(x,y)\in H^2$,$x*y=x*\iota(\iota(y))\in H$ Hence $H$ is closed under $*$ and it contains the neutral element .Also, $\forall y\in H, \iota(y)\in H$, hence $H$ is group. 
 \end{proofenv}
 \end{document}
