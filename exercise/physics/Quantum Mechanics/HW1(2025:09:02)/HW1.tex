@@ -1,7 +1,7 @@
 \documentclass{article}
 \title{QM HW1}
 \author{Jiete XUE}
-\date{2025/09/02}
+\date{2025/09/04}
 \usepackage{amsthm}
 \newtheoremstyle{t}{0pt}{}{}{}{\bfseries}{}{\newline}{}
 \theoremstyle{t}
@@ -76,9 +76,64 @@ Second ,by chain rule,we obtain
     Therefore $\beta$ is a constant.It means the initial phase of  oscillator.
 \end{problem}
 \begin{problem}[Planck’s derivation of black body radiation]
-    Confused.
+    (1) $\omega \rightarrow +\infty$:
+    \begin{equation}
+        \ln u=-\frac{\hbar \omega}{k_B T}+\mathrm{const.}
+    \end{equation}
+    \begin{equation}
+        \frac{\pa (\ln u)}{\pa\left(\frac{1}{T}\right)}=-\frac{\hbar \omega}{k_B}
+    \end{equation}
+    \qquad $\omega\rightarrow 0$:
+    \begin{equation}
+        \frac{1}{u}\frac{\pa u}{\pa\left(\frac{1}{T}\right)}=-T=-\frac{u}{k_B}
+    \end{equation}
+    We assume that 
+    \begin{equation}
+        \frac{\pa(\ln u)}{\pa \left(\frac{1}{T}\right)}=-\frac{\hbar \omega +u}{k_B}
+    \end{equation}
+    That leads to 
+    \begin{equation}
+        \frac{u}{\hbar \omega +u}=Ce^{-\frac{\hbar \omega}{k_B T}}
+    \end{equation}
+    By the expression at low frequency,we can deduce that $C=1$.
+    \begin{equation}
+        u=\frac{\hbar \omega}{e^{\frac{\hbar \omega}{k_B T}}-1}
+    \end{equation}
 \end{problem}
 \begin{problem}[Heisenberg’s magic]
-
+    Quantization condition:
+    \begin{equation}
+        \oint p\dd q=\int_{0}^{T}m\dot{x}^2\dd t=nh
+    \end{equation}
+    \begin{equation}
+        x_{n\leftarrow m}(t)=x_{n \leftarrow m}e^{i \omega_{n\leftarrow m}t}
+    \end{equation}
+    \begin{equation}
+        \dot{x}^2_{n\leftarrow m }(t)=\sum_{k=-\infty}^{+\infty}x_{n \leftarrow k}x_{k \leftarrow m}\omega_{n\leftarrow k}\omega_{k\leftarrow m}e^{i \omega_{n\leftarrow m}t}
+    \end{equation}
+    Let $m=n+l$, we obtain f-sum rule
+    \begin{equation}
+        \sum_{l=0}^{+\infty} \left( \omega_{n \to n + l} \left| x_{n + l, n} \right|^2 - \omega_{n-l \to n} \left| x_{n,n-l} \right|^2 \right) = \frac{\hbar}{2m} 
+    \end{equation}
+    In classic mechanics ,we have
+    \begin{equation}
+        \ddot{x}+\omega_0^2 x=0
+    \end{equation}
+    Plug in $x_{n\pm l\leftarrow n}(t)=x_{n\pm l\leftarrow n}e^{i \omega_{n\pm l\leftarrow n}t}$
+    \begin{equation}
+        (\omega_0^2-\omega_{n\pm l\leftarrow n}^2)x_{n\pm l\leftarrow n}=0
+    \end{equation}
+    Only when $l=\pm 1,\omega_0^2-\omega_{n\pm l\leftarrow n}^2=0,x_{n\pm l\leftarrow n}\not=0$
+    \begin{equation}
+        \frac{\hbar}{2m} = \omega_0 \left( |x_{n+1,n}|^2 - |x_{n,n-1}|^2 \right)
+    \end{equation}
+    There must exists a lower bound ,or $\left|x_{n,n-1}\right|^2\ge 0$ can not hold.Thus,
+    \begin{equation}
+        x_{n+1,n}=\sqrt{\frac{\hbar}{2m\omega_0}(n+1)}
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        (\dot{x})_{nn}^{2} = (n + 1/2) \frac{\hbar \omega_0}{m}
+    \end{equation}
 \end{problem}
 \end{document}
