@@ -1384,7 +1384,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     $(X,\le)$ is a well-ordered set,$Y\subseteq X$, then $(Y,\le)$ is a well-ordered set. 
 \end{propositionenv}
 \begin{theoremenv}
-    Let $(X,\le)$ be a well-ordered ste .Let $P(\cdot)$ be a condition on $X$. If 
+    Let $(X,\le)$ be a well-ordered set .Let $P(\cdot)$ be a condition on $X$. If 
     $$\forall x\in X,(\forall y\in X_{<x} ,P(y))\Rightarrow P(x)$$
     then $\forall x\in X,P(x)$
 \end{theoremenv}
@@ -1693,7 +1693,7 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
     \newline
     If $*$ is written additively, $x*y$ as $x+y$,neutral element as $0$, inverse of $x$ as $-x$
 \end{notationenv}
-\begin{propositionenv}
+\begin{propositionenv}\label{proposition5.2.4}
     Let $(G,*)$ be a monoid.
     \newline
     (1) If $x\in G$ is an invertible element , then $\iota (x)$ is also invertible, and $\iota(\iota(x))=x$.
@@ -1703,7 +1703,7 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
 \begin{proofenv}
     \quad\newline
     (1) $$x*\iota(x)=\iota(x)*x=e$$
-    (2) $$(xy)(\iota(y)\iota(x))=xy\iota(y)\iota(x)=xe\iota(x)=x=\iota(x)=e$$
+    (2) $$(xy)(\iota(y)\iota(x))=xy\iota(y)\iota(x)=xe\iota(x)=x\iota(x)=e$$
     $$(\iota(y)\iota(x))(xy)=\iota(y)\iota(x)xy=\iota(y)ey=\iota(y)y=e$$
 \end{proofenv}
 \begin{definitionenv}
@@ -1731,7 +1731,7 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
 \section{Substructure}
 \begin{definitionenv}
     Let $(G,*)$ be a semigroup, $H$ be a subset of $G$.If $H$ is close under $*$ ,then we say $H$ is a \textbf{subsemigroup} of $(G,*)$.Note that $H$ equipped with the restriction of $*$ forms a semigroup.
-    Let $(G,*)$ be a monoid.If a sub-semigroup $H$ of $(G,*)$ contains the neutral element of $(G,*)$, then we say $H$ is a submonoid of $(G,*)$.
+    Let $(G,*)$ be a monoid.If a sub-semigroup $H$ of $(G,*)$ contains the neutral element of $(G,*)$, then we say $H$ is a \textbf{submonoid} of $(G,*)$.
 \end{definitionenv}
 \begin{exampleenv}
    \quad
@@ -1742,10 +1742,119 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
     \newline
     (2) $\mathfrak{S} _X$ is submonoid of $(\mathfrak{M} _X,\circ)$
 \end{exampleenv}
-\begin{propositionenv}
-    Let $(M,*)$ be a monoid, $H\subseteq M$ be a non-empty subset. Suppose that any element of $H$ is invertible in $M$ , and ($\forall x,y \in H,(x,y)\mapsto x*\iota(y)$),if $\forall x,y\in H, x*\iota(y)\in H$, then $H$ is a submonoid of $M$,Moreover, $H$ equipped with the restriction of $*$ forms a group. 
+\begin{propositionenv}\label{proposition5.3.1}
+    Let $(M,*)$ be a monoid, $H\subseteq M$ be a non-empty subset. Suppose that any element of $H$ is invertible in $M$ , and ($\forall x,y \in H,(x,y)\mapsto x*\iota(y)$),if $\forall x,y\in H, x*\iota(y)\in H$, then $H$ is a submonoid of $M$,Moreover, $H$ equipped with the restriction of $*$ forms a group $(H,*|_H)$. 
 \end{propositionenv}
 \begin{proofenv}
     Let $e$ be the neutral element of $(M,*)$.Let $a\in H$, then $e=a\circ\iota(a)\in H$.For any $y\in H$, one has $\iota(y)=e*\iota(y)\in H$.For any $(x,y)\in H^2$,$x*y=x*\iota(\iota(y))\in H$ Hence $H$ is closed under $*$ and it contains the neutral element .Also, $\forall y\in H, \iota(y)\in H$, hence $H$ is group. 
 \end{proofenv}
+\begin{corollaryenv}
+    Let $(M,*)$ be a monoid, $G$ be the set of all invertible element in $M$ .Then $G$ is a submonoid.Moreover, $G$ equipped with the restriction of $*$ forms a group.
+\end{corollaryenv}
+\begin{proofenv}
+    By definition, any element in $G$ is invertible in $M$. By Proposition \ref{proposition5.2.4} ,$\forall x,y\in G, x*\iota(y)\in G$,Therefore, Proposition \ref{proposition5.3.1} implies the claim.
+\end{proofenv}
+\begin{notationenv}
+    Let $M$ be a monoid , we often use $M^\times$ to denote the submonoid of $M$ consisting of all invertible element if the composition law on $M$ is not written additively.
+\end{notationenv}
+\begin{exampleenv}
+    Let $X$ be a set ,$\mathfrak{M} _X^X=\mathfrak{S} _X$
+\end{exampleenv}
+\begin{definitionenv}
+    Let $(G,*)$ be a group , $H\subseteq G$ be a submonoid.If $\forall x\in H$, one has $\iota(x)\in H$, then we say $H$ is \textbf{subgroup} of $G$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(M,*)$ be a monoid, $\varnothing \not=H\subseteq M^\times$ be a subset such that $\forall x,y \in H$
+    $$x*\iota(y)\in H$$
+    Then $H$ is a subgroup of $M^\times$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $e$ be the neutral element of $(M,*)$.By Proposition\ref{proposition5.3.1}, we obtain that $H$ forms a submonoid of $M^\times$.Moreover, $\forall x \in H$, one has $\iota(x)=e*\iota(x)\in H$.So $H$ is a subgroup of $M^\times$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(G,*)$ be a semigroup (resp. monoid,group), $(H_i)_{i\in I}$ be a family of subsemigroups (resp. submonoids,subgroups),where $I$ is a non-empty set. Then 
+    $$H:=\bigcap_{i\in I}H_i$$
+    is a subsemigroup (resp.submonoid,subgroup) of $G$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    For semigroup case,let $x,y\in H$ then $x,y\in H_i,\forall i \in I$.Then $x*y\in H_i,\forall i \in I $,thus 
+    $$x*y\in \cap_{i\in I}H_i=H$$
+    For monoid case,the neutral element $e$ of $G$ satisfies
+    $$e \in H_i,\forall i \in I\Rightarrow e\in \bigcap_{i\in I}H_i=H$$
+    For group case,to check $x*\iota(y)\in H$ like above.
+\end{proofenv}
+\section{Homomophism}
+\begin{definitionenv}
+    Let $(M,*)$ and $(N,\star)$ be  semigroups, $f:M\rightarrow N$ be a mapping of sets.
+    \newline
+    (1) $f$ is called a \textbf{semigroup homomophism} from $(M,*)$ to $(N,\star)$ if
+    $$f(a*b)=f(a)\star f(b),\forall a,b\in M$$
+    (2) If moreover, $(M,*)$ and $(N,\star)$ are both monoids with neutral elements $e_M,e_N$ ,$f$ is called a \textbf{monoid homomophism} if 
+     $$f(a*b)=f(a)\star f(b),\forall a,b\in M$$ 
+     $$f(e_M)=e_N$$
+    (3) If moreover,$(M,*)$ and $(N,\star)$ are both groups, $f$ is called a \textbf{group homomophism} if 
+    $$f(a*b)=f(a)\star f(b),\forall a,b\in M$$
+    $$f(e_M)=e_N$$
+    $$f(\iota(a))=\iota(f(a)),\forall a\in M$$
+    (They are not independent)
+\end{definitionenv}
+\begin{propositionenv}
+    \quad 
+    \newline
+    Let $f:(M,*)\rightarrow (N,\star)$ be a semigroup (resp. monoid,group) homomophism.If $M_1$ is a subsemigroup (resp. submonoid,subgroup) of $M$, then the image $f(M_1)$ is a subsemigroup (resp. submonoid,subgroup).
+\end{propositionenv}
+\begin{proofenv}
+    The semigroup case.Let $x,y\in f(M_1)$, we may write $x=f(a),y=f(b),a,b\in M_1$
+    $$x\star y=f(a)\star f(b)=f(a*b)\in f(M_1)$$
+    The monoid case.We denote $e_M,e_N$ be the neutral elements of $M,N$
+    $$e_M\in M_1,e_N=f(e_M)\in f(M_1)$$
+    The group case.We have to check that $x,y\in f(M_1),x\star \iota(y)\in f(M_1)$
+    $$\forall a\in M, f(a)\star f(\iota(a))=f(a*\iota(a))=f(e_M)=e_N$$
+    We may write $x=f(a),y=f(b),a,b\in M_1$
+    $$x\star \iota(y)=f(a)\star\iota(f(b))=f(a)\star f(\iota(b))=f(a*\iota(b))\in f(M_1)$$
+\end{proofenv}
+\begin{remark}
+    \quad
+    \newline
+    (1) The semigroup homomophism
+    $$f:(\NN,\times)\rightarrow (\NN,\times),n\mapsto 0$$
+    of two monoids,but is not a monoid homomophism,and its image is $\{0\}$, which is not a submonoid of $(\NN,\times)$.
+    \newline
+    (2) Let $M$ be a semigroup (resp. monoid,group) and let $N$ be a subsemigroup (resp. submonoid,subgroup).Then the inclusion mapping $\jmath :N\rightarrow M$ is a semigroup (resp. monoid, group) homomophism.
+\end{remark}
+\begin{propositionenv}\label{propositions5.4.2}
+    Let $(X,*)\overset{f}{\rightarrow} (Y,\star)\overset{g}{\rightarrow}(Z,\diamond ) $ be semigroup (resp. monoid, group) homomophisms.Then so does the composite mapping $g\circ f$.
+\end{propositionenv}
+\begin{proofenv}
+    The semigroup case.
+        \begin{align*}
+            (g\circ f)(x_1*x_2) & = g(f(x_1*x_2))  = g(f(x_1)\star f(x_2)) \\
+            & = g(f(x_1))\diamond g(f(x_2)),\forall x_1,x_2\in X
+        \end{align*}
+    The monoid case :
+    $$(g\circ f)(e_X)=g(f(e_X))=g(e_Y)=e_Z$$
+    The group case:
+    $$(g\circ f)(\iota(x))=g(f(\iota(x)))=g(\iota(f(x)))=\iota((g\circ f)(x))$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $f:(X,*)\rightarrow (Y,\star)$ be a semigroup (resp.monoid, group) homomophism between semigroups (resp.monoids groups).If $f$ is bijective, then its inverse mapping $f^{-1}:Y\rightarrow X$ is also a semigroup homomophism (resp.monoid,group) 
+\end{propositionenv}
+\begin{proofenv}
+    The semigroup case: Let $y_1,y_2\in Y$ and let $x_i=f^{-1}(y_i),\,i=1,2$.Then 
+    $$y_1\star y_2=f(x_1)\star f(x_2)=f(x_1*x_2)$$
+    $$f^{-1}(y_1\star y_2)=x_1*x_2=f^{-1}(y_1)*f^{-1}(y_2)$$
+    The monoid case:
+    $$f(e_X)=e_Y\Rightarrow f^{-1}(e_Y)=e_X$$
+    The group case:
+    $$f^{-1}(\iota(y))\overset{y=f(x)}{=}f^{-1}(\iota(f(x)))=(f^{-1}\circ f)(\iota(x))=\iota(f^{-1}(y))$$
+\end{proofenv}
+\begin{definitionenv}
+    A semigroup (resp. monoid, group) homomophism $f:X\rightarrow Y$ is called a \textbf{semigroup (resp.monoid,group) isomonophism} if there exists a semigroup (resp.monoid,group) homomophism $g:Y\rightarrow X$, such that 
+    $$g\circ f=\mathrm{Id}_X,=f\circ g=\mathrm{Id}_Y$$
+\end{definitionenv}
+By Proposition \ref{propositions5.4.2}, a semigroup (resp.monoid group) homomophism is a semigroup (resp.monoid ,group) isomonophism if and only if $f$ is a bijection.
+\begin{propositionenv}
+    Let $(G,*)$ be a group.The inversion mapping $\imath :(G,*)\rightarrow(G,\hat{*})$ is a group isomonophism.
+\end{propositionenv}
 \end{document}
