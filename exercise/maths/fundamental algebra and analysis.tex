@@ -1,4 +1,13 @@
 \documentclass{article}
+\usepackage{interval}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlist[enumerate,2]{label=(\arabic*), leftmargin=*}    % 二级：(1) (2) (3)
+\setlist[enumerate,3]{label=(\alph*), leftmargin=*}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
 \begin{document}
 \section{Basic Logic}
 \begin{enumerate}
@@ -24,10 +33,106 @@ F & F &  F &   T&   T&   T\\ \hline
 (3)$P\Leftarrow Q$
 \item We denote that "bear is smart" as $P$,"bear is lazy" as $Q$, then "bear is not smart" can be denoted as $\neg P$. We have $(P\wedge Q\vee( \neg P))\wedge P$,it's equivalent to $P\wedge Q$,then $Q$ must be true .
 \setcounter{enumi}{5}
-\item We denote "At door 1,2,3" as $P,Q,R$ ,one of them is true ,while we can get another infomation:one of $\neg P,\neg Q,Q$ is true. Due to "not $Q$ then $\neg Q$",we can infer that $\neg P$ is false.(We can confirm while $Q=R=$false,it can satisifies the requirements of the question)
+\item We denote "At door 1,2,3" as $P,Q,R$ ,one of them is true ,while we can get another information:one of $\neg P,\neg Q,Q$ is true. Due to "not $Q$ then $\neg Q$",we can infer that $\neg P$ is false.(We can confirm while $Q=R=$false,it can satisfies the requirements of the question)
 \newline so the treasure is behind the Door 1! 
 \item We denote $\dots$can leads to the capital as $P,Q,R$, then $P\wedge (R\Rightarrow Q)=(\neg P)\wedge (\neg R)=P\wedge(\neg Q)=$False. Combine the first and the third formula $P\wedge(\neg R\vee Q\vee \neg Q)=P=$False, then from the second $\neg R=$False. We are not sure about the stone path ,but we are sure that the dirt path can lead to capital.
 \item Denote "$a+1==0$" as $P$ ,$b+1==0$ as $Q$,then $ab +a+b\not=-1=(a+1)(b+1)==0=\neg P\wedge\neg Q$
-\item (1)Use the proof by coontrodiction.Not losing generaity ,we assume that $a=1$,
+\item (1)Use the proof by contradiction.Not losing generality ,we assume that $a=1$,
+\end{enumerate}
+\setcounter{section}{3}
+\section{Ordering}
+\begin{enumerate}
+    \item $\frac{7}{13}<\frac{6}{11}$
+    \item If $ab<0,a^2+b^2>0>ab$.If $ab\ge 0,a^2+b^2\ge 2ab\ge ab $.Thus, $a^2+b^2\ge ab$.
+    \item Let $c=1000000001$,then $a=(c+1)^2,b=(c-7)(c+7),a-b=2c+50>0$.So $a>b$.
+    \item $\frac{2+\sqrt{3}}{2-\sqrt{3}}=7+4\sqrt{3}$
+    \item 
+        \begin{enumerate}
+            \item $x\in \interval[open]{-8}{2}$
+            \item $x\in \interval[open]{\frac{2}{3}}{6}$
+            \item $x\in \interval[open]{-2}{4}$
+        \end{enumerate}
+    \item $x\in \interval{-2}{\frac{3+\sqrt{13}}{2}}$
+    \item \begin{enumerate}
+        \item $0$.
+        \item $-1$.
+        \item No.
+    \end{enumerate}
+    \item $$A^\mathrm{u}=\{x\in \mathbb{R} |\sqrt{2}\le x\},A^\mathrm{l}=\{x\in \mathbb{R}|-\sqrt{2}\ge x\}$$
+       $$\sup A=\sqrt{2},\inf A=-\sqrt{2}$$
+       $$B^\mathrm{u}=\{x\in \mathbb{R}|x\ge 1\},B^\mathrm{l}=\{x\in \mathbb{R}|x\le 0\}$$ 
+       $$\sup B=1,\inf B=0$$
+    \item $2$.
+    \item  Cauchy's inequality.$n^2$
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item reflexive:$A\subseteq A$
+            \item transitive $A\subseteq B\wedge B\subseteq C\Rightarrow A\subseteq C$
+            \item antisymmetric $A\subseteq B\wedge B\subseteq A\Rightarrow A=B$
+        \end{enumerate}
+        \item Denote $\bigcup_{i\in I}A_i$ as $A$
+        \newline$\forall i\in I,A_i\subseteq A$,so $A\in (A_i)_{i\in I}^\mathrm{u}$.$\forall B\in  (A_i)_{i\in I}^\mathrm{u},\forall i \in I,A_i\subseteq B$, so $A\subseteq B,A=\min  (A_i)_{i\in I}^\mathrm{u},\sup  (A_i)_{i\in I}=A$.Similarly,$\inf  (A_i)_{i\in I}=\cap_{i\in I}A_i$
+    \end{enumerate}
+    \item The following is about induction,we skip it.
+    \setcounter{enumi}{21}
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item reflexive:$\forall n\in \mathbb{N},n|n$
+            \item transitive:If $a|b,b|c$, where $(a,b,c)\in \mathbb{N}^3$,then $\exists (m,n)\in \mathbb{N}^2$ such that $b=am,c=nb$, so $c=(nm)a$, which leads to $a|c$.
+            \item antisymmetric:Let $a=mb,b=na,(m,n)\in \mathbb{N}^2$
+            \newline
+            Then $1=mn,m=n=1$.Hence $a=b$
+        \end{enumerate}
+        Therefore $(\mathbb{N},|)$ is a partially ordered set.
+        \item Obvious.
+        \item $\forall n\in \mathbb{N},1|n$.$1$ is the least element.
+        \item $\forall n \in \mathbb{N},n|0$.$0$ is the greatest element.
+        \item If there exists a $n\in \mathbb{N},n\not=0$, such that $\forall a\in A,a|n$, then $a\le n $.That contradicts to $A$ is infinite.Thus $n$ can only be $0$.$\sup _{(\mathbb{N},|)}A=0$
+        \item \begin{enumerate}
+            \item $\forall a\in A, a|n$,where,$\displaystyle n=\prod_{x\in A}x$,so $n\in M(A)$.
+            \item Suppose $\exists n\in M(A),n_0\nmid n$ we can write $n=dn_0+r$,where $d,r\in \NN,0<r<n_0$.Claim $r\in M(A)$:Take $x\in A$, since $n,n_0\in M(A),\exists s,s_0\in \NN,xs=n,xs_0=n_0$,then $xs=dxs_0+r,x|r$,so$r\in M(A)$.That contradicts to the fact that $n_0$ is the least number in $M(A)$.
+            \item $\sup A=n_0$
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item Let $x=\sum_{i=1}^{k}a_in_i,y=\sum_{j=1}^{t}b_jm_j,\sum_{i=1}^{k}a_in_i+\sum_{j=1}^{t}b_jm_j\in A\mathbb{Z}$.
+            \item $\sum_{i=1}^{k}a_i (yn_i)\in A\mathbb{Z}$
+            \item $\forall a\in A$, let $k=1,a_1=a,n_1=1$,we have $a\in A\mathbb{Z}$.$A\cap (\mathbb{N}\backslash\{0\})\not=\varnothing$,hence,$(A\mathbb{Z})\cap(\mathbb{N}\backslash\{0\})\not=\varnothing$.
+            \item $\{d\}\subseteq A\ZZ$.By (b), we have $d\ZZ\subseteq A\ZZ$.If $A\ZZ\nsubseteq d\ZZ$,then $\exists x=\sum a_ix_i\notin d\ZZ$,i.e. $d\nmid x$.Write $x=dm+r$,where $m,n\in \NN,0<r<d$.$r=x-dm=\sum a_ix_i+(-m)d\in A\ZZ$. But that's impossible.Hence $A\ZZ\subseteq d\ZZ,A\ZZ=d\ZZ$.
+            \item By (d),$A\ZZ= d\ZZ$,by (c),$A\subseteq A\ZZ\Rightarrow A\subseteq d\ZZ$,i.e. $d|a,\forall a\in A\Rightarrow d$ is a lower bound of $A$.Take another lower bound $d'$ of $A$.$d'|a,\forall a \in A\Rightarrow d|y,\forall y\in A\ZZ=d\ZZ\Rightarrow d'|d\Rightarrow d$ is the greatest lower bound of $A$.i.e.$\inf A=d$.        
+        \end{enumerate}
+        \item If $A$ is empty, it is easy to check $\gcd(A)=0,\mathrm{lcm}(A)=1$.Assume $A=\not=\varnothing$.If $A=\{0\}$, then easy to check $\gcd(A)=\mathrm{lcm}(A)=0$.Set $A'=\{a\in A|a\not=0\}\subseteq A,A'\not=\varnothing$.By (7)-(e),$A'$ has infimum $d$. $d$ is also the infimum of $A$.By (5),(6)-(c),$A'$ has a supremum $D$.$d$ is also the supremum of $A$.
+        \item $A=\{a,b\}$,by (7)-(d)(e),$A\ZZ=d\ZZ\Rightarrow d\in A\ZZ\Rightarrow\exists m,n$ such that $d=ma+nb$ (B$\acute{e}$zout Lemma )
+        \item $\frac{ab}{\gcd(a,b)}=a\frac{b}{\gcd(a,b)}=b\frac{a}{\gcd(a,b)}\Rightarrow \frac{ab}{\gcd(a,b)}$ is an upper bound of $A=\{a,b\}$ under $(\NN,|)$.Since $\mathrm{lcm}(a,b)$ is the least upper bound of $A$ , $\mathrm{gcd}(a,b)|\frac{ab}{\gcd(a,b)}$$$a=\frac{ab}{\mathrm{lcm}(a,b)}\frac{\mathrm{lcm(a,b)}}{b},b=\dots$$ $ \frac{ab}{\mathrm{lcm}(a,b)}$ is a lower bound of $A=\{a,\}$ under $(\NN,|)$,gcd is the greatest $\dots$\newline
+        $ \frac{ab}{\mathrm{lcm}(a,b)}|\gcd(a,b),ab=\gcd(a,b)\mathrm{lcm}(a,b)$.
+    \end{enumerate}
+        
+    \item \begin{enumerate}
+        \item Obvious.
+        \item $\forall x\in \varnothing,P(x)$ is true.There is no non-empty set can be the subset of $\varnothing$,$(\varnothing,\underline{\in})$ is true.
+        \item $(\alpha,\underline {\in})$ is a well-ordered set since it is a subset of $\left(\alpha\cup \{\alpha\},\underline{\in}\right)$.
+        \newline
+        \item $\forall x\in \alpha,x\underline{\in }\alpha,\forall A\subseteq\alpha,\min(A)\in \alpha\subseteq(\alpha\cup\{\alpha\})$,so $\left(\alpha\cup\{\alpha\},\underline{\in}\right)$ is well ordered.$\forall x\in \alpha\cup \{\alpha\}$,if $x=\alpha$,$\alpha\subseteq\alpha\cup\{\alpha\}$;If $x\in \alpha$,since $\alpha$ is ordinal, $x\subseteq \alpha\subseteq\alpha\cup\{\alpha\}$.Thus $\alpha\cup\{\alpha\}$ is an ordinal.
+        \newline
+        Obviously,$$\alpha\subseteq\bigcup_{x\in \alpha\cup\{\alpha\}}x$$ 
+        Conversely,$\forall y\in x,x\in \alpha\cup\{\alpha\}$,if $x=\alpha$,then $y\in \alpha$.If $x\in \alpha$,since $\alpha$ is ordinal,$y\in x\subseteq \alpha,y\in \alpha$.Hence,
+        $$\alpha\supseteq\bigcup_{x\in \alpha\cup\{\alpha\}}x$$
+        Therefore,
+        $$\alpha=\bigcup_{x\in \alpha\cup\{\alpha\}}x$$   
+        \item $$\alpha=\bigcup_{x\in \alpha\cup\{\alpha\}}x=\bigcup_{x\in \beta\cup\{\beta\}}x=\beta$$
+        \item If $x=\alpha\vee y=\alpha$,easy.If $x,y\in \alpha$,since $(\alpha,\underline{\in})$ is well ordered, consider $\{x,y\}\subseteq \alpha,x\underline{\in}y\vee y\underline{\in}x$.
+        \item $\forall x\in \alpha,x\subseteq \alpha$, since $(\alpha,\underline{\in})$ is well ordered, $(x,\underline{\in})$ is well ordered.$\forall y\in x,z\in x$,by transitive $z\in x,y\subseteq x$.Therefore,all elements of $\alpha$ are ordinals.
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item $\Rightarrow$:Let $\alpha=A\cup\{A\}$ for an ordinal $A$.By (4) of 23. $$A=\bigcup_{x\in A\cup\{A\}}x=\bigcup_{x\in \alpha}x\subseteq \alpha$$
+            $\Leftarrow $: Let $U=\cup_{x\in \alpha}x$,claim that $\alpha=U\cup\{U\}$ (to be continue to check)
+        \item -
+        \item N.T.S. $\forall x\in \varnothing\cup\{\varnothing\}$,$x$ is not a limit ordinal.$\Rightarrow x=\varnothing$, which is not a limit ordinal by definition.
+        \item $\alpha=n$ is a natural number $\Leftrightarrow \forall x\in \alpha\cup\{\alpha\},x$ is not limit.N.T.S $\alpha+1$ is not $\NN$, i.e. $\forall x\in \alpha\cup \{\alpha\}\cup\{\alpha\cup\{\alpha\}\},x$ is not limit.Whether $x\in \alpha\cup\{\alpha\}$ or $x=\alpha\cup\{\alpha\}$ , it's right.
+        \item -
+        \item $\alpha=n$ natural number .$\forall x\in \alpha+1,x$ is not limit. N.T.S $\forall y\in \alpha,\forall z\in y+1 ,z$ is not limit.$z\in y+1\nsubseteq \alpha+1\Rightarrow z\in \alpha+1\Rightarrow z $ is not a limit ordinal.
+        \item -
+        \item -
+        \item  $f$ increasing $\Leftrightarrow \forall x_1,x_2\in \NN,f(x_1)\le f(x_2)$.Prove by induction.Claim $f(0)=0$.Pf.:If not ,then $f(0)\not=0\Rightarrow f(0)\ge 1$.By increasing,$\forall n>0,f(n)\ge f(0)\ge 1.\forall n\in \NN ,f(n)\not=0,f$ is not surjective.Claim:If $f(n)=n,\forall n\ge m $, then $f(m+1)=m+1$.Pf. $f(m+1)\ge f(m)=m$ .If $f(m+a)=m=f(m)\Rightarrow f $ is not injective.If $f(m+1)>m+1$,then $\forall i >m+1,f(i)\ge f(m+1)>m+1$. 
+       \end{enumerate}
 \end{enumerate}
 \end{document}

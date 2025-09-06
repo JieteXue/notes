@@ -1247,6 +1247,8 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     
 \end{notationenv}
 \begin{propositionenv}\label{proposition4.5.1}
+    \quad
+    \newline
     Let $(X,\le)$ be a partially ordered set $(A,Z,Y)\in \wp (X)^3,A\subseteq Z\subseteq Y$
     \newline
    (1) If $\max A$ exists,then it is also the supremum of $A$ in $(Y,\le)$.So as infimum
@@ -1260,6 +1262,8 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 (2) Since $Z\subseteq Y,A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$,one has $\sup _{Y,\le}A\le M$.If $\sup_{(Y,\le)}A\in Z$,then $\sup_{(Y,\le)}A\in A_Z^\mathrm{u}$.Hence $\sup _{(Y,\le)}A=\min A_Z^\mathrm{u}$
 \end{proofenv}
 \begin{propositionenv}\label{proposition4.5.2}
+    \quad
+    \newline
     Let $(X,\le )$ be a partially ordered set ,$(A,B,Y)\in \wp (X)^3,A\subseteq B\subseteq Y$
     \newline
     (1) If $\sup_{(Y,\le)}A$ and $\sup_{(Y,\le)}B$ exist, then $$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$$
@@ -1369,7 +1373,38 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     By definition, $b$ is an upper bound of $I$, since $(X,\le)$ is a totally ordered set,if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.
     Let $x\in I$,one has $x\le M <b$.Since $\interval[open right]{x}{b}\subseteq I,M\in I$, hence $M=\max I$. Since $X$ is dense ,pick $M'\in \interval[open]{M}{b}$.Since $M\in I,b=\sup I,\interval[open right]{M}{b}\subseteq I$. Hence $M'\in I,M'\le M$.This contradicts $M<M'$.
 \end{proofenv}
-
+\subsection{Extra-Inequality}
+\begin{definitionenv}[Convex functions on intervals]
+    Let $X\subseteq \mathbb{R}$ bbe an interval.
+    \newline 
+    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{convex} for all $x_1,x_2\in X,t\in \interval{0}{1}$
+    $$f(tx_1+(1-t)x_2)\le tf(x_1)+(1-t)f(x_2)$$
+    \newline
+    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{concave} for all $x_1,x_2\in X,t\in \interval{0}{1}$
+    $$f(tx_1+(1-t)x_2)\ge tf(x_1)+(1-t)f(x_2)$$
+\end{definitionenv}
+\begin{theoremenv}[Jensen's Inequality]
+    Let $f$ be a convex function $0\le \alpha_i\le 1$ for $i=1,2,\dots ,n$,such that 
+    $$\sum_{i=1}^{n}\alpha_1=1.\text{show that } \forall x_i\in X$$
+    $$f\left(\sum_{i=1}^{n}a_ix_i\right)\le \sum_{i=1}^{n}\alpha_if(x_i)$$
+    Equality holds if and only if $x_1=x_2=\dots =x_n$ or $f$ is linear on some interval containing $x_1,x_2,\dots,x_n$.
+\end{theoremenv}
+\begin{remark}
+    Consider $f(x)=x^2$ ,we obtain Cauchy-Schwartz inequality,$f(x)=\ln (x)$, we obtain AM-GM-HM inequality.
+\end{remark}
+\begin{theoremenv}[Young's Inequality]
+    \quad
+    \newline
+    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$,then
+    $$xy\le \frac{1}{p}x^p+\frac{1}{q}y^q$$
+\end{theoremenv}
+\begin{theoremenv}[Hölder's Inequality]
+    \quad
+    \newline
+    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$.$x_1,x_2,\dots,x_n;y_1,y_2,\dots,y_n\ge 0$,then
+    $$\sum_{i=1}^{n}x_iy_i\le \left(\sum_{i=1}^{n}x_i^p\right)^{\frac{1}{p}}\cdot\left(\sum_{j=1}^{n}y_j^q\right)^{\frac{1}{q}}$$
+    In particular, when $p=q=2$, this is Cauchy-Schwartz inequality.
+\end{theoremenv}
 \section{Well-ordered Set}
 \begin{definitionenv}
     Let $(X,\le)$ be a partially ordered set.If $\forall A\in \wp(X),A\not=\varnothing\Rightarrow A$ has a least element,we say that $(X,\le)$ is a \textbf{well-ordered set}.
