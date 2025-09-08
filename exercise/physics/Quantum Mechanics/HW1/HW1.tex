@@ -3,6 +3,7 @@
 \author{Jiete XUE}
 \date{2025/09/04}
 \usepackage{amsthm}
+\usepackage{amsmath}
 \newtheoremstyle{t}{0pt}{}{}{}{\bfseries}{}{\newline}{}
 \theoremstyle{t}
 \newtheorem{problem}{Problem}
@@ -46,7 +47,42 @@ Second ,by chain rule,we obtain
     \begin{equation}
         H'=H+\frac{\pa S}{\pa t}=0
     \end{equation}
+    \textbf{Remark.} Another way to calculate $\frac{\pa S}{\pa q_f}$ and $\frac{\pa S}{\pa t_f}$.
+    \begin{equation}
+        q=q(q_f,t_f,t),\dd q=\frac{\pa q}{\pa q_f}\dd q_f+\frac{\pa q}{\pa t_f}\dd t_f+\frac{\pa q}{\pa t}\dd t
+    \end{equation}
+    We have $q|_{t=t_0}=q_0,q|_{t=t_f}$ , hence,
+    \begin{equation}
+      \left. \left( \frac{\pa q}{\pa q_f}\right)_{t_f,t}\right|_{t=t_0}=0,\space\left.\left( \frac{\pa q}{\pa q_f}\right)_{t_f,t}\right|_{t=t_f}=1
+    \end{equation}
+    Now,let $t\equiv t_0,\dd q=\dd q_0=0$.Thus,
+    \begin{equation}
+        \left.\frac{\pa q}{\pa t_f}\right|_{t=t_0}=0
+    \end{equation}
+    Let $t$ be a function of $t_f$ and take the form $t=t_f$.$\dd q=\dd q_f$,so 
+    \begin{equation}
+        \left(\frac{\pa q}{\pa t_f}+\frac{\pa q}{\pa t}\right)\dd t_f=0
+    \end{equation}
+    \begin{equation}
+        \left.\frac{\pa q}{\pa t_f}\right|_{t=t_f}=-\left.\frac{\pa q}{\pa t}\right|_{t=t_f}=\left.-\dot{q}\right|_{t=t_f}
+    \end{equation}
+\begin{equation}
+\begin{split}
+    \frac{\pa S}{\pa q_f}&=\int_{t_0}^{t_f}\left[\frac{\pa L}{\pa \dot{q}}\frac{\pa}{\pa q_f}\left(\frac{\pa q}{\pa t}\right)+\frac{\pa L}{\pa q}\frac{\pa q}{\pa q_f}\right]\,\dd t\\
+    &=\int_{t_0}^{t_f}\left[\frac{\pa L}{\pa \dot{q}}\frac{\pa}{\pa t}\left(\frac{\pa q}{\pa q_f}\right)+\frac{\pa L}{\pa q}\frac{\pa q}{\pa q_f}\right]\,\dd t\\
+    &=\left.\frac{\pa L}{\pa \dot{q}}\frac{\pa q}{\pa q_f}\right|_{t_0}^{t_f}+\int_{t_0}^{t_f}\left[\frac{\pa L}{\pa q}-\frac{\pa}{\pa t}\left(\frac{\pa L}{\pa \dot{q}}\right)\right]\frac{\pa q}{\pa q_f}\,\dd t\\
+    &=p(t_f)
+\end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \frac{\pa S}{\pa t_f}&=L(t_f)+\int_{t_0}^{t_f}\left[\frac{\pa L}{\pa \dot{q}}\frac{\pa}{\pa t_f}\left(\frac{\pa q}{\pa t}\right)+\frac{\pa L}{\pa q}\frac{\pa q}{\pa t_f}\right]\,\dd t\\
+        &=L(t_f)+\left.p\frac{\pa q}{\pa t_f}\right|_{t_0}^{t_f}\\
+        &=L-p\dot{q}=-H
+    \end{split}
+\end{equation}
 \end{problem}
+
 \begin{problem}[Harmonic Oscillator]
     (1) easy to check:
     \begin{equation}
@@ -136,4 +172,5 @@ Second ,by chain rule,we obtain
         (\dot{x})_{nn}^{2} = (n + 1/2) \frac{\hbar \omega_0}{m}
     \end{equation}
 \end{problem}
+
 \end{document}

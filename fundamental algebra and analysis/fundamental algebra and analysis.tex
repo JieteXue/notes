@@ -535,7 +535,7 @@ A_1 \times \cdots \times A_n
 the set of all \(n\)-tuples \((x_1, \ldots, x_n)\), where \(x_1 \in A_1, \ldots, x_n \in A_n\).
 \end{definitionenv}
 
-The following proposition shows that ordered pairs can be realized through set-theoretic constructions.
+The following proposition shows ordered pairs can be realized through set-theoretic constructions.
 
 \begin{propositionenv}
 Let \(x\), \(y\), \(x^{\prime}\), and \(y^{\prime}\) be mathematical objects. Then
@@ -1564,10 +1564,13 @@ is a bijection.
 \newline
 (4) $\forall A\in \hat{X}$ one has $A=\bigcup_{x\in A}\{x\}^\mathrm{l}=\bigcup_{x\in A}\hat{x}$.In particular, 
 $$A=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
-(5) Let $A\in \hat{X}$.If $A\mathrm{u}=\varnothing$,then $A=X$.If $A^\mathrm{u}\not=\varnothing$,then 
+(5) Let $A\in \hat{X}$.If $A^\mathrm{u}=\varnothing$,then $A=X$.If $A^\mathrm{u}\not=\varnothing$,then 
 $$A=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}$$
 $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
 \end{theoremenv}
+\begin{remark}
+    We've know that $(\wp(X),\subseteq)$ is order complete. So for the sets not order complete, we can build a relation between them to make it become order complete. And this theorem tell us how to do.
+\end{remark}
 \begin{proofenv}
     \quad
     \newline
@@ -1608,6 +1611,118 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     Since $I$ is an initial segment $a\in I$,contradiction.
     \newline
     Conversely,if $x\in X_{<a}$, then $x\notin X\backslash I$.Since otherwise $a\le x$.Therefore $x\in I$ .Uniqueness,$\forall a\in X,a=\min(X\backslash X_{<a})=\min(X_\leq a)$.Hence $X_{<a}=X_{<b}\Rightarrow a=b$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\le)$ be a partially ordered set ,$\Lambda$ be a non-empty set, and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of initial segments of $X$. Then 
+    $$I:=\bigcap_{\lambda\in \Lambda}I_\lambda,\space J:=\bigcup_{\lambda\in \Lambda}I_\lambda$$ are initial segments of $X$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    Let $a\in I.\forall \lambda\in \Lambda,a\in I_\lambda$ and hence $X_{<a}\subseteq I_\lambda$. Therefore,$X_{<a}\subseteq\bigcap_{\lambda\in\Lambda}I_\lambda=I$
+    \newline
+    Let $b\in J$.Then $\exists \lambda_0\in \Lambda$ such that $b\in I_{\lambda_0}$. So $X_{<b}\subseteq I_{\lambda_0}\subseteq \bigcup_{\lambda\in \Lambda}I_\lambda=J$. 
+\end{proofenv}
+\begin{theoremenv}[Recursive construction]
+    Let $(X,\le)$ be a well ordered set,and $Y$ be a set. For any $x\in X$ and any mapping $h:X_{<x}\rightarrow Y$, we fix an element $\Phi(h)\in Y$. Then, there exists a unique mapping $f:X\rightarrow Y$  such that 
+    $$\forall x\in X, f(x)=\Phi(f\mid_{X_{<x}})$$
+\end{theoremenv}
+\begin{exampleenv}
+    For any $(a_0,\dots,a_{n-1})\in \RR^n$, we fix an element $a_{n-1}+\varepsilon\in \RR$, where $\varepsilon$ is a real number. There exists a unique mapping $(n\in \NN)\mapsto f(n)$ such that $f(n)=f(n-1)+\varepsilon$.($f(n):=n\varepsilon$)
+\end{exampleenv}
+\begin{proofenv}
+    \quad
+    \newline
+    "Uniqueness": 
+    \newline
+    Let $f,g$ be mappings from $X$ to $Y$ such that 
+    $$\forall x\in X,f(x)=\Phi(f\mid_{X_{<x}}),g(x)=\Phi(g\mid_{X_{<x}})$$
+    Then: $\forall x\in X$, we have 
+    $$(\forall y\in X_{<x},f(y)=g(y))\Rightarrow f(x)=g(x)$$
+    So by inclusion $\forall x \in X, f(x)=g(x)$, namely, $f=g$.
+    \newline
+    "Existence": 
+    \newline
+    Let $\mathscr{S}$  be the set of initial segments $S$ of $X$ such that $\exists f_S:S\rightarrow Y$ satisfying 
+    \begin{equation*}
+        \forall x\in S,f_S(x)=\Phi(f_S\mid_{X_{<x}}) \tag{$*$}
+    \end{equation*}
+    Let $X_0=\bigcup_{S\in\mathscr{S} }S$. It is also an initial segment of $X$.$\forall x\in X_0,\exists S $ such that $x\in S$.If $S_1$ and $S_2$ are two elements of $\mathscr{S}$, then $S_1\cap S_2$ is also an initial segment. Moreover $f_{S_1}\mid_{S_1\cap S_2}$ and $f_{S_2}\mid_{S_1\cap S_2}$ satisfy $(*)$ So $f_{S_1}\mid_{S_1\cap S_2}=f_{S_2}\mid_{S_1\cap S_2}$ .Thus $f_S(x)$ does not depend on the choice of $S\in \mathscr{S}$ containing $x$. We denote it as $f(x)$. $f:X_0\rightarrow Y$ satisfying $(*)$. So $X_0\in \mathscr{S}$.
+    If $X_0\not=X.\exists a\in X$ such that $ X_0=X_{<a}$. We extend $f$ to $X_0\cup\{a\}$ by letting $f(a)=\Phi(f)$. Then we get $X_0\cup\{a\}\in \mathscr{S}$.Contradiction.Therefore $X_0=X$  and we get the existence of $f$. 
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $A$ be a set. If there exists an injective mapping $A\rightarrow \NN$, then we say that $A$ is \textbf{countable}.
+    If  there exists an injective mapping $f:A\rightarrow \NN$ such that $f(A)$ is bounded from above (having an upper bound in $\NN$), then we say that $A$ is \textbf{finite}.
+\end{definitionenv}
+\begin{lemmaenv}
+    \quad
+    \newline
+    (1) Let $n\in \NN$ and $x_0,\dots ,x_n$ be elements of $\NN$ such that $x_0<\dots<x_n$, then $\forall i\in \NN_{\leq n},i\leq x_i$.
+    \newline
+    (2) Let $(x_n)_{n\in \NN}$ be a family of elements in $\NN$ such that $\forall n\in \NN,x_n<x_{n+1}$, then $\forall i\in \NN,i\le x_i$.
+\end{lemmaenv}
+\begin{proofenv}
+    If $j\le x_j$ for $j\in \{0,\dots,i-1\}$. Then, in the case where $i=0,0\le x_0$ holds since $0=\min_\le \NN$. In the case where $i>0$, one has $i-1\le x_{i-1}<x_i$. So $x_i\ge x_{i-1}+1\ge i-1+1=i$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $f:A\rightarrow B$ be a mapping.
+    \newline
+    (1) If $f$ is injective and if $B$ is finite, then $A$ is finite.(resp. countable)
+    \newline
+    (2) If $f$ is surjective and $A$ is finite, then $B$ is finite.(resp countable)
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) Let $g:B\rightarrow \NN$ injective and bounded from above. Then $g\circ f$ is injective and $\mathrm{Im}(g\circ f)\subseteq \mathrm{Im}(g)$.
+    \newline
+    (2) $\exists$ injective mapping $B\rightarrow A$ by the axiom of choice. $f:A\rightarrow B$ For any $b\in B$, pick $h(b)\in f^{-1}(\{b\})\subseteq A$,$h:B\rightarrow A$. If $h(b)=h(b')$, then $f(h(b))=f(h(b'))=b'$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $X,Y$ be sets.
+    \newline
+    (1) If $X$ and $Y$ are finite, then $X\cup Y$ is finite.(resp. countable)
+    \newline
+    (2) If $X$ is infinite and $Y$ is finite, then $X\backslash Y$ is infinite.(resp. uncountable)
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) Let $f:X\rightarrow \NN$ and $g:Y\rightarrow \NN$ be injective mappings. We construct $h:X\cup Y\rightarrow \NN$ such that 
+    $$h(x)=\left\{\begin{matrix}
+     2f(x)\, &x\in X\\
+    2g(x)+1\,&x\in Y\backslash X
+
+    \end{matrix}\right.$$
+    $h$ is then injective, and $h$ is bounded if $f$ and $g$ are bounded.
+    \newline
+    In fact, if $(x,y)\in (X\cup Y)^2$,
+    \newline
+    either $(x,y)\in X^2$ and $h(x)=2f(x)=h(y)=2f(y)$ if and only if $x=y$.
+    \newline
+    or $(x,y)\in (Y\backslash X)^2$ and $h(x)=h(y)\Rightarrow x=y$.
+    \newline
+    or $x\in X,y\in Y\backslash X.h(x)\not=h(y)$ (So $h(x)=h(y)\Rightarrow x=y$).
+    \newline
+    or $y\in X,x\in Y\backslash X ,h(x)\not=h(y)$.
+    \newline
+    (2)  Assume that $X\backslash Y$ is finite, then $X=(X\backslash Y)\cup Y$ is also finite.
+\end{proofenv}
+\begin{notationenv}
+    If $f:X\rightarrow X$  is a mapping. Then $f^0$ denotes $\mathrm{Id}_X$. For $n\in\NN_{\ge 1}$,$f^n$ denotes $\underset{n}{\underbrace{f\circ f\circ \dots \circ f}}$. 
+\end{notationenv}
+\begin{theoremenv}
+    $\NN\times\NN$ and $\NN$ are equipotent.
+\end{theoremenv}
+\begin{proofenv}
+    Let $f:\NN\times\NN\rightarrow \NN,(a,b)\mapsto2^a(2b+1)$. It is an injective mapping since $2^a(2b+1)=2^{a'}(2b'+1)$.So $a=a',b=b'$.Moreover $x\mapsto(0,x)$ is injective.
+\end{proofenv}
+\begin{corollaryenv}
+    $\forall n\in \NN, n\ge 1,\NN^n$ and $\NN$ are equipotent.
+\end{corollaryenv}
+\begin{proofenv}
+    Induction on $n$.
 \end{proofenv}
 \chapter{Groups}
 
@@ -1892,4 +2007,62 @@ By Proposition \ref{propositions5.4.2}, a semigroup (resp.monoid group) homomoph
 \begin{propositionenv}
     Let $(G,*)$ be a group.The inversion mapping $\imath :(G,*)\rightarrow(G,\hat{*})$ is a group isomonophism.
 \end{propositionenv}
+
+
+
+
+
+
+
+
+
+
+
+
+\appendix
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Axioms}
+
+\section{Axiom of Foundation (Regularity)}
+
+\begin{axiomenv}[Axiom of foundation]
+    $$\forall A(A\not=\varnothing\rightarrow\exists x\in A(x\cap A=\varnothing))$$
+    Regularity means that :If $A$ is a non-empty set ,then there exists at least one element $x$ of $A$ satisfies: Either $x$ is not a set or does not intersect with $A$.
+\end{axiomenv}
+Based on axiom of foundation,we have the following propositions.
+\begin{propositionenv}
+    
+    There does not exists a set $S$, such that $S\in S$.
+\end{propositionenv}
+\begin{proofenv}
+    If $S=\varnothing,\varnothing\notin\varnothing$;If $S\not=\varnothing$,consider the set $\{S\}$ ,it has a single element $S$. Since $S\in S,S\in (S\cap\{S\})\not=\varnothing$
+\end{proofenv}
+\begin{propositionenv}
+
+    Let $(X,<)$ be a strictly ordered set, $(A_i)_{i\in X}$ be a family of sets.If $\forall (i,j)\in X^2,i<j\Rightarrow(\exists k\in X,i<k\le j\wedge A_i\in A_k)$, then $(X,\le)$ is a well ordered set.
+\end{propositionenv}
+\begin{proofenv}
+    
+    Let $I$ be a subset of $X$, $S:=\{A_i|i\in I\}$.If $(i,j)\in S^2,i<j$, then $\exists A_k\in S,A_i\in A_k$.Since $A_i\in S$ at the same time, $A_k\cap S\subseteq\{A_i\}\not=\varnothing$.By axiom of regularity,$\exists A_i\in S,A_i\cap S=\varnothing$.Hence,$\forall A_j\in S,A_j\notin A_i$.Thus,$j\not>i$,which leads to $\forall j\in I, j>i$.$i$ is the least element of $I$.
+\end{proofenv}
+\begin{propositionenv}
+   Let $(X,<)$ be a strictly ordered set, $(A_i)_{i\in X}$ be a family of sets.If $\forall (i,j)\in X^2,i<j\Rightarrow(\exists k\in X, A_i\in A_k)$, then $\forall (i,j)\in X^2,i<j\Rightarrow A_j\notin A_i$ .
+\end{propositionenv}
+\begin{proofenv}
+    If $\exists i<j\in X,A_j\in A_i$ and $i<k\le j,A_i\in A_k$,we consider the set $S=\{A_k|i\le k\le j\},\forall A_k\in S,\exists A_m\in S,A_k\in A_m$.Therefore $A_k\cap S\not=\varnothing$.That contradicts to the axiom.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $X,Y$ be two sets, if $X\in Y$, then $Y\notin X$.
+\end{corollaryenv}
 \end{document}
