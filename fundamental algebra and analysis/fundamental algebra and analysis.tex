@@ -4,7 +4,26 @@
 \usepackage{tikz-cd}
 \numberwithin{equation}{section}
 
+\usepackage{authblk} 
+
+\title{}
+
+
+
+\author[I]{Compiled by \textbf{Huayi Chen}}
+\author[II]{$$\&$$Edited by \textbf{Jiete Xue}}
+\author[III,IV]{$$-------------------------$$TAs:Postdoc \textbf{Jiedong Jiang, Yijun Yuan}}
+\author[V]{$$$$Substitute Professor\thanks{Chapter 5: Group}: \textbf{Yigeng Zhao}}
+\affil[I]{\itshape\small Department of Mathematics (ITS), School of Science, Westlake University}
+\affil[II]{\itshape\small Undegraduate β Collage, Westlake University}
+\affil[I]{\texttt{chenhuayi@westlake.edu.cn}}
+\affil[II]{\texttt{xuejiete@westlake.edu.cn}}
+
+\date{}
+
+
 \begin{document}
+\pagecolor{green!2} 
 \setlength{\parindent}{0em}
 \begin{box3}
         \begin{center}
@@ -14,8 +33,15 @@
         \end{center}
     
     \end{box3}
-\thispagestyle{empty}
-    \newpage
+
+
+\pagestyle{empty}
+\newpage
+\nopagecolor
+\pagenumbering{roman}
+\maketitle
+
+\pagestyle{plain}
 \pagenumbering{roman}
 \setcounter{page}{1}
 \tableofcontents
@@ -1083,7 +1109,7 @@ By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
     Let $X$ anf $Y$ be sets, $h$ be a correspondence from $X$ to $Y$ ,and $A$ be a subset of $X$.Denote by $h|_A$ the correspondence from $A$ to $Y$ such that$$\Gamma_{h|_A}=\Gamma_h\bigcap (A\times Y)$$ We call it the \textbf{restriction of $h$ to $A$}
 \end{definitionenv}
 \chapter{Binary Relations }
-$\dagger$This chapter was written in pre-course at first,then added some sections in make-up session,which titled "Ordering".Some notations haven't been changed yet and some sections have the same knowledge.It's a bit mess.
+$\dagger$This chapter was first written in pre-course, then added some sections in make-up session,which titled "Ordering".Some sections have the same knowledge.It's a bit mess.
 \section{Generalities}
 \begin{definitionenv}
     Let $X$ be a set ,we call \textbf{binary relation} on $X$ any correspondence from $X$ to $X$ .If $R$ is a binary relation on $X$ ,for any $(x,y)\in X\times X $ we denote by $x R y $ the statement $(x,y)\in \Gamma_R$
@@ -1094,7 +1120,8 @@ $\dagger$This chapter was written in pre-course at first,then added some section
 \begin{definitionenv}
     If $R$ is a binary relation on $X$, we denote by $\cancel{R} $ the binary relation such that $$x \cancel{R}  y \Leftrightarrow (x,y)\notin \Gamma_R$$
 \end{definitionenv}
-\section{Equivalent Relation}
+\section{Equivalent Relation}\label{4.2}
+\textit{Section \ref{5.5}:Quotient, will use this concept.}
 \begin{definitionenv}
     Let $X$ be a set and $R$ a binary relation on $X$.
     \newline
@@ -1116,7 +1143,7 @@ $\dagger$This chapter was written in pre-course at first,then added some section
 \begin{definitionenv}
     The mapping $\pi :X\rightarrow X/\thicksim$ is called the \textbf{projection mapping} of $\thicksim$
 \end{definitionenv}
-\begin{propositionenv}
+\begin{propositionenv}[Theorem \ref{5.5.5}]\label{4.2.5}
     $f:X\rightarrow Y$ be a mapping,if $\forall (x,y)\in X\times X,x\thicksim y\Rightarrow f(x)=f(y)$,then there exists a unique mapping$$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x)$$such that $$\tilde{f}\circ \pi =f$$
 
 
@@ -1373,38 +1400,8 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     By definition, $b$ is an upper bound of $I$, since $(X,\le)$ is a totally ordered set,if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.
     Let $x\in I$,one has $x\le M <b$.Since $\interval[open right]{x}{b}\subseteq I,M\in I$, hence $M=\max I$. Since $X$ is dense ,pick $M'\in \interval[open]{M}{b}$.Since $M\in I,b=\sup I,\interval[open right]{M}{b}\subseteq I$. Hence $M'\in I,M'\le M$.This contradicts $M<M'$.
 \end{proofenv}
-\subsection{Extra-Inequality}
-\begin{definitionenv}[Convex functions on intervals]
-    Let $X\subseteq \mathbb{R}$ bbe an interval.
-    \newline 
-    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{convex} for all $x_1,x_2\in X,t\in \interval{0}{1}$
-    $$f(tx_1+(1-t)x_2)\le tf(x_1)+(1-t)f(x_2)$$
-    \newline
-    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{concave} for all $x_1,x_2\in X,t\in \interval{0}{1}$
-    $$f(tx_1+(1-t)x_2)\ge tf(x_1)+(1-t)f(x_2)$$
-\end{definitionenv}
-\begin{theoremenv}[Jensen's Inequality]
-    Let $f$ be a convex function $0\le \alpha_i\le 1$ for $i=1,2,\dots ,n$,such that 
-    $$\sum_{i=1}^{n}\alpha_1=1.\text{show that } \forall x_i\in X$$
-    $$f\left(\sum_{i=1}^{n}a_ix_i\right)\le \sum_{i=1}^{n}\alpha_if(x_i)$$
-    Equality holds if and only if $x_1=x_2=\dots =x_n$ or $f$ is linear on some interval containing $x_1,x_2,\dots,x_n$.
-\end{theoremenv}
-\begin{remark}
-    Consider $f(x)=x^2$ ,we obtain Cauchy-Schwartz inequality,$f(x)=\ln (x)$, we obtain AM-GM-HM inequality.
-\end{remark}
-\begin{theoremenv}[Young's Inequality]
-    \quad
-    \newline
-    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$,then
-    $$xy\le \frac{1}{p}x^p+\frac{1}{q}y^q$$
-\end{theoremenv}
-\begin{theoremenv}[Hölder's Inequality]
-    \quad
-    \newline
-    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$.$x_1,x_2,\dots,x_n;y_1,y_2,\dots,y_n\ge 0$,then
-    $$\sum_{i=1}^{n}x_iy_i\le \left(\sum_{i=1}^{n}x_i^p\right)^{\frac{1}{p}}\cdot\left(\sum_{j=1}^{n}y_j^q\right)^{\frac{1}{q}}$$
-    In particular, when $p=q=2$, this is Cauchy-Schwartz inequality.
-\end{theoremenv}
+
+
 \section{Well-ordered Set}
 \begin{definitionenv}
     Let $(X,\le)$ be a partially ordered set.If $\forall A\in \wp(X),A\not=\varnothing\Rightarrow A$ has a least element,we say that $(X,\le)$ is a \textbf{well-ordered set}.
@@ -1655,7 +1652,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     Let $A$ be a set. If there exists an injective mapping $A\rightarrow \NN$, then we say that $A$ is \textbf{countable}.
     If  there exists an injective mapping $f:A\rightarrow \NN$ such that $f(A)$ is bounded from above (having an upper bound in $\NN$), then we say that $A$ is \textbf{finite}.
 \end{definitionenv}
-\begin{lemmaenv}
+\begin{lemmaenv}\label{4.9.8}
     \quad
     \newline
     (1) Let $n\in \NN$ and $x_0,\dots ,x_n$ be elements of $\NN$ such that $x_0<\dots<x_n$, then $\forall i\in \NN_{\leq n},i\leq x_i$.
@@ -1712,7 +1709,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
 \begin{notationenv}
     If $f:X\rightarrow X$  is a mapping. Then $f^0$ denotes $\mathrm{Id}_X$. For $n\in\NN_{\ge 1}$,$f^n$ denotes $\underset{n}{\underbrace{f\circ f\circ \dots \circ f}}$. 
 \end{notationenv}
-\begin{theoremenv}
+\begin{theoremenv}\label{4.9.12}
     $\NN\times\NN$ and $\NN$ are equipotent.
 \end{theoremenv}
 \begin{proofenv}
@@ -1723,7 +1720,93 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
 \end{corollaryenv}
 \begin{proofenv}
     Induction on $n$.
+    \newline
+    For $n=1$, easy. We assume that $\NN^n$ is equipotent to $\NN$ and $f:\NN^n\rightarrow\NN$ be a bijection. Then the mapping
+    $$f':\NN^n\times \NN\rightarrow \NN\times\NN,\,\left(x_1,\dots,x_n;x_{n+1}\right)\mapsto\left(f(x_1,\dots,x_n),x_{n+1}\right)$$ 
+    is a bijection. By Theorem \ref{4.9.12}, there exists a bijection $g:\NN^2\rightarrow\NN$.Therefore,
+    $$g\circ f':\NN^{n+1}\rightarrow\NN$$
+    is a bijection, which leads to $\NN^{n+1}$ and $\NN$ are equipotent.
 \end{proofenv}
+
+\textbf{Motivation}: Let $X$ be a set. A sequence in $X$ is by definition a family $(x_i)_{i\in I}$, where $I$ is an infinite subset of $\NN$, and each $x_i$ is an element of $X$.
+\begin{exampleenv}
+    $(a+bn)_{n\in \NN};\left(\frac{1}{n}\right)_{n\in \NN_{\ge 1}}$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $I\subseteq \NN$.
+    \newline
+    (1) $\mathrm{Id}_I:I\rightarrow I$ is the only increasing mapping bijection from $I$ to $I$.
+    \newline
+    (2) If $I$ is bounded from above, then $\mathrm{Id}_I$ is the only strictly increasing mapping from $I$ to $I$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) Let $f:I\rightarrow I$ be an increasing bijection. We want to prove:
+    $$A:=\{x\in I\mid f(x)\not=x\}=\varnothing$$
+    If this set is non-empty, it has a least element $n_0$. By definition, $f(n_0)\not=n_0$. So either $n_0<f(n_0)$ or $n_0>f(n_0)$.
+    \newline
+    If $f(n_0)<n_0$, then $f(n_0)\notin A$, and hence $f(n_0)=f(f(n_0))<f(n_0)$, contradiction. So $n_0<f(n_0)$. For any $n\in I$, if $n_0\le n$ then $f(n_0)\le f(n)$. If $n_0>n$, then $n\notin A$ and $f(n)=n<n_0$.$(*)$Hence $f(n)\not=n_0$ for any $n\in I$. This contradicts the assumption that $f$ is bijective.
+    \newline
+    (2) Suppose that $I$ is bounded from above, and $f:I\rightarrow I$ is strictly increasing. We follow the same reasoning until $(*)$. $n_0<f(n_0)$ implies that $\forall k \in \NN, f^k(n_0)<f^{k+1}(n_0)$, that means 
+    $$n_0<f(n_0)<\dots <f^{k+1}(n_0)$$
+    So by the lemma \ref{4.9.8}, $k\le f^k(n_0)$, this contradicts the assumption that $I$ is bounded from above.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $I\subseteq \NN$ bounded from above, and $J\subseteq I$.If $J\not=I$, there does not exist a strictly increasing mapping from $I$ to $J$.
+\end{corollaryenv}
+\begin{proofenv}
+    Suppose that $f:I\rightarrow J$ is a strictly increasing mapping. Let $g:J\rightarrow I,x\mapsto x$ be a inclusion mapping. So $g\circ f:I\rightarrow I$ is strictly increasing and hence $g\circ f=\mathrm{Id}_I$. However $\mathrm{Im}(g\circ f)\subseteq\mathrm{Im}(g)=J\not=I$. Contradiction.
+\end{proofenv}
+\begin{propositionenv}
+    Let $I\subseteq \NN$ non-empty.
+    \newline
+    (1) If $I$ is bounded from above, then there exists a unique pair $(N,f)$, where $N\in \NN$ and $f:\{0,1,\dots,N\}\rightarrow I$ is an increasing bijection. (We say that the cardinality of $I$ is $N+1$)
+    \newline
+    (2) If $I$ is NOT bounded from above, there exists an increasing bijection from $\NN$ to $I$. (We say that the cardinality of $I$ is $\aleph_0$) 
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    We construct in a recursive way a family of elements in $I$. Let $x_0=\min(I)$. If $x_0,\dots ,x_n$ are chosen (with $x_0<\dots<x_n$) we pick $x_{n+1}=\min(I\backslash\{x_0,\dots,x_n\})$. We slop at $N$ if $\{x_0,\dots,x_N\}=I$. Thus we obtain the increasing bijection needed by the proposition.
+    \newline
+    "Uniqueness" for (2): If $f:\NN\rightarrow I,g:\NN\rightarrow I$ are increasing bijections, then $f^{-1}\circ g:\NN\rightarrow\NN$ and $g^{-1}\circ f:\NN\rightarrow\NN$ are increasing bijections. So $f^{-1}\circ g=\mathrm{Id}_{\NN}$. Hence $f=g$.
+    \newline
+    "Uniqueness" for (1): Let $f:\{0,1,\dots,N\}\rightarrow I$ and $g:\{0,1,\dots,M\}\rightarrow I$ be increasing bijections. $g^{-1}\circ f:\{0,1,\dots,N\}\rightarrow \{0,1,\dots, M\}$ and $g:\{0,1,\dots,M\}\rightarrow I$ be increasing bijections. $f^{-1}\circ g:\{0,1,\dots,M\}\rightarrow \{0,1,\dots, N\}$ are increasing bijection. So $N\le M$ and $M\le N$, which leads to $N=M,g=f$. 
+\end{proofenv}
+\begin{corollaryenv}
+    A non-empty set $X$ is finite if and only if it can be written as $\{x_0,\dots,x_N\}$ where $N\in \NN$, and $x_0,\dots,x_N$ are distinct elements of $X$.
+\end{corollaryenv}
+\begin{proofenv}
+    Let $f:X\rightarrow \NN$ be an injective mapping with $f(x)$ bounded from above. Then there exists $(N,g)$ where $N\in \NN$ and $g:\{0,\dots ,N\}\rightarrow f(x)$ is an increasing bijection. Then $f^{-1}\circ g:\{0,\dots,N\}\rightarrow X$ is a bijection. We take $x_i$ to be $(f^{-1}\circ g)(i)$ (Note that $N$ is unique $N+1$ is called the cardinality of $X$).
+\end{proofenv}
+\begin{propositionenv}
+    Let $X$ be a set. The following condition are equipotent:
+    \newline
+    (1) $X$ is infinite.
+    \newline
+    (2) $\exists \NN\rightarrow X$ injective
+    \newline
+    (3) $\exists$ injective mapping $f:X\rightarrow X$ such that $f(X)\not=X$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1)$\Rightarrow$(2) We construct a sequence $(x_n)_{n\in \NN}$ in $X$ as follows. $X\not=\varnothing$. We pick arbitrary $x_0\in X$. Suppose that distinct elements $x_0,\dots, x_n$ of $X$ are chosen. The set $X\backslash\{x_0,\dots,x_n\}\not=\varnothing$ since otherwise $X=\{x_0,\dots,x_n\}$ is finite. We pick $x_{n+1}\in X\backslash\{x_0,\dots,x_n\},\, x_0,\dots,x_{n+1}$ are distinct. The mapping $\NN\rightarrow X, n\mapsto x_n$ is injective.
+    \newline
+    (2)$\Rightarrow$(3) Let $f:\NN\rightarrow X$ be injective. We define $g:X\rightarrow X$.
+    $$g(x):=
+\left\{\begin{matrix}
+ f(n+1)&, &x=f(n) \\
+x&,&x\notin f(\NN)
+\end{matrix}\right.$$
+$g(X)\not=X$ since $f(0)\notin g(X)$ If $x\notin f(\NN),g(x)=x\notin f(\NN)$, so $g(x)\not=f(0)$. If $x=f(n), g(x)=f(n+1)\not=f(0)$ since $f$ is injective.
+\newline
+(3)$\Rightarrow$(2) Let $g:X\rightarrow X$ be injective with $g(X)\not=X$. We pick $x_0\in X\backslash g(X)$. We define a sequence $(x_n)_{n\in\NN}$ by letting $x_{n+1}:=g(x_n)$. Since $g$ is injective, $x_n\in g^n(X)\backslash g^{n+1}(X)$. otherwise $\exists y\in X$, such that $x_n=g^{n}(x_0)=g^{n+1}(y)$. Hence $x_0=g(y)\in g(x)$ contradiction. Then $x_0,x_1,\dots,$ are distinct, which defines an injective mapping $\NN\rightarrow X,n\mapsto x_n$.
+\newline
+(2)$\Rightarrow$(1) If $X$ is finite, $\exists g:X\rightarrow\NN$ injective with $g(x)$ bounded. Then $\NN\rightarrow X\overset{g}{\rightarrow}\NN$ is injective with $h(\NN)$ bounded from above.
+\end{proofenv}
+
 \chapter{Groups}
 
 \section{Composition Law}
@@ -1757,7 +1840,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
 \end{matrix}$$
 It is associative but not communitative:
 \newline
-Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\circ f_a=f_b$
+Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b\circ f_a=f_b$
 \end{exampleenv}
 \begin{propositionenv}
     Let $(X,*)$ be an associative composition law on a set $X$.If $n\in \NN_>0,x_1,\dots,x_n\in X$, then , $\forall 1\le i\le n-1$, we have 
@@ -1789,7 +1872,7 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
 \section{Neutral Element \& Invertible Element}
 \begin{definitionenv}
     $(X,*),e\in X$ is called a \textbf{neutral element} if 
-    $$e*x=x=x*e$$
+    $$\forall x\in X,\, e*x=x=x*e$$
 \end{definitionenv}
 \begin{propositionenv}
     Assume $(X,*)$ admits a neutral element, then its neutral element is unique.
@@ -1804,9 +1887,9 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
 \begin{exampleenv}
     \quad
     \newline
-    (1) $X$ is a set, $(\mathfrak{M} _x,\circ)$ is a monoid with hte neutral element $\mathrm{Id}_X$
+    (1) $X$ is a set, $(\mathfrak{M} _x,\circ)$ is a monoid with hte neutral element $\mathrm{Id}_X$.
     \newline
-    (2) $d\in \NN_>0$,$(d\NN,+)$ with neutral $0$,$(\NN,\times)$ with neutral $1$
+    (2) $d\in \NN_>0$,$(d\NN,+)$ with neutral $0$,$(\NN,\times)$ with neutral $1$.
 \end{exampleenv}
 \begin{definitionenv}
     Let $(G,*)$ be a monoid with the neutral element $e$. $\forall (x,y)\in G^2$, if $x*y=e$ then we say $x$ is a \textbf{left inverse} of $y$,and $y$ is the \textbf{right inverse} of $x$.
@@ -1841,14 +1924,14 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
     \newline
     If $*$ is written multiplicatively,we usually denote $x*y$ as $x\cdot y$ or $xy$.If no ambiguity,neutral element as $1$,inverse of $x$ as $x^{-1}$.
     \newline
-    If $*$ is written additively, $x*y$ as $x+y$,neutral element as $0$, inverse of $x$ as $-x$
+    If $*$ is written additively, $x*y$ as $x+y$,neutral element as $0$, inverse of $x$ as $-x$.
 \end{notationenv}
 \begin{propositionenv}\label{proposition5.2.4}
     Let $(G,*)$ be a monoid.
     \newline
     (1) If $x\in G$ is an invertible element , then $\iota (x)$ is also invertible, and $\iota(\iota(x))=x$.
     \newline
-    (2) If $x,y\in G$ are invertible, so does $x*y$ and $\iota(x*y)=\iota(y)*\iota(x)$
+    (2) If $x,y\in G$ are invertible, so does $x*y$ and $\iota(x*y)=\iota(y)*\iota(x)$.
 \end{propositionenv}
 \begin{proofenv}
     \quad\newline
@@ -1857,7 +1940,7 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
     $$(\iota(y)\iota(x))(xy)=\iota(y)\iota(x)xy=\iota(y)ey=\iota(y)y=e$$
 \end{proofenv}
 \begin{definitionenv}
-    Let $(G,*)$ be a monoid.If any element of $G$ is invertible, then we say $G$ with the composition law is a \textbf{group}.A communitative group is also called \textbf{abelian group}.
+    Let $(G,*)$ be a monoid. If any element of $G$ is invertible, then we say $G$ with the composition law is a \textbf{group}. A communitative group is also called \textbf{abelian group}.
 \end{definitionenv}
 \begin{box2}
    Now we have : 
@@ -1870,7 +1953,7 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
     \newline
     (1) $(\ZZ,+)$ is an abelian group.
     \newline
-    (2) Let $X$ be a set $\mathfrak{S}_X$ the set of bijections from $X$ to $X$.$(\mathfrak{S}_X ,\circ)$ is a monoid with the neutral element $\mathrm{Id}_X$.Since $f\in \mathfrak{S}_X $ is bijective, hence there exists a unique inverse $f^{-1}\in \mathfrak{S} _X$.So $(\mathfrak{S} _x,\circ)$ is a group (but not abelian in general),called the symmetric group of $X$.
+    (2) Let $X$ be a set and $\mathfrak{S}_X$ be the set of bijections from $X$ to $X$.$(\mathfrak{S}_X ,\circ)$ is a monoid with the neutral element $\mathrm{Id}_X$.Since $f\in \mathfrak{S}_X $ is bijective, hence there exists a unique inverse $f^{-1}\in \mathfrak{S} _X$.So $(\mathfrak{S} _x,\circ)$ is a group (but not abelian in general),called the symmetric group of $X$.
     \newline
     Let $\mathfrak{S} _n$ be the symmetric group of the set $\NN_{\le n}$, its element $f$ can be denoted as a table:
     $$\begin{pmatrix}
@@ -1902,13 +1985,13 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then,$f_a\circ f_b=f_a,f_b\
     Let $(M,*)$ be a monoid, $G$ be the set of all invertible element in $M$ .Then $G$ is a submonoid.Moreover, $G$ equipped with the restriction of $*$ forms a group.
 \end{corollaryenv}
 \begin{proofenv}
-    By definition, any element in $G$ is invertible in $M$. By Proposition \ref{proposition5.2.4} ,$\forall x,y\in G, x*\iota(y)\in G$,Therefore, Proposition \ref{proposition5.3.1} implies the claim.
+    By definition, any element in $G$ is invertible in $M$. By Proposition \ref{proposition5.2.4} ,$\forall x,y\in G, x*\iota(y)\in G$. Therefore, Proposition \ref{proposition5.3.1} implies the claim.
 \end{proofenv}
 \begin{notationenv}
     Let $M$ be a monoid , we often use $M^\times$ to denote the submonoid of $M$ consisting of all invertible element if the composition law on $M$ is not written additively.
 \end{notationenv}
 \begin{exampleenv}
-    Let $X$ be a set ,$\mathfrak{M} _X^X=\mathfrak{S} _X$
+    Let $X$ be a set ,$\mathfrak{M} _X^X=\mathfrak{S} _X$.
 \end{exampleenv}
 \begin{definitionenv}
     Let $(G,*)$ be a group , $H\subseteq G$ be a submonoid.If $\forall x\in H$, one has $\iota(x)\in H$, then we say $H$ is \textbf{subgroup} of $G$.
@@ -2007,8 +2090,92 @@ By Proposition \ref{propositions5.4.2}, a semigroup (resp.monoid group) homomoph
 \begin{propositionenv}
     Let $(G,*)$ be a group.The inversion mapping $\imath :(G,*)\rightarrow(G,\hat{*})$ is a group isomonophism.
 \end{propositionenv}
-
-
+\section{Quotient}\label{5.5}
+\begin{definitionenv}
+    Let $X$ be a set and $\sim$ be a binary relation on $X$. (We write $x\sim y$ the condition $(x,y)\in \Gamma_\sim$)
+    \newline
+    (1) If $\forall x\in X, x\sim x$
+    \newline
+    (2) $\forall (x,y)\in X^2, x\sim y\Rightarrow y\sim x$.
+    \newline
+    (3) $\forall (x,y,z)\in X^3, (x\sim y \text{ and } y\sim z )\Rightarrow x\sim z$
+    \newline
+    We say that $\sim $ is a \textbf{equivalence relation}.
+\end{definitionenv}
+\textit{Check Section~\ref{4.2}:Equivalent Relation, to get more information about it.}
+\begin{propositionenv}
+    Let $(X_i)_{i\in i}$ be a family of sets. For any $i\in I$, let $\sim_i$ be an equivalence relation on $X_i$. Let $X=\prod_{i\in I}X_i$. We define a binary relation $\sim$ on $X$ as follows:
+    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Rightarrow \forall i\in I, x_i\sim y_i$$
+    Then, $\sim $ is an equivalence relation, and the mapping
+    $$X/\sim \overset{\Phi}{\longrightarrow }\prod_{i\in I}X_i/\sim_i,$$
+    $$ [(x_i)_{i\in I}]\longmapsto  ([x_i])_{i\in I}$$
+    is a bijection.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) Let $(x_i)_{i\in I}\in X. \forall i\in I,x_i\sim x_i$, so $(x_i)_{i\in I}\sim(x_i)_{i\in I}$.
+    \newline
+    (2) Let $x=(x_i)_{i\in I},y=(y_i)_{i\in I}, x_i\sim_i y_i$, so $y_i\sim x_i$. Therefore, $y\sim x$.
+    \newline 
+    (3) Let $x=(x_i)_{i\in I},y=(y_i)_{i\in I},z=(z_i)_{i\in I}$ in $X$. If $x\sim y$ and $y\sim z$, then $\forall i \in I,x_i\sim_i y_i$ and $y_i\sim_i z_i$. Hence $\forall i \in I, x_i\sim_i z_i$. So $x\sim z$.
+    \newline
+    We check that $\Phi$ is well defined. Let $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ be elements of $X$. If $[x]=[y]$, then $x\sim y$ and hence $\forall i\in I, x_i\sim_i y_i$, that means 
+    $$([x_i])_{i\in I}=([y_i])_{i\in I}$$
+    By definition, $\Phi$ is surjective. If $\Phi([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$, then $\forall i\in I, [x_i]=[y_i]$, namely $x_i\sim_i y_i$. Therefore, $([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$
+\end{proofenv}
+\begin{notationenv}
+    Let $X$ be a set , $\sim $ be an equivalence relation on $X$. Then $X/\sim$ is called the \textbf{quotient} of $X$ by $\sim$. The mapping 
+    $$\pi:X\longrightarrow X/\sim $$
+    $$x\longmapsto [x]$$
+is called the \textbf{quotient mapping}.
+\end{notationenv}
+\begin{definitionenv}
+    Let $X$ be a set, $f:X\rightarrow Y$ be a mapping and $\sim $ an equivalence relation on $X$. If $\forall(x,y)\in X^2, x\sim y\Rightarrow f(x)=f(y)$ we say that $\sim$ is \textbf{compatible} with $f$.
+\end{definitionenv}
+\begin{theoremenv}[Proposition\ref{4.2.5}]\label{5.5.5}
+    Let $f:X\rightarrow Y$ be a mapping and $\sim $ be an equivalence relation on $X$ which is compatible with $f$. Then there exists a unique mapping 
+    $$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x)$$such that $$\tilde{f}\circ \pi =f$$
+    \begin{center}
+\begin{tikzcd}
+    X\arrow[d,swap,"\pi"]\arrow[r,"f"]& Y\\
+    X/\sim \arrow[ur,swap,"\tilde{f}"]
+\end{tikzcd}
+\end{center}
+\end{theoremenv}
+\begin{proofenv}
+    If such $\tilde{f}$ exists. For an $x\in X$. 
+    $$\tilde{f}([x])=\tilde{f}(\pi(x))=f(x)$$
+    So $\tilde{f}$ is unique. To prove the existence, it suffices to check that $\tilde{f}:X/\sim\rightarrow Y$ is well defined. If $[x]=[y]$, then $[x]\mapsto f(x), x\sim y$ and hence $f(x)=f(y)$. So $\tilde{f}$ is well defined.
+\end{proofenv}
+\begin{definitionenv}
+    We call $\tilde{f}$ the \textbf{mapping induced by $f$ by passing to quotient}.
+\end{definitionenv}
+\begin{exampleenv}
+    Let $X$ be a set and $*$ a composition law on $X$. We say that an equivalence relation $\sim$ on $X$ is compatible to $*$ if $\forall (x_1,y_1),(x_2,y_2)\in X^2$
+    $$(x_1\sim x_2 \text{ and } y_1\sim y_2)\Rightarrow x_1*y_1\sim x_2*y_2$$
+    Or equivalently, the equivalence relation $R$ on $X\times X$ defined by 
+    $$(x_1,y_1)R(x_2,y_2)\Rightarrow x_1\sim x_2\text{ and }y_1\sim y_2$$
+    is compatible with the mapping:
+    $$X\times X\longrightarrow X/\sim$$
+    $$(x,y)\longmapsto [x*y]$$
+    By the theorem, $*$ induces by passing to quotient a mapping
+    $$(X/\sim)\times (X/\sim) \longrightarrow (X\times X)/R\longrightarrow X/\sim$$
+    $$([x],[y])\longmapsto[(x,y)]\longmapsto[x*y]$$
+    The compatible mapping
+    $$(X/\sim)\times (X/\sim) \longrightarrow X/\sim$$
+    $$([x],[y])\longmapsto[x*y]$$
+    defines a composition law on $X/\sim$, which is often denoted as $*$ by abuse of notation, called the composition law on $X/\sim$ induced by the composition law $*$ on $X$ by passing to quotient
+\end{exampleenv}
+\begin{exampleenv}
+    $N_n$ on $\ZZ$. 
+    \newline
+    If $n\mid (x_1-x_2)\ n\mid (y_1-y_2)$, then $n\mid(x_1+y_1)-(x_2+y_2)$.
+    \newline
+    Since $x_1y_1-x_2y_2=x_1(y_1-y_2)+(x_1-x_2)y_2$, $n\mid x_1y_1-x_2y_2$.
+    \newline
+    Hence $+$ and $\cdot$ on $\ZZ$ induces by passing to equivalent composition law on $\ZZ/\sim_n$.
+\end{exampleenv}
 
 
 
@@ -2065,4 +2232,38 @@ Based on axiom of foundation,we have the following propositions.
 \begin{corollaryenv}
     Let $X,Y$ be two sets, if $X\in Y$, then $Y\notin X$.
 \end{corollaryenv}
+
+
+\chapter{Inequalities}
+\begin{definitionenv}[Convex functions on intervals]
+    Let $X\subseteq \mathbb{R}$ bbe an interval.
+    \newline 
+    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{convex} for all $x_1,x_2\in X,t\in \interval{0}{1}$
+    $$f(tx_1+(1-t)x_2)\le tf(x_1)+(1-t)f(x_2)$$
+    \newline
+    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{concave} for all $x_1,x_2\in X,t\in \interval{0}{1}$
+    $$f(tx_1+(1-t)x_2)\ge tf(x_1)+(1-t)f(x_2)$$
+\end{definitionenv}
+\begin{theoremenv}[Jensen's Inequality]
+    Let $f$ be a convex function $0\le \alpha_i\le 1$ for $i=1,2,\dots ,n$,such that 
+    $$\sum_{i=1}^{n}\alpha_1=1.\text{show that } \forall x_i\in X$$
+    $$f\left(\sum_{i=1}^{n}a_ix_i\right)\le \sum_{i=1}^{n}\alpha_if(x_i)$$
+    Equality holds if and only if $x_1=x_2=\dots =x_n$ or $f$ is linear on some interval containing $x_1,x_2,\dots,x_n$.
+\end{theoremenv}
+\begin{remark}
+    Consider $f(x)=x^2$ ,we obtain Cauchy-Schwartz inequality,$f(x)=\ln (x)$, we obtain AM-GM-HM inequality.
+\end{remark}
+\begin{theoremenv}[Young's Inequality]
+    \quad
+    \newline
+    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$,then
+    $$xy\le \frac{1}{p}x^p+\frac{1}{q}y^q$$
+\end{theoremenv}
+\begin{theoremenv}[Hölder's Inequality]
+    \quad
+    \newline
+    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$.$x_1,x_2,\dots,x_n;y_1,y_2,\dots,y_n\ge 0$,then
+    $$\sum_{i=1}^{n}x_iy_i\le \left(\sum_{i=1}^{n}x_i^p\right)^{\frac{1}{p}}\cdot\left(\sum_{j=1}^{n}y_j^q\right)^{\frac{1}{q}}$$
+    In particular, when $p=q=2$, this is Cauchy-Schwartz inequality.
+\end{theoremenv}
 \end{document}

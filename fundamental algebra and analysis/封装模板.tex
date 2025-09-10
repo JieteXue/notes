@@ -166,16 +166,16 @@
 % definition: 环境内容使用罗马正体，环境上下方添加额外间距
 % remark: 环境内容使用罗马正体，环境上下方不添加额外间距
 \theoremstyle{t} % 设置定理风格
-\newtheorem{definitin}{\color{slv} Definition}[section] % 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
 \newtheorem{theorem}{\color{shuang} Theorem}[section]
-\newtheorem{example}{\color{szi} Example}[section]
+\newtheorem{definitin}[theorem]{\color{slv} Definition} % 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
+\newtheorem{example}[theorem]{\color{szi} Example}
 \newtheorem*{solutipon}{\color{slan} Solution} % 定义无编号的解答环境
 \newtheorem*{prof}{\color{slan} Proof} % 定义无编号的证明环境
-\newtheorem{proposition}{\color{shuang}Proposition}[section]
-\newtheorem{corollary}{\color{shuang}Corollary}[section]
-\newtheorem{remark}{Remark}[section]
+\newtheorem{proposition}[theorem]{\color{shuang}Proposition}
+\newtheorem{corollary}[theorem]{\color{shuang}Corollary}
+\newtheorem{remark}[theorem]{Remark}
 \newtheorem{axiom}{Axiom}
-\newtheorem{notation}{\color{slv}Notation}[section]
+\newtheorem{notation}[theorem]{\color{slv}Notation}
 \newtheorem{lemma}[theorem]{\color{shuang}Lemma}
 \newenvironment{definitionenv}{\begin{lvse}\begin{definitin}}{\end{definitin}\end{lvse}}
 \newenvironment{notationenv}{\begin{lvse}\begin{notation}}{\end{notation}\end{lvse}}
