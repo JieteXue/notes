@@ -13,7 +13,7 @@
 \author[I]{Compiled by \textbf{Huayi Chen}}
 \author[II]{$$\&$$Edited by \textbf{Jiete Xue}}
 \author[III,IV]{$$-------------------------$$TAs:Postdoc \textbf{Jiedong Jiang, Yijun Yuan}}
-\author[V]{$$$$Substitute Professor\thanks{Chapter 5: Group}: \textbf{Yigeng Zhao}}
+\author[V]{$$$$Substitute Professor\thanks{Chapter 5: Group,Section1-4}: \textbf{Yigeng Zhao}}
 \affil[I]{\itshape\small Department of Mathematics (ITS), School of Science, Westlake University}
 \affil[II]{\itshape\small Undegraduate β Collage, Westlake University}
 \affil[I]{\texttt{chenhuayi@westlake.edu.cn}}
@@ -41,7 +41,7 @@
 \pagenumbering{roman}
 \maketitle
 
-\pagestyle{plain}
+\pagestyle{headings}
 \pagenumbering{roman}
 \setcounter{page}{1}
 \tableofcontents
@@ -59,8 +59,9 @@
 \end{definitionenv}
 \begin{exampleenv}
     "$2>1$"(True)\quad "$1<0$"(False)
-\end{exampleenv}
+    \newline
 If we specify the value of x ,then "$x>2$"becomes a statement, otherwise it is not a statement.
+\end{exampleenv}
 \begin{definitionenv}
     In a mathematical theory,
     \newline 
@@ -2105,7 +2106,7 @@ By Proposition \ref{propositions5.4.2}, a semigroup (resp.monoid group) homomoph
 \textit{Check Section~\ref{4.2}:Equivalent Relation, to get more information about it.}
 \begin{propositionenv}
     Let $(X_i)_{i\in i}$ be a family of sets. For any $i\in I$, let $\sim_i$ be an equivalence relation on $X_i$. Let $X=\prod_{i\in I}X_i$. We define a binary relation $\sim$ on $X$ as follows:
-    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Rightarrow \forall i\in I, x_i\sim y_i$$
+    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Leftrightarrow \forall i\in I, x_i\sim y_i$$
     Then, $\sim $ is an equivalence relation, and the mapping
     $$X/\sim \overset{\Phi}{\longrightarrow }\prod_{i\in I}X_i/\sim_i,$$
     $$ [(x_i)_{i\in I}]\longmapsto  ([x_i])_{i\in I}$$
@@ -2153,9 +2154,9 @@ is called the \textbf{quotient mapping}.
 \end{definitionenv}
 \begin{exampleenv}
     Let $X$ be a set and $*$ a composition law on $X$. We say that an equivalence relation $\sim$ on $X$ is compatible to $*$ if $\forall (x_1,y_1),(x_2,y_2)\in X^2$
-    $$(x_1\sim x_2 \text{ and } y_1\sim y_2)\Rightarrow x_1*y_1\sim x_2*y_2$$
+    $$(x_1\sim x_2 \text{ and } y_1\sim y_2)\Leftrightarrow x_1*y_1\sim x_2*y_2$$
     Or equivalently, the equivalence relation $R$ on $X\times X$ defined by 
-    $$(x_1,y_1)R(x_2,y_2)\Rightarrow x_1\sim x_2\text{ and }y_1\sim y_2$$
+    $$(x_1,y_1)R(x_2,y_2)\Leftrightarrow x_1\sim x_2\text{ and }y_1\sim y_2$$
     is compatible with the mapping:
     $$X\times X\longrightarrow X/\sim$$
     $$(x,y)\longmapsto [x*y]$$
@@ -2165,7 +2166,7 @@ is called the \textbf{quotient mapping}.
     The compatible mapping
     $$(X/\sim)\times (X/\sim) \longrightarrow X/\sim$$
     $$([x],[y])\longmapsto[x*y]$$
-    defines a composition law on $X/\sim$, which is often denoted as $*$ by abuse of notation, called the composition law on $X/\sim$ induced by the composition law $*$ on $X$ by passing to quotient
+    defines a composition law on $X/\sim$, which is often denoted as $*$ by abuse of notation, called the composition law on $X/\sim$ induced by the composition law $*$ on $X$ by passing to quotient.
 \end{exampleenv}
 \begin{exampleenv}
     $N_n$ on $\ZZ$. 
@@ -2176,7 +2177,121 @@ is called the \textbf{quotient mapping}.
     \newline
     Hence $+$ and $\cdot$ on $\ZZ$ induces by passing to equivalent composition law on $\ZZ/\sim_n$.
 \end{exampleenv}
-
+\begin{propositionenv}
+    \quad\newline
+    (1) If $*:X\times X\rightarrow X$ is associative (resp.communitative) then so is $$*:(X/\sim)\times(X/\sim)\rightarrow X/\sim$$
+    (2) If $e$ is a neutral element of $(X,*)$, then $[e]$ is a neutral element of $(X/\sim,*)$.
+    \newline
+    (3) If $(X,*)$ is a semigroup (resp. monoid), then the projection $$\pi:X\rightarrow X/\sim, x\mapsto[x]$$ is a homomophism of  semigroup (resp.monoid).
+    \newline
+    (4) If $(X,*)$ is a monoid, $x\in X$ is invertible, then $[x]$ is invertible in $(X/\sim,*)$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1)associative:
+     $[x]*([y]*[z])=[x]*[y*z]=[x*(y*z)]=[(x*y)*z]=[x*y]*[z]=([x]*[y])*[z]$.
+    \newline
+    communitative:
+    $[x]*[y]=[x*y]=[y*x]=[y]*[x]$
+    \newline
+    (2) $[e]*[x]=[e*x][x],[x]*[e]=[x*e]=[x]$.
+    \newline
+    (3) $$\pi(x*y)=[x*y]=[x]*[y]=\pi(x)*\pi(y)$$
+    $\pi(e)=[e]$ is the neutral element of $(X/\sim,*)$.
+    \newline
+    (4) By (3), $\pi$ is a homomophism of monoid, $\forall x \in X^\times, \pi(x)=[x]\in (X/\sim )^\times $ and $\iota([x])=[\iota(x)]$.
+\end{proofenv}
+\begin{remark}
+    If $(X,*)$ is a group, so is $(X/\sim,*)$.
+\end{remark}
+\begin{definitionenv}
+    \quad
+    \newline
+    If $(X,*)$ is a semigroup (resp. monoid, group), then $(X/\sim, *)$ is called the \textbf{quotient semigroup} (resp. quotient monoid, quotient group) of $(X,*)$ by $\sim$.
+\end{definitionenv}
+\begin{definitionenv}
+    Let $(X,*),(Y,\star)$ be groups and $f:X\rightarrow Y$ be a homomophism of groups. We define the \textbf{kernel} of $f$ as 
+    $$\ker(f):=\{x\in X\mid f(x)=e_Y\}$$
+    where $e_Y$ is the neutral element of $Y$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(X,*)$ be a monoid, $(Y,\star)$ be a semigroup, $f:X\rightarrow Y$ be a homomophism of semigroups. If $f$ is surjective, then $(Y,\star)$ is a monoid, and $f$ is a homomophism of monoid.
+\end{propositionenv}
+\begin{proofenv}
+    We check that $f(e_X)$ is the neutral element of $Y$. $\forall y\in Y,\exists x\in X,f(x)=y$. So $f(e_X)\star y=f(e_X)\star f(x)=f(e_X*x)=f(x)=y$. Also $y\star f(e_X)=f(x)\star f(e_X)=f(x*e_X)=f(x)=y$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,*)$ be a monoid and $(Y,\star)$ be a group. If $f:X\rightarrow Y$ is a homomophism of semigroups, then it is homomophism of monoids.
+\end{propositionenv}
+\begin{proofenv}
+    Let $e_X$ and $e_Y$ be neutral elements of $X$ and $Y$. One has $e_X=e_X*e_X$, so $f(e_X)=f(e_X)\star f(e_X)$, so $e_Y=f(e_X)$.
+\end{proofenv}
+\begin{propositionenv}
+    \quad
+    \newline
+    (1) $\ker(f)$ is a subgroup of $X$.
+    \newline
+    (2) $\forall (a,x)\in X\times \ker(f) $, there exists $y\in \ker(f)$ such that $a*x=y*a$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) The neutral element $e_x$ of $(X,*)$ belongs to $\ker(f)$. If $x,y$ are elements of $\ker(f)$, then 
+    $$f(x*\iota(y))=f(x)\star f(\iota(y))=f(x)\star \iota(f(y))=e_Y\star\iota(e_Y)=e_Y$$
+    so, $x*\iota(y)\in \ker(f)$.
+    \newline
+    (2) We should take $y:=(a*x)*\iota(a)$. It remains to check that $y\in \ker(f)$. One has $f(y)=f(a*x*\iota(a))=f(a)\star f(x)\star \iota(f(a))=f(a)\star \iota(f(a))=e_Y$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G,*)$ be a group and $H$ be a subgroup of $G$. If $\forall (a,x)\in G\times H$, $a*x*a^{-1}\in H$, we say that $H$ is a \textbf{normal subgroup}.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(G,*)$ be a group and $H$ be a normal subgroup of $G$.
+    \newline
+    (1) The binary relation $\sim_H$ on $G$ defined as 
+    $$x\sim_H y\Leftrightarrow x*\iota(y)\in H$$
+    is an equivalence relation on $G$. Moreover, 
+    $$\forall x\in G, [x]=H*x:=\{y*x\mid y\in H\}$$
+    (2) If $H$ is normal, then
+    $$\forall x\in G,x*H=H*x$$
+    Moreover, $\sim_H$ is compatible with $*$.
+    \newline
+    (3) The kernel of $\pi :G\rightarrow G/\sim_H$ is equal to $H$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    (1) If $x\sim_H y$, then $x*\iota(y)\in H$, so $y*\iota(x)=\iota(x*\iota(y))\in H$, so $y\sim_H x$. If $x\sim_H y$ and $y\sim_H z$, then $x*\iota(y)\in H, y*\iota(z)\in H$, so $x*\iota(z)=x\iota(y)*y*\iota(z)\in H$. Hence $x\sim_H z$. By definition, $[x]:=\{y\in G\mid  x*\iota(y)\in H\}$. If $y\in [x]$, then $y*\iota(x)\in H$. Hence $y=(y*\iota(x))*x\in H*x$. Conversely, if $y=h*x\in H*x \quad (h\in H)$, then $y*\iota(x)=h*x*\iota(x)\in H$. So $y\in [x]$, $[x]=H*x$.
+    \newline
+    We denote by $G/H $ the set 
+    $$G/H:=\{x*H\mid x\in G\}$$ 
+    We denote by $H\backslash G$ the set 
+    $$H\backslash G:=\{H*x\mid x\in G\}$$
+    (2) Suppose that $H$ is normal.$\forall (x,y)\in G\times H$, one has $x*y*\iota(x)\in H$. So $\forall y\in H,\exists z(=x*y*\iota(x))\in H$ such that $x*y=z*x$. So $x*H\subseteq H*x$. Conversely, $H*x\subseteq x*H$. Let $x_1,x_2,y_1,y_2$ be elements of $G$, such that $x_1\sim_H x_2,y_1\sim_H y_2$.
+    \begin{align*}
+&(x_1*y_1)*\iota (x_2*y_2)\\
+=&x_1*y_1*\iota (y_2)*\iota (x_2)\\
+=&x_1*(y_1*\iota (y_2))*\iota (x_1)*x_1*\iota (x_2)\in H
+\end{align*}
+    (3)$$\ker(\pi)=[e_G]=H*e_G=H$$
+\end{proofenv}
+\begin{notationenv}
+    If $H$ is a normal subgroup of $G$, we denote by $G/H$ the quotient group $G/\sim_H$.
+\end{notationenv}
+\begin{theoremenv}
+    Let $f:(X,*)\rightarrow (Y,\star)$ be a homomophism of groups, and $K=\ker(f)$. Then $\sim_K$ is compatible with $f$, and $f$ induces by passing to quotient a mapping
+    $$\tilde{f}:X/K\longrightarrow Y$$
+    which is actually an injective homomophism of groups, with $\tilde{f}(X/K)=f(X)$. In particular, $X/K$ is isomonophism to $f(X)$.
+        \begin{center}
+\begin{tikzcd}
+    X\arrow[d,swap,"\pi"]\arrow[r,"f"]& f(x)\subseteq Y\\
+    X/\ker(f) \arrow[ur,swap,"\tilde{f}"]
+\end{tikzcd}
+\end{center}
+\end{theoremenv}
+\begin{proofenv}
+    Let $x$ and $y$ be elements of $X$. $x\sim_K y\Leftrightarrow x*\iota(y)\in K$. Hence $f(x)\star \iota(f(y))=f(x*\iota(y))=e_Y$. So $f(x)=f(y)$. $\tilde{f}([x]*[y])=\tilde{f}([x*y])=f(x*y)=f(x)\star f(y)=\tilde{f}([x])\star \tilde{f}([y])$.
+\end{proofenv}
 
 
 

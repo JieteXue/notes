@@ -1,0 +1,21 @@
+\documentclass[12pt]{article}
+\usepackage{interval}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[top=1.2in, bottom=1.2in, left=1.5in, right=1.5in]{geometry}
+\pagestyle{headings}
+\setlist[enumerate,2]{label=(\arabic*), leftmargin=*}    % 二级：(1) (2) (3)
+\setlist[enumerate,3]{label=(\alph*), leftmargin=*}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\begin{document}
+\begin{enumerate}
+    \item We initiate an induction on $n\in \NN$.
+    \item Note that $a_{n+1}=\left( 1+\frac{1}{n+1}\right)^{\frac{n+1}{n}\cdot n}$. By (1), (in rational case) $a_{n+1}\ge \left(1+\frac{1}{n}\right)^n=a_n$.
+    \item $b_n=\left(1+\frac{1}{n}\right)^{\frac{n}{n+1}\cdot\frac{(n+1)^2}{n}}\ge \left(1+\frac{1}{n+1}\right)^{\frac{(n+1)^2}{n}}\ge \left(1+\frac{1}{n+1}\right)^{n+2}=b_{n+1}$
+    \item Easy to prove $\forall k\in \NN, b_k\ge a_k$, by (2) and (3),$\dots$.
+\end{enumerate}
+
+\end{document}
