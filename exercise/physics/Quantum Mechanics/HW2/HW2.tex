@@ -1,0 +1,184 @@
+\documentclass{article}
+\newcommand{\mydate}{September 14, 2025}
+\title{QM HW2}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{QM HW2 }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newtheoremstyle{t}{30pt}{30pt}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{t}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pa}{\partial}
+
+\begin{document}
+
+\maketitle
+\begin{problem}[Harmonic osicllator]
+(1) We've known that $x_{nm}\not=0\Rightarrow m=n\pm1$
+\begin{equation}
+    x_{n,n}^2=\sum_{k}x_{n,k}x_{k,n}=x_{n, n-1}x_{n-1,n}+x_{n, n+1}x_{n+1,n}
+\end{equation}
+Since
+\begin{equation}
+    x_{n+1,n}=\sqrt{\frac{\hbar}{2m\omega_0}(n+1)}
+\end{equation}
+We have 
+\begin{equation}
+    \boxed{x_{n,n}^2=\frac{\hbar}{m\omega_0}\left(n+\frac{1}{2}\right)}
+\end{equation}
+\begin{equation}
+        (p^2)_{n,n}=m^2 (\dot{x})_{n,n}^{2} =\hbar \omega_0m (n + 1/2) 
+\end{equation}
+\begin{equation}
+    \boxed{\sqrt{(x^2)_{n,n}(p^2)_{n,n}}=\hbar\left(n+\frac{1}{2}\right)}
+\end{equation}
+When $n=0$,
+\begin{equation}
+   \sqrt{(x^2)_{n,n}(p^2)_{n,n}}=\frac{\hbar}{2} 
+\end{equation}
+(2) 
+\begin{equation}
+    \boxed{x_{n,m}(t)=\sqrt{\frac{\hbar}{2m\omega_0}}\left(\sqrt{n}e^{i\omega_0t}\delta_{m,n-1}+\sqrt{n+1}e^{-i\omega_0t}\delta_{m,n+1}\right)}
+\end{equation}
+\begin{equation}
+    \boxed{p_{n,m}(t)=i\sqrt{\frac{\hbar m\omega_0}{2}}\left(\sqrt{n}e^{i\omega_0t}\delta_{m,n-1}-\sqrt{n+1}e^{-i\omega_0 t}\delta_{m,n+1}\right)}
+\end{equation}
+\begin{align}
+    [x,p]_{n,m}(t)=&\sum_{k}\left(x_{n,k}p_{k,m}e^{i\omega_{n,m}t}-p_{m,k}x_{k,n}e^{i\omega_{m,n}t}\right)\\
+   =&\left[x_{n,n-1}p_{n-1,m}+x_{n,n+1}p_{n+1,m}\right.\notag\\
+   &-p_{m,n-1}x_{n-1,n}-p_{m,n+1}x_{n+1,n}\left.\right]\delta_{nm}\\
+   =& \boxed{i\hbar\delta_{nm}}
+\end{align}
+\end{problem}
+\begin{problem}[Quantum equation of motion]
+    (1) By associative law, $\forall H_2(x)$,
+    \begin{equation}
+        [x,H_2(x)]=0
+    \end{equation}
+    We expand $H_1(p)$ in form of 
+    \begin{equation}
+        H_1(p)=\sum_{n=0}^{\infty}a_np^n
+    \end{equation}
+    We have 
+    \begin{equation}
+        [x,p^n]=\sum_{i=0}^{n-1}p^i[x,p]p^{n-i-1}=in\hbar p^{n-1}=i\hbar\frac{\pa (p^n)}{\pa p}
+    \end{equation}
+    Hence,
+    \begin{equation}\label{2.4}
+        \boxed{\frac{\pa H}{\pa p}=\frac{1}{i\hbar}[x,H]}
+    \end{equation}
+    Similarly,
+    \begin{equation}\label{2.5}
+        \boxed{-\frac{\pa H}{\pa x}=\frac{1}{i\hbar}[p,H]}
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        \dot{x} = \frac{i}{\hbar} [x, H], \quad \dot{p} = \frac{i}{\hbar} [p, H]
+    \end{equation}
+    (2) $\forall (n,m)\in \mathbb{N}^2$
+    \begin{equation}
+        [x,x^np^m]=xx^np^m-x^np^mx=x^n(xp^m-p^mx)=x^n[x,p]
+    \end{equation}
+    So,
+    \begin{equation}
+       \boxed{ [x,x^np^m]=i\hbar x^n\frac{\pa(p^m)}{\pa p}}
+    \end{equation}
+    Hence (\ref{2.4}) and (\ref{2.5}) still hold. Let $x=x,y,\  p=p_x,p_y$.
+    \begin{eqnarray}
+        \dot{x} = \frac{1}{i\hbar}[x, H], \quad \dot{p}_x = \frac{1}{i\hbar}[p_x, H]\notag\\
+        \dot{y} = \frac{1}{i\hbar}[y, H], \quad \dot{p}_y = \frac{1}{i\hbar}[p_y, H]
+    \end{eqnarray}
+\end{problem}
+\newpage
+\begin{problem}[De Broglie wave]
+    By relativity,
+    \begin{equation}
+        p=mv_g\ ,\  E=mc^2
+    \end{equation}
+    \begin{equation}
+        v_g=\frac{pc^2}{E}
+    \end{equation}
+    In wave case, 
+    \begin{equation}
+        v_g=\frac{\dd \omega}{\dd k}
+    \end{equation}
+    From 
+    \begin{equation}
+        E^2=p^2c^2+m_0^2c^4
+    \end{equation}
+    we deduce that 
+    \begin{equation}
+        \frac{pc^2}{E}=\frac{\dd E}{\dd p}=\hbar\frac{\dd \omega}{\dd p}
+    \end{equation}
+    Thus, 
+    \begin{equation*}
+        \dd p=\hbar \dd k
+    \end{equation*}
+    \begin{equation}
+        \boxed{p=\hbar k}
+    \end{equation}
+
+\end{problem}
+\begin{problem}[Schrödinger equation]
+     Let 
+     \begin{equation}
+        \Psi(r,t)=e^{iS/k}=e^{i[W(r)-Et]/k}=\psi(r)e^{-iEt/k}
+     \end{equation}
+     Considering $E=\hbar \omega$, take $k=\hbar$. Then
+     \begin{equation}
+        S=-i\hbar \ln \psi(r)-Et
+     \end{equation}
+     Plug in 
+     \begin{equation}
+        \left(\nabla S\right)^2=2m\left(E-V(r)\right)
+     \end{equation}
+     we obtain
+     \begin{equation}\label{4.4}
+        \frac{\hbar^2}{2m}\left(\nabla \psi\right)^2+\left(E-V(r)\right)\psi^2=0
+     \end{equation}
+     Now, we want to linearize the equation. Let $\nabla$ act on (\ref{4.4}) and eliminate the common factor
+     \begin{equation}
+        \frac{\hbar^2}{2m}\nabla^2\psi+\left(E-V(r)\right)\psi+\frac{\nabla(E-V(r))\psi^2}{2\nabla\psi}=0
+     \end{equation}
+     God believes $S,E,V$ are smooth at the $\hbar$ scale. We ignore the last term.
+     \begin{equation}
+        \boxed{\frac{\hbar^2}{2m}\nabla^2\psi+\left(E-V(r)\right)\psi=0}
+     \end{equation}
+\end{problem}
+\begin{problem}[Quantum Potential]
+    Plug
+    \begin{equation}
+        \frac{\pa \Psi}{\pa t}=\frac{i}{\hbar}\frac{\pa S}{\pa t}e^{iS/\hbar}
+    \end{equation}
+    \begin{equation}
+        \nabla \Psi=\frac{i}{\hbar} \nabla S e^{iS/\hbar}
+    \end{equation}
+    \begin{equation}
+        \nabla^2 \Psi=\frac{1}{\hbar^2}\left[i\hbar \nabla^2 S-\left(\nabla S\right)^2\right]e^{iS/\hbar}
+    \end{equation}
+    into Schrödinger equation,
+    \begin{equation}
+        \frac{\pa S}{\pa t}=\frac{1}{2m}\left[i\hbar \nabla^2 S-\left(\nabla S\right)^2\right]-V
+    \end{equation}
+    When taking the limit $\hbar\rightarrow 0$,
+    \begin{equation}
+        \frac{\pa S}{\pa t}+\frac{\left(\nabla S\right)^2 }{2m}+V=0
+    \end{equation}
+    It is exactly the Hamilton-Jacobi equation. The quantum potential is 
+    \begin{equation}
+        \boxed{V_{\text{quantum}}=-\frac{i}{2m\hbar}\nabla^2S}
+    \end{equation}
+\end{problem}
+
+\end{document}
