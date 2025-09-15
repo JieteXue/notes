@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{interval}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage[top=1.2in, bottom=1.2in, left=1.5in, right=1.5in]{geometry}
 \pagestyle{headings}
@@ -236,5 +237,20 @@ F & F &  F &   T&   T&   T\\ \hline
         \begin{enumerate}
             \item 
         \end{enumerate}
+    \item Let $E=\{1,2,\dots,n\}$, $\forall \sigma\in \mathfrak{S}_E,$
+            $$\prod_{i,j\in E}[\sigma(i)=\sigma(j)]=\prod_{i,j\in E}(i-j)$$
+            $$\prod_{i,j\in E}(i-j)[(\sigma\circ \pi) (i)-(\sigma\circ\pi)(j)]=\prod_{i,j\in E}[\sigma(i)-\sigma(j)][\pi(i)-\pi(j)]$$
+            $$\prod_{i<j\in E}(i-j)[(\sigma\circ \pi) (i)-(\sigma\circ\pi)(j)]=\prod_{i<j\in E}[\sigma(i)-\sigma(j)][\pi(i)-\pi(j)]$$
+            $$\prod_{i<j\in E}\frac{[(\sigma\circ \pi) (i)-(\sigma\circ\pi)(j)]}{i-j}=\prod_{i<j\in E}\frac{\sigma(i)-\sigma(j)}{i-j}\prod_{i<j\in E}\frac{\pi(i)-\pi(j)}{i-j}$$
+            Hence, $\mathrm{sgn}$ is a homomorphism.
+    \item By 16. $\forall \sigma \in \mathfrak{S}_E$, it can be represented by the composition of transpositions $\tau_i$, where,
+        $$\tau_i: E\longrightarrow E,$$$$ \tau_i(x)=
+        \left\{\begin{matrix}
+        x&,&x\in E\backslash \left \{ i,\mathrm{mod} (i ,n)+1\right \} \\
+        \mathrm{mod}(x,n)+1&,&x=i \\
+        \mathrm{mod}( x-2,n)+1&,&x=\mathrm{mod}(i,n)+1
+        \end{matrix}\right.$$
+        Easy to check that $\tau_i\circ\tau_i=\mathrm{Id}_E$. So $\forall f \text{ be a homomorphism, },f(\tau_i)f(\tau_i)=1,f(\tau_i)=\pm 1$. Then $\forall \sigma \in \mathfrak{S}_E, f(\sigma)=\pm1$.
 \end{enumerate}
+\textbf{Remark.  }$f=-1$ corresponds to the $\mathrm{sgn}$ in 17.
 \end{document}
