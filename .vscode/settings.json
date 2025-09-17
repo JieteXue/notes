@@ -32,6 +32,7 @@
         "semigroups",
         "submonoid",
         "submonoids",
+        "subring",
         "subsemigroup",
         "subsemigroups",
         "supremum",

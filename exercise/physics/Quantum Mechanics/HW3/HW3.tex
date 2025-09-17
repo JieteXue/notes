@@ -1,0 +1,101 @@
+\documentclass{article}
+\newcommand{\mydate}{September 16, 2025}
+\newcommand{\mytitle}{QM HW3}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+
+\begin{document}
+
+\maketitle
+\begin{problem}[A quantum particle in an infinitely deep potential well]
+    (1) When $\left| x\right|>\frac{L}{2}$, $\psi(x)=0$. Now devoted exclusively to the case where $\left| x\right|<\frac{L}{2}$.By Schrödinger equation,
+    \begin{equation}
+       E\psi+\frac{\hbar^2}{2m}\frac{\dd^2 \psi}{\dd x^2}=0.
+    \end{equation}
+    Let $k=\sqrt{2mE/\hbar^2}$,
+    \begin{equation}
+        \psi(x)=A\sin(kx)+B\cos(kx).
+    \end{equation}
+    For odd parity, $B=0$. For even parity, $A=0$.
+    Take the boundary condition
+    \begin{equation}
+        \psi(\pm \frac{L}{2})=0.
+    \end{equation}
+    \begin{equation}
+        \cos(\frac{k^+L}{2})=0,\sin(\frac{k^-L}{2})=0.
+    \end{equation}
+    So, we have
+    \begin{equation}
+        k_n^+=\frac{\left(2n-1\right)\pi}{L},\ k_n^-=\frac{2n\pi}{L}.
+    \end{equation}
+    That is 
+    \begin{equation}
+        \boxed{E_n^+=\frac{\hbar^2 \pi^2(2n-1)^2}{2mL^2},\ E_n^-=\frac{\hbar^2 \pi^2 (2n)^2}{2mL^2}.}
+    \end{equation}
+    \begin{equation}
+        \psi_n^+=A_n^+\cos\left(\frac{\left(2n-1\right)\pi x}{L}\right),\ \psi_n^-=A_n^-\sin\left(\frac{2n\pi x}{L}\right).
+    \end{equation}
+    Normalize the wave functions,
+    \begin{equation}
+       \boxed{ \psi_n^+=\sqrt{\frac{2}{L}}\cos\left(\frac{\left(2n-1\right)\pi x}{L}\right),\ \psi_n^-=\sqrt{\frac{2}{L}}\sin\left(\frac{2n\pi x}{L}\right)}.
+    \end{equation}
+    (2) \begin{eqnarray}
+        \Psi(x,t)=\sqrt{\frac{1}{L}}\left[e^{-iE_1^+t}\cos(\frac{\pi x}{L})+e^{-iE_1^-t}\sin(\frac{2\pi x}{L})\right]\\
+        =\boxed{\sqrt{\frac{1}{L}}\left[e^{-i \frac{\hbar^2 \pi^2}{2mL^2}t}\cos(\frac{\pi x}{L})+e^{-i \frac{2\hbar^2 \pi^2 }{mL^2}t}\sin(\frac{2\pi x}{L})\right]}.
+    \end{eqnarray}
+    (3) By symmetry,
+        \begin{equation}
+        \left \langle x \right \rangle =0 ,\ \left \langle p \right \rangle =0.
+        \end{equation}
+        \begin{equation}
+            \left \langle x^2 \right \rangle =\int_{-\frac{L}{2} }^{\frac{L}{2} } \psi^*x^2\psi\ \dd x=\frac{L^2}{12}-\frac{L^2}{2n^2\pi ^2} .
+        \end{equation}
+        \begin{equation}
+        \left \langle p^2 \right \rangle =\footnote{By Schrödinger equation: $\frac{p^2}{2m}\ket{\psi}=E\ket{\psi} $, then $\expval{p^2}=\expval{p^2}{\psi}=2mE$.}2mE= \frac{n^2\pi^2\hbar^2}{L^2}.
+        \end{equation}
+        So,
+        \begin{equation}
+            \boxed{\sqrt{\Delta x^2}=L\sqrt{\frac{1}{12}-\frac{1}{2n^2\pi^2}}},
+        \end{equation}
+        \begin{equation}
+            \boxed{\sqrt{\Delta p^2}=\frac{n\pi \hbar}{L}},
+        \end{equation}
+        \begin{equation}
+            \boxed{\sqrt{\Delta x^2}\sqrt{\Delta p^2}=\hbar \sqrt{\frac{n^2\pi^2}{12}-\frac{1}{2}}\ge\hbar\sqrt{\frac{\pi^2}{12}-\frac{1}{2}}>\frac{\hbar}{2}}.
+        \end{equation}
+\end{problem}
+\end{document}

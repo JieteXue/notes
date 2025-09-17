@@ -94,9 +94,9 @@ For any statement $p$, $\neg \neg p$and $p$ have the same value.
 \begin{definitionenv}
     Let $p$ and $q$ be statements,
     \newline
-    we denote by $p\wedge q $the statement "$p$ and $q$"
+    We denote by $p\wedge q $the statement "$p$ and $q$".
     \newline
-    we denote by $p\vee q $the statement "$p$ or $q$"
+    We denote by $p\vee q $the statement "$p$ or $q$".
     
 \end{definitionenv}
 
@@ -122,7 +122,7 @@ For any statement $p$, $\neg \neg p$and $p$ have the same value.
 
 \section{Conditional statements}
 \begin{definitionenv}
-    Let $P$ and $Q$ be statements,we denote by $P\Rightarrow Q$ the statement(if P then Q)
+    Let $P$ and $Q$ be statements,we denote by $P\Rightarrow Q$ the statement(if P then Q).
 \end{definitionenv}
 \begin{remark}
     It has the same truth value as that of $(\neg P\vee Q)$,only when $P$ s true and $Q$is false,otherwise it's true .
@@ -158,19 +158,17 @@ $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,
 \end{definitionenv}
 \begin{propositionenv}
     Let P and Q be statements.$P \Leftrightarrow Q$ has the same truth value as 
-    $$(P\Rightarrow Q)\wedge (Q\Rightarrow P)$$
+    $$(P\Rightarrow Q)\wedge (Q\Rightarrow P).$$
 \end{propositionenv}
 \begin{exampleenv}
-    Let $n$ be an integer.
-    \newline
-    $n$ is even if and only if $n^2$ is even 
+    Let $n$ be an integer.$n$ is even if and only if $n^2$ is even.
 \end{exampleenv}
 \begin{definitionenv}
     Let $P$ and $Q$ be statements.
     \newline
-    $Q\Rightarrow P$ is called the converse of$P\Rightarrow Q$
+    $Q\Rightarrow P$ is called the converse of$P\Rightarrow Q$.
     \newline
-    $\neg P \Rightarrow \neg Q$is called the inverse of $P\Rightarrow Q$ 
+    $\neg P \Rightarrow \neg Q$is called the inverse of $P\Rightarrow Q$.
 \end{definitionenv}
 \begin{remark}
     If one proves $P\Rightarrow Q$and $\neg P\Rightarrow \neg Q$,then $P \Leftrightarrow Q$ is true.
@@ -184,15 +182,11 @@ $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,
     Let $P$ be a statement.If we assume $\neg P$is true and deduce that a certain statement is both true and false, then we say that a contradiction happens and the assumption $\neg P$ is false. Thus the statement $P$ is true. Such a reasoning is called proof by contradiction.
 \end{definitionenv}
 \begin{exampleenv}
-    Prove that the equation $x^2=2$ does not have solution in $\mathbb{Q}$
+    Prove that the equation $x^2=2$ does not have solution in $\mathbb{Q}$.
     \begin{proofenv}
-        By contradiction,we assume that $x:=\frac{p}{q}$ is a solution,where $p$ and $q$ are integers ,which do not have common prime divisor.
-        \newline
-        By $x^2=2$ we obtain $p^2=2q^2$
+        By contradiction,we assume that $x:=\frac{p}{q}$ is a solution,where $p$ and $q$ are integers ,which do not have common prime divisor. By $x^2=2$ we obtain $p^2=2q^2$
         So $p^2$ is even,$p$ is even.Let $p_1\in \ZZ$ such that $p=2p_1$
-        Then $p^2=4p_1^2=2q^2$,hence $q$ is even.
-        \newline
-        Therefore $2$ is a common prime divisor of $p$ and $q$,which leads to a contradiction.
+        Then $p^2=4p_1^2=2q^2$, hence $q$ is even. Therefore $2$ is a common prime divisor of $p$ and $q$,which leads to a contradiction.
     \end{proofenv}
 \end{exampleenv}
 
@@ -295,36 +289,41 @@ $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,
 \chapter{Set Theory}
 \section{Roster Notation}
 \begin{definitionenv}
-    We call a set a certain collection of distinct objects.
+    \quad
     \newline
-    An object in a collection considered as a set is called element of it .
+    (1) We call a \textbf{set} a certain collection of distinct objects.
     \newline
-    Two sets $A$ and $B$ are said to be equal if they have the same elements.We denoted by $A=B$ the statement "A and B are equal"
+    (2) An object in a collection considered as a set is called \textbf{element} of it .
     \newline
-    If $A$ is a set and $x$ is an object,$x \in A$ denotes $x$ is an element of $A$ (reads x belongs to A),$x \notin A$ denotes "x is NOT an element of A" 
+    (3) Two sets $A$ and $B$ are said to be \textbf{equal} if they have the same elements.We denoted by $A=B$ the statement "A and B are equal".
+    \newline
+    (4) If $A$ is a set and $x$ is an object, $x \in A$ denotes $x$ is an element of $A$ (reads x belongs to A), $x \notin A$ denotes "x is NOT an element of A".
 \end{definitionenv}
-Notation Roster method:to be continue$\dots$
+Notation Roster method: to be continue$\dots$
 \begin{exampleenv}
     \{1,2,3\}=\{3,2,1\}=\{1,1,2,3\}
 \end{exampleenv}
-More generally ,if $I$ is a set ,and for any $i \in I$,we fix an $x_i$,then the set of all $x_i$ is noted as $$\{x_i|i\in I\}$$
+More generally, if $I$ is a set, and for any $i \in I$, we fix an $x_i$, then the set of all $x_i$ is noted as $$\{x_i|i\in I\}.$$
 \begin{exampleenv}
-    $$\{2k+1|k\in \ZZ\}$$
+    $$\{2k+1|k\in \ZZ\}.$$
 \end{exampleenv}
 \section{Set-builder Notation}
 \begin{definitionenv}
-    Let $A$ be a set .If for any $x\in A $ we fix a statement $P(x)$,then we say that $P(\cdot)$ is a \underline{condition} on $A$ 
+    Let $A$ be a set. If for any $x\in A $ we fix a statement $P(x)$, then we say that $P(\cdot)$ is a \textbf{condition} on $A$. 
 \end{definitionenv}
 \begin{exampleenv}
-    "n is even" is a condition on $\NN$, "x>2" is a condition on $\RR$.
+    "$n$ is even" is a condition on $\NN$, "$x>2$" is a condition on $\RR$.
 \end{exampleenv}
 \begin{definitionenv}
-    Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .If $x\in A$ is such that $P(x)$ is true, then we say that $x$ satisfies the condition $P(\cdot)$.We noted by $$\{x \in A|P(x)\}$$the set of $x\in A$ that satisfies the condition $P(\cdot)$
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .If $x\in A$ is such that $P(x)$ is true, then we say that $x$ satisfies the condition $P(\cdot)$.We noted by $$\{x \in A|P(x)\}$$the set of $x\in A$ that satisfies the condition $P(\cdot)$.
 \end{definitionenv}
 \begin{exampleenv}
     $\{x\in \RR|x>2\}$ denotes the set of real numbers that are $x>2$.
 \end{exampleenv}
-sometimes we combine the two methods of representation.
+\begin{center}
+    sometimes we combine the two methods of representation.
+\end{center}
+
 
 
 
@@ -345,19 +344,19 @@ sometimes we combine the two methods of representation.
 \begin{exampleenv}
     $\wp (\varnothing)=\{\varnothing\}$
     ,
-    $\wp (\wp (\varnothing))=\{\varnothing,\{\varnothing\}\}$
+    $\wp (\wp (\varnothing))=\{\varnothing,\{\varnothing\}\}$.
 \end{exampleenv}
 \begin{definitionenv}
-    Let $A$ and $B$ be sets. We denote by $B \backslash A$ the set $\{x\in B|x\notin A\}$. This is a subset of $B$ called the set difference of $B$ and $A$.
+    Let $A$ and $B$ be sets. We denote by $B \backslash A$ the set $$\{x\in B|x\notin A\}.$$ This is a subset of $B$ called the \textbf{set difference of $\mathbf{B}$ and $\mathbf{A}$}.
     \newline
-    If in condition $A \subseteq B$, we say that $B\backslash A$ is the complement of $A$ inside $B$
+    If in condition $A \subseteq B$, we say that $B\backslash A$ is the complement of $A$ inside $B$.
 \end{definitionenv}
 \begin{exampleenv}
-    If $A$ is a set ,$P(\cdot)$ is  a condition on $A$, then $$\{x\in A |\neg P(x)\}=A\backslash\{x\in A|P(x)\}$$
+    If $A$ is a set, $P(\cdot)$ is  a condition on $A$, then $$\{x\in A |\neg P(x)\}=A\backslash\{x\in A|P(x)\}.$$
 \end{exampleenv}
 \begin{propositionenv}
-    Let $A$ and $B$ be sets.Then $$B\backslash A=\varnothing \Leftrightarrow B\subseteq A$$
-    If in condition $A$ is the subset of $B$, then $$B\backslash A=\varnothing \Leftrightarrow A=B$$
+    Let $A$ and $B$ be sets.Then $$B\backslash A=\varnothing \Leftrightarrow B\subseteq A.$$
+    If in condition $A$ is the subset of $B$, then $$B\backslash A=\varnothing \Leftrightarrow A=B.$$
 \end{propositionenv}
 
 
@@ -370,7 +369,7 @@ sometimes we combine the two methods of representation.
     "$\exists x\in A,P(x)$"denotes$\{x\in A|P(x)\}\not= \varnothing$.
 \end{definitionenv}
 \begin{exampleenv}
-    $\forall x\in \varnothing ,P(x)$ is true ;$\exists x\in \varnothing,P(x)$ is false.
+    $\forall x\in \varnothing ,P(x)$ is true ; $\exists x\in \varnothing,P(x)$ is false.
 \end{exampleenv}
 \begin{theoremenv}\label{theorem2.4.1}
     Let $A$ be a set and $P(\cdot)$ be a condition on $A$
@@ -385,9 +384,8 @@ sometimes we combine the two methods of representation.
 \section{Sufficient and Necessary Condition}
 \begin{definitionenv}
     Let $A$ be a set and $P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
-    If $$\{x\in A|P(x)\}\subseteq\{x\in A|Q(x)\}$$ we say that $P(\cdot)$ is a sufficient condition of $Q(\cdot)$.$Q(\cdot)$ is a necessary condition of $P(\cdot)$
-    \newline
-    If $\{x\in A|P(x)\}=\{x\in A|Q(x)\}$,we say that $p(\cdot)$ and $Q(\cdot)$ are equivalent.
+    If $$\{x\in A|P(x)\}\subseteq\{x\in A|Q(x)\},$$ we say that $P(\cdot)$ is a \textbf{sufficient condition} of $Q(\cdot)$ and $Q(\cdot)$ is a \textbf{necessary condition} of $P(\cdot)$. 
+    If $\{x\in A|P(x)\}=\{x\in A|Q(x)\}$,we say that $P(\cdot)$ and $Q(\cdot)$ are equivalent.
 \end{definitionenv}
 \begin{propositionenv}
     Let $A$ be a set ,$P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
@@ -403,32 +401,32 @@ sometimes we combine the two methods of representation.
     \varnothing&=\{x\in A|P(x)\}- \{x\in A|Q(x)\}\\
     &=\{x\in A|P(x)\wedge (\neg Q(x))\}\\
     &=A\backslash\{x\in A|(\neg P(x))\vee  Q(x)\}\\
-    &=A\backslash\{x\in A |P(x)\Rightarrow Q(x)\}
+    &=A\backslash\{x\in A |P(x)\Rightarrow Q(x)\}.
 \end{align*}
 \end{proofenv}
-\textbf{Russell's paradox:}$P(A):=A\notin A$,The collection of all sets should not be considered as a set.
+\textbf{Russell's paradox} leads to: $P(A):=A\notin A$. The collection of all sets should not be considered as a set.
 
 
 \section{Union}
 \begin{definitionenv}
-    Let $I$ be a set ,and for any $i \in I$, let $A_i$ be a set ,we say that $(A_i)_{i\in I}$ is a family of sets parametrized by $I$.We denote by $\cup_{i \in I}A_i$ the set of all elements of all $A_i$.It is also called the \textbf{union} of the sets $A_i,i\in I$. By definition,a mathematical object $x$ belongs to $\cup_{i \in I}A_i$ if and only if $$\exists i\in I,x\in A_i$$ 
+    Let $I$ be a set ,and for any $i \in I$, let $A_i$ be a set ,we say that $(A_i)_{i\in I}$ is a family of sets parametrized by $I$.We denote by $\cup_{i \in I}A_i$ the set of all elements of all $A_i$.It is also called the \textbf{union} of the sets $A_i,i\in I$. By definition,a mathematical object $x$ belongs to $\cup_{i \in I}A_i$ if and only if $$\exists i\in I,x\in A_i.$$ 
 \end{definitionenv}
 \begin{propositionenv}
-    $ \displaystyle \bigcup_{i\in I}A_i\subseteq B$ if and only if $$\forall i\in I,A_i\subseteq B$$
+    $ \displaystyle \bigcup_{i\in I}A_i\subseteq B$ if and only if $$\forall i\in I,A_i\subseteq B.$$
 \end{propositionenv}
 \begin{corollaryenv}\label{corollary2.6.1}
     Let $P_i(\cdot) $be a condition on $B$,then
-    $$\{x\in B|\exists i\in I,P_i(x)\}=\bigcup_{i\in I}\{x\in B|P_i(x)\}$$
+    $$\{x\in B|\exists i\in I,P_i(x)\}=\bigcup_{i\in I}\{x\in B|P_i(x)\}.$$
 \end{corollaryenv}
 \begin{propositionenv}
-    $$\left( \bigcup _{i\in I}A_i\right)\backslash B=\bigcup_{i\in I}\left( A_i\backslash B\right)$$
+    $$\left( \bigcup _{i\in I}A_i\right)\backslash B=\bigcup_{i\in I}\left( A_i\backslash B\right).$$
 \end{propositionenv}
 \section{Intersection}
 \begin{definitionenv}
     Let $I$ be a \textbf{non-empty} set and $(A_i)_{i\in I} $ be a family os sets parametrized by $I$. We denote by $\displaystyle \bigcap_{i\in I}A_i $ the set of all common elements of $A_i,i\in I$.This set is called the \textbf{intersection} of $A_i,i\in I$.Note that ,if $i_0$ is an arbitrary element of $I$ ,the set-builder notation ensure that
-    $$\{x\in A_{i_0}|\forall i\in I,x\in A_i\}$$ is a set. This set id the intersection of $(A_i)_{i\in I}$.
+    $$\{x\in A_{i_0}|\forall i\in I,x\in A_i\}$$ is a set. This set is the intersection of $(A_i)_{i\in I}$.
     \newline
-    By definition, an mathematical object $x$ belongs to $\cap _{i\in I}A_i$ if and only if $$\forall i\in I ,x\in A_i$$
+    By definition, an mathematical object $x$ belongs to $\cap _{i\in I}A_i$ if and only if $$\forall i\in I ,x\in A_i.$$
     
 \end{definitionenv}
 \begin{remark}
@@ -599,9 +597,9 @@ Now, assume \(y\neq y^{\prime}\). Then \(\{x,y\}\neq\{x^{\prime},y^{\prime}\}\),
 \begin{definitionenv}
     Let $f$ be a correspondence.We denote by $f^{-1}$ the correspondence defined as follows:
     $$\mathscr{D}_f^{-1}:=\mathscr{A}_f,\mathscr{A_f}^{-1}:=\mathscr{D}_f,$$
-    $$\Gamma_{f^{-1}}:=\{(y,x)\in \mathscr{D}_f\times \mathscr{A}_f|(x,y)\in \Gamma_f\}$$
-    The correspondence $f^{-1}$ is called the \textbf{inverse correspondence} of $f$. Clearly one has $$(f^{-1})^{-1}=f$$
-    namely $f$ is the inverse correspondence of $f^{-1}$
+    $$\Gamma_{f^{-1}}:=\{(y,x)\in \mathscr{D}_f\times \mathscr{A}_f|(x,y)\in \Gamma_f\}.$$
+    The correspondence $f^{-1}$ is called the \textbf{inverse correspondence} of $f$. Clearly one has $$(f^{-1})^{-1}=f,$$
+    namely $f$ is the inverse correspondence of $f^{-1}$.
 \end{definitionenv}
 \section{Illustration of a Correspondence}
 \section{Image and Preimage}
@@ -609,10 +607,10 @@ Now, assume \(y\neq y^{\prime}\). Then \(\{x,y\}\neq\{x^{\prime},y^{\prime}\}\),
     Let $X,Y$ be sets ,and $f$ be a correspondence from $X$ to $Y$. If $(x,y)$ is an element of $\Gamma_f$, we say that $x$ is a \textbf{preimage } of $y$ under $f$, and $y$ is an \textbf{image} of $x$ under $f$.
     \newline
     If $A$ is a set , we denote by $f(A)$ the set :
-    $$\{y\in \mathscr{A}_f|\exists x\in A ,(x,y)\in \Gamma_f\}$$
-    called the image of $A$ by the correspondence $f$
+    $$\{y\in \mathscr{A}_f|\exists x\in A ,(x,y)\in \Gamma_f\},$$
+    called the image of $A$ by the correspondence $f$.
     \newline 
-    If $B$ is a set ,the set $f^{-1} (B)$ is called the preimage of $B$ by the correspondence $f$. Note that it is by definition the image of $B$ by the inverse correspondence $f^{-1}$.
+    If $B$ is a set ,the set $f^{-1} (B)$ is called the \textbf{preimage of $B$ by the correspondence $f$}. Note that it is by definition the image of $B$ by the inverse correspondence $f^{-1}$.
 \end{definitionenv}
 \begin{definitionenv}
     Let $f$ be correspondence. The set $f(\mathscr{D}_f)$ is called the \textbf{range} of $f$, denoted as $\mathrm{Im} (f)$. The set $f^{-1}(\mathscr{A}_f)$ is called the \textbf{domain of definition }of $f$, denoted as $\mathrm{Dom}( f) $.
@@ -620,81 +618,81 @@ Now, assume \(y\neq y^{\prime}\). Then \(\{x,y\}\neq\{x^{\prime},y^{\prime}\}\),
 \end{definitionenv}
 For any sets $ A$ and $B$,
 $$f(A)\subseteq \mathrm{Im}(f),f^{-1}(B)\subseteq\mathrm{Dom}(f),$$
-$$\mathrm{Dom}(f)=\mathrm{Im}(f^{-1}),\mathrm{Im }(f)=\mathrm{Dom}(f^{-1})$$
+$$\mathrm{Dom}(f)=\mathrm{Im}(f^{-1}),\mathrm{Im }(f)=\mathrm{Dom}(f^{-1}).$$
 \begin{propositionenv}\label{proposition3.3.1}
     Let $f$ be a correspondence.
     \newline
     (1) If $A$ and $A'$ are two sets such that $A'\subseteq A$ ,then one has $f(A')\subseteq f(A)$.
     \newline
-    (2) If $B$ and $B'$ are two sets such that $B'\subseteq B$ ,then one has $f^{-1}(B')\subseteq f^{-1}(B)$
+    (2) If $B$ and $B'$ are two sets such that $B'\subseteq B$ ,then one has $f^{-1}(B')\subseteq f^{-1}(B)$.
 \end{propositionenv}
 \begin{proofenv}
     \begin{align*}
         f(B')&=\{y\in\mathrm{Im}(f)|\exists x\in B',(x,y)\in \Gamma_f\}\\
         &\subseteq\{y\in\mathrm{Im}(f)|\exists x\in B',(x,y)\in \Gamma_f\}\\
-        &=f(B)
+        &=f(B).
     \end{align*}
 \end{proofenv}    
 \begin{propositionenv}\label{proposition3.3.2}
     Let $f$ be a correspondence. The following equalities hold:
-    $$\mathrm{Im}(f)=f(\mathrm{Dom}(f)),\mathrm{Dom}(f)=f^{-1}(\mathrm{Im}(f))$$
+    $$\mathrm{Im}(f)=f(\mathrm{Dom}(f)),\mathrm{Dom}(f)=f^{-1}(\mathrm{Im}(f)).$$
 \end{propositionenv}
 \begin{proofenv}
-    Since $\mathrm{Dom}(f)\subseteq\mathscr{D}_f$, by proposition \ref{proposition3.3.1},one has 
-    $$f(\mathrm{Dom}(f))\subseteq f(\mathscr{D}_f)=\mathrm{Im}(f)$$
-    Let $y$ be an element of $\mathrm{Im}(f)$, there exist $x\in \mathscr{D}_f$ such that $(x,y)\in \Gamma_f$. By definition, one has $x\in \mathrm{Dom }(f)$ and hence $y\in f(\mathrm{Dom }(f)),\mathrm{Im}(f)\subseteq f(\mathrm{Dom }(f))$.Therefore the equality $\mathrm{Im}(f)=f(\mathrm{Dom}(f))$ is true .Applying this equality to $f^{-1}$ , we obtain the second equality.
+    Since $\mathrm{Dom}(f)\subseteq\mathscr{D}_f$, by proposition \ref{proposition3.3.1}, one has 
+    $$f(\mathrm{Dom}(f))\subseteq f(\mathscr{D}_f)=\mathrm{Im}(f).$$
+    Let $y$ be an element of $\mathrm{Im}(f)$, there exist $x\in \mathscr{D}_f$ such that $(x,y)\in \Gamma_f$. By definition, one has $x\in \mathrm{Dom }(f)$ and hence $y\in f(\mathrm{Dom }(f)),\mathrm{Im}(f)\subseteq f(\mathrm{Dom }(f))$. Therefore the equality $\mathrm{Im}(f)=f(\mathrm{Dom}(f))$ is true. Applying this equality to $f^{-1}$, we obtain the second equality.
 \end{proofenv}
 \begin{propositionenv}
-    Let $f$ be a correspondence,$A$ be a set and $y$ be an mathematical object. Then $y $ belongs to $f(A)$ if and only if $A\cap f^{-1}(\{y\})\not=\varnothing$
+    Let $f$ be a correspondence, $A$ be a set and $y$ be an mathematical object. Then $y$ belongs to $f(A)$ if and only if $A\cap f^{-1}(\{y\})\not=\varnothing$.
 \end{propositionenv}
 \begin{propositionenv}\label{proposition3.3.4}
-    Let $f$ be a correspondence, $I$ be a set and $(A_i)_{i\in I}$ be a family of sets parametrised by $I$. Then the equality
-    $$f\left( \bigcup_{i\in I}A_i\right)=\bigcup_{i\in I}f(A_i)$$
+    Let $f$ be a correspondence, $I$ be a set and $(A_i)_{i\in I}$ be a family of sets parametrised by $I$. Then
+    $$f\left( \bigcup_{i\in I}A_i\right)=\bigcup_{i\in I}f(A_i).$$
     Moreover,if $I$ is not empty, then 
-    $$f\left( \bigcap_{i\in I}A_i\right)\subseteq \bigcap_{i\in I}f(A_i)$$
+    $$f\left( \bigcap_{i\in I}A_i\right)\subseteq \bigcap_{i\in I}f(A_i).$$
 
 \end{propositionenv}
 \begin{proofenv}
    \begin{align*}
          f\left( \bigcup_{i\in I}A_i\right)&=\left\{ y\in Y|\left( \bigcup_{i\in I}A_i\right)\cap f^{-1}(\{y\})\not=\varnothing  \right\}\\
         &=\left\{ y\in Y|\bigcup_{i\in I}\left(A_i\cap f^{-1}(\{y\})\right)\not=\varnothing  \right\}\\
-        &=\left\{y\in Y|\exists i \in I,A_i\cap f^{-1}(\{y\})\not =\varnothing\right\}=\bigcup_{i\in I}f(A_i)
+        &=\left\{y\in Y|\exists i \in I,A_i\cap f^{-1}(\{y\})\not =\varnothing\right\}=\bigcup_{i\in I}f(A_i).
    \end{align*}
 
     \begin{align*}
         f\left(\bigcap_{i\in I}A_i \right)&=\left\{ y\in Y|\left( \bigcap_{i\in I}A_i\right) \cap f^{-1}(\{y\})\not=\varnothing\right\}\\
         &=\left\{ y\in Y| \bigcap_{i\in I}\left(A_i \cap f^{-1}(\{y\})\right)\not=\varnothing\right\}\\
         &\subseteq \left\{  y\in Y|\forall i\in I, A_i\cap f^{-1}(\{y\})\not=\varnothing\right\}\\
-        &=\bigcap_{i\in I}f(A_i)
+        &=\bigcap_{i\in I}f(A_i).
     \end{align*}
 \end{proofenv}
 \section{Composition}
 \begin{definitionenv}
     Let $f$ and $g$ be correspondences. We define the \textbf{composite } of $g$ and $f$ as the correspondence $g\circ f$ from $\mathscr{D}_f$  to $\mathscr{A}_g$ whose graph $\Gamma_{g\circ f }$ is composed of the element $(x,z)$ of $\mathscr{D}_f\times \mathscr{A}_g$ such that there exists some objet $y$ satisfying $(x,y)\in \Gamma_f $ and $(y,z)\in \Gamma_g$. In other words,
-    $$\Gamma_{g\circ f }=\{(x,z)\in \mathscr{D}_f\times \mathscr{A}_g|\exists y\in \mathscr{A}_f\cap\mathscr{D}_g,(x,y)\in \Gamma_f \wedge (y,z)\in \Gamma_g\}$$
+    $$\Gamma_{g\circ f }=\{(x,z)\in \mathscr{D}_f\times \mathscr{A}_g|\exists y\in \mathscr{A}_f\cap\mathscr{D}_g,(x,y)\in \Gamma_f \wedge (y,z)\in \Gamma_g\}.$$
 \end{definitionenv}
 \begin{propositionenv}
     Let $f$ and $g$ be correspondences. The following equality holds:
     \begin{equation}
-        (g\circ f)^{-1}=f^{-1}\circ g^{-1}
+        (g\circ f)^{-1}=f^{-1}\circ g^{-1}.
     \end{equation}
 \end{propositionenv}
 \begin{propositionenv}\label{proposition3.4.2}
     Let $f$ and $g$ be correspondences.The following equality holds:
     \begin{equation}
-        h\circ (g\circ f)=(h\circ g)\circ f
+        h\circ (g\circ f)=(h\circ g)\circ f.
     \end{equation}
 \end{propositionenv}
 \begin{propositionenv}\label{proposition3.4.3}
     Let $X$ and $Y$ be sets ,$f$ be a correspondence from $X$ to $Y$.Then the following equalities hold:
-    $$f\circ \mathrm{Id}_X=f=\mathrm{Id}_Y\circ f$$
+    $$f\circ \mathrm{Id}_X=f=\mathrm{Id}_Y\circ f.$$
 \end{propositionenv}
 Propositions above can be proved by definition.
 \begin{propositionenv}\label{proposition3.4.4}
     Let $f$ and $g$ be correspondences.For any set $A$ ,one has 
-    $$(g\circ f)(A)=g(f(A))$$
+    $$(g\circ f)(A)=g(f(A)).$$
     In particular,
-    $$\mathrm{Im}(g\circ f)=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g)$$
+    $$\mathrm{Im}(g\circ f)=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g).$$
     If in addition $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$, then the equality $\mathrm{Im}(g\circ f)=\mathrm{Im}(g)$ holds.
 \end{propositionenv}
 \begin{proofenv}
@@ -702,12 +700,12 @@ Propositions above can be proved by definition.
     \begin{align*}
         (g\circ f )(A)&=\{z\in \mathscr{A}_g|\exists x\in A,(x,z)\in \Gamma_{g\circ f}\}\\
         &=\{z\in \mathscr{A}_g|\exists x\in A,\exists y\in \mathscr{A}_f,(x,y)\in \Gamma_f,(y,z)\in \Gamma_g\}\\
-        &=\{z\in \mathscr{A}_g|\exists  y\in f(A),(y,z)\in \Gamma_g\}=g(f(A))
+        &=\{z\in \mathscr{A}_g|\exists  y\in f(A),(y,z)\in \Gamma_g\}=g(f(A)).
     \end{align*}
     Applying this equality to the case where $A=\mathscr{D}_f$, we obtain
-    $$\mathrm{Im}(g\circ f)=(g\circ f)(\mathscr{D}_f)=g(f(\mathscr{D}_f))=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g)$$
+    $$\mathrm{Im}(g\circ f)=(g\circ f)(\mathscr{D}_f)=g(f(\mathscr{D}_f))=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g).$$
    In the case where $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$, by proposition \ref{proposition3.3.1} and \ref{proposition3.3.2} we obtain 
-   $$\mathrm{Im}(g)=g(\mathrm{Dom}(g))\subseteq g(\mathrm{Im}(f))=\mathrm{Im}(g\circ f)$$ 
+   $$\mathrm{Im}(g)=g(\mathrm{Dom}(g))\subseteq g(\mathrm{Im}(f))=\mathrm{Im}(g\circ f).$$ 
 \end{proofenv}
 
 
@@ -733,7 +731,7 @@ Propositions above can be proved by definition.
 \end{propositionenv}
 \begin{proofenv}
     One has 
-    $$\mathrm{Im}(g\circ f)\subseteq \mathrm{Im}(g)\subseteq \mathscr{A}_g=\mathscr{A}_{g\circ f}$$
+    $$\mathrm{Im}(g\circ f)\subseteq \mathrm{Im}(g)\subseteq \mathscr{A}_g=\mathscr{A}_{g\circ f}.$$
     If $g\circ f $ is surjective, namely $\mathrm{Im}(g\circ f )=\mathscr{A}_{g\circ f}$, then we deduce $\mathrm{Im}(g)=\mathscr{A}_g$, namely $g$ is surjective.
 \end{proofenv}
 \begin{propositionenv}\label{proposition3.5.3}
@@ -745,9 +743,9 @@ Propositions above can be proved by definition.
 \end{propositionenv}
 \begin{proofenv}
     (1) Since $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$,by proposition\ref{proposition3.4.4},we obtain 
-    $$\mathrm{Im}(g\circ f )=\mathrm{g}$$
+    $$\mathrm{Im}(g\circ f )=\mathrm{g}.$$
     Since $g$ is surjective,
-    $$\mathrm{Im}(g)=\mathscr{A}_g=\mathscr{A}_{g\circ f}$$
+    $$\mathrm{Im}(g)=\mathscr{A}_g=\mathscr{A}_{g\circ f}.$$
     Hence $g\circ f $ is also surjective.
     \newline
     Applying (1) to $g^{-1}$ and $f^{-1}$ ,we obtain (2).
@@ -772,9 +770,9 @@ Propositions above can be proved by definition.
     (2) Assume that $f$ is a function. For any set $B$ on has $f(f^{-1}(B))\subseteq B$. 
 \end{propositionenv}
 \begin{proofenv}
-    Let $x$ be an element of $f^{-1}(f(A))$ ,By definition,there exists $y\in f(A)$ such that $(x,y)\in \Gamma_f$. Since $y\in f(A) $ there exist $x'\in A$ such that $(x',y)\in \Gamma_f$.Since $y$ admits at most one preimage, we obtain $x'=x$. Hence $x\in A$
+    Let $x$ be an element of $f^{-1}(f(A))$ ,By definition,there exists $y\in f(A)$ such that $(x,y)\in \Gamma_f$. Since $y\in f(A) $ there exist $x'\in A$ such that $(x',y)\in \Gamma_f$.Since $y$ admits at most one preimage, we obtain $x'=x$. Hence $x\in A$.
     \newline
-    Applying (1) to $f^{-1}$ we obtain(2).
+    Applying (1) to $f^{-1}$ we obtain (2).
 \end{proofenv}
 \begin{propositionenv}\label{proposition3.6.2}
     Let \( f \) and \( g \) be correspondences.
@@ -809,10 +807,10 @@ Applying (1) to \( g^{-1} \) and \( f^{-1} \), we obtain (2).
 
 
 \begin{proofenv}
+    \quad 
+    \newline
     (1)  Let \( y \) be an element of the image of \( f \). Let \( x \) and \( x' \) be preimages of \( y \) under \( f \). Since \(\mathrm{Im}(f) \subseteq \mathrm{Dom}(g)\), one has \( y \in \mathrm{Dom}(g) \). 
-    \newline
     Hence there exists \( z \in \mathscr{A}_g \) such that \((y, z) \in \Gamma_g \). 
-    \newline
     We then deduce that \((x, z)\) and \((x', z)\) are elements of \(\Gamma_{g \circ f}\). Since \( g \circ f \) is injective, we obtain \( x = x' \). Therefore, \( f \) is injective.
 \newline
 Applying (1) to \( g^{-1} \) and \( f^{-1} \), we obtain (2).
@@ -881,7 +879,7 @@ In the case where \( X = \{1, \ldots, n\} \), where \( n \) is a positive intege
     \item Let \( X \) and \( Y \) be sets and \( y \) be an element of \( Y \). The mapping from \( X \) to \( Y \) sending any \( x \in X \) to \( y \) is called the \textbf{constant mapping with value \( y \)}.
     \item Let $X$ be a set and $A\subseteq X$, we define $\mathbbm{1}_A:X\rightarrow \mathbb{R}$   
     $$\mathbbm{1}_A(x):=\begin{cases}
- 1, \text{if}\space x \in A \\0,\text{if}\space x \notin A
+ 1, \text{if}\space x \in A \\0,\text{if}\space x \notin A.
 
 \end{cases}$$ 
 It is called \textbf{indicator function}
@@ -1107,45 +1105,45 @@ By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
 \begin{definitionenv}
     Let $f$ and $g$ be correspondence. If $\Gamma _f\subseteq \Gamma _g$, we say that $f$ is a \textbf{restriction} of $g$ and that $g$ is an \textbf{extension} of $f$
     \newline
-    Let $X$ anf $Y$ be sets, $h$ be a correspondence from $X$ to $Y$ ,and $A$ be a subset of $X$.Denote by $h|_A$ the correspondence from $A$ to $Y$ such that$$\Gamma_{h|_A}=\Gamma_h\bigcap (A\times Y)$$ We call it the \textbf{restriction of $h$ to $A$}
+    Let $X$ anf $Y$ be sets, $h$ be a correspondence from $X$ to $Y$ ,and $A$ be a subset of $X$.Denote by $h|_A$ the correspondence from $A$ to $Y$ such that$$\Gamma_{h|_A}=\Gamma_h\bigcap (A\times Y).$$ We call it the \textbf{restriction of $h$ to $A$}
 \end{definitionenv}
 \chapter{Binary Relations }
 $\dagger$This chapter was first written in pre-course, then added some sections in make-up session,which titled "Ordering".Some sections have the same knowledge.It's a bit mess.
 \section{Generalities}
 \begin{definitionenv}
-    Let $X$ be a set ,we call \textbf{binary relation} on $X$ any correspondence from $X$ to $X$ .If $R$ is a binary relation on $X$ ,for any $(x,y)\in X\times X $ we denote by $x R y $ the statement $(x,y)\in \Gamma_R$
+    Let $X$ be a set ,we call \textbf{binary relation} on $X$ any correspondence from $X$ to $X$ .If $R$ is a binary relation on $X$ ,for any $(x,y)\in X\times X $ we denote by $x R y $ the statement $(x,y)\in \Gamma_R$.
 \end{definitionenv}
 \begin{exampleenv}
-    We denote by" $=$" the correspondence $\mathrm{Id}_X$
+    We denote by" $=$" the correspondence $\mathrm{Id}_X$.
 \end{exampleenv}
 \begin{definitionenv}
-    If $R$ is a binary relation on $X$, we denote by $\cancel{R} $ the binary relation such that $$x \cancel{R}  y \Leftrightarrow (x,y)\notin \Gamma_R$$
+    If $R$ is a binary relation on $X$, we denote by $\cancel{R} $ the binary relation such that $$x \cancel{R}  y \Leftrightarrow (x,y)\notin \Gamma_R.$$
 \end{definitionenv}
 \section{Equivalent Relation}\label{4.2}
 \textit{Section \ref{5.5}:Quotient, will use this concept.}
 \begin{definitionenv}
     Let $X$ be a set and $R$ a binary relation on $X$.
     \newline
-    (1) If $\forall x \in X ,xRx$, we say that $R$ is \textbf{reflexive}
+    (1) If $\forall x \in X ,xRx$, we say that $R$ is \textbf{reflexive}.
     \newline
     (2) If $\forall (x,y) \in X\times X,xRy\Rightarrow yRx$,we say that $R$ is \textbf{symmetric}.
     \newline
     (3) If for all $x,y,z$ of $X$, $xRy\wedge yRz\Rightarrow xRz$,we say that $R$ is \textbf{transitive}.
     \newline
-    (4) If $R$ is reflexive,symmetric and transitive, we say that $R$ is an \textbf{equivalent relation}
+    (4) If $R$ is reflexive,symmetric and transitive, we say that $R$ is an \textbf{equivalent relation}.
 
 \end{definitionenv}
 \begin{definitionenv}
-    Let $\thicksim$ be an equivalent relation on $X$.For any $x\in X$, the set $$[x]:=\{y\in X|y\thicksim x\}$$ We call it the equivalent class of $x$ under $\thicksim$,we denote by $X/\thicksim$ the set $\{[x]|x\in X\}$ of all equivalent class.It is a subset of $\wp (X)$.Moreover, since $\forall x\in X,x\in [x] $,one has $$X=\bigcup_{A\in X/\thicksim}A $$
+    Let $\thicksim$ be an equivalent relation on $X$.For any $x\in X$, we call the set $$[x]:=\{y\in X|y\thicksim x\}$$ the equivalent class of $x$ under $\thicksim$,we denote by $X/\thicksim$ the set $\{[x]|x\in X\}$ of all equivalent class.It is a subset of $\wp (X)$.Moreover, since $\forall x\in X,x\in [x] $, one has $$X=\bigcup_{A\in X/\thicksim}A.$$
 \end{definitionenv}
 \begin{propositionenv}
-    $\forall (x,y)\in X\times X$,either $[x]=[y]$ or $[x]\cap [y]=\varnothing$
+    $\forall (x,y)\in X\times X$, either $[x]=[y]$ or $[x]\cap [y]=\varnothing$.
 \end{propositionenv}
 \begin{definitionenv}
-    The mapping $\pi :X\rightarrow X/\thicksim$ is called the \textbf{projection mapping} of $\thicksim$
+    The mapping $\pi :X\rightarrow X/\thicksim$ is called the \textbf{projection mapping} of $\thicksim$.
 \end{definitionenv}
 \begin{propositionenv}[Theorem \ref{5.5.5}]\label{4.2.5}
-    $f:X\rightarrow Y$ be a mapping,if $\forall (x,y)\in X\times X,x\thicksim y\Rightarrow f(x)=f(y)$,then there exists a unique mapping$$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x)$$such that $$\tilde{f}\circ \pi =f$$
+    $f:X\rightarrow Y$ be a mapping,if $\forall (x,y)\in X\times X,x\thicksim y\Rightarrow f(x)=f(y)$,then there exists a unique mapping$$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x),$$ such that $$\tilde{f}\circ \pi =f.$$
 
 
 \begin{center}
@@ -1172,73 +1170,72 @@ $\dagger$This chapter was first written in pre-course, then added some sections 
     $(\RR ,\le)$ is a totally ordered set.$(\NN ,|)$ is a partially ordered set.  
 \end{exampleenv}
 \begin{definitionenv}
-    Let $(X,\underline{R})$ be a partially ordered set. We denote by $R$ the binary relation on $X$ defined as:$$xRy \Leftrightarrow x\underline{R}y \wedge x\not=y$$ we call $R$ the \textbf{strict partial order}(not a partial order) associated with $\underline{R}$.
+    Let $(X,\underline{R})$ be a partially ordered set. We denote by $R$ the binary relation on $X$ defined as:$$xRy \Leftrightarrow x\underline{R}y \wedge x\not=y,$$ we call $R$ the \textbf{strict partial order}(not a partial order) associated with $\underline{R}$.
 \end{definitionenv}
 \begin{exampleenv}
     \quad
     \newline
-    (1)$<$ on $\RR$
+    (1) $<$ on $\RR$.
     \newline
-    (2)$\subset $on$ \wp (X)$
+    (2) $\subset $on$ \wp (X)$.
 \end{exampleenv}
 \begin{propositionenv}
     $R$ is the strict partial order associated with some partial order iff.the following condition are satisfied:
     \newline
-    (1)Irreflexivity $\forall x\in X,x \cancel{R}x$
+    (1) Irreflexivity $\forall x\in X,x \cancel{R}x$.
     \newline
-    (2)Asymmetry.$\forall (x,y)\in X^2,xRy\Rightarrow y\cancel{R}x$
+    (2) Asymmetry.$\forall (x,y)\in X^2,xRy\Rightarrow y\cancel{R}x$.
     \newline
-    (3)Transitivity.
+    (3) Transitivity.
 \end{propositionenv}
 \begin{proofenv}
-    "$\Rightarrow$" :easy
+    "$\Rightarrow$": easy.
     \newline
-    "$\Leftarrow$":Suppose that $R$ is a binary relation satisfying $(1)\thicksim(3)$.Define another binary relation $\underline{R}$ on $X$ as:
-    $$x\underline{R}y\Leftrightarrow xRy \vee x=y$$
+    "$\Leftarrow$":Suppose that $R$ is a binary relation satisfying $(1)\thicksim(3)$. Define another binary relation $\underline{R}$ on $X$ as:
+    $$x\underline{R}y\Leftrightarrow xRy \vee x=y.$$
     We claim that $xRy\Leftrightarrow x\underline{R}y \wedge x\not= y$:
     \newline
-    Suppose that $xRy$, then by definition,$x\underline{R}y$.By the irreflexivity ,$x\not=y$
+    Suppose that $xRy$, then by definition, $x\underline{R}y$. By the irreflexivity, $x\not=y$.
     \newline
-    Conversely,if $x\underline{R}y\wedge x\not=y$,then $xRy$ should be true.
+    Conversely, if $x\underline{R}y\wedge x\not=y$,then $xRy$ should be true.
 \end{proofenv}
 \section{Monotonic Functions}
 \begin{definitionenv}
     Let$(I,\le)$ and $(X,\le)$ be partially ordered sets,and $f$ be a function from $I$
  to $X$.
  \newline
- (1) If $\forall(x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)\le f(y)$ we say that f is increasing 
+ (1) If $\forall(x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)\le f(y)$ we say that f is increasing.
  \newline
  (2) If $\forall (x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)< f(y)$, we say that $f$ is strictly increasing.
  \newline
   (3) If $\forall (x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)\geq  f(y)$, we say that $f$ is decreasing.
 \newline
- (4) If $\forall (x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)\> f(y)$, we say that $f$ is strictly decreasing.
+ (4) If $\forall (x,y)\in \mathrm{Dom}(f)^2,x<y \Rightarrow f(x)> f(y)$, we say that $f$ is strictly decreasing.
  \newline
-increasing and decreasing functions are called \textbf{monotonic function},strictly increasing and decreasing functions are called \textbf{strictly monotonic function}
+increasing and decreasing functions are called \textbf{monotonic function}, strictly increasing and decreasing functions are called \textbf{strictly monotonic function}.
 \end{definitionenv}
 \begin{propositionenv}
     Let $f,g$ be functions between partially ordered sets.
     \newline
-    (1) If both $f$ and $g$ are increasing or both $f$ and $g$ are decreasing,then $g\circ f $ is increasing
+    (1) If both $f$ and $g$ are increasing or both $f$ and $g$ are decreasing,then $g\circ f $ is increasing.
     \newline
     (2) If one function between $f$ and $g$ is increasing while the order is decreasing,then $g\circ f $ is decreasing.
 \end{propositionenv}
 \begin{propositionenv}
-    Let $f$ be a function between partially ordered set. If $f$ is monotonic and injective,then $f$ is strictly monotonic.
+    Let $f$ be a function between partially ordered set. If $f$ is monotonic and injective, then $f$ is strictly monotonic.
 \end{propositionenv}
 \begin{propositionenv}
-    Let $I$ be a totally ordered set,$X$ be a partially ordered set ,and $f$ be a function from $I$ to $X$ .I f $f$ is strictly monotonic
-    ,then $f$ is injective.
+    Let $I$ be a totally ordered set,$X$ be a partially ordered set ,and $f$ be a function from $I$ to $X$. If $f$ is strictly monotonic, then $f$ is injective.
 \end{propositionenv}
 \begin{proofenv}
-    Let $(x,y)\in \mathrm{Dom}(f)^2$,such that $f(x)=f(y)$.Since $I$ is totally ordered, then $x<y$ or $x>y$ or $x=y$.Suppose that $f$ is strictly increasing.If $x<y $,then $f(x)<f(y)$,contradiction. If $x>y $,then $f(x)>f(y)$,contradiction.
+    Let $(x,y)\in \mathrm{Dom}(f)^2$,such that $f(x)=f(y)$.Since $I$ is totally ordered, then $x<y$ or $x>y$ or $x=y$. Suppose that $f$ is strictly increasing. If $x<y $,then $f(x)<f(y)$, contradiction. If $x>y $,then $f(x)>f(y)$, contradiction.
 \end{proofenv}
 \begin{propositionenv}
-    Let $X$ be a totally ordered set ,$Y$ be an partially ordered set ,$f$ be an injective function from $X$ to $Y$. If $f$ is monotonic, then $f^{-1}$ is also monotonic,and they have the same monotonic direction.
+    Let $X$ be a totally ordered set, $Y$ be an partially ordered set, $f$ be an injective function from $X$ to $Y$. If $f$ is monotonic, then $f^{-1}$ is also monotonic, and they have the same monotonic direction.
 \end{propositionenv}
 \begin{proofenv}
     We may suppose that $f$ is increasing.
-    Let $(a,b)\in \mathrm{Dom}(f^{-1})^2=\mathrm{Im}(f)^2,a<b$.Since $f^{-1}$ is a injective function,$f^{-1}(a)\not =f^{-1}(b)$,so either $f^{-1}(a)<f^{-1}(b)$ or $f^{-1}(a)>f^{-1}(b)$.If $$f^{-1}(a)>f^{-1}(b),a=f(f^{-1}(a))>f^{-1}(b)=b$$Contradiction.Therefore,$f^{-1}(a)<f^{-1}(b)$.Hence $f^{-1}$ is strictly increasing
+    Let $(a,b)\in \mathrm{Dom}(f^{-1})^2=\mathrm{Im}(f)^2,a<b$. Since $f^{-1}$ is a injective function, $f^{-1}(a)\not =f^{-1}(b)$, so either $f^{-1}(a)<f^{-1}(b)$ or $f^{-1}(a)>f^{-1}(b)$. If $$f^{-1}(a)>f^{-1}(b),a=f(f^{-1}(a))>f^{-1}(b)=b,$$ contradiction. Therefore, $f^{-1}(a)<f^{-1}(b)$. Hence $f^{-1}$ is strictly increasing.
 \end{proofenv}
 \section{Bounds}
 \begin{definitionenv}
@@ -1248,68 +1245,68 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     \newline
     (2) Let $m\in X$. If $\forall a \in A ,m\le a$, we say that $m$ is an lower bound of $A$. 
     \newline
-    Denote by $A^u$ the set of upper bounds of $A$ in $(X,\le)$
+    Denote by $A^u$ the set of upper bounds of $A$ in $(X,\le)$.
     \newline
-     Denote by $A^l$ the set of lower bounds of $A$ in $(X,\le)$
+     Denote by $A^l$ the set of lower bounds of $A$ in $(X,\le)$.
 
 \end{definitionenv}
 \begin{exampleenv}
-    $\Omega=\{1,2,3\},X=\wp (\Omega).(X,\subseteq)$ forms a partially ordered set.Let $A=\{\{1\},\{2\},\{1,2\}\},A^u=\{\{1,2\},\{1,2,3\}\},A^l=\{\varnothing\}$
+    $\Omega=\{1,2,3\},X=\wp (\Omega).(X,\subseteq)$ forms a partially ordered set.Let $A=\{\{1\},\{2\},\{1,2\}\},A^u=\{\{1,2\},\{1,2,3\}\},A^l=\{\varnothing\}$.
 \end{exampleenv}
 \begin{definitionenv}
     Let $(X,\le)$ be a partially ordered set ,let $A$ be a subset of $X$.
     \newline
-    (1)If $M \in A$ is an upper bound of $A$, we say that $M$ is the \textbf{greatest element} of $A$ ,denote as $\mathrm{max}_\le A$
+    (1)If $M \in A$ is an upper bound of $A$, we say that $M$ is the \textbf{greatest element} of $A$, denote as $\mathrm{max}_\le A$.
     \newline
-    (2)If $m \in A$ is an lower bound of $A$, we say that $m$ is the \textbf{least element} of $A$ ,denote as $\mathrm{min}_\le A$
+    (2)If $m \in A$ is an lower bound of $A$, we say that $m$ is the \textbf{least element} of $A$, denote as $\mathrm{min}_\le A$.
     \newline
-    If there is not ambiguity on $\le$,we can also write as $\mathrm{max}A,\mathrm{min}A$
+    If there is not ambiguity on $\le$,we can also write as $\mathrm{max}A,\mathrm{min}A$.
 \end{definitionenv}
 \begin{definitionenv}
-    $A\subseteq Y\subseteq X$,let $A_Y^\mathrm{u}:=\{y\in Y|\forall a\in A,a\le y\}$ be the set of upper bounds of $A$ in $Y$.If $A_Y^\mathrm{u}$ has a least element ,we call it the \textbf{supremum} of $A$ in $Y$ ,denoted as $\mathrm{sup}_{(Y,\le)}A$ ,if there's no ambiguity on $\le$ we can also write as $\mathrm{sup}_{Y}A$.So as \textbf{infimum}
+    $A\subseteq Y\subseteq X$,let $A_Y^\mathrm{u}:=\{y\in Y|\forall a\in A,a\le y\}$ be the set of upper bounds of $A$ in $Y$.If $A_Y^\mathrm{u}$ has a least element ,we call it the \textbf{supremum} of $A$ in $Y$, denoted as $\mathrm{sup}_{(Y,\le)}A$, if there's no ambiguity on $\le$ we can also write as $\mathrm{sup}_{Y}A$. Resp. \textbf{infimum}.
 \end{definitionenv}
 \begin{notationenv}\label{notation4.5.1}
     
-         Let $(X,\le)$ be a partially ordered set ,$f:I\rightarrow X$ be a function.$$\mathrm{max}f(I),\mathrm{min}f(I),\mathrm{sup}f(I),\mathrm{inf}f(I)$$ are written as $$\mathrm{max}f,\mathrm{min}f,\mathrm{sup}f,\mathrm{inf}f$$
-         Let $(X,\le)$ be a partially ordered set ,and $(x_i)_{i\in I}\in X^I$,$$\mathrm{max}\{x_i|i\in I\},\mathrm{min}\{x_i|i\in I\},\mathrm{sup}\{x_i|i\in I\},\mathrm{inf}\{x_i|i\in I\}$$ are denoted as $$\max _{i\in I}x_i,\min _{i\in I}x_i,\sup _{i\in I}x_i,\inf _{i\in I}x_i$$
+         Let $(X,\le)$ be a partially ordered set ,$f:I\rightarrow X$ be a function.$$\mathrm{max}f(I),\mathrm{min}f(I),\mathrm{sup}f(I),\mathrm{inf}f(I)$$ are written as $$\mathrm{max}f,\mathrm{min}f,\mathrm{sup}f,\mathrm{inf}f.$$
+         Let $(X,\le)$ be a partially ordered set ,and $(x_i)_{i\in I}\in X^I$,$$\mathrm{max}\{x_i|i\in I\},\mathrm{min}\{x_i|i\in I\},\mathrm{sup}\{x_i|i\in I\},\mathrm{inf}\{x_i|i\in I\}$$ are denoted as $$\max _{i\in I}x_i,\min _{i\in I}x_i,\sup _{i\in I}x_i,\inf _{i\in I}x_i.$$
     
 \end{notationenv}
 \begin{propositionenv}\label{proposition4.5.1}
     \quad
     \newline
-    Let $(X,\le)$ be a partially ordered set $(A,Z,Y)\in \wp (X)^3,A\subseteq Z\subseteq Y$
+    Let $(X,\le)$ be a partially ordered set $(A,Z,Y)\in \wp (X)^3,A\subseteq Z\subseteq Y$.
     \newline
    (1) If $\max A$ exists,then it is also the supremum of $A$ in $(Y,\le)$.So as infimum
     \newline
-    (2) If $\sup_{(Y,\le)}A$ exists and belongs to $Z$ ,then it is also the supremum of $A$ in $(Z,\le)$. So as infimum
+    (2) If $\sup_{(Y,\le)}A$ exists and belongs to $Z$ ,then it is also the supremum of $A$ in $(Z,\le)$. So as infimum.
 \end{propositionenv}
 \begin{proofenv}
     \quad \newline
-   (1) By definition,$\max A $ is an upper bound of $A$. Since $A\subseteq Y, \max A \in Y$,Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $.Since $M$ is upper bound of $A$ and $\max A\in A,\max A\le M$ .Then $\max A=\min A_Y^\mathrm{u}$
+   (1) By definition,$\max A $ is an upper bound of $A$. Since $A\subseteq Y, \max A \in Y$,Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $.Since $M$ is upper bound of $A$ and $\max A\in A,\max A\le M$ .Then $\max A=\min A_Y^\mathrm{u}$.
 \newline
-(2) Since $Z\subseteq Y,A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$,one has $\sup _{Y,\le}A\le M$.If $\sup_{(Y,\le)}A\in Z$,then $\sup_{(Y,\le)}A\in A_Z^\mathrm{u}$.Hence $\sup _{(Y,\le)}A=\min A_Z^\mathrm{u}$
+(2) Since $Z\subseteq Y,A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$,one has $\sup _{Y,\le}A\le M$.If $\sup_{(Y,\le)}A\in Z$,then $\sup_{(Y,\le)}A\in A_Z^\mathrm{u}$.Hence $\sup _{(Y,\le)}A=\min A_Z^\mathrm{u}$.
 \end{proofenv}
 \begin{propositionenv}\label{proposition4.5.2}
     \quad
     \newline
     Let $(X,\le )$ be a partially ordered set ,$(A,B,Y)\in \wp (X)^3,A\subseteq B\subseteq Y$
     \newline
-    (1) If $\sup_{(Y,\le)}A$ and $\sup_{(Y,\le)}B$ exist, then $$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$$
+    (1) If $\sup_{(Y,\le)}A$ and $\sup_{(Y,\le)}B$ exist, then $$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B.$$
     \newline
-    (2)If $\inf_{(Y,\le)}A$ and $\inf_{(Y,\le)}B$ exist, then $$\inf_{(Y,\le)}B \le \inf_{(Y,\le)}A$$
+    (2)If $\inf_{(Y,\le)}A$ and $\inf_{(Y,\le)}B$ exist, then $$\inf_{(Y,\le)}B \le \inf_{(Y,\le)}A.$$
     
 \end{propositionenv}
 \begin{proofenv}
     \quad
     \newline
-    (1) $\forall x\in A$,since $A\subseteq B,x\in B \le \sup B$,by definition, $\sup B$ is an upper bound of $A$,$\sup B\in A_Y^\mathrm{u}$.$\sup A$ is the least in $A_Y^\mathrm{u}$.Hence,$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$
+    (1) $\forall x\in A$,since $A\subseteq B,x\in B \le \sup B$,by definition, $\sup B$ is an upper bound of $A$,$\sup B\in A_Y^\mathrm{u}$.$\sup A$ is the least in $A_Y^\mathrm{u}$. Hence,$\sup_{(Y,\le)}A \le \sup_{(Y,\le)}B$.
 \end{proofenv}
 \begin{propositionenv}\label{proposition4.5.3}
     Let $(X,\le )$ be a partially ordered set ,$f,g$ be elements of $X^I$ where $I$ is a set .Suppose that ,$\forall i\in  I ,f(i)\le g(i)$
  \newline
- (1)If $\sup f,\sup g$ exist ,then $\sup f\le\sup g$
+ (1) If $\sup f,\sup g$ exist ,then $\sup f\le\sup g$.
  \newline
- (2)So as infimum.
+ (2) So as infimum.
 \end{propositionenv}
 \begin{proofenv}
     $\forall t\in I,f(t)\le g(t)\le \sup g$,hence $\sup g$ is an upper bound of $f$.Since $\sup f $ is a the least upper bound of $f(i)$,$\sup f\le\sup g$.
@@ -1317,9 +1314,9 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \begin{propositionenv}
     Let $I$ be a totally ordered set $J\subseteq I $,and $f:I\rightarrow X $ be a mapping. Assume that $J$ does not have any upper bound in $I$.
     \newline 
-    (1) If $f$ is increasing, then $f(I)^\mathrm{u}=f(J)^\mathrm{u}$
+    (1) If $f$ is increasing, then $f(I)^\mathrm{u}=f(J)^\mathrm{u}$.
     \newline
-    (2) If $f$ is decreasing, then $f(I)^\mathrm{l}=f(J)^\mathrm{l}$
+    (2) If $f$ is decreasing, then $f(I)^\mathrm{l}=f(J)^\mathrm{l}$.
 \end{propositionenv}
 \begin{proofenv}
     \quad 
@@ -1329,15 +1326,15 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \begin{propositionenv}
     Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X,I$ be a set, and $(A_i)_{i\in I}\in \wp (Y)^I$ .Let $A=\bigcup _{i\in I}A_i$
     \newline
-    (1) Suppose that ,$\forall i \in I,A_i$ has a supremum $y_i$ in $(Y,\le)$ and $\{y_i|i\in I\}$ has a supremum in $(Y,\le)$. Then $A$ has a supremum in $(Y,\le )$ and $$\sup_{(Y,\le)}A=\sup_{(Y,\le)}\{y_i|i\in I\}$$
+    (1) Suppose that ,$\forall i \in I,A_i$ has a supremum $y_i$ in $(Y,\le)$ and $\{y_i|i\in I\}$ has a supremum in $(Y,\le)$. Then $A$ has a supremum in $(Y,\le )$ and $$\sup_{(Y,\le)}A=\sup_{(Y,\le)}\{y_i|i\in I\}.$$
     \newline
-    (2)So as inf
+    (2) Resp. inf.
 \end{propositionenv}
 \begin{proofenv}
-    Let $y=\sup_{(Y,\le)}\{y_i|i\in I\},\forall a\in A ,\exists i\in I,a\in A_i$. Hence $a\le y_i\le y$. Thus $y $ is an upper bound of $A$ in $Y$.Let $M\in A_Y^\mathrm{u},\forall i \in I,M\in (A_i)_Y^\mathrm{u}$, So $y_i \le M $We then deduce that $y\le M$
+    Let $y=\sup_{(Y,\le)}\{y_i|i\in I\},\forall a\in A ,\exists i\in I,a\in A_i$. Hence $a\le y_i\le y$. Thus $y $ is an upper bound of $A$ in $Y$.Let $M\in A_Y^\mathrm{u},\forall i \in I,M\in (A_i)_Y^\mathrm{u}$, So $y_i \le M $ We then deduce that $y\le M$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X$.$$\varnothing_Y^\mathrm{u}=\varnothing_Y^\mathrm{l}=Y$$
+    Let $(X,\le)$ be a partially ordered set ,$Y\subseteq X$.$$\varnothing_Y^\mathrm{u}=\varnothing_Y^\mathrm{l}=Y.$$
 \end{propositionenv}
 
 
@@ -1345,57 +1342,60 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 
 \begin{definitionenv}
     Let $(X,\le)$ be a partially ordered set.$\forall (a,b)\in X^2$, let 
-    $$[a,b]:=\{x\in X|a\le x\le b \}$$
-     $$\interval[open right]{a}{b}:=\{x\in X|a\le x <b\}$$ We say that a subset is a \textbf{interval} if $\forall (a,b)\in I^2 ,[a,b]\subseteq I$
+    $$[a,b]:=\{x\in X|a\le x\le b \},$$
+     $$\interval[open right]{a}{b}:=\{x\in X|a\le x <b\}.$$ 
+     We say that a subset is a \textbf{interval} if $\forall (a,b)\in I^2 ,[a,b]\subseteq I$.
 \end{definitionenv}
 \begin{propositionenv}
-    Let $(X,\le)$ be a partially ordered set ,let $\Lambda$ be a non-empty set and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of interval in $X$, then 
+    Let $(X,\le)$ be a partially ordered set, let $\Lambda$ be a non-empty set and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of interval in $X$, then 
     \newline
-    (1) $\displaystyle I:=\bigcap _{\lambda\in \Lambda}I_\lambda$ is an intervals
+    (1) $\displaystyle I:=\bigcap _{\lambda\in \Lambda}I_\lambda$ is an intervals.
     \newline
     (2) If $\displaystyle \bigcap _{\lambda\in \Lambda}I_\lambda\not=\varnothing $,then $\displaystyle J:=\bigcup_{\lambda\in \Lambda}I_\lambda$ is an interval.
 \end{propositionenv}
 \begin{proofenv}
-    (2):Let $x\in I=\bigcap _{\lambda\in \Lambda}I_\lambda$,let $(a,b)\in J^2,\exists (\alpha,\beta )\in \Lambda^2,\alpha\in I_\alpha,\beta\in I_\beta$.We will show that $[a,b]\subseteq I_\alpha\cup I_\beta$. If $a\not\le b $, then $[a,b]\not =\varnothing\subseteq I_\alpha\cup I_\beta $. We may assume $a\le b $
+    \quad 
+    \newline
+    (2):Let $x\in I=\bigcap _{\lambda\in \Lambda}I_\lambda$,let $(a,b)\in J^2,\exists (\alpha,\beta )\in \Lambda^2,\alpha\in I_\alpha,\beta\in I_\beta$.We will show that $[a,b]\subseteq I_\alpha\cup I_\beta$. If $a\not\le b $, then $[a,b]\not =\varnothing\subseteq I_\alpha\cup I_\beta $. We may assume $a\le b $.
     \newline 
-    If $b\le x$, then $[a,b]\subseteq [a,x]\subseteq I_\alpha$, if $x\le a $, then $[a,b]\subseteq [x,b]\subseteq I_\beta$.Suppose that $a<x<b$,one has $[a,b]=[a,x]\cup[x,b]$ and so on , $[a,b]=[a,x]\cup[x,b]\subseteq I_\alpha\cup I_\beta \subseteq J$
+    If $b\le x$, then $[a,b]\subseteq [a,x]\subseteq I_\alpha$, if $x\le a $, then $[a,b]\subseteq [x,b]\subseteq I_\beta$. Suppose that $a<x<b$, one has $[a,b]=[a,x]\cup[x,b]$ and so on , $[a,b]=[a,x]\cup[x,b]\subseteq I_\alpha\cup I_\beta \subseteq J$.
 
 \end{proofenv}
 \begin{definitionenv}
     Let $(X,\le )$ be a partially ordered set and $I $ be a non-empty interval in $X$. 
     \newline
-    If $\sup I$ exists ,we call it the right endpoint of $I$.
+    If $\sup I$ exists, we call it the right endpoint of $I$.
     \newline
-    If $\inf I$ exists ,we call it the left endpoint of $I$.
+    If $\inf I$ exists, we call it the left endpoint of $I$.
 \end{definitionenv}
 \begin{propositionenv}
    Let $(X,\le )$ be a totally ordered set and $I $ be a interval in $X$ 
    \newline
-   (1) Suppose that $I$ has a supremum $b$ in $X,\forall x\in I,\interval[open right]{x}{b}\subseteq I$
+   (1) Suppose that $I$ has a supremum $b$ in $X,\forall x\in I,\interval[open right]{x}{b}\subseteq I$.
    \newline
-   (2) Suppose that $I$ has a infimum $b$ in $X,\forall x\in I,\interval[open left]{b}{x}\subseteq I$
+   (2) Suppose that $I$ has a infimum $b$ in $X,\forall x\in I,\interval[open left]{b}{x}\subseteq I$.
 \end{propositionenv}
 \begin{remark}
     totally ordered set condition is used to prove (2)
 \end{remark}
 \begin{propositionenv}
-   Let $(X,\le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$  .Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a,b],\interval[open right]{a}{b},\interval[open left]{a}{b},\interval[open]{a}{b}$
+   Let $(X,\le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$  .Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a,b],\interval[open right]{a}{b},\interval[open left]{a}{b},\interval[open]{a}{b}$.
 \end{propositionenv}
 \begin{proofenv}
-    $\forall x\in I ,a\le x\le b $,hence $I\subseteq [a,b]$
+    $\forall x\in I ,a\le x\le b $,hence $I\subseteq [a,b]$.
     \newline
-    (i) if $\{a,b\}\in I$, then $I=[a,b]$
+    (i) if $\{a,b\}\in I$, then $I=[a,b]$.
     \newline
-    (ii) if $a\in I, b\notin I,I\subseteq\interval[open right]{a}{b}=[a,b]\backslash\{b\}$. Let $x\in \interval[open right]{a}{b}$, since $x<b$, $x$ is not an upper bound of $I$. Hence $\exists y\in I, x<y$. Note that $[a,y]\subseteq I$, hence $x\in I$, therefore $\interval[open right]{a}{b}\subseteq I$. Similarly , is $b\in I,a\notin I$, then $\interval[open left]{a}{b}=I$
+    (ii) if $a\in I, b\notin I,I\subseteq\interval[open right]{a}{b}=[a,b]\backslash\{b\}$. Let $x\in \interval[open right]{a}{b}$, since $x<b$, $x$ is not an upper bound of $I$. Hence $\exists y\in I, x<y$. Note that $[a,y]\subseteq I$, hence $x\in I$, therefore $\interval[open right]{a}{b}\subseteq I$. Similarly , is $b\in I,a\notin I$, then $\interval[open left]{a}{b}=I$.
     \newline
-    (iii) if $\{a,b\}\cap I=\varnothing$, then $I\subseteq\interval[open]{a}{b} .\forall x\in \interval[open]{a}{b},\exists s,t\in I,s<x<t$ Hence $x\in [s,t]\subseteq I$. Therefore $\interval[open]{a}{b}=I$
+    (iii) if $\{a,b\}\cap I=\varnothing$, then $I\subseteq\interval[open]{a}{b} .\forall x\in \interval[open]{a}{b},\exists s,t\in I,s<x<t$ Hence $x\in [s,t]\subseteq I$. Therefore $\interval[open]{a}{b}=I$.
 
 \end{proofenv}
 \begin{definitionenv}[Dense]
     Let $(X,\le )$ be a totally ordered set, if $\forall (x,z)\in X^2,x<z\Rightarrow \interval[open]{x}{z}\not=\varnothing$ then we say that $(X,\le)$ is \textbf{dense}.
 \end{definitionenv}
 \begin{propositionenv}
-    Let $(X,\le )$ be a totally ordered set that is dense, $(a,b)\in X^2,a<b$. If $I$ is one of the intervals $[a,b],\interval[open right]{a}{b}\dots$, then $a=\inf I,b=\sup I$
+    Let $(X,\le )$ be a totally ordered set that is dense, $(a,b)\in X^2,a<b$. If $I$ is one of the intervals $[a,b],\interval[open right]{a}{b}\dots$, then $a=\inf I,b=\sup I$.
 \end{propositionenv}
 \begin{proofenv}
     By definition, $b$ is an upper bound of $I$, since $(X,\le)$ is a totally ordered set,if $b$ is not the supremum of $I$ , $\exists M\in I^\mathrm{u}$ such that $M<b$.
@@ -1408,7 +1408,7 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
     Let $(X,\le)$ be a partially ordered set.If $\forall A\in \wp(X),A\not=\varnothing\Rightarrow A$ has a least element,we say that $(X,\le)$ is a \textbf{well-ordered set}.
 \end{definitionenv}
 \begin{axiomenv}
-    $(\NN,\le)$ is a well-ordered set 
+    $(\NN,\le)$ is a well-ordered set.
 \end{axiomenv}
 \begin{propositionenv}
     If $(X,\le)$ is a well-ordered set, then it is a totally ordered set.
@@ -1418,24 +1418,24 @@ increasing and decreasing functions are called \textbf{monotonic function},stric
 \end{propositionenv}
 \begin{theoremenv}
     Let $(X,\le)$ be a well-ordered set .Let $P(\cdot)$ be a condition on $X$. If 
-    $$\forall x\in X,(\forall y\in X_{<x} ,P(y))\Rightarrow P(x)$$
-    then $\forall x\in X,P(x)$
+    $$\forall x\in X,(\forall y\in X_{<x} ,P(y))\Rightarrow P(x),$$
+    then $\forall x\in X,P(x)$.
 \end{theoremenv}
 \begin{remark}
     Suppose that $X\not=\varnothing$,There is a least element $m$ of $X$.The statement
-    $$\forall x\in X,(\forall y\in X_{<m} ,P(m))\Rightarrow P(x) \text{and} P(m) \text{have the same truth value}$$
+    $$\forall x\in X,(\forall y\in X_{<m} ,P(m))\Rightarrow P(x) \text{ and } P(m) \text{ have the same truth value.}$$
 \end{remark}
 \begin{proofenv}
-    Let $A=\{x\in X|\neg P(x)\}$.If $A\not=\varnothing,\exists x\in A$ which is the least element of $A$.By definition,$(\forall y\in X_{<x} ,P(y))$ is true.It contradicts to .
+    Let $A=\{x\in X|\neg P(x)\}$. If $A\not=\varnothing,\exists x\in A$ which is the least element of $A$. By definition, $(\forall y\in X_{<x} ,P(y))$ is true. It contradicts to .
 \end{proofenv}
 \begin{remark}
     We add a formal element $+\infty$ to $\mathbb{N}$ and require $\forall n\in \NN, n<+\infty$
 \end{remark}
-Fact:$\NN \cup \{+\infty\}$ is a well-ordered set.Let $P(\cdot)$ be a condition on $\NN \cup \{+\infty\}$ ,We need to check:
+Fact:$\NN \cup \{+\infty\}$ is a well-ordered set. Let $P(\cdot)$ be a condition on $\NN \cup \{+\infty\}$. We need to check:
 \begin{enumerate}
-    \item $P(0)$
-    \item $\forall n\in \NN_{\leq 1},P(0)\wedge\dots\wedge P(n-1)\Rightarrow P(n)$
-    \item $(\forall n \in \NN,P(n))\Rightarrow P(+\infty)$
+    \item $P(0)$.
+    \item $\forall n\in \NN_{\leq 1},P(0)\wedge\dots\wedge P(n-1)\Rightarrow P(n)$.
+    \item $(\forall n \in \NN,P(n))\Rightarrow P(+\infty)$.
 \end{enumerate}
 \section{Order-completeness}
 \begin{definitionenv}
@@ -1444,23 +1444,24 @@ partially ordered set is never empty.
 \end{definitionenv}
 \begin{axiomenv}
     Let $\overline{\mathbb{R}}:=\RR\cup\{-\infty,+\infty\}$, where $-\infty,+\infty$ are distinct formal elements that do not belongs to $\RR$.If we equip $\overline{\RR}$ with the total order extending that of $\RR$ such that 
-    $$\forall x\in \RR,-\infty<x<+\infty$$, then $(\overline{\RR},\le)$ is order complete.
+    $$\forall x\in \RR,-\infty<x<+\infty,$$ 
+    then $(\overline{\RR},\le)$ is order complete.
 \end{axiomenv}
 \begin{exampleenv}
-    Let $\Omega$ be a set ,$X=\wp(\Omega)$.Then $(X,\subseteq)$ is  order complete.
+    Let $\Omega$ be a set ,$X=\wp(\Omega)$. Then $(X,\subseteq)$ is  order complete.
     \begin{proofenv}
         Let $Y\subseteq X$.Then 
-        $$Y^{\mathrm{u}}=\{B\in\wp(\Omega)|\forall A\in Y,A\subseteq B\}$$
-        $\displaystyle \bigcup_{A\in Y}A$ is the least upper bound of $Y$ in $X$. So $\sup (Y)=\bigcup_{A\in Y}A$
+        $$Y^{\mathrm{u}}=\{B\in\wp(\Omega)|\forall A\in Y,A\subseteq B\}.$$
+        $\displaystyle \bigcup_{A\in Y}A$ is the least upper bound of $Y$ in $X$. So $\sup (Y)=\bigcup_{A\in Y}A$.
     \end{proofenv}
 \end{exampleenv}
 \begin{propositionenv}
     Let $(X,\le)$ be an order complete partially ordered set. Any subset of $X$ has an infimum in $X$.
 \end{propositionenv}
 \begin{proofenv}
-    Let $A\subseteq X,m:=\sup A^\mathrm{l}$. We prove that $m\in A^\mathrm{l}$
+    Let $A\subseteq X,m:=\sup A^\mathrm{l}$. We prove that $m\in A^\mathrm{l}$.
     \newline
-    Let $x\in A,\forall y \in A^\mathrm{l},y\le x $,so $x\in (A^\mathrm{l})^\mathrm{u}$.Hence $m\le x$
+    Let $x\in A,\forall y \in A^\mathrm{l},y\le x $, so $x\in (A^\mathrm{l})^\mathrm{u}$. Hence $m\le x$.
 \end{proofenv}
 Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1},then came to Proposition\ref{proposition4.5.1} and the following.
 \begin{definitionenv}
@@ -1470,14 +1471,14 @@ Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1},
     \quad
     \newline
     Let $(X,\le)$ be an order complete partially ordered set ,$f:X\rightarrow X$ be an increasing mapping.Let 
-    $$F=\{x\in X|f(x)=x\}$$
-    Then $(F,\le)$ is order complete.In particular $F\not=\varnothing$
+    $$F=\{x\in X|f(x)=x\},$$
+    then $(F,\le)$ is order complete. In particular $F\not=\varnothing$.
     
 \end{theoremenv}
 \begin{proofenv}
-    Let $A$ be a subset of $F$.We consider 
-    $$S_A:=\{y\in A^\mathrm{u}|f(y)\le y\}$$
-    Let $m:=\inf S_A,\forall a\in A,a$ is a lower bound of $S_A$.So $a\le m$.So $m\in A^\mathrm{u},\sup A\le m$.For any $y\in S_A$,one has $m\le y$.Since $f$ is increasing, $f(m)\le f(y)\le y$ .So $f(m)$ is a lower bound of $S_A$, which leads to $f(m)\le m$ .That means $m\in S_A$.Hence $m=\min S_A$.For any $x\in A,x=f(x)\le f(m)$.So $f(m)\in A^\mathrm{u}$.Moreover ,since $f(m)\le m ,f(f(m))\le f(m)$.So $f(m)$ is an element of $S_A$, which leads to $m\le f(m)$.Hence $m\in F$.Therefore, $m=\sup_{(F,\le)}A$
+    Let $A$ be a subset of $F$. We consider 
+    $$S_A:=\{y\in A^\mathrm{u}|f(y)\le y\}.$$
+    Let $m:=\inf S_A,\forall a\in A,a$ is a lower bound of $S_A$.So $a\le m$.So $m\in A^\mathrm{u},\sup A\le m$. For any $y\in S_A$,one has $m\le y$. Since $f$ is increasing, $f(m)\le f(y)\le y$. So $f(m)$ is a lower bound of $S_A$, which leads to $f(m)\le m$. That means $m\in S_A$. Hence $m=\min S_A$. For any $x\in A,x=f(x)\le f(m)$. So $f(m)\in A^\mathrm{u}$. Moreover, since $f(m)\le m ,f(f(m))\le f(m)$. So $f(m)$ is an element of $S_A$, which leads to $m\le f(m)$. Hence $m\in F$. Therefore, $m=\sup_{(F,\le)}A$.
 \end{proofenv}
 \begin{definitionenv}
     Let $X,Y$ be sets.If there exists a bijection from $X$ to $Y$, we say that $X$ and $Y$ are \textbf{equipotent}.
@@ -1530,10 +1531,10 @@ Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1},
 
 
 \begin{theoremenv}[Cantor-Bernstein]
-    Let $X$ and $Y$ be sets .Assume that there exists injective mappings $f:X\rightarrow Y$ and $g:Y\rightarrow X$.Then $X$ and $Y$ are equipotent.
+    Let $X$ and $Y$ be sets. Assume that there exists injective mappings $f:X\rightarrow Y$ and $g:Y\rightarrow X$. Then $X$ and $Y$ are equipotent.
 \end{theoremenv}
 \begin{proofenv}
-    Consider $\Phi:\wp(X)\rightarrow\wp(X),A\mapsto X\backslash g(Y\backslash f(A))$.If $(A,B)\in \wp(X)^2$ such that $A\subseteq B$, then $f(A)\subseteq f(B),Y\backslash f(A)\supseteq  Y\backslash f(B),g(Y\backslash f(A))\supseteq g(Y\backslash f(A)) ,\Phi(A)\subseteq\Phi(B)$.So $\Phi$ is increasing.By Knaster-Tarski theorem,$\exists C\in \wp(X),C=\Phi(C)$.Then $h:X\rightarrow Y,h(x):=\left\{\begin{matrix}
+    Consider $\Phi:\wp(X)\rightarrow\wp(X),A\mapsto X\backslash g(Y\backslash f(A))$. If $(A,B)\in \wp(X)^2$ such that $A\subseteq B$, then $f(A)\subseteq f(B),Y\backslash f(A)\supseteq  Y\backslash f(B),g(Y\backslash f(A))\supseteq g(Y\backslash f(A)) ,\Phi(A)\subseteq\Phi(B)$. So $\Phi$ is increasing. By Knaster-Tarski theorem, $\exists C\in \wp(X),C=\Phi(C)$. Then $h:X\rightarrow Y,h(x):=\left\{\begin{matrix}
  f(x),x\in C\\
 g^{-1}(x),x\in X\backslash C
 
@@ -1544,9 +1545,9 @@ is a bijection.
 \begin{lemmaenv}
     Let $(X,\le)$ is a partially ordered set.
     \newline
-    (1) Let $(A,B)\in \wp(X)^2$, if $A\subseteq B$, then $B^\mathrm{u}\subseteq A^\mathrm{u},B^\mathrm{l}\subseteq A^\mathrm{l}$
+    (1) Let $(A,B)\in \wp(X)^2$, if $A\subseteq B$, then $B^\mathrm{u}\subseteq A^\mathrm{u},B^\mathrm{l}\subseteq A^\mathrm{l}$.
     \newline
-    (2) $\forall A\in \wp(X),A\subseteq (A^\mathrm{u})^\mathrm{l}\cap (A^\mathrm{l})^\mathrm{u}$
+    (2) $\forall A\in \wp(X),A\subseteq (A^\mathrm{u})^\mathrm{l}\cap (A^\mathrm{l})^\mathrm{u}$.
 \end{lemmaenv}
 
 \begin{theoremenv}[Dedekind-MacNeille]
@@ -1556,15 +1557,15 @@ is a bijection.
 \newline
 (1) $(\hat{X},\subseteq)$ is order complete.
 \newline
-(2) $\forall A\in \wp(X),A^\mathrm{l}\in \hat{X}$
+(2) $\forall A\in \wp(X),A^\mathrm{l}\in \hat{X}$.
 \newline
 (3) $X\rightarrow \hat{X},x\mapsto \{x\}^\mathrm{l}$ is strictly increasing.
 \newline
 (4) $\forall A\in \hat{X}$ one has $A=\bigcup_{x\in A}\{x\}^\mathrm{l}=\bigcup_{x\in A}\hat{x}$.In particular, 
-$$A=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
-(5) Let $A\in \hat{X}$.If $A^\mathrm{u}=\varnothing$,then $A=X$.If $A^\mathrm{u}\not=\varnothing$,then 
-$$A=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}$$
-$$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}$$
+$$A=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}.$$
+(5) Let $A\in \hat{X}$.If $A^\mathrm{u}=\varnothing$, then $A=X$. If $A^\mathrm{u}\not=\varnothing$,then 
+$$A=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\},$$
+$$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\hat{X},\subseteq)}\{\hat{x}|x\in A\}.$$
 \end{theoremenv}
 \begin{remark}
     We've know that $(\wp(X),\subseteq)$ is order complete. So for the sets not order complete, we can build a relation between them to make it become order complete. And this theorem tell us how to do.
@@ -1574,22 +1575,22 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     \newline
     (1) Consider $\Phi :\wp(X)\rightarrow\wp(X),A\mapsto(A^\mathrm{u})^\mathrm{l}$.By the lemma, $\Phi $  is increasing.Since $\wp(X)$ is complete,and $\hat{X}$ is the set of fixed point of $\Phi$. By Knaster-Tarski fixed point theorem,$(\hat{X},\subseteq)$ is order complete.
     \newline
-    (2) Let $A\in \wp(X)$, we prove that $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$.Since $A\subseteq (A^\mathrm{l})^\mathrm{u}$(by the lemma),$((A^\mathrm{l})^\mathrm{u})^\mathrm{l}\subseteq A^\mathrm{l}$,by (2) of the lemma applied to $A^\mathrm{l}$.Hence $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$
+    (2) Let $A\in \wp(X)$, we prove that $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$. Since $A\subseteq (A^\mathrm{l})^\mathrm{u}$ (by the lemma), $((A^\mathrm{l})^\mathrm{u})^\mathrm{l}\subseteq A^\mathrm{l}$, by (2) of the lemma applied to $A^\mathrm{l}$. Hence $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$
     \newline
-    (3) Let $x$ and $y$ be element of $X$ such that $x< y$ then $\{x\}^\mathrm{l}\subseteq\{y\}^\mathrm{l}$.In fact , if $z\in \{x\}^\mathrm{l},z\le x$ .Since $x<y,z<y$.Moreover,$y\in \{y\}^\mathrm{l}$,but $y\notin \{x\}^\mathrm{l}$ 
+    (3) Let $x$ and $y$ be element of $X$ such that $x< y$ then $\{x\}^\mathrm{l}\subseteq\{y\}^\mathrm{l}$. In fact, if $z\in \{x\}^\mathrm{l},z\le x$. Since $x<y,z<y$. Moreover, $y\in \{y\}^\mathrm{l}$, but $y\notin \{x\}^\mathrm{l}$.
     \newline
     (4) $\forall x \in A,x\in \{x\}^\mathrm{l}=\hat{x}$. So $A\subseteq\bigcup_{x\in A}\hat{x}$.
-    Conversely,$\forall x\in A, x=\min (\{x\}^\mathrm{u})$.Hence $\{x\}^\mathrm{l}=(\{x\}^\mathrm{u})^\mathrm{l}\subseteq (A^\mathrm{u})^\mathrm{l}=A$.Therefore $\bigcup_{x\in A}\{x\}^\mathrm{l}\subseteq A$.Finally we get $\bigcup_{x\in A}\hat{x}=A\in \hat{X}$
+    Conversely, $\forall x\in A, x=\min (\{x\}^\mathrm{u})$. Hence $\{x\}^\mathrm{l}=(\{x\}^\mathrm{u})^\mathrm{l}\subseteq (A^\mathrm{u})^\mathrm{l}=A$. Therefore $\bigcup_{x\in A}\{x\}^\mathrm{l}\subseteq A$. Finally we get $\bigcup_{x\in A}\hat{x}=A\in \hat{X}$.
     \newline
-    (5) If $A^\mathrm{u}=\varnothing$ then $A=(A^\mathrm{u})^\mathrm{l}=\varnothing^\mathrm{l}=X$.We assume that $A^\mathrm{u}\not=\varnothing$.
-    $$\inf _{(\wp(X),\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\bigcap_{x\in A^\mathrm{u}}\{x\}^\mathrm{l}=(A^\mathrm{u})^\mathrm{l}=A$$
-    So it is equal to $\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A ^\mathrm{u}\}$
+    (5) If $A^\mathrm{u}=\varnothing$ then $A=(A^\mathrm{u})^\mathrm{l}=\varnothing^\mathrm{l}=X$. We assume that $A^\mathrm{u}\not=\varnothing$.
+    $$\inf _{(\wp(X),\subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\bigcap_{x\in A^\mathrm{u}}\{x\}^\mathrm{l}=(A^\mathrm{u})^\mathrm{l}=A.$$
+    So it is equal to $\inf_{(\hat{X},\subseteq)}\{\hat{x}|x\in A ^\mathrm{u}\}$.
 \end{proofenv}
 \begin{remark}
-    $\forall A\in \hat{X},A=\{x\in X|\hat{x}\subseteq A\},A^\mathrm{u}=\{x\in X|A\subseteq \hat{x}\}$
+    $\forall A\in \hat{X},A=\{x\in X|\hat{x}\subseteq A\},A^\mathrm{u}=\{x\in X|A\subseteq \hat{x}\}$.
 \end{remark}
 \begin{definitionenv}
-    $\hat{X}$ is called the Dedekind-MacNeille order completion of $(X,\le)$
+    $\hat{X}$ is called the Dedekind-MacNeille order completion of $(X,\le)$.
 \end{definitionenv}
 \section{Recursive Construction}
 \begin{definitionenv}
@@ -1605,28 +1606,28 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     Let $(X,\le)$ be a well-ordered set. $I$ be an initial segment of $X$, such that $I\not=X$.There is a unique $a\in X$ such that $I=X_{<a}$.
 \end{propositionenv}
 \begin{proofenv}
-    $X\backslash I\not=\varnothing$ Let $a=\min (X\backslash I)$.By definition,$I\subseteq X_{<a}$.In fact ,$\forall y\in I$ if $y\not< a $, then $a\le y$.
-    Since $I$ is an initial segment $a\in I$,contradiction.
+    $X\backslash I\not=\varnothing$ Let $a=\min (X\backslash I)$.By definition,$I\subseteq X_{<a}$. In fact, $\forall y\in I$ if $y\not< a $, then $a\le y$.
+    Since $I$ is an initial segment $a\in I$, contradiction.
     \newline
-    Conversely,if $x\in X_{<a}$, then $x\notin X\backslash I$.Since otherwise $a\le x$.Therefore $x\in I$ .Uniqueness,$\forall a\in X,a=\min(X\backslash X_{<a})=\min(X_\leq a)$.Hence $X_{<a}=X_{<b}\Rightarrow a=b$
+    Conversely, if $x\in X_{<a}$, then $x\notin X\backslash I$. Since otherwise $a\le x$. Therefore $x\in I$. Uniqueness,$\forall a\in X,a=\min(X\backslash X_{<a})=\min(X_\leq a)$. Hence $X_{<a}=X_{<b}\Rightarrow a=b$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $(X,\le)$ be a partially ordered set ,$\Lambda$ be a non-empty set, and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of initial segments of $X$. Then 
+    Let $(X,\le)$ be a partially ordered set, $\Lambda$ be a non-empty set, and $(I_\lambda)_{\lambda\in \Lambda}$ be a family of initial segments of $X$. Then 
     $$I:=\bigcap_{\lambda\in \Lambda}I_\lambda,\space J:=\bigcup_{\lambda\in \Lambda}I_\lambda$$ are initial segments of $X$.
 \end{propositionenv}
 \begin{proofenv}
     \quad
     \newline
-    Let $a\in I.\forall \lambda\in \Lambda,a\in I_\lambda$ and hence $X_{<a}\subseteq I_\lambda$. Therefore,$X_{<a}\subseteq\bigcap_{\lambda\in\Lambda}I_\lambda=I$
+    Let $a\in I.\forall \lambda\in \Lambda,a\in I_\lambda$ and hence $X_{<a}\subseteq I_\lambda$. Therefore,$X_{<a}\subseteq\bigcap_{\lambda\in\Lambda}I_\lambda=I$.
     \newline
     Let $b\in J$.Then $\exists \lambda_0\in \Lambda$ such that $b\in I_{\lambda_0}$. So $X_{<b}\subseteq I_{\lambda_0}\subseteq \bigcup_{\lambda\in \Lambda}I_\lambda=J$. 
 \end{proofenv}
 \begin{theoremenv}[Recursive construction]
-    Let $(X,\le)$ be a well ordered set,and $Y$ be a set. For any $x\in X$ and any mapping $h:X_{<x}\rightarrow Y$, we fix an element $\Phi(h)\in Y$. Then, there exists a unique mapping $f:X\rightarrow Y$  such that 
-    $$\forall x\in X, f(x)=\Phi(f\mid_{X_{<x}})$$
+    Let $(X,\le)$ be a well ordered set, and $Y$ be a set. For any $x\in X$ and any mapping $h:X_{<x}\rightarrow Y$, we fix an element $\Phi(h)\in Y$. Then, there exists a unique mapping $f:X\rightarrow Y$  such that 
+    $$\forall x\in X, f(x)=\Phi(f\mid_{X_{<x}}).$$
 \end{theoremenv}
 \begin{exampleenv}
-    For any $(a_0,\dots,a_{n-1})\in \RR^n$, we fix an element $a_{n-1}+\varepsilon\in \RR$, where $\varepsilon$ is a real number. There exists a unique mapping $(n\in \NN)\mapsto f(n)$ such that $f(n)=f(n-1)+\varepsilon$.($f(n):=n\varepsilon$)
+    For any $(a_0,\dots,a_{n-1})\in \RR^n$, we fix an element $a_{n-1}+\varepsilon\in \RR$, where $\varepsilon$ is a real number. There exists a unique mapping $(n\in \NN)\mapsto f(n)$ such that $f(n)=f(n-1)+\varepsilon$.($f(n):=n\varepsilon$).
 \end{exampleenv}
 \begin{proofenv}
     \quad
@@ -1634,18 +1635,18 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     "Uniqueness": 
     \newline
     Let $f,g$ be mappings from $X$ to $Y$ such that 
-    $$\forall x\in X,f(x)=\Phi(f\mid_{X_{<x}}),g(x)=\Phi(g\mid_{X_{<x}})$$
+    $$\forall x\in X,f(x)=\Phi(f\mid_{X_{<x}}),g(x)=\Phi(g\mid_{X_{<x}}).$$
     Then: $\forall x\in X$, we have 
-    $$(\forall y\in X_{<x},f(y)=g(y))\Rightarrow f(x)=g(x)$$
+    $$(\forall y\in X_{<x},f(y)=g(y))\Rightarrow f(x)=g(x).$$
     So by inclusion $\forall x \in X, f(x)=g(x)$, namely, $f=g$.
     \newline
     "Existence": 
     \newline
     Let $\mathscr{S}$  be the set of initial segments $S$ of $X$ such that $\exists f_S:S\rightarrow Y$ satisfying 
     \begin{equation*}
-        \forall x\in S,f_S(x)=\Phi(f_S\mid_{X_{<x}}) \tag{$*$}
+        \forall x\in S,f_S(x)=\Phi(f_S\mid_{X_{<x}}). \tag{$*$}
     \end{equation*}
-    Let $X_0=\bigcup_{S\in\mathscr{S} }S$. It is also an initial segment of $X$.$\forall x\in X_0,\exists S $ such that $x\in S$.If $S_1$ and $S_2$ are two elements of $\mathscr{S}$, then $S_1\cap S_2$ is also an initial segment. Moreover $f_{S_1}\mid_{S_1\cap S_2}$ and $f_{S_2}\mid_{S_1\cap S_2}$ satisfy $(*)$ So $f_{S_1}\mid_{S_1\cap S_2}=f_{S_2}\mid_{S_1\cap S_2}$ .Thus $f_S(x)$ does not depend on the choice of $S\in \mathscr{S}$ containing $x$. We denote it as $f(x)$. $f:X_0\rightarrow Y$ satisfying $(*)$. So $X_0\in \mathscr{S}$.
+    Let $X_0=\bigcup_{S\in\mathscr{S} }S$. It is also an initial segment of $X$. For any $x\in X_0$ there exists $ S $ such that $x\in S$. If $S_1$ and $S_2$ are two elements of $\mathscr{S}$, then $S_1\cap S_2$ is also an initial segment. Moreover $f_{S_1}\mid_{S_1\cap S_2}$ and $f_{S_2}\mid_{S_1\cap S_2}$ satisfy $(*)$ So $f_{S_1}\mid_{S_1\cap S_2}=f_{S_2}\mid_{S_1\cap S_2}$. Thus $f_S(x)$ does not depend on the choice of $S\in \mathscr{S}$ containing $x$. We denote it as $f(x)$. $f:X_0\rightarrow Y$ satisfying $(*)$. So $X_0\in \mathscr{S}$.
     If $X_0\not=X.\exists a\in X$ such that $ X_0=X_{<a}$. We extend $f$ to $X_0\cup\{a\}$ by letting $f(a)=\Phi(f)$. Then we get $X_0\cup\{a\}\in \mathscr{S}$.Contradiction.Therefore $X_0=X$  and we get the existence of $f$. 
 \end{proofenv}
 
@@ -1731,7 +1732,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
 
 \textbf{Motivation}: Let $X$ be a set. A sequence in $X$ is by definition a family $(x_i)_{i\in I}$, where $I$ is an infinite subset of $\NN$, and each $x_i$ is an element of $X$.
 \begin{exampleenv}
-    $(a+bn)_{n\in \NN};\left(\frac{1}{n}\right)_{n\in \NN_{\ge 1}}$
+    $(a+bn)_{n\in \NN};\left(\frac{1}{n}\right)_{n\in \NN_{\ge 1}}$.
 \end{exampleenv}
 \begin{propositionenv}
     Let $I\subseteq \NN$.
@@ -1744,13 +1745,13 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     \quad
     \newline
     (1) Let $f:I\rightarrow I$ be an increasing bijection. We want to prove:
-    $$A:=\{x\in I\mid f(x)\not=x\}=\varnothing$$
+    $$A:=\{x\in I\mid f(x)\not=x\}=\varnothing.$$
     If this set is non-empty, it has a least element $n_0$. By definition, $f(n_0)\not=n_0$. So either $n_0<f(n_0)$ or $n_0>f(n_0)$.
     \newline
     If $f(n_0)<n_0$, then $f(n_0)\notin A$, and hence $f(n_0)=f(f(n_0))<f(n_0)$, contradiction. So $n_0<f(n_0)$. For any $n\in I$, if $n_0\le n$ then $f(n_0)\le f(n)$. If $n_0>n$, then $n\notin A$ and $f(n)=n<n_0$.$(*)$Hence $f(n)\not=n_0$ for any $n\in I$. This contradicts the assumption that $f$ is bijective.
     \newline
     (2) Suppose that $I$ is bounded from above, and $f:I\rightarrow I$ is strictly increasing. We follow the same reasoning until $(*)$. $n_0<f(n_0)$ implies that $\forall k \in \NN, f^k(n_0)<f^{k+1}(n_0)$, that means 
-    $$n_0<f(n_0)<\dots <f^{k+1}(n_0)$$
+    $$n_0<f(n_0)<\dots <f^{k+1}(n_0).$$
     So by the lemma \ref{4.9.8}, $k\le f^k(n_0)$, this contradicts the assumption that $I$ is bounded from above.
 \end{proofenv}
 \begin{corollaryenv}
@@ -1762,7 +1763,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
 \begin{propositionenv}
     Let $I\subseteq \NN$ non-empty.
     \newline
-    (1) If $I$ is bounded from above, then there exists a unique pair $(N,f)$, where $N\in \NN$ and $f:\{0,1,\dots,N\}\rightarrow I$ is an increasing bijection. (We say that the cardinality of $I$ is $N+1$)
+    (1) If $I$ is bounded from above, then there exists a unique pair $(N,f)$, where $N\in \NN$ and $f:\{0,1,\dots,N\}\rightarrow I$ is an increasing bijection. (We say that the cardinality of $I$ is $N+1$.)
     \newline
     (2) If $I$ is NOT bounded from above, there exists an increasing bijection from $\NN$ to $I$. (We say that the cardinality of $I$ is $\aleph_0$) 
 \end{propositionenv}
@@ -1786,7 +1787,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     \newline
     (1) $X$ is infinite.
     \newline
-    (2) $\exists \NN\rightarrow X$ injective
+    (2) $\exists \NN\rightarrow X$ injective.
     \newline
     (3) $\exists$ injective mapping $f:X\rightarrow X$ such that $f(X)\not=X$.
 \end{propositionenv}
@@ -1799,8 +1800,8 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X),\subseteq)}\{\hat{x}|x\in A\}=\sup_{(\
     $$g(x):=
 \left\{\begin{matrix}
  f(n+1)&, &x=f(n) \\
-x&,&x\notin f(\NN)
-\end{matrix}\right.$$
+x&,&x\notin f(\NN).
+\end{matrix}\right. $$
 $g(X)\not=X$ since $f(0)\notin g(X)$ If $x\notin f(\NN),g(x)=x\notin f(\NN)$, so $g(x)\not=f(0)$. If $x=f(n), g(x)=f(n+1)\not=f(0)$ since $f$ is injective.
 \newline
 (3)$\Rightarrow$(2) Let $g:X\rightarrow X$ be injective with $g(X)\not=X$. We pick $x_0\in X\backslash g(X)$. We define a sequence $(x_n)_{n\in\NN}$ by letting $x_{n+1}:=g(x_n)$. Since $g$ is injective, $x_n\in g^n(X)\backslash g^{n+1}(X)$. otherwise $\exists y\in X$, such that $x_n=g^{n}(x_0)=g^{n+1}(y)$. Hence $x_0=g(y)\in g(x)$ contradiction. Then $x_0,x_1,\dots,$ are distinct, which defines an injective mapping $\NN\rightarrow X,n\mapsto x_n$.
@@ -1873,14 +1874,14 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
 \section{Neutral Element \& Invertible Element}
 \begin{definitionenv}
     $(X,*),e\in X$ is called a \textbf{neutral element} if 
-    $$\forall x\in X,\, e*x=x=x*e$$
+    $$\forall x\in X,\, e*x=x=x*e.$$
 \end{definitionenv}
 \begin{propositionenv}
     Assume $(X,*)$ admits a neutral element, then its neutral element is unique.
 \end{propositionenv}
 \begin{proofenv}
     Let $e,e'\in X$ be neutral elements.Then 
-    $$e=e*e'=e'$$
+    $$e=e*e'=e'.$$
 \end{proofenv}
 \begin{definitionenv}
     Let $(G,*)$ be a semigroup. If $(G,*)$ has a neutral element , then we say $(G,*)$ is \textbf{monoid}.
@@ -1893,32 +1894,32 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
     (2) $d\in \NN_>0$,$(d\NN,+)$ with neutral $0$,$(\NN,\times)$ with neutral $1$.
 \end{exampleenv}
 \begin{definitionenv}
-    Let $(G,*)$ be a monoid with the neutral element $e$. $\forall (x,y)\in G^2$, if $x*y=e$ then we say $x$ is a \textbf{left inverse} of $y$,and $y$ is the \textbf{right inverse} of $x$.
+    Let $(G,*)$ be a monoid with the neutral element $e$. For any $ (x,y)\in G^2$, if $x*y=e$ then we say $x$ is a \textbf{left inverse} of $y$, and $y$ is the \textbf{right inverse} of $x$.
 \end{definitionenv}
 \begin{remark}
     We say $x$ is \textbf{left invertible} if $x$ has a left inverse.(resp. right invertible)
 \end{remark}
 \begin{remark}
-    $x$ is left invertible in $(G,*)\Leftrightarrow x $ is right invertible in $(G,\hat{*})$ 
+    $x$ is left invertible in $(G,*)\Leftrightarrow x $ is right invertible in $(G,\hat{*})$.
 \end{remark}
 \begin{propositionenv}
     Let $(G,*)$ be a monoid, $g\in G$ .If $g$ is both left invertible and right invertible, then $g$ has a unique left inverse and a unique right inverse,which actually coincide.
 \end{propositionenv}
 \begin{proofenv}
     Let $x$ (resp. $y$) be a left (resp. right) inverse of $g$.Then , by the associativity law , we have 
-    $$x=x*e=x*(g*y)=(x*g)*y=y$$
+    $$x=x*e=x*(g*y)=(x*g)*y=y.$$
     Hence any left inverse is equal to $y$, hence it is unique.Similarly for the right.
 \end{proofenv}
 \begin{definitionenv}
     Let $(G,*)$ be a monoid. If $g\in G$ is both left invertible and right invertible, then we say $g$ is \textbf{invertible}.
-    If $g$ is invertible, the left inverse is equal to right inverse, hence we called it the inverse of $g$, denote by $\iota(g)$
+    If $g$ is invertible, the left inverse is equal to right inverse, hence we called it the inverse of $g$, denote by $\iota(g)$.
 \end{definitionenv}
 \begin{propositionenv}
     Let $(G,*)$ be a monoid, $g\in G$.If $g$ is right (resp. left) invertible, then it is right (resp. left) cancellative.
 \end{propositionenv}
 \begin{proofenv}
     Let $h$ be the right inverse of $g$.If $x*g=y*g$, then 
-    $$x=x*e=x*(g*h)=(x*g)*h=(y*g)*h=y*(g*h)=y*e=y$$
+    $$x=x*e=x*(g*h)=(x*g)*h=(y*g)*h=y*(g*h)=y*e=y.$$
 \end{proofenv}
 \begin{notationenv}
     For a monoid $(G,*)$.
@@ -1936,9 +1937,9 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
 \end{propositionenv}
 \begin{proofenv}
     \quad\newline
-    (1) $$x*\iota(x)=\iota(x)*x=e$$
-    (2) $$(xy)(\iota(y)\iota(x))=xy\iota(y)\iota(x)=xe\iota(x)=x\iota(x)=e$$
-    $$(\iota(y)\iota(x))(xy)=\iota(y)\iota(x)xy=\iota(y)ey=\iota(y)y=e$$
+    (1) $$x*\iota(x)=\iota(x)*x=e.$$
+    (2) $$(xy)(\iota(y)\iota(x))=xy\iota(y)\iota(x)=xe\iota(x)=x\iota(x)=e.$$
+    $$(\iota(y)\iota(x))(xy)=\iota(y)\iota(x)xy=\iota(y)ey=\iota(y)y=e.$$
 \end{proofenv}
 \begin{definitionenv}
     Let $(G,*)$ be a monoid. If any element of $G$ is invertible, then we say $G$ with the composition law is a \textbf{group}. A communitative group is also called \textbf{abelian group}.
@@ -1960,7 +1961,7 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
     $$\begin{pmatrix}
   1&2  &\dots &n \\
   f(1)& f(2) &\dots   &f(n)
-\end{pmatrix}$$
+\end{pmatrix}.$$
 \end{exampleenv}
 \section{Substructure}
 \begin{definitionenv}
@@ -1971,35 +1972,34 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
    \quad
    \newline
    (1) Let $d\in \NN^*$, then $d\NN$ forms a submonoid of $(\NN,+)$.
-   \newline
-   $d\NN$ is a subsemigroup of $(\NN,\cdot)$
+   $d\NN$ is a subsemigroup of $(\NN,\cdot)$.
     \newline
-    (2) $\mathfrak{S} _X$ is submonoid of $(\mathfrak{M} _X,\circ)$
+    (2) $\mathfrak{S} _X$ is submonoid of $(\mathfrak{M} _X,\circ)$.
 \end{exampleenv}
 \begin{propositionenv}\label{proposition5.3.1}
-    Let $(M,*)$ be a monoid, $H\subseteq M$ be a non-empty subset. Suppose that any element of $H$ is invertible in $M$ , and ($\forall x,y \in H,(x,y)\mapsto x*\iota(y)$),if $\forall x,y\in H, x*\iota(y)\in H$, then $H$ is a submonoid of $M$,Moreover, $H$ equipped with the restriction of $*$ forms a group $(H,*|_H)$. 
+    Let $(M,*)$ be a monoid, $H\subseteq M$ be a non-empty subset. Suppose that any element of $H$ is invertible in $M$ , and ($\forall x,y \in H,(x,y)\mapsto x*\iota(y)$), if $\forall x,y\in H, x*\iota(y)\in H$, then $H$ is a submonoid of $M$,Moreover, $H$ equipped with the restriction of $*$ forms a group $(H,*|_H)$. 
 \end{propositionenv}
 \begin{proofenv}
-    Let $e$ be the neutral element of $(M,*)$.Let $a\in H$, then $e=a\circ\iota(a)\in H$.For any $y\in H$, one has $\iota(y)=e*\iota(y)\in H$.For any $(x,y)\in H^2$,$x*y=x*\iota(\iota(y))\in H$ Hence $H$ is closed under $*$ and it contains the neutral element .Also, $\forall y\in H, \iota(y)\in H$, hence $H$ is group. 
+    Let $e$ be the neutral element of $(M,*)$. Let $a\in H$, then $e=a\circ\iota(a)\in H$. For any $y\in H$, one has $\iota(y)=e*\iota(y)\in H$. For any $(x,y)\in H^2$, $x*y=x*\iota(\iota(y))\in H$ Hence $H$ is closed under $*$ and it contains the neutral element. Also, $\forall y\in H, \iota(y)\in H$, hence $H$ is group. 
 \end{proofenv}
 \begin{corollaryenv}
-    Let $(M,*)$ be a monoid, $G$ be the set of all invertible element in $M$ .Then $G$ is a submonoid.Moreover, $G$ equipped with the restriction of $*$ forms a group.
+    Let $(M,*)$ be a monoid, $G$ be the set of all invertible element in $M$. Then $G$ is a submonoid. Moreover, $G$ equipped with the restriction of $*$ forms a group.
 \end{corollaryenv}
 \begin{proofenv}
-    By definition, any element in $G$ is invertible in $M$. By Proposition \ref{proposition5.2.4} ,$\forall x,y\in G, x*\iota(y)\in G$. Therefore, Proposition \ref{proposition5.3.1} implies the claim.
+    By definition, any element in $G$ is invertible in $M$. By Proposition \ref{proposition5.2.4}, $\forall x,y\in G, x*\iota(y)\in G$. Therefore, Proposition \ref{proposition5.3.1} implies the claim.
 \end{proofenv}
 \begin{notationenv}
-    Let $M$ be a monoid , we often use $M^\times$ to denote the submonoid of $M$ consisting of all invertible element if the composition law on $M$ is not written additively.
+    Let $M$ be a monoid, we often use $M^\times$ to denote the submonoid of $M$ consisting of all invertible element if the composition law on $M$ is not written additively.
 \end{notationenv}
 \begin{exampleenv}
-    Let $X$ be a set ,$\mathfrak{M} _X^X=\mathfrak{S} _X$.
+    Let $X$ be a set, $\mathfrak{M} _X^X=\mathfrak{S} _X$.
 \end{exampleenv}
 \begin{definitionenv}
-    Let $(G,*)$ be a group , $H\subseteq G$ be a submonoid.If $\forall x\in H$, one has $\iota(x)\in H$, then we say $H$ is \textbf{subgroup} of $G$.
+    Let $(G,*)$ be a group, $H\subseteq G$ be a submonoid. If $\forall x\in H$, one has $\iota(x)\in H$, then we say $H$ is \textbf{subgroup} of $G$.
 \end{definitionenv}
 \begin{propositionenv}
-    Let $(M,*)$ be a monoid, $\varnothing \not=H\subseteq M^\times$ be a subset such that $\forall x,y \in H$
-    $$x*\iota(y)\in H$$
+    Let $(M,*)$ be a monoid, $\varnothing \not=H\subseteq M^\times$ be a subset such that $\forall x,y \in H$,
+    $$x*\iota(y)\in H.$$
     Then $H$ is a subgroup of $M^\times$.
 \end{propositionenv}
 \begin{proofenv}
@@ -2012,10 +2012,10 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
 \end{propositionenv}
 \begin{proofenv}
     \quad\newline
-    For semigroup case,let $x,y\in H$ then $x,y\in H_i,\forall i \in I$.Then $x*y\in H_i,\forall i \in I $,thus 
-    $$x*y\in \cap_{i\in I}H_i=H$$
+    For semigroup case,let $x,y\in H$ then $x,y\in H_i,\forall i \in I$.Then $x*y\in H_i,\forall i \in I $, thus 
+    $$x*y\in \cap_{i\in I}H_i=H.$$
     For monoid case,the neutral element $e$ of $G$ satisfies
-    $$e \in H_i,\forall i \in I\Rightarrow e\in \bigcap_{i\in I}H_i=H$$
+    $$e \in H_i,\forall i \in I\Rightarrow e\in \bigcap_{i\in I}H_i=H.$$
     For group case,to check $x*\iota(y)\in H$ like above.
 \end{proofenv}
 \section{Homomorphism}
@@ -2023,30 +2023,30 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
     Let $(M,*)$ and $(N,\star)$ be  semigroups, $f:M\rightarrow N$ be a mapping of sets.
     \newline
     (1) $f$ is called a \textbf{semigroup homomorphism} from $(M,*)$ to $(N,\star)$ if
-    $$f(a*b)=f(a)\star f(b),\forall a,b\in M$$
-    (2) If moreover, $(M,*)$ and $(N,\star)$ are both monoids with neutral elements $e_M,e_N$ ,$f$ is called a \textbf{monoid homomorphism} if 
-     $$f(a*b)=f(a)\star f(b),\forall a,b\in M$$ 
-     $$f(e_M)=e_N$$
-    (3) If moreover,$(M,*)$ and $(N,\star)$ are both groups, $f$ is called a \textbf{group homomorphism} if 
-    $$f(a*b)=f(a)\star f(b),\forall a,b\in M$$
-    $$f(e_M)=e_N$$
-    $$f(\iota(a))=\iota(f(a)),\forall a\in M$$
-    (They are not independent)
+    $$f(a*b)=f(a)\star f(b),\forall a,b\in M.$$
+    (2) If moreover, $(M,*)$ and $(N,\star)$ are both monoids with neutral elements $e_M,e_N$, $f$ is called a \textbf{monoid homomorphism} if 
+     $$f(a*b)=f(a)\star f(b),\forall a,b\in M,$$ 
+     $$f(e_M)=e_N.$$
+    (3) If moreover, $(M,*)$ and $(N,\star)$ are both groups, $f$ is called a \textbf{group homomorphism} if 
+    $$f(a*b)=f(a)\star f(b),\forall a,b\in M,$$
+    $$f(e_M)=e_N,$$
+    $$f(\iota(a))=\iota(f(a)),\forall a\in M.$$
+    (They are not independent.)
 \end{definitionenv}
 \begin{propositionenv}
     \quad 
     \newline
-    Let $f:(M,*)\rightarrow (N,\star)$ be a semigroup (resp. monoid,group) homomorphism.If $M_1$ is a subsemigroup (resp. submonoid,subgroup) of $M$, then the image $f(M_1)$ is a subsemigroup (resp. submonoid,subgroup).
+    Let $f:(M,*)\rightarrow (N,\star)$ be a semigroup (resp. monoid,group) homomorphism. If $M_1$ is a subsemigroup (resp. submonoid,subgroup) of $M$, then the image $f(M_1)$ is a subsemigroup (resp. submonoid,subgroup).
 \end{propositionenv}
 \begin{proofenv}
     The semigroup case.Let $x,y\in f(M_1)$, we may write $x=f(a),y=f(b),a,b\in M_1$
-    $$x\star y=f(a)\star f(b)=f(a*b)\in f(M_1)$$
+    $$x\star y=f(a)\star f(b)=f(a*b)\in f(M_1).$$
     The monoid case.We denote $e_M,e_N$ be the neutral elements of $M,N$
-    $$e_M\in M_1,e_N=f(e_M)\in f(M_1)$$
+    $$e_M\in M_1,e_N=f(e_M)\in f(M_1).$$
     The group case.We have to check that $x,y\in f(M_1),x\star \iota(y)\in f(M_1)$
-    $$\forall a\in M, f(a)\star f(\iota(a))=f(a*\iota(a))=f(e_M)=e_N$$
+    $$\forall a\in M, f(a)\star f(\iota(a))=f(a*\iota(a))=f(e_M)=e_N.$$
     We may write $x=f(a),y=f(b),a,b\in M_1$
-    $$x\star \iota(y)=f(a)\star\iota(f(b))=f(a)\star f(\iota(b))=f(a*\iota(b))\in f(M_1)$$
+    $$x\star \iota(y)=f(a)\star\iota(f(b))=f(a)\star f(\iota(b))=f(a*\iota(b))\in f(M_1).$$
 \end{proofenv}
 \begin{remark}
     \quad
@@ -2064,28 +2064,28 @@ Let $f_a:x\mapsto a ,f_b:x\mapsto b ,\forall x\in X$ Then, $f_a\circ f_b=f_a,f_b
     The semigroup case.
         \begin{align*}
             (g\circ f)(x_1*x_2) & = g(f(x_1*x_2))  = g(f(x_1)\star f(x_2)) \\
-            & = g(f(x_1))\diamond g(f(x_2)),\forall x_1,x_2\in X
+            & = g(f(x_1))\diamond g(f(x_2)),\forall x_1,x_2\in X.
         \end{align*}
     The monoid case :
-    $$(g\circ f)(e_X)=g(f(e_X))=g(e_Y)=e_Z$$
+    $$(g\circ f)(e_X)=g(f(e_X))=g(e_Y)=e_Z.$$
     The group case:
-    $$(g\circ f)(\iota(x))=g(f(\iota(x)))=g(\iota(f(x)))=\iota((g\circ f)(x))$$
+    $$(g\circ f)(\iota(x))=g(f(\iota(x)))=g(\iota(f(x)))=\iota((g\circ f)(x)).$$
 \end{proofenv}
 \begin{propositionenv}
     Let $f:(X,*)\rightarrow (Y,\star)$ be a semigroup (resp.monoid, group) homomorphism between semigroups (resp.monoids groups).If $f$ is bijective, then its inverse mapping $f^{-1}:Y\rightarrow X$ is also a semigroup homomorphism (resp.monoid,group) 
 \end{propositionenv}
 \begin{proofenv}
-    The semigroup case: Let $y_1,y_2\in Y$ and let $x_i=f^{-1}(y_i),\,i=1,2$.Then 
-    $$y_1\star y_2=f(x_1)\star f(x_2)=f(x_1*x_2)$$
-    $$f^{-1}(y_1\star y_2)=x_1*x_2=f^{-1}(y_1)*f^{-1}(y_2)$$
+    The semigroup case: Let $y_1,y_2\in Y$ and let $x_i=f^{-1}(y_i),\,i=1,2$. Then 
+    $$y_1\star y_2=f(x_1)\star f(x_2)=f(x_1*x_2),$$
+    $$f^{-1}(y_1\star y_2)=x_1*x_2=f^{-1}(y_1)*f^{-1}(y_2).$$
     The monoid case:
-    $$f(e_X)=e_Y\Rightarrow f^{-1}(e_Y)=e_X$$
+    $$f(e_X)=e_Y\Rightarrow f^{-1}(e_Y)=e_X.$$
     The group case:
-    $$f^{-1}(\iota(y))\overset{y=f(x)}{=}f^{-1}(\iota(f(x)))=(f^{-1}\circ f)(\iota(x))=\iota(f^{-1}(y))$$
+    $$f^{-1}(\iota(y))\overset{y=f(x)}{=}f^{-1}(\iota(f(x)))=(f^{-1}\circ f)(\iota(x))=\iota(f^{-1}(y)).$$
 \end{proofenv}
 \begin{definitionenv}
     A semigroup (resp. monoid, group) homomorphism $f:X\rightarrow Y$ is called a \textbf{semigroup (resp.monoid,group) isomorphism} if there exists a semigroup (resp.monoid,group) homomorphism $g:Y\rightarrow X$, such that 
-    $$g\circ f=\mathrm{Id}_X,f\circ g=\mathrm{Id}_Y$$
+    $$g\circ f=\mathrm{Id}_X,f\circ g=\mathrm{Id}_Y.$$
 \end{definitionenv}
 By Proposition \ref{propositions5.4.2}, a semigroup (resp.monoid group) homomorphism is a semigroup (resp.monoid ,group) isomorphism if and only if $f$ is a bijection.
 \begin{propositionenv}
@@ -2095,18 +2095,18 @@ By Proposition \ref{propositions5.4.2}, a semigroup (resp.monoid group) homomorp
 \begin{definitionenv}
     Let $X$ be a set and $\sim$ be a binary relation on $X$. (We write $x\sim y$ the condition $(x,y)\in \Gamma_\sim$)
     \newline
-    (1) If $\forall x\in X, x\sim x$
+    (1) If $\forall x\in X, x\sim x$.
     \newline
     (2) $\forall (x,y)\in X^2, x\sim y\Rightarrow y\sim x$.
     \newline
-    (3) $\forall (x,y,z)\in X^3, (x\sim y \text{ and } y\sim z )\Rightarrow x\sim z$
+    (3) $\forall (x,y,z)\in X^3, (x\sim y \text{ and } y\sim z )\Rightarrow x\sim z$.
     \newline
     We say that $\sim $ is a \textbf{equivalence relation}.
 \end{definitionenv}
 \textit{Check Section~\ref{4.2}:Equivalent Relation, to get more information about it.}
 \begin{propositionenv}
     Let $(X_i)_{i\in i}$ be a family of sets. For any $i\in I$, let $\sim_i$ be an equivalence relation on $X_i$. Let $X=\prod_{i\in I}X_i$. We define a binary relation $\sim$ on $X$ as follows:
-    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Leftrightarrow \forall i\in I, x_i\sim y_i$$
+    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Leftrightarrow \forall i\in I, x_i\sim y_i.$$
     Then, $\sim $ is an equivalence relation, and the mapping
     $$X/\sim \overset{\Phi}{\longrightarrow }\prod_{i\in I}X_i/\sim_i,$$
     $$ [(x_i)_{i\in I}]\longmapsto  ([x_i])_{i\in I}$$
@@ -2122,12 +2122,12 @@ By Proposition \ref{propositions5.4.2}, a semigroup (resp.monoid group) homomorp
     (3) Let $x=(x_i)_{i\in I},y=(y_i)_{i\in I},z=(z_i)_{i\in I}$ in $X$. If $x\sim y$ and $y\sim z$, then $\forall i \in I,x_i\sim_i y_i$ and $y_i\sim_i z_i$. Hence $\forall i \in I, x_i\sim_i z_i$. So $x\sim z$.
     \newline
     We check that $\Phi$ is well defined. Let $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ be elements of $X$. If $[x]=[y]$, then $x\sim y$ and hence $\forall i\in I, x_i\sim_i y_i$, that means 
-    $$([x_i])_{i\in I}=([y_i])_{i\in I}$$
-    By definition, $\Phi$ is surjective. If $\Phi([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$, then $\forall i\in I, [x_i]=[y_i]$, namely $x_i\sim_i y_i$. Therefore, $([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$
+    $$([x_i])_{i\in I}=([y_i])_{i\in I}.$$
+    By definition, $\Phi$ is surjective. If $\Phi([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$, then $\forall i\in I, [x_i]=[y_i]$, namely $x_i\sim_i y_i$. Therefore, $([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$.
 \end{proofenv}
 \begin{notationenv}
     Let $X$ be a set , $\sim $ be an equivalence relation on $X$. Then $X/\sim$ is called the \textbf{quotient} of $X$ by $\sim$. The mapping 
-    $$\pi:X\longrightarrow X/\sim $$
+    $$\pi:X\longrightarrow X/\sim ,$$
     $$x\longmapsto [x]$$
 is called the \textbf{quotient mapping}.
 \end{notationenv}
@@ -2136,7 +2136,7 @@ is called the \textbf{quotient mapping}.
 \end{definitionenv}
 \begin{theoremenv}[Proposition\ref{4.2.5}]\label{5.5.5}
     Let $f:X\rightarrow Y$ be a mapping and $\sim $ be an equivalence relation on $X$ which is compatible with $f$. Then there exists a unique mapping 
-    $$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x)$$such that $$\tilde{f}\circ \pi =f$$
+    $$\tilde{f}:X/\thicksim\rightarrow Y, [x]\mapsto f(x),$$such that $$\tilde{f}\circ \pi =f.$$
     \begin{center}
 \begin{tikzcd}
     X\arrow[d,swap,"\pi"]\arrow[r,"f"]& Y\\
@@ -2238,7 +2238,7 @@ is called the \textbf{quotient mapping}.
     \quad
     \newline
     (1) The neutral element $e_x$ of $(X,*)$ belongs to $\ker(f)$. If $x,y$ are elements of $\ker(f)$, then 
-    $$f(x*\iota(y))=f(x)\star f(\iota(y))=f(x)\star \iota(f(y))=e_Y\star\iota(e_Y)=e_Y$$
+    $$f(x*\iota(y))=f(x)\star f(\iota(y))=f(x)\star \iota(f(y))=e_Y\star\iota(e_Y)=e_Y,$$
     so, $x*\iota(y)\in \ker(f)$.
     \newline
     (2) We should take $y:=(a*x)*\iota(a)$. It remains to check that $y\in \ker(f)$. One has $f(y)=f(a*x*\iota(a))=f(a)\star f(x)\star \iota(f(a))=f(a)\star \iota(f(a))=e_Y$.
@@ -2252,9 +2252,9 @@ is called the \textbf{quotient mapping}.
     (1) The binary relation $\sim_H$ on $G$ defined as 
     $$x\sim_H y\Leftrightarrow x*\iota(y)\in H$$
     is an equivalence relation on $G$. Moreover, 
-    $$\forall x\in G, [x]=H*x:=\{y*x\mid y\in H\}$$
+    $$\forall x\in G, [x]=H*x:=\{y*x\mid y\in H\}.$$
     (2) If $H$ is normal, then
-    $$\forall x\in G,x*H=H*x$$
+    $$\forall x\in G,x*H=H*x.$$
     Moreover, $\sim_H$ is compatible with $*$.
     \newline
     (3) The kernel of $\pi :G\rightarrow G/\sim_H$ is equal to $H$.
@@ -2264,23 +2264,23 @@ is called the \textbf{quotient mapping}.
     (1) If $x\sim_H y$, then $x*\iota(y)\in H$, so $y*\iota(x)=\iota(x*\iota(y))\in H$, so $y\sim_H x$. If $x\sim_H y$ and $y\sim_H z$, then $x*\iota(y)\in H, y*\iota(z)\in H$, so $x*\iota(z)=x\iota(y)*y*\iota(z)\in H$. Hence $x\sim_H z$. By definition, $[x]:=\{y\in G\mid  x*\iota(y)\in H\}$. If $y\in [x]$, then $y*\iota(x)\in H$. Hence $y=(y*\iota(x))*x\in H*x$. Conversely, if $y=h*x\in H*x \quad (h\in H)$, then $y*\iota(x)=h*x*\iota(x)\in H$. So $y\in [x]$, $[x]=H*x$.
     \newline
     We denote by $G/H $ the set 
-    $$G/H:=\{x*H\mid x\in G\}$$ 
+    $$G/H:=\{x*H\mid x\in G\}.$$ 
     We denote by $H\backslash G$ the set 
-    $$H\backslash G:=\{H*x\mid x\in G\}$$
+    $$H\backslash G:=\{H*x\mid x\in G\}.$$
     (2) Suppose that $H$ is normal.$\forall (x,y)\in G\times H$, one has $x*y*\iota(x)\in H$. So $\forall y\in H,\exists z(=x*y*\iota(x))\in H$ such that $x*y=z*x$. So $x*H\subseteq H*x$. Conversely, $H*x\subseteq x*H$. Let $x_1,x_2,y_1,y_2$ be elements of $G$, such that $x_1\sim_H x_2,y_1\sim_H y_2$.
     \begin{align*}
 &(x_1*y_1)*\iota (x_2*y_2)\\
 =&x_1*y_1*\iota (y_2)*\iota (x_2)\\
-=&x_1*(y_1*\iota (y_2))*\iota (x_1)*x_1*\iota (x_2)\in H
+=&x_1*(y_1*\iota (y_2))*\iota (x_1)*x_1*\iota (x_2)\in H.
 \end{align*}
-    (3)$$\ker(\pi)=[e_G]=H*e_G=H$$
+    (3)$$\ker(\pi)=[e_G]=H*e_G=H.$$
 \end{proofenv}
 \begin{notationenv}
     If $H$ is a normal subgroup of $G$, we denote by $G/H$ the quotient group $G/\sim_H$.
 \end{notationenv}
 \begin{theoremenv}
     Let $f:(X,*)\rightarrow (Y,\star)$ be a homomorphism of groups, and $K=\ker(f)$. Then $\sim_K$ is compatible with $f$, and $f$ induces by passing to quotient a mapping
-    $$\tilde{f}:X/K\longrightarrow Y$$
+    $$\tilde{f}:X/K\longrightarrow Y,$$
     which is actually an injective homomorphism of groups, with $\tilde{f}(X/K)=f(X)$. In particular, $X/K$ is isomorphism to $f(X)$.
         \begin{center}
 \begin{tikzcd}
@@ -2299,12 +2299,12 @@ is called the \textbf{quotient mapping}.
 \end{propositionenv}
 \begin{proofenv}
     We construct a mapping $f:\NN\rightarrow M$ in a recursive way as follows: $f(0)=e_M$. For any $n\in \NN$, we let $f(n+1)=f(n)*x$. We will prove that $f$ is a homomorphism of monoids, that is 
-    $$\forall (n,m)\in \NN\times \NN,f(n+m)=f(n)*f(m)$$
-    We reason by induction on $m$. If $m=0$, $f(n)=f(n)*e_M$. Suppose that $f(n+m)=f(n)*f(m)$. One has $$f(n+m+1)=f(n+1)*f(m)=f(n)*f(1)*f(m)=f(n)*f(m+1)$$
+    $$\forall (n,m)\in \NN\times \NN,f(n+m)=f(n)*f(m).$$
+    We reason by induction on $m$. If $m=0$, $f(n)=f(n)*e_M$. Suppose that $f(n+m)=f(n)*f(m)$. One has $$f(n+m+1)=f(n+1)*f(m)=f(n)*f(1)*f(m)=f(n)*f(m+1).$$
     If $g:\NN\rightarrow M$ is a homomorphism of monoid, such that $g(1)=x$. Since $g(n+1)=g(n)*g(1)=g(n)*x$, we have $g(n)=f(n)$. By induction, $\forall n\in \NN,g(n)=f(n)$. So $f$ is unique.
 \end{proofenv}
 \begin{notationenv}
-    Let $(M,*)$ be a monoid, $x\in M$, $f:(\NN,+)\rightarrow (M,*)$ be the unique homomorphism of monoid, such that $f(1)=x$. $\forall n\in \NN$, we denote by $x^{*n}$ the element $f(n)\in M$, $x^{*0}=e_M$, $x^{*(n+m)}=x^{*n}*x^{*m}$.
+    Let $(M,*)$ be a monoid, $x\in M$, $f:(\NN,+)\rightarrow (M,*)$ be the unique homomorphism of monoid, such that $f(1)=x$. For any $n\in \NN$, we denote by $x^{*n}$ the element $f(n)\in M$, $x^{*0}=e_M$, $x^{*(n+m)}=x^{*n}*x^{*m}$.
     \newline
     Two exceptions: If $*=\cdot$ is written multiplicatively, $x^{*n}$ is written as $x^n$. If $*=+$, then $x^{*n}$ is written as $nx$. 
 \end{notationenv}
@@ -2316,15 +2316,15 @@ is called the \textbf{quotient mapping}.
     $$f(n):=\left\{\begin{matrix}
         x^{*n},&n\ge 0\\
         \iota(x^{*(-n)}),&n<0
-    \end{matrix}\right.$$
+    \end{matrix}\right. .$$
     Let $n,m$ be two elements of $\ZZ$.
     \newline
     (1) If $n,m>0$. Then $f(n+m)=x^{*n}*x^{*m}=f(n+m)$.
     \newline
     (2) If $n,m<0$. Then $f(n+m)=\iota(x^{*(-n-m)})=\iota(x^{*(-m)}*x^{*(-n)})=\iota(x^{*(-n)})*\iota(x^{*(-m)})=f(n)*f(m)$.
     \newline
-    (3) If $n>0,m<0$ and $n+m>0$. Then $$f(n+m)=x^{*(n-(-m))}=x^{*n}*\iota(x^{*(-m)})=f(n)*f(m)$$
-    (4) If $n>0,m<0$ and $n+m<0$. Then $$f(n+m)=\iota(x^{*(-n-m)})=\iota(\iota(x^{*n})*x^{*(-m)})=\iota(x^{*(-m)})*x^{*n}=f(m)*f(n)$$
+    (3) If $n>0,m<0$ and $n+m>0$. Then $$f(n+m)=x^{*(n-(-m))}=x^{*n}*\iota(x^{*(-m)})=f(n)*f(m).$$
+    (4) If $n>0,m<0$ and $n+m<0$. Then $$f(n+m)=\iota(x^{*(-n-m)})=\iota(\iota(x^{*n})*x^{*(-m)})=\iota(x^{*(-m)})*x^{*n}=f(m)*f(n).$$
 \end{proofenv}
 \begin{notationenv}
     If $x\in M^\times$, for any $n\in \ZZ$, let $x^{*n}$ be the image of $n$ by this unique homomorphism of monoids $(\ZZ,+)\rightarrow (M,*),\ 1\mapsto x$. $x^{\cdot n}$ is denoted as $x^n$, $x^{+n}$ is denoted as $nx$.
@@ -2332,33 +2332,33 @@ is called the \textbf{quotient mapping}.
 \begin{propositionenv}
     Let $(M,*)$ be a monoid, $x,y\in M$.
     \newline
-    (1) If $x*y=y*x$, then $\forall(n,m)\in \NN^2$,
-     $$x^{*n}*y^{*m}=y^{*m}*x^{*n}$$ 
-     $$(x*y)^{*n}=x^{*n}*y^{*n}$$
+    (1) If $x*y=y*x$, then for any $(n,m)\in \NN^2$,
+     $$x^{*n}*y^{*m}=y^{*m}*x^{*n}.$$ 
+     $$(x*y)^{*n}=x^{*n}*y^{*n}.$$
     \newline
-    (2) If $x\in M$, $\iota(x^{*n})=\iota(x)^{*n}$ and $\forall (n,m)\in \NN^2$, with $n\ge m$,
-    $$x^{*(n-m)}=x^{*n}*\iota(x)^{*m}$$
-    $$\iota(x^{*(n-m)})=\iota(x)^{*n}*x^{*m}$$
+    (2) If $x\in M$, $\iota(x^{*n})=\iota(x)^{*n}$ and for any $(n,m)\in \NN^2$, with $n\ge m$,
+    $$x^{*(n-m)}=x^{*n}*\iota(x)^{*m},$$
+    $$\iota(x^{*(n-m)})=\iota(x)^{*n}*x^{*m}.$$
 \end{propositionenv}
 \begin{proofenv}
    \quad
    \newline
     (1) We prove by induction on $n$ such that $x^{*n}*y=y*x^{*n}$.
-    If $n=0$, $x^{*n}=e_M$, so $y*e_M=y=e_M*y$. If $x^{*n}*y=y*x^{*n}$, we have $x^{*n+1}*y=x^{*n}*y*x=y*x^{*n}*x=y*x^{*(n+1)}$. We apply this  statement in replacing $n$ by $m$, $x$ by $y$, and $y$ by $x^{*n}$. From $x^{*n}*y=y*x^{*n}$, we deduce that $y^{*m}*x^{*n}=x^{*n}*y^{*m}$. We prove $(x*y)^{*n}=x^{*n}*y^{*n}$ by induction on $n$. If $n=0,e_M=e_M*e_M$. If $n=1,x*y=x*y$. If $(x*y)^{*n}=x^{*n}*y^{*n}$, then $$(x*y)^{*(n+1)}=(x*y)^{*n}*x*y=x^{*n}*y^{*n}*x*y=x^{*n}*x*y^{*n}*y=x^{*(n+1)}*y^{*(n+1)}$$
+    If $n=0$, $x^{*n}=e_M$, so $y*e_M=y=e_M*y$. If $x^{*n}*y=y*x^{*n}$, we have $x^{*n+1}*y=x^{*n}*y*x=y*x^{*n}*x=y*x^{*(n+1)}$. We apply this  statement in replacing $n$ by $m$, $x$ by $y$, and $y$ by $x^{*n}$. From $x^{*n}*y=y*x^{*n}$, we deduce that $y^{*m}*x^{*n}=x^{*n}*y^{*m}$. We prove $(x*y)^{*n}=x^{*n}*y^{*n}$ by induction on $n$. If $n=0,e_M=e_M*e_M$. If $n=1,x*y=x*y$. If $(x*y)^{*n}=x^{*n}*y^{*n}$, then $$(x*y)^{*(n+1)}=(x*y)^{*n}*x*y=x^{*n}*y^{*n}*x*y=x^{*n}*x*y^{*n}*y=x^{*(n+1)}*y^{*(n+1)}.$$
     (2) $x^{*n}*\iota(x)^{*n}=(x*\iota(x))^{*n}=e_{M}^{*n} = e_{M}$, since $(\NN,+)\rightarrow (M,*), n\mapsto e_M$ is a homomorphism of monoids. $\iota(x)^n* x^{*n} = (\iota(x) * x)^{*n} = e_{M}$. If $n \geq m$ 
 $$
 x^{*n} * \iota(x)^{*m} = x^{*(n-m)} * x^{*m} * \iota(x)^{*m} = x^{*(n-m)}
-$$
+.$$
 $$
 \iota(x)^{*n} * x^{*m} = \iota(x)^{*(n-m)} * \iota(x)^{*m} * x^{*m}=\iota(x)^{*(n-m)}=\iota(x^{*(n-m)})
-$$
+.$$
 \end{proofenv}
 \begin{definitionenv}
     Let $I$ be a set. For any $i\in I$, let $(M_i,*_i)$ be a set equipped with a composition law. Let 
-    $$M=\prod_{i\in I}M_i=\{(x_i)_{i\in I}\mid \forall i\in I,x_i\in M_i\}$$ 
+    $$M=\prod_{i\in I}M_i=\{(x_i)_{i\in I}\mid \forall i\in I,x_i\in M_i\}.$$ 
     We define a composition law on $M$ such that 
-    $$(x_i)_{i\in I}*(y_i)_{i\in I}=(x_i*y_i)_{i\in I}$$
-    For any $j\in I$, let $\pi_j:M\rightarrow M_j,\ (x_i)_{i\in I}\mapsto x_j$
+    $$(x_i)_{i\in I}*(y_i)_{i\in I}=(x_i*y_i)_{i\in I}.$$
+    For any $j\in I$, let $\pi_j:M\rightarrow M_j,\ (x_i)_{i\in I}\mapsto x_j$.
 \end{definitionenv}
 \begin{propositionenv}
     \quad 
@@ -2389,21 +2389,210 @@ $$
 \end{proofenv}
 \begin{notationenv}
     Let $M$ be a communitative monoid, $(x_i)_{i\in I}$ be a family of elements in $M$. We suppose that $I_0=\{i\in I\mid x_i\not=e\}$ is finite. We pick a natural number $n$ and a bijection $\sigma:\{1,2,\dots,n\}\rightarrow I_0$. If the composition law of $M$ is written as $+$, then 
-    $$\sum_{i\in I}x_i \text{ denotes }(x_{\sigma(1)}+x_{\sigma(2)}+\cdots+x_{\sigma(n)})$$
+    $$\sum_{i\in I}x_i \text{ denotes }(x_{\sigma(1)}+x_{\sigma(2)}+\cdots+x_{\sigma(n)}),$$
     it denotes the neutral element $0$ of $M$ when $I_0=\varnothing$. If the composition law of $M$ is written as $\cdot$, then 
-    $$\prod_{i\in I}x_i \text{ denotes }(x_{\sigma(1)}\cdot x_{\sigma(2)}\cdots x_{\sigma(n)})$$
+    $$\prod_{i\in I}x_i \text{ denotes }(x_{\sigma(1)}\cdot x_{\sigma(2)}\cdots x_{\sigma(n)}),$$
     it denotes the neutral element $1$ of $M$ when $I_0=\varnothing$.
     \newline
     Let $(M_i)_{i\in I}$ be a family of communitative monoids. (The composition law of $M_i$ is written additively, the neutral element of $M_i$ is written $0$)
 \end{notationenv}
-\begin{definitionenv}
+\begin{definitionenv}[Direct product]
+    Let $(M_i)_{i\in I}$ be a family of communitative monoids. For any $i\in I$, let $e_i$ be a neutral element of $M_i$. 
     We denote by 
     $$\bigoplus_{i\in I}M_i$$ 
     the set of $(x_i)_{i\in I}\in \prod_{i\in I}M_i$ such that $\{i\in I\mid x_i\not=0\}$ is finite. 
 \end{definitionenv}
+\begin{propositionenv}
+    $\bigoplus_{i\in I}M_i$ is a submonoid of $\prod_{i\in I}M_i$.
+\end{propositionenv}
+\begin{proofenv}
+    First, $e:=(e_i)_{i\in I}\in \bigoplus_{i\in I}M_i$. Let $*_i$ be the composition law of $M_i$, $*$ be the direct product of $(*_i)_{i\in I}$. If $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ are in $\bigoplus_{i\in I}M_i$, then $x*y=(x_i*y_i)_{i\in I}$. If $I_x=\{i\in I\mid x_i\not=e_i\}$ and $I_y=\{i\in I\mid y_i\not=e_i\}$ are finite, then $\{i\in I\mid x_i*y_i\not=e\}\subseteq I_x\cup I_y$. So $x\in \bigoplus_{i\in I}M_i$ and $y\in \bigoplus_{i\in I}M_i$ imply that $x*y\in\bigoplus_{i\in I}M_i$.
+\end{proofenv}
+\begin{definitionenv}
+    $\bigoplus_{i\in I}M_i$ is called the \textbf{direct sum} of $(M_i)_{i\in I}$. For any $j\in I$, the homomorphisms 
+    $$\begin{matrix}
+M_j\overset{\mathrm{Id}_{M_j}}{\longrightarrow }M_j & \\
+M_j\longrightarrow M_i,& (i\not=j)\\
+x_j\longmapsto e_i &
+
+\end{matrix}$$
+induce:$$\begin{matrix}
+M_j\longrightarrow \prod_{i\in I}M_i \\
+x_j\longmapsto  (y_i)_{i\in I}
+
+\end{matrix}$$
+with
+$$y_i=\left\{\begin{matrix}
+ x_j,\ j=i\\
+e_i,\ i\not=j
+\end{matrix}\right. \ .$$
+Claim: This homomorphism takes value in $\bigoplus_{i\in I}M_i$. We denote by 
+$$\lambda_j:M_j\longrightarrow \bigoplus_{i\in I}M_i$$ 
+this homomorphism.
+$$\lambda_j(x_j)_i= \left\{\begin{matrix}
+x_j,\ i=j\\
+e_i,\ i\not=j
+\end{matrix}\right. ,$$
+$$\lambda_j(x_j)_i=(\lambda_j(x_j)_i)_{i\in I}.$$
+\end{definitionenv}
+\begin{theoremenv}
+    Let $(N,\star)$ be a communitative monoid. Then for any $i\in I$, let $\psi_i:M_i\rightarrow N$ be a homomorphism of monoids. Then there is a unique homomorphism of monoids $\displaystyle\psi:\bigoplus_{i\in I}M_i\rightarrow N$ such that for any $ j\in I,\psi\circ \lambda_j=\psi_j$.
+\end{theoremenv}
+\begin{proofenv}
+    For simplicity, we write all composition laws as $+$, and all neutral element as $0$. We should define $\displaystyle\psi:\bigoplus_{i\in I}M_i\rightarrow N,\ (x_i)_{i\in I}\mapsto \sum_{i\in I}\psi_i(x_i)$. $\psi\left((0)_{i\in I}\right)=\sum_{i\in I}0=0$. $\psi\left((x_i)_{i\in I}+(y_i)_{i\in I}\right)=\psi\left((x_i+y_i)_{i\in I}\right)=\sum_{i\in I}\psi_i(x_i+y_i)=\sum_{i\in I}\left[\psi_i(x_i)+\psi_i(y_i)\right]=\sum_{i\in I}\psi_i(x_i)+\sum_{i\in I}\psi_i(y_i)$. (The last equality holds because the composition law of $N$ is commutative.)
+\end{proofenv}
 
 
 
+
+
+
+\chapter{Rings and Modules}
+\section{Unitary Rings}
+\begin{definitionenv}
+    Let $A$ be a set, and $+$ and $*$ be composition laws. If 
+    \newline
+    (1) $(A,+)$ forms a communitative group.
+    \newline
+    (2) $(A,*)$ forms a monoid.
+    \newline
+    (3) For any $(a,b,c)\in A^3$, $a*(b+c)=(a*b)+(a*c)$ and $(b+c)*a=(b*a)+(c*a)$.
+    \newline
+    If in addition, $*$ is communitative, then we say that the unitary ring $(A,+,*)$ is communitative.
+\end{definitionenv}
+\begin{exampleenv}
+    $(\ZZ,+,\cdot)$ is a unitary ring.
+\end{exampleenv}
+Note that, if we denote by $\hat{*}$ the composition law 
+$$A\times A\longrightarrow A,$$
+$$(a,b)\longmapsto b*a.$$
+Then $(A,+,\hat{*})$ forms a unitary ring. We call it the opposite unitary ring of $(A,+,*)$.
+\begin{notationenv}
+    Usually, we denote by $+$ the first composition law, of a unitary ring $A$ and call it the \textbf{addition}. We denote by $0$ the neutral element of $+$, and call it the \textbf{zero element} of $A$. Usually we denote by $\cdot$ the second composition law of $A$ and call it the \textbf{multiplication}. We denote by $1$ the neutral element with respect to $\cdot$, and call it the \textbf{unity element} of $A$.
+\end{notationenv}
+\begin{definitionenv}
+    Let $A$ be a unitary ring and $B$ be a subset of $A$. If $B$ is a subgroup of $(A,+)$ and a submonoid of $(A,\cdot)$, then we call $B$ a \textbf{unitary subring} of $A$.
+\end{definitionenv}
+\begin{exampleenv}
+    Let $\{0\}$ be the set of $1$ element. Let $+$ and $\cdot$ be both the composition law $\{0\}\times\{0\}\rightarrow\{0\},(0,0)\mapsto0$. Then $(\{0\},+,*)$ is a unitary ring. We call it the \textbf{zero ring}.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ and $B$ be unitary rings and $f:A\rightarrow B$ be a mapping. If $f$ is a group homomorphism from $(A,+)$ to $(B,+)$, and is a monoid homomorphism from $(A,\cdot)$ to $(B,\cdot)$, then we call $f$ a \textbf{unitary ring homomorphism}. 
+\end{definitionenv}
+\begin{propositionenv}
+    For any unitary ring $A$, there exists a unitary ring homomorphism $A\rightarrow\{0\}$.
+\end{propositionenv}
+\begin{lemmaenv}
+    Let $A$ be a unitary ring.
+    \newline
+    (1) $\forall a\in A, 0a=a0=0.$
+    \newline
+    (2) $\forall a,b\in A, -(ab)=(-a)b=a(-b).$
+\end{lemmaenv}
+\begin{proofenv}
+    \quad\newline
+    (1) $0+0=0$, so $0+0a=0a=(0+0)a=0a+0a$. Hence $0a=0$.
+    \newline
+    (2) $ab+(-a)b=(a+(-a))b=0b=0,ab+a(-b)=a(b+(-b))=a0=0.$
+\end{proofenv}
+\begin{propositionenv}
+    For any unitary ring $A$, there exists a unitary ring homomorphism from $\ZZ$ to $A$.
+\end{propositionenv}
+\begin{proofenv}
+    If $f:\ZZ \rightarrow A$ is a unitary ring homomorphism, then $f(1)=1_A$. So $f$ is identifies with the unitary group homomorphism.
+    $$(\ZZ,+)\longrightarrow(A,+),$$
+    $$n\longmapsto n1_A.$$
+    It remains to check that for any $(n,m)\in \ZZ^2,f(nm)=f(n)f(m)$. Note that , if $(n,m)\in \NN\times\NN$, then 
+    $$f(n)=\underset{n \text{ copies}}{\underbrace{1_A+\dots+1_A}},\ f(m)=\underset{m \text{ copies}}{\underbrace{1_A+\dots+1_A}}.$$
+    So $f(n)f(m)=nm1_A1_A=nm1_A=f(nm)$.
+    $f(-n)f(m)=(-f(n))f(m)=-f(n)f(m)=-f(nm)=f(-nm)$.
+    $f(-n)f(-m)=\dots$
+\end{proofenv}
+\begin{definitionenv}
+    Let $K$ be a unitary ring. We denote by $K^\times$ the invertible elements of $(K,\cdot)$. If $K^\times=K\backslash\{0\}$ then we say that $K$ is a division ring. If in addition, $K$ is commutative, then we say that $K$ is a \textbf{filed}.
+\end{definitionenv}
+\begin{exampleenv}
+    $\QQ,\RR,\CC$ are fields.
+\end{exampleenv}
+\section{Action of Monoids}
+\begin{definitionenv}
+    Let $(G,*)$ be a monoid, the neutral element of which is denoted as $e$. Let $X$ be a set. We call \textbf{left action} of $G$ on $X$ any mapping 
+    $$\phi:G\times X\rightarrow X,$$
+    such that 
+    \newline
+    (1) $\phi(e,x)=x$, for any $x\in X$.
+    \newline
+    (2) $\forall (a,b)\in G\times G,\forall x\in X$,
+    $$\phi(a*b,x)=\phi(a,\phi(b,x)).$$
+    (Resp. right action)
+\end{definitionenv}
+\begin{remark}
+    A left action of $(G,*)$ on $X$ is a right action of $(G,\hat{*})$ on $X$.
+\end{remark}
+\begin{notationenv}
+    If $*=\cdot$ a left action is usually denoted as 
+    $$G\times X\longrightarrow X,$$
+    $$(a,x) \longmapsto ax.$$
+    Condition (1) becomes $ex=x$, (2) becomes $(ab)x=a(bx)$.
+\end{notationenv}
+\begin{exampleenv}
+    Let $G$ be a group, $H$ be a subgroup of $G$. Then 
+    $$H\times G\longrightarrow G,$$
+    $$(h,g)\longmapsto hg.$$
+    is a left action of $H$ on $G$. (Resp. right action.)
+\end{exampleenv}
+\begin{propositionenv}
+    Let $G$ be a monoid, $X$ be a set and $\phi:G\times X\longrightarrow X$ be a left action of $G$ on $X$. We define a binary relation $\sim_{\phi}$ on $X$ as follows:
+    $$x\sim_{\phi}y\Leftrightarrow \exists g\in G,\phi(g,x)=y.$$
+Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if $G$ is a group.
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    Reflexivity: Let $e$ be the neutral element of $G$, then $x=ex$, so $x\sim_{\phi}x$.
+    \newline
+    Transitivity: If $y=ax$ and $z=by$, then $z=b(ax)=(ba)x$, so $x\sim_{\phi}y \wedge y\sim_{\phi}z \Rightarrow x\sim_{\phi}z$.
+    \newline
+    Assume that $G$ is a group. If $y=ax$, then $\iota(a)y=\iota(a)(ax)=(\iota(a)a)x=ex=x$, so $x\sim_{\phi}y$ implies $y\sim_{\phi}x$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $G$ be a group, $X$ be a set and $\phi:G\times X\longrightarrow X$ be a left action. For any $x\in X$, the equivalence class of $x$ under the equivalence relation $\sim_{\phi}$ is called the \textbf{orbit} of $x$ under the action $\phi$, denoted as $\mathrm{orb}_\phi(x)$. We denote by $G\backslash X$ the set of all orbits of $X$ under the action $\phi$. (Resp. right action and $X/G$.)
+\end{definitionenv}
+\begin{remark}
+    If $X$ is finite, then 
+    $$\mathrm{card}(X)=\sum_{A\in G\backslash X}\mathrm{card}(A).$$
+    In particular, if $(G,*)$ is a finite group, and $H$ is a subgroup of $G$, then $\mathrm{card}(G)=\mathrm{card}(H)\mathrm{card}(H\backslash G).$ In fact, $H\backslash G=\{H*x\mid x\in G\},H*x:=\{h*x\mid h\in H\}.$ 
+\end{remark}
+
+
+\section{Vector Space}
+\begin{definitionenv}
+    Let $K$ be a unitary ring. Let $(V,+)$ be an abelian group. (Neutral element of $(V,+)$ is denote as $0$.) We call a \textbf{left K-module structure} any left action of $(K,\cdot)$ on $V$. 
+    $$\phi:K\times V\longrightarrow V$$
+    (1) $\forall (a,b)\in K\times K,\forall x\in V$,$$\phi(a+b,x)=\phi(a,x)+\phi(b,x).$$
+    (2) $\forall a\in K$, $\forall (x,y)\in V\times V$,$$\phi(a,x+y)=\phi(a,x)+\phi(a,y).$$
+    The abelian group $(V,+)$ equipped with a left $K$-module structure is called a \textbf{left K-module}. If $K$ is communitative, left and right $K$-modules structures have the same axioms. So we just call them $K$-module structures. Left and right $K$-modules structures are called $K$-modules.
+    If $K$ is a field, a $K$-module is called a \textbf{vector space} over $K$.
+\end{definitionenv}
+\begin{exampleenv}
+    $(\{0\},+)$ is a left $K$-module. Action 
+    $$\phi:K\times \{0\}\longrightarrow \{0\},$$
+    $$\phi(a,0)=0.$$
+    It is called the zeroK-module.
+\end{exampleenv}
+\begin{exampleenv}
+    Consider the action 
+    $$\phi:K\times K\longrightarrow K,$$
+    $$\phi(a,x)=ax.$$
+    $\phi$ defines a left $K$-module structure on $K$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $I$ be a set and $(V_i)_{i\in I}$ be a family of left $K$-modules.
+    $$V=\prod_{i\in I}V_i.$$
+    The action 
+    $$\phi:(K\times V)\longrightarrow V,$$
+    $$\ (a,(x_i)_{i\in I})\longmapsto (a*x_i)_{i\in I}$$
+    defines a left $K$-module structure on $V$.
+\end{definitionenv}
 
 
 
@@ -2428,7 +2617,7 @@ $$
 \section{Axiom of Foundation (Regularity)}
 
 \begin{axiomenv}[Axiom of foundation]
-    $$\forall A(A\not=\varnothing\rightarrow\exists x\in A(x\cap A=\varnothing))$$
+    $$\forall A(A\not=\varnothing\rightarrow\exists x\in A(x\cap A=\varnothing)).$$
     Regularity means that :If $A$ is a non-empty set ,then there exists at least one element $x$ of $A$ satisfies: Either $x$ is not a set or does not intersect with $A$.
 \end{axiomenv}
 Based on axiom of foundation,we have the following propositions.
@@ -2437,7 +2626,7 @@ Based on axiom of foundation,we have the following propositions.
     There does not exists a set $S$, such that $S\in S$.
 \end{propositionenv}
 \begin{proofenv}
-    If $S=\varnothing,\varnothing\notin\varnothing$;If $S\not=\varnothing$,consider the set $\{S\}$ ,it has a single element $S$. Since $S\in S,S\in (S\cap\{S\})\not=\varnothing$
+    If $S=\varnothing,\varnothing\notin\varnothing$;If $S\not=\varnothing$,consider the set $\{S\}$ ,it has a single element $S$. Since $S\in S,S\in (S\cap\{S\})\not=\varnothing$.
 \end{proofenv}
 \begin{propositionenv}
 
