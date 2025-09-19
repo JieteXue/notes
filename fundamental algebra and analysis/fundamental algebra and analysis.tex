@@ -15,7 +15,7 @@
 \author[III,IV]{$$-------------------------$$TAs:Postdoc \textbf{Jiedong Jiang, Yijun Yuan}}
 \author[V]{$$$$Substitute Professor\thanks{Chapter 5: Group,Section1-4}: \textbf{Yigeng Zhao}}
 \affil[I]{\itshape\small Department of Mathematics (ITS), School of Science, Westlake University}
-\affil[II]{\itshape\small Undegraduate β Collage, Westlake University}
+\affil[II]{\itshape\small Undegraduate $\beta$ Collage, Westlake University}
 \affil[I]{\texttt{chenhuayi@westlake.edu.cn}}
 \affil[II]{\texttt{xuejiete@westlake.edu.cn}}
 
@@ -94,9 +94,9 @@ For any statement $p$, $\neg \neg p$and $p$ have the same value.
 \begin{definitionenv}
     Let $p$ and $q$ be statements,
     \newline
-    We denote by $p\wedge q $the statement "$p$ and $q$".
+    We denote by $p\wedge q $ the statement "$p$ and $q$".
     \newline
-    We denote by $p\vee q $the statement "$p$ or $q$".
+    We denote by $p\vee q $ the statement "$p$ or $q$".
     
 \end{definitionenv}
 
@@ -116,7 +116,7 @@ For any statement $p$, $\neg \neg p$and $p$ have the same value.
 \end{table}
 
 \begin{propositionenv}
-    Let $P$and $Q$be statements $(\neg P)\vee (\neg Q)and \neg(P\wedge Q)$have the same truth value.
+    Let $P$and $Q$ be statements $(\neg P)\vee (\neg Q) \text{ and } \neg(P\wedge Q)$ have the same truth value.
 \end{propositionenv}
 
 
@@ -125,24 +125,24 @@ For any statement $p$, $\neg \neg p$and $p$ have the same value.
     Let $P$ and $Q$ be statements,we denote by $P\Rightarrow Q$ the statement(if P then Q).
 \end{definitionenv}
 \begin{remark}
-    It has the same truth value as that of $(\neg P\vee Q)$,only when $P$ s true and $Q$is false,otherwise it's true .
+    It has the same truth value as that of $(\neg P\vee Q)$,only when $P$ is true and $Q$ is false, otherwise it's true .
     \newline
-    If one can prove Q is assuming that $P$is true ,then $P\Rightarrow Q$ is true .
+    If one can prove Q is assuming that $P$ is true, then $P\Rightarrow Q$ is true .
 \end{remark}
 \begin{propositionenv}
-    Let $P$and $Q$ be statements.If $P$and $P\Rightarrow Q$ are true,then $Q$ is also true.
+    Let $P$ and $Q$ be statements. If $P$ and $P\Rightarrow Q$ are true, then $Q$ is also true.
 \end{propositionenv}
 \begin{propositionenv}
-    Let $P,Q,R$ be statements.If $P \Rightarrow Q$and $Q\Rightarrow R$ are true,then $P\Rightarrow R$ is also true .
+    Let $P,Q,R$ be statements. If $P \Rightarrow Q$ and $Q\Rightarrow R$ are true, then $P\Rightarrow R$ is also true.
 \end{propositionenv}
 \begin{theoremenv}
-    Let $P$and $Q$ be statements.$P\Rightarrow Q$ and $(\neg Q)\Rightarrow (\neg P)$ have the same truth value.
+    Let $P$and $Q$ be statements. $P\Rightarrow Q$ and $(\neg Q)\Rightarrow (\neg P)$ have the same truth value.
 \end{theoremenv}
-$(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,if we prove $(\neg Q)\Rightarrow (\neg P)$,then $P\Rightarrow Q$ is also true .
+$(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$, if we prove $(\neg Q)\Rightarrow (\neg P)$, then $P\Rightarrow Q$ is also true.
 \begin{exampleenv}
-    Prove that ,let $n$be an integer,if $n^2$ is even ,then $n$ is even .
+    Prove that ,let $n$ be an integer, if $n^2$ is even, then $n$ is even.
     \begin{proofenv}
-        Since $n$is an integer,there exists$k\in \ZZ$ such that $n=2k+1$.Hence $n^2=4k^2+4k+1$is not even.
+        Since $n$is an integer, there exists$k\in \ZZ$ such that $n=2k+1$. Hence $n^2=4k^2+4k+1$ is not even.
     \end{proofenv}
 \end{exampleenv}
 
@@ -150,7 +150,7 @@ $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,
 
 \section{Biconditional statement}
 \begin{definitionenv}
-    Let $P$and $Q$ be statements.We denote by $P\Leftrightarrow Q$ the statement
+    Let $P$and $Q$ be statements. We denote by $P\Leftrightarrow Q$ the statement
     \begin{center}
         "$P$ if and only if $Q$"
     \end{center}
@@ -339,7 +339,7 @@ More generally, if $I$ is a set, and for any $i \in I$, we fix an $x_i$, then th
     \end{itemize}
 \end{exampleenv}
 \begin{definitionenv}
-    Let $A$ be a set ,we denote by $\wp  (A)$ the set of all subset of $A$ ,called the power set of $A$.
+    Let $A$ be a set ,we denote by $\wp  (A)$ the set of all subset of $A$, called the power set of $A$.
 \end{definitionenv}
 \begin{exampleenv}
     $\wp (\varnothing)=\{\varnothing\}$
@@ -2396,19 +2396,19 @@ $$
     \newline
     Let $(M_i)_{i\in I}$ be a family of communitative monoids. (The composition law of $M_i$ is written additively, the neutral element of $M_i$ is written $0$)
 \end{notationenv}
-\begin{definitionenv}[Direct product]
+\begin{notationenv}
     Let $(M_i)_{i\in I}$ be a family of communitative monoids. For any $i\in I$, let $e_i$ be a neutral element of $M_i$. 
     We denote by 
     $$\bigoplus_{i\in I}M_i$$ 
-    the set of $(x_i)_{i\in I}\in \prod_{i\in I}M_i$ such that $\{i\in I\mid x_i\not=0\}$ is finite. 
-\end{definitionenv}
+    the set of $(x_i)_{i\in I}\in \prod_{i\in I}M_i$ such that $\{i\in I\mid x_i\not=e_i\}$ is finite. 
+\end{notationenv}
 \begin{propositionenv}
-    $\bigoplus_{i\in I}M_i$ is a submonoid of $\prod_{i\in I}M_i$.
+    $\displaystyle\bigoplus_{i\in I}M_i$ is a submonoid of $\displaystyle\prod_{i\in I}M_i$.
 \end{propositionenv}
 \begin{proofenv}
     First, $e:=(e_i)_{i\in I}\in \bigoplus_{i\in I}M_i$. Let $*_i$ be the composition law of $M_i$, $*$ be the direct product of $(*_i)_{i\in I}$. If $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ are in $\bigoplus_{i\in I}M_i$, then $x*y=(x_i*y_i)_{i\in I}$. If $I_x=\{i\in I\mid x_i\not=e_i\}$ and $I_y=\{i\in I\mid y_i\not=e_i\}$ are finite, then $\{i\in I\mid x_i*y_i\not=e\}\subseteq I_x\cup I_y$. So $x\in \bigoplus_{i\in I}M_i$ and $y\in \bigoplus_{i\in I}M_i$ imply that $x*y\in\bigoplus_{i\in I}M_i$.
 \end{proofenv}
-\begin{definitionenv}
+\begin{definitionenv}[Direct sum]
     $\bigoplus_{i\in I}M_i$ is called the \textbf{direct sum} of $(M_i)_{i\in I}$. For any $j\in I$, the homomorphisms 
     $$\begin{matrix}
 M_j\overset{\mathrm{Id}_{M_j}}{\longrightarrow }M_j & \\
@@ -2437,6 +2437,12 @@ $$\lambda_j(x_j)_i=(\lambda_j(x_j)_i)_{i\in I}.$$
 \end{definitionenv}
 \begin{theoremenv}
     Let $(N,\star)$ be a communitative monoid. Then for any $i\in I$, let $\psi_i:M_i\rightarrow N$ be a homomorphism of monoids. Then there is a unique homomorphism of monoids $\displaystyle\psi:\bigoplus_{i\in I}M_i\rightarrow N$ such that for any $ j\in I,\psi\circ \lambda_j=\psi_j$.
+       \begin{center}
+\begin{tikzcd}
+    \displaystyle\bigoplus_{i\in I}M_i\arrow[r,"\psi"]& N\\
+    M_j \arrow[u,"\lambda_j"]\arrow[ur,swap,"\psi_j"]
+\end{tikzcd}
+\end{center}
 \end{theoremenv}
 \begin{proofenv}
     For simplicity, we write all composition laws as $+$, and all neutral element as $0$. We should define $\displaystyle\psi:\bigoplus_{i\in I}M_i\rightarrow N,\ (x_i)_{i\in I}\mapsto \sum_{i\in I}\psi_i(x_i)$. $\psi\left((0)_{i\in I}\right)=\sum_{i\in I}0=0$. $\psi\left((x_i)_{i\in I}+(y_i)_{i\in I}\right)=\psi\left((x_i+y_i)_{i\in I}\right)=\sum_{i\in I}\psi_i(x_i+y_i)=\sum_{i\in I}\left[\psi_i(x_i)+\psi_i(y_i)\right]=\sum_{i\in I}\psi_i(x_i)+\sum_{i\in I}\psi_i(y_i)$. (The last equality holds because the composition law of $N$ is commutative.)
@@ -2458,7 +2464,7 @@ $$\lambda_j(x_j)_i=(\lambda_j(x_j)_i)_{i\in I}.$$
     \newline
     (3) For any $(a,b,c)\in A^3$, $a*(b+c)=(a*b)+(a*c)$ and $(b+c)*a=(b*a)+(c*a)$.
     \newline
-    If in addition, $*$ is communitative, then we say that the unitary ring $(A,+,*)$ is communitative.
+    (4)$^\dagger$ If in addition, $*$ is communitative, then we say that the unitary ring $(A,+,*)$ is communitative.
 \end{definitionenv}
 \begin{exampleenv}
     $(\ZZ,+,\cdot)$ is a unitary ring.
@@ -2530,7 +2536,7 @@ Then $(A,+,\hat{*})$ forms a unitary ring. We call it the opposite unitary ring 
     A left action of $(G,*)$ on $X$ is a right action of $(G,\hat{*})$ on $X$.
 \end{remark}
 \begin{notationenv}
-    If $*=\cdot$ a left action is usually denoted as 
+    If $*=\cdot$, a left action is usually denoted as 
     $$G\times X\longrightarrow X,$$
     $$(a,x) \longmapsto ax.$$
     Condition (1) becomes $ex=x$, (2) becomes $(ab)x=a(bx)$.
@@ -2577,7 +2583,7 @@ Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if
     $(\{0\},+)$ is a left $K$-module. Action 
     $$\phi:K\times \{0\}\longrightarrow \{0\},$$
     $$\phi(a,0)=0.$$
-    It is called the zeroK-module.
+    It is called the zero K-module.
 \end{exampleenv}
 \begin{exampleenv}
     Consider the action 
@@ -2593,9 +2599,194 @@ Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if
     $$\ (a,(x_i)_{i\in I})\longmapsto (a*x_i)_{i\in I}$$
     defines a left $K$-module structure on $V$.
 \end{definitionenv}
+\section{Submodules}
+\begin{definitionenv}
+    Let $V$ be a left $K$-module, we call \textbf{left sub-K-module} of $V$ any subgroup $W$ of $(V,+)$ such that for any $(a,x)\in K\times W,ax\in W$. (resp. right.)
+\end{definitionenv}
+\begin{exampleenv}
+    $\{0\}$ and $V$ itself is a left sub-$K$-modules of $V$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $E$ and $F$ be left-K-modules. We call homomorphism of left K-modules from $E$ to $F$ any mapping $f:E\rightarrow F$, such that 
+    \newline
+    (1) $f$ is a homomorphism of groups from $(E,+)$ to $(F,+)$.
+    \newline
+    (2) For any $(a,x)\in K\times E,f(ax)=af(x)$.
+    \newline
+    If $K$ is communitative, a homomorphism of $K$-module is also called a \textbf{$K$-linear mapping}.
+\end{definitionenv}
+\begin{lemmaenv}
+    Let $V$ be a left K-module.
+    \newline
+    (1) $\forall a\in K,a0_V=0_V$.
+    \newline
+    (2) $\forall x\in V,0x=0_V$.
+\end{lemmaenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) $a0_V=a(0_V+0_V)=a0_V+a0_V\Rightarrow 0_V=a0_V$.
+    \newline
+    (2) $0x=(0+0)x=0x+0x\Rightarrow 0x=0_V$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $f:E\rightarrow F$ be a homomorphism of left-K-modules.
+    \newline 
+    (1) $\ker(f)$ is a left sub-K-module of $E$.
+    \newline
+    (2) $\mathrm{Im}(f)$ is a left sub-K-module of $F$. 
+\end{theoremenv}
+\begin{proofenv}
+    First, $\ker(f)$ is a subgroup of $E$, $\mathrm{Im}(f)$ is a subgroup of $F$.
+    \newline
+    (1) Let $a\in K, x\in \ker(f), f(ax)=af(x)=a0_V=0_V$. So $ax\in \ker(f)$.
+    \newline
+    (2) Let $y\in \mathrm{Im}(f)$, there exists $x\in E$ such that $f(x)=y$. For any $a\in K,ay=af(x)=f(ax)\in \mathrm{Im}(f)$
+\end{proofenv}
+\begin{propositionenv}
+    Let $V$ be a left K-module. For any $x\in V, -x=(-1)x$.
+\end{propositionenv}
+\begin{proofenv}
+    $$(-1)x+x=(-1+1)x=0x=0_V.$$
+\end{proofenv}
+\begin{exampleenv}
+    Let $(V_i)_{i\in I}$ be a family of left K-modules. We denote by 
+    $$\bigoplus_{i\in I}V_i\text{ the set of }(x_i)_{i\in I}\in \prod_{i\in I}V_i,$$
+    such that $\{i\in I\mid x_i\not=0_{V_i}\}$. This is a subgroup of $\prod_{i\in I}V_i$. For any $a\in K,$ and $(x_i)_{i\in I}\in \bigoplus_{i\in I}V_i$,
+    $$\{i\in I\mid ax_i\not=0_{V_i}\}\subseteq\{i\in I\mid x_i\not=0_{V_i}\}.$$
+    So $\displaystyle a(x_i)_{i\in I}=(ax_i)_{i\in I}\in \bigoplus_{i\in i}V_i$, which means that $\displaystyle\bigoplus_{i\in I}V_i$ is a left sub-K-module of $\displaystyle\prod_{i\in I}V_i$. $\displaystyle\bigoplus_{i\in I}V_i$ is called the direct sum of $(V_i)_{i\in I}$. We denote by 
+    $$K^{\oplus I}$$
+    the left sub-K-module of $K^I$.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $E$ and $F$ be left K-modules, $f:E\rightarrow F$ be a mapping.
+    \newline
+    (1) If $f$ is a homomorphism of left K-modules, for any $n\in \NN_{\ge1}$, any $(a_1,a_2,\dots,a_n)\in K$, and $(x_1,x_2,\dots,x_n)\in E^n$,
+    $$f(a_1x_1+\dots+a_nx_n)=a_1f(x_1)+\dots+a_nf(x_n).$$
+    (2) Suppose that for any $a\in K,(x,y)\in E^2$,
+    $$f(x+ay)=f(x)+af(y).$$
+    Then $f$ is a homomorphism of left K-modules.
+\end{propositionenv}
+\begin{proofenv}
+    (1) Induction on $n$.
+    \newline
+    (2) Take $a=1$, for any $(x,y)\in E,f(x+y)=f(x)+f(y)$. Take $x=0_E,f(ay)=0_F+af(y)=af(y)$. Let $(x,y)\in V^2$,
+    \begin{align*}
+        \phi_x+\phi_y:&\ZZ \longrightarrow V,\\
+        &n\longmapsto \phi_x(n)+\phi_y(n)=nx+ny
+    \end{align*}
+    is a homomorphism of groups, since for any $(n,m)\in \ZZ^2$
+    \begin{align*}
+        &(\phi_x+\phi_y)(n+m)\\
+        =&\phi_x(n+m)+\phi_y(n+m)=\phi_x(n)+\phi_x(m)+\phi_y(n)+\phi_y(m)\\
+        =&(\phi_x(n)+\phi_y(n))+(\phi_x(m)+\phi_y(m)).
+    \end{align*}
+    Since $(\phi_x+\phi_y)(1)=x+y=\phi_{x+y},\phi_{x+y}=\phi_x+\phi_y.$ So $n(x+y)=nx+ny, \forall n\in\ZZ.$ $1x=\phi_x(1)=x.$
+    If $n\in \NN$,
+    $$(nm)x=\phi_x(nm)=\phi_x(\underset{n \text{ copies}}{\underbrace{m+\dots+m}})=n\phi_x(m)=n(mx).$$
+    If $-n\in \NN$,
+    $$\phi_x(nm)=-\phi_x((-n)m)=-(-n)\phi(m)=n\phi_x(m).$$
+\end{proofenv}
+\begin{definitionenv}
+    If a left K-module homomorphism is a bijection we say that it is a \textbf{left K-module isomorphism}.
+\end{definitionenv}
+\section{Universal Property}
+\begin{propositionenv}
+    Let $(V,+)$ be a communitative group. Then 
+    $$\begin{matrix}
+        \ZZ\times V\longrightarrow V\\
+        (n,x)\longmapsto nx
+    \end{matrix}$$
+    defines a $\ZZ$-module substructure on $V$.
+\end{propositionenv}
+\begin{proofenv}
+    First, $nx$ is the image of $n$ by the unique homomorphism of groups $\phi_x:\ZZ\rightarrow V,1\mapsto x$.
+    $$(n+m)x=\phi_x(n+m)=\phi_x(n)+\phi_x(m)=nx+mx.$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $V$ be a left K-module, $x\in V$. There exists a unique homomorphism of left K-modules 
+    $\phi_x:K\longrightarrow V,$
+    such that $\phi_x(1)=x$.
+\end{propositionenv}
+\begin{proofenv}
+    If $\phi_x$ exists, then it should satisfy 
+    $$\forall a\in K,\phi_x(a)=a\phi_x(1)=ax.$$
+    It suffices to check that $\phi_x:K\rightarrow V,a\mapsto ax$ is a homomorphism.
+    $$\phi_x(a+b)=(a+b)x=ax+bx=\phi_x(a)+\phi_x(b),$$
+    $$\phi_x(\lambda a)=(\lambda a)x=\lambda(ax)=\lambda\phi_x(a).$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(V_i)_{i\in I}$ be a family of left K-modules.
+    \newline
+    (1) Let $W$ be a left K-module. For any $i\in I$, let $f_i:W\rightarrow V_i$ be aa homomorphism. Then there exists a unique homomorphism 
+    $$f:W\longrightarrow \prod_{i\in I}V_i,$$ 
+    such that 
+    $$\forall i\in I,\pi_i\circ f=f_i,$$
+    where $\pi_i$ sends $(x_j)_{j\in I}\in \prod_{j\in I}V_j$ to $x_i$.
+    \newline
+    (2) Let $W$ be a left K-module, for any $i\in I$, let $g_i:V_i\rightarrow W$ be a homomorphism of left K-modules. There exists a unique homomorphism
+    $$g:\bigoplus_{i\in I}V_i\longrightarrow W$$
+    such that 
+    $$\forall i\in I, g\circ\lambda_i=g_i,$$
+    where
+    $$\lambda_j:V_j\longrightarrow\bigoplus_{i\in I}V_i,$$
+    $$x_j\longrightarrow (y_i)_{i\in I} \text{ with } y_i=\left\{\begin{matrix}
+        x_j,i=j\\0,i\not=j
+    \end{matrix}\right. .$$
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) There exists a unique mapping $f:W\rightarrow \prod_{i\in I}V_i$, such that 
+    $$\forall i\in I,\pi_i\circ f=f_i,$$
+    $$\forall z\in W,f(z)=(f_i(z))_{i\in I}.$$
+    We have proved that $f$ is a homomorphism of groups.
+    $$\forall a\in K,z\in W. f(az)=(f_i(az))_{i\in I}=(af_i(z))_{i\in I}=af(z).$$
+    (2) We have prove that there exists a unique $g:\bigoplus_{i\in I}V_i\rightarrow W$ homomorphism of group such that $\forall i\in I, g\circ \lambda_i=g_i.$ $g\left((x_i)_{i\in I}\right)=\sum_{i\in I}g_i(x_i)$.
+    \begin{align*}
+        \forall a\in K,g\left(a(x_i)_{i\in I}\right)=&g\left((ax_i)_{i\in I}\right)\\
+        =&\sum_{i\in I}g_i(ax_i)=\sum_{i\in I}ag_i(x_i)
+        =a\sum_{i\in I}g_i(x_i)=ag(x).
+    \end{align*}
+\end{proofenv}
+\begin{applicationenv}
+Let $V$ be a left K-module. Let $I$ be a set and $(x_i)_{i\in I}\in V^{I}$. For any $i\in I$, let 
+$$\phi_{x_i}:K\longrightarrow V,a\mapsto ax_i.$$ 
+So the family $(\phi_{x_i})_{i\in I}$ determines a homomorphism of left K-modules 
+$$\Phi:K^{\oplus I}\longrightarrow V,$$
+$$(a_i)_{i\in I}\longmapsto \sum_{i\in I}\phi_{x_i}(a_i)=\sum_{i\in I}a_ix_i.$$
+\end{applicationenv}
 
-
-
+\section{Matrices}
+\begin{definitionenv}
+    Let $n\in \NN$. Let $V$ be a \underline{\textbf{left}} K-module. For any $(x_1,\dots,x_n)\in V^n$, we denote by 
+    $$\begin{pmatrix}
+x_1 \\
+ \vdots \\
+x_n
+\end{pmatrix}
+:
+K^n\longrightarrow V,$$
+$$(a_1,\dots,a_n)\longmapsto a_1x_1+\dots+a_nx_n. $$
+This is a homomorphism of left K-modules.
+\end{definitionenv}
+\begin{exampleenv}
+    Consider the case where $V=K^p$ with $p\in \NN$. Each $x_i$ is of the form $(b_{i,1},\dots,b_{i,p})$.
+    $$\text{So } \begin{pmatrix}
+x_1 \\
+ \vdots \\
+x_n
+\end{pmatrix}
+\text{ becomes}
+\begin{pmatrix}
+  b_{1,1}& \dots  &b_{1,p} \\
+  \vdots & \ddots  & \vdots \\
+  b_{n,1}& \dots &b_{n,p}
+\end{pmatrix} .$$
+\end{exampleenv}
+\begin{definitionenv}
+    We call $n$ by $p$ matrix with coefficients in $K$ any homomorphism of left K-module from $K^n$ to $K^p$.
+\end{definitionenv}
 
 
 

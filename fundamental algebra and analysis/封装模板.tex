@@ -26,7 +26,6 @@
 \geometry{a4paper,centering,scale=0.8}
 
 % ————————————————————————————————————自定义符号————————————————————————————————————
-\newcommand{\。}{．} % 示例：将指令\。定义为全角句点。
 \newcommand{\zte}{\mathrm{e}} % 正体e
 \newcommand{\ztd}{\mathrm{d}} % 正体d
 \newcommand{\zti}{\mathrm{i}} % 正体i
@@ -169,6 +168,7 @@
 \newtheorem{theorem}{\color{shuang} Theorem}[section]
 \newtheorem{definitin}[theorem]{\color{slv} Definition} % 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
 \newtheorem{example}[theorem]{\color{szi} Example}
+\newtheorem{application}[theorem]{\color{szi} Application}
 \newtheorem*{solutipon}{\color{slan} Solution} % 定义无编号的解答环境
 \newtheorem*{prof}{\color{slan} Proof} % 定义无编号的证明环境
 \newtheorem{proposition}[theorem]{\color{shuang}Proposition}
@@ -183,6 +183,7 @@
 \newenvironment{theoremenv}{\begin{huangse}\begin{theorem}}{\end{theorem}\end{huangse}}
 \newenvironment{lemmaenv}{\begin{huangse}\begin{lemma}}{\end{lemma}\end{huangse}}
 \newenvironment{exampleenv}{\begin{zise}\begin{example}}{\end{example}\end{zise}}
+\newenvironment{applicationenv}{\begin{zise}\begin{application}}{\end{application}\end{zise}}
 \newenvironment{propositionenv}{\begin{huangse}\begin{proposition}}{\end{proposition}\end{huangse}}
 \newenvironment{corollaryenv}{\begin{huangse}\begin{corollary}}{\end{corollary}\end{huangse}}
 \newenvironment{axiomenv}{\begin{zise}\begin{axiom}}{\end{axiom}\end{zise}}

@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{.}{\newline}{}
+\newtheoremstyle{2}{0}{0}{}{}{\texttt}{.}{\newline}{}
+\theoremstyle{1}
+\newtheorem{definition}{Definition}
+\newtheorem{property}{Property}
+\theoremstyle{2}
+\newtheorem*{proof_env}{Proof}
+\begin{document}
+\begin{center}
+    \huge{\textbf{Dirac Delta Function}}
+\end{center}
+\begin{definition}
+    $\delta(x)$ is a generalized function satisfies:
+    \begin{equation}
+        \delta(x):=\left\{\begin{matrix}
+            0,&x\not=0\\
+            +\infty,&x=0
+        \end{matrix} \right. ,
+    \end{equation}
+    \begin{equation}
+        \int_{-\epsilon}^{+\epsilon}\delta(x)\, \dd x=1,\quad\epsilon>0.
+    \end{equation}
+    
+\end{definition}
+All the equalities should be understand under integration.
+\begin{property}
+        \begin{equation}\label{3}
+            \delta(-x)=\delta(x).
+        \end{equation}
+\end{property}
+\begin{proof_env}
+    \begin{equation}
+        \delta(-x)=\left\{\begin{matrix}
+           0,&x\not=0\\
+            +\infty,&x=0 
+        \end{matrix}\right. ,
+    \end{equation}
+    \begin{equation}
+       \int_{-\epsilon}^{+\epsilon}\delta(-x)\, \dd x=-\int_{+\epsilon}^{-\epsilon}\delta(-x)\, \dd (-x)=\int_{-\epsilon}^{+\epsilon}\delta(x)\, \dd x,\quad\epsilon>0.
+    \end{equation}
+\end{proof_env}
+\begin{property}\label{p2}
+    \begin{equation}
+            \delta(ax)=\frac{1}{\left|a\right|}\delta(x)\quad (a\not=0).
+    \end{equation}
+\end{property}
+\begin{proof_env}
+    \begin{equation}
+        \delta(ax)=\left\{\begin{matrix}
+           0,&x\not=0\\
+            +\infty,&x=0 
+        \end{matrix}\right. =\frac{\delta(x)}{\left|a\right|},
+    \end{equation}
+    \begin{equation}
+       \int_{-\epsilon}^{+\epsilon}\delta(ax)\, \dd x=\left\{\begin{matrix}
+        \frac{1}{a}\int_{-\epsilon}^{+\epsilon}\delta(ax)\, \dd (ax),\, a>0\\
+        \frac{1}{a}\int_{+\epsilon}^{-\epsilon}\delta(ax)\, \dd (ax),\, a<0
+       \end{matrix}\right. =\frac{1}{\left|a\right|}\int_{-\epsilon}^{+\epsilon}\delta(x)\, \dd x .
+    \end{equation}
+\end{proof_env}
+\begin{property}
+    \begin{equation}
+        f(x)\delta(x-a)=f(a)\delta(x-a).
+    \end{equation}
+\end{property}
+\begin{property}
+    \begin{equation}
+        \int\delta(x-y)\delta(y-a)\, \dd y=\delta(x-a).
+    \end{equation}   
+\end{property}
+\begin{property}
+    \begin{equation}
+        \delta(x)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}e^{ikx}\, \dd k.
+    \end{equation}    
+\end{property}
+\begin{proof_env}
+    Add a convergence factor to soft cutoff the divergent integration.
+    \begin{equation}
+       \frac{1}{2pi} \int_{-\infty}^{+\infty}e^{ikx}e^{-\epsilon k^2}\, \dd k=\frac{e^{-\frac{x^2}{4\epsilon}}}{2\sqrt{\pi\epsilon}}.
+    \end{equation}
+    Then check it like above proof.
+\end{proof_env}
+\begin{property}
+    \begin{equation}
+        \delta[g(x)]=\sum_{n}\frac{\delta(x-x_n)}{\left|g'(x_n)\right|},\ g(x_n)=0,g'(x_n)\not=0.
+    \end{equation}
+\end{property}
+\begin{proof_env}
+    Around $x=x_n$,
+    \begin{equation}
+        g(x)=g(x_n)+g'(x_n)(x-x_n)=g'(x_n)(x-x_n)
+    \end{equation}
+    Thus, 
+    \begin{equation}
+        \delta[g(x)]=\delta(\sum_{n}g'(x_n)(x-x_n))=\sum_{n}\delta[g'(x_n)(x-x_n)].
+    \end{equation}
+    By Property \ref{p2},
+    \begin{equation}
+        \delta[g(x)]=\sum_{n}\frac{1}{\left|g'(x_n)\right|}\delta(x-x_n),\ g(x_n)=0,g'(x_n)\not=0.
+    \end{equation}
+    For those $g(x_n)=0,g'(x_n)=0$, take $ 2\le m=\min\left(\{m\in \mathbb{N}\mid g^{m}(x_n)\not=0\}\right)$. Then we induct on $m$ that 
+    \begin{equation}
+        \delta[g^{m}(x_n)(x-x_n)^m]=0.
+    \end{equation}
+    For $m=2$,
+    \begin{equation}
+        \delta[g''(x_n)(x-x_n)^2]=
+    \end{equation}
+\end{proof_env}
+
+\end{document}
