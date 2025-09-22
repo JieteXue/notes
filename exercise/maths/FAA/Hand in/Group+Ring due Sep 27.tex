@@ -1,0 +1,153 @@
+\documentclass{article}
+\newcommand{\mydate}{September 21, 2025}
+\newcommand{\mytitle}{FAA HW (Group \& Ring)}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{interval}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{dsfont}
+\setlist[enumerate,2]{label=(\arabic*), leftmargin=*}    % 二级：(1) (2) (3)
+\setlist[enumerate,3]{label=(\alph*), leftmargin=*}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+
+\setcounter{enumi}{14}
+    \item \begin{enumerate}
+            \item We know that the composition of mapping is associative. And easy to check that in this case, the composition is closed. $e=\mathrm{Id}_E,f\circ f^{-1}=\mathrm{Id}_E$. Hence $\mathcal{S}_E$ equipped with composition of mapping forms a group.
+            \item $\sigma^0(x)=x$. $\phi_\sigma(n+m,x)=\sigma^{(n+m)}(x)=\sigma^n\circ\sigma^m(x)=\phi_\sigma(n,x)\circ\phi_{\sigma}(m,x)$. So $\phi_\sigma$ defines a left action of $\ZZ$ on $E$.
+            \item $\forall\sigma^n(x)\in \mathrm{Orb}_\sigma(x), \sigma(\sigma^n(x))=\sigma\circ\sigma^n(x)=\sigma^{n+1}(x)\in \mathrm{Orb}_\sigma(x)$. Hence $\sigma(\mathrm{Orb}_\sigma(x))\subseteq \mathrm{Orb}_\sigma(x)$.
+            \item We claim that $x,y$ both in a same orbit is a equivalence relation. Reflexivity: $x\in \mathrm{Orb}_\sigma(x)\Leftrightarrow x\in \mathrm{Orb}_\sigma(x) $. Transitivity: $x\sim y\Rightarrow \exists n\in \ZZ, \sigma^n(x)=y, y\sim z\Rightarrow \exists m\in \ZZ, \sigma^m(y)=z$. Thus $\sigma^{n+m}(x)=z, x\sim z$. Symmetry: $x\sim y\Rightarrow \exists n\in \ZZ, \sigma^n(x)=y, \sigma^{-n}(y)=x$. Hence $y\sim x$. Therefore, if $x\in O_i$, then $x\notin O_j,i\not=j$. So $\sigma_i(x)=\sigma(x),\sigma_j(x)=x,i\not=j$. $\forall x\in E, \sigma_1\dots\sigma_n(x)=\sigma(x)$, hence $\sigma=\sigma_1\dots\sigma_n$.
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item By definition.
+            \item Let $n$ be the largest cardinal of its orbits and $O$ be the orbit that has more than one element. Then for any element $x$ in any other orbit,  $\sigma(x)=x$. Moreover, $\forall m\in \ZZ, \sigma^m(x)=x$. While $n$ is the order of $\sigma$ on $O$, for any $x\in E$, $\sigma^n(x)=x,\  n$ is the order of $\sigma$. This relation is NOT hold generally. If there exists two orbits $O_1,O_2$ , there cardinal are $n,m$ and $m>n>1,\mathrm{gcd}(n,m)=1 $, then for the element $x\in O_1$,  $\sigma^m(x)\not= x$. So $m$ is not the order of $\sigma$.
+            \item For any $y\notin \mathrm{Orb(x)},\sigma(y)=y=\tau_{x_i,x_{i+1}},\ i\in \{0,\dots,p-1\}$.
+                $$\tau_{x_i,x_{i+1}}(\tau_{x_{i+1},x_{i+2}}(\dots(x_i)))=\tau_{x_i,x_{i+1}}(x_i)=x_{i+1},$$
+                $$\tau_{x_1,x_2}(\dots(\tau_{x_{i-1},x_i}(x_{i+1})))=x_{i+1}.$$
+                Hence, $\forall i\in \{0,\dots,p-1\},\ \sigma(x_i)=\tau_{x_1,x_2}\dots \tau_{x_{p-2},x_{p-1}}(x_i).$ Therefore, 
+                $$\sigma=\tau_{x_1,x_2}\dots\tau_{x_{p-2},x_{p-1}}.$$
+            \item Take $O_i$ from $ \left \langle \sigma \right \rangle \backslash E$, let 
+                $$\sigma_i(x):= \left\{ \begin{matrix}
+                    \sigma(x) & \text{if } x\in O_i\\
+                    x & \text{if } x\notin O_i
+                \end{matrix} \ . \right. $$
+                Similarly to (3), we can get $\sigma=\sigma_1\dots\sigma_n$, where $n=\mathrm{Card}[\left \langle \sigma \right \rangle \backslash E]$. Since $\sigma_i$ is the composition of transpositions, any $\sigma\in \mathcal{S}_E$ can be written in the form of composition of transpositions.
+        \end{enumerate}
+\setcounter{enumi}{4}
+    \item Let $$f:\QQ\longrightarrow \QQ$$ be a automorphism. Then $$f(1)=1.$$
+        For any $n\in\NN$, 
+        $$f(n)=f\left(\sum_{i=1}^{n}1\right)=\sum_{i=1}^{n}f(1)=nf(1)=n.$$
+        $$0=f(0)=f(n+(-n))=f(n)+f(-n)=n+f(-n).$$
+        So, $f(-n)=-n$. Let $(n,m)\in \ZZ$,
+        $$f(n)=f(m)f(\frac{n}{m}),$$
+        $$f(\frac{n}{m})=\frac{n}{m}.$$
+        Therefore, for any $x\in \QQ$, $f(x)=x$, which means 
+        $$f=\mathrm{Id}_{\QQ}.$$
+\setcounter{enumi}{10}
+\item \begin{enumerate}
+            \item $$\left(\sum_{n\in \NN}a_nT^n\right)\dagger \left(\sum_{n\in \NN}b_nT^n\right)=\sum_{n\in \NN}(a_n+b_n)T^n$$
+            $$=\sum_{n\in \NN}(b_n+a_n)T^n=\left(\sum_{n\in \NN}b_nT^n\right)\dagger\left(\sum_{n\in \NN}a_nT^n\right).$$
+            So $\dagger$ is a communitative composition law.
+            \newline
+            For any $\sum_{n\in \NN}a_nT^n\in k[[T]]$,
+            $$\left(\sum_{n\in \NN}a_nT^n\right)\dagger\sum_{n\in \NN}0T^n=\left(\sum_{n\in \NN}a_nT^n\right).$$
+            So $\sum_{n\in\NN}0T^n$ is the neutral element of $k[[T]]$.
+            \newline
+            For any $\sum_{n\in \NN}a_nT^n\in k[[T]]$,
+            $$\left(\sum_{n\in \NN}a_nT^n\right)\dagger\left(\sum_{n\in \NN}-a_nT^n\right)=\sum_{n\in \NN}0T^n,$$
+            $$\left(\sum_{n\in \NN}-a_nT^n\right)\dagger\left(\sum_{n\in \NN}a_nT^n\right)=\sum_{n\in \NN}0T^n.$$
+            Therefore, $k[[T]]$ equipped with $\dagger$ forms a communitative group.
+            \item Note that, for any $\sum_{n\in \NN}a_nT^n\in k[[T]]$,
+            $$\left(\sum_{n\in \NN}a_nT^n\right)*\sum_{n\in \NN}\mathds{1}T^n=\sum_{n\in \NN}\left(\sum_{i=0}^{n}a_i\mathds{1}T^{n}\right)=\sum_{n\in \NN}a_nT^n.$$
+            Hence $\sum_{n\in \NN}eT^n$ is the neutral element of $k[[T]]$. One has 
+            $$\sum_{i=0}^{n}a_ib_{n-i}=\sum_{t=n}^{0}a_{n-t}b_t=\sum_{t=0}^{n}b_ta_{n-t}.$$
+            Thus, $*$ is communitative. Therefore, what given is a communitative monoid.
+            \item $$a_i=a\delta_{i,n}, b_i=b\delta_{i,m}.$$
+                $$(aT^n)(bT^m)=\sum_{k\in \NN}\sum_{i=0}^{k}ab\delta_{i,n}\delta_{k-i,m}T^k=abT^{n+m}.$$
+            \item We only need to check it's distributive.
+                \begin{align*}
+                     &\left(\sum_{n\in \NN}a_nT^n\right)*\left[\left(\sum_{n\in \NN}b_nT^n\right)\dagger\left(\sum_{n\in \NN}c_nT^n\right)\right]\\
+                    =&\left(\sum_{n\in \NN}\left(\sum_{i=0}^{n}a_i(b_{n-i}+c_{n-i})\right)T^n\right)\\
+                    =&\left(\sum_{n\in \NN}\left(\sum_{i=0}^{n}a_ib_{n-i}T^n+\sum_{i=0}^{n}a_ic_{n-i}T^n\right)\right)\\
+                    =&\left(\sum_{n\in \NN}\sum_{i=0}^{n}a_ib_{n-i}T^n\right)\dagger\left(\sum_{n\in \NN}\sum_{i=0}^{n}a_ic_{n-i}T^n\right)\\
+                    =&\left(\sum_{n\in \NN}a_nT^n\right)*\left(\sum_{n\in \NN}b_nT^n\right)\dagger\left(\sum_{n\in \NN}a_nT^n\right)*\left(\sum_{n\in \NN}c_nT^n\right).
+                \end{align*}
+            \item 
+                \begin{enumerate}
+                    \item Suppose $f$ is invertible, and $\displaystyle g=\sum_{n\in \NN}b_nT^n$ be its inverse, then by (2), $(b_i)_{i\in \NN}$ satisfies:
+                        $$\sum_{i=0}^{n}a_ib_{n-i}=\mathds{1},\forall n\in \NN.$$
+                        Take $n=0$, we obtain $a_0$ must be invertible.
+                    \item Suppose $a_0$ is invertible. For any $n\in \NN$, let 
+                        $$b_{n+1}=\left(\mathds{1}-\sum_{i=1}^{n+1}(a_ib_{n+1-i})\right)a_0^{-1},$$
+                        then,
+                        $$\sum_{i=0}^{n+1}(a_ib_{n+1-i})=\mathds{1}.$$
+                        Hence $\displaystyle g=\sum_{n\in \NN}b_nT^n$ is the inverse of $f$.
+                \end{enumerate}
+                \item Follow the algorithm in (5), we can easily get the result.
+                    $$(1-aT)^{-1}=\sum_{n\in \NN}a^nT^n.$$
+                \item -
+                \item $k$ is communitative. We claim that $D$ is a homomorphism. 
+                    \begin{align*}
+                        D(f_1)\dagger D(f_2)=&\left(\sum_{n\in \NN}(n+1)a_{1,(n+1)}T^n\right)\dagger \left(\sum_{n\in \NN}(n+1)a_{2,(n+1)}T^n\right)\\
+                        =&\sum_{n\in \NN}(n+1)(a_{1,(n+1)}+ a_{2,(n+1)})T^n\\
+                        =&D\left(f'_1\dagger f'_2\right).
+                    \end{align*}
+                    $$
+                        D\left(\sum_{n\in\NN}0T^n\right)=\sum_{n\in \NN}(n+1)0T^n=\sum_{n\in \NN}0T^n.
+                    $$
+                    Then we prove it is surjective. For any $f'=\sum_{n\in \NN}b_nT^n$, let $a_n=b_{n-1}(n-1)^{-1},\ n\not=0$, $D[\sum_{n\in\NN}a_nT^n]=f'$. Therefore $D$ is a surjective k-linear mapping.
+                \item Let $\displaystyle f=\sum_{n\in \NN}a_nT^n\in \ker(D)$, then for any $n\in\NN,a_{n+1}=0.$ Thus, 
+                    $$\ker(D)=k.$$
+                \item $$a_{n+1}=a_n(n+1)^{-1}.$$
+                    $$a_n=a_0\prod_{i=0}{n}(i+1)^{-1}.$$
+                    $$f=\sum_{n\in\NN}a_0\prod_{i=0}{n}(i+1)^{-1}T^n,\ \forall a_0\in k.$$
+        \end{enumerate}
+\setcounter{enumi}{15}
+\item  \begin{enumerate}
+                \item 
+                    \begin{enumerate}
+                        \item (i)$\Rightarrow$ (ii): Let $\bar{b}$ be the inverse of $\bar{a}$. If $\bar{a}\bar{c}=0$, then
+                            $$0=\bar{b}0=\bar{b}(\bar{a}\bar{c})=(\bar{b}\bar{a})\bar{c}=\bar{c}.$$
+                            Hence $\bar{a}$ is not a zero divisor.
+                        \item (ii)$\Rightarrow$ (iii): We prove by contradiction. Assume $\mathrm{gcd}(a,n)=k,1<k<n$.Then
+                            $$\bar{a}\bar{\frac{n}{k}}=0.$$
+                            That is contradicts to the fact that $\bar{a}$ is not a zero divisor.
+                        \item (iii)$\Rightarrow$ (i): 
+                    \end{enumerate}
+                \item By (1) (i)$\Rightarrow$ (iii), $(\ZZ/n\ZZ)^\times\subseteq\{k\mid k\in [0,n-1], \mathrm{gcd}(k,n)=1\}$.
+                        \newline
+                        By (1) (iii)$\Rightarrow$ (i), $\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}\subseteq (\ZZ/n\ZZ)^\times$.
+                        \newline Hence $\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}=(\ZZ/n\ZZ)^\times$. 
+                        $$\phi(n)=\#\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}.$$
+                \item  Suppose $\bar{\alpha}$ is invertible and let $\bar{\beta}$ be its inverse. Then, 
+                        $$\forall k\in \NN, \bar{k}=k\bar{\beta}\bar{\alpha}=(k\beta)\bar{\alpha}.$$
+                        So $\ZZ/n\ZZ=\{k\alpha\}_{k\in\ZZ}$.
+                        \newline
+                        Conversely, if $\ZZ/n\ZZ=\{k\alpha\}_{k\in\ZZ}$, then there exists $k\in\ZZ$ such that $\bar{k}\bar{\alpha}=1$, which means $\bar{k}$ is $\bar{\alpha}$'s inverse. Thus, $\bar{\alpha}$ is invertible.
+                \item -
+                \item $\{x\mid x=a^n,n\in\ZZ\}$ forms a subgroup of $(\ZZ/n\ZZ)^\times$. By Lagrange theorem, its order is a divisor of $n$. So $\bar{a}^{\phi(n)}=1, a^{\phi(n)}\equiv 1 (\mathrm{\mod} n )$.
+                \item There are $\frac{n}{p_i}$ elements in $\{k\in\NN^{*}\mid k\le n\}$ satisfies $\mathrm{gcd}(k,p_i)=p_i\not=1$. So, there are $n(1-\frac{1}{p_i})$ elements in $\{k\in\NN^{*}\mid k\le n\}$ satisfies $\mathrm{gcd}(k,p_i)=1$. By (4),
+                        $$\phi(n)=n\prod_{i=1}^{k}(1-\frac{1}{p_i}).$$
+                \item By definition of prime number, for any $n\in \NN^{*}, n<p, \mathrm{gcd}(n,p)=1$, so $\phi(p)=p-1.$ By (1), any element in $\ZZ/p\ZZ$ except $0$ is invertible. For any $\bar{a},\bar{b}\in \ZZ/p\ZZ, \bar{a}\bar{b}=\bar{ab}=\bar{ba}=\bar{b}\bar{a}.$ So $\ZZ/p\ZZ$ is commutative. Therefore $\ZZ/p\ZZ$ is a field. 
+        \end{enumerate}
+\end{enumerate}
+\end{document}
