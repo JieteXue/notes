@@ -100,8 +100,11 @@ For any statement $p$,  $\neg \neg p$and $p$ have the same value.
     
 \end{definitionenv}
 
+
+    
+
 \begin{table}
-    \begin{center}
+\begin{center}
 \begin{tabular}{c|c|c|c}
     p & q & $p\wedge q$ & $p\vee q$ \\
     \hline
@@ -138,13 +141,17 @@ For any statement $p$,  $\neg \neg p$and $p$ have the same value.
 \begin{theoremenv}
     Let $P$and $Q$ be statements. $P\Rightarrow Q$ and $(\neg Q)\Rightarrow (\neg P)$ have the same truth value.
 \end{theoremenv}
-$(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,  if we prove $(\neg Q)\Rightarrow (\neg P)$,  then $P\Rightarrow Q$ is also true.
+\begin{box2}
+    $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,  if we prove $(\neg Q)\Rightarrow (\neg P)$,  then $P\Rightarrow Q$ is also true.
+\end{box2}
+
 \begin{exampleenv}
     Prove that , let $n$ be an integer,  if $n^2$ is even,  then $n$ is even.
+\end{exampleenv}    
     \begin{proofenv}
         Since $n$is an integer,  there exists$k\in \ZZ$ such that $n=2k+1$. Hence $n^2=4k^2+4k+1$ is not even.
     \end{proofenv}
-\end{exampleenv}
+
 
 
 
@@ -183,12 +190,13 @@ $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,
 \end{definitionenv}
 \begin{exampleenv}
     Prove that the equation $x^2=2$ does not have solution in $\mathbb{Q}$.
+\end{exampleenv}
     \begin{proofenv}
         By contradiction, we assume that $x:=\frac{p}{q}$ is a solution, where $p$ and $q$ are integers , which do not have common prime divisor. By $x^2=2$ we obtain $p^2=2q^2$
         So $p^2$ is even, $p$ is even.Let $p_1\in \ZZ$ such that $p=2p_1$
         Then $p^2=4p_1^2=2q^2$,  hence $q$ is even. Therefore $2$ is a common prime divisor of $p$ and $q$, which leads to a contradiction.
     \end{proofenv}
-\end{exampleenv}
+
 
 \section{Exercises}
 \begin{enumerate}
@@ -299,11 +307,13 @@ $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,
     \newline
     (4) If $A$ is a set and $x$ is an object,  $x \in A$ denotes $x$ is an element of $A$ (reads x belongs to A),  $x \notin A$ denotes "x is NOT an element of A".
 \end{definitionenv}
-Notation Roster method: to be continue$\dots$
+\texttt{Notation Roster method: to be continue$\dots$}
 \begin{exampleenv}
     \{1, 2, 3\}=\{3, 2, 1\}=\{1, 1, 2, 3\}
 \end{exampleenv}
+\begin{box2}
 More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  then the set of all $x_i$ is noted as $$\{x_i|i\in I\}.$$
+\end{box2}
 \begin{exampleenv}
     $$\{2k+1|k\in \ZZ\}.$$
 \end{exampleenv}
@@ -320,9 +330,11 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
 \begin{exampleenv}
     $\{x\in \RR|x>2\}$ denotes the set of real numbers that are $x>2$.
 \end{exampleenv}
+\begin{box2}
 \begin{center}
     sometimes we combine the two methods of representation.
 \end{center}
+\end{box2}
 
 
 
@@ -404,7 +416,9 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
     &=A\backslash\{x\in A |P(x)\Rightarrow Q(x)\}.
 \end{align*}
 \end{proofenv}
+\begin{box2}
 \textbf{Russell's paradox} leads to: $P(A):=A\notin A$. The collection of all sets should not be considered as a set.
+\end{box2}
 
 
 \section{Union}
@@ -616,9 +630,11 @@ Now,  assume \(y\neq y^{\prime}\). Then \(\{x, y\}\neq\{x^{\prime}, y^{\prime}\}
     Let $f$ be correspondence. The set $f(\mathscr{D}_f)$ is called the \textbf{range} of $f$,  denoted as $\mathrm{Im} (f)$. The set $f^{-1}(\mathscr{A}_f)$ is called the \textbf{domain of definition }of $f$,  denoted as $\mathrm{Dom}( f) $.
     Note that the domain of definition of a correspondence $f$ is the projection of the graph $\Gamma_f$ to the arrival set $\mathscr{A}_f$.
 \end{definitionenv}
-For any sets $ A$ and $B$, 
+\begin{box2}
+    For any sets $ A$ and $B$, 
 $$f(A)\subseteq \mathrm{Im}(f), f^{-1}(B)\subseteq\mathrm{Dom}(f), $$
 $$\mathrm{Dom}(f)=\mathrm{Im}(f^{-1}), \mathrm{Im }(f)=\mathrm{Dom}(f^{-1}).$$
+\end{box2}
 \begin{propositionenv}\label{proposition3.3.1}
     Let $f$ be a correspondence.
     \newline
@@ -1449,12 +1465,12 @@ partially ordered set is never empty.
 \end{axiomenv}
 \begin{exampleenv}
     Let $\Omega$ be a set , $X=\wp(\Omega)$. Then $(X, \subseteq)$ is  order complete.
+\end{exampleenv}
     \begin{proofenv}
         Let $Y\subseteq X$.Then 
         $$Y^{\mathrm{u}}=\{B\in\wp(\Omega)|\forall A\in Y, A\subseteq B\}.$$
         $\displaystyle \bigcup_{A\in Y}A$ is the least upper bound of $Y$ in $X$. So $\sup (Y)=\bigcup_{A\in Y}A$.
     \end{proofenv}
-\end{exampleenv}
 \begin{propositionenv}
     Let $(X, \le)$ be an order complete partially ordered set. Any subset of $X$ has an infimum in $X$.
 \end{propositionenv}
@@ -2031,8 +2047,15 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     $$f(a*b)=f(a)\star f(b), \forall a, b\in M, $$
     $$f(e_M)=e_N, $$
     $$f(\iota(a))=\iota(f(a)), \forall a\in M.$$
-    (They are not independent. But $f(e_m)=e_N$ is necessary,  since $f$ is not surjective generally.)
+    (They are not independent.)
 \end{definitionenv}
+\begin{remark}
+    Let $(M,*),(N,\star)$ be groups, we claim that if $\forall a,b\in M,f(a*b)=f(a)\star f(b)$, then $f(e_M)=e_N$ and $f(\iota(a))=\iota(f(a))$. 
+    Let $b=e_M$, then 
+    {\small$$ f(e_M)=\left(\iota(f(a))\star f(a)\right)\star f(e_M)=\iota(f(a))\star\left( f(a)\star f(e_M)\right)=\iota(f(a))\star f(a)=e_N.$$
+    $$\iota(f(a))=\iota(f(a))\star e_N=\iota(f(a))\star\left(f(a)\star f(\iota(a))\right)=\iota(f(a))\star f(a)\star f(\iota(a))=f(\iota(a)).$$}
+    But for monoid,  we need $f(e_M)=e_N$.
+\end{remark}
 \begin{propositionenv}
     \quad 
     \newline
@@ -2106,7 +2129,7 @@ By Proposition \ref{propositions5.4.2},  a semigroup (resp.monoid group) homomor
 \textit{Check Section~\ref{4.2}:Equivalent Relation,  to get more information about it.}
 \begin{propositionenv}
     Let $(X_i)_{i\in i}$ be a family of sets. For any $i\in I$,  let $\sim_i$ be an equivalence relation on $X_i$. Let $X=\prod_{i\in I}X_i$. We define a binary relation $\sim$ on $X$ as follows:
-    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Leftrightarrow \forall i\in I,  x_i\sim y_i.$$
+    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Leftrightarrow \forall i\in I,  x_i\sim_i y_i.$$
     Then,  $\sim $ is an equivalence relation,  and the mapping
     $$X/\sim \overset{\Phi}{\longrightarrow }\prod_{i\in I}X_i/\sim_i, $$
     $$ [(x_i)_{i\in I}]\longmapsto  ([x_i])_{i\in I}$$
@@ -2123,7 +2146,7 @@ By Proposition \ref{propositions5.4.2},  a semigroup (resp.monoid group) homomor
     \newline
     We check that $\Phi$ is well defined. Let $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ be elements of $X$. If $[x]=[y]$,  then $x\sim y$ and hence $\forall i\in I,  x_i\sim_i y_i$,  that means 
     $$([x_i])_{i\in I}=([y_i])_{i\in I}.$$
-    By definition,  $\Phi$ is surjective. If $\Phi([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$,  then $\forall i\in I,  [x_i]=[y_i]$,  namely $x_i\sim_i y_i$. Therefore,  $([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$.
+    By definition,  $\Phi$ is surjective. If $\Phi([(x_i)_{i\in I}])=\Phi([(y_i)_{i\in I}])$,  then $\forall i\in I,  [x_i]=[y_i]$,  namely $x_i\sim_i y_i$. Therefore,  $([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$.
 \end{proofenv}
 \begin{notationenv}
     Let $X$ be a set ,  $\sim $ be an equivalence relation on $X$. Then $X/\sim$ is called the \textbf{quotient} of $X$ by $\sim$. The mapping 
@@ -2261,7 +2284,7 @@ is called the \textbf{quotient mapping}.
 \end{propositionenv}
 \begin{proofenv}
     \quad\newline
-    (1) If $x\sim_H y$,  then $x*\iota(y)\in H$,  so $y*\iota(x)=\iota(x*\iota(y))\in H$,  so $y\sim_H x$. If $x\sim_H y$ and $y\sim_H z$,  then $x*\iota(y)\in H,  y*\iota(z)\in H$,  so $x*\iota(z)=x\iota(y)*y*\iota(z)\in H$. Hence $x\sim_H z$. By definition,  $[x]:=\{y\in G\mid  x*\iota(y)\in H\}$. If $y\in [x]$,  then $y*\iota(x)\in H$. Hence $y=(y*\iota(x))*x\in H*x$. Conversely,  if $y=h*x\in H*x \quad (h\in H)$,  then $y*\iota(x)=h*x*\iota(x)\in H$. So $y\in [x]$,  $[x]=H*x$.
+    (1) If $x\sim_H y$,  then $x*\iota(y)\in H$,  so $y*\iota(x)=\iota(x*\iota(y))\in H$,  so $y\sim_H x$. If $x\sim_H y$ and $y\sim_H z$,  then $x*\iota(y)\in H,  y*\iota(z)\in H$,  so $x*\iota(z)=x*\iota(y)*y*\iota(z)\in H$. Hence $x\sim_H z$. By definition,  $[x]:=\{y\in G\mid  x*\iota(y)\in H\}$. If $y\in [x]$,  then $y*\iota(x)\in H$. Hence $y=(y*\iota(x))*x\in H*x$. Conversely,  if $y=h*x\in H*x \quad (h\in H)$,  then $y*\iota(x)=h*x*\iota(x)\in H$. So $y\in [x]$,  $[x]=H*x$.
     \newline
     We denote by $G/H $ the set 
     $$G/H:=\{x*H\mid x\in G\}.$$ 
@@ -2607,7 +2630,7 @@ Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if
     $\{0\}$ and $V$ itself is a left sub-$K$-modules of $V$.
 \end{exampleenv}
 \begin{definitionenv}
-    Let $E$ and $F$ be left-K-modules. We call homomorphism of left K-modules from $E$ to $F$ any mapping $f:E\rightarrow F$,  such that 
+    Let $E$ and $F$ be left-K-modules. We call \textbf{homomorphism of left K-modules from $E$ to $F$} any mapping $f:E\rightarrow F$,  such that 
     \newline
     (1) $f$ is a homomorphism of groups from $(E, +)$ to $(F, +)$.
     \newline
@@ -2659,7 +2682,7 @@ Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if
     the left sub-K-module of $K^I$.
 \end{exampleenv}
 \begin{propositionenv}
-    Let $E$ and $F$ be left K-modules,  $f:E\rightarrow F$ be a mapping.
+    Let $E$ and $F$ be left K-modules, $f:E\rightarrow F$ be a mapping.
     \newline
     (1) If $f$ is a homomorphism of left K-modules,  for any $n\in \NN_{\ge1}$,  any $(a_1, a_2, \dots, a_n)\in K$,  and $(x_1, x_2, \dots, x_n)\in E^n$, 
     $$f(a_1x_1+\dots+a_nx_n)=a_1f(x_1)+\dots+a_nf(x_n).$$
@@ -2670,22 +2693,9 @@ Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if
 \begin{proofenv}
     (1) Induction on $n$.
     \newline
-    (2) Take $a=1$,  for any $(x, y)\in E, f(x+y)=f(x)+f(y)$. Take $x=0_E, f(ay)=0_F+af(y)=af(y)$. Let $(x, y)\in V^2$, 
-    \begin{align*}
-        \phi_x+\phi_y:&\ZZ \longrightarrow V, \\
-        &n\longmapsto \phi_x(n)+\phi_y(n)=nx+ny
-    \end{align*}
-    is a homomorphism of groups,  since for any $(n, m)\in \ZZ^2$
-    \begin{align*}
-        &(\phi_x+\phi_y)(n+m)\\
-        =&\phi_x(n+m)+\phi_y(n+m)=\phi_x(n)+\phi_x(m)+\phi_y(n)+\phi_y(m)\\
-        =&(\phi_x(n)+\phi_y(n))+(\phi_x(m)+\phi_y(m)).
-    \end{align*}
-    Since $(\phi_x+\phi_y)(1)=x+y=\phi_{x+y}, \phi_{x+y}=\phi_x+\phi_y.$ So $n(x+y)=nx+ny,  \forall n\in\ZZ.$ $1x=\phi_x(1)=x.$
-    If $n\in \NN$, 
-    $$(nm)x=\phi_x(nm)=\phi_x(\underset{n \text{ copies}}{\underbrace{m+\dots+m}})=n\phi_x(m)=n(mx).$$
-    If $-n\in \NN$, 
-    $$\phi_x(nm)=-\phi_x((-n)m)=-(-n)\phi(m)=n\phi_x(m).$$
+    (2) Take $a=1$,  for any $(x, y)\in E, f(x+y)=f(x)+f(y)$. 
+    
+    \ \ \ \ \ \ Take $x=0_E, f(ay)=0_F+af(y)=af(y)$.
 \end{proofenv}
 \begin{definitionenv}
     If a left K-module homomorphism is a bijection we say that it is a \textbf{left K-module isomorphism}.
@@ -2702,6 +2712,22 @@ Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if
 \begin{proofenv}
     First,  $nx$ is the image of $n$ by the unique homomorphism of groups $\phi_x:\ZZ\rightarrow V, 1\mapsto x$.
     $$(n+m)x=\phi_x(n+m)=\phi_x(n)+\phi_x(m)=nx+mx.$$
+     Let $(x, y)\in V^2$, 
+    \begin{align*}
+        \phi_x+\phi_y:&\ZZ \longrightarrow V, \\
+        &n\longmapsto \phi_x(n)+\phi_y(n)=nx+ny
+    \end{align*}
+    is a homomorphism of groups,  since for any $(n, m)\in \ZZ^2$
+    \begin{align*}
+        &(\phi_x+\phi_y)(n+m)\\
+        =&\phi_x(n+m)+\phi_y(n+m)=\phi_x(n)+\phi_x(m)+\phi_y(n)+\phi_y(m)\\
+        =&(\phi_x(n)+\phi_y(n))+(\phi_x(m)+\phi_y(m)).
+    \end{align*}
+    Since $(\phi_x+\phi_y)(1)=x+y=\phi_{x+y}, \phi_{x+y}=\phi_x+\phi_y.$ So $n(x+y)=nx+ny,  \forall n\in\ZZ.$ $1x=\phi_x(1)=x.$
+    If $n\in \NN$, 
+    $$(nm)x=\phi_x(nm)=\phi_x(\underset{n \text{ copies}}{\underbrace{m+\dots+m}})=n\phi_x(m)=n(mx).$$
+    If $-n\in \NN$, 
+    $$\phi_x(nm)=-\phi_x((-n)m)=-(-n)\phi(m)=n\phi_x(m).$$
 \end{proofenv}
 \begin{propositionenv}
     Let $V$ be a left K-module,  $x\in V$. There exists a unique homomorphism of left K-modules 
@@ -2834,9 +2860,9 @@ $$A\varphi=\begin{pmatrix}
 \end{pmatrix} . \ AB=? $$
     We have
     $$AB=\begin{pmatrix}  
-  a_{1,1}b_{1,1}+\cdots+a_{1,p}b_{1,q} & \cdots & a_{1,1}b_{p,1}+\cdots+a_{1,p}b_{p,q} \\  
+  a_{1,1}b_{1,1}+\cdots+a_{1,p}b_{p,1} & \cdots & a_{1,1}b_{p,1}+\cdots+a_{1,p}b_{p,q} \\  
   \vdots & \ddots & \vdots \\  
-  a_{n,1}b_{1,1}+\cdots+a_{n,p}b_{1,q} & \cdots & a_{n,1}b_{p,1}+\cdots+a_{n,p}b_{p,q}  
+  a_{n,1}b_{1,1}+\cdots+a_{n,p}b_{p,1} & \cdots & a_{n,1}b_{p,1}+\cdots+a_{n,p}b_{p,q}  
 \end{pmatrix} .$$
 \end{box2}
 \begin{exampleenv}
@@ -2912,7 +2938,7 @@ $$\begin{pmatrix}
   0& 0 &2  &1  &0 \\
   0& 0 &0  & 0 &0 \\
   0& 0 &  0&  0&0
-\end{pmatrix}$$ are of reduced row echelon form.
+\end{pmatrix}$$ are of row echelon form.
 \end{exampleenv}
 \begin{theoremenv}
     Suppose that $A$ is of reduced echelon form. Let 
@@ -2999,10 +3025,207 @@ $$x_k=\left\{ \begin{matrix}
         \end{pmatrix}.
     \end{equation*}
 \end{proofenv}
+\begin{definitionenv}
+    Let $n\in\NN$ and $\sigma:\{1,\dots,n\}\rightarrow\{1,\dots,n\}$ be a bijection. Denote by 
+    $$P_\sigma:K^n\longrightarrow K^n,$$
+    $$P(t_1,\dots,t_n):=\left(t_{\sigma^{-1}(1)},\dots,t_{\sigma^{-1}(n)}\right).$$
+    $P_\sigma$ is a homomorphism of left K-modules.
+\end{definitionenv}
+\begin{box2}
+    $$P_\sigma P_{\sigma^{-1}}=P_{\sigma^{-1}}P_\sigma=I_{n}.$$
+    Let $V$ be a left K-module, $(x_1,\dots,x_n)\in V$,
+    $$P_\sigma\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}
+:K^n\longrightarrow V,$$
+$$(t_1,\dots,t_n)\overset{P_\sigma}{\longmapsto}(t_{\sigma^{-1}(1)},\dots,t_{\sigma^{-1}(n)})\overset{\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}}{\longmapsto}\sum_{i=1}^{n}t_{\sigma^{-1}(i)}x_i=\sum_{j=1}^{n}t_jx_{\sigma(j)}.$$
+$$P_\sigma\begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_n
+\end{pmatrix}=\begin{pmatrix}
+    x_{\sigma(1)}\\
+    \vdots\\
+    x_{\sigma(n)}
+\end{pmatrix},\ P_\sigma\begin{pmatrix}
+    e_1\\
+    \vdots\\
+    e_n
+\end{pmatrix}=\begin{pmatrix}
+    e_{\sigma(1)}\\
+    \vdots\\
+    e_{\sigma(n)}
+\end{pmatrix}$$
+\end{box2}
+\begin{definitionenv}
+    If $\underline{r}=(r_1,r_2,\dots,r_n)\in K^n$, we denote by $D_{\underline{r}}$ the matrix $\mathrm{diag}(r_1,\dots,r_n)$.
+    If for any $i\in \{1,\dots,n\}$, $r_i$ is left invertible and is a inverse of $s_i$, then 
+    $$D_{\underline{s}}D_{\underline{r}}=I_n.$$
+\end{definitionenv}
+\begin{definitionenv}
+    Let $n\in \NN, i\in \{1,\dots,n\},c=\left(c_1,\dots,c_n\right)\in K^n,c_i=0$. Denote by 
+    $$S_{i,c}:K^n\longrightarrow K^n,$$
+    $$S_{i,c}(t_1,\dots,t_n):=\left(t_1,\dots,t_{i-1},t_i+\sum_{j=1}^{n}t_jc_j,t_{i+1},\dots,t_n\right)$$
+\end{definitionenv}
+\begin{box2}
+    $$S_{i,c}S_{i,-c}=S_{i,-c}S_{i,c}=I_n$$
+    $$S_{i,c}\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}:\left ( t_1,\dots,t_n \right ) \longmapsto\sum_{j=1}^{n}t_jx_j+\sum_{j=1}^{n} t_jc_jx_i $$
+$$S_{i,c}\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}=\begin{pmatrix}
+ x_1+c_1x_i\\
+ \vdots\\
+ x_i\\
+ \vdots\\
+x_n+c_nx_i
+\end{pmatrix}$$
+\end{box2}
+\begin{definitionenv}
+    Let $G_n(K)$ be the subset of $M_{n,n}(K)$ consisting of matrices $S$, that can be written as $U_1,\dots,U_N$, where $N\in\NN$ (if $N=0$, by convention, $S=I_n$) and each $U_i$ is of the following forms:
+    \newline
+    (1) $P_\sigma$, with $\sigma:\{1,\dots,n\}\rightarrow\{1,\dots,n\}$ being a bijection.
+    \newline
+    (2) $D_{\underline{r}}$ with each $r_i$ being left invertible.
+    \newline
+    (3) $S_{i,c}$ with $i\in \{1,\dots,n\},c=\left(c_1,\dots,c_n\right)\in K^n,c_i=0$.
+    \newline
+    Let $p\in\NN$. We say that $A\in M_{n,p}(K)$ is \textbf{reducible by Gaussian elimination} if there exists $S\in G_n(K)$ such that $SA$ is of reduced row echelon form.
+\end{definitionenv}
+\begin{lemmaenv}
+    If $A\in M_{n,p}(K)$ is such that $SA$ is reducible by Gaussian elimination, for some $S\in G_n(K)$, then $A$ is also reducible by Gaussian elimination.
+\end{lemmaenv}
+\begin{theoremenv}
+    Suppose that $K$ is a division ring. For any $(n,p)\in\NN^2$, any matrix $A\in M_{n,p}(K)$ is reducible
+    by Gaussian elimination.
+\end{theoremenv}
+\begin{proofenv}
+    We reason by induction on $p$.
+    \newline
+    $p=0$. $A$ is already of reduced row echelon form.
+    \newline
+    Suppose that the statement is true for matrices of at most $p-1$ columns. ($p\ge 1$) We write $A$ as $\begin{pmatrix}
+ \begin{matrix}
+ \lambda _1\\
+ \vdots\\
+\lambda _n
+\end{matrix} &B&
+\end{pmatrix}$ where $B\in M_{n,p-1}(K)$. If $\lambda_1=\dots=\lambda_n=0$. By induction hypothesis, there exists $S\in G_n(K)$ such that $SB$ is of reduced row echelon form.
+$$SA= \begin{pmatrix}\begin{matrix}
+0\\
+ \vdots\\
+0
+\end{matrix} &SB&
+\end{pmatrix}$$
+ is of reduced row echelon form. If $(\lambda_1,\dots,\lambda_n)\not=(0,\dots,0)$, by the lemma, we may suppose that $\lambda_1\not=0$ (By permuting rows). By multiplying $A$ by $\mathrm{diag}(\lambda_1^{-1},1,\dots,1)$ we may assume (by the lemma) that $\lambda_1=1$. So 
+ $$A= \begin{pmatrix}\begin{matrix}
+ 1\\
+\lambda _2\\
+ \vdots\\
+\lambda _n
+\end{matrix} &&B&&
+\end{pmatrix}.$$
+By multiplying $S_{1,(0,-\lambda_2,\dots,-\lambda_n)}$ and $A$, we may assume (by the lemma) that $A$ is of the form 
+$$\begin{pmatrix}
+ 1 &\begin{matrix}
+  \mu_2& \dots &\mu_n
+\end{matrix} \\
+ \begin{matrix}
+ 0\\
+ \vdots\\
+0
+\end{matrix} &C
+\end{pmatrix}.$$
+Applying the induction hypothesis to $C$.
+(For any $T\in G_{n-1}(K), T:K^{n-1}\rightarrow K^{n-1}, S:K^n\rightarrow K^n$, $S(t_1,\dots,t_n)=(t_1,T(t_2,\dots,t_n))$ belongs to $G_n(K).$)
+We write $C$ as $\begin{pmatrix}
+    c_2\\
+    \vdots\\
+    c_n
+\end{pmatrix}$
+where $c_2,\dots,c_k$ belong to $k^{p-1}\backslash\{(0,\dots,0)\},c_{k+1}=\dots=c_n=(0,\dots,0),j(c_2)<\dots<j(c_k)$. For any $i\in \{2,\dots,k\}$, we multiply $-\mu_{j(c_i)}$ times the $i^{\text{th}}$ row of $A$ to the first row. The result is a matrix of reduced row echelon form.
+\end{proofenv}
 
 
+\section{Quotient Modules}
+\textit{Let $K$ be a unitary ring.}
+\begin{propositionenv}
+    Let $E$ be a left K-module, $F$ be a left sub-K-module of $E$. The mapping
+    $$K\times E/ F\longrightarrow E/ F,$$
+    $$(a,[x])\longmapsto [ax]$$
+    (Resp. right,$[xa]$) is well defined, and determines a structure of left $K$-module on $E/ F$. Moreover, the projection mapping
+    $$\pi:E\longrightarrow E/ F$$
+    $$x\longmapsto [x]$$
+    is a homomorphism.
+\end{propositionenv}
+\begin{proofenv}
+    Recall that $F$ is a subgroup of $(E,+)$ such that 
+    $$\forall a\in K, \forall y\in F, ay\in F,$$
+    $$[x]=\{y\in E\mid y-x\in F\}.$$
+    If $[x]=[y]$, then $y-x\in F$, so $ay-ax=a(y-x)\in F$, which means $[ay]=[ax]$.
+    \newline
+    (1) $[1x]=[x]$.
+    \newline
+    (2) $(ab)[x]=[(ab)x]=[a(bx)]=a[bx]=a(b[x])$.
+    \newline
+    (3) $$(a+b)[x]=[(a+b)x]=[ax+bx]=[ax]+[bx]=a[x]+b[x].$$
+    $$a[x+y]=[a(x+y)]=[ax+ay]=[ax]+[ay]=a[x]+a[y].$$
+    Finally,
+    $$\pi(x+ay)=[x+ay]=[x]+[ay]=[x]+a[y]=\pi(x)+a\pi(y).$$
+\end{proofenv}
+\begin{theoremenv}
+    Let $f:V\rightarrow W$ be a homomorphism of left $K$-modules.
+    \newline
+    (1) $\mathrm{Im}(f)$ is a sub-$K$-module of $W$.
+    \newline
+    (2) $\ker(f)$ is a sub-$K$-module of $V$.
+    \newline
+    (3) $\tilde{f}:V/\ker(f)\longrightarrow W,[x]\longmapsto f(x)$ is a homomorphism of left $K$-modules. Moreover, as a mapping, $\tilde{f}$ is injective and has $\mathrm{Im}(f)$ as its range. Hence it defines an isomorphism between $V/\ker(f)$ and $\mathrm{Im}(f)$.
+\end{theoremenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) We have proved that $\mathrm{Im}(f)$ is a subgroup of $W$. If $y=f(x)\in \mathrm{Im}(f), \forall a\in K, ay=af(x)=f(ax)\in \mathrm{Im}(f)$. So $\mathrm{Im}(f)$ is a left sub-$K$-module of $W$.
+    \newline
+    (2) We have proved that $\ker(f)$ is a subgroup of $V$. If $x\in \ker(f), \forall a\in K, f(ax)=af(x)=a0=0$. So $\ker(f)$ is a left sub-$K$-module of $V$.
+    \newline
+    (3) We have proved that $\tilde{f}$ is an injective homomorphism of groups, with $\mathrm{Im}(\tilde{f})=\mathrm{Im}(f)$. So $\tilde{f}$ defines an isomorphism of group $V/\ker(f)\longrightarrow \mathrm{Im}(f)$. Moreover, $\tilde{f}(a[x])=\tilde{f}([ax])=f(ax)=af(x)=a\tilde{f}([x])$. So $\tilde{f}$ is a homomorphism of left $K$-modules.
+\end{proofenv}
 
 
+\section{Quotient Ring}
+\begin{propositionenv}
+    Let $A$ be a unitary ring. Let $\sim$ be an equivalence relation on $A$ that is compatible with the addition and with the multiplication. Then $A/\sim$ equipped with the quotient composition law of $+$ and $\cdot$ forms a unitary ring, and the projection mapping $\pi:A\longrightarrow A/\sim$ is a homomorphism of unitary ring.
+\end{propositionenv}
+\begin{proofenv}
+    We have seen that $(A/\sim,+)$ forms an abelian group and $(A,\cdot)$ forms a monoid, and $\pi:A\longrightarrow A/\sim$ is a homomorphism of additive groups and multiplicative monoids. It remains to check the distributivity.
+    $$[a]([b]+[c])=[a][b+c]=[a(b+c)]=[ab+ac]=[ab]+[ac]=[a][b]+[a][c].$$
+    $$([b]+[c])[a]=[(b+c)a]=[ba+ca]=[b][a]+[c][a].$$
+\end{proofenv}
+\begin{definitionenv}
+    $A/\sim$ is called the \textbf{quotient ring of $A$ }.
+\end{definitionenv}
+\begin{remark}
+    There exists a subgroup $I$ of $A$ such that 
+    $$a\sim b\Leftrightarrow b-a\in I.$$
+    $\forall x\in I,[x]=0$, so  for any $ a\in A$,
+    $$[ax]=[a][x]=0,\ [xa]=[x][a]=0.$$
+    So $I$ is a left sub-$A$-module of $A$ and a right sub-$A$-module of $A$.
+\end{remark}
+\begin{definitionenv}
+    Let $A$ be a unitary ring. If a subset $I$ of $A$ is a left sub-$A$-module of $A$ and a right sub-$A$-module of $A$, then we call $I$ a \textbf{ideal} of $A$. If $I$ is an ideal of $A$, then the composition laws of $A$ define by passing to quotient a structure of unitary ring on the quotient mapping $A/I$. So that $A/I$ becomes a quotient ring of $A$.
+\end{definitionenv}
 
 
 

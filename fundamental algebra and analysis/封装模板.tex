@@ -173,7 +173,7 @@
 \newtheorem*{prof}{\color{slan} Proof} % 定义无编号的证明环境
 \newtheorem{proposition}[theorem]{\color{shuang}Proposition}
 \newtheorem{corollary}[theorem]{\color{shuang}Corollary}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remarkthm}[theorem]{Remark}
 \newtheorem{axiom}{Axiom}
 \newtheorem{notation}[theorem]{\color{slv}Notation}
 \newtheorem{lemma}[theorem]{\color{shuang}Lemma}
@@ -187,6 +187,7 @@
 \newenvironment{propositionenv}{\begin{huangse}\begin{proposition}}{\end{proposition}\end{huangse}}
 \newenvironment{corollaryenv}{\begin{huangse}\begin{corollary}}{\end{corollary}\end{huangse}}
 \newenvironment{axiomenv}{\begin{zise}\begin{axiom}}{\end{axiom}\end{zise}}
+\newenvironment{remark}{\begin{box2}\begin{remarkthm}}{\end{remarkthm}\end{box2}}
 % ————————————————————————————————————目录设置————————————————————————————————————
 \setcounter{tocdepth}{4} % 设置在 ToC 的显示的章节深度
 \setcounter{secnumdepth}{3} % 设置章节的编号深度

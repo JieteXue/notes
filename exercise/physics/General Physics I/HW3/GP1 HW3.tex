@@ -1,0 +1,158 @@
+\documentclass{article}
+\newcommand{\mydate}{September 25, 2025}
+\newcommand{\mytitle}{GP1 HW3}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{tikz}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+
+\begin{document}
+\maketitle
+\begin{problem}[Four springs harmonic oscillation]
+    Four fixed points are:
+    $$\vec{r}_1=\left(l_0,0\right),\ \vec{r}_2=\left(-l_0,0\right),\ \vec{r}_3=\left(0,l_0\right),\ \vec{r}_4=\left(0,-l_0\right).$$
+    The potential energy of the system is:
+    \begin{equation}
+        V=\sum_{i=1}^{4}\frac{1}{2}k\left[\left(\vec{r}-\vec{r}_i\right)\cdot\left(\vec{r}-\vec{r}_i\right)-l_0^2\right]=2kr^2.
+    \end{equation}
+    \begin{equation}
+        m\ddot{\vec{r}}=-\nabla V=-4k\vec{r}.
+    \end{equation}
+    So effective force constant is 
+    \begin{equation}
+        \boxed{k'=4k.}
+    \end{equation}
+\end{problem}
+\begin{problem}[Driven harmonic oscillation]
+    Let the mass of the spar buoy be $m$ and the distance moving away from the initial point be $x$, the height of the wave be
+    \begin{equation}
+        y=h\sin\left(\frac{2\pi t}{T} \right).
+    \end{equation}
+    Then the extra force after wave come leads to 
+    \begin{equation}
+        m\ddot{x}=k\left(y-x\right).
+    \end{equation}
+    where $k$ is a constant that satisfying:
+    \begin{equation}
+        mg=kL.
+    \end{equation}
+    Then, we can deduce that 
+    \begin{equation}
+        \ddot{x}+\frac{g}{L}x=\frac{g}{L}h\sin\left(\frac{2\pi t}{T}\right).
+    \end{equation}
+    \begin{equation}
+        x=\frac{h}{1-\frac{L}{g}\left(\frac{2\pi}{T}\right)^2}\sin\left(\frac{2\pi t}{T}\right).
+    \end{equation}
+\end{problem}
+\begin{problem}[Damped harmonic oscillation I]
+    Let $\omega_0=\sqrt{\frac{k}{m}}$.
+    \begin{enumerate}
+        \item \begin{enumerate}
+            \item  For $t<0$, $x(t)=0$. For $t>0$:
+            \begin{equation}
+                m\ddot{x}=-kx-m\gamma\dot{x}+F_0.
+            \end{equation}
+            The solution is 
+            \begin{equation}
+                x(t)=Ae^{\lambda_1t}+Be^{\lambda_2t}+\frac{F_0}{k}.
+            \end{equation}
+            where
+            \begin{equation}
+                \lambda_1=-\frac{\gamma}{2}+\sqrt{\frac{\gamma^2}{4}-\omega_0^2}=0,\ \lambda_2=-\frac{\gamma}{2}-\sqrt{\frac{\gamma^2}{4}-\omega_0^2}.
+            \end{equation}
+            The initial conditions are:
+            \begin{equation}
+                x(0)=0,\ \dot{x}(0)=0.
+            \end{equation}
+            Thus,
+            \begin{equation}
+                A=\frac{F_0}{k}\frac{-\lambda_2}{\lambda_2-\lambda_1},\ B=\frac{F_0}{k}\frac{\lambda_1}{\lambda_2-\lambda_1}.
+            \end{equation}
+            \begin{equation}
+                \boxed{x(t)=\frac{F_0}{k}\left(\frac{-\lambda_2}{\lambda_2-\lambda_1}e^{\lambda_1t}+\frac{\lambda_1}{\lambda_2-\lambda_1}e^{\lambda_2t}+1\right)}
+            \end{equation}
+            \item \begin{equation}
+               m\ddot{x}=-kx-m\gamma\dot{x}+F_0\cos\left(\omega_0 t\right). 
+            \end{equation}
+            \begin{equation}
+                x(t)=\frac{F_0}{m\omega_0\gamma}\sin\left(\omega_0 t\right)+\frac{F_0}{m\gamma\left(\lambda_2-\lambda_1\right)}\left(e^{\lambda_1t}-e^{\lambda_2t}\right).
+            \end{equation}
+        \end{enumerate}
+        \item The amplitude of the oscillation is
+        \begin{equation}
+        A=\frac{\frac{F_0}{m}}{\sqrt{\left(\omega^2-\omega_0^2\right)^2+\left(\gamma\omega\right)^2}}.
+        \end{equation}
+        When 
+        \begin{equation}
+            \boxed{\omega^2=\omega_0^2-\frac{\gamma^2}{2}},\ \text{if it's positive.} 
+        \end{equation}
+        The amplitude get maximum. If $0>\omega_0^2-\frac{\gamma^2}{2}$, there does not exist a maximum.
+    \end{enumerate}
+\end{problem}
+\begin{problem}[Damped oscillation II]
+    We have known that after a long time, the motion of the oscillation is 
+    \begin{equation}
+        x(t)=A\cos\left(\omega t+\phi\right).
+    \end{equation}
+    where 
+    \begin{equation}
+        A=\frac{\frac{F_0}{m}}{\sqrt{\left(\omega^2-\omega_0^2\right)^2+\left(\beta\omega\right)^2}},
+    \end{equation}
+    and $\phi$ satisfying
+    \begin{equation}
+        \tan\left(\phi\right)=\frac{\beta\omega}{\omega^2-\omega_0^2}.
+    \end{equation}
+    \begin{enumerate}
+        \item \begin{equation}
+            P(t)=F_0\cos\left(\omega t \right)\dot{x}=-F_0A\omega\cos\left(\omega t\right)\sin\left(\omega t+\phi\right).
+        \end{equation}
+        The average rate is
+        \begin{equation}
+            \expval{P}=\int_{0}^{T}P(t)\dd{t}/T=-\frac{1}{2}F_0A\omega\sin\left(\phi\right)=\frac{1}{2}mA^2\omega^2\beta.
+        \end{equation}
+        \item \begin{equation}
+            \int_{0}^{T}\beta\dot{x}\dot{x}\dd{t}/T=\frac{1}{2}mA^2\omega^2\beta.
+        \end{equation}
+        \item \begin{equation}
+            \expval{P}=\frac{F_0^2\beta}{2m}\frac{1}{\omega^2+\frac{\omega_0^4}{\omega^2}+\beta^2-2\omega_0^2}
+        \end{equation}
+        iff. $\omega=\omega_0$, $\expval{P}$ get the maximum:
+        \begin{equation}
+            \boxed{\expval{P}_{\mathrm{max}}=\frac{F_0^2}{2m\beta}.}
+        \end{equation}
+    \end{enumerate}
+\end{problem}
+\end{document}
