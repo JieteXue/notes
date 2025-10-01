@@ -305,7 +305,23 @@ F & F &  F &   T&   T&   T\\ \hline
             \item If there exists a element equals $kd+m,k\in \ZZ,m\in\interval{1}{d-1} $, then $kd+m+k(-d)=m<d\in M$. Contradiction!
             \item By (2), $M\subseteq d\ZZ$. For any $nd\in d\ZZ, nd=\underset{n \text{ copies}}{\underbrace{d+d+\dots+d}}\in d\ZZ$. So $d\ZZ\subseteq M$. Therefore, $M=d\ZZ$.
         \end{enumerate}
-    \item 10.
+    \setcounter{enumi}{8}
+    \item 
+        \begin{enumerate}
+            \item We claim it is a left-$A$-module, then right-$A$-module follow the similar proof.First, it is a left action. For any $a\in A$, $ea=a$, where $e$ is neutral element. By definition, $a(bc)=(ab)c$. Second, check it is a left $A$-module. For any $(a,b)\in A^2, (c,d)\in A^2, ac+bc=(a+b)c, ac+ad=a(c+d).$
+            \item If $[a_1]=[a_2],[b_1]=[b_2]$, then $a_1a_2^{-1}\in I,\ b_1b_2^{-1}\in I$. Hence $(a_1b_1)(a_2b_2)^{-1}=a_1(b_1b_2^{-1})a_2^{-1}\in I$. So it is well defined. 
+            \newline
+            By definition it is closed. For any $a,b,c\in A$, $[a]([b][c])=[a][bc]=[a(bc)]=[(ab)c]=([a][b])[c]$. So it is associative. For any $a\in A, [a][1]=[a]=[1][a]$. So it determines a structure of monoid on $A/I$.
+            \item Similarly, we can prove $A/I$ equipped with additive law is well defined and forms a monoid. Then we only need to check that $A/I$ is a group under induced $+$. For any $a\in A, [a]+[-a]=[a+(-a)]=[0]$, where $0$ is the neutral element of $(A,+)$. Therefore, $A/I$ becomes a unitary ring. For ant $(a,b)\in A , \pi(a)\pi(b)=[a][b]=[ab]=\pi(ab), \pi(1)=[1]$. So $\pi:A\rightarrow A/I$ is a homomorphism of monoids. $\pi(a)+\pi(b)=[a]+[b]=[a+b]\pi(a+b).$ So it is also a homomorphism of groups. Therefore, $\pi$ is a homomorphism of rings.
+            \item 
+                \begin{enumerate}
+                    \item For any $a\in A,x\in I,\ f(ax)=f(a)f(x)=f(a)0=0.$ So $ax\in I$. Similarly, $xa\in I$. So $I$ is an ideal of $A$.
+                    \item $\forall (x,y,z)\in A^3, f(x)\left(f(y)f(z)\right)=f(x)f(yz)=f(x(yz))=f((xy)z)=f(xy)f(z)=\left(f(x)f(y)\right)f(z)$. $f(x)f(1)=f(x\cdot1)=f(x)$. So $\left(\mathrm{Im}f,\cdot\right)$ is a monoid. Similarly, we can deduce that $\left(\mathrm{Im}(f),+\right)$ is a monoid, in addition, $f(x)+f(-x)=f(x-x)=f(0)=0$. So $f(-x)$ is the inverse of $f(x)$. So $\mathrm{Im}(f)$ is the subring of $B$.
+                    \item $\tilde{f}\left([x][y]\right)=f(xy)=f(x)f(y)=\tilde{f}\left([x]\right)\tilde{f}\left([y]\right)$. So it is a homomorphism. If $x,y\in A$ satisfy $x -y\in \ker{f}$, then $f(x)+f(-y)=f(x-y)=0.$ Thus $f(x)=f(y)$. So $\tilde{f}$ is a injective homomorphism of unitary rings. Therefore, it forms a isomorphism.
+                \end{enumerate}
+            \item Let $f:\ZZ\rightarrow A$ be a mapping. $f(n)=n1_A$ is a homomorphism. If $g$ is a homomorphism, then $f(1)=1_A,\ f(0)=0_A$. For any $n\in \NN, f(n)=f\left(\sum_{i=1}^{n}1\right)=\sum_{i=1}^{n}f(1)=\sum_{i=1}^{n}1_A$. For any $\dots$ 
+        \end{enumerate}
+    \item 
         \begin{enumerate}
             \item $$\left(\sum_{n\in \NN}a_nT^n\right)\dagger \left(\sum_{n\in \NN}b_nT^n\right)=\sum_{n\in \NN}(a_n+b_n)T^n$$
             $$=\sum_{n\in \NN}(b_n+a_n)T^n=\left(\sum_{n\in \NN}b_nT^n\right)\dagger\left(\sum_{n\in \NN}a_nT^n\right).$$
@@ -320,8 +336,8 @@ F & F &  F &   T&   T&   T\\ \hline
             $$\left(\sum_{n\in \NN}-a_nT^n\right)\dagger\left(\sum_{n\in \NN}a_nT^n\right)=\sum_{n\in \NN}0T^n.$$
             Therefore, $k[[T]]$ equipped with $\dagger$ forms a communitative group.
             \item Note that, for any $\sum_{n\in \NN}a_nT^n\in k[[T]]$,
-            $$\left(\sum_{n\in \NN}a_nT^n\right)*\sum_{n\in \NN}\mathds{1}T^n=\sum_{n\in \NN}\left(\sum_{i=0}^{n}a_i\mathds{1}T^{n}\right)=\sum_{n\in \NN}a_nT^n.$$
-            Hence $\sum_{n\in \NN}eT^n$ is the neutral element of $k[[T]]$. One has 
+            $$\left(\sum_{n\in \NN}a_nT^n\right)*\mathds{1}=\sum_{n\in \NN}\left(\sum_{i=0}^{n}a_i\delta_{i,n}T^{n}\right)=\sum_{n\in \NN}a_nT^n.$$
+            Hence $\mathds{1}$ is the neutral element of $k[[T]]$. One has 
             $$\sum_{i=0}^{n}a_ib_{n-i}=\sum_{t=n}^{0}a_{n-t}b_t=\sum_{t=0}^{n}b_ta_{n-t}.$$
             Thus, $*$ is communitative. Therefore, what given is a communitative monoid.
             \item $$a_i=a\delta_{i,n}, b_i=b\delta_{i,m}.$$
@@ -364,33 +380,140 @@ F & F &  F &   T&   T&   T\\ \hline
                     $$a_n=a_0\prod_{i=0}{n}(i+1)^{-1}.$$
                     $$f=\sum_{n\in\NN}a_0\prod_{i=0}{n}(i+1)^{-1}T^n,\ \forall a_0\in k.$$
         \end{enumerate}
-        \item 15.
-            \begin{enumerate}
-                \item 
-                    \begin{enumerate}
-                        \item (i)$\Rightarrow$ (ii): Let $\bar{b}$ be the inverse of $\bar{a}$. If $\bar{a}\bar{c}=0$, then
-                            $$0=\bar{b}0=\bar{b}(\bar{a}\bar{c})=(\bar{b}\bar{a})\bar{c}=\bar{c}.$$
-                            Hence $\bar{a}$ is not a zero divisor.
-                        \item (ii)$\Rightarrow$ (iii): We prove by contradiction. Assume $\mathrm{gcd}(a,n)=k,1<k<n$.Then
-                            $$\bar{a}\bar{\frac{n}{k}}=0.$$
-                            That is contradicts to the fact that $\bar{a}$ is not a zero divisor.
-                        \item (iii)$\Rightarrow$ (i): 
-                    \end{enumerate}
-                    \item By (1) (i)$\Rightarrow$ (iii), $(\ZZ/n\ZZ)^\times\subseteq\{k\mid k\in [0,n-1], \mathrm{gcd}(k,n)=1\}$.
-                        \newline
-                        By (1) (iii)$\Rightarrow$ (i), $\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}\subseteq (\ZZ/n\ZZ)^\times$.
-                        \newline Hence $\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}=(\ZZ/n\ZZ)^\times$. 
-                        $$\phi(n)=\#\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}.$$
-                    \item  Suppose $\bar{\alpha}$ is invertible and let $\bar{\beta}$ be its inverse. Then, 
-                        $$\forall k\in \NN, \bar{k}=k\bar{\beta}\bar{\alpha}=(k\beta)\bar{\alpha}.$$
-                        So $\ZZ/n\ZZ=\{k\alpha\}_{k\in\ZZ}$.
-                        \newline
-                        Conversely, if $\ZZ/n\ZZ=\{k\alpha\}_{k\in\ZZ}$, then there exists $k\in\ZZ$ such that $\bar{k}\bar{\alpha}=1$, which means $\bar{k}$ is $\bar{\alpha}$'s inverse. Thus, $\bar{\alpha}$ is invertible.
-                    \item -
-                    \item $\{x\mid x=a^n,n\in\ZZ\}$ forms a subgroup of $(\ZZ/n\ZZ)^\times$. By Lagrange theorem, its order is a divisor of $n$. So $\bar{a}^{\phi(n)}=1, a^{\phi(n)}\equiv 1 (\mathrm{\mod} n )$.
-                    \item There are $\frac{n}{p_i}$ elements in $\{k\in\NN^{*}\mid k\le n\}$ satisfies $\mathrm{gcd}(k,p_i)=p_i\not=1$. So, there are $n(1-\frac{1}{p_i})$ elements in $\{k\in\NN^{*}\mid k\le n\}$ satisfies $\mathrm{gcd}(k,p_i)=1$. By (4),
-                        $$\phi(n)=n\prod_{i=1}^{k}(1-\frac{1}{p_i}).$$
-                    \item By definition of prime number, for any $n\in \NN^{*}, n<p, \mathrm{gcd}(n,p)=1$, so $\phi(p)=p-1.$ By (1), any element in $\ZZ/p\ZZ$ except $0$ is invertible. For any $\bar{a},\bar{b}\in \ZZ/p\ZZ, \bar{a}\bar{b}=\bar{ab}=\bar{ba}=\bar{b}\bar{a}.$ So $\ZZ/p\ZZ$ is commutative. Therefore $\ZZ/p\ZZ$ is a field. 
-            \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item $$(a_n,b_n)\longmapsto \sum_{i=1}^{n}a_ib_{n-i}.$$
+                If $n>\deg(F)$, then 
+                $$\sum_{i=1}^{n}a_ib_{n-i}=\sum_{i=\deg(F)}^{n}a_ib_{n-i}.$$
+                If $n<\deg(F)+\deg(G)$, then it will be $0$.
+                If $n=\deg(F)+\deg(G)$, then
+                $$\sum_{i=1}^{n}a_ib_{n-i}=a_{\deg(F)}b_{\deg(G)}\not=0.$$
+                So $\deg(FG)=\deg(F)+\deg(G).$
+            \item   Existence: If $\deg(F)<\deg(P)$ let $Q=0,R=F$. If $\deg(F)>\deg(P)$, let $F_{i+1}=F_{i}-a_{\deg(F)}T^{\deg(F)-\deg(P)}P, \ (F_0=F)$, then $\deg(F_{i+1})<\deg(F_i).$ Then come to the first case. 
+                    \newline
+                    Uniqueness: If $F=Q_1 P+R_1=Q_2P+R_2$. Then $(Q_1-Q_2)P=R_2-R_1$. If $Q_1\not=Q_2$, then $\deg(Q_1-Q_2)>0, \deg((Q_1-Q_2)P)>\deg(P)>\deg(R_1-R_2).$ This contradicts to $\deg((Q_1-Q_2)P)=\deg(R_2-R_1).$ Thus $Q_1=Q_2,\ R_1=R_2.$
+            \item By (2) $F=PQ+R$. $R$ must be $0$, or it will contradicts to $\deg(P)$ is the least. Let $\deg(P_1)=\deg(P_2)$ be the least. Then there exists $Q\in I\backslash\{0\},\ P_1Q=P_2.$ Then $\deg(P_2)=\deg(P_1)+\deg(Q).$ So $\deg(Q)$ must be zero. Hence $Q=1.$, we proved the uniqueness. 
+            \item Let $P'$ be the minimal polynomial, since $I$ is an ideal, $P=a_{\deg(P')}^{-1}P'\in I$. It is a monic polynomial.
+            \item Easy.
+        \end{enumerate} 
+    \item
+        \begin{enumerate}
+            \item Let $Q=\sum_{n\in \NN}b_n T^n$, then $(T-x)Q=-b_0x+\sum_{n\in\NN^*}\left(-xb_n+b_{n-1}\right)T^n.$ 
+                $$a_0=-b_0 x,\ a_n=-xb_n+b_{n-1}.$$
+                It satisfies $P(0)=0$ automatically.
+            \item By (1), then can write in the form. $\deg(T-x_i)=1$. By 11.(1), 
+                $$d=\deg(P)=d_1+d_2+\dots +d_n+\deg(P)\ge d_1+\dots+d_n.$$
+            \item Suppose it has more the $d$ root. Write it into (2) form. Then leads to a contradiction.
+        \end{enumerate}
+    \item
+        \begin{enumerate}
+            \item $[T][T]=[P-1]=[P]-I=I-I=0.$
+            \item Let $F=P_0Q_0+R_0, Q_i=PQ_{i+1}+R_{i+1}$, $ [F]=[PQ_0]+[R_0]=[P][Q_0]+[c_0+b_0T]=[PQ_1]+[R_1]+b_0i=\left([Q_n]+\sum_{i\in \NN}^{n}b_ii\right)$ (Since $k[T]$ is formal, $n$ is finite.)
+            \item Let $f$ be the mapping, $f$ is injective. By (2), $f$ is surjective. So it is a bijection. $[Q][R]=[QR]=[RQ]=[R][Q]$, hence it's communicative. $f(a,b)+f(c,d)=f(a+c,b+d)$, thus it is a homomorphism of group. $cf(a,b)=f(ca,cb)$. Therefore, $f$ is a $\RR$-linear bijection.
+            \item -
+            \item Easy. $\iota\circ\iota=\mathrm{Id}\Rightarrow $ bijection $\Rightarrow$ isomorphism.
+            \item Easy
+            \item $i=[T]=[-\iota(T)]=-i.$
+            \item A bit confused.
+            \item By communicative law.
+            \item Find the inverse, and it is communicative.
+            \item Easy.
+            \item Emm.
+            \item $\ZZ[i]^\times=\{1,-1,i,-i\}.$
+        \end{enumerate}
+    \item
+        \begin{enumerate}
+            \item Addition: group, $0$, Multiplication: monoid, $1$.
+            \item Let $P=T^2-2$, $I$ be the ideal defined as 
+                $$I:=P\RR[T].$$
+                Then we can prove: If we denote $[T]$ as $\sqrt{2}$, then $\left(\sqrt{2}\right)^2=2.$ Then similar to 13.
+            \item If $a^2-2b^2=\pm 1$, then $\pm(a-b\sqrt{2})$ is the inverse of $a+b\sqrt{2}.$ If $a+b\sqrt{2}$ is invertible, let $c+d\sqrt{2}$ be its inverse. Then $\left(ac+2bd+(ad+bc)\sqrt{2}\right)=\pm 1.$ Hence $ad+bc=0$ \textbf{TO BE CONTINUE.}
+        \end{enumerate}
+        \setcounter{enumi}{14}
+    \item 
+        \begin{enumerate}
+            \item 
+                \begin{enumerate}
+                    \item (i)$\Rightarrow$ (ii): Let $\bar{b}$ be the inverse of $\bar{a}$. If $\bar{a}\bar{c}=0$, then
+                        $$0=\bar{b}0=\bar{b}(\bar{a}\bar{c})=(\bar{b}\bar{a})\bar{c}=\bar{c}.$$
+                        Hence $\bar{a}$ is not a zero divisor.
+                    \item (ii)$\Rightarrow$ (iii): We prove by contradiction. Assume $\mathrm{gcd}(a,n)=k,1<k<n$.Then
+                        $$\bar{a}\bar{\frac{n}{k}}=0.$$
+                        That is contradicts to the fact that $\bar{a}$ is not a zero divisor.
+                    \item (iii)$\Rightarrow$ (i): 
+                \end{enumerate}
+                \item By (1) (i)$\Rightarrow$ (iii), $(\ZZ/n\ZZ)^\times\subseteq\{k\mid k\in [0,n-1], \mathrm{gcd}(k,n)=1\}$.
+                    \newline
+                    By (1) (iii)$\Rightarrow$ (i), $\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}\subseteq (\ZZ/n\ZZ)^\times$.
+                    \newline Hence $\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}=(\ZZ/n\ZZ)^\times$. 
+                    $$\phi(n)=\#\{k\mid k\in [0,n-1],\mathrm{gcd}(n,k)=1\}.$$
+                \item  Suppose $\bar{\alpha}$ is invertible and let $\bar{\beta}$ be its inverse. Then, 
+                    $$\forall k\in \NN, \bar{k}=k\bar{\beta}\bar{\alpha}=(k\beta)\bar{\alpha}.$$
+                    So $\ZZ/n\ZZ=\{k\alpha\}_{k\in\ZZ}$.
+                    \newline
+                    Conversely, if $\ZZ/n\ZZ=\{k\alpha\}_{k\in\ZZ}$, then there exists $k\in\ZZ$ such that $\bar{k}\bar{\alpha}=1$, which means $\bar{k}$ is $\bar{\alpha}$'s inverse. Thus, $\bar{\alpha}$ is invertible.
+                \item -
+                \item $\{x\mid x=a^n,n\in\ZZ\}$ forms a subgroup of $(\ZZ/n\ZZ)^\times$. By Lagrange theorem, its order is a divisor of $n$. So $\bar{a}^{\phi(n)}=1, a^{\phi(n)}\equiv 1 (\mathrm{\mod} n )$.
+                \item There are $\frac{n}{p_i}$ elements in $\{k\in\NN^{*}\mid k\le n\}$ satisfies $\mathrm{gcd}(k,p_i)=p_i\not=1$. So, there are $n(1-\frac{1}{p_i})$ elements in $\{k\in\NN^{*}\mid k\le n\}$ satisfies $\mathrm{gcd}(k,p_i)=1$. By (4),
+                    $$\phi(n)=n\prod_{i=1}^{k}(1-\frac{1}{p_i}).$$
+                \item By definition of prime number, for any $n\in \NN^{*}, n<p, \mathrm{gcd}(n,p)=1$, so $\phi(p)=p-1.$ By (1), any element in $\ZZ/p\ZZ$ except $0$ is invertible. For any $\bar{a},\bar{b}\in \ZZ/p\ZZ, \bar{a}\bar{b}=\bar{ab}=\bar{ba}=\bar{b}\bar{a}.$ So $\ZZ/p\ZZ$ is commutative. Therefore $\ZZ/p\ZZ$ is a field. 
+        \end{enumerate}
+\end{enumerate}
+\section{Linear Algebra: Vectors and Matrices}
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item 
+        \begin{enumerate}
+            \item $A=\begin{pmatrix}
+                0&1\\
+                0&0
+            \end{pmatrix}$.
+            \item $A=\begin{pmatrix}
+                0&1\\
+                -1&0
+            \end{pmatrix}$.
+            \item $A=
+            \begin{pmatrix}
+                \cos\left(\frac{2\pi}{3}\right)&\sin\left(\frac{2\pi}{3}\right)\\
+                -\sin\left(\frac{2\pi}{3}\right)&\cos\left(\frac{2\pi}{3}\right)
+            \end{pmatrix}.$
+        \end{enumerate}
+    \setcounter{enumi}{7}
+    \item \begin{enumerate}
+        \item Easy
+        \item Easy
+        \item $B$ is a non-zero solution. If $X$ is the inverse of $A$, then $AX=I$. But $B(AX)=(BA)X=0$. that contradicts to $BI=B$, for any non-zero matrix.
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item $J^2=\begin{pmatrix}
+            -1&0\\
+            0&-1
+        \end{pmatrix}$. Easy
+        \item Easy.
+        \item If $(a,b)=0$, it is not invertible. If $(a,b)\not=0$, easy to check $M\left(\frac{a}{a^2+b^2},-\frac{b}{a^2+b^2}\right)$ is its inverse.
+    \end{enumerate}
+    \setcounter{enumi}{10}
+    \item \begin{enumerate}
+        \item Easy.
+        \item Let $x$ be $1$ and $2$, then we obtain $1=a_n+b_n,\ 2^n=2a_n+b_n.$. Hence $a_n=2^n-1,\  b_n=2-2^n.$
+        \item $A^n=\left(A^2-3A+2\right)Q(A)+(a_n A+b_n)=\dots.$
+    \end{enumerate}
+    \item For any $i,k,[b_ij],\sum_{j}a_{ij}b_{jk}=\sum_{j}b_{ij}a_{jk}$. Let $b_{ij}=\delta_{i,m}\delta_{j,n}$, then $a_{im}\delta_{k,n}=\delta_{i,m}a_{nk}$. So $a_{mn}=0$, if $n\not=m$. $a_{mm}=a_{nn}$, for any $m,n$. So $a_{ij}=\lambda \delta_{i,j}$.
+    \item \begin{enumerate}
+        \setcounter{enumii}{1}
+        \item Easy.
+        \item Easy.
+    \end{enumerate}
+    \item Easy.
+    \setcounter{enumi}{16}
+    \item Easy.
+    \item \begin{enumerate}
+        \item $a^{-1}=A$.
+        \item $A_\lambda\left(A+\lambda I_n\right)/\left(1-\lambda^2\right)=I_n$
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item Easy. $(I+A)(I-\frac{1}{2}A)=I+\frac{1}{2}A-\frac{1}{2}A^2=I.$
+        \item $A(A-I)=0$. If $C$ is the inverse of $A$, then $0=BA(A-I)=A-I$. So $A=I$. If $A=I$, then $I$ is its inverse.
+    \end{enumerate}
 \end{enumerate}
 \end{document}
