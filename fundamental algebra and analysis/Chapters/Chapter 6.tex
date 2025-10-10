@@ -1,0 +1,1053 @@
+\chapter{Rings and Modules}
+\section{Unitary Rings}
+\begin{definitionenv}
+    Let $A$ be a set,  and $+$ and $*$ be composition laws. If 
+    \newline
+    (1) $(A, +)$ forms a communitative group.
+    \newline
+    (2) $(A, *)$ forms a monoid.
+    \newline
+    (3) For any $(a, b, c)\in A^3$,  $a*(b+c)=(a*b)+(a*c)$ and $(b+c)*a=(b*a)+(c*a)$.
+    \newline
+    (4)$^\dagger$ If in addition,  $*$ is communitative,  then we say that the unitary ring $(A, +, *)$ is communitative.
+\end{definitionenv}
+\begin{exampleenv}
+    $(\ZZ, +, \cdot)$ is a unitary ring.
+\end{exampleenv}
+Note that,  if we denote by $\hat{*}$ the composition law 
+$$A\times A\longrightarrow A, $$
+$$(a, b)\longmapsto b*a.$$
+Then $(A, +, \hat{*})$ forms a unitary ring. We call it the opposite unitary ring of $(A, +, *)$.
+\begin{notationenv}
+    Usually,  we denote by $+$ the first composition law,  of a unitary ring $A$ and call it the \textbf{addition}. We denote by $0$ the neutral element of $+$,  and call it the \textbf{zero element} of $A$. Usually we denote by $\cdot$ the second composition law of $A$ and call it the \textbf{multiplication}. We denote by $1$ the neutral element with respect to $\cdot$,  and call it the \textbf{unity element} of $A$.
+\end{notationenv}
+\begin{definitionenv}
+    Let $A$ be a unitary ring and $B$ be a subset of $A$. If $B$ is a subgroup of $(A, +)$ and a submonoid of $(A, \cdot)$,  then we call $B$ a \textbf{unitary subring} of $A$.
+\end{definitionenv}
+\begin{exampleenv}
+    Let $\{0\}$ be the set of $1$ element. Let $+$ and $\cdot$ be both the composition law $\{0\}\times\{0\}\rightarrow\{0\}, (0, 0)\mapsto0$. Then $(\{0\}, +, *)$ is a unitary ring. We call it the \textbf{zero ring}.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ and $B$ be unitary rings and $f:A\rightarrow B$ be a mapping. If $f$ is a group homomorphism from $(A, +)$ to $(B, +)$,  and is a monoid homomorphism from $(A, \cdot)$ to $(B, \cdot)$,  then we call $f$ a \textbf{unitary ring homomorphism}. 
+\end{definitionenv}
+\begin{propositionenv}
+    For any unitary ring $A$,  there exists a unitary ring homomorphism $A\rightarrow\{0\}$.
+\end{propositionenv}
+\begin{lemmaenv}
+    Let $A$ be a unitary ring.
+    \newline
+    (1) $\forall a\in A,  0a=a0=0.$
+    \newline
+    (2) $\forall a, b\in A,  -(ab)=(-a)b=a(-b).$
+\end{lemmaenv}
+\begin{proofenv}
+    \quad\newline
+    (1) $0+0=0$,  so $0+0a=0a=(0+0)a=0a+0a$. Hence $0a=0$.
+    \newline
+    (2) $ab+(-a)b=(a+(-a))b=0b=0, ab+a(-b)=a(b+(-b))=a0=0.$
+\end{proofenv}
+\begin{propositionenv}
+    For any unitary ring $A$,  there exists a unitary ring homomorphism from $\ZZ$ to $A$.
+\end{propositionenv}
+\begin{proofenv}
+    If $f:\ZZ \rightarrow A$ is a unitary ring homomorphism,  then $f(1)=1_A$. So $f$ is identifies with the unitary group homomorphism.
+    $$(\ZZ, +)\longrightarrow(A, +), $$
+    $$n\longmapsto n1_A.$$
+    It remains to check that for any $(n, m)\in \ZZ^2, f(nm)=f(n)f(m)$. Note that ,  if $(n, m)\in \NN\times\NN$,  then 
+    $$f(n)=\underset{n \text{ copies}}{\underbrace{1_A+\dots+1_A}}, \ f(m)=\underset{m \text{ copies}}{\underbrace{1_A+\dots+1_A}}.$$
+    So $f(n)f(m)=nm1_A1_A=nm1_A=f(nm)$.
+    $f(-n)f(m)=(-f(n))f(m)=-f(n)f(m)=-f(nm)=f(-nm)$.
+    $f(-n)f(-m)=\dots$
+\end{proofenv}
+\begin{definitionenv}
+    Let $K$ be a unitary ring. We denote by $K^\times$ the invertible elements of $(K, \cdot)$. If $K^\times=K\backslash\{0\}$ then we say that $K$ is a division ring. If in addition,  $K$ is commutative,  then we say that $K$ is a \textbf{field}.
+\end{definitionenv}
+\begin{exampleenv}
+    $\QQ, \RR, \CC$ are fields.
+\end{exampleenv}
+\section{Action of Monoids}
+\begin{definitionenv}
+    Let $(G, *)$ be a monoid,  the neutral element of which is denoted as $e$. Let $X$ be a set. We call \textbf{left action} of $G$ on $X$ any mapping 
+    $$\phi:G\times X\rightarrow X, $$
+    such that 
+    \newline
+    (1) $\phi(e, x)=x$,  for any $x\in X$.
+    \newline
+    (2) $\forall (a, b)\in G\times G, \forall x\in X$, 
+    $$\phi(a*b, x)=\phi(a, \phi(b, x)).$$
+    (Resp. right action)
+\end{definitionenv}
+\begin{remark}
+    A left action of $(G, *)$ on $X$ is a right action of $(G, \hat{*})$ on $X$.
+\end{remark}
+\begin{notationenv}
+    If $*=\cdot$,  a left action is usually denoted as 
+    $$G\times X\longrightarrow X, $$
+    $$(a, x) \longmapsto ax.$$
+    Condition (1) becomes $ex=x$,  (2) becomes $(ab)x=a(bx)$.
+\end{notationenv}
+\begin{exampleenv}
+    Let $G$ be a group,  $H$ be a subgroup of $G$. Then 
+    $$H\times G\longrightarrow G, $$
+    $$(h, g)\longmapsto hg.$$
+    is a left action of $H$ on $G$. (Resp. right action.)
+\end{exampleenv}
+\begin{propositionenv}
+    Let $G$ be a monoid,  $X$ be a set and $\phi:G\times X\longrightarrow X$ be a left action of $G$ on $X$. We define a binary relation $\sim_{\phi}$ on $X$ as follows:
+    $$x\sim_{\phi}y\Leftrightarrow \exists g\in G, \phi(g, x)=y.$$
+Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if $G$ is a group.
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    Reflexivity: Let $e$ be the neutral element of $G$,  then $x=ex$,  so $x\sim_{\phi}x$.
+    \newline
+    Transitivity: If $y=ax$ and $z=by$,  then $z=b(ax)=(ba)x$,  so $x\sim_{\phi}y \wedge y\sim_{\phi}z \Rightarrow x\sim_{\phi}z$.
+    \newline
+    Assume that $G$ is a group. If $y=ax$,  then $\iota(a)y=\iota(a)(ax)=(\iota(a)a)x=ex=x$,  so $x\sim_{\phi}y$ implies $y\sim_{\phi}x$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $G$ be a group,  $X$ be a set and $\phi:G\times X\longrightarrow X$ be a left action. For any $x\in X$,  the equivalence class of $x$ under the equivalence relation $\sim_{\phi}$ is called the \textbf{orbit} of $x$ under the action $\phi$,  denoted as $\mathrm{orb}_\phi(x)$. We denote by $G\backslash X$ the set of all orbits of $X$ under the action $\phi$. (Resp. right action and $X/G$.)
+\end{definitionenv}
+\begin{remark}
+    If $X$ is finite,  then 
+    $$\mathrm{card}(X)=\sum_{A\in G\backslash X}\mathrm{card}(A).$$
+    In particular,  if $(G, *)$ is a finite group,  and $H$ is a subgroup of $G$,  then $\mathrm{card}(G)=\mathrm{card}(H)\mathrm{card}(H\backslash G).$ In fact,  $H\backslash G=\{H*x\mid x\in G\}, H*x:=\{h*x\mid h\in H\}.$ 
+\end{remark}
+
+
+\section{Vector Space}
+\begin{definitionenv}
+    Let $K$ be a unitary ring. Let $(V, +)$ be an abelian group. (Neutral element of $(V, +)$ is denote as $0$.) We call a \textbf{left K-module structure} any left action of $(K, \cdot)$ on $V$. 
+    $$\phi:K\times V\longrightarrow V$$
+    (1) $\forall (a, b)\in K\times K, \forall x\in V$, $$\phi(a+b, x)=\phi(a, x)+\phi(b, x).$$
+    (2) $\forall a\in K$,  $\forall (x, y)\in V\times V$, $$\phi(a, x+y)=\phi(a, x)+\phi(a, y).$$
+    The abelian group $(V, +)$ equipped with a left $K$-module structure is called a \textbf{left K-module}. If $K$ is communitative,  left and right $K$-modules structures have the same axioms. So we just call them $K$-module structures. Left and right $K$-modules structures are called $K$-modules.
+    If $K$ is a field,  a $K$-module is called a \textbf{vector space} over $K$.
+\end{definitionenv}
+\begin{exampleenv}
+    $(\{0\}, +)$ is a left $K$-module. Action 
+    $$\phi:K\times \{0\}\longrightarrow \{0\}, $$
+    $$\phi(a, 0)=0.$$
+    It is called the zero K-module.
+\end{exampleenv}
+\begin{exampleenv}
+    Consider the action 
+    $$\phi:K\times K\longrightarrow K, $$
+    $$\phi(a, x)=ax.$$
+    $\phi$ defines a left $K$-module structure on $K$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $I$ be a set and $(V_i)_{i\in I}$ be a family of left $K$-modules.
+    $$V=\prod_{i\in I}V_i.$$
+    The action 
+    $$\phi:(K\times V)\longrightarrow V, $$
+    $$\ (a, (x_i)_{i\in I})\longmapsto (a*x_i)_{i\in I}$$
+    defines a left $K$-module structure on $V$.
+\end{definitionenv}
+\section{Submodules}
+\begin{definitionenv}
+    Let $V$ be a left $K$-module,  we call \textbf{left sub-K-module} of $V$ any subgroup $W$ of $(V, +)$ such that for any $(a, x)\in K\times W, ax\in W$. (resp. right.)
+\end{definitionenv}
+\begin{exampleenv}
+    $\{0\}$ and $V$ itself is a left sub-$K$-modules of $V$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $E$ and $F$ be left-K-modules. We call \textbf{homomorphism of left K-modules from $E$ to $F$} any mapping $f:E\rightarrow F$,  such that 
+    \newline
+    (1) $f$ is a homomorphism of groups from $(E, +)$ to $(F, +)$.
+    \newline
+    (2) For any $(a, x)\in K\times E, f(ax)=af(x)$.
+    \newline
+    If $K$ is communitative,  a homomorphism of $K$-module is also called a \textbf{$K$-linear mapping}.
+\end{definitionenv}
+\begin{lemmaenv}
+    Let $V$ be a left K-module.
+    \newline
+    (1) $\forall a\in K, a0_V=0_V$.
+    \newline
+    (2) $\forall x\in V, 0x=0_V$.
+\end{lemmaenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) $a0_V=a(0_V+0_V)=a0_V+a0_V\Rightarrow 0_V=a0_V$.
+    \newline
+    (2) $0x=(0+0)x=0x+0x\Rightarrow 0x=0_V$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $f:E\rightarrow F$ be a homomorphism of left-K-modules.
+    \newline 
+    (1) $\ker(f)$ is a left sub-K-module of $E$.
+    \newline
+    (2) $\mathrm{Im}(f)$ is a left sub-K-module of $F$. 
+\end{theoremenv}
+\begin{proofenv}
+    First,  $\ker(f)$ is a subgroup of $E$,  $\mathrm{Im}(f)$ is a subgroup of $F$.
+    \newline
+    (1) Let $a\in K,  x\in \ker(f),  f(ax)=af(x)=a0_V=0_V$. So $ax\in \ker(f)$.
+    \newline
+    (2) Let $y\in \mathrm{Im}(f)$,  there exists $x\in E$ such that $f(x)=y$. For any $a\in K, ay=af(x)=f(ax)\in \mathrm{Im}(f)$
+\end{proofenv}
+\begin{propositionenv}
+    Let $V$ be a left K-module. For any $x\in V,  -x=(-1)x$.
+\end{propositionenv}
+\begin{proofenv}
+    $$(-1)x+x=(-1+1)x=0x=0_V.$$
+\end{proofenv}
+\begin{exampleenv}
+    Let $(V_i)_{i\in I}$ be a family of left K-modules. We denote by 
+    $$\bigoplus_{i\in I}V_i\text{ the set of }(x_i)_{i\in I}\in \prod_{i\in I}V_i, $$
+    such that $\{i\in I\mid x_i\not=0_{V_i}\}$. This is a subgroup of $\prod_{i\in I}V_i$. For any $a\in K, $ and $(x_i)_{i\in I}\in \bigoplus_{i\in I}V_i$, 
+    $$\{i\in I\mid ax_i\not=0_{V_i}\}\subseteq\{i\in I\mid x_i\not=0_{V_i}\}.$$
+    So $\displaystyle a(x_i)_{i\in I}=(ax_i)_{i\in I}\in \bigoplus_{i\in i}V_i$,  which means that $\displaystyle\bigoplus_{i\in I}V_i$ is a left sub-K-module of $\displaystyle\prod_{i\in I}V_i$. $\displaystyle\bigoplus_{i\in I}V_i$ is called the direct sum of $(V_i)_{i\in I}$. We denote by 
+    $$K^{\oplus I}$$
+    the left sub-K-module of $K^I$.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $E$ and $F$ be left K-modules, $f:E\rightarrow F$ be a mapping.
+    \newline
+    (1) If $f$ is a homomorphism of left K-modules,  for any $n\in \NN_{\ge1}$,  any $(a_1, a_2, \dots, a_n)\in K$,  and $(x_1, x_2, \dots, x_n)\in E^n$, 
+    $$f(a_1x_1+\dots+a_nx_n)=a_1f(x_1)+\dots+a_nf(x_n).$$
+    (2) Suppose that for any $a\in K, (x, y)\in E^2$, 
+    $$f(x+ay)=f(x)+af(y).$$
+    Then $f$ is a homomorphism of left K-modules.
+\end{propositionenv}
+\begin{proofenv}
+    (1) Induction on $n$.
+    \newline
+    (2) Take $a=1$,  for any $(x, y)\in E, f(x+y)=f(x)+f(y)$. 
+    
+    \ \ \ \ \ \ Take $x=0_E, f(ay)=0_F+af(y)=af(y)$.
+\end{proofenv}
+\begin{definitionenv}
+    If a left K-module homomorphism is a bijection we say that it is a \textbf{left K-module isomorphism}.
+\end{definitionenv}
+\section{Universal Property}
+\begin{propositionenv}
+    Let $(V, +)$ be a communitative group. Then 
+    $$\begin{matrix}
+        \ZZ\times V\longrightarrow V\\
+        (n, x)\longmapsto nx
+    \end{matrix}$$
+    defines a $\ZZ$-module substructure on $V$.
+\end{propositionenv}
+\begin{proofenv}
+    First,  $nx$ is the image of $n$ by the unique homomorphism of groups $\phi_x:\ZZ\rightarrow V, 1\mapsto x$.
+    $$(n+m)x=\phi_x(n+m)=\phi_x(n)+\phi_x(m)=nx+mx.$$
+     Let $(x, y)\in V^2$, 
+    \begin{align*}
+        \phi_x+\phi_y:&\ZZ \longrightarrow V, \\
+        &n\longmapsto \phi_x(n)+\phi_y(n)=nx+ny
+    \end{align*}
+    is a homomorphism of groups,  since for any $(n, m)\in \ZZ^2$
+    \begin{align*}
+        &(\phi_x+\phi_y)(n+m)\\
+        =&\phi_x(n+m)+\phi_y(n+m)=\phi_x(n)+\phi_x(m)+\phi_y(n)+\phi_y(m)\\
+        =&(\phi_x(n)+\phi_y(n))+(\phi_x(m)+\phi_y(m)).
+    \end{align*}
+    Since $(\phi_x+\phi_y)(1)=x+y=\phi_{x+y}, \phi_{x+y}=\phi_x+\phi_y.$ So $n(x+y)=nx+ny,  \forall n\in\ZZ.$ $1x=\phi_x(1)=x.$
+    If $n\in \NN$, 
+    $$(nm)x=\phi_x(nm)=\phi_x(\underset{n \text{ copies}}{\underbrace{m+\dots+m}})=n\phi_x(m)=n(mx).$$
+    If $-n\in \NN$, 
+    $$\phi_x(nm)=-\phi_x((-n)m)=-(-n)\phi(m)=n\phi_x(m).$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $V$ be a left K-module,  $x\in V$. There exists a unique homomorphism of left K-modules 
+    $\phi_x:K\longrightarrow V, $
+    such that $\phi_x(1)=x$.
+\end{propositionenv}
+\begin{proofenv}
+    If $\phi_x$ exists,  then it should satisfy 
+    $$\forall a\in K, \phi_x(a)=a\phi_x(1)=ax.$$
+    It suffices to check that $\phi_x:K\rightarrow V, a\mapsto ax$ is a homomorphism.
+    $$\phi_x(a+b)=(a+b)x=ax+bx=\phi_x(a)+\phi_x(b), $$
+    $$\phi_x(\lambda a)=(\lambda a)x=\lambda(ax)=\lambda\phi_x(a).$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(V_i)_{i\in I}$ be a family of left K-modules.
+    \newline
+    (1) Let $W$ be a left K-module. For any $i\in I$,  let $f_i:W\rightarrow V_i$ be aa homomorphism. Then there exists a unique homomorphism 
+    $$f:W\longrightarrow \prod_{i\in I}V_i, $$ 
+    such that 
+    $$\forall i\in I, \pi_i\circ f=f_i, $$
+    where $\pi_i$ sends $(x_j)_{j\in I}\in \prod_{j\in I}V_j$ to $x_i$.
+    \newline
+    (2) Let $W$ be a left K-module,  for any $i\in I$,  let $g_i:V_i\rightarrow W$ be a homomorphism of left K-modules. There exists a unique homomorphism
+    $$g:\bigoplus_{i\in I}V_i\longrightarrow W$$
+    such that 
+    $$\forall i\in I,  g\circ\lambda_i=g_i, $$
+    where
+    $$\lambda_j:V_j\longrightarrow\bigoplus_{i\in I}V_i, $$
+    $$x_j\longrightarrow (y_i)_{i\in I} \text{ with } y_i=\left\{\begin{matrix}
+        x_j, i=j\\0, i\not=j
+    \end{matrix}\right. .$$
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) There exists a unique mapping $f:W\rightarrow \prod_{i\in I}V_i$,  such that 
+    $$\forall i\in I, \pi_i\circ f=f_i, $$
+    $$\forall z\in W, f(z)=(f_i(z))_{i\in I}.$$
+    We have proved that $f$ is a homomorphism of groups.
+    $$\forall a\in K, z\in W. f(az)=(f_i(az))_{i\in I}=(af_i(z))_{i\in I}=af(z).$$
+    (2) We have prove that there exists a unique $g:\bigoplus_{i\in I}V_i\rightarrow W$ homomorphism of group such that $\forall i\in I,  g\circ \lambda_i=g_i.$ $g\left((x_i)_{i\in I}\right)=\sum_{i\in I}g_i(x_i)$.
+    \begin{align*}
+        \forall a\in K, g\left(a(x_i)_{i\in I}\right)=&g\left((ax_i)_{i\in I}\right)\\
+        =&\sum_{i\in I}g_i(ax_i)=\sum_{i\in I}ag_i(x_i)
+        =a\sum_{i\in I}g_i(x_i)=ag(x).
+    \end{align*}
+\end{proofenv}
+\begin{applicationenv}
+Let $V$ be a left K-module. Let $I$ be a set and $(x_i)_{i\in I}\in V^{I}$. For any $i\in I$,  let 
+$$\phi_{x_i}:K\longrightarrow V, a\mapsto ax_i.$$ 
+So the family $(\phi_{x_i})_{i\in I}$ determines a homomorphism of left K-modules 
+$$\Phi:K^{\oplus I}\longrightarrow V, $$
+$$(a_i)_{i\in I}\longmapsto \sum_{i\in I}\phi_{x_i}(a_i)=\sum_{i\in I}a_ix_i.$$
+\end{applicationenv}
+
+\section{Matrices}
+\begin{definitionenv}
+    Let $n\in \NN$. Let $V$ be a \underline{\textbf{left}} K-module. For any $(x_1, \dots, x_n)\in V^n$,  we denote by 
+    $$\begin{pmatrix}
+x_1 \\
+ \vdots \\
+x_n
+\end{pmatrix}
+:
+K^n\longrightarrow V, $$
+$$(a_1, \dots, a_n)\longmapsto a_1x_1+\dots+a_nx_n. $$
+This is a homomorphism of left K-modules.
+\end{definitionenv}
+\begin{exampleenv}
+    Consider the case where $V=K^p$ with $p\in \NN$. Each $x_i$ is of the form $(b_{i, 1}, \dots, b_{i, p})$.
+    $$\text{So } \begin{pmatrix}
+x_1 \\
+ \vdots \\
+x_n
+\end{pmatrix}
+\text{ becomes}
+\begin{pmatrix}
+  b_{1, 1}& \dots  &b_{1, p} \\
+  \vdots & \ddots  & \vdots \\
+  b_{n, 1}& \dots &b_{n, p}
+\end{pmatrix} .$$
+\end{exampleenv}
+\begin{definitionenv}
+    We call $n$ by $p$ matrix with coefficients in $K$ any homomorphism of left K-module from $K^n$ to $K^p$.
+\end{definitionenv}
+\begin{definitionenv}
+    Let $n$ and $p$ be natural numbers,and $V$ be a left K-module. Let $A:K^n\rightarrow K^p$, and $\varphi:K^p\rightarrow V$ be homomorphism of left K-modules. We denote by 
+    $$A\varphi:K^n\longrightarrow V $$
+    be the mapping $\varphi\circ A.$
+\end{definitionenv}
+\begin{propositionenv}
+    Let $E,F$ and $G$ be left K-modules. Let $\varphi:E\rightarrow F$ and $\psi:F\rightarrow G$ be homomorphism of left K-modules. Then $(\varphi\circ \psi):E\rightarrow G$ is a homomorphism of left K-modules.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(x,y)\in E^2, a\in K. (\psi\circ\phi)(x+ay)=\psi(\varphi(x+ay))=\psi(\varphi(x)+a\varphi(y))=\psi(\varphi(x))+a\psi(\varphi(y))$.
+\end{proofenv}
+
+
+\begin{box2}
+\textbf{Computation}\quad Suppose that 
+$$A=\begin{pmatrix}  
+  a_{1,1} & \cdots & a_{1,p} \\  
+  \vdots & \ddots & \vdots \\  
+  a_{n,1} & \cdots & a_{n,p}  
+\end{pmatrix} ,\ \varphi =\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_p
+
+\end{pmatrix}.$$
+For $t=(t_1, \dots, t_n)\in K^n$, 
+$$t\overset{A}{\longmapsto}\left(\sum_{i=1}^{n}t_ia_{i,1},\dots,\sum_{i=1}^{n}t_ia_{i,p} \right)\overset{\varphi}{\longmapsto}\sum_{j=1}^{p}\sum_{i=1}^{n}t_ia_{i,j}x_j.$$
+So, 
+$$A\varphi=\begin{pmatrix}
+    a_{1,1}x_1+\dots+a_{1,p}x_p\\
+    \vdots\\
+    a_{n,1}x_1+\dots+a_{n,p}x_p.
+\end{pmatrix}$$
+\end{box2}
+\begin{box2}
+    \textbf{Question}\quad Let 
+    $$A=\begin{pmatrix}  
+  a_{1,1} & \cdots & a_{1,p} \\  
+  \vdots & \ddots & \vdots \\  
+  a_{n,1} & \cdots & a_{n,p}  
+\end{pmatrix} ,B=\begin{pmatrix}  
+  b_{1,1} & \cdots & b_{1,q} \\  
+  \vdots & \ddots & \vdots \\  
+  b_{p,1} & \cdots & b_{p,q}  
+\end{pmatrix} . \ AB=? $$
+    We have
+    $$AB=\begin{pmatrix}  
+  a_{1,1}b_{1,1}+\cdots+a_{1,p}b_{p,1} & \cdots & a_{1,1}b_{p,1}+\cdots+a_{1,p}b_{p,q} \\  
+  \vdots & \ddots & \vdots \\  
+  a_{n,1}b_{1,1}+\cdots+a_{n,p}b_{p,1} & \cdots & a_{n,1}b_{p,1}+\cdots+a_{n,p}b_{p,q}  
+\end{pmatrix} .$$
+\end{box2}
+\begin{exampleenv}
+    Let $(a_1,a_2,\dots,a_n)\in K^n$, we denote by 
+    \begin{align*}
+        \mathrm{diag}(a_1,\dots,a_n):K^n&\longrightarrow K^n\\
+        (t_1,\dots,t_n)&\longmapsto(t_1a_1,\dots,t_na_n).
+    \end{align*}
+    $\mathrm{diag}(a_1,\dots,a_n)$ is called a \textbf{diagonal matrix}.
+\end{exampleenv}
+\begin{exampleenv}
+     $\mathrm{Id}_{K^n}:K^n\longrightarrow K^n,\ t\mapsto t$ is also written as $I_n=\begin{pmatrix}
+  1&  & \\
+  & \ddots  & \\
+  &  &1
+\end{pmatrix}$
+
+Let $V$ be a left K-module, $(x_1,\dots,x_n)\in V^n, (a_1,\dots, a_n)\in K^n$.
+$$\mathrm{diag}(a_1,\dots,a_n)\begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_n
+\end{pmatrix}=\begin{pmatrix}
+    a_1x_1\\
+    \vdots\\
+    a_nx_n
+\end{pmatrix}.$$
+$$\mathrm{diag}(a_1,\dots,a_n)\mathrm{diag}(b_1,\dots,b_n)=\mathrm{diag}(a_1b_1,\dots,a_nb_n).$$
+\end{exampleenv}
+
+
+
+
+
+\section{Linear Equations}
+{\large\textit{We fix a unitary ring.}}
+\begin{definitionenv}
+    Let $p\in \NN$. For $(a_1,\dots,a_p)\in K^p$, let $j(a_1,\dots,a_p)$ be the least index $i\in\{1,\dots,p\}$ such that $a_i\not=0$. By convention,
+    $$j(0,\dots,0)=p+1.$$
+    Let $V$ be a left K-module, $A\in M_{n,p}(K)$. Let $(b_1,\dots , b_n)\in V^n$. We consider
+\begin{equation*}
+A\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_p
+\end{pmatrix}=\begin{pmatrix}
+ b_1\\
+ \vdots\\
+b_n
+\end{pmatrix}\tag{$*$}
+\end{equation*}
+We write $A$ into the form
+$$\begin{pmatrix}
+ \vec{a}^{(1)} \\
+ \vdots\\
+ \vec{a}^{(n)}
+\end{pmatrix}, \vec{a}^{(i)}=(a_{i,1},\dots,a_{i,p}).$$
+\end{definitionenv}
+\begin{definitionenv}
+    We say that the matrix is of row echelon form if 
+    $$j\left(\vec{a}^{(1)}\right)\le j\left(\vec{a}^{(2)}\right)\le \dots\le j\left(\vec{a}^{(n)}\right),$$
+    and the strict inequality holds once $$j\left(\vec{a}^{(i)}\right)\le p.$$
+    If in addition $a_{i,j\left(\vec{a}^{(i)}\right)}=1$,  and $a_{k,j\left(\vec{a}^{(i)}\right)}=0$ for any $k\not=i$ once $\vec{a}^{(i)}\not=(0,\dots,0)$. We say that $A$ is of \textbf{reduced row echelon form}. 
+\end{definitionenv}
+\begin{exampleenv}
+    $$
+    \begin{pmatrix}
+        1&0\\
+        0&1
+    \end{pmatrix},\ 
+\begin{pmatrix}
+  1&2  &3  &4  &5 \\
+  0& 0 &2  &1  &0 \\
+  0& 0 &0  & 0 &0 \\
+  0& 0 &  0&  0&0
+\end{pmatrix}$$ are of row echelon form.
+\end{exampleenv}
+\begin{theoremenv}
+    Suppose that $A$ is of reduced echelon form. Let 
+    $$I(A)=\{i\in \{1,\dots,n\}\mid \vec{a}^{(i)}\not=(0,\dots,0)\},$$
+    $$J_0(A)=\{1,\dots,p\}\backslash\{j\left(\vec{a}^{(i)}\right)\mid i\in I(A)\}.$$
+    (1) If there exists $i\in \{1,\dots,n\}\backslash I(A),b_i\not=0$ the equation $A\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_p
+\end{pmatrix}=
+\begin{pmatrix}
+ b_1\\
+ \vdots\\
+b_n
+\end{pmatrix}$ has no solution.
+\newline
+(2) If $\forall i\in\{1,\dots ,n\}\backslash I(A),b_i=0$. The solution set of the equation is the image of the following mapping:
+$$\Phi:V^{I(A)}\longrightarrow V^p \text{ with}$$
+$$(z_l)_{l\in J_0(A)}\longmapsto (x_1,\dots,x_p),$$
+$$x_k=\left\{ \begin{matrix}
+    z_k &,\text{if } k\in J_0(A)\\
+    b_i-\sum_{l\in J_0(A)}a_{i,l}z_l &,\text{if } k=j\left(\vec{a}^{(i)}\right) .
+\end{matrix}\right.$$
+
+\end{theoremenv}
+\begin{propositionenv}
+    Let $m,n,p$ be natural numbers. $S\in M_{m,n}(K), A\in M_{n,p}$. If $(x_1,\dots,x_p)$ is a solution of the equation
+    \begin{equation*}
+        A\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_p
+        \end{pmatrix}=\begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+        \end{pmatrix}.\tag{$*$}
+    \end{equation*}
+    Then it is also a solution of the equation
+    \begin{equation*}(SA)\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_p
+        \end{pmatrix}=S\begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+        \end{pmatrix}.\tag{$*_S$}
+        \end{equation*}
+    Moreover, if $S$ is left invertible ( namely there exists $T\in M_{n,m}(K)$ such that $TS=I_n$), then ($*$) and ($*_S$) have the same solution set.
+\end{propositionenv}
+\begin{proofenv}
+     \begin{equation*}
+        (SA)\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_p
+        \end{pmatrix}=S\begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+        \end{pmatrix}.
+    \end{equation*}
+    So 
+     \begin{equation*}
+        TSA\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_p
+        \end{pmatrix}=TS\begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+        \end{pmatrix}
+        \Rightarrow
+        A\begin{pmatrix}
+        x_1\\        
+        \vdots\\
+        x_p
+        \end{pmatrix}=\begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+        \end{pmatrix}.
+    \end{equation*}
+\end{proofenv}
+\begin{definitionenv}
+    Let $n\in\NN$ and $\sigma:\{1,\dots,n\}\rightarrow\{1,\dots,n\}$ be a bijection. Denote by 
+    $$P_\sigma:K^n\longrightarrow K^n,$$
+    $$P(t_1,\dots,t_n):=\left(t_{\sigma^{-1}(1)},\dots,t_{\sigma^{-1}(n)}\right).$$
+    $P_\sigma$ is a homomorphism of left K-modules.
+\end{definitionenv}
+\begin{box2}
+    $$P_\sigma P_{\sigma^{-1}}=P_{\sigma^{-1}}P_\sigma=I_{n}.$$
+    Let $V$ be a left K-module, $(x_1,\dots,x_n)\in V$,
+    $$P_\sigma\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}
+:K^n\longrightarrow V,$$
+$$(t_1,\dots,t_n)\overset{P_\sigma}{\longmapsto}(t_{\sigma^{-1}(1)},\dots,t_{\sigma^{-1}(n)})\overset{\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}}{\longmapsto}\sum_{i=1}^{n}t_{\sigma^{-1}(i)}x_i=\sum_{j=1}^{n}t_jx_{\sigma(j)}.$$
+$$P_\sigma\begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_n
+\end{pmatrix}=\begin{pmatrix}
+    x_{\sigma(1)}\\
+    \vdots\\
+    x_{\sigma(n)}
+\end{pmatrix},\ P_\sigma\begin{pmatrix}
+    e_1\\
+    \vdots\\
+    e_n
+\end{pmatrix}=\begin{pmatrix}
+    e_{\sigma(1)}\\
+    \vdots\\
+    e_{\sigma(n)}
+\end{pmatrix}$$
+\end{box2}
+\begin{definitionenv}
+    If $\underline{r}=(r_1,r_2,\dots,r_n)\in K^n$, we denote by $D_{\underline{r}}$ the matrix $\mathrm{diag}(r_1,\dots,r_n)$.
+    If for any $i\in \{1,\dots,n\}$, $r_i$ is left invertible and is a inverse of $s_i$, then 
+    $$D_{\underline{s}}D_{\underline{r}}=I_n.$$
+\end{definitionenv}
+\begin{definitionenv}
+    Let $n\in \NN, i\in \{1,\dots,n\},c=\left(c_1,\dots,c_n\right)\in K^n,c_i=0$. Denote by 
+    $$S_{i,c}:K^n\longrightarrow K^n,$$
+    $$S_{i,c}(t_1,\dots,t_n):=\left(t_1,\dots,t_{i-1},t_i+\sum_{j=1}^{n}t_jc_j,t_{i+1},\dots,t_n\right)$$
+\end{definitionenv}
+\begin{box2}
+    $$S_{i,c}S_{i,-c}=S_{i,-c}S_{i,c}=I_n$$
+    $$S_{i,c}\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}:\left ( t_1,\dots,t_n \right ) \longmapsto\sum_{j=1}^{n}t_jx_j+\sum_{j=1}^{n} t_jc_jx_i $$
+$$S_{i,c}\begin{pmatrix}
+ x_1\\
+ \vdots\\
+x_n
+\end{pmatrix}=\begin{pmatrix}
+ x_1+c_1x_i\\
+ \vdots\\
+ x_i\\
+ \vdots\\
+x_n+c_nx_i
+\end{pmatrix}$$
+\end{box2}
+\begin{definitionenv}
+    Let $G_n(K)$ be the subset of $M_{n,n}(K)$ consisting of matrices $S$, that can be written as $U_1,\dots,U_N$, where $N\in\NN$ (if $N=0$, by convention, $S=I_n$) and each $U_i$ is of the following forms:
+    \newline
+    (1) $P_\sigma$, with $\sigma:\{1,\dots,n\}\rightarrow\{1,\dots,n\}$ being a bijection.
+    \newline
+    (2) $D_{\underline{r}}$ with each $r_i$ being left invertible.
+    \newline
+    (3) $S_{i,c}$ with $i\in \{1,\dots,n\},c=\left(c_1,\dots,c_n\right)\in K^n,c_i=0$.
+    \newline
+    Let $p\in\NN$. We say that $A\in M_{n,p}(K)$ is \textbf{reducible by Gaussian elimination} if there exists $S\in G_n(K)$ such that $SA$ is of reduced row echelon form.
+\end{definitionenv}
+\begin{lemmaenv}
+    If $A\in M_{n,p}(K)$ is such that $SA$ is reducible by Gaussian elimination, for some $S\in G_n(K)$, then $A$ is also reducible by Gaussian elimination.
+\end{lemmaenv}
+\begin{theoremenv}
+    Suppose that $K$ is a division ring. For any $(n,p)\in\NN^2$, any matrix $A\in M_{n,p}(K)$ is reducible
+    by Gaussian elimination.
+\end{theoremenv}
+\begin{proofenv}
+    We reason by induction on $p$.
+    \newline
+    $p=0$. $A$ is already of reduced row echelon form.
+    \newline
+    Suppose that the statement is true for matrices of at most $p-1$ columns. ($p\ge 1$) We write $A$ as $\begin{pmatrix}
+ \begin{matrix}
+ \lambda _1\\
+ \vdots\\
+\lambda _n
+\end{matrix} &B&
+\end{pmatrix}$ where $B\in M_{n,p-1}(K)$. If $\lambda_1=\dots=\lambda_n=0$. By induction hypothesis, there exists $S\in G_n(K)$ such that $SB$ is of reduced row echelon form.
+$$SA= \begin{pmatrix}\begin{matrix}
+0\\
+ \vdots\\
+0
+\end{matrix} &SB&
+\end{pmatrix}$$
+ is of reduced row echelon form. If $(\lambda_1,\dots,\lambda_n)\not=(0,\dots,0)$, by the lemma, we may suppose that $\lambda_1\not=0$ (By permuting rows). By multiplying $A$ by $\mathrm{diag}(\lambda_1^{-1},1,\dots,1)$ we may assume (by the lemma) that $\lambda_1=1$. So 
+ $$A= \begin{pmatrix}\begin{matrix}
+ 1\\
+\lambda _2\\
+ \vdots\\
+\lambda _n
+\end{matrix} &&B&&
+\end{pmatrix}.$$
+By multiplying $S_{1,(0,-\lambda_2,\dots,-\lambda_n)}$ and $A$, we may assume (by the lemma) that $A$ is of the form 
+$$\begin{pmatrix}
+ 1 &\begin{matrix}
+  \mu_2& \dots &\mu_n
+\end{matrix} \\
+ \begin{matrix}
+ 0\\
+ \vdots\\
+0
+\end{matrix} &C
+\end{pmatrix}.$$
+Applying the induction hypothesis to $C$.
+(For any $T\in G_{n-1}(K), T:K^{n-1}\rightarrow K^{n-1}, S:K^n\rightarrow K^n$, $S(t_1,\dots,t_n)=(t_1,T(t_2,\dots,t_n))$ belongs to $G_n(K).$)
+We write $C$ as $\begin{pmatrix}
+    c_2\\
+    \vdots\\
+    c_n
+\end{pmatrix}$
+where $c_2,\dots,c_k$ belong to $k^{p-1}\backslash\{(0,\dots,0)\},c_{k+1}=\dots=c_n=(0,\dots,0),j(c_2)<\dots<j(c_k)$. For any $i\in \{2,\dots,k\}$, we multiply $-\mu_{j(c_i)}$ times the $i^{\text{th}}$ row of $A$ to the first row. The result is a matrix of reduced row echelon form.
+\end{proofenv}
+
+
+\section{Quotient Modules}
+\textit{Let $K$ be a unitary ring.}
+\begin{propositionenv}
+    Let $E$ be a left K-module, $F$ be a left sub-K-module of $E$. The mapping
+    $$K\times E/ F\longrightarrow E/ F,$$
+    $$(a,[x])\longmapsto [ax]$$
+    (Resp. right,$[xa]$) is well defined, and determines a structure of left $K$-module on $E/ F$. Moreover, the projection mapping
+    $$\pi:E\longrightarrow E/ F$$
+    $$x\longmapsto [x]$$
+    is a homomorphism.
+\end{propositionenv}
+\begin{proofenv}
+    Recall that $F$ is a subgroup of $(E,+)$ such that 
+    $$\forall a\in K, \forall y\in F, ay\in F,$$
+    $$[x]=\{y\in E\mid y-x\in F\}.$$
+    If $[x]=[y]$, then $y-x\in F$, so $ay-ax=a(y-x)\in F$, which means $[ay]=[ax]$.
+    \newline
+    (1) $[1x]=[x]$.
+    \newline
+    (2) $(ab)[x]=[(ab)x]=[a(bx)]=a[bx]=a(b[x])$.
+    \newline
+    (3) $$(a+b)[x]=[(a+b)x]=[ax+bx]=[ax]+[bx]=a[x]+b[x].$$
+    $$a[x+y]=[a(x+y)]=[ax+ay]=[ax]+[ay]=a[x]+a[y].$$
+    Finally,
+    $$\pi(x+ay)=[x+ay]=[x]+[ay]=[x]+a[y]=\pi(x)+a\pi(y).$$
+\end{proofenv}
+\begin{theoremenv}
+    Let $f:V\rightarrow W$ be a homomorphism of left $K$-modules.
+    \newline
+    (1) $\mathrm{Im}(f)$ is a sub-$K$-module of $W$.
+    \newline
+    (2) $\ker(f)$ is a sub-$K$-module of $V$.
+    \newline
+    (3) $\tilde{f}:V/\ker(f)\longrightarrow W,[x]\longmapsto f(x)$ is a homomorphism of left $K$-modules. Moreover, as a mapping, $\tilde{f}$ is injective and has $\mathrm{Im}(f)$ as its range. Hence it defines an isomorphism between $V/\ker(f)$ and $\mathrm{Im}(f)$.
+\end{theoremenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) We have proved that $\mathrm{Im}(f)$ is a subgroup of $W$. If $y=f(x)\in \mathrm{Im}(f), \forall a\in K, ay=af(x)=f(ax)\in \mathrm{Im}(f)$. So $\mathrm{Im}(f)$ is a left sub-$K$-module of $W$.
+    \newline
+    (2) We have proved that $\ker(f)$ is a subgroup of $V$. If $x\in \ker(f), \forall a\in K, f(ax)=af(x)=a0=0$. So $\ker(f)$ is a left sub-$K$-module of $V$.
+    \newline
+    (3) We have proved that $\tilde{f}$ is an injective homomorphism of groups, with $\mathrm{Im}(\tilde{f})=\mathrm{Im}(f)$. So $\tilde{f}$ defines an isomorphism of group $V/\ker(f)\longrightarrow \mathrm{Im}(f)$. Moreover, $\tilde{f}(a[x])=\tilde{f}([ax])=f(ax)=af(x)=a\tilde{f}([x])$. So $\tilde{f}$ is a homomorphism of left $K$-modules.
+\end{proofenv}
+
+
+\section{Quotient Ring}
+\begin{propositionenv}
+    Let $A$ be a unitary ring. Let $\sim$ be an equivalence relation on $A$ that is compatible with the addition and with the multiplication. Then $A/\sim$ equipped with the quotient composition law of $+$ and $\cdot$ forms a unitary ring, and the projection mapping $\pi:A\longrightarrow A/\sim$ is a homomorphism of unitary ring.
+\end{propositionenv}
+\begin{proofenv}
+    We have seen that $(A/\sim,+)$ forms an abelian group and $(A,\cdot)$ forms a monoid, and $\pi:A\longrightarrow A/\sim$ is a homomorphism of additive groups and multiplicative monoids. It remains to check the distributivity.
+    $$[a]([b]+[c])=[a][b+c]=[a(b+c)]=[ab+ac]=[ab]+[ac]=[a][b]+[a][c].$$
+    $$([b]+[c])[a]=[(b+c)a]=[ba+ca]=[b][a]+[c][a].$$
+\end{proofenv}
+\begin{definitionenv}
+    $A/\sim$ is called the \textbf{quotient ring of $A$ }.
+\end{definitionenv}
+\begin{remark}
+    There exists a subgroup $I$ of $A$ such that 
+    $$a\sim b\Leftrightarrow b-a\in I.$$
+    $\forall x\in I,[x]=0$, so  for any $ a\in A$,
+    $$[ax]=[a][x]=0,\ [xa]=[x][a]=0.$$
+    So $I$ is a left sub-$A$-module of $A$ and a right sub-$A$-module of $A$.
+\end{remark}
+\begin{definitionenv}
+    Let $A$ be a unitary ring. If a subset $I$ of $A$ is a left sub-$A$-module of $A$ and a right sub-$A$-module of $A$, then we call $I$ a \textbf{ideal} of $A$. If $I$ is an ideal of $A$, then the composition laws of $A$ define by passing to quotient a structure of unitary ring on the quotient mapping $A/I$. So that $A/I$ becomes a quotient ring of $A$.
+\end{definitionenv}
+\begin{theoremenv}
+    Let $f:A\rightarrow B$ be a homomorphism of unitary rings. Let $I=\ker(f)$.
+    \newline
+    (1) $I$ is an ideal of $A$.
+    \newline
+    (2) $f(A)$ is a unitary subring of $B$.
+    \newline
+    (3) $f$ induces $\tilde{f}:A/I\longrightarrow f(A)$ an isomorphism of unitary rings.
+\end{theoremenv}
+\begin{proofenv}
+    \quad \newline
+    (1) $$\forall a\in A,\forall x\in I, f(ax)=f(a)f(x)=f(a)0=0=0f(a)=f(x)f(a)=f(xa).$$
+    So $\{ax,xa\}\subseteq I$. Since $I$ is a subgroup of $A$, it is actually an ideal.
+    \newline
+    (2) Since $f$ is a homomorphism of groups $(A,+)\longrightarrow(B,+)$ and a homomorphism of monoids $(A,\cdot)\longrightarrow(B,\cdot)$, $f(A)$ is a subgroup of $(B,+)$ and a submonoid of $(B,\cdot)$.
+    \newline
+    (3) $\tilde{f}$ is a homomorphism of unitary rings. $\tilde{f}([x]):=f(x)$. In the same time $\tilde{f}:A/I\longrightarrow f(A)$ is a bijection. So it is a homomorphism of rings.
+\end{proofenv}
+\begin{exampleenv}
+    Consider $\ZZ$. Let $I$ be an ideal of $\ZZ$. If $I\not=\{0\}$, then $I\cap\NN_{\ge1}\not=\varnothing$. Let $d\in I\cap\NN_{\ge1}$ be the least element. For any $n\in I$, we can write $n$ as 
+    $$n=dm+r,\text{ where }m\in\ZZ,r\in \{0,\dots,d-1\}.$$
+    So $r=n-dm\in I$, which means $r=0$. Therefore, $I=d\ZZ$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ be a communitative unitary ring. If an ideal of $A$ is of the form 
+    $$Ax:\{ax\mid a\in A\}\text{ with }x\in A.$$
+    We say that it is a \textbf{principal ideal}. If all ideals of $A$ are principal, we say that $A$ is a \textbf{principal ideal ring}. 
+\end{definitionenv}
+\begin{exampleenv}
+    $\ZZ$ is a principal ideal ring.
+\end{exampleenv}
+\begin{remark}
+    If $A$ is a unitary ring, $\ZZ\longrightarrow A,\ n\longmapsto n1_A$ is the unique homomorphism of unitary rings. $\ker\left(\ZZ\longrightarrow A\right)$ is an ideal of $\ZZ$. It is of the form $d\ZZ,d\in \NN$. This natural number $d$ is called the \textbf{characteristic} of $A$, denoted as $\mathrm{char}(A)$.
+\end{remark}
+\begin{definitionenv}
+    Let $A$ be a communitative unitary ring. Let $a\in A$. If $\exists b\in A\backslash\{0\}$ such that $ab=0$, we say that $a$ is a zero divisor. If $0\in A$ is the ONLY zero divisor, we say that $A$ is an \textbf{(integral) domain}.
+\end{definitionenv}
+\begin{box2}
+    $A$ is an integral domain if and only if $0\not=1$, and $\forall(a,b)\in \left(A\backslash\{0\}\right)^2,\ ab\not=0$.
+\end{box2}
+\begin{exampleenv}
+    \quad \newline
+    $\ZZ$ is an integral domain.
+    \newline
+     All field are integral domains.
+     \newline
+      $\ZZ/6\ZZ$ is NOT a integral domain.$[2][3]=[6]=[0].$
+\end{exampleenv}
+\begin{propositionenv}
+    All unitary subrings of an integral domain are integral domains.
+\end{propositionenv}
+\begin{propositionenv}
+    Let $A$ be a unitary ring. $E$ be a left A-module and $I$ be an ideal of $A$. Suppose that 
+    $$\forall (a,x)\in I\times E,\ ax=0.\ (I\text{ annihilates }E)$$
+    Then the mapping
+    $$\left(A/I\right)\times E\longrightarrow E,$$
+    $$\left([a],x\right)\longmapsto ax$$
+    is well defined and defines a left $A$-module structure on $E$.
+\end{propositionenv}
+\begin{proofenv}
+    If $[a]=[b]$, then $b-a\in I$. So $\forall x\in E, (b-a)x=bx=ax=0$. Hence $ax=bx$. $\forall (a,b)\in A\times A,\forall (x,y)\in E\times E$:
+    \newline
+    (1) $[1]x=1x=x.$ $\left([a][b]\right)x=[ab]x=(ab)x=a(bx)=[a](bx)=[a]([b]x)$.
+    \newline
+    (2) $\left([a]+[b]\right)x=[a+b]x=(a+b)x=ax+bx=[a]x+[b]x.$ $[a](x+y)=a(x+y)=ax+ay=[a]x+[a]y$.
+\end{proofenv}
+
+
+
+\section{Free Modules}
+\textit{We fix a unitary ring $K$.}
+\begin{definitionenv}
+    Let $V$ be a left K-module. For any family $\underline{x}:=\left(x_i\right)_{i\in I}\in V^I$, we denote by 
+    $$\varphi_{\underline{x}}:K^{\oplus I}\longrightarrow V$$
+    the homomorphism sending $(a_i)_{i\in I}$ to $\sum_{i\in I}a_ix_i.$
+    \newline
+    (1) $\mathrm{Im}\left(\varphi_{\underline{x}}\right)$ is a left $K$-submodule of $V$, called the \textbf{left sub-K-module generated by }$\underline{x}$, denote as $\mathrm{Span}_{K}\left((x_i)_{i\in I}\right)$. If $\varphi_{x}$ is surjective, we say that $(x_i)_{i\in I}$ is a system of generators of $V$.
+    ($\forall y\in V,\exists (a_i)_{i\in I}\in K^{\oplus I}, y=\sum_{i\in I}a_ix_i$) Elements of $\mathrm{Span}_K\left((x_i)_{i\in I}\right)$ are called \textbf{K-linear combinations} of $(x_i)_{i\in I}$.
+    \newline
+    (2) If $\varphi_{\underline{x}}$ is injective, we say that $(x_i)_{i\in I}$ is \textbf{K-linearly independent}. ($\forall (a_i)_{i\in I}\in K^{\oplus I},\sum_{i\in I}a_ix_i=0\rightarrow a_i=0,\forall i\in I$)
+    \newline
+    (3) If $\varphi_{\underline{x}}$ is an isomorphism, we say $(x_i)_{i\in I}$ is a \textbf{basis} of $V$. If $V$ has at least a basis, we say that $V$ is a \textbf{free left K-module}. If $V$ has a system of generators $(x_i)_{i\in I}$ such that $I$ is finite, we say that $V$ is \textbf{finitely generated}, or is \textbf{finite types}.
+\end{definitionenv}
+\begin{exampleenv}
+    $K^{\oplus I}$ is a free left $K$-module.
+\end{exampleenv}
+\begin{remark}
+    Any left $K$-module is isomorphic to a free quotient module of a free left $K$-module.
+\end{remark}
+\begin{theoremenv}\label{6.10.4}
+    Let $K$ be a division ring and $V$ be a left $K$-module of finite type. Let $(x_i)_{i=1}^n$ be a system of generators of $V$. There exists $I\subseteq\{1,\dots,n\}$ such that $(x_i)_{i\in I}$ forms a basis of $V$.
+\end{theoremenv}
+\begin{proofenv}
+    By induction on $n$.
+    \newline
+    Case $n=0$, $V=\{0\}. (x_i)_{i\not\in \varnothing}$ is a basis of $V$. Suppose that $n\geq1$. If $(x_i)_{i=1}^n$  is K-linearly independent, it is already a basis. Otherwise there exists $0\not=(b_1,\dots,b_n)\in K^n$ such  that $b_1x_1+\dots+b_nx_n=0.$ By permuting $x_1,\dots,x_n$, we may assume that $b_n\not=0$. $x_n=-b_n^{-1}(b_1x_1+\dots+b_{n-1}x_{n-1})$. For any $y\in V$, there exists $(a_1,\dots,a_n)\in K^n$, such that 
+    $$y=\sum_{i=1}^{n}a_ix_i=\sum_{i=1}^{n-1}a_ix_i-a_nb_n^{-1}\left(b_1x_1+\dots+b_{n-1}x_{n-1}\right).$$
+\end{proofenv}
+\begin{theoremenv}\label{6.10.5}
+    Let $K$ be a unitary ring. $V$ be a left $K$-module  and $W$ bw a left sub-$K$-module of $V$. Let $(x_i)_{i=1}^{n}\in W^n$ and $\left(\alpha_j\right)_{j=1}^l\in \left(V/W\right)^l$, with $(n,l)\in \NN^2$. For any $j\in \{1,\dots,l\}$. Let $x_{n+j}$ be an element of the equivalence class of $\alpha_j$. ($[x_{n+j}]=\alpha_j$)
+    \newline
+    (1) If $(x_i)_{i=1}^n$ and $(\alpha_j)_{j=1}^l$ are K-linearly independent, then $(x_i)_{i=1}^{n+l}$ is K-linearly independent.
+    \newline
+    (2) If $(x_i)_{i=1}^{n}$ and $(\alpha_j)_{j=1}^l$ are system of generators, then $(x_i)_{i=1}^{n+l}$ is a system of generators. 
+\end{theoremenv}
+\begin{proofenv}
+    \quad\newline
+    (1) Let $(a_i)_{i=1}^l\in K^{n+l}$ such that 
+    $$\sum_{i=1}^{n+l}a_ix_i=0.$$
+    Taking the equivalence class of both sides in $V/W$, we get $\displaystyle \sum_{j=1}^{l}a_{n+j}\alpha_j=[0]$. So $a_{n+1}=\dots=a_{n+l}=0$. Hence $a_1x_1+\dots+a_nx_n=0$. So $a_1=\dots=a_n=0$.
+    \newline
+    (2)Let $y\in V$. There exists $(c_{n+1},\dots,c_{n+l})\in K^l$, such that 
+    $$[y]=c_{n+1}\alpha_1+\dots +c_{n+l}\alpha_l=[c_{n+1}x_{n+1}+\dots+c_{n+l}x_{n+l}].$$
+    So, $y-\left(c_{n+1}x_{n+1}+\dots+c_{n+l}x_{n+l}\right)\in W$. Hence, there exists $(c_1,\dots,c_n)\in K^n$,
+    $$y-\left(c_{n+1}x_{n+1}+\dots+c_{n+l}x_{n+l}\right)=c_1x_1+\dots+c_nx_n.$$
+    So $\displaystyle y= \sum_{i=1}^{n+l}c_ix_i$.
+\end{proofenv}
+
+
+\begin{propositionenv}
+\quad 
+\newline
+(1) If $A$ is injective and $(x_i)_{i\in I}$ is a $K$-linearly independent, then $(y_j)_{j\in I}$ is  $K$-linearly independent.
+\newline
+(2) If $A$ is surjective, then $(x_i)_{i\in I},(y_j)_{j\in J}$ generate the same left sub-$K$-module of $V$.
+$$\mathrm{Im}(\varphi_y)=\mathrm{Im}(\varphi_{\underline{x}}\circ A)=\mathrm{Im}(\varphi_{\underline{x}}).$$
+In particular, if $f(x_i)_{i\in I}$ is a system of generators, and $A$ is surjective, then $(y_j)_{j\in J}$ is a system of generators.
+\newline
+(3) If $(x_i)_{i\in I}$ is a basis and $A$ is a bijection, then $(y_j)_{j\in J}$ is a basis.
+\end{propositionenv}
+\begin{box2}
+\textbf{Application} \quad Let $n\in \NN,\ (x_1,\dots,x_n)\in V^n$. Let $(y_1,\dots,y_n)\in V^n$ such that 
+$$\begin{pmatrix}
+y_1\\
+\vdots\\
+y_n
+\end{pmatrix}=S\begin{pmatrix}
+x_1\\
+\vdots\\
+x_n
+\end{pmatrix}\ \text{with } S \text{ invertible.} $$ 
+$(x_i)_{i\in I}^n$ is K-linearly independent if and only if $(y_j)_{j\in J}^n$ is K-linearly independent. 
+\newline
+$(x_i)_{i\in I}^n$ is a system of generators if and only if $(y_j)_{j\in J}^n$ is a system of generators.
+\newline
+$(x_i)_{i\in I}^n$ is a basis if and only if $(y_j)_{j\in J}^n$ is a basis.  
+\end{box2}
+\begin{theoremenv}
+    Let $(n,p)\in \NN^2$ and $A\in M_{n,p}(K)$. We write $A$ into the form 
+    $$A=\begin{pmatrix}
+    \underline{a}^{(1)}\\
+    \dots\\
+    \underline{a}^{(n)}
+    \end{pmatrix}\ \text{where } \underline{a}^{(i)}=(a_{i,1},\dots,a_{i,p})\in K^p.$$
+Assume that $A$ is of reduced row echelon form. 
+\newline
+(1) $\left(\underline{a}^{(i)}\right)^n_{i=1}$ is $K$-linearly independent if and only if $\forall i\in \{1,\dots,n\},a^{(i)}\not=(0,\dots,0)$.
+\newline
+(2) $\left(\underline{a}^{(i)}\right)^n_{i=1}$ is a system of generators if and only if there are exactly $p$ non-zero elements among $\underline{a}^{(1)},\dots,\underline{a}^{(n)}$.
+
+\end{theoremenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) It suffice to check, if $\forall i\in \{1,2,\dots,n\},\underline{a}^{(i)}\not=(0,\dots,0)$, then $\left(\underline{a}^{(i)}\right)_{i=1}^n$ is $K$-linearly independent.
+    Since $A$ is of reduced row echelon form 
+    $$1\le j(\underline{a}^{(1)})<j(\underline{a}^{(2)})<\dots<j(\underline{a}^{(n)})\le p.$$
+    Suppose that $(\lambda_1,\dots,\lambda_n)\in K^n$ such that 
+    $$\lambda_1 \underline{a}^{(1)}+\dots+\lambda_n\underline{a}^{(n)}=(0,\dots,0).$$
+    Note that the coordinate of index $j(\underline{a}^{(i)})$ of $\lambda_1 \underline{a}^{(1)}+\dots+\lambda_n\underline{a}^{(n)}$ is $\lambda_i$, so $$\lambda_1=\dots=\lambda_n=0.$$
+    (2) ``$\Leftarrow$'': Suppose that $\underline{a}^{(i)}\not=(0,\dots,0)$ for $i\in \{1,\dots,p\}$. Since $1\le j(\underline{a}^{(1)})<\dots< j(\underline{a}^{(p)})\le p$, one has $j(\underline{a}^{(i)})=i, \forall i\in \{1,\dots,p\}$. Hence $$\lambda_1\underline{a}^{(1)}+\dots+\lambda_p\underline{a}^{(p)}=(\lambda_1,\dots,\lambda_p).$$
+    ``$\Rightarrow$'': suppose that $(a_i)_{i=1}^n$ is a system of generators. There could not be more than $p$ non-zero elements among $\underline{a}^{(1)},\dots,\underline{a}^{(n)}$. If $\underline{a}^{(1)},\dots,\underline{a}^{(k)}$ are non-zero and 
+    $$\underline{a}^{(k+1)}=\dots=\underline{a}^{(n)}=0,$$
+    let $(b_1,\dots,b_p)\in K^p\backslash\{(0,\dots,0)\}$, $\forall i\in \{1,\dots,k\}, b_{j(\underline{a}^{(1)})}=0$. If $(b_1,\dots,b_p)$ is a linear combination of $\underline{a}^{(1)},\dots,\underline{a}^{(n)}$, there exists $(\lambda_1,\dots,\lambda_k)$ such that 
+    $$\lambda_1\underline{a}^{(1)}+\dots+\lambda_k\underline{a}^{(k)}=(b_1,\dots,b_p).$$
+    So $\lambda_1=\dots=\lambda_k=0$.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $K$ be a division ring and $V$ is a left $K$-module of finite type. We denote by $\mathrm{rk}_K(V)$ or $\mathrm{rk}(V)$ the least cardinality of the bases $V$, called the \textbf{rank} of $V$. If $K$ is a field, then $\mathrm{rk}(V)$ is also denoted as $\dim(V)$, called the \textbf{dimension} of $V$. If $f:W\longrightarrow V$ is a homomorphism of left $K$-modules, the rank of $f$ is defined as the rank of $\mathrm{Im}(f)$, denoted as $\mathrm{rk}(f)$.
+\end{definitionenv}
+
+
+
+
+
+
+
+\begin{theoremenv}[rank-nullity theorem]
+    Let $K$ be a division ring and $V$ be a left $K$-module of finite type, and $W$ be a left sub-$K$-module of $V$. 
+    \newline
+    (1) $W$ and $V/W$ are of finite type, and $\mathrm{rk}(W)+\mathrm{rk}(V/W)=\mathrm{rk}(V)$.
+    \newline
+    (2) Any basis of $V$ has $\mathrm{rk}(V)$ as its cardinality.
+\end{theoremenv}
+\begin{proofenv}
+    \quad\newline
+    (1) Let $\left(x_i\right)_{i=1}^n$ be a basis of $V$. Then $\left([x_i]\right)_{i=1}^n$ also form a system opf generators of $V/W$. By theorem \ref{6.10.4}, one can extract a subset $I\subseteq\{1,2\dots,n\}$ such that $\left([x_i]_{i\in I}\right)$ forms a basis of $V/W$. By permuting the elements $x_1,x_2,\dots, x_n$, we may assume, without loss of generality, that $I=\{1,2,\dots,l\},\ l\le n$. For any $j\in\{l+1,\dots, n\}$ there exists $(b_{j,1},\dots,b_{j,l})$ such that 
+     $$[x_j]=\sum_{i=1}^{l}b_{j,i}[x_{i}].$$
+     $$y_j:=x_j-\sum_{i=1}^{l}b_{j,i}x_i.$$
+     For any $x\in W$, there exists $\left(a_i\right)_{i=1}^n\in K^n$ such that 
+     $$x=\sum_{i=1}^{l}a_ix_i+\sum_{j=l+1}^{n}a_j\left(y_j+\sum_{i=1}^{l}b_{j,i}x_i\right)=\sum_{i=1}^{l}\left(a_i+\sum_{j=l+1}^{n}a_jb_{j,i}\right)x_i+\sum_{j=l+1}^{n}a_jy_j.$$
+     Taking the equivalence class of $x\in V/W$ (i.e.$[0]$) we obtain. 
+     $$\forall i\in \{1,\dots,l\},\ a_i+\sum_{j=l+1}^{n}a_jb_{i,j}=0.$$
+     Hence, 
+     $$x=\sum_{j=l+1}^{n}a_jy_j.$$
+     Therefore, $W$ is of finite type, and $\mathrm{rk}(W)+\mathrm{rk}(V/W)\le \mathrm{rk}(V)$. Moreover, by theorem \ref{6.10.5},
+     $$\mathrm{rk}(V)\le\mathrm{rk}(W)+\mathrm{rk}(V/W).$$
+     Hence, $$\mathrm{rk}(W)+\mathrm{rk}(V/W)=\mathrm{rk}(V).$$
+     (2) We reason by induction on $\mathrm{rk}(V)$. If $\mathrm{rk}(V)=0$, then $\{\varnothing\}$ is the only basis. If $\mathrm{rk}(V)=1$, then $V$ is of the form $Ke$, where $e$ is a non-zero element of $V$. Suppose $\mathrm{rk}(V)=n\ge 1$, and the statement has been proven for modules of $\mathrm{rk}<n$. Let $\left(e_i\right)_{i=1}^m$ be a basis of $V$. Let $W=K\cdot e_1$. Then, $\left([e_i]\right)_{i=2}^m$ forms a system of generators of $V/W$. Moreover, $\left(a_i\right)_{i=2}^m\in K^{m-1}$ such that 
+     $$\sum_{i=2}^{m}a_i[e_i]=0,$$
+     then,
+     $$\sum_{i=2}^{m}a_ie_i\in W,$$
+     and hence, there exists $a_1\in K$,
+     $$\sum_{i=1}^{m}a_ie_i=0.$$
+     We conduct that, in particular
+     $$a_2=\dots=a_n=0.$$
+     Hence $\left([e_i]\right)_{i=2}^m$ is a basis of $V/W$, $\mathrm{rk}(V/W)=n-1$, so $n-1=m-1\Leftrightarrow n=m.$
+\end{proofenv}
+
+\section{Algebra}
+\textit{In this section, we fix a communicative unitary ring $K$.}
+\begin{definitionenv}
+    Let $K$ be a communicative unitary ring. If $A$ is a $K$-module equipped with a  composition law 
+        $$A\times A\longrightarrow A,$$
+    $$(a,b)\longmapsto a b.$$
+    such that $(A,+,\cdot)$ forms a unitary ring, such that
+     $$\forall \lambda\in K,\forall (a,b)\in A\times A, \ \lambda\left(ab\right)=\left(\lambda a\right)b=a\left(\lambda b\right).$$
+     Then we say that $A$ is a \textbf{K-Algebra}.
+\end{definitionenv}
+\begin{remark}
+    $$K\longrightarrow A,$$
+    $$\lambda\longmapsto \lambda 1_A.$$
+    is a homomorphism of unitary rings.
+    \newline
+    (1) $(\lambda+\mu)1_A=\lambda1_A+\mu1_A$.
+    \newline
+    (2) $\left(\lambda1_A\right)\left(\mu 1_A\right)=\lambda\left(1_A(\mu1_A)\right)=\lambda\left(\mu(1_A1_A)\right)=\lambda(\mu1_A)=(\lambda\mu)1_A$.
+    \newline
+    (3) $1_K1_A=1_A$.
+\end{remark}
+\begin{remark}
+    Suppose that $A$ is a unitary ring and $f:K\longrightarrow A$ be a homomorphism of unitary rings such that  $\forall \lambda \in K,\ \forall a\in A \ af(\lambda)=f(\lambda)a.$ Then 
+    $$K\times A\longrightarrow A,$$
+    $$(\lambda,a)\longmapsto f(\lambda) a$$
+    defines a structure of $K$-modules on $A$.
+    $$f(\lambda\mu)a=f(\lambda)f(\mu)a=f(\lambda)\left(f(\mu)a\right),$$
+    $$f(1_K)a=1_Aa=a,$$
+    $$f(\lambda+\mu)a=\left(f(\lambda)+f(\mu)\right)a=f(\lambda )a+f(\mu)a,$$
+    $$f(\lambda)(a+b)=f(\lambda)a+f(\lambda)b.$$
+    Moreover, $$f(\lambda)(ab)=\left(f(\lambda)a\right)b=a\left(f(\lambda)b\right).$$
+    Therefore,$A$ equipped with a structure of K-algebra.
+\end{remark}
+\begin{exampleenv}
+    (1) \{0\},\quad (2) $K$.
+\end{exampleenv}
+\begin{exampleenv}
+    Let $(S,\cdot)$ be a monoid. We denote by $k [\![S]\!]$ the $K$-module $K^S$. If $\left(a_s\right)_{s\in S}$ belongs to $K^S$, while coordinating $(a_s)_{s\in S}$ as an element of $K[\![S]\!]$, we write it formally as 
+    $$\sum_{s\in S}a_s s.$$
+    Assume that, for any $s\in S$, the preimage of $s$ by the mapping
+    $$S\times S\longrightarrow S,$$
+    $$(\alpha, \beta)\longmapsto \alpha\beta$$
+    is finite.
+    $$\text{(}\{\left(\alpha,\beta\right)\in S\times S\mid \alpha\beta=s\} \text{ is finite.}\text{)}$$
+    For example, 
+    $$\NN\times \NN\longrightarrow \NN,$$
+    $$\left(m,n\right)\longmapsto m+n.$$
+    $$\forall k\in \NN,\{(m,n)\in \NN\times \NN\mid m+n=k \} \text{ is finite.}$$
+    We define a composition law on $K[\![S]\!]$ by
+    $$K[\![S]\!]\times K[\![S]\!]\longrightarrow K[\![S]\!]$$
+    $$\left(\sum_{s\in S}a_ss,\sum_{s\in S}b_ss\right)\longmapsto \sum_{s\in S}\left(\sum_{(u,v)\in S^2,uv=s}a_ub_v\right)s.$$
+    We write $(\NN,+)$ formally as 
+    $$\left(\left\{T^n\mid n\in \NN\right\},\cdot\right)$$
+    such that  $T^n\cdot T^m:=T^{n+m}$. In this particular case, we write $K [\![N]\!]$ as $k[\![T]\!]$. The element of $K[\![T]\!]$ is of the form
+    $$\sum_{n\in \NN}a_nT^n.$$
+    It is called a \textbf{formal power series ( of variable T ) with coefficients in K}.
+
+\end{exampleenv}
+\begin{propositionenv}
+    $K[\![S]\!]$ is a $K$-algebra.
+\end{propositionenv}
+\begin{proofenv}
+    \begin{align*}
+       & \sum_{s\in S} a_s s \left( \left( \sum_{s\in S} b_s s \right) \left( \sum_{s\in S} c_s s \right) \right)\\
+        =&\left(\sum_{s\in S} a_s s \right)\left( \sum_{s\in S} \left(\sum_{vw=s}b_vc_w\right) s \right)\\
+        = &\sum_{s\in S} \left( \sum_{uvw=s} a_u b_v c_w \right)s\\
+        =& \left( \sum_{s\in S} a_s s \right)\left( \sum_{s\in S} b_s s \right) \left( \sum_{s\in S} c_s s \right) 
+    \end{align*}
+
+
+\end{proofenv}
+\begin{definitionenv}
+    Let $A$ be a K-algebra. If $B$ is a subset of $A$ which is a sub-K-module and a unitary subring of $A$, we say that $B$ is a \textbf{sub-K-algebra} of $A$.
+\end{definitionenv}
+\begin{exampleenv}
+    Let $S$ be a monoid. We write $K^{\oplus S}$ as $k[S]$ and define 
+    $$K[S]\times K[S]\longrightarrow K[S],$$
+    $$\left(\left(\sum_{s\in S}a_s s\right),\left(\sum_{s\in S}b_s s\right)\right)\longmapsto \sum_{s\in S}\left(\sum_{uv=s}a_ub_v\right)s.$$
+    Then $K[S]$ forms a $K$-algebra. If $K[\![S]\!]$ is well defined, then $K[S]$ ia a sub-$K$-algebra of $K[\![S]\!]$.
+\end{exampleenv}
+
+
+

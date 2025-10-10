@@ -1,0 +1,241 @@
+\chapter{Basic Logic}
+\section{Statement}
+\begin{definitionenv}
+    We call statement a declarative sentence that is either true or false,  but not both(it can be potential).    
+\end{definitionenv}
+\begin{exampleenv}
+    ``$2>1$"(True)\quad ``$1<0$"(False)
+    \newline
+If we specify the value of x , then ``$x>2$"becomes a statement,  otherwise it is not a statement.
+\end{exampleenv}
+\begin{definitionenv}
+    In a mathematical theory, 
+    \newline 
+    axiom refer to statements that accepted to be true without justification.
+    \newline
+    theorem refer to statements that are proved by assuming axioms.
+    \newline
+    proposition refer to the statements that are either easy or not used many times.
+    \newline
+    corollary refer to direct consequence of a theorem.
+\end{definitionenv}
+
+
+
+
+\section{Negation}
+\begin{definitionenv}
+    Let $p$ be a statement,  then the negation of $p$ is denoted by $\neg p$,  which is a statement that is true if and only if $p$ is false.
+    In other words,  $p$ and $\neg p$ has opposite truth values.
+\end{definitionenv}
+\begin{propositionenv}
+For any statement $p$,  $\neg \neg p$and $p$ have the same value.
+\end{propositionenv}
+
+
+
+
+
+\section{Conjunction and Disjunction}
+\begin{definitionenv}
+    Let $p$ and $q$ be statements, 
+    \newline
+    We denote by $p\wedge q $ the statement ``$p$ and $q$".
+    \newline
+    We denote by $p\vee q $ the statement ``$p$ or $q$".
+    
+\end{definitionenv}
+
+
+    
+
+\begin{table}
+\begin{center}
+\begin{tabular}{c|c|c|c}
+    p & q & $p\wedge q$ & $p\vee q$ \\
+    \hline
+    T & T & T & T \\
+    T & F & F & T \\
+    F & T & F & T \\
+    F & F & F & F \\    
+
+\end{tabular}
+\caption{Truth table for conjunction and disjunction} 
+\end{center}
+\end{table}
+
+\begin{propositionenv}
+    Let $P$and $Q$ be statements $(\neg P)\vee (\neg Q) \text{ and } \neg(P\wedge Q)$ have the same truth value.
+\end{propositionenv}
+
+
+\section{Conditional statements}
+\begin{definitionenv}
+    Let $P$ and $Q$ be statements, we denote by $P\Rightarrow Q$ the statement(if P then Q).
+\end{definitionenv}
+\begin{remark}
+    It has the same truth value as that of $(\neg P\vee Q)$, only when $P$ is true and $Q$ is false,  otherwise it's true .
+    \newline
+    If one can prove Q is assuming that $P$ is true,  then $P\Rightarrow Q$ is true .
+\end{remark}
+\begin{propositionenv}
+    Let $P$ and $Q$ be statements. If $P$ and $P\Rightarrow Q$ are true,  then $Q$ is also true.
+\end{propositionenv}
+\begin{propositionenv}
+    Let $P, Q, R$ be statements. If $P \Rightarrow Q$ and $Q\Rightarrow R$ are true,  then $P\Rightarrow R$ is also true.
+\end{propositionenv}
+\begin{theoremenv}
+    Let $P$and $Q$ be statements. $P\Rightarrow Q$ and $(\neg Q)\Rightarrow (\neg P)$ have the same truth value.
+\end{theoremenv}
+\begin{box2}
+    $(\neg Q)\Rightarrow (\neg P)$ is called the contraposition of $P\Rightarrow Q$,  if we prove $(\neg Q)\Rightarrow (\neg P)$,  then $P\Rightarrow Q$ is also true.
+\end{box2}
+
+\begin{exampleenv}
+    Prove that , let $n$ be an integer,  if $n^2$ is even,  then $n$ is even.
+\end{exampleenv}    
+    \begin{proofenv}
+        Since $n$is an integer,  there exists$k\in \ZZ$ such that $n=2k+1$. Hence $n^2=4k^2+4k+1$ is not even.
+    \end{proofenv}
+
+
+
+
+\section{Biconditional statement}
+\begin{definitionenv}
+    Let $P$and $Q$ be statements. We denote by $P\Leftrightarrow Q$ the statement
+    \begin{center}
+        ``$P$ if and only if $Q$"
+    \end{center}
+    its true when$P$and $Q$have the same truth value, it's false when they have the opposite truth value.
+\end{definitionenv}
+\begin{propositionenv}
+    Let P and Q be statements.$P \Leftrightarrow Q$ has the same truth value as 
+    $$(P\Rightarrow Q)\wedge (Q\Rightarrow P).$$
+\end{propositionenv}
+\begin{exampleenv}
+    Let $n$ be an integer.$n$ is even if and only if $n^2$ is even.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $P$ and $Q$ be statements.
+    \newline
+    $Q\Rightarrow P$ is called the converse of$P\Rightarrow Q$.
+    \newline
+    $\neg P \Rightarrow \neg Q$is called the inverse of $P\Rightarrow Q$.
+\end{definitionenv}
+\begin{remark}
+    If one proves $P\Rightarrow Q$and $\neg P\Rightarrow \neg Q$, then $P \Leftrightarrow Q$ is true.
+\end{remark}
+
+
+
+
+\section{Proof by Contradiction}
+\begin{definitionenv}
+    Let $P$ be a statement.If we assume $\neg P$is true and deduce that a certain statement is both true and false,  then we say that a contradiction happens and the assumption $\neg P$ is false. Thus the statement $P$ is true. Such a reasoning is called proof by contradiction.
+\end{definitionenv}
+\begin{exampleenv}
+    Prove that the equation $x^2=2$ does not have solution in $\mathbb{Q}$.
+\end{exampleenv}
+    \begin{proofenv}
+        By contradiction, we assume that $x:=\frac{p}{q}$ is a solution, where $p$ and $q$ are integers , which do not have common prime divisor. By $x^2=2$ we obtain $p^2=2q^2$
+        So $p^2$ is even, $p$ is even.Let $p_1\in \ZZ$ such that $p=2p_1$
+        Then $p^2=4p_1^2=2q^2$,  hence $q$ is even. Therefore $2$ is a common prime divisor of $p$ and $q$, which leads to a contradiction.
+    \end{proofenv}
+
+
+\section{Exercises}
+\begin{enumerate}
+    \item Let \(P\) and \(Q\) be statements. Use truth tables to determine the truth values of the following statements according to the truth values of \(P\) and \(Q\):
+    \[P\wedge\neg P, \;P\vee\neg P, \;(P\lor Q)\Rightarrow(P\wedge Q), \;(P \Rightarrow Q)\Rightarrow(Q\Rightarrow P)\]
+    
+    \item Let \(P\) and \(Q\) be statements.
+    \begin{enumerate}
+        \item Show that \(P\Rightarrow(Q\wedge\neg Q)\) has the same truth value as \(\neg P\).
+        \item Show that \((P\wedge\neg Q)\Rightarrow Q\) has the same truth value as \(P\Rightarrow Q\).
+    \end{enumerate}
+    
+    \item Consider the following statements:
+    \[P :=``\text{Little Bear is happy}", \]
+    \[Q :=``\text{Little Bear has done her math homework}", \]
+    \[R :=``\text{Little Rabbit is happy}".\]
+    Express the following statements using \(P\),  \(Q\),  and \(R\),  along with logical connectives:
+    \begin{enumerate}
+        \item If Little Bear is happy and has done her math homework,  then Little Rabbit is happy.
+        \item If Little Bear has done her math homework,  then she is happy.
+        \item Little Bear is happy only if she has done her math homework.
+    \end{enumerate}
+    
+    \item Does the following reasoning hold? Justify your answer.
+    \begin{itemize}
+        \item It is known that Little Bear is both smart and lazy,  or Little Bear is not smart.
+        \item It is also known that Little Bear is smart.
+        \item Therefore,  Little Bear is lazy.
+    \end{itemize}
+    
+    \item Does the following reasoning hold? Justify your answer.
+    \begin{itemize}
+        \item It is known that at least one of the lion or the tiger is guilty.
+        \item It is also known that either the lion is lying or the tiger is innocent.
+        \item Therefore,  the lion is either lying or guilty.
+    \end{itemize}
+    
+    \item An explorer arrives at a cave with three closed doors,  numbered 1,  2,  and 3. Exactly one door hides treasure,  while the other two conceal deadly traps.
+    \begin{itemize}
+        \item Door 1 states: ``\textit{The treasure is not here}'';
+        \item Door 2 states: ``\textit{The treasure is not here}'';
+        \item Door 3 states: ``\textit{The treasure is behind Door 2}''.
+    \end{itemize}
+    Only one of these statements is true. Which door should the explorer open to find the treasure?
+    
+    \item The Kingdom of Truth sent an envoy to the capital of the Kingdom of Lies. Upon entering the border,  the envoy encountered a fork with three paths: dirt,  stone,  and concrete. Each path had a signpost:
+    
+    \begin{itemize}
+        \item The concrete path's sign: ``\textit{This path leads to the capital,  and if the dirt path leads to the capital,  then the stone path also does.}''
+        \item The stone path's sign: ``\textit{Neither the concrete nor the dirt path leads to the capital.}''
+        \item The dirt path's sign: ``\textit{The concrete path leads to the capital,  but the stone path does not.}''
+    \end{itemize}
+    All signposts lie. Which path should the envoy take?
+    
+    \item Let \(a\) and \(b\) be real numbers. Prove that,  if \(a\neq-1\) and \(b\neq-1\),  then \(ab+a+b\neq-1\).
+    
+    \item Let \(a\),  \(b\),  and \(c\) be positive real numbers such that \(abc>1\) and
+    \[a+b+c<\frac{1}{a}+\frac{1}{b}+\frac{1}{c}.\]
+    Prove the following:
+    \begin{enumerate}
+        \item None of \(a\),  \(b\),  or \(c\) equals 1.
+        \item At least one of \(a\),  \(b\),  or \(c\) is greater than 1.
+        \item At least one of \(a\),  \(b\),  or \(c\) is less than 1.
+    \end{enumerate}
+    
+    \item Let \(a\neq 0\) and \(b\) be real numbers. For real numbers \(x\) and \(y\),  prove that if \(x\neq y\),  then \(ax+b\neq ay+b\).
+    
+    \item Let \(n\geq 2\) be an integer. Prove that if \(n\) is composite,  then there exists a prime number \(p\) dividing \(n\) such that \(p\leq\sqrt{n}\).
+    
+    \item Let \(n\) be an integer. Prove that either 4 divides \(n^{2}\) or 4 divides \(n^{2}-1\).
+    
+    \item Let \(n\) be an integer. Prove that 12 divides \(n^{2}(n^{2}-1)\).
+    
+    \item Prove that any integer divisible by 4 can be written as the difference of two perfect squares.
+    
+    \item Let \(x\) and \(y\) be non-zero integers. Prove that \(x^{2}-y^{2}\neq 1\).
+    
+    \item A plane has 300 seats and is fully booked. The first passenger ignores their assigned seat and chooses randomly. Subsequent passengers take their assigned seat if available; otherwise,  they choose randomly. What is the probability that the last passenger sits in their assigned seat?
+    
+    \item Little Bear,  Little Goat,  and Little Rabbit are all wearing hats. A parrot prepared four red feathers and four blue feathers to decorate their hats. The parrot selected two feathers for each hat-wearing animal to place on their hats. Each animal cannot see the feathers on their own hat but can see the feathers on the other animals' hats. Here is their conversation:
+    \begin{itemize}
+        \item Little Bear: \textit{I don't know what color the feathers on my hat are,  but I know the other animals also don't know what color the feathers on their hats are.}
+        \item Little Goat: \textit{Haha,  now even without looking at Little Bear's hat,  I know what color the feathers on my hat are.}
+        \item Little Rabbit: \textit{Now I know what color the feathers on my hat are.}
+        \item Little Bear: \textit{Hmm,  now I also know what color the feathers on my hat are.}
+    \end{itemize}
+    Question: What color are the feathers on Little Goat's hat?
+    
+    \item The Sphinx tells the truth on one fixed weekday and lies on the other six. Cleopatra visits The Sphinx for three consecutive days:
+    \begin{itemize}
+        \item Day 1: The Sphinx declared,  ``\textit{I lie on Monday and Tuesday.}''
+        \item Day 2: The Sphinx declared,  ``\textit{Today is either Thursday,  or Saturday,  or Sunday.}''
+        \item Day 3: The Sphinx declared,  ``\textit{I lie on Wednesday and Friday.}''
+    \end{itemize}
+    On which day does the Sphinx tell the truth? On which days of the week did Cleopatra visit the Sphinx?
+\end{enumerate}

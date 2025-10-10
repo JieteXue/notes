@@ -1,0 +1,305 @@
+\chapter{Set Theory}
+\section{Roster Notation}
+\begin{definitionenv}
+    \quad
+    \newline
+    (1) We call a \textbf{set} a certain collection of distinct objects.
+    \newline
+    (2) An object in a collection considered as a set is called \textbf{element} of it .
+    \newline
+    (3) Two sets $A$ and $B$ are said to be \textbf{equal} if they have the same elements.We denoted by $A=B$ the statement ``A and B are equal".
+    \newline
+    (4) If $A$ is a set and $x$ is an object,  $x \in A$ denotes $x$ is an element of $A$ (reads x belongs to A),  $x \notin A$ denotes ``x is NOT an element of A".
+\end{definitionenv}
+\texttt{Notation Roster method: to be continue$\dots$}
+\begin{exampleenv}
+    \{1, 2, 3\}=\{3, 2, 1\}=\{1, 1, 2, 3\}
+\end{exampleenv}
+\begin{box2}
+More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  then the set of all $x_i$ is noted as $$\{x_i|i\in I\}.$$
+\end{box2}
+\begin{exampleenv}
+    $$\{2k+1|k\in \ZZ\}.$$
+\end{exampleenv}
+\section{Set-builder Notation}
+\begin{definitionenv}
+    Let $A$ be a set. If for any $x\in A $ we fix a statement $P(x)$,  then we say that $P(\cdot)$ is a \textbf{condition} on $A$. 
+\end{definitionenv}
+\begin{exampleenv}
+    ``$n$ is even" is a condition on $\NN$,  ``$x>2$" is a condition on $\RR$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .If $x\in A$ is such that $P(x)$ is true,  then we say that $x$ satisfies the condition $P(\cdot)$.We noted by $$\{x \in A|P(x)\}$$the set of $x\in A$ that satisfies the condition $P(\cdot)$.
+\end{definitionenv}
+\begin{exampleenv}
+    $\{x\in \RR|x>2\}$ denotes the set of real numbers that are $x>2$.
+\end{exampleenv}
+\begin{box2}
+\begin{center}
+    sometimes we combine the two methods of representation.
+\end{center}
+\end{box2}
+
+
+
+
+\section{Subsets and Set Difference}
+\begin{definitionenv}
+    Let $A$ and $B$ be sets. If any element of $A$ is an element of $B$,  we say that $A$ is a subset of $B$, denoted as $A \subseteq B$ or $B\supseteq  A$.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+   \begin{itemize}
+    \item  We denote by $\varnothing $ the set that does not have any element.We consider it as a subset of any set.
+   \item  Let $A$ be a set , then $A\subseteq A$
+    \end{itemize}
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ be a set , we denote by $\wp  (A)$ the set of all subset of $A$,  called the power set of $A$.
+\end{definitionenv}
+\begin{exampleenv}
+    $\wp (\varnothing)=\{\varnothing\}$
+    , 
+    $\wp (\wp (\varnothing))=\{\varnothing, \{\varnothing\}\}$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $A$ and $B$ be sets. We denote by $B \backslash A$ the set $$\{x\in B\mid x\notin A\}.$$ This is a subset of $B$ called the \textbf{set difference of $\mathbf{B}$ and $\mathbf{A}$}.
+    \newline
+    If in condition $A \subseteq B$,  we say that $B\backslash A$ is the complement of $A$ inside $B$.
+\end{definitionenv}
+\begin{exampleenv}
+    If $A$ is a set,  $P(\cdot)$ is  a condition on $A$,  then $$\{x\in A \mid \neg P(x)\}=A\backslash\{x\in A|P(x)\}.$$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $A$ and $B$ be sets.Then $$B\backslash A=\varnothing \Leftrightarrow B\subseteq A.$$
+    If in condition $A$ is the subset of $B$,  then $$B\backslash A=\varnothing \Leftrightarrow A=B.$$
+\end{propositionenv}
+
+
+\section{Quantifiers}
+\begin{definitionenv}\label{2.4.1}
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .We denote by 
+    \newline
+    ``$\forall x\in A,  P(x)$" the statement $\{x\in A\mid P(x)\}=A$
+    \newline
+    ``$\exists x\in A, P(x)$"denotes$\{x\in A\mid P(x)\}\not= \varnothing$.
+\end{definitionenv}
+\begin{exampleenv}
+    $\forall x\in \varnothing , P(x)$ is true ; $\exists x\in \varnothing, P(x)$ is false.
+\end{exampleenv}
+\begin{theoremenv}\label{theorem2.4.1}
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$
+    \newline
+    (1)$\exists x\in A, \neg P(x) $ and $ \forall x\in A, P(x)$ have opposite truth values.
+    \newline
+    (2)$\forall x\in A, \neg P(x)$ and $\exists x\in A, P(x)$ have opposite truth value.
+\end{theoremenv}
+
+
+
+\section{Sufficient and Necessary Condition}
+\begin{definitionenv}
+    Let $A$ be a set and $P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
+    If $$\{x\in A\mid P(x)\}\subseteq\{x\in A\mid Q(x)\}, $$ we say that $P(\cdot)$ is a \textbf{sufficient condition} of $Q(\cdot)$ and $Q(\cdot)$ is a \textbf{necessary condition} of $P(\cdot)$. 
+    If $\{x\in A\mid P(x)\}=\{x\in A\mid Q(x)\}$, we say that $P(\cdot)$ and $Q(\cdot)$ are equivalent.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $A$ be a set , $P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
+    \newline
+    (1)$P(\cdot)$ is a sufficient condition of $Q(\cdot)$ iff.$\forall x\in A, P(x)\Rightarrow Q(x)$
+    \newline
+    (2)$P(\cdot) $ is a necessary condition of $Q(\cdot)$ iff.$\forall x\in A, Q(x)\Rightarrow P(x)$
+    \newline
+    (3)$P(\cdot)$ and $Q(\cdot)$ are equivalent iff. $\forall x\in A, P(x)\Leftrightarrow Q(x)$
+\end{propositionenv}
+\begin{proofenv}
+\begin{align*}
+    \varnothing&=\{x\in A\mid P(x)\}- \{x\in A\mid Q(x)\}\\
+    &=\{x\in A\mid P(x)\wedge (\neg Q(x))\}\\
+    &=A\backslash\{x\in A\mid (\neg P(x))\vee  Q(x)\}\\
+    &=A\backslash\{x\in A \mid P(x)\Rightarrow Q(x)\}.
+\end{align*}
+\end{proofenv}
+\begin{box2}
+\textbf{Russell's paradox} leads to: $P(A):=A\notin A$. The collection of all sets should not be considered as a set.
+\end{box2}
+
+
+\section{Union}
+\begin{definitionenv}
+    Let $I$ be a set , and for any $i \in I$,  let $A_i$ be a set , we say that $(A_i)_{i\in I}$ is a family of sets parametrized by $I$.We denote by $\cup_{i \in I}A_i$ the set of all elements of all $A_i$.It is also called the \textbf{union} of the sets $A_i, i\in I$. By definition, a mathematical object $x$ belongs to $\cup_{i \in I}A_i$ if and only if $$\exists i\in I, x\in A_i.$$ 
+\end{definitionenv}
+\begin{propositionenv}
+    $ \displaystyle \bigcup_{i\in I}A_i\subseteq B$ if and only if $$\forall i\in I, A_i\subseteq B.$$
+\end{propositionenv}
+\begin{corollaryenv}\label{corollary2.6.1}
+    Let $P_i(\cdot) $ be a condition on $B$, then
+    $$\{x\in B\mid\exists i\in I, P_i(x)\}=\bigcup_{i\in I}\{x\in B\mid P_i(x)\}.$$
+\end{corollaryenv}
+\begin{propositionenv}
+    $$\left( \bigcup _{i\in I}A_i\right)\backslash B=\bigcup_{i\in I}\left( A_i\backslash B\right).$$
+\end{propositionenv}
+\section{Intersection}
+\begin{definitionenv}
+    Let $I$ be a \textbf{non-empty} set and $(A_i)_{i\in I} $ be a family os sets parametrized by $I$. We denote by $\displaystyle \bigcap_{i\in I}A_i $ the set of all common elements of $A_i, i\in I$.This set is called the \textbf{intersection} of $A_i, i\in I$.Note that, if $i_0$ is an arbitrary element of $I$, the set-builder notation ensure that
+    $$\{x\in A_{i_0}\mid \forall i\in I, x\in A_i\}$$ is a set. This set is the intersection of $(A_i)_{i\in I}$.
+    \newline
+    By definition,  an mathematical object $x$ belongs to $\cap _{i\in I}A_i$ if and only if $$\forall i\in I , x\in A_i.$$
+    
+\end{definitionenv}
+\begin{remark}
+    In set theory,  it does not make sense to consider the intersection of an empty family of sets. In fact,  if such an intersection exists as a sets, for any mathematical object $x$,  since the statement $$\forall i\in \varnothing, x \in A_i$$is true,  we obtain that $x$ belongs to $\cap_{i\in \varnothing}A_i$. By Russell's paradox,  this is impossible.
+\end{remark}
+\begin{propositionenv}\label{proposition2.7.1}
+Let \( I \) be a non-empty set and \( (A_i)_{i \in I} \) be a set parametrised by \( I \). Let \( B \) be a set. Then \( B \subseteq \bigcap_{i \in I} A_i \) if and only if
+\[
+\forall\,  i \in I, \,  B \subseteq A_i.
+\]
+\end{propositionenv}
+
+
+\begin{proofenv}
+Let \( A = \bigcap_{i \in I} A_i \).
+
+Suppose that \( B \subseteq A \). For any \( x \in B \),  one has \( x \in A \),  and hence
+\[
+\forall\,  i \in I, \,  x \in A_i.
+\]
+Therefore,  for any \( i \in I \),  \( B \) is contained in \( A_i \).
+
+Suppose that,  for any \( i \in I \),  \( B \subseteq A_i \). Then,  for any \( x \in B \) and any \( i \in I \),  one has \( x \in A_i \). Hence,  for any \( x \in B \),  one has \( x \in A \). Therefore, 
+\( B \subseteq A \).
+\end{proofenv}
+
+\begin{corollaryenv}\label{2.7.4}
+Let \( B \) be a set,  \( I \) be a non-empty set. For any \( i \in I \),  let \( P_i(\cdot) \) be a condition on \( B \). Then
+\[
+\{x \in B \mid \forall\,  i \in I, \,  P_i(x)\} = \bigcap_{i \in I} \{x \in B \mid P_i(x)\}.
+\]
+\end{corollaryenv}
+
+\begin{proofenv}
+Let
+\[
+A := \{x \in B \mid \forall\,  i \in I, \,  P_i(x)\}.
+\]
+For any \( i \in I \),  let
+\[
+A_i := \{x \in B \mid P_i(x)\}.
+\]
+For any \( x \in A \) and any \( i \in I \),  \( P_i(x) \) is true. Hence \( A \subseteq A_i \). By Proposition \ref{proposition2.7.1} we obtain
+\[
+A \subseteq \bigcap_{i \in I} A_i.
+\]
+Conversely,  if \( x \in \bigcap_{i \in I} A_i \),  then for any \( i \in I \),  one has \( x \in A_i \). Hence \( x \in B \),  and for any \( i \in I \),  \( P_i(x) \) is true. Thus \( x \in A \).
+\end{proofenv}
+
+\begin{propositionenv}
+Let \( B \) be a set,  \( (A_i)_{i \in I} \) be a family of sets. The following equality holds
+\[
+\left( \bigcap_{i \in I} A_i \right) \setminus B = \bigcap_{i \in I} (A_i \setminus B).
+\]
+\end{propositionenv}
+
+\begin{proofenv}
+Let \( A := \bigcap_{i \in I} A_i \). For any \( i \in I \),  one has \( A \subseteq A_i \). Hence
+\[
+A \setminus B = \{x \in A \mid x \notin B\} \subseteq \{x \in A_i \mid x \notin B\}.
+\]
+By Proposition \ref{proposition2.7.1} we get
+\[
+A \setminus B \subseteq \bigcap_{i \in I} (A_i \setminus B).
+\]
+Conversely,  if \( x \in \bigcap_{i \in I} (A_i \setminus B) \),  then,  for any \( i \in I \),  one has \( x \in A_i \setminus B \),  namely \( x \in A_i \) and \( x \notin B \). Thus \( x \in \bigcap_{i \in I} A_i \) and \( x \notin B \). Therefore \( x \in A \setminus B \).
+\end{proofenv}
+
+\begin{propositionenv}
+Let \( I \) be a set and \( (A_i)_{i \in I} \) be a family of sets parametrised by \( I \). For any set \( B \),  the following statements hold.
+\begin{enumerate}
+    \item \( B \cap \left( \bigcup_{i \in I} A_i \right) = \bigcup_{i \in I} (B \cap A_i) \).
+    \item If \( I \neq \varnothing \),  \( B \cup \left( \bigcap_{i \in I} A_i \right) \subseteq \bigcap_{i \in I} (B \cup A_i) \), 
+    \item If \( I \neq \varnothing \),  \( B \setminus \bigcup_{i \in I} A_i = \bigcap_{i \in I} (B \setminus A_i) \), 
+    \item If \( I \neq \varnothing \),  \( B \setminus \bigcap_{i \in I} A_i = \bigcup_{i \in I} (B \setminus A_i) \).
+\end{enumerate}
+\end{propositionenv}
+
+\begin{proofenv}
+\begin{enumerate}
+    \item By Corollary \ref{2.7.4} we obtain
+    \begin{align*}
+    B \cap \left( \bigcup_{i \in I} A_i \right) &= \{x \in B \mid \exists\,  i \in I, \; x \in A_i\} \\
+    &= \bigcup_{i \in I} \{x \in B \mid x \in A_i\} = \bigcup_{i \in I} (B \cap A_i).
+    \end{align*}
+    \item Let \( A := \bigcap_{i \in I} A_i \). By definition,  for any \( i \in I \),  one has \( A \subseteq A_i \) and hence \( B \cup A \subseteq B \cup A_i \). Thus,  by Proposition \ref{proposition2.7.1} we obtain
+    \[
+    B \cup \left( \bigcap_{i \in I} A_i \right) \subseteq \bigcap_{i \in I} (B \cup A_i).
+    \]
+    Conversely,  let \( x \in \bigcap_{i \in I} (B \cup A_i) \). For any \( i \in I \),  one has \( x \in B \cup A_i \). If \( x \in B \),  then \( x \in B \cup \left( \bigcap_{i \in I} A_i \right) \); otherwise one has
+    \[
+    \forall\,  i \in I, \; x \in A_i, 
+    \]
+    and we still get \( x \in B \cup \left( \bigcap_{i \in I} A_i \right) \).
+
+    \item By Theorem\ref{theorem2.4.1}
+    \begin{align*}
+    B \setminus \bigcup_{i \in I} A_i &= \{x \in B \mid \neg (\exists\,  i \in I, \; x \in A_i) \} \\
+    &= \{x \in B \mid \forall\,  i \in I, \; x \notin A_i \}.
+    \end{align*}
+    By Corollary \ref{2.7.4} this is equal to
+    \[
+    \bigcap_{i \in I} \{x \in B \mid x \notin A_i\} = \bigcap_{i \in I} (B \setminus A_i).
+    \]
+
+    \item By Theorem\ref{theorem2.4.1}
+    \begin{align*}
+    B \setminus \bigcap_{i \in I} A_i &= \{x \in B \mid \neg (\forall\,  i \in I, \; x \in A_i) \} \\
+    &= \{x \in B \mid \exists\,  i \in I, \; x \notin A_i \}.
+    \end{align*}
+    By Corollary \ref{corollary2.6.1} this is equal to
+    \[
+    \bigcup_{i \in I} \{x \in B \mid x \notin A_i\} = \bigcup_{i \in I} (B \setminus A_i).
+    \]
+\end{enumerate}
+\end{proofenv}
+
+\section{Cartesian Product}
+
+\begin{definitionenv}
+Let \(A\) and \(B\) be sets. We denote by \(A \times B\) the following set of ordered pairs
+\[
+\{(x,  y) \mid x \in A, \ y \in B\}, 
+\]
+and call it the \textbf{Cartesian product} of sets \(A\) and \(B\).
+
+More generally,  if \(n\) is a positive integer and \(A_1,  \ldots,  A_n\) be sets,  we denote by
+\[
+A_1 \times \cdots \times A_n
+\]
+the set of all \(n\)-tuples \((x_1,  \ldots,  x_n)\),  where \(x_1 \in A_1,  \ldots,  x_n \in A_n\).
+\end{definitionenv}
+
+The following proposition shows ordered pairs can be realized through set-theoretic constructions.
+
+\begin{propositionenv}
+Let \(x\),  \(y\),  \(x^{\prime}\),  and \(y^{\prime}\) be mathematical objects. Then
+\[
+\{\{x\}, \{x, y\}\}=\{\{x^{\prime}\}, \{x^{\prime}, y^{\prime}\}\}
+\]
+if and only if \(x=x^{\prime}\) and \(y=y^{\prime}\).
+\end{propositionenv}
+
+\begin{proofenv}
+If \(x=x^{\prime}\) and \(y=y^{\prime}\),  then the equality
+\[
+\{\{x\}, \{x, y\}\}=\{\{x^{\prime}\}, \{x^{\prime}, y^{\prime}\}\}
+\]
+certainly holds.
+
+Conversely,  suppose the equality
+\[
+\{\{x\}, \{x, y\}\}=\{\{x^{\prime}\}, \{x^{\prime}, y^{\prime}\}\}
+\]
+holds. If \(x\neq x^{\prime}\),  then \(\{x\}\neq\{x^{\prime}\}\),  so \(\{x\}=\{x^{\prime}, y^{\prime}\}\). This still implies \(x=x^{\prime}\),  leading to a contradiction. Therefore,  \(x=x^{\prime}\) must hold.
+
+Now,  assume \(y\neq y^{\prime}\). Then \(\{x, y\}\neq\{x^{\prime}, y^{\prime}\}\),  unless \(y=x^{\prime}\) and \(x=y^{\prime}\). Since \(x=x^{\prime}\),  this would imply \(y=y^{\prime}\),  which is a contradiction. Thus,  \(\{x, y\}=\{x^{\prime}\}\) and \(\{x^{\prime}, y^{\prime}\}=\{x\}\). This again leads to \(y=x^{\prime}\) and \(x=y^{\prime}\),  resulting in a contradiction. Hence,  \(y=y^{\prime}\) must hold.
+\end{proofenv}

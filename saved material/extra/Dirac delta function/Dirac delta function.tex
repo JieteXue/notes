@@ -3,6 +3,7 @@
 \usepackage{physics}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\newcommand{\pa}{\partial}
 \newtheoremstyle{1}{}{}{}{}{\bfseries}{.}{\newline}{}
 \newtheoremstyle{2}{0}{0}{}{}{\texttt}{.}{\newline}{}
 \theoremstyle{1}
@@ -14,6 +15,7 @@
 \begin{center}
     \huge{\textbf{Dirac Delta Function}}
 \end{center}
+\section{One-Dimentiinal Case}
 \begin{definition}
     $\delta(x)$ is a generalized function satisfies:
     \begin{equation}
@@ -112,5 +114,56 @@ All the equalities should be understand under integration.
         \delta[g''(x_n)(x-x_n)^2]=
     \end{equation}
 \end{proof_env}
-
+\section{High-Dimentiinal Case}
+\begin{definition}
+    \begin{equation}
+        \delta^n(\mathbf{x-x_0})=\prod_{i=1}^{n}\delta(x_i-x_{0i})
+    \end{equation}
+\end{definition}
+\begin{property}[Normalization]
+    \begin{equation}
+           \int_{\mathbb{R}^n}\delta^n(\mathbf{x-x_0})\, \dd x=\prod_{i=1}^{n}\int_{-\infty}^{+\infty}\delta(x_i-x_{0i})\, \dd x=1. 
+    \end{equation}
+\end{property}
+\begin{property}[Sifting Property]
+    \begin{equation}
+    \int_{\mathbb{R}^n}f(\mathbf{x})\delta^n(\mathbf{x-x_0})\, \dd x=f(\mathbf{x_0}).
+    \end{equation}
+\end{property}
+\begin{property}[Coordinate Transformations]
+    For transformation $\mathbf{y}=\mathbf{y}(\mathbf{x})$ with Jacobian $J=\left|\frac{\pa \mathbf{y}}{\pa \mathbf{x}}\right|$,
+    \begin{equation}
+        \delta^n(\mathbf{x-x_0})=\frac{1}{\left|J\right|}\delta^n(\mathbf{y(x)-y(x_0)}).
+    \end{equation}
+    Easy to check the integration.
+\end{property}
+\begin{property}[Integration by Parts Generalization]
+    \begin{equation}
+        \int f(\mathbf{x})\nabla\delta(\mathbf{x-x_0})\dd^n \mathbf{x}=-\nabla f(\mathbf{x_0}).
+    \end{equation}
+\end{property}
+\begin{property}[Relationship with Laplacian Operator]
+    \begin{equation}
+        \nabla^2\left(\frac{1}{\left|\mathbf{x-x_0}\right|^{n-2}}\right)=-(n-2)S_n\delta^n(\mathbf{x-x_0}),\ n\not=2,
+    \end{equation}
+    where 
+    \begin{equation}
+        S_n=\frac{2\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2}\right)}
+    \end{equation}
+    is the surface area of the n-dimensional unit sphere. In particular, $n=3$:
+    \begin{equation}
+        \nabla^2\left(\frac{1}{\left|\mathbf{r-r_0}\right|^2}\right)=-4\pi\delta^3(\mathbf{r-r_0}).
+    \end{equation}
+\end{property}
+\begin{property}[Scaling Property]
+    \begin{equation}
+        \delta^n(\alpha \mathbf{x})=\frac{1}{\left|\alpha\right|^n}\delta^n(\mathbf{x}).
+    \end{equation}
+\end{property}
+\begin{property}[Composition with Functions]
+    For a function $f:\mathbb{R}^n\longrightarrow \mathbb{R}$ with simple zeros at $\mathbf{x}_k$:
+    \begin{equation}
+        \delta(f(\mathbf{x}))=\sum_{k}\frac{\delta(\mathbf{x-x}_k)}{\left|\nabla f(\mathbf{x}_k)\right|}.
+    \end{equation}
+\end{property}
 \end{document}

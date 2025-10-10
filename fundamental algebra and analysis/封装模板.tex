@@ -1,6 +1,7 @@
 \usepackage{fix-cm}
 \usepackage{lmodern}
 \usepackage{newtxtext, geometry, amsmath, amssymb}
+\usepackage{mathtools}
 \usepackage{amsthm} % 设置定理环境，要在amsmath后用
 \usepackage{bbm}
 \usepackage{interval}
@@ -48,6 +49,7 @@
 \definecolor{shuang}{RGB}{77, 82, 59} % 深黄
 \definecolor{qzi}{RGB}{240, 243, 252} % 浅紫
 \definecolor{szi}{RGB}{49, 55, 70} % 深紫
+\definecolor{pink}{RGB}{220,115,156}
 % 将RGB换为rgb，颜色数值取值范围改为0到1
 
 % ————————————————————————————————————盒子设置————————————————————————————————————
@@ -126,6 +128,9 @@
         borderline west={0.7mm}{0.1mm}{szi}]
     }
     {\end{tcolorbox}}
+\newenvironment{pinkenv}{\begin{tcolorbox}[breakable,enhanced, colback=pink!10!white, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{pink!1!black}]}
+    {\end{tcolorbox}}
 % tcolorbox宏包还提供了\tcbox指令，用于生成行内盒子，可制作高光效果
 \newcommand{\hl}[1]{
     \tcbox[on line, arc=0pt, colback=hlan!5!white, colframe=hlan!5!white, boxsep=1pt, left=1pt, right=1pt, top=1.5pt, bottom=1.5pt, boxrule=0pt]
@@ -187,7 +192,7 @@
 \newenvironment{propositionenv}{\begin{huangse}\begin{proposition}}{\end{proposition}\end{huangse}}
 \newenvironment{corollaryenv}{\begin{huangse}\begin{corollary}}{\end{corollary}\end{huangse}}
 \newenvironment{axiomenv}{\begin{zise}\begin{axiom}}{\end{axiom}\end{zise}}
-\newenvironment{remark}{\begin{box2}\begin{remarkthm}}{\end{remarkthm}\end{box2}}
+\newenvironment{remark}{\begin{pinkenv}\begin{remarkthm}}{\end{remarkthm}\end{pinkenv}}
 % ————————————————————————————————————目录设置————————————————————————————————————
 \setcounter{tocdepth}{4} % 设置在 ToC 的显示的章节深度
 \setcounter{secnumdepth}{3} % 设置章节的编号深度

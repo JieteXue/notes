@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{.}{\newline}{}
+\newtheoremstyle{2}{0}{0}{}{}{\texttt}{.}{\newline}{}
+\theoremstyle{1}
+\newtheorem{definition}{Definition}
+\newtheorem{property}{Property}
+\theoremstyle{2}
+\newtheorem*{proof_env}{Proof}
+\newcommand{\pa}{\partial}
+\begin{document}
+\begin{center}
+    \huge{\textbf{Hermite Ploynomial}}
+\end{center}
+
+\section{Explicit Expression}
+\begin{equation}
+    H_n(z)=\sum_{k=0}^{\lfloor n/2 \rfloor}\frac{(-1)^k n!}{k!(n-2k)!}(2z)^{n-2k}.
+\end{equation}
+\section{Generating Function}
+\begin{equation}
+    e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!}.
+\end{equation}
+\section{Hermite Equation}
+\begin{equation}
+    H''_n(x)-2xH_n'(x)+2nH_n(x)=0.
+\end{equation}
+This is a Sturm-Liouville type equation with weight function $w(x)=e^{-x^2}$.
+\newline
+\textbf{Proof.}
+    \begin{equation}
+        \frac{\pa G}{\pa s}=\sum_{n=0}^{\infty}\frac{1}{n!}H_{n+1}(z)s^n.
+    \end{equation}
+    \begin{equation}
+        2sG=\sum_{n=1}^{\infty}2n\frac{1}{n!}H_{n-1}s^n.
+    \end{equation}
+    Compare the coefficients of $s^n$,
+    \begin{equation}
+        \boxed{H_{n+1}(z)-2zH_n(z)+2nH_{n-1}(z)=0.}
+    \end{equation}
+\section{Recurrence Relations}
+\begin{equation}
+        \frac{\pa G}{\pa z}=\sum_{n=0}^{\infty}\frac{1}{n!}\frac{\dd}{\dd z}H_n(z)s^n.
+    \end{equation}
+    Hence,
+    \begin{equation}
+        \boxed{\frac{\dd}{\dd{z}}H_n=2nH_{n-1}.}
+    \end{equation}
+\section{Rodrigues Formula}
+\begin{equation}
+        e^{-(s-z)^2}=\sum_{n=0}^{\infty}\frac{H_n(z)e^{-z^2}}{n!}s^n.
+    \end{equation}
+    \begin{equation}
+        H_n(z)e^{-z^2}=\left.\frac{\dd^n}{\dd{s}^n}e^{-(s-z)^2}\right|_{s=0}.
+    \end{equation}
+    $\dd{s}=-\dd{(z-s)}$, hence
+    \begin{equation}
+        \boxed{H_n(z)=(-)^ne^{z^2}\frac{\dd ^n}{\dd{z}^n}e^{-z^2}.}
+    \end{equation}
+\section{Parity Property}
+\begin{equation}
+    H_n(-x)=(-)^nH_n(x).
+\end{equation}
+\section{Special Values}
+\begin{equation}
+    H_{2m}(0)=(-)^m\frac{(2m)!}{m!}.
+\end{equation}
+\begin{equation}
+    H_{2m+1}(0)=0.
+\end{equation}
+\section{Orthogonality Relation}
+\begin{equation}
+    \int_{-\infty}^{\infty} H_m(x) H_n(x) e^{-x^2} dx = \sqrt{\pi} 2^n n! \delta_{mn}
+\end{equation}
+\textbf{Proof.}
+\begin{equation}
+        \int_{-\infty}^{+\infty}G_1(s,z)G_2(t,z)\dd{z}=e^{-(z-(s+t))^2}e^{2st}=\Gamma(\frac{1}{2})e^{2st}.
+    \end{equation}
+    Hence,
+    \begin{equation}
+        \int_{-\infty}^{+\infty}G_1(s,z)G_2(t,z)\dd{z}=\sqrt{\pi}e^{2st}.
+    \end{equation}
+    \begin{equation}
+        G_1(s,z)G_2(t,z)=\sum_{(n,m)\in \mathbb{N}^2}\frac{1}{n!m!}H_nH_ms^nt^m.
+    \end{equation}
+    \begin{equation}
+        e^{2st}=\sum_{n=0}^{+\infty}\frac{(2st)^n}{n!}.
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        \boxed{\int_{-\infty}^{+\infty}H_n(z)H_m(z)e^{-z^2}\dd{z}=\delta_{nm}2^nn!\sqrt{\pi}.}
+    \end{equation}
+
+\end{document}

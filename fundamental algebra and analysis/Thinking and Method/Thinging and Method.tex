@@ -1,0 +1,142 @@
+\documentclass{article}
+\newcommand{\singleline}{\hrule height 0.8pt}
+\newcommand{\mydate}{Otctober 7, 2025 - \today}
+\newcommand{\mytitle}{Thinking and Method of FAA}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyfoot[C]{\thepage}
+\usepackage[perpage]{footmisc}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage{tcolorbox}
+\definecolor{mlv}{RGB}{40, 137, 124}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+
+\usepackage{pdfpages}
+\usepackage{xr-hyper}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=red, urlcolor=cyan, filecolor=mlv]{hyperref}
+\externaldocument[main]{../fundamental algebra and analysis}
+
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\newtheoremstyle{2}{}{}{}{}{\bfseries}{.}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}[section]
+\newtheorem{theorem}[problem]{Theorem}
+\usepackage{chngcntr}
+\counterwithin{equation}{section}
+\newcommand{\pa}{\partial}
+\newcommand{\CC}{\mathbb{C}} % 黑板粗体C
+\newcommand{\QQ}{\mathbb{Q}} % 黑板粗体Q
+\newcommand{\RR}{\mathbb{R}} % 黑板粗体R
+\newcommand{\ZZ}{\mathbb{Z}} % 黑板粗体Z
+\newcommand{\NN}{\mathbb{N}} % 黑板粗体N
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Basic Logic}
+Iff. $P=Q=\neg R=$True, $P\Rightarrow\left(Q\Rightarrow R\right)$ is False. This is equivalent to $\left(P\wedge Q\right)\Rightarrow R$. So in \texttt{LEAN 4}, you can see a goal in the form
+$$a\rightarrow b\rightarrow c\rightarrow\dots,$$
+then you can use \textit{intro} to get props. They have the relation \textit{and} logically.
+
+\section{Set Theory}
+Definition \ref{main2.4.1} defines quantifiers, by 
+\ref{maincorollary2.6.1} and \ref{main2.7.4} , we can use set to understand quantifiers.
+Let us first consider 
+\begin{equation}
+    \forall x\in X, \forall y\in Y, P(x,y).
+\end{equation}
+That is 
+\begin{equation}
+    X=\{x\in X \mid \forall y\in Y, P(x,y)\}=\bigcap_{y\in Y}\{x\in X \mid P(x,y)\}.
+\end{equation}
+That means 
+\begin{equation}
+    \forall y\in Y,\ X\subseteq\{x\in X \mid P(x,y)\}.
+\end{equation}
+Thus, 
+\begin{equation}
+    \forall y\in Y, X=\{x\in X\mid P(x,y)\},
+\end{equation}
+equivalent to 
+\begin{equation}
+    \forall y\in Y,\forall x\in X ,P(x,y).
+\end{equation}
+But if we consider
+\begin{equation}
+    \forall x\in X, \exists y\in Y, P(x,y),
+\end{equation}
+the situation becomes
+\begin{equation}
+    X=\bigcup_{y\in Y}\{x\in X\mid P(x,y)\}
+\end{equation}
+The union equals to $X$ does not give enough information. Similarly, $\exists,\forall,\dots$ can't go farther, too\footnote{The intersection is not empty leads to any sets is not empty, but it is not equivalent, $\exists x\in X,\forall y\in Y,P(x,y)\Rightarrow\forall y\in Y,x\in X,P(x,y).$}. But
+\begin{equation}
+    \exists x\in X, \exists y\in Y, P(x,y)
+\end{equation}
+is equivalent to 
+\begin{equation}
+    \bigcup_{y\in Y}\{x\in X\mid P(x,y)\}\not=\varnothing.
+\end{equation}
+That means 
+\begin{equation}
+    \exists y\in Y, \{x\in X \mid P(x,y)\}\not=\varnothing.
+\end{equation}
+Thus, 
+\begin{equation}
+    \exists y\in Y,\exists x\in X, P(x,y).
+\end{equation}
+\section{Correspondence}
+For the similar reason, if $f$ is a correspondence, then
+\begin{equation}
+    f\left(\bigcup_{i\in I}A_i \right)=\bigcup_{i\in I}f\left(A_i\right),
+\end{equation}
+\begin{equation}
+    f\left(\bigcap_{i\in I}A_i \right)\subseteq\bigcap_{i\in I}f\left(A_i\right).
+\end{equation}
+If in addition, $f$ is injective, then
+\begin{equation}
+    f\left(\bigcap_{i\in I}A_i \right)=\bigcap_{i\in I}f\left(A_i\right).
+\end{equation}
+\singleline
+A conclusion: Let $f,g$ be correspondences, if $f\circ g=\mathrm{Id},\ g\circ f=\mathrm{Id}$, then $f$ is a bijection and $f^{-1}=g$.
+\singleline
+
+\section{Ordering}
+Forgettable concepts: Well-ordered set \ref{main4.7.1}, Order-complete \ref{main4.8.1}
+\singleline
+\begin{problem}[Eg.]
+$$m:=\inf(A^\mathrm{u})\in A^\mathrm{u}.$$
+\end{problem}
+\singleline
+\begin{proof}
+    
+ By definition, we only need to prove $\forall x\in A, \ x\le m$. $m$ is the max element in $\left(A^\mathrm{u}\right)^l$, then we only need to prove $\forall x\in A,\ x\in \left(A^\mathrm{u}\right)^\mathrm{l}$. It is easy to check.
+
+\end{proof}
+\singleline
+The power set with $\subseteq$ forms a order-complete partially ordered set. If we want to construct a order-complete partially ordered set, we may consider build a relation between them. Knaster-Tarski fixed point theorem tell us a property of monotonic functions,  and Dedekind-MacNeille theorem tell us how to do in detail.
+
+\end{document}
+

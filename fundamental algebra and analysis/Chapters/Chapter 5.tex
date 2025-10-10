@@ -1,0 +1,645 @@
+\chapter{Groups}
+
+\section{Composition Law}
+\begin{definitionenv}
+    Let $X$ be a set.
+    \begin{enumerate}[ (i)]
+        \item A \textbf{compositon law} on $X$ is a mapping
+        $$*:X\times X\rightarrow X, (x, y)\mapsto x * y$$
+        \item Let $Y\subseteq X$ be a set ,  $Y$ is \textbf{close under } $*$ if $\forall x, y \in Y,  x*y\in Y$
+        \item $*$ is \textbf{communitative} if $\forall (x, y)\in X^2, x*y=y*x$
+        \item $*$ is \textbf{associative} if $\forall (x, y, z)\in X^3, (x*y)*z=x*(y*z)$.
+        If $*$ is associative,  then we can define
+    $$x_1*x_2*\dots *x_n=(x_1*x_2*\dots *x_{n-1})*x_n$$
+    \item Let $G$ be a set ,  $*$ is a composition law on $G$. If $*$ is associative, then we say $(G, *)$ is a \textbf{semigroup}
+    \end{enumerate}
+    
+    
+
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+    \newline
+    (1) Let $(X, *)$ be a composition law .We define $(X, \hat{*})$ satisfies:
+    $$\hat{*}:X\times X\rightarrow X,  (x, y)\mapsto y*x$$
+    By definition, $x=\hat{x}\Leftrightarrow *$ is communitative.If $*$ is associative,  then so does $\hat{*}$.
+    Let $\mathfrak{M} _X$ the set of all mapping from $X$ to $X$.On $\mathfrak{M} _X$, the composition of mapping defines a composition law:
+    $$\begin{matrix}
+\mathfrak{M} _X\times \mathfrak{M} _X\rightarrow\mathfrak{M} _X \\
+(f, g)\mapsto f\circ g
+
+\end{matrix}$$
+It is associative but not communitative:
+\newline
+Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a, f_b\circ f_a=f_b$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(X, *)$ be an associative composition law on a set $X$.If $n\in \NN_>0, x_1, \dots, x_n\in X$,  then ,  $\forall 1\le i\le n-1$,  we have 
+    $$x_1*\dots *x_n=x_1*\dots *(x_i*x_{i+1})*\dots *x_n$$
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    $i=1$: By definition, $x_1*\dots *x_n=(x_1*x_2)*\dots *x_n$.We suppose $i\geq 2 $,  by the associativity of $*$,  we have
+    $$x_1*\dots *x_{i+1}=(x_1*\dots *x_{i-1})*x_i*x_{i+1}=x_1*\dots *x_{i-1}*(x_i*x_{i+1})$$ 
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G, *)$ be a set equipped with a composition law ,  $g\in G$
+    \newline
+    If $\forall (x, y)\in G^2, g*x=g*y\Rightarrow x=y$, we say that $g$ is \textbf{left cancellative}.
+    \newline
+    If $\forall (x, y)\in G^2, x*g=y*g\Rightarrow x=y$, we say that $g$ is \textbf{right cancellative}.
+    \newline
+    If $*$ is communitative,  left cancellative $\Leftrightarrow$ right cancellative.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+    \newline
+    In $(\NN, +)$,  any element is cancellative.
+    \newline
+    In $(\NN, *)$,  any positive natural number is cancellative.
+
+\end{exampleenv}
+\section{Neutral Element \& Invertible Element}
+\begin{definitionenv}
+    $(X, *), e\in X$ is called a \textbf{neutral element} if 
+    $$\forall x\in X, \,  e*x=x=x*e.$$
+\end{definitionenv}
+\begin{propositionenv}
+    Assume $(X, *)$ admits a neutral element,  then its neutral element is unique.
+\end{propositionenv}
+\begin{proofenv}
+    Let $e, e'\in X$ be neutral elements.Then 
+    $$e=e*e'=e'.$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G, *)$ be a semigroup. If $(G, *)$ has a neutral element ,  then we say $(G, *)$ is \textbf{monoid}.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad
+    \newline
+    (1) $X$ is a set,  $(\mathfrak{M} _x, \circ)$ is a monoid with the neutral element $\mathrm{Id}_X$.
+    \newline
+    (2) $d\in \NN_{>0}$, $(d\NN, +)$ with neutral $0$, $(\NN, \times)$ with neutral $1$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $(G, *)$ be a monoid with the neutral element $e$. For any $ (x, y)\in G^2$,  if $x*y=e$ then we say $x$ is a \textbf{left inverse} of $y$,  and $y$ is the \textbf{right inverse} of $x$.
+\end{definitionenv}
+\begin{remark}
+    We say $x$ is \textbf{left invertible} if $x$ has a left inverse.(resp. right invertible)
+\end{remark}
+\begin{remark}
+    $x$ is left invertible in $(G, *)\Leftrightarrow x $ is right invertible in $(G, \hat{*})$.
+\end{remark}
+\begin{propositionenv}
+    Let $(G, *)$ be a monoid,  $g\in G$. If $g$ is both left invertible and right invertible,  then $g$ has a unique left inverse and a unique right inverse, which actually coincide.
+\end{propositionenv}
+\begin{proofenv}
+    Let $x$ (resp. $y$) be a left (resp. right) inverse of $g$. Then ,  by the associativity law,  we have 
+    $$x=x*e=x*(g*y)=(x*g)*y=y.$$
+    Hence any left inverse is equal to $y$,  hence it is unique. Similarly for the right.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G, *)$ be a monoid. If $g\in G$ is both left invertible and right invertible,  then we say $g$ is \textbf{invertible}.
+    If $g$ is invertible,  the left inverse is equal to right inverse,  hence we called it the inverse of $g$,  denote by $\iota(g)$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(G, *)$ be a monoid,  $g\in G$. If $g$ is right (resp. left) invertible,  then it is right (resp. left) cancellative.
+\end{propositionenv}
+\begin{proofenv}
+    Let $h$ be the right inverse of $g$. If $x*g=y*g$,  then 
+    $$x=x*e=x*(g*h)=(x*g)*h=(y*g)*h=y*(g*h)=y*e=y.$$
+\end{proofenv}
+\begin{notationenv}
+    For a monoid $(G, *)$.
+    \newline
+    If $*$ is written multiplicatively,  we usually denote $x*y$ as $x\cdot y$ or $xy$. If no ambiguity,  neutral element as $1$, inverse of $x$ as $x^{-1}$.
+    \newline
+    If $*$ is written additively,  $x*y$ as $x+y$,  neutral element as $0$,  inverse of $x$ as $-x$.
+\end{notationenv}
+\begin{propositionenv}\label{proposition5.2.4}
+    Let $(G, *)$ be a monoid.
+    \newline
+    (1) If $x\in G$ is an invertible element ,  then $\iota (x)$ is also invertible,  and $\iota(\iota(x))=x$.
+    \newline
+    (2) If $x, y\in G$ are invertible,  so does $x*y$ and $\iota(x*y)=\iota(y)*\iota(x)$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    (1) $$x*\iota(x)=\iota(x)*x=e.$$
+    (2) $$(xy)(\iota(y)\iota(x))=xy\iota(y)\iota(x)=xe\iota(x)=x\iota(x)=e.$$
+    $$(\iota(y)\iota(x))(xy)=\iota(y)\iota(x)xy=\iota(y)ey=\iota(y)y=e.$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G, *)$ be a monoid. If any element of $G$ is invertible,  then we say $G$ with the composition law is a \textbf{group}. A communitative group is also called \textbf{abelian group}.
+\end{definitionenv}
+\begin{box2}
+   Now we have : 
+   \newline
+   {\color{mlv} (binary operations on $X$ )$\supseteq$(semigroup)$\supseteq$(monoids)$\supseteq$(group)$\supseteq$(abelian group)}
+
+\end{box2}
+\begin{exampleenv}
+    \quad
+    \newline
+    (1) $(\ZZ, +)$ is an abelian group.
+    \newline
+    (2) Let $X$ be a set and $\mathfrak{S}_X$ be the set of bijections from $X$ to $X$.$(\mathfrak{S}_X , \circ)$ is a monoid with the neutral element $\mathrm{Id}_X$.Since $f\in \mathfrak{S}_X $ is bijective,  hence there exists a unique inverse $f^{-1}\in \mathfrak{S} _X$.So $(\mathfrak{S} _x, \circ)$ is a group (but not abelian in general), called the symmetric group of $X$.
+    \newline
+    Let $\mathfrak{S} _n$ be the symmetric group of the set $\NN_{\le n}$,  its element $f$ can be denoted as a table:
+    $$\begin{pmatrix}
+  1&2  &\dots &n \\
+  f(1)& f(2) &\dots   &f(n)
+\end{pmatrix}.$$
+\end{exampleenv}
+\section{Substructure}
+\begin{definitionenv}
+    Let $(G, *)$ be a semigroup,  $H$ be a subset of $G$. If $H$ is close under $*$,  then we say $H$ is a \textbf{subsemigroup} of $(G, *)$. Note that $H$ equipped with the restriction of $*$ forms a semigroup.
+    Let $(G, *)$ be a monoid. If a sub-semigroup $H$ of $(G, *)$ contains the neutral element of $(G, *)$,  then we say $H$ is a \textbf{submonoid} of $(G, *)$.
+\end{definitionenv}
+\begin{exampleenv}
+   \quad
+   \newline
+   (1) Let $d\in \NN^*$,  then $d\NN$ forms a submonoid of $(\NN, +)$.
+   $d\NN$ is a subsemigroup of $(\NN, \cdot)$.
+    \newline
+    (2) $\mathfrak{S} _X$ is submonoid of $(\mathfrak{M} _X, \circ)$.
+\end{exampleenv}
+\begin{propositionenv}\label{proposition5.3.1}
+    Let $(M, *)$ be a monoid,  $H\subseteq M$ be a non-empty subset. Suppose that any element of $H$ is invertible in $M$ ,  and ($\forall x, y \in H, (x, y)\mapsto x*\iota(y)$),  if $\forall x, y\in H,  x*\iota(y)\in H$,  then $H$ is a submonoid of $M$. Moreover,  $H$ equipped with the restriction of $*$ forms a group $(H, *|_H)$. 
+\end{propositionenv}
+\begin{proofenv}
+    Let $e$ be the neutral element of $(M, *)$. Let $a\in H$,  then $e=a\circ\iota(a)\in H$. For any $y\in H$,  one has $\iota(y)=e*\iota(y)\in H$. For any $(x, y)\in H^2$,  $x*y=x*\iota(\iota(y))\in H$. Hence $H$ is closed under $*$ and it contains the neutral element. Also,  $\forall y\in H,  \iota(y)\in H$,  hence $H$ is group. 
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(M, *)$ be a monoid,  $G$ be the set of all invertible element in $M$. Then $G$ is a submonoid. Moreover,  $G$ equipped with the restriction of $*$ forms a group.
+\end{corollaryenv}
+\begin{proofenv}
+    By definition,  any element in $G$ is invertible in $M$. By Proposition \ref{proposition5.2.4},  $\forall x, y\in G,  x*\iota(y)\in G$. Therefore,  Proposition \ref{proposition5.3.1} implies the claim.
+\end{proofenv}
+\begin{notationenv}
+    Let $M$ be a monoid,  we often use $M^\times$ to denote the submonoid of $M$ consisting of all invertible element if the composition law on $M$ is not written additively.
+\end{notationenv}
+\begin{exampleenv}
+    Let $X$ be a set,  $\mathfrak{M} _X^\times=\mathfrak{S} _X$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $(G, *)$ be a group,  $H\subseteq G$ be a submonoid. If $\forall x\in H$,  one has $\iota(x)\in H$,  then we say $H$ is \textbf{subgroup} of $G$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(M, *)$ be a monoid,  $\varnothing \not=H\subseteq M^\times$ be a subset such that $\forall x, y \in H$, 
+    $$x*\iota(y)\in H.$$
+    Then $H$ is a subgroup of $M^\times$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $e$ be the neutral element of $(M, *)$.By Proposition\ref{proposition5.3.1},  we obtain that $H$ forms a submonoid of $M^\times$.Moreover,  $\forall x \in H$,  one has $\iota(x)=e*\iota(x)\in H$.So $H$ is a subgroup of $M^\times$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(G, *)$ be a semigroup (resp. monoid, group),  $(H_i)_{i\in I}$ be a family of subsemigroups (resp. submonoids, subgroups), where $I$ is a non-empty set. Then 
+    $$H:=\bigcap_{i\in I}H_i$$
+    is a subsemigroup (resp.submonoid, subgroup) of $G$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    For semigroup case, let $x, y\in H$ then $x, y\in H_i, \forall i \in I$.Then $x*y\in H_i, \forall i \in I $,  thus 
+    $$x*y\in \cap_{i\in I}H_i=H.$$
+    For monoid case, the neutral element $e$ of $G$ satisfies
+    $$e \in H_i, \forall i \in I\Rightarrow e\in \bigcap_{i\in I}H_i=H.$$
+    For group case, to check $x*\iota(y)\in H$ like above.
+\end{proofenv}
+\section{Homomorphism}
+\begin{definitionenv}
+    Let $(M, *)$ and $(N, \star)$ be  semigroups,  $f:M\rightarrow N$ be a mapping of sets.
+    \newline
+    (1) $f$ is called a \textbf{semigroup homomorphism} from $(M, *)$ to $(N, \star)$ if
+    $$f(a*b)=f(a)\star f(b), \forall a, b\in M.$$
+    (2) If moreover,  $(M, *)$ and $(N, \star)$ are both monoids with neutral elements $e_M, e_N$,  $f$ is called a \textbf{monoid homomorphism} if 
+     $$f(a*b)=f(a)\star f(b), \forall a, b\in M, $$ 
+     $$f(e_M)=e_N.$$
+    (3) If moreover,  $(M, *)$ and $(N, \star)$ are both groups,  $f$ is called a \textbf{group homomorphism} if 
+    $$f(a*b)=f(a)\star f(b), \forall a, b\in M, $$
+    $$f(e_M)=e_N, $$
+    $$f(\iota(a))=\iota(f(a)), \forall a\in M.$$
+    (They are not independent.)
+\end{definitionenv}
+\begin{remark}
+    Let $(M,*),(N,\star)$ be groups, we claim that if $\forall a,b\in M,f(a*b)=f(a)\star f(b)$, then $f(e_M)=e_N$ and $f(\iota(a))=\iota(f(a))$. 
+    Let $b=e_M$, then 
+    {\small$$ f(e_M)=\left(\iota(f(a))\star f(a)\right)\star f(e_M)=\iota(f(a))\star\left( f(a)\star f(e_M)\right)=\iota(f(a))\star f(a)=e_N.$$
+    $$\iota(f(a))=\iota(f(a))\star e_N=\iota(f(a))\star\left(f(a)\star f(\iota(a))\right)=\iota(f(a))\star f(a)\star f(\iota(a))=f(\iota(a)).$$}
+    But for monoid,  we need $f(e_M)=e_N$.
+\end{remark}
+\begin{propositionenv}
+    \quad 
+    \newline
+    Let $f:(M, *)\rightarrow (N, \star)$ be a semigroup (resp. monoid, group) homomorphism. If $M_1$ is a subsemigroup (resp. submonoid, subgroup) of $M$,  then the image $f(M_1)$ is a subsemigroup (resp. submonoid, subgroup).
+\end{propositionenv}
+\begin{proofenv}
+    The semigroup case.Let $x, y\in f(M_1)$,  we may write $x=f(a), y=f(b), a, b\in M_1$
+    $$x\star y=f(a)\star f(b)=f(a*b)\in f(M_1).$$
+    The monoid case.We denote $e_M, e_N$ be the neutral elements of $M, N$
+    $$e_M\in M_1, e_N=f(e_M)\in f(M_1).$$
+    The group case.We have to check that $x, y\in f(M_1), x\star \iota(y)\in f(M_1)$
+    $$\forall a\in M,  f(a)\star f(\iota(a))=f(a*\iota(a))=f(e_M)=e_N.$$
+    We may write $x=f(a), y=f(b), a, b\in M_1$
+    $$x\star \iota(y)=f(a)\star\iota(f(b))=f(a)\star f(\iota(b))=f(a*\iota(b))\in f(M_1).$$
+\end{proofenv}
+\begin{remark}
+    \quad
+    \newline
+    (1) The semigroup homomorphism
+    $$f:(\NN, \times)\rightarrow (\NN, \times), n\mapsto 0$$
+    of two monoids, but is not a monoid homomorphism, and its image is $\{0\}$,  which is not a submonoid of $(\NN, \times)$.
+    \newline
+    (2) Let $M$ be a semigroup (resp. monoid, group) and let $N$ be a subsemigroup (resp. submonoid, subgroup).Then the inclusion mapping $\jmath :N\rightarrow M$ is a semigroup (resp. monoid,  group) homomorphism.
+\end{remark}
+\begin{propositionenv}\label{propositions5.4.2}
+    Let $(X, *)\overset{f}{\rightarrow} (Y, \star)\overset{g}{\rightarrow}(Z, \diamond ) $ be semigroup (resp. monoid,  group) homomorphisms.Then so does the composite mapping $g\circ f$.
+\end{propositionenv}
+\begin{proofenv}
+    The semigroup case.
+        \begin{align*}
+            (g\circ f)(x_1*x_2) & = g(f(x_1*x_2))  = g(f(x_1)\star f(x_2)) \\
+            & = g(f(x_1))\diamond g(f(x_2)), \forall x_1, x_2\in X.
+        \end{align*}
+    The monoid case :
+    $$(g\circ f)(e_X)=g(f(e_X))=g(e_Y)=e_Z.$$
+    The group case:
+    $$(g\circ f)(\iota(x))=g(f(\iota(x)))=g(\iota(f(x)))=\iota((g\circ f)(x)).$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $f:(X, *)\rightarrow (Y, \star)$ be a semigroup (resp.monoid,  group) homomorphism between semigroups (resp.monoids groups).If $f$ is bijective,  then its inverse mapping $f^{-1}:Y\rightarrow X$ is also a semigroup homomorphism (resp.monoid, group) 
+\end{propositionenv}
+\begin{proofenv}
+    The semigroup case: Let $y_1, y_2\in Y$ and let $x_i=f^{-1}(y_i), \, i=1, 2$. Then 
+    $$y_1\star y_2=f(x_1)\star f(x_2)=f(x_1*x_2), $$
+    $$f^{-1}(y_1\star y_2)=x_1*x_2=f^{-1}(y_1)*f^{-1}(y_2).$$
+    The monoid case:
+    $$f(e_X)=e_Y\Rightarrow f^{-1}(e_Y)=e_X.$$
+    The group case:
+    $$f^{-1}(\iota(y))\overset{y=f(x)}{=}f^{-1}(\iota(f(x)))=(f^{-1}\circ f)(\iota(x))=\iota(f^{-1}(y)).$$
+\end{proofenv}
+\begin{definitionenv}
+    A semigroup (resp. monoid,  group) homomorphism $f:X\rightarrow Y$ is called a \textbf{semigroup (resp.monoid, group) isomorphism} if there exists a semigroup (resp.monoid, group) homomorphism $g:Y\rightarrow X$,  such that 
+    $$g\circ f=\mathrm{Id}_X, f\circ g=\mathrm{Id}_Y.$$
+\end{definitionenv}
+By Proposition \ref{propositions5.4.2},  a semigroup (resp.monoid group) homomorphism is a semigroup (resp.monoid , group) isomorphism if and only if $f$ is a bijection.
+\begin{propositionenv}
+    Let $(G, *)$ be a group.The inversion mapping $\imath :(G, *)\rightarrow(G, \hat{*})$ is a group isomorphism.
+\end{propositionenv}
+\section{Quotient}\label{5.5}
+\begin{definitionenv}
+    Let $X$ be a set and $\sim$ be a binary relation on $X$. (We write $x\sim y$ the condition $(x, y)\in \Gamma_\sim$)
+    \newline
+    (1) If $\forall x\in X,  x\sim x$.
+    \newline
+    (2) $\forall (x, y)\in X^2,  x\sim y\Rightarrow y\sim x$.
+    \newline
+    (3) $\forall (x, y, z)\in X^3,  (x\sim y \text{ and } y\sim z )\Rightarrow x\sim z$.
+    \newline
+    We say that $\sim $ is a \textbf{equivalence relation}.
+\end{definitionenv}
+\textit{Check Section~\ref{4.2}:Equivalent Relation,  to get more information about it.}
+\begin{propositionenv}
+    Let $(X_i)_{i\in i}$ be a family of sets. For any $i\in I$,  let $\sim_i$ be an equivalence relation on $X_i$. Let $X=\prod_{i\in I}X_i$. We define a binary relation $\sim$ on $X$ as follows:
+    $$(x_i)_{i\in I}\sim (y_i)_{i\in I}\Leftrightarrow \forall i\in I,  x_i\sim_i y_i.$$
+    Then,  $\sim $ is an equivalence relation,  and the mapping
+    $$X/\sim \overset{\Phi}{\longrightarrow }\prod_{i\in I}X_i/\sim_i, $$
+    $$ [(x_i)_{i\in I}]\longmapsto  ([x_i])_{i\in I}$$
+    is a bijection.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) Let $(x_i)_{i\in I}\in X. \forall i\in I, x_i\sim x_i$,  so $(x_i)_{i\in I}\sim(x_i)_{i\in I}$.
+    \newline
+    (2) Let $x=(x_i)_{i\in I}, y=(y_i)_{i\in I},  x_i\sim_i y_i$,  so $y_i\sim x_i$. Therefore,  $y\sim x$.
+    \newline 
+    (3) Let $x=(x_i)_{i\in I}, y=(y_i)_{i\in I}, z=(z_i)_{i\in I}$ in $X$. If $x\sim y$ and $y\sim z$,  then $\forall i \in I, x_i\sim_i y_i$ and $y_i\sim_i z_i$. Hence $\forall i \in I,  x_i\sim_i z_i$. So $x\sim z$.
+    \newline
+    We check that $\Phi$ is well defined. Let $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ be elements of $X$. If $[x]=[y]$,  then $x\sim y$ and hence $\forall i\in I,  x_i\sim_i y_i$,  that means 
+    $$([x_i])_{i\in I}=([y_i])_{i\in I}.$$
+    By definition,  $\Phi$ is surjective. If $\Phi([(x_i)_{i\in I}])=\Phi([(y_i)_{i\in I}])$,  then $\forall i\in I,  [x_i]=[y_i]$,  namely $x_i\sim_i y_i$. Therefore,  $([(x_i)_{i\in I}])=([(y_i)_{i\in I}])$.
+\end{proofenv}
+\begin{notationenv}
+    Let $X$ be a set ,  $\sim $ be an equivalence relation on $X$. Then $X/\sim$ is called the \textbf{quotient} of $X$ by $\sim$. The mapping 
+    $$\pi:X\longrightarrow X/\sim , $$
+    $$x\longmapsto [x]$$
+is called the \textbf{quotient mapping}.
+\end{notationenv}
+\begin{definitionenv}
+    Let $X$ be a set,  $f:X\rightarrow Y$ be a mapping and $\sim $ an equivalence relation on $X$. If $\forall(x, y)\in X^2,  x\sim y\Rightarrow f(x)=f(y)$ we say that $\sim$ is \textbf{compatible} with $f$.
+\end{definitionenv}
+\begin{theoremenv}[Proposition\ref{4.2.5}]\label{5.5.5}
+    Let $f:X\rightarrow Y$ be a mapping and $\sim $ be an equivalence relation on $X$ which is compatible with $f$. Then there exists a unique mapping 
+    $$\tilde{f}:X/\thicksim\rightarrow Y,  [x]\mapsto f(x), $$such that $$\tilde{f}\circ \pi =f.$$
+    \begin{center}
+\begin{tikzcd}
+    X\arrow[d, swap, "\pi"]\arrow[r, "f"]& Y\\
+    X/\sim \arrow[ur, swap, "\tilde{f}"]
+\end{tikzcd}
+\end{center}
+\end{theoremenv}
+\begin{proofenv}
+    If such $\tilde{f}$ exists. For an $x\in X$. 
+    $$\tilde{f}([x])=\tilde{f}(\pi(x))=f(x)$$
+    So $\tilde{f}$ is unique. To prove the existence,  it suffices to check that $\tilde{f}:X/\sim\rightarrow Y$ is well defined. If $[x]=[y]$,  then $[x]\mapsto f(x),  x\sim y$ and hence $f(x)=f(y)$. So $\tilde{f}$ is well defined.
+\end{proofenv}
+\begin{definitionenv}
+    We call $\tilde{f}$ the \textbf{mapping induced by $f$ by passing to quotient}.
+\end{definitionenv}
+\begin{exampleenv}
+    Let $X$ be a set and $*$ a composition law on $X$. We say that an equivalence relation $\sim$ on $X$ is compatible to $*$ if $\forall (x_1, y_1), (x_2, y_2)\in X^2$
+    $$(x_1\sim x_2 \text{ and } y_1\sim y_2)\Leftrightarrow x_1*y_1\sim x_2*y_2$$
+    Or equivalently,  the equivalence relation $R$ on $X\times X$ defined by 
+    $$(x_1, y_1)R(x_2, y_2)\Leftrightarrow x_1\sim x_2\text{ and }y_1\sim y_2$$
+    is compatible with the mapping:
+    $$X\times X\longrightarrow X/\sim$$
+    $$(x, y)\longmapsto [x*y]$$
+    By the theorem,  $*$ induces by passing to quotient a mapping
+    $$(X/\sim)\times (X/\sim) \longrightarrow (X\times X)/R\longrightarrow X/\sim$$
+    $$([x], [y])\longmapsto[(x, y)]\longmapsto[x*y]$$
+    The compatible mapping
+    $$(X/\sim)\times (X/\sim) \longrightarrow X/\sim$$
+    $$([x], [y])\longmapsto[x*y]$$
+    defines a composition law on $X/\sim$,  which is often denoted as $*$ by abuse of notation,  called the composition law on $X/\sim$ induced by the composition law $*$ on $X$ by passing to quotient.
+\end{exampleenv}
+\begin{exampleenv}
+    $N_n$ on $\ZZ$. 
+    \newline
+    If $n\mid (x_1-x_2)\ n\mid (y_1-y_2)$,  then $n\mid(x_1+y_1)-(x_2+y_2)$.
+    \newline
+    Since $x_1y_1-x_2y_2=x_1(y_1-y_2)+(x_1-x_2)y_2$,  $n\mid x_1y_1-x_2y_2$.
+    \newline
+    Hence $+$ and $\cdot$ on $\ZZ$ induces by passing to equivalent composition law on $\ZZ/\sim_n$.
+\end{exampleenv}
+\begin{propositionenv}
+    \quad\newline
+    (1) If $*:X\times X\rightarrow X$ is associative (resp.communitative) then so is $$*:(X/\sim)\times(X/\sim)\rightarrow X/\sim$$
+    (2) If $e$ is a neutral element of $(X, *)$,  then $[e]$ is a neutral element of $(X/\sim, *)$.
+    \newline
+    (3) If $(X, *)$ is a semigroup (resp. monoid),  then the projection $$\pi:X\rightarrow X/\sim,  x\mapsto[x]$$ is a homomorphism of  semigroup (resp.monoid).
+    \newline
+    (4) If $(X, *)$ is a monoid,  $x\in X$ is invertible,  then $[x]$ is invertible in $(X/\sim, *)$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1)associative:
+     $[x]*([y]*[z])=[x]*[y*z]=[x*(y*z)]=[(x*y)*z]=[x*y]*[z]=([x]*[y])*[z]$.
+    \newline
+    communitative:
+    $[x]*[y]=[x*y]=[y*x]=[y]*[x]$
+    \newline
+    (2) $[e]*[x]=[e*x]=[x], [x]*[e]=[x*e]=[x]$.
+    \newline
+    (3) $$\pi(x*y)=[x*y]=[x]*[y]=\pi(x)*\pi(y)$$
+    $\pi(e)=[e]$ is the neutral element of $(X/\sim, *)$.
+    \newline
+    (4) By (3),  $\pi$ is a homomorphism of monoid,  $\forall x \in X^\times,  \pi(x)=[x]\in (X/\sim )^\times $ and $\iota([x])=[\iota(x)]$.
+\end{proofenv}
+\begin{remark}
+    If $(X, *)$ is a group,  so is $(X/\sim, *)$.
+\end{remark}
+\begin{definitionenv}
+    \quad
+    \newline
+    If $(X, *)$ is a semigroup (resp. monoid,  group),  then $(X/\sim,  *)$ is called the \textbf{quotient semigroup} (resp. quotient monoid,  quotient group) of $(X, *)$ by $\sim$.
+\end{definitionenv}
+\begin{definitionenv}
+    Let $(X, *), (Y, \star)$ be groups and $f:X\rightarrow Y$ be a homomorphism of groups. We define the \textbf{kernel} of $f$ as 
+    $$\ker(f):=\{x\in X\mid f(x)=e_Y\}$$
+    where $e_Y$ is the neutral element of $Y$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(X, *)$ be a monoid,  $(Y, \star)$ be a semigroup,  $f:X\rightarrow Y$ be a homomorphism of semigroups. If $f$ is surjective,  then $(Y, \star)$ is a monoid,  and $f$ is a homomorphism of monoid.
+\end{propositionenv}
+\begin{proofenv}
+    We check that $f(e_X)$ is the neutral element of $Y$. $\forall y\in Y, \exists x\in X, f(x)=y$. So $f(e_X)\star y=f(e_X)\star f(x)=f(e_X*x)=f(x)=y$. Also $y\star f(e_X)=f(x)\star f(e_X)=f(x*e_X)=f(x)=y$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X, *)$ be a monoid and $(Y, \star)$ be a group. If $f:X\rightarrow Y$ is a homomorphism of semigroups,  then it is homomorphism of monoids.
+\end{propositionenv}
+\begin{proofenv}
+    Let $e_X$ and $e_Y$ be neutral elements of $X$ and $Y$. One has $e_X=e_X*e_X$,  so $f(e_X)=f(e_X)\star f(e_X)$,  so $e_Y=f(e_X)$.
+\end{proofenv}
+\begin{propositionenv}
+    \quad
+    \newline
+    (1) $\ker(f)$ is a subgroup of $X$.
+    \newline
+    (2) $\forall (a, x)\in X\times \ker(f) $,  there exists $y\in \ker(f)$ such that $a*x=y*a$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad
+    \newline
+    (1) The neutral element $e_x$ of $(X, *)$ belongs to $\ker(f)$. If $x, y$ are elements of $\ker(f)$,  then 
+    $$f(x*\iota(y))=f(x)\star f(\iota(y))=f(x)\star \iota(f(y))=e_Y\star\iota(e_Y)=e_Y, $$
+    so,  $x*\iota(y)\in \ker(f)$.
+    \newline
+    (2) We should take $y:=(a*x)*\iota(a)$. It remains to check that $y\in \ker(f)$. One has $f(y)=f(a*x*\iota(a))=f(a)\star f(x)\star \iota(f(a))=f(a)\star \iota(f(a))=e_Y$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(G, *)$ be a group and $H$ be a subgroup of $G$. If $\forall (a, x)\in G\times H$,  $a*x*a^{-1}\in H$,  we say that $H$ is a \textbf{normal subgroup}.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(G, *)$ be a group and $H$ be a normal subgroup of $G$.
+    \newline
+    (1) The binary relation $\sim_H$ on $G$ defined as 
+    $$x\sim_H y\Leftrightarrow x*\iota(y)\in H$$
+    is an equivalence relation on $G$. Moreover,  
+    $$\forall x\in G,  [x]=H*x:=\{y*x\mid y\in H\}.$$
+    (2) If $H$ is normal,  then
+    $$\forall x\in G, x*H=H*x.$$
+    Moreover,  $\sim_H$ is compatible with $*$.
+    \newline
+    (3) The kernel of $\pi :G\rightarrow G/\sim_H$ is equal to $H$.
+\end{propositionenv}
+\begin{proofenv}
+    \quad\newline
+    (1) If $x\sim_H y$,  then $x*\iota(y)\in H$,  so $y*\iota(x)=\iota(x*\iota(y))\in H$,  so $y\sim_H x$. If $x\sim_H y$ and $y\sim_H z$,  then $x*\iota(y)\in H,  y*\iota(z)\in H$,  so $x*\iota(z)=x*\iota(y)*y*\iota(z)\in H$. Hence $x\sim_H z$. By definition,  $[x]:=\{y\in G\mid  x*\iota(y)\in H\}$. If $y\in [x]$,  then $y*\iota(x)\in H$. Hence $y=(y*\iota(x))*x\in H*x$. Conversely,  if $y=h*x\in H*x \quad (h\in H)$,  then $y*\iota(x)=h*x*\iota(x)\in H$. So $y\in [x]$,  $[x]=H*x$.
+    \newline
+    We denote by $G/H $ the set 
+    $$G/H:=\{x*H\mid x\in G\}.$$ 
+    We denote by $H\backslash G$ the set 
+    $$H\backslash G:=\{H*x\mid x\in G\}.$$
+    (2) Suppose that $H$ is normal.$\forall (x, y)\in G\times H$,  one has $x*y*\iota(x)\in H$. So $\forall y\in H, \exists z(=x*y*\iota(x))\in H$ such that $x*y=z*x$. So $x*H\subseteq H*x$. Conversely,  $H*x\subseteq x*H$. Let $x_1, x_2, y_1, y_2$ be elements of $G$,  such that $x_1\sim_H x_2, y_1\sim_H y_2$.
+    \begin{align*}
+&(x_1*y_1)*\iota (x_2*y_2)\\
+=&x_1*y_1*\iota (y_2)*\iota (x_2)\\
+=&x_1*(y_1*\iota (y_2))*\iota (x_1)*x_1*\iota (x_2)\in H.
+\end{align*}
+    (3)$$\ker(\pi)=[e_G]=H*e_G=H.$$
+\end{proofenv}
+\begin{notationenv}
+    If $H$ is a normal subgroup of $G$,  we denote by $G/H$ the quotient group $G/\sim_H$.
+\end{notationenv}
+\begin{theoremenv}
+    Let $f:(X, *)\rightarrow (Y, \star)$ be a homomorphism of groups,  and $K=\ker(f)$. Then $\sim_K$ is compatible with $f$,  and $f$ induces by passing to quotient a mapping
+    $$\tilde{f}:X/K\longrightarrow Y, $$
+    which is actually an injective homomorphism of groups,  with $\tilde{f}(X/K)=f(X)$. In particular,  $X/K$ is isomorphism to $f(X)$.
+        \begin{center}
+\begin{tikzcd}
+    X\arrow[d, swap, "\pi"]\arrow[r, "f"]& f(X)\subseteq Y\\
+    X/\ker(f) \arrow[ur, swap, "\tilde{f}"]
+\end{tikzcd}
+\end{center}
+\end{theoremenv}
+\begin{proofenv}
+    Let $x$ and $y$ be elements of $X$. $x\sim_K y\Leftrightarrow x*\iota(y)\in K$. Hence $f(x)\star \iota(f(y))=f(x*\iota(y))=e_Y$. So $f(x)=f(y)$. $\tilde{f}([x]*[y])=\tilde{f}([x*y])=f(x*y)=f(x)\star f(y)=\tilde{f}([x])\star \tilde{f}([y])$.
+\end{proofenv}
+
+\section{Universal Homomorphisms}
+\begin{propositionenv}
+    Let $(M, *)$ be a monoid,  $x\in M$. Then there exists a unique homomorphism of monoid $f:(\NN, +)\rightarrow (M, *)$ such that $f(1)=x$.
+\end{propositionenv}
+\begin{proofenv}
+    We construct a mapping $f:\NN\rightarrow M$ in a recursive way as follows: $f(0)=e_M$. For any $n\in \NN$,  we let $f(n+1)=f(n)*x$. We will prove that $f$ is a homomorphism of monoids,  that is 
+    $$\forall (n, m)\in \NN\times \NN, f(n+m)=f(n)*f(m).$$
+    We reason by induction on $m$. If $m=0$,  $f(n)=f(n)*e_M$. Suppose that $f(n+m)=f(n)*f(m)$. One has $$f(n+m+1)=f(n+1)*f(m)=f(n)*f(1)*f(m)=f(n)*f(m+1).$$
+    If $g:\NN\rightarrow M$ is a homomorphism of monoid,  such that $g(1)=x$. Since $g(n+1)=g(n)*g(1)=g(n)*x$,  we have $g(n)=f(n)$. By induction,  $\forall n\in \NN, g(n)=f(n)$. So $f$ is unique.
+\end{proofenv}
+\begin{notationenv}
+    Let $(M, *)$ be a monoid,  $x\in M$,  $f:(\NN, +)\rightarrow (M, *)$ be the unique homomorphism of monoid,  such that $f(1)=x$. For any $n\in \NN$,  we denote by $x^{*n}$ the element $f(n)\in M$,  $x^{*0}=e_M$,  $x^{*(n+m)}=x^{*n}*x^{*m}$.
+    \newline
+    Two exceptions: If $*=\cdot$ is written multiplicatively,  $x^{*n}$ is written as $x^n$. If $*=+$,  then $x^{*n}$ is written as $nx$. 
+\end{notationenv}
+\begin{propositionenv}
+    Let $(M, *)$ be a monoid,  $x\in M$. There exists a unique homomorphism of monoids $f:(\ZZ, +)\rightarrow (M, *)$ such that $f(1)=x$. Note that  $f(\ZZ)\subseteq M^\times$. So $f$ defines a homomorphism of groups $f:(\ZZ^\times, +)\rightarrow (M^\times, *)$.
+\end{propositionenv}
+\begin{proofenv}
+    We define $f$ as 
+    $$f(n):=\left\{\begin{matrix}
+        x^{*n}, &n\ge 0\\
+        \iota(x^{*(-n)}), &n<0
+    \end{matrix}\right. .$$
+    Let $n, m$ be two elements of $\ZZ$.
+    \newline
+    (1) If $n, m>0$. Then $f(n+m)=x^{*n}*x^{*m}=f(n+m)$.
+    \newline
+    (2) If $n, m<0$. Then $f(n+m)=\iota(x^{*(-n-m)})=\iota(x^{*(-m)}*x^{*(-n)})=\iota(x^{*(-n)})*\iota(x^{*(-m)})=f(n)*f(m)$.
+    \newline
+    (3) If $n>0, m<0$ and $n+m>0$. Then $$f(n+m)=x^{*(n-(-m))}=x^{*n}*\iota(x^{*(-m)})=f(n)*f(m).$$
+    (4) If $n>0, m<0$ and $n+m<0$. Then $$f(n+m)=\iota(x^{*(-n-m)})=\iota(\iota(x^{*n})*x^{*(-m)})=\iota(x^{*(-m)})*x^{*n}=f(m)*f(n).$$
+\end{proofenv}
+\begin{notationenv}
+    If $x\in M^\times$,  for any $n\in \ZZ$,  let $x^{*n}$ be the image of $n$ by this unique homomorphism of monoids $(\ZZ, +)\rightarrow (M, *), \ 1\mapsto x$. $x^{\cdot n}$ is denoted as $x^n$,  $x^{+n}$ is denoted as $nx$.
+\end{notationenv}
+\begin{propositionenv}
+    Let $(M, *)$ be a monoid,  $x, y\in M$.
+    \newline
+    (1) If $x*y=y*x$,  then for any $(n, m)\in \NN^2$, 
+     $$x^{*n}*y^{*m}=y^{*m}*x^{*n}.$$ 
+     $$(x*y)^{*n}=x^{*n}*y^{*n}.$$
+    \newline
+    (2) If $x\in M$,  $\iota(x^{*n})=\iota(x)^{*n}$ and for any $(n, m)\in \NN^2$,  with $n\ge m$, 
+    $$x^{*(n-m)}=x^{*n}*\iota(x)^{*m}, $$
+    $$\iota(x^{*(n-m)})=\iota(x)^{*n}*x^{*m}.$$
+\end{propositionenv}
+\begin{proofenv}
+   \quad
+   \newline
+    (1) We prove by induction on $n$ such that $x^{*n}*y=y*x^{*n}$.
+    If $n=0$,  $x^{*n}=e_M$,  so $y*e_M=y=e_M*y$. If $x^{*n}*y=y*x^{*n}$,  we have $x^{*n+1}*y=x^{*n}*y*x=y*x^{*n}*x=y*x^{*(n+1)}$. We apply this  statement in replacing $n$ by $m$,  $x$ by $y$,  and $y$ by $x^{*n}$. From $x^{*n}*y=y*x^{*n}$,  we deduce that $y^{*m}*x^{*n}=x^{*n}*y^{*m}$. We prove $(x*y)^{*n}=x^{*n}*y^{*n}$ by induction on $n$. If $n=0, e_M=e_M*e_M$. If $n=1, x*y=x*y$. If $(x*y)^{*n}=x^{*n}*y^{*n}$,  then $$(x*y)^{*(n+1)}=(x*y)^{*n}*x*y=x^{*n}*y^{*n}*x*y=x^{*n}*x*y^{*n}*y=x^{*(n+1)}*y^{*(n+1)}.$$
+    (2) $x^{*n}*\iota(x)^{*n}=(x*\iota(x))^{*n}=e_{M}^{*n} = e_{M}$,  since $(\NN, +)\rightarrow (M, *),  n\mapsto e_M$ is a homomorphism of monoids. $\iota(x)^n* x^{*n} = (\iota(x) * x)^{*n} = e_{M}$. If $n \geq m$ 
+$$
+x^{*n} * \iota(x)^{*m} = x^{*(n-m)} * x^{*m} * \iota(x)^{*m} = x^{*(n-m)}
+.$$
+$$
+\iota(x)^{*n} * x^{*m} = \iota(x)^{*(n-m)} * \iota(x)^{*m} * x^{*m}=\iota(x)^{*(n-m)}=\iota(x^{*(n-m)})
+.$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $I$ be a set. For any $i\in I$,  let $(M_i, *_i)$ be a set equipped with a composition law. Let 
+    $$M=\prod_{i\in I}M_i=\{(x_i)_{i\in I}\mid \forall i\in I, x_i\in M_i\}.$$ 
+    We define a composition law on $M$ such that 
+    $$(x_i)_{i\in I}*(y_i)_{i\in I}=(x_i*y_i)_{i\in I}.$$
+    For any $j\in I$,  let $\pi_j:M\rightarrow M_j, \ (x_i)_{i\in I}\mapsto x_j$.
+\end{definitionenv}
+\begin{propositionenv}
+    \quad 
+    \newline
+    (1) If $\forall i\in I,  *_i$ is commutative,  then $*$ is communitative.
+    \newline
+    (2) If $\forall i\in I,  *_i$ is associative,  then $*$ is associative. Moreover,  $\pi_j:(M, *)\rightarrow (M_j, *_j)$ is a homomorphism of semigroups.
+    \newline
+    (3) If $\forall i\in I$,  $e_i$ is a neutral element of $(M_i, *_i)$,  then $e:=(e_i)_{i\in I}$ is a neutral element of $(M, *)$. Moreover,  if each $(M_i, *_i)$ is a monoid,  then $\pi_j:(M, *)\rightarrow (M_j, *_j)$ is a homomorphism of monoids.
+    \newline
+    (4) Assume that each $(M_i, *_i)$ is a monoid. Then $M^\times=\prod_{i\in I}M_i^\times$. In particular,  if each $(M_i, *_i)$ is a group,  then $M^\times=\prod_{i\in I}M_i^\times$ is also a group.
+\end{propositionenv}
+\begin{proofenv}
+    If $(x_i)_{i\in I},  (y_i)_{i\in I}\in M$,  then $\pi_j(x*y)=\pi_j((x_i*y_i)_{i\in I})=x_j*_jy_j=\pi_j(x)*\pi_j(y)$.
+    \newline
+    proof of (4): Assume that $x=(x_i)_{i\in I}\in M^\times$. Then $\exists y=(y_i)_{i\in I}\in M^\times$ such that $x*y=e:=(e_i)_{i\in I}$,  where $e_i$ is the neutral element of $(M_i, *_i)$. $x*y=(x_i*y_i)_{i\in I}=(e_i)_{i\in I}=$. So $x_i*_iy_i=e_i$ for all $i\in I$. Therefore,  $x_i\in M_i^\times$ for all $i\in I$. Hence $M^\times\subseteq\prod_{i\in I}M_i^\times$.
+    Now let $x=(x_i)_{i\in I}\in \prod_{i\in I}M_i^\times$. We claim that $(\iota(x_i))_{i\in I}$ is the inverse of $x$. In fact $(x_i)_{i\in I}*(\iota(x_i))_{i\in I}=e$. So $x\in M^\times$.
+\end{proofenv}
+\begin{theoremenv}
+    Suppose that each $(M_i, *_i)$ is a semigroup. Let $(N, \star)$ be a semigroup (resp. monoid,  group). For any $i\in I$,  let $f_i:N\rightarrow M_i$ be a homomorphism of semigroups (resp. monoid,  group). Then there is a unique homomorphism of semigroups (resp. monoid,  group) $f:M\rightarrow N$ such that $\forall i\in I,  \pi_i\circ f=f_i$.
+    \newline
+    $(M, *)$ is called the \textbf{product} of $(M_i, *_i)$.
+\end{theoremenv}
+\begin{proofenv}
+    By Proposition~\ref{prop:direct-product-factorization},  there exists a unique mapping $f:N\rightarrow M$ such that $\forall i\in I,  \pi_i\circ f=f_i $. We check that $f$ is a homomorphism. 
+    \newline
+    Recall that $\forall y\in N,  f(y)=(f_i(y))_{i\in I}$. If $(y, z)\in N\times N$,  then $f(y*z)=(f_i(y)*f_i(z))_{i\in I}=(f_i(y))_{i\in I}*(f_i(z))_{i\in I}=f(y)*f(z)$. If each $(M_i, *_i)$ is a monoid with neutral element $e_i$,  and $e_N$ is the neutral element of $N$,  in the case where each $f_i$ is a homomorphism of monoids $(f_i(e_N)=e_i)$. One has $f(e_n)=(f_i(e_N))_{i\in I}=(e_i)_{i\in I}$ is the neutral element of $M$.
+\end{proofenv}
+\begin{notationenv}
+    Let $M$ be a communitative monoid,  $(x_i)_{i\in I}$ be a family of elements in $M$. We suppose that $I_0=\{i\in I\mid x_i\not=e\}$ is finite. We pick a natural number $n$ and a bijection $\sigma:\{1, 2, \dots, n\}\rightarrow I_0$. If the composition law of $M$ is written as $+$,  then 
+    $$\sum_{i\in I}x_i \text{ denotes }(x_{\sigma(1)}+x_{\sigma(2)}+\cdots+x_{\sigma(n)}), $$
+    it denotes the neutral element $0$ of $M$ when $I_0=\varnothing$. If the composition law of $M$ is written as $\cdot$,  then 
+    $$\prod_{i\in I}x_i \text{ denotes }(x_{\sigma(1)}\cdot x_{\sigma(2)}\cdots x_{\sigma(n)}), $$
+    it denotes the neutral element $1$ of $M$ when $I_0=\varnothing$.
+    \newline
+    Let $(M_i)_{i\in I}$ be a family of communitative monoids. (The composition law of $M_i$ is written additively,  the neutral element of $M_i$ is written $0$)
+\end{notationenv}
+\begin{notationenv}
+    Let $(M_i)_{i\in I}$ be a family of communitative monoids. For any $i\in I$,  let $e_i$ be a neutral element of $M_i$. 
+    We denote by 
+    $$\bigoplus_{i\in I}M_i$$ 
+    the set of $(x_i)_{i\in I}\in \prod_{i\in I}M_i$ such that $\{i\in I\mid x_i\not=e_i\}$ is finite. 
+\end{notationenv}
+\begin{propositionenv}
+    $\displaystyle\bigoplus_{i\in I}M_i$ is a submonoid of $\displaystyle\prod_{i\in I}M_i$.
+\end{propositionenv}
+\begin{proofenv}
+    First,  $e:=(e_i)_{i\in I}\in \bigoplus_{i\in I}M_i$. Let $*_i$ be the composition law of $M_i$,  $*$ be the direct product of $(*_i)_{i\in I}$. If $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ are in $\bigoplus_{i\in I}M_i$,  then $x*y=(x_i*y_i)_{i\in I}$. If $I_x=\{i\in I\mid x_i\not=e_i\}$ and $I_y=\{i\in I\mid y_i\not=e_i\}$ are finite,  then $\{i\in I\mid x_i*y_i\not=e\}\subseteq I_x\cup I_y$. So $x\in \bigoplus_{i\in I}M_i$ and $y\in \bigoplus_{i\in I}M_i$ imply that $x*y\in\bigoplus_{i\in I}M_i$.
+\end{proofenv}
+\begin{definitionenv}[Direct sum]
+    $\bigoplus_{i\in I}M_i$ is called the \textbf{direct sum} of $(M_i)_{i\in I}$. For any $j\in I$,  the homomorphisms 
+    $$\begin{matrix}
+M_j\overset{\mathrm{Id}_{M_j}}{\longrightarrow }M_j & \\
+M_j\longrightarrow M_i, & (i\not=j)\\
+x_j\longmapsto e_i &
+
+\end{matrix}$$
+induce:$$\begin{matrix}
+M_j\longrightarrow \prod_{i\in I}M_i \\
+x_j\longmapsto  (y_i)_{i\in I}
+
+\end{matrix}$$
+with
+$$y_i=\left\{\begin{matrix}
+ x_j, \ j=i\\
+e_i, \ i\not=j
+\end{matrix}\right. \ .$$
+Claim: This homomorphism takes value in $\bigoplus_{i\in I}M_i$. We denote by 
+$$\lambda_j:M_j\longrightarrow \bigoplus_{i\in I}M_i$$ 
+this homomorphism.
+$$\lambda_j(x_j)_i= \left\{\begin{matrix}
+x_j, \ i=j\\
+e_i, \ i\not=j
+\end{matrix}\right. , $$
+$$\lambda_j(x_j)_i=(\lambda_j(x_j)_i)_{i\in I}.$$
+\end{definitionenv}
+\begin{theoremenv}
+    Let $(N, \star)$ be a communitative monoid. Then for any $i\in I$,  let $\psi_i:M_i\rightarrow N$ be a homomorphism of monoids. Then there is a unique homomorphism of monoids $\displaystyle\psi:\bigoplus_{i\in I}M_i\rightarrow N$ such that for any $ j\in I, \psi\circ \lambda_j=\psi_j$.
+       \begin{center}
+\begin{tikzcd}
+    \displaystyle\bigoplus_{i\in I}M_i\arrow[r, "\psi"]& N\\
+    M_j \arrow[u, "\lambda_j"]\arrow[ur, swap, "\psi_j"]
+\end{tikzcd}
+\end{center}
+\end{theoremenv}
+\begin{proofenv}
+    For simplicity,  we write all composition laws as $+$,  and all neutral element as $0$. We should define $\displaystyle\psi:\bigoplus_{i\in I}M_i\rightarrow N, \ (x_i)_{i\in I}\mapsto \sum_{i\in I}\psi_i(x_i)$. $\psi\left((0)_{i\in I}\right)=\sum_{i\in I}0=0$. $\psi\left((x_i)_{i\in I}+(y_i)_{i\in I}\right)=\psi\left((x_i+y_i)_{i\in I}\right)=\sum_{i\in I}\psi_i(x_i+y_i)=\sum_{i\in I}\left[\psi_i(x_i)+\psi_i(y_i)\right]=\sum_{i\in I}\psi_i(x_i)+\sum_{i\in I}\psi_i(y_i)$. (The last equality holds because the composition law of $N$ is commutative.)
+\end{proofenv}

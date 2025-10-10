@@ -1,0 +1,80 @@
+\appendix
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Axioms}
+
+\section{Axiom of Foundation (Regularity)}
+
+\begin{axiomenv}[Axiom of foundation]
+    $$\forall A(A\not=\varnothing\rightarrow\exists x\in A(x\cap A=\varnothing)).$$
+    Regularity means that :If $A$ is a non-empty set, then there exists at least one element $x$ of $A$ satisfies: Either $x$ is not a set or does not intersect with $A$.
+\end{axiomenv}
+Based on axiom of foundation, we have the following propositions.
+\begin{propositionenv}
+    
+    There does not exists a set $S$,  such that $S\in S$.
+\end{propositionenv}
+\begin{proofenv}
+    If $S=\varnothing, \varnothing\notin\varnothing$; If $S\not=\varnothing$, consider the set $\{S\}$ , it has a single element $S$. Since $S\in S, S\in (S\cap\{S\})\not=\varnothing$.
+\end{proofenv}
+\begin{propositionenv}
+
+    Let $(X, <)$ be a strictly ordered set,  $(A_i)_{i\in X}$ be a family of sets.If $\forall (i, j)\in X^2, i<j\Rightarrow(\exists k\in X, i<k\le j\wedge A_i\in A_k)$,  then $(X, \le)$ is a well ordered set.
+\end{propositionenv}
+\begin{proofenv}
+    
+    Let $I$ be a subset of $X$,  $S:=\{A_i|i\in I\}$.If $(i, j)\in S^2, i<j$,  then $\exists A_k\in S, A_i\in A_k$.Since $A_i\in S$ at the same time,  $A_k\cap S\subseteq\{A_i\}\not=\varnothing$.By axiom of regularity, $\exists A_i\in S, A_i\cap S=\varnothing$.Hence, $\forall A_j\in S, A_j\notin A_i$.Thus, $j\not>i$, which leads to $\forall j\in I,  j>i$.$i$ is the least element of $I$.
+\end{proofenv}
+\begin{propositionenv}
+   Let $(X, <)$ be a strictly ordered set,  $(A_i)_{i\in X}$ be a family of sets.If $\forall (i, j)\in X^2, i<j\Rightarrow(\exists k\in X,  A_i\in A_k)$,  then $\forall (i, j)\in X^2, i<j\Rightarrow A_j\notin A_i$ .
+\end{propositionenv}
+\begin{proofenv}
+    If $\exists i<j\in X, A_j\in A_i$ and $i<k\le j, A_i\in A_k$, we consider the set $S=\{A_k|i\le k\le j\}, \forall A_k\in S, \exists A_m\in S, A_k\in A_m$.Therefore $A_k\cap S\not=\varnothing$.That contradicts to the axiom.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $X, Y$ be two sets,  if $X\in Y$,  then $Y\notin X$.
+\end{corollaryenv}
+
+
+\chapter{Inequalities}
+\begin{definitionenv}[Convex functions on intervals]
+    Let $X\subseteq \mathbb{R}$ bbe an interval.
+    \newline 
+    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{convex} for all $x_1, x_2\in X, t\in \interval{0}{1}$
+    $$f(tx_1+(1-t)x_2)\le tf(x_1)+(1-t)f(x_2)$$
+    \newline
+    A function $f:X\rightarrow \mathbb{R}$ is called \textbf{concave} for all $x_1, x_2\in X, t\in \interval{0}{1}$
+    $$f(tx_1+(1-t)x_2)\ge tf(x_1)+(1-t)f(x_2)$$
+\end{definitionenv}
+\begin{theoremenv}[Jensen's Inequality]
+    Let $f$ be a convex function $0\le \alpha_i\le 1$ for $i=1, 2, \dots , n$, such that 
+    $$\sum_{i=1}^{n}\alpha_1=1.\text{show that } \forall x_i\in X$$
+    $$f\left(\sum_{i=1}^{n}a_ix_i\right)\le \sum_{i=1}^{n}\alpha_if(x_i)$$
+    Equality holds if and only if $x_1=x_2=\dots =x_n$ or $f$ is linear on some interval containing $x_1, x_2, \dots, x_n$.
+\end{theoremenv}
+\begin{remark}
+    Consider $f(x)=x^2$ , we obtain Cauchy-Schwartz inequality, $f(x)=\ln (x)$,  we obtain AM-GM-HM inequality.
+\end{remark}
+\begin{theoremenv}[Young's Inequality]
+    \quad
+    \newline
+    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$, then
+    $$xy\le \frac{1}{p}x^p+\frac{1}{q}y^q$$
+\end{theoremenv}
+\begin{theoremenv}[Hölder's Inequality]
+    \quad
+    \newline
+    Fix $pq>1$ such that $\frac{1}{p}+\frac{1}{q}=1$.$x_1, x_2, \dots, x_n;y_1, y_2, \dots, y_n\ge 0$, then
+    $$\sum_{i=1}^{n}x_iy_i\le \left(\sum_{i=1}^{n}x_i^p\right)^{\frac{1}{p}}\cdot\left(\sum_{j=1}^{n}y_j^q\right)^{\frac{1}{q}}$$
+    In particular,  when $p=q=2$,  this is Cauchy-Schwartz inequality.
+\end{theoremenv}

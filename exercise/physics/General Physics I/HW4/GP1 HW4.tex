@@ -1,0 +1,65 @@
+\documentclass{article}
+\newcommand{\mydate}{October 9, 2025}
+\newcommand{\mytitle}{GP1 HW4}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{tikz}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\begin{document}
+\maketitle
+\begin{problem}[The hyperbolic orbit]
+    (1)
+\end{problem}
+\begin{problem}[A parabolic orbit]
+    
+\end{problem}
+\begin{problem}[Proof of Kepler's First Law]
+    We start from Binet's equation:
+    \begin{equation}
+        h^2u^2\left(\frac{\dd^2{u}}{\dd{\theta}^2}+u\right)=-\frac{F}{m}.
+    \end{equation}
+    Where $h=r^2\dot{\theta}$ is a constant, $u=\frac{1}{r}$, $F=-\frac{GMm}{r^2}=-GMmu^2$. Hence,
+    \begin{equation}
+        \frac{\dd^2{u}}{\dd{\theta}^2}+u=\frac{Gm}{h^2}.
+    \end{equation}
+    \begin{equation}
+        u=A\cos\left(\theta+\theta_0\right)+\frac{GM}{h^2}.
+    \end{equation}
+    \begin{equation}
+        r=\frac{1}{A\cos\left(\theta+\theta_0\right)+\frac{GM}{h^2}}.
+    \end{equation}
+    We can use the initial condition to determine $A$ and $\theta_0$. Anyway, we know it is a quadratic curve.
+\end{problem}
+\end{document}

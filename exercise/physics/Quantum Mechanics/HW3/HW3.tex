@@ -136,12 +136,12 @@
     \end{equation}
     In particular, 
     \begin{equation}
-        \boxed{\delta(x^2-a^2)=\frac{\delta(x-a)+\delta(x+a)}{2a}.}
+        \boxed{\delta(x^2-a^2)=\frac{\delta(x-a)+\delta(x+a)}{\left|2a\right|}.}
     \end{equation}
     (4) \begin{align}
         &\int_{-\infty}^{\infty}\frac{\dd}{\dd{x}}\left[\delta(x-a)\right]\left(x f(x)\right)\, \dd{x}\\
         =&\left.\delta(x-a)xf(x)\right|_{-\infty}^{\infty}-\int_{-\infty}^{\infty}\delta(x-a)\left[f(x)+xf'(x)\right]\, \dd{x}\\
-        =&f(a)+af'(a).
+        =&-\left(f(a)+af'(a)\right).
     \end{align}
     \begin{align}
         &\int_{-\infty}^{\infty}\frac{\dd^2}{\dd{x}^2}\left[\delta(x-a)\right]\left(x^2 f(x)\right)\, \dd{x}\\
@@ -152,7 +152,7 @@
 \end{problem}
 \begin{problem}[Momentum representation]
     (1)\begin{equation}
-        \bra{x}\hat{p}^2\ket{\psi}=\bra{x}\hat{p}\left(\hat{p}\ket{\psi}\right)=-i\hbar\bra{x}\hat{p}\ket{\psi}=-\hbar^2\psi(x).
+        \bra{x}\hat{p}^2\ket{\psi}=\bra{x}\hat{p}\left(\hat{p}\ket{\psi}\right)=-i\hbar\frac{\pa}{\pa x}\bra{x}\hat{p}\ket{\psi}=-\hbar^2\psi''(x).
     \end{equation}
     (2) \begin{equation}
         \bra{x}\hat{H}\ket{\psi}=\bra{x}\hat{p}^2/2m+\hat{V}(x)\ket{\psi}=\left(-\frac{\hbar^2}{2m}\frac{\dd^2}{\dd{x}^2}+\frac{1}{2}m\omega^2\right)\psi(x).

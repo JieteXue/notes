@@ -1,0 +1,523 @@
+\chapter{Correspondence}
+\section{Correspondence and its Inverse}
+\begin{definitionenv}
+    We call a \textbf{correspondence} any triplet of the form $$f=(\mathscr{D} _f, \mathscr{A}_f, \Gamma_f)$$
+    where $\mathscr{D}_f, \mathscr{A}_f$ are two sets,  called respectively the \textbf{departure set }  and the \textbf{arrival set} of $f$ and $\Gamma_f$ is a subset of $\mathscr{D}_f\times \mathscr{A}_f$,  called the \textbf{graph} of $f$.
+    \newline
+    If $X, Y$ are two sets and $f$ is a correspondence of the form $(X, Y, \Gamma_f)$, we say that $f$ is a correspondence from $X$ to $Y$. 
+\end{definitionenv}
+\begin{definitionenv}
+    Let $f$ be a correspondence.We denote by $f^{-1}$ the correspondence defined as follows:
+    $$\mathscr{D}_f^{-1}:=\mathscr{A}_f, \mathscr{A_f}^{-1}:=\mathscr{D}_f, $$
+    $$\Gamma_{f^{-1}}:=\{(y, x)\in \mathscr{D}_f\times \mathscr{A}_f|(x, y)\in \Gamma_f\}.$$
+    The correspondence $f^{-1}$ is called the \textbf{inverse correspondence} of $f$. Clearly one has $$(f^{-1})^{-1}=f, $$
+    namely $f$ is the inverse correspondence of $f^{-1}$.
+\end{definitionenv}
+\section{Illustration of a Correspondence}
+\section{Image and Preimage}
+\begin{definitionenv}
+    Let $X, Y$ be sets , and $f$ be a correspondence from $X$ to $Y$. If $(x, y)$ is an element of $\Gamma_f$,  we say that $x$ is a \textbf{preimage } of $y$ under $f$,  and $y$ is an \textbf{image} of $x$ under $f$.
+    \newline
+    If $A$ is a set ,  we denote by $f(A)$ the set :
+    $$\{y\in \mathscr{A}_f|\exists x\in A , (x, y)\in \Gamma_f\}, $$
+    called the image of $A$ by the correspondence $f$.
+    \newline 
+    If $B$ is a set , the set $f^{-1} (B)$ is called the \textbf{preimage of $B$ by the correspondence $f$}. Note that it is by definition the image of $B$ by the inverse correspondence $f^{-1}$.
+\end{definitionenv}
+\begin{definitionenv}
+    Let $f$ be correspondence. The set $f(\mathscr{D}_f)$ is called the \textbf{range} of $f$,  denoted as $\mathrm{Im} (f)$. The set $f^{-1}(\mathscr{A}_f)$ is called the \textbf{domain of definition }of $f$,  denoted as $\mathrm{Dom}( f) $.
+    Note that the domain of definition of a correspondence $f$ is the projection of the graph $\Gamma_f$ to the arrival set $\mathscr{A}_f$.
+\end{definitionenv}
+\begin{box2}
+    For any sets $ A$ and $B$, 
+$$f(A)\subseteq \mathrm{Im}(f), f^{-1}(B)\subseteq\mathrm{Dom}(f), $$
+$$\mathrm{Dom}(f)=\mathrm{Im}(f^{-1}), \mathrm{Im }(f)=\mathrm{Dom}(f^{-1}).$$
+\end{box2}
+\begin{propositionenv}\label{proposition3.3.1}
+    Let $f$ be a correspondence.
+    \newline
+    (1) If $A$ and $A'$ are two sets such that $A'\subseteq A$ , then one has $f(A')\subseteq f(A)$.
+    \newline
+    (2) If $B$ and $B'$ are two sets such that $B'\subseteq B$ , then one has $f^{-1}(B')\subseteq f^{-1}(B)$.
+\end{propositionenv}
+\begin{proofenv}
+    \begin{align*}
+        f(B')&=\{y\in\mathrm{Im}(f)|\exists x\in B', (x, y)\in \Gamma_f\}\\
+        &\subseteq\{y\in\mathrm{Im}(f)|\exists x\in B', (x, y)\in \Gamma_f\}\\
+        &=f(B).
+    \end{align*}
+\end{proofenv}    
+\begin{propositionenv}\label{proposition3.3.2}
+    Let $f$ be a correspondence. The following equalities hold:
+    $$\mathrm{Im}(f)=f(\mathrm{Dom}(f)), \mathrm{Dom}(f)=f^{-1}(\mathrm{Im}(f)).$$
+\end{propositionenv}
+\begin{proofenv}
+    Since $\mathrm{Dom}(f)\subseteq\mathscr{D}_f$,  by proposition \ref{proposition3.3.1},  one has 
+    $$f(\mathrm{Dom}(f))\subseteq f(\mathscr{D}_f)=\mathrm{Im}(f).$$
+    Let $y$ be an element of $\mathrm{Im}(f)$,  there exist $x\in \mathscr{D}_f$ such that $(x, y)\in \Gamma_f$. By definition,  one has $x\in \mathrm{Dom }(f)$ and hence $y\in f(\mathrm{Dom }(f)), \mathrm{Im}(f)\subseteq f(\mathrm{Dom }(f))$. Therefore the equality $\mathrm{Im}(f)=f(\mathrm{Dom}(f))$ is true. Applying this equality to $f^{-1}$,  we obtain the second equality.
+\end{proofenv}
+\begin{propositionenv}
+    Let $f$ be a correspondence,  $A$ be a set and $y$ be an mathematical object. Then $y$ belongs to $f(A)$ if and only if $A\cap f^{-1}(\{y\})\not=\varnothing$.
+\end{propositionenv}
+\begin{propositionenv}\label{proposition3.3.4}
+    Let $f$ be a correspondence,  $I$ be a set and $(A_i)_{i\in I}$ be a family of sets parametrised by $I$. Then
+    $$f\left( \bigcup_{i\in I}A_i\right)=\bigcup_{i\in I}f(A_i).$$
+    Moreover, if $I$ is not empty,  then 
+    $$f\left( \bigcap_{i\in I}A_i\right)\subseteq \bigcap_{i\in I}f(A_i).$$
+
+\end{propositionenv}
+\begin{proofenv}
+   \begin{align*}
+         f\left( \bigcup_{i\in I}A_i\right)&=\left\{ y\in Y|\left( \bigcup_{i\in I}A_i\right)\cap f^{-1}(\{y\})\not=\varnothing  \right\}\\
+        &=\left\{ y\in Y|\bigcup_{i\in I}\left(A_i\cap f^{-1}(\{y\})\right)\not=\varnothing  \right\}\\
+        &=\left\{y\in Y|\exists i \in I, A_i\cap f^{-1}(\{y\})\not =\varnothing\right\}=\bigcup_{i\in I}f(A_i).
+   \end{align*}
+
+    \begin{align*}
+        f\left(\bigcap_{i\in I}A_i \right)&=\left\{ y\in Y|\left( \bigcap_{i\in I}A_i\right) \cap f^{-1}(\{y\})\not=\varnothing\right\}\\
+        &=\left\{ y\in Y| \bigcap_{i\in I}\left(A_i \cap f^{-1}(\{y\})\right)\not=\varnothing\right\}\\
+        &\subseteq \left\{  y\in Y|\forall i\in I,  A_i\cap f^{-1}(\{y\})\not=\varnothing\right\}\\
+        &=\bigcap_{i\in I}f(A_i).
+    \end{align*}
+\end{proofenv}
+\section{Composition}
+\begin{definitionenv}
+    Let $f$ and $g$ be correspondences. We define the \textbf{composite } of $g$ and $f$ as the correspondence $g\circ f$ from $\mathscr{D}_f$  to $\mathscr{A}_g$ whose graph $\Gamma_{g\circ f }$ is composed of the element $(x, z)$ of $\mathscr{D}_f\times \mathscr{A}_g$ such that there exists some objet $y$ satisfying $(x, y)\in \Gamma_f $ and $(y, z)\in \Gamma_g$. In other words, 
+    $$\Gamma_{g\circ f }=\{(x, z)\in \mathscr{D}_f\times \mathscr{A}_g|\exists y\in \mathscr{A}_f\cap\mathscr{D}_g, (x, y)\in \Gamma_f \wedge (y, z)\in \Gamma_g\}.$$
+\end{definitionenv}
+\begin{propositionenv}
+    Let $f$ and $g$ be correspondences. The following equality holds:
+    \begin{equation}
+        (g\circ f)^{-1}=f^{-1}\circ g^{-1}.
+    \end{equation}
+\end{propositionenv}
+\begin{propositionenv}\label{proposition3.4.2}
+    Let $f$ and $g$ be correspondences.The following equality holds:
+    \begin{equation}
+        h\circ (g\circ f)=(h\circ g)\circ f.
+    \end{equation}
+\end{propositionenv}
+\begin{propositionenv}\label{proposition3.4.3}
+    Let $X$ and $Y$ be sets , $f$ be a correspondence from $X$ to $Y$.Then the following equalities hold:
+    $$f\circ \mathrm{Id}_X=f=\mathrm{Id}_Y\circ f.$$
+\end{propositionenv}
+Propositions above can be proved by definition.
+\begin{propositionenv}\label{proposition3.4.4}
+    Let $f$ and $g$ be correspondences.For any set $A$ , one has 
+    $$(g\circ f)(A)=g(f(A)).$$
+    In particular, 
+    $$\mathrm{Im}(g\circ f)=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g).$$
+    If in addition $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$,  then the equality $\mathrm{Im}(g\circ f)=\mathrm{Im}(g)$ holds.
+\end{propositionenv}
+\begin{proofenv}
+    By definition, 
+    \begin{align*}
+        (g\circ f )(A)&=\{z\in \mathscr{A}_g|\exists x\in A, (x, z)\in \Gamma_{g\circ f}\}\\
+        &=\{z\in \mathscr{A}_g|\exists x\in A, \exists y\in \mathscr{A}_f, (x, y)\in \Gamma_f, (y, z)\in \Gamma_g\}\\
+        &=\{z\in \mathscr{A}_g|\exists  y\in f(A), (y, z)\in \Gamma_g\}=g(f(A)).
+    \end{align*}
+    Applying this equality to the case where $A=\mathscr{D}_f$,  we obtain
+    $$\mathrm{Im}(g\circ f)=(g\circ f)(\mathscr{D}_f)=g(f(\mathscr{D}_f))=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g).$$
+   In the case where $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$,  by proposition \ref{proposition3.3.1} and \ref{proposition3.3.2} we obtain 
+   $$\mathrm{Im}(g)=g(\mathrm{Dom}(g))\subseteq g(\mathrm{Im}(f))=\mathrm{Im}(g\circ f).$$ 
+\end{proofenv}
+
+
+\section{Surjectivity}
+\begin{definitionenv}
+    Let $f$ be a correspondence. If $\mathscr{A}_f=\mathrm{Im}(f)$,  we say that $f$ is \textbf{surjective}. If $f^{-1}$ is surjective ,  or equivalently $\mathrm{Dom}(f)=\mathscr{D}_f$ ,  we say that $f$ is a \textbf{multivalued mapping}.
+\end{definitionenv}
+\begin{remark}
+    multivalued mapping is not always a mapping
+\end{remark}
+\begin{propositionenv}\label{proposition3.5.1}
+    Let $f$ be a correspondence.Assume that $f$ is surjective. Then , for any subset $B$ of $\mathscr{A}_f$,  one has $B\subseteq f(f^{-1}(B))$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $y$ be an element of $B$. Since $f$ is surjective there exists $x\in \mathscr{D}_f$ such that $(x, y)\in \Gamma_f$ .Therefore,  $x\in f^{-1}(B)$ and hence $y\in f(f^{-1}(B))$
+\end{proofenv}
+\begin{propositionenv}\label{proposition3.5.2}
+    Let $f$ and $g$ be correspondences.
+    \newline
+    (1) If $g\circ f$ is surjective,  so is $g$.
+    \newline
+    (2) If $g\circ f$ is multivalued mapping,  so is $f$.
+\end{propositionenv}
+\begin{proofenv}
+    One has 
+    $$\mathrm{Im}(g\circ f)\subseteq \mathrm{Im}(g)\subseteq \mathscr{A}_g=\mathscr{A}_{g\circ f}.$$
+    If $g\circ f $ is surjective,  namely $\mathrm{Im}(g\circ f )=\mathscr{A}_{g\circ f}$,  then we deduce $\mathrm{Im}(g)=\mathscr{A}_g$,  namely $g$ is surjective.
+\end{proofenv}
+\begin{propositionenv}\label{proposition3.5.3}
+    Let $f$ and $g$ be correspondences.
+    \newline
+    (1) If $g$ is surjective and $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$, then $g\circ f $ is also surjective.
+    \newline
+    (2) If $f$ is a multivalued mapping and $\mathrm{Im}(f)\subseteq \mathrm{Dom}(g)$,  then $g\circ f $ is a multivalued mapping.
+\end{propositionenv}
+\begin{proofenv}
+    (1) Since $\mathrm{Dom}(g)\subseteq \mathrm{Im}(f)$, by proposition\ref{proposition3.4.4}, we obtain 
+    $$\mathrm{Im}(g\circ f )=\mathrm{g}.$$
+    Since $g$ is surjective, 
+    $$\mathrm{Im}(g)=\mathscr{A}_g=\mathscr{A}_{g\circ f}.$$
+    Hence $g\circ f $ is also surjective.
+    \newline
+    Applying (1) to $g^{-1}$ and $f^{-1}$ , we obtain (2).
+\end{proofenv}
+
+\section{injectivity}
+\begin{definitionenv}
+    Let $f$ be a correspondence. If each element of $\mathscr{D}_f$ has at most one image under $f$ ,  we say that $f$ is a \textbf{function}.If $f^{-1}$ is a function,  we say that $f$ is \textbf{injective} .
+\end{definitionenv}
+\begin{notationenv}
+    Functions form a special case of correspondences.The definition feature of functions is that corresponding to each element in the domain of definition,  is a unique element in the arrival set of function.
+    \newline
+    Let $f$ be a function, and let $x\in \mathrm{Dom}(f)$. We denote the unique image of $x$ under $f$ as $f(x)$ , and we say that $f$ sends $x\in \mathrm{Dom}(f)$ to $f(x)$ or $f(x)$  is the \textbf{value} of $f$ at $x$ .we can also use the notation:
+    $$x\mapsto f(x)$$
+    to indicate the correspondence of $x$ to its image under $f$.
+\end{notationenv}
+\begin{propositionenv}\label{proposition3.6.1}
+    Let $f$ be a correspondence.
+    \newline
+    (1) Assume that $f$ is injective.For any set $A$ one has $f^{-1}(f(A))\subseteq A$.
+    \newline
+    (2) Assume that $f$ is a function. For any set $B$ on has $f(f^{-1}(B))\subseteq B$. 
+\end{propositionenv}
+\begin{proofenv}
+    Let $x$ be an element of $f^{-1}(f(A))$ , By definition, there exists $y\in f(A)$ such that $(x, y)\in \Gamma_f$. Since $y\in f(A) $ there exist $x'\in A$ such that $(x', y)\in \Gamma_f$.Since $y$ admits at most one preimage,  we obtain $x'=x$. Hence $x\in A$.
+    \newline
+    Applying (1) to $f^{-1}$ we obtain (2).
+\end{proofenv}
+\begin{propositionenv}\label{proposition3.6.2}
+    Let \( f \) and \( g \) be correspondences.
+\newline
+    (1) If \( f \) and \( g \) are functions,  so is \( g \circ f \). Moreover,  for any \( x \in \text{Dom}(g \circ f) \),  one has \((g \circ f)(x) = g(f(x))\).
+    \newline
+    (2) If \( f \) and \( g \) are injective,  so is \( g \circ f \).
+
+\end{propositionenv}
+\begin{proofenv}
+Let \( x \) be an element of \(\text{Dom}(g \circ f)\). Assume that \( z \) and \( z' \) are images of \( x \) under \( g \circ f \). Let \( y \) and \( y' \) be such that
+
+\[
+(x,  y) \in \Gamma_f,  \quad (y,  z) \in \Gamma_g,  \quad (x,  y') \in \Gamma_f,  \quad (y',  z') \in \Gamma_g.
+\]
+
+Since \( f \) is a function,  one has \( y = y' = f(x) \). Since \( g \) is a function,  we deduce that \( z = z' = g(f(x)) \). Therefore \( g \circ f \) is a function,  and the equality \((g \circ f)(x) = g(f(x))\) holds for any \( x \in \text{Dom}(g \circ f) \).
+
+Applying (1) to \( g^{-1} \) and \( f^{-1} \),  we obtain (2).
+\end{proofenv} 
+
+
+\begin{propositionenv}\label{proposition3.6.3}
+    Let $f$ and $g$ be correspondences.
+    \newline
+    (1) If \( g \circ f \) is injective and \(\mathrm{Im}(f) \subseteq \mathrm{Dom}(g)\),  then \( f \) is also injective.
+\newline
+(2) If \( g \circ f \) is a function and \(\mathrm{Dom}(g) \subseteq \mathrm{Im}(f)\),  then \( g \) is also a function.
+\end{propositionenv}
+
+
+
+
+\begin{proofenv}
+    \quad 
+    \newline
+    (1)  Let \( y \) be an element of the image of \( f \). Let \( x \) and \( x' \) be preimages of \( y \) under \( f \). Since \(\mathrm{Im}(f) \subseteq \mathrm{Dom}(g)\),  one has \( y \in \mathrm{Dom}(g) \). 
+    Hence there exists \( z \in \mathscr{A}_g \) such that \((y,  z) \in \Gamma_g \). 
+    We then deduce that \((x,  z)\) and \((x',  z)\) are elements of \(\Gamma_{g \circ f}\). Since \( g \circ f \) is injective,  we obtain \( x = x' \). Therefore,  \( f \) is injective.
+\newline
+Applying (1) to \( g^{-1} \) and \( f^{-1} \),  we obtain (2).
+\end{proofenv}
+
+
+
+\begin{propositionenv}\label{proposition3.6.4}
+     Let \( f \) be a correspondence,  and \( I \) be a non-empty set.
+\newline
+     (1) Suppose that \( f \) is a function. For any family \((B_i)_{i \in I}\) of sets parametrised by \( I \),  one has
+    \[
+    f^{-1}\left(\bigcap_{i \in I} B_i\right) = \bigcap_{i \in I} f^{-1}(B_i).
+    \]
+    \newline
+    (2) Suppose that \( f \) is injective. For any family \((A_i)_{i \in I}\) of sets parametrised by \( I \),  one has
+    \[
+    f\left(\bigcap_{i \in I} A_i\right) = \bigcap_{i \in I} f(A_i).
+    \]
+\end{propositionenv}
+
+
+\begin{proofenv}
+    \quad
+    \newline
+(1) Let \( x \) be an element of \(\bigcap_{i \in I} f^{-1}(B_i)\). For any \( i \in I \),  one has \( f(x) \in B_i \). Hence \( x \in f^{-1}(\bigcap_{i \in I} B_i) \). Therefore we obtain
+\[
+f^{-1}\left(\bigcap_{i \in I} B_i\right) \supseteq \bigcap_{i \in I} f^{-1}(B_i).
+\]
+\newline
+Combining with (2) of proposition\ref{proposition3.3.4} ,  we obtain the equality
+\[
+f^{-1}\left(\bigcap_{i \in I} B_i\right) = \bigcap_{i \in I} f^{-1}(B_i).
+\]
+
+Applying (1) to \( f^{-1} \),  we obtain (2).
+\end{proofenv} 
+
+
+\section{Mapping}
+\begin{definitionenv}
+   A correspondence \( f \) is said to be a \textbf{mapping} if any element of \( \mathscr{D}_f \) has a unique image,  or equivalently,  \( f \) is a function and \( \mathscr{D}_f = \operatorname{Dom}(f) \). Note that \( f \) is a mapping if and only if \( f^{-1} \) is both injective and surjective.
+
+\end{definitionenv}
+
+
+
+
+
+\begin{notationenv}\label{notation3.7.1}
+    Let \( X \) and \( Y \) be sets. We denote by \( Y^X \) the set of all mappings from \( X \) to \( Y \). An element \( u \in Y^X \) is often written in the form of a family of elements of \( Y \) parametrised by \( X \) as follows
+\[
+(u(x))_{x \in X}.
+\]
+In the case where \( X = \{1,  \ldots,  n\} \),  where \( n \) is a positive integer,  the set \( Y^{\{1,  \ldots,  n\}} \) is also denoted as \( Y^n \). An element \( u \) of \( Y^n \) is often written as
+\[
+(u(1),  \ldots,  u(n)).
+\]
+\end{notationenv}
+
+
+\begin{exampleenv}
+    \quad
+    \begin{enumerate}
+    \item Let \( X \) be a set. The identity correspondence \( \operatorname{Id}_X \) is a mapping. It is also called the \textbf{identity mapping} of \( X \).
+    \item Let \( X \) and \( Y \) be sets and \( y \) be an element of \( Y \). The mapping from \( X \) to \( Y \) sending any \( x \in X \) to \( y \) is called the \textbf{constant mapping with value \( y \)}.
+    \item Let $X$ be a set and $A\subseteq X$,  we define $\mathbbm{1}_A:X\rightarrow \mathbb{R}$   
+    $$\mathbbm{1}_A(x):=\begin{cases}
+ 1,  \text{if}\space x \in A \\0, \text{if}\space x \notin A.
+
+\end{cases}$$ 
+It is called \textbf{indicator function}
+\end{enumerate}
+\end{exampleenv}
+
+
+\begin{remark}
+   Let \( f: X \to Y \) be a mapping,  \( I \) be a set.
+\begin{enumerate}
+    \item By (1) of Proposition\ref{proposition3.3.4},  for any family of sets \( (A_i)_{i \in I} \),  one has
+    \[
+    f\left(\bigcup_{i \in I} A_i\right) = \bigcup_{i \in I} f(A_i).
+    \]
+    By (2) of Proposition \ref{proposition3.3.4},  for any family of sets \( (B_i)_{i \in I} \),  one has
+    \[
+    f^{-1}\left(\bigcup_{i \in I} B_i\right) = \bigcup_{i \in I} f^{-1}(B_i).
+    \]
+    \item Assume that \( I \) is not empty. By (1) of Proposition \ref{proposition3.3.4},  for any family of sets \( (A_i)_{i \in I} \),  one has
+    \[
+    f\left(\bigcap_{i \in I} A_i\right) \subseteq \bigcap_{i \in I} f(A_i).
+    \]
+    By (1) of Proposition \ref{proposition3.6.4},  for any family of sets \( (B_i)_{i \in I} \),  one has
+    \[
+    f^{-1}\left(\bigcap_{i \in I} B_i\right) = \bigcap_{i \in I} f^{-1}(B_i).
+    \]
+    \item By (2) of Proposition \ref{proposition3.6.1},  for any set \( B \),  one has \( f(f^{-1}(B)) \subseteq B \). Since \( f \) is a function and \( f^{-1} \) is injective,  by (1) of Proposition \ref{proposition3.6.1} and (2) of Proposition \ref{proposition3.5.1},  for any subset \( A \) of \( X \) one has \( f^{-1}(f(A)) = A \).
+\end{enumerate}
+
+ 
+\end{remark}
+\begin{propositionenv}\label{proposition3.7.1}
+    Let \( f \) and \( g \) be mappings. Suppose that \( \operatorname{Im}(f) \subseteq \mathscr{D}_g \). Then \( g \circ f \) is also a mapping. Moreover,  for any \( x \in \mathscr{D}_f = \mathscr{D}_{g \circ f} \) one has
+\[
+(g \circ f)(x) = g(f(x)).
+\]
+
+\end{propositionenv}
+
+\begin{proofenv}
+   Note that \( \mathscr{D}_g = \operatorname{Dom}(g) \) since \( g \) is a mapping. Hence the statement is a direct consequence of Propositions \ref{proposition3.6.2} and \ref{proposition3.5.3}
+ 
+\end{proofenv}
+
+\begin{remark}\label{remark3.7.2}
+    Let \( f: X \to Y \) and \( g: Y \to Z \) be mappings.
+\begin{enumerate}
+    \item By Proposition \ref{proposition3.5.3},  if \( f \) and \( g \) are both surjective,  so is \( g \circ f \). By Proposition \ref{proposition3.5.2},  if \( g \circ f \) is surjective,  so is \( g \).
+    \item By Proposition \ref{proposition3.6.2},  if \( f \) and \( g \) are both injective,  so is \( g \circ f \). By Proposition \ref{proposition3.6.3},  if \( g \circ f \) is injective,  so is \( f \).
+\end{enumerate}
+
+\end{remark}
+
+\section{Bijection}
+
+\begin{definitionenv}
+    Let \( f \) be a mapping,  that is,  a correspondence such that \( f^{-1} \) is injective and surjective. If \( f \) is injective and surjective,  we say that \( f \) is a \textbf{bijection},  or a \textbf{one-to-one correspondence}. Note that a correspondence is a bijection if and only if its inverse is a bijection.
+
+\end{definitionenv}
+
+\begin{propositionenv}\label{proposition3.8.1}
+    Let \( X \) and \( Y \) be sets,  \( f \) be a correspondence from \( X \) to \( Y \). If \( f \) is a bijection,  then \( f^{-1} \circ f = \operatorname{Id}_X \) and \( f \circ f^{-1} = \operatorname{Id}_Y \). Conversely,  if there exists a correspondence \( g \) such that \( g \circ f = \operatorname{Id}_X \) and \( f \circ g = \operatorname{Id}_Y \),  then \( f \) is a bijection and \( g = f^{-1} \).
+
+\end{propositionenv}
+
+\begin{proofenv}
+    If \( f \) is a bijection,  then \( f \) and \( f^{-1} \) are both mappings. By Proposition \ref{proposition3.7.1},  one has
+\[
+\forall x \in X,  \quad (f^{-1} \circ f)(x) = f^{-1}(f(x)) = x, 
+\]
+\[
+\forall y \in Y,  \quad (f \circ f^{-1})(y) = f(f^{-1}(y)) = y.
+\]
+Hence \( f^{-1} \circ f = \operatorname{Id}_X \) and \( f \circ f^{-1} = \operatorname{Id}_Y \).
+
+Assume that \( g \) is a correspondence such that \( g \circ f = \operatorname{Id}_X \) and \( f \circ g = \operatorname{Id}_Y \). Since identity correspondences are surjective mappings,  by Proposition \ref{proposition3.5.2},  we deduce from the equality \( g \circ f = \operatorname{Id}_X \) that \( g \) is surjective and \( \operatorname{Dom}(f) = X = \operatorname{Im}(g) \). Similarly,  we deduce from the equality \( f \circ g = \operatorname{Id}_Y \) that \( f \) is surjective and \( \operatorname{Dom}(g) = Y = \operatorname{Im}(f) \).
+
+Since identity correspondences are injective,  by Proposition 3.6.5,  we deduce from \( g \circ f = \operatorname{Id}_X \) that \( f \) is injective. Similarly,  we deduce from \( f \circ g = \operatorname{Id}_Y \) that \( f \) is a function. Therefore,  \( f \) is a mapping which is injective and surjective,  namely a bijection.
+
+Finally,  by Propositions \ref{proposition3.4.3} and \ref{proposition3.4.2},  we obtain
+\[
+g = g \circ \operatorname{Id}_Y = g \circ (f \circ f^{-1}) = (g \circ f) \circ f^{-1} = \operatorname{Id}_X \circ f^{-1} = f^{-1}.
+\]
+\end{proofenv}
+
+
+
+\begin{propositionenv}\label{proposition3.8.2}
+    Let \( f: X \to Y \) and \( g: Y \to Z \) be bijections. Then the composite correspondence \( g \circ f \) is also a bijection.
+
+\end{propositionenv}
+
+\begin{proofenv}
+    This is a direct consequence of Propositions \ref{proposition3.7.1},  \ref{proposition3.6.2} and \ref{proposition3.5.3}
+
+\end{proofenv}
+
+\begin{propositionenv}\label{proposition3.8.3}
+    Let \( X \) and \( Y \) be sets,  \( f \) be a correspondence from \( X \) to \( Y \),  and \( g \) be a correspondence from \( Y \) to \( X \). If \( f \circ g \) and \( g \circ f \) are bijections,  then \( f \) and \( g \) are both bijections.
+
+\end{propositionenv}
+
+\begin{proofenv}
+    By Proposition \ref{proposition3.5.2},  \( f \) and \( g \) are surjective and are multivalued mappings. In particular, 
+\[
+\operatorname{Dom}(f) = X,  \quad \operatorname{Im}(f) = Y,  \quad \operatorname{Dom}(g) = Y,  \quad \operatorname{Im}(g) = X.
+\]
+Therefore,  by Proposition \ref{proposition3.6.3},  we deduce that \( f \) and \( g \) are injective and are functions. Hence \( f \) and \( g \) are both bijections. 
+
+\end{proofenv}
+
+\section{Direct product}
+\label{sec:direct-product}
+
+\begin{definitionenv}
+Let $I$ be a set and $(A_i)_{i \in I}$ be a family of sets parametrised by $I$. We denote by
+\[
+\prod_{i \in I} A_i
+\]
+the set of all mappings from $I$ to $\bigcup_{i \in I} A_i$ which send any $i \in I$ to an element of $A_i$. This set is called the \textbf{direct product} of $(A_i)_{i \in I}$. Using Notation \ref{notation3.7.1} we often write an element of the direct product in the form of a family $x := (x_i)_{i \in I}$ parametrised by $I$,  where each $x_i$ is an element of $A_i$,  called the $i$-th \emph{coordinate} of $x$. In the case where $I$ is the empty set,  the union $\bigcup_{i \in I} A_i$ is empty. Therefore,  the direct product contains a unique element (identity mapping of $\varnothing$).
+
+For each $j \in I$,  we denote by
+\[
+\operatorname{pr}_j : \prod_{i \in I} A_i \longrightarrow A_j
+\]
+the mapping which sends each element $(a_i)_{i \in I}$ of the direct product to its $j$-th coordinate $a_j$. This mapping is called the \emph{projection to the $j$-th coordinate}.
+\end{definitionenv}
+
+\begin{notationenv}
+Let $n$ be a non-zero natural number. If $(A_i)_{i \in \{1,  \ldots,  n\}}$ is a family of sets parametrised by $\{1,  \ldots,  n\}$,  then the set
+\[
+\prod_{i \in \{1,  \ldots,  n\}} A_i
+\]
+is often denoted as
+\[
+A_1 \times \cdots \times A_n.
+\]
+\end{notationenv}
+
+\begin{axiomenv}[Axiom of choice]
+In this book,  we adopt the following axiom. If $I$ is a non-empty set and if $(A_i)_{i \in I}$ is a family of non-empty sets,  then the direct product $\prod_{i \in I} A_i$ is not empty.
+\end{axiomenv}
+\begin{propositionenv}\label{3.9.3}
+\label{prop:direct-product-bijection}
+Let $I$ be a set and $(A_i)_{i \in I}$ be a family of sets parametrised by $I$. For any set $X$,  the mapping
+\[
+\left( \prod_{i \in I} A_i \right)^X \longrightarrow \prod_{i \in I} A_i^X, 
+\]
+which sends $f$ to $(\operatorname{pr}_i \circ f)_{i \in I}$,  is a bijection.
+
+
+
+\begin{center}
+    \begin{tikzcd}
+X \arrow[r,  "f"] \arrow[dr,  swap,  "f_j"] &\displaystyle \prod_{i \in I} A_i \arrow[d,  "\mathrm{pr}_j"] \\
+& A_j
+\end{tikzcd}
+\end{center}
+\end{propositionenv}
+\begin{proofenv}
+Let $(f_i)_{i \in I}$ be an element of
+\[
+\prod_{i \in I} A_i^X, 
+\]
+where each $f_i$ is a mapping from $X$ to $A_i$. Let $f : X \to \prod_{i \in I} A_i$ be the mapping which sends $x \in X$ to $(f_i(x))_{i \in I}$. By definition,  for any $i \in I$ one has
+\[
+\forall x \in X,  \quad \operatorname{pr}_i(f(x)) = f_i(x).
+\]
+Therefore the mapping is surjective.
+
+If $f$ and $g$ are two mappings from $X$ to $\prod_{i \in I} A_i$ such that $\operatorname{pr}_i \circ f = \operatorname{pr}_i \circ g$ for any $i \in I$,  then,  for any $x \in X$ one has
+\[
+\forall i \in I,  \quad \operatorname{pr}_i(f(x)) = \operatorname{pr}_i(g(x)).
+\]
+Hence $f(x) = g(x)$ for any $x \in X$,  namely $f = g$. Therefore the mapping is injective.
+\end{proofenv}
+
+\begin{notationenv}
+\label{not:direct-product-mappings}
+Let $I$ be a set,  $(A_i)_{i \in I}$ be a family of sets parametrised by $I$.
+
+Let $X$ be a set. For any $i \in I$,  let $f_i : X \to A_i$ be a mapping from $X$ to $A_i$. By Proposition~\ref{prop:direct-product-bijection} there exists a unique mapping $f : X \to \prod_{i \in I} A_i$ such that $\operatorname{pr}_i \circ f = f_i$ for any $i \in I$. By abuse of notation,  we denote by $(f_i)_{i \in I}$ this mapping.
+
+Let $(B_i)_{i \in I}$ be a family of sets parametrised by $I$. For any $i \in I$,  let $g_i : B_i \to A_i$ be a mapping from $B_i$ to $A_i$. We denote by
+\[
+\prod_{i \in I} g_i : \prod_{i \in I} B_i \longrightarrow \prod_{i \in I} A_i
+\]
+the mapping which sends $(b_i)_{i \in I}$ to $(g_i(b_i))_{i \in I}$. In the case where $I = \{1,  \ldots,  n\}$,  where $n$ is a non-zero natural number,  the mapping $\prod_{i \in \{1,  \ldots,  n\}} g_i$ is also denoted as
+\[
+g_1 \times \cdots \times g_n.
+\]
+\end{notationenv}
+
+\begin{propositionenv}
+\label{prop:direct-product-factorization}
+Let $f : X \to Y$ be a mapping.
+\begin{enumerate}
+    \item[(1)] If $f$ is surjective,  then there exists an injective mapping $g : Y \to X$ such that $f \circ g = \operatorname{Id}_Y$.
+    \item[(2)] If $f$ is injective and $X$ is not empty,  then there exists a surjective mapping $h : Y \to X$ such that $h \circ f = \operatorname{Id}_X$.
+\end{enumerate}
+\end{propositionenv}
+
+\begin{proofenv}
+(1) The case where $Y = \varnothing$ is trivial since in this case $X = \varnothing$ and $f$ is the identity mapping of $\varnothing$. In the following,  we assume that $Y$ is not empty. Since $f$ is surjective,  for any $y \in Y$,  the set $f^{-1}(\{y\})$ is not empty. Hence the direct product
+\[
+\prod_{y \in Y} f^{-1}(\{y\})
+\]
+is not empty. In other words,  there exists a mapping $g$ from $Y$ to $X$ such that $f(g(y)) = y$ for any $y \in Y$,  that is $f \circ g = \operatorname{Id}_Y$. By (2) of Remark \ref{remark3.7.2} $g$ is injective.
+
+(2) Let $x_0$ be an element of $X$. We define a mapping $h : Y \to X$ as follows:
+\[
+h(y) := 
+\begin{cases}
+f^{-1}(y),  & \text{if } y \in \operatorname{Im}(f),  \\
+x_0,  & \text{else}.
+\end{cases}
+\]
+Then,  by construction one has $h \circ f = \operatorname{Id}_X$. 
+\newline
+By (1) of Remark \ref{remark3.7.2} $h$ is surjective.
+\end{proofenv}
+\section{Restriction and Extension}
+\begin{definitionenv}
+    Let $f$ and $g$ be correspondence. If $\Gamma _f\subseteq \Gamma _g$,  we say that $f$ is a \textbf{restriction} of $g$ and that $g$ is an \textbf{extension} of $f$
+    \newline
+    Let $X$ anf $Y$ be sets,  $h$ be a correspondence from $X$ to $Y$ , and $A$ be a subset of $X$.Denote by $h|_A$ the correspondence from $A$ to $Y$ such that$$\Gamma_{h|_A}=\Gamma_h\bigcap (A\times Y).$$ We call it the \textbf{restriction of $h$ to $A$}
+\end{definitionenv}
