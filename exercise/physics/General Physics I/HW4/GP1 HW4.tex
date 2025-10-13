@@ -40,10 +40,44 @@
 \begin{document}
 \maketitle
 \begin{problem}[The hyperbolic orbit]
-    (1)
-\end{problem}
-\begin{problem}[A parabolic orbit]
+    (1)\begin{equation}
+        \frac{\dd{\vec{S}}}{\dd{t}}=\frac{1}{2}\vec{v}\times\vec{r}=\frac{\vec{L}}{2m}=\text{const.}
+    \end{equation}
+    (2)
+        \begin{equation}
+            E=\frac{1}{2}mv^2-\frac{GMm}{r}.
+        \end{equation}
+        Let $\vec{v}=\vec{u}+\vec{C}$, where $\vec{C}$ is a constant vector and $\left|\vec{u}\right|=\frac{GM}{L}$ Then,
+    \begin{equation}
+        \left|\vec{v}-\frac{GM}{L}\vec{e}\right|=\frac{GM}{L}.
+    \end{equation}    
+    $\vec{v}$ can only be a part of circle, so $E>0$.
     
+\end{problem}
+
+\begin{problem}[A parabolic orbit]
+    By Problem 1 we can know that when $E=0$, the orbit is a parabola.
+\end{problem}
+\begin{problem}[Repulsive inverse-square force field]
+    (1) Same as Problem 1.
+    \newline
+    (2)Let 
+    \begin{equation}
+        \frac{\dd{\vec{v}}}{\dd{t}}=\frac{k}{mr^2}\hat{r},\ k>0.
+    \end{equation}
+    We have 
+    \begin{equation}
+        \dot{\theta}=\frac{L}{mr^2}.
+    \end{equation}
+    So 
+    \begin{equation}
+        \frac{\dd{\vec{v}}}{\dd{\theta}}=\frac{k}{L}\hat{r}=-\frac{k}{L}\frac{\dd{\hat{\theta}}}{\dd{\theta}}.
+    \end{equation}
+    Thus, 
+    \begin{equation}
+        \vec{v}=\vec{v_0}-\frac{k}{L}\vec{\theta}.
+    \end{equation}
+    $E=\frac{1}{2}mv^2+\frac{k}{r}>0$, so the velocity circle does not contain the origin. So the orbit is a hyperbola.
 \end{problem}
 \begin{problem}[Proof of Kepler's First Law]
     We start from Binet's equation:

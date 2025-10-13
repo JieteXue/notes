@@ -197,7 +197,7 @@ Then $\sim_{\phi}$ is reflexive and transitive. It is an equivalence relation if
 \begin{exampleenv}
     Let $(V_i)_{i\in I}$ be a family of left K-modules. We denote by 
     $$\bigoplus_{i\in I}V_i\text{ the set of }(x_i)_{i\in I}\in \prod_{i\in I}V_i, $$
-    such that $\{i\in I\mid x_i\not=0_{V_i}\}$. This is a subgroup of $\prod_{i\in I}V_i$. For any $a\in K, $ and $(x_i)_{i\in I}\in \bigoplus_{i\in I}V_i$, 
+    such that $\{i\in I\mid x_i\not=0_{V_i}\}$ is finite. This is a subgroup of $\prod_{i\in I}V_i$. For any $a\in K, $ and $(x_i)_{i\in I}\in \bigoplus_{i\in I}V_i$, 
     $$\{i\in I\mid ax_i\not=0_{V_i}\}\subseteq\{i\in I\mid x_i\not=0_{V_i}\}.$$
     So $\displaystyle a(x_i)_{i\in I}=(ax_i)_{i\in I}\in \bigoplus_{i\in i}V_i$,  which means that $\displaystyle\bigoplus_{i\in I}V_i$ is a left sub-K-module of $\displaystyle\prod_{i\in I}V_i$. $\displaystyle\bigoplus_{i\in I}V_i$ is called the direct sum of $(V_i)_{i\in I}$. We denote by 
     $$K^{\oplus I}$$
@@ -382,9 +382,9 @@ $$A\varphi=\begin{pmatrix}
 \end{pmatrix} . \ AB=? $$
     We have
     $$AB=\begin{pmatrix}  
-  a_{1,1}b_{1,1}+\cdots+a_{1,p}b_{p,1} & \cdots & a_{1,1}b_{p,1}+\cdots+a_{1,p}b_{p,q} \\  
+  a_{1,1}b_{1,1}+\cdots+a_{1,p}b_{p,1} & \cdots & a_{1,1}b_{1,q}+\cdots+a_{1,p}b_{p,q} \\  
   \vdots & \ddots & \vdots \\  
-  a_{n,1}b_{1,1}+\cdots+a_{n,p}b_{p,1} & \cdots & a_{n,1}b_{p,1}+\cdots+a_{n,p}b_{p,q}  
+  a_{n,1}b_{1,1}+\cdots+a_{n,p}b_{p,1} & \cdots & a_{n,1}b_{1,q}+\cdots+a_{n,p}b_{p,q}  
 \end{pmatrix} .$$
 \end{box2}
 \begin{exampleenv}
@@ -847,7 +847,7 @@ where $c_2,\dots,c_k$ belong to $k^{p-1}\backslash\{(0,\dots,0)\},c_{k+1}=\dots=
     $$y=\sum_{i=1}^{n}a_ix_i=\sum_{i=1}^{n-1}a_ix_i-a_nb_n^{-1}\left(b_1x_1+\dots+b_{n-1}x_{n-1}\right).$$
 \end{proofenv}
 \begin{theoremenv}\label{6.10.5}
-    Let $K$ be a unitary ring. $V$ be a left $K$-module  and $W$ bw a left sub-$K$-module of $V$. Let $(x_i)_{i=1}^{n}\in W^n$ and $\left(\alpha_j\right)_{j=1}^l\in \left(V/W\right)^l$, with $(n,l)\in \NN^2$. For any $j\in \{1,\dots,l\}$. Let $x_{n+j}$ be an element of the equivalence class of $\alpha_j$. ($[x_{n+j}]=\alpha_j$)
+    Let $K$ be a unitary ring. $V$ be a left $K$-module  and $W$ be a left sub-$K$-module of $V$. Let $(x_i)_{i=1}^{n}\in W^n$ and $\left(\alpha_j\right)_{j=1}^l\in \left(V/W\right)^l$, with $(n,l)\in \NN^2$. For any $j\in \{1,\dots,l\}$. Let $x_{n+j}$ be an element of the equivalence class of $\alpha_j$. ($[x_{n+j}]=\alpha_j$)
     \newline
     (1) If $(x_i)_{i=1}^n$ and $(\alpha_j)_{j=1}^l$ are K-linearly independent, then $(x_i)_{i=1}^{n+l}$ is K-linearly independent.
     \newline
@@ -904,7 +904,7 @@ $(x_i)_{i\in I}^n$ is a basis if and only if $(y_j)_{j\in J}^n$ is a basis.
     \end{pmatrix}\ \text{where } \underline{a}^{(i)}=(a_{i,1},\dots,a_{i,p})\in K^p.$$
 Assume that $A$ is of reduced row echelon form. 
 \newline
-(1) $\left(\underline{a}^{(i)}\right)^n_{i=1}$ is $K$-linearly independent if and only if $\forall i\in \{1,\dots,n\},a^{(i)}\not=(0,\dots,0)$.
+(1) $\left(\underline{a}^{(i)}\right)^n_{i=1}$ is $K$-linearly independent if and only if $\forall i\in \{1,\dots,n\},\underline{a}^{(i)}\not=(0,\dots,0)$.
 \newline
 (2) $\left(\underline{a}^{(i)}\right)^n_{i=1}$ is a system of generators if and only if there are exactly $p$ non-zero elements among $\underline{a}^{(1)},\dots,\underline{a}^{(n)}$.
 
@@ -945,7 +945,7 @@ Assume that $A$ is of reduced row echelon form.
 \end{theoremenv}
 \begin{proofenv}
     \quad\newline
-    (1) Let $\left(x_i\right)_{i=1}^n$ be a basis of $V$. Then $\left([x_i]\right)_{i=1}^n$ also form a system opf generators of $V/W$. By theorem \ref{6.10.4}, one can extract a subset $I\subseteq\{1,2\dots,n\}$ such that $\left([x_i]_{i\in I}\right)$ forms a basis of $V/W$. By permuting the elements $x_1,x_2,\dots, x_n$, we may assume, without loss of generality, that $I=\{1,2,\dots,l\},\ l\le n$. For any $j\in\{l+1,\dots, n\}$ there exists $(b_{j,1},\dots,b_{j,l})$ such that 
+    (1) Let $\left(x_i\right)_{i=1}^n$ be a basis of $V$. Then $\left([x_i]\right)_{i=1}^n$ also form a system of generators of $V/W$. By theorem \ref{6.10.4}, one can extract a subset $I\subseteq\{1,2\dots,n\}$ such that $\left([x_i]_{i\in I}\right)$ forms a basis of $V/W$. By permuting the elements $x_1,x_2,\dots, x_n$, we may assume, without loss of generality, that $I=\{1,2,\dots,l\},\ l\le n$. For any $j\in\{l+1,\dots, n\}$ there exists $(b_{j,1},\dots,b_{j,l})$ such that 
      $$[x_j]=\sum_{i=1}^{l}b_{j,i}[x_{i}].$$
      $$y_j:=x_j-\sum_{i=1}^{l}b_{j,i}x_i.$$
      For any $x\in W$, there exists $\left(a_i\right)_{i=1}^n\in K^n$ such that 
@@ -999,13 +999,13 @@ Assume that $A$ is of reduced row echelon form.
     $$f(\lambda+\mu)a=\left(f(\lambda)+f(\mu)\right)a=f(\lambda )a+f(\mu)a,$$
     $$f(\lambda)(a+b)=f(\lambda)a+f(\lambda)b.$$
     Moreover, $$f(\lambda)(ab)=\left(f(\lambda)a\right)b=a\left(f(\lambda)b\right).$$
-    Therefore,$A$ equipped with a structure of K-algebra.
+    Therefore, $A$ equipped with a structure of K-algebra.
 \end{remark}
 \begin{exampleenv}
     (1) \{0\},\quad (2) $K$.
 \end{exampleenv}
 \begin{exampleenv}
-    Let $(S,\cdot)$ be a monoid. We denote by $k [\![S]\!]$ the $K$-module $K^S$. If $\left(a_s\right)_{s\in S}$ belongs to $K^S$, while coordinating $(a_s)_{s\in S}$ as an element of $K[\![S]\!]$, we write it formally as 
+    Let $(S,\cdot)$ be a monoid. We denote by $K [\![S]\!]$ the $K$-module $K^S$. If $\left(a_s\right)_{s\in S}$ belongs to $K^S$, while coordinating $(a_s)_{s\in S}$ as an element of $K[\![S]\!]$, we write it formally as 
     $$\sum_{s\in S}a_s s.$$
     Assume that, for any $s\in S$, the preimage of $s$ by the mapping
     $$S\times S\longrightarrow S,$$
@@ -1021,7 +1021,7 @@ Assume that $A$ is of reduced row echelon form.
     $$\left(\sum_{s\in S}a_ss,\sum_{s\in S}b_ss\right)\longmapsto \sum_{s\in S}\left(\sum_{(u,v)\in S^2,uv=s}a_ub_v\right)s.$$
     We write $(\NN,+)$ formally as 
     $$\left(\left\{T^n\mid n\in \NN\right\},\cdot\right)$$
-    such that  $T^n\cdot T^m:=T^{n+m}$. In this particular case, we write $K [\![N]\!]$ as $k[\![T]\!]$. The element of $K[\![T]\!]$ is of the form
+    such that  $T^n\cdot T^m:=T^{n+m}$. In this particular case, we write $K [\![N]\!]$ as $K[\![T]\!]$. The element of $K[\![T]\!]$ is of the form
     $$\sum_{n\in \NN}a_nT^n.$$
     It is called a \textbf{formal power series ( of variable T ) with coefficients in K}.
 
@@ -1048,6 +1048,70 @@ Assume that $A$ is of reduced row echelon form.
     $$\left(\left(\sum_{s\in S}a_s s\right),\left(\sum_{s\in S}b_s s\right)\right)\longmapsto \sum_{s\in S}\left(\sum_{uv=s}a_ub_v\right)s.$$
     Then $K[S]$ forms a $K$-algebra. If $K[\![S]\!]$ is well defined, then $K[S]$ ia a sub-$K$-algebra of $K[\![S]\!]$.
 \end{exampleenv}
-
-
-
+\begin{propositionenv}
+    If $K$ is a integral domain, then so is $K[\![T]\!]$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $F=\sum_{n\in \NN}a_nT^n$, $G=\sum_{n\in \NN}b_nT^n$ be non-zero elements of $K[\![T]\!]$. Let $k$ and $l$ be respectively the least indices such that $a_k\not=0$, $b_l\not=0$. We write $FG$ in the form $\sum_{n\in \NN}c_nT^n$. Then $c_{k+l}=\sum_{i+j=k+l}a_ib_j=a_ka_l\not=0.$
+\end{proofenv}
+\begin{propositionenv}
+    Let $F=\sum_{n\in \NN}a_nT^n\in K[\![T]\!]$, then $F\in K[\![T]\!]^\times$ if and only if $a_0\in K^\times$.
+\end{propositionenv}
+\begin{proofenv}
+    ``$\Rightarrow$'': Suppose $G=\sum_{n\in\NN}b_nT^n$ such that $FG=1$. Write $FG$ into the form $\sum_{n\in \NN}c_nT^n$. Then $c_0=a_0b_0=1$, so $a_0\in K^\times$.
+    \newline
+    ``$\Leftarrow$'': Suppose $a_0\in K^\times$. We want to construct $G=\sum_{n\in\NN}b_nT^n$ such that $FG=\sum_{n\in\NN}\left(\sum_{i=0}^{n}a_ib_{n-i}\right)T^n=1$. One should have $b_0=a_0^{-1}$, and when $n>0$, 
+    $$a_0b_n+a_1b_{n-1}+\dots+a_{n-1}b_1+a_nb_0=0.$$
+    Namely, $b_n=-a_0^{-1}\left(a_1b_{n-1}+\dots+a_nb_0\right)$. We then construct recursively a sequence $(b_n)_{n\in\NN}$ by taking $b_0=a_0^{-1}$ and $b_{n+1}=-a_0^{-1}\left(a_1b_n+\dots+a_nb_0\right)$. Then $G=\sum_{n\in\NN}b_nT^n$ is the inverse of $F$.
+\end{proofenv}
+\begin{exampleenv}
+    Let $a\in K$, $\left(1+aT\right)^{-1}=\sum_{n\in\NN}(-a)^nT^n.$
+\end{exampleenv}
+\begin{definitionenv}
+    Suppose that, for any $n\in \NN_{\ge 1}$, $n1_K$ is invertible in $K$. We denote by $\frac{1}{n} a$ the element $\left(n1_K\right)^{-1}a$ in $K$. We define, for any $a\in K$, an element $\displaystyle\exp(aT)=\sum_{n\in\NN}\frac{a^n}{n!}T^n$ in $K[\![T]\!]$.
+\end{definitionenv}
+\begin{propositionenv}
+    For any $(a,b)\in K\times K$, 
+    $$\exp(aT)\exp(bT)=\exp\left((a+b)T\right).$$ 
+    So 
+    $$(K,+)\longrightarrow (K[\![T]\!]^\times, \cdot),$$
+    $$a\longmapsto \exp(aT)$$
+    is a homomorphism of groups.
+\end{propositionenv}
+\begin{proofenv}
+    \begin{align*}
+        \exp(aT)\exp(bT)=&\sum_{n\in\NN}\left(\sum_{i=0}^{n}\frac{a^i}{i!}\frac{b^{n-i}}{(n-i)!}\right)T^n\\
+        =&\sum_{n\in\NN}\frac{1}{n!}\left(\sum_{i=0}^{n}\frac{n!}{i!(n-i)!}a^ib^{n-i}\right)T^n\\
+        =&\sum_{n\in\NN}\frac{(a+b)^n}{n!}T^n\\
+        =&\exp\left((a+b)T\right).
+    \end{align*}
+\end{proofenv}
+\begin{definitionenv}
+    Let $P=\sum_{n\in\NN}a_nT^n\in K[T].$ If $P\not=0$, we denote by $\deg P$ the greatest index $n\in \NN$ such that $a_0\not=0$. $A_{\deg(P)}$ is called the \textbf{leading coefficient} of $P$. If $P=0$, by convention, $\deg P=-\infty$.
+\end{definitionenv}
+\begin{propositionenv}
+    If $P$ and $Q$ are elements in $K[T]$, 
+    $$\deg(P+Q)\le \max\{\deg(P),\deg(Q)\},$$
+    $$\deg(PQ)\le\deg(P)+\deg(Q).$$
+\end{propositionenv}
+\begin{theoremenv}
+    Let $P\in K[T], P\not=0$ Let $d$ be the degree of $P$ and $c$ be the leading coefficient of $P$. Assume that $c\in K^\times$. For any $F\in K[T]$, there exists a unique $(Q,R)\in K[T]^2$, such that $\deg(R)<d$ and $F=PQ+R$. 
+\end{theoremenv}
+\begin{proofenv}
+    By induction on $\deg (F)$. If $\deg(F)<d$, take $Q=0,R=F$. Suppose that
+    $$F=a_nT^n+a_{n-1}T^{n-1}+\dots+a_0, \ n\ge d, a_n\not=0.$$
+    Let $G=F-c^{-1}a_nPT^{n-d}$. Then $\deg(G)<n$. Apply the induction hypothesis to $G$. We get $(Q_1,R)\in K[T]^2, \deg(R)<d$, such that $G=Q_1P+R$. So $F=P(Q_1+c^{-1}a_nT^{n-d})+R$.
+    \newline
+    ``Uniqueness'': If $F=PQ_1+R_1=PQ_2+R_2$. Then $P(Q_1-Q_2)=R_2-R_1$. 
+    $$\deg(P(Q_1-Q_2))=\deg(P)+\deg(Q_1-Q_2), \deg(R_2-R_1)<d.$$
+    So $\deg(Q_1-Q_2)=\deg(R_2-R_1)=-\infty.$
+\end{proofenv}
+\begin{definitionenv}
+    If the leading coefficient of a non-zero polynomial $F\in K[T]$ is $1$, we say that $F$ is \textbf{monic}.
+\end{definitionenv}
+\begin{theoremenv}
+    If $K$ is a field, then $K[T]$ is a principal ideal domain.
+\end{theoremenv}
+\begin{proofenv}
+    We have seen that $K[\![T]\!]$ is a integral domain, so is $K[T]$. Let $I$ be an ideal $K[T]$. If $I=\{0\}$, it is generated by $0$. Suppose that $I\not=\{0\}$. There exists a monic  $P\in I$ such that $\deg(P)$ is the least among the non-zero polynomials of $I$. For any $F\in I$, when we write $F$ into the form $F=PQ+R$ with $\deg(R)<\deg(P)$. One has $R\in I$, so $R=0$. We then get $$I=K[T]P:=\{PQ\mid Q\in K[T]\}.$$
+\end{proofenv}

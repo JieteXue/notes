@@ -417,7 +417,7 @@ By \eqref{7.3}, we obtain the \textbf{position-momentum uncertainty relation}:
 \begin{equation}
     \expval{\left(\Delta x\right)^2}\expval{\left(\Delta p\right)^2}\ge\frac{\hbar^2}{4}
 \end{equation}
-As for finite position, 
+As for finite position\label{dispalcement operator}, 
 \begin{equation}
     \mathscr{J}(\Delta \mathbf{x})=\lim_{N\rightarrow \infty}\left(1-\frac{i\hat{\mathbf{p}}\cdot\Delta\mathbf{x}}{N\hbar}\right)^N=\exp\left(-\frac{i\hat{\mathbf{p}}\cdot\Delta \mathbf{x}}{\hbar}\right).
 \end{equation}
@@ -429,7 +429,7 @@ By computation,
 By computing $\mathscr{J}\left(\dd{\mathbf{x}}\right)\ket{\alpha}$ in
 the representation where the position eigenkets are used as base kets, and plug in \eqref{8.16}, we obtain 
 \begin{equation}
-    \hat{\mathbf{p}}\ket{\alpha}=\int \dd{\mathbf{x}}\ket{\mathbf{x}}\left(-i\hbar\nabla\ket{\alpha}\right).
+    \hat{\mathbf{p}}\ket{\alpha}=\int \dd{\mathbf{x}}\ket{\mathbf{x}}\left(-i\hbar\nabla\bra{\mathbf{x}}\ket{\alpha}\right).
 \end{equation}
 That is also 
 \begin{equation}\label{8.23}
@@ -512,7 +512,7 @@ where\footnote{This notation is not formal, but the following notation ``$\mathr
 \begin{equation}
     C_G(A)=[G,A],\ C_G^{(n)}(A)=[G,C_G^{(n-1)}(A)].
 \end{equation}
-Or we can write in the form 
+Or we can write in the form\label{Baker-Hausdorff lemma} 
 \begin{equation}
     e^\Omega A e^{-\Omega }=e^{\mathrm{Ad}_\Omega}(A).
 \end{equation}
@@ -526,7 +526,7 @@ By \eqref{5.4}, we can induct on $n$ that
     [A,[A,B]^{n-1}e^B]=[A,B]^ne^B.
 \end{equation}
 So, 
-\begin{equation}
+\begin{equation}\label{9.13}
     e^Ae^B=e^Be^Ae^{[A,B]}.
 \end{equation}
 
@@ -622,6 +622,10 @@ The solution of \eqref{9.6} is Hermite polynomials\footnote{There's some propert
 \begin{equation}
     \psi(x)=e^{-\frac{1}{2}\frac{m\omega x^2}{\hbar}}\sum_{n=0}^{+\infty}\frac{c_n}{n!}H_n\left(x\slash\sqrt{\frac{\hbar}{m\omega}}\right).
 \end{equation}
+And for a fixed $n$, the normalized wavefunction is
+\begin{equation}
+    \psi_n(x)=\frac{1}{\sqrt{2^nn!\sqrt{\pi}}}e^{-\frac{x^2}{2}H_n(x)}.
+\end{equation}
 
 
 \subsection{Method of Algebra}
@@ -680,10 +684,7 @@ Similarly, it is easy to show that\footnote{Memory trick: the square root of a l
 \begin{equation}
     \hat{a}^\dagger\ket{n}=\sqrt{n+1}\ket{n+1}.
 \end{equation}
-From \eqref{9.24} we know that 
-\begin{equation}
-    n\ge0.
-\end{equation}
+From \eqref{9.24} we know that $n\ge0.$
 If we act $\hat{a}$ on a state for many times, we can conclude that the sequence must
 terminate with $n=0$, or it won't stop and $n$ will become not real.
 Use 
@@ -707,5 +708,21 @@ with, in general, a complex eigenvalue $\lambda$ does the desired job.
     {\raggedleft \textit{---Modern Quantum Mechanics}}
 \end{flushright}
 \end{quotation}
-
+We want it to be related to the states we have known. And the simplist one is $\ket{0}$. Let $\ket{\lambda}=A\ket{0}$. Then what we expect is $aA\ket{0}=\lambda A\ket{0}$. Or in another form:
+\begin{equation*}
+    (A^{-1}aA-\lambda)\ket{0}=f(a)\ket{0},
+\end{equation*}
+where $f$ is a arbitrary function. We want to make it easy, let us set $f(a)=a$. Then by the \hyperref[Baker-Hausdorff lemma]{Baker-Hausdorff lemma}, the following let what we want holds
+\begin{equation}
+    A=e^{\lambda a^\dagger}.
+\end{equation}
+use \eqref{9.13} to do the normalization\footnote{Expand the series we get $\exp(\lambda a)\ket{0}=\ket{0}$.},
+\begin{equation}
+    \expval{e^{\lambda^* a}e^{\lambda a^\dagger}}{0}=e^{\left|\lambda\right|^2}.
+\end{equation}
+Therefore\footnote{A Poission distribution.},
+\begin{equation}
+    \ket{\lambda}=e^{-\left|\lambda\right|^2/2}e^{\lambda a^\dagger}\ket{0}=e^{-\left|\lambda\right|^2/2}\sum_{n=0}^{\infty}\frac{\lambda^n}{\sqrt{n!}}\ket{n}.
+\end{equation}
+We have discussed in \ref{dispalcement operator} that the operator $e^{i \alpha p}$ is a dispalcement operator.
 \end{document}

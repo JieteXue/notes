@@ -1,0 +1,227 @@
+\documentclass{article}
+\newcommand{\mydate}{October 11, 2025}
+\newcommand{\mytitle}{QM HW5}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{tikz}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+
+\begin{document}
+\maketitle
+\begin{problem}[Coherent states]
+    Let $l=\sqrt{\frac{\hbar}{m\omega}}$, then
+    \begin{equation}
+        x=\frac{l}{\sqrt{2}}\left(a+a^\dagger\right),\ p=\frac{\hbar}{il}\frac{a-a^\dagger}{\sqrt{2}}.
+    \end{equation}
+    \begin{equation}
+        \expval{x}=\frac{l}{\sqrt{2}}\expval{a+a^\dagger}{\alpha}=\frac{l}{\sqrt{2}}\left(\alpha+\alpha^*\right).
+    \end{equation}
+    \begin{equation}
+        \expval{p}=\frac{\hbar}{il}\frac{\expval{a-a^\dagger}{\alpha}}{\sqrt{2}}=\frac{\hbar}{il}\frac{\alpha-\alpha^*}{\sqrt{2}}.
+    \end{equation}
+\begin{equation}
+    x^2=\frac{l^2}{2}\left[a^2+{a^\dagger}^2+\{a,a^\dagger\}\right]=\frac{l^2}{2}\left[a^2+{a^\dagger}^2+2a^\dagger a+1\right].
+\end{equation}
+\begin{equation}
+    p^2=\frac{\hbar^2}{2l^2}[2a^\dagger a+1-(a^2+{a^\dagger}^2)].
+\end{equation}
+\begin{equation}
+    \expval{x^2}=\frac{l^2}{2}\left[(\alpha+\alpha^*)^2+1\right].
+\end{equation}
+\begin{equation}
+    \expval{p^2}=\frac{\hbar^2}{2l^2}\left[-(\alpha-\alpha^*)^2+1\right].
+\end{equation}
+Thus, 
+\begin{equation}
+    \sqrt{\overline{\Delta x^2}}\sqrt{\overline{\Delta p^2}}=\frac{\hbar}{2}.
+\end{equation}
+It reaches the minimum uncertainty, so we call it the most classical quantum state.
+\end{problem}
+\begin{problem}[Wavefunctions of Harmonic Oscillator]
+    \begin{equation}
+        0=\bra{x}a\ket{0}=\bra{x}\frac{1}{\sqrt{2}}\left[\frac{x}{l}+\frac{ipl}{\hbar}\right]\ket{0}=\frac{1}{\sqrt{2}}\left(\frac{x}{l}\psi_0+l\frac{\dd{\psi_0}}{\dd{x}}\right).
+    \end{equation}
+    Hence, 
+    \begin{equation}
+        \psi_0(x)=Ae^{-\frac{1}{2}\frac{x^2}{l^2}}.
+    \end{equation}
+    Normalize,
+    \begin{equation}
+        \left|A\right|^2\int_{-\infty}^{+\infty}e^{-\frac{x^2}{l^2}}\dd{x}=\left|A\right|^2l \Gamma \left(\frac{1}{2}\right)=1.
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        \boxed{\psi_0(x)=\frac{e^{-\frac{x^2}{2l^2}}}{l^{1/2}\pi^{1/4}}.}
+    \end{equation}
+    By $a^\dagger\ket{n}=\sqrt{n+1}\ket{n+1}$,
+    \begin{equation}
+        \psi_{n+1}(x)=\frac{1}{\sqrt{2(n+1)}}\left(\frac{x}{l}-l\frac{\dd}{\dd{x}}\right)\psi_n(x).
+    \end{equation}
+    So, 
+    \begin{equation}
+        \boxed{\psi_n(x)=\frac{1}{\sqrt{2^nn!}}\left(\frac{x}{l}-l\frac{\dd}{\dd{x}}\right)^n\psi_0(x).}
+    \end{equation}
+\end{problem}
+\begin{problem}[High dimensional Oscillator]
+    (1) We have $[x_i,p_j]=i\hbar\delta_{ij}$, so
+    \begin{equation}
+        [a^i,a^\dagger_j]=\delta^i_{\ j},\ [a^i,a_i^\dagger]=D.
+    \end{equation}
+    \begin{equation}
+        x^ix_i=\frac{l^2}{2}\left(a^ia_i+{a^i}^\dagger a_i^\dagger+2a_i^\dagger a^i+[a^i,a_i^\dagger]\right).
+    \end{equation}
+    \begin{equation}
+        p^ip_i=-\frac{\hbar^2}{2l^2}\left(a^ia_i+{a^i}^\dagger a_i^\dagger-2a_i^\dagger a^i-[a^i,a_i^\dagger]\right).
+    \end{equation}
+    Let $N=a_i^\dagger a_i$, then 
+    \begin{equation}
+        \boxed{H=\hbar \omega (N+D/2).}
+    \end{equation}
+    \begin{equation}
+        a'=Ua, \ a'^\dagger=a^\dagger U^\dagger,\ N'=a^\dagger \,U^\dagger U a=N.
+    \end{equation}
+    Hence, $H$ is invariant under the transformation.
+\newline
+(2) We only need to check $[Q_{ij},N]=0$. We have
+\begin{equation}
+    [a_i,a_k^\dagger a^k]=a^k\delta_{i k}=a_i,\  [a_i^\dagger,a_k^\dagger a^k]=-a^k\delta_{i k}=-a_i^\dagger.
+\end{equation}
+Since $A_{ij}$ is a number, $[A_{ij},N]=0$, thus 
+\begin{align}
+    [a_i^\dagger A_{ij}a_j,N]&=a_i^\dagger A_{ij} [ a_j,N]+[a_i^\dagger,N] A_{ij}a_j \notag\\
+    &=a_i^\dagger A_{ij}a_j-a_i^\dagger A_{ij} a_j \notag\\
+    &=0.
+\end{align}
+(I'm confused about why we need a $A_{ij}$. It is just a number.)
+\newline
+(3) Anything commutable with $H$ is a conservation. $a_ia_j^\dagger$ is conserved, which means the angular momentum is conserved.
+\end{problem}
+\begin{problem}[Quantum Virial Theorem]
+    (1) We use the Schr\"odinger picture. Let $\ket{\alpha,t}$ be a state\footnote{Shorten as $\ket{\alpha}$}. The Schr\"odinger equation is
+    \begin{equation}
+        i\hbar \frac{\pa}{\pa t}\ket{\alpha}=H\ket{\alpha}.
+    \end{equation}
+    Then,
+    \begin{equation}
+        \frac{\dd}{\dd{t}}\bra{\alpha}\mathbf{x}\cdot\mathbf{p}\ket{\alpha}=\frac{1}{i\hbar}\expval{[\mathbf{x}\cdot\mathbf{p},H]}{\alpha}.
+    \end{equation}
+    \begin{equation}
+        [x^ip_i,\frac{p^jp_j}{2m}+V(\mathbf{x})]=[x^i,\frac{p^jp_j}{2m}]p_i+x^i[p_i,V(\mathbf{x})]=i \hbar\left(\frac{p^ip_i}{m}-x^i\pa _i V\right).
+    \end{equation}
+    Thus,
+    \begin{equation}
+         \frac{\dd}{\dd{t}}\bra{\alpha}\mathbf{x}\cdot\mathbf{p}\ket{\alpha}=\expval{\frac{p^2}{m}-\mathbf{x}\cdot \nabla V}{\alpha}.
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        \boxed{ \frac{\dd}{\dd{t}}\bra{\alpha}\mathbf{x}\cdot\mathbf{p}\ket{\alpha}=\expval{\frac{p^2}{m}}-\expval{\mathrm{x}\cdot\nabla V}.}
+    \end{equation}
+    (2) Since $H$ is Hermitian and $E$ is real, we have 
+    \begin{equation}
+      (H-E)  \ket{n,\lambda}=0,\ \bra{n,\lambda}(H-E)=0.
+    \end{equation}
+    Thus, 
+    \begin{equation}
+        \left(\frac{\pa}{\pa \lambda}\bra{n,\lambda}\right)(H-E)\ket{n,\lambda}=0,\ \bra{n,\lambda}(H-E)\left(\frac{\pa}{\pa \lambda}\ket{n,\lambda}\right)=0.
+    \end{equation}
+    Let $\frac{\pa}{\pa \lambda}$ act on the following equation,
+    \begin{equation}
+        \expval{(H-E)}{n,\lambda}=0,
+    \end{equation}
+    we obtain, 
+    \begin{equation}
+        \expval{\frac{\pa}{\pa \lambda}\left(H-E\right)}{n,\lambda}.
+    \end{equation}
+    Exactly,
+    \begin{equation}
+        \boxed{\frac{\pa E}{\pa \lambda}=\expval{\frac{\pa H}{\pa \lambda}}{n,\lambda}}.
+    \end{equation}
+    (3) 
+    \newline
+    (4) For harmonic oscillator, $V=\frac{1}{2}m\omega^2x^2$, $\mathbf{x}\cdot\nabla V=m\omega^2x^2$.
+    \begin{equation}
+        \mathbf{x}\cdot\mathbf{p}=\frac{\hbar}{2}\left(a^2-{a^\dagger}^2-3\right).
+    \end{equation}
+    So,
+    \begin{equation}
+        \expval{\mathbf{x}\cdot\mathbf{p}}=-\frac{3\hbar}{2}
+    \end{equation}
+    \begin{equation}
+        \expval{p^2}{n}=\left(n+\frac{3}{2}\right)\frac{\hbar m \omega}{2},\ \expval{x^2}{n}=\left(n+\frac{3}{2}\right)\frac{\hbar}{2m\omega}.
+    \end{equation}
+Quantum Viral theorem holds. We can find that $\expval{\mathbf{x}\cdot\mathbf{p}}$ is not dependent on $n$.
+\end{problem}
+\begin{problem}[Operator normal product]
+    Since $\ket{0}$ is the ground state and $H=\omega a^\dagger a$, $a\ket{0}=0$.
+    \begin{equation}
+        e^{\alpha a}\ket{0}=\sum_{k=1}^{\infty} \frac{\alpha^k}{k!}a^k\ket{0}=\ket{0}.
+    \end{equation}
+    So,
+    \begin{equation}
+        \expval{:e^A:}{0}=\expval{e^{\alpha' a^\dagger}e^{\alpha a}}{0}=1.
+    \end{equation}
+    \begin{equation}\label{5.3}
+        \expval{AB}{0}=\alpha\beta'.
+    \end{equation}
+    By Baker-Hausdorff lemma, we can deduce that: If $[[A,B],A]=[[A,B],B]=0$, then
+    \begin{equation}
+        \exp(AB)=\exp(BA)\exp([A,B]).
+    \end{equation}
+    Thus,
+    \begin{equation}
+        e^{\alpha a}e^{\beta' a^\dagger}=e^{\beta' a^\dagger}e^{\alpha a}e^{\alpha \beta'}.
+    \end{equation}
+    \begin{equation}
+        e^{\alpha' a}e^{\alpha a}e^{\beta' a^\dagger}e^{\beta a}=e^{(\alpha'+\beta')a^\dagger}e^{(\alpha+\beta)a}e^{\alpha \beta'}.
+    \end{equation}
+    That is 
+    \begin{equation}\label{5.7}
+        :e^A::e^B=:e^{A+B}:e^{\expval{AB}{0}}.
+    \end{equation}
+    \begin{equation}\label{5.8}
+        e^A=:e^A:e^{\frac{1}{2}\alpha\alpha'}.
+    \end{equation}
+    Let $A=B$ in \eqref{5.3}, we get $\alpha\alpha'=\expval{A^2}{0}$. Then Plug \eqref{5.8} into \eqref{5.7}, we obtain
+    \begin{equation}
+        e^Ae^B=:e^{A+B}:e^{\expval{AB+\frac{A^2}{2}+\frac{B^2}{2}}{0}}.
+    \end{equation}
+    Therefore,
+    \begin{equation}
+    \boxed{
+        \expval{e^Ae^B}{0}=\expval{:e^{A+B}:}{0}e^{\expval{AB+\frac{A^2}{2}+\frac{B^2}{2}}{0}}=e^{\expval{AB+\frac{A^2}{2}+\frac{B^2}{2}}{0}}.}
+    \end{equation}
+\end{problem}
+\end{document}
