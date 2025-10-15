@@ -15,7 +15,7 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \usepackage{tcolorbox}
 \definecolor{mlv}{RGB}{40, 137, 124}
-\usepackage[colorlinks=true, linkcolor=black, citecolor=red, urlcolor=cyan, filecolor=mlv]{hyperref}
+\usepackage[colorlinks=true, linkcolor=mlv, citecolor=red, urlcolor=cyan, filecolor=mlv]{hyperref}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -474,6 +474,33 @@ Replace classical Poission bracket by commutator as follows\footnote{I think the
 
 
 
+\section{Probability Density and Probability Current}
+Let $\psi $ be  the wave function, then the probability density is
+\begin{equation}
+    \rho:=\psi\psi^*.
+\end{equation}
+The probability need to be conserved,
+\begin{equation}
+    \frac{\pa \rho}{\pa t}+\nabla \cdot\mathbf{j}=0.
+\end{equation}
+Then we can deduce from Schrödinger equation that 
+\begin{equation}
+    \mathbf{j}=\left(\frac{\hbar}{m}\right)\mathrm{Im}(\psi^*\nabla\psi).
+\end{equation}
+If we write $\psi$ into the form of 
+\begin{equation}
+    \psi=\sqrt{\rho}e^{\frac{iS}{\hbar}},
+\end{equation}
+then\footnote{\hyperref[charged case]{Here} is the case with charge.} 
+\begin{equation}
+    \mathbf{j}=\frac{\rho\nabla S}{m}.
+\end{equation}
+Taking the classical limit, we can see that $S$ is the action.
+\begin{equation}
+    \int\mathbf{j}\dd{\mathbf{x}}=\frac{\expval{\mathbf{p}}}{m}.
+\end{equation}
+It is some thing like velocity.
+
 
 \section{Exponential Operators and Baker-Hausdorff Lemma }
 If it exists, then we denote\footnote{Sometimes we denote as $\exp(A)$.}
@@ -708,7 +735,7 @@ with, in general, a complex eigenvalue $\lambda$ does the desired job.
     {\raggedleft \textit{---Modern Quantum Mechanics}}
 \end{flushright}
 \end{quotation}
-We want it to be related to the states we have known. And the simplist one is $\ket{0}$. Let $\ket{\lambda}=A\ket{0}$. Then what we expect is $aA\ket{0}=\lambda A\ket{0}$. Or in another form:
+We want it to be related to the states we have known. And the simplest one is $\ket{0}$. Let $\ket{\lambda}=A\ket{0}$. Then what we expect is $aA\ket{0}=\lambda A\ket{0}$. Or in another form:
 \begin{equation*}
     (A^{-1}aA-\lambda)\ket{0}=f(a)\ket{0},
 \end{equation*}
@@ -724,5 +751,118 @@ Therefore\footnote{A Poission distribution.},
 \begin{equation}
     \ket{\lambda}=e^{-\left|\lambda\right|^2/2}e^{\lambda a^\dagger}\ket{0}=e^{-\left|\lambda\right|^2/2}\sum_{n=0}^{\infty}\frac{\lambda^n}{\sqrt{n!}}\ket{n}.
 \end{equation}
-We have discussed in \ref{dispalcement operator} that the operator $e^{i \alpha p}$ is a dispalcement operator.
+We have discussed in \ref{dispalcement operator} that the operator $e^{-i  pl/\hbar}$ is a displacement operator. Let us show we can obtain a coherent state by applying it on $\ket{0}$.
+\begin{equation}
+    e^{-ip\Delta x/\hbar}\ket{0}=e^{\frac{(a^\dagger-a)\Delta x}{\sqrt{2}l}}\ket{0}\sim e^{\frac{a^\dagger \Delta x}{\sqrt{2}l}}\ket{0}.
+\end{equation}
+\subsection{High Dimensional Case}
+We use the Einstein summation convention. Hamilton in $n$-dimensional case can be written as
+\begin{equation}
+    H=\frac{p^ip_i}{2m}+\frac{1}{2}m\omega^2x^ix_i.
+\end{equation}
+And the creation and annihilation operators are
+\begin{equation}
+    a_i=\frac{1}{\sqrt{2}}\left(\frac{x_i}{l}+\frac{ip_il}{\hbar}\right), \quad a^\dagger_i=\frac{1}{\sqrt{2}}\left(\frac{x_i}{l}-\frac{ip_il}{\hbar}\right).
+\end{equation}
+\begin{equation}
+    [a_i,a_j]=0,\quad [a_i,a^\dagger_j]=\delta_{ij}.
+\end{equation}
+If we denote $a^ia_i^\dagger$ as $N$, then we can written $H$ as 
+\begin{equation}
+    H=\hbar \omega (N+\frac{n}{2}).
+\end{equation}
+Or $H^i_i$ \footnote{It's my own notation means $\displaystyle \sum_i H_i.$}if we denote $H_i=\hbar \omega (a_i^\dagger a_i+\frac{1}{2})$.
+
+It's easy to check that 
+\begin{equation}
+    [a_i^\dagger a_j,H]=0.
+\end{equation}
+That means the angular momentum is conserved.
+
+
+\section{Gauge Transformations in Electromagnetism}
+\label{charged case}In Classic mechanics, the Hamiltonian is
+\begin{equation}
+    H=\frac{1}{2m}\left(\mathbf{p}-\frac{q\mathbf{A}}{c}\right)^2+q\phi.
+\end{equation}
+Where $\mathbf{p}$ is the canonical momentum, $\mathbf{A}$ is the vector potential, $q$ is the charge and $\phi$ is the scalar potential. And now the canonical momentum $\mathbf{p}$ is the e generator of translation. And kinematical (or mechanical) momentum, denoted by:
+\begin{equation}\label{12.2}
+    \mathbf{\Pi}:=\mathbf{p}-\frac{q\mathbf{A}}{c}.
+\end{equation}
+Easy to check that
+\begin{equation}
+    [\Pi_i,\Pi_j]=\frac{i\hbar q}{c}\varepsilon_{ijk}B_k.
+\end{equation}
+The Hamiltonian:
+\begin{equation}
+    H=\frac{\Pi^2}{2m}+q\phi.
+\end{equation}
+From \eqref{12.2} we can use the substitution 
+\begin{equation}
+    \mathbf{p}\longrightarrow \mathbf{p}-\frac{q\mathbf{A}}{c}
+\end{equation}
+
+In position representation\footnote{We can use it only when the $\nabla$ comes from $\mathbf{p}$.},
+\begin{equation}
+    \nabla\longrightarrow \nabla-\left(\frac{iq}{\hbar c}\right)\mathbf{A}.
+\end{equation}
+to get the expressions of the electromagnetism case. For example, the probability current now is 
+\begin{equation}\label{12.8}
+    \mathbf{j}=\frac{\rho}{m}\left(\nabla S-\frac{q\mathbf{A}}{c}\right).
+\end{equation}
+\begin{equation}
+    \int \mathbf{j}\dd{\mathbf{x}}=\frac{\expval{\mathbf{\Pi}}}{m}.
+\end{equation}
+$\mathbf{E}$ and $\mathbf{B}$ are unchanged under
+\begin{equation}
+    \phi\rightarrow \phi-\frac{1}{c}\frac{\pa \Lambda}{\pa t},\quad \mathbf{A}\rightarrow\mathbf{A}+\nabla \Lambda.
+\end{equation}
+We consider the time-independent operator, so in the remaining part of this section, the term \textit{gauge transformation} refers to the case $\frac{\pa \Lambda}{\pa t}=0$.
+
+Let $\ket{\alpha},\ket{\tilde{\alpha}}$ be the state ket in the presence of $\mathbf{A}$ and $\tilde{\mathbf{A}}$, where,
+\begin{equation}
+    \tilde{\mathbf{A}}=\mathbf{A}+\nabla \Lambda.
+\end{equation}
+They must have the same physical situation, at least we need to make sure
+\begin{equation}
+   \braket{\alpha}=\braket{\tilde{\alpha}} ,\quad \expval{\mathbf{x}}{\alpha}=\expval{\mathbf{x}}{\tilde{\alpha}},\quad \expval{\mathbf{\Pi}}{\alpha}=\expval{\tilde{\mathbf{\Pi}}}{\tilde{\alpha}}.
+\end{equation}
+Construct an operator $g$ that relates $\ket{\tilde{\alpha}}$ to $\ket{\alpha}$.
+\begin{equation}
+    \ket{\tilde{\alpha}}=g\ket{\alpha}.
+\end{equation}
+By intuition, $g$ is a function of $\Lambda$, and it is a function of $\mathbf{x}$, so it is commutable with $\mathbf{x}$, $g^\dagger\mathbf{x} g=\mathbf{x}$. The first and the third conditions give restrictions:
+\begin{equation}
+    g^\dagger g=1.
+\end{equation}
+    \begin{equation}\label{12.14}
+    g^\dagger \mathbf{p}g=\mathbf{p}+\frac{q\nabla\Lambda}{c}.
+\end{equation}
+It is easy to find 
+\begin{equation}
+    g=\exp\left(\frac{iq\Lambda}{\hbar c}\right)
+\end{equation}
+satisfies the above conditions. And we have 
+\begin{equation}
+    g^\dagger \tilde{\mathbf{\Pi}}^ng=\prod_{k=1}^{n}g^\dagger \tilde{\mathbf{\Pi}}g=\mathbf{\Pi}^n.
+\end{equation}
+So, for any function $f$,
+\begin{equation}\label{12.17}
+    g^\dagger f\left(\tilde{\mathbf{\Pi}}\right) g=f\left(\mathbf{\Pi}\right).
+\end{equation}
+
+\eqref{12.14} and \eqref{12.17} tell us, mechanical momentum is gauge invariant, but the canonical momentum is not.
+
+Form the wave function, 
+\begin{equation}
+    S\longrightarrow S+\frac{q\Lambda}{c}.
+\end{equation}
+This is highly satisfactory because we see that the probability flux given by \eqref{12.8} is then gauge invariant. 
+
+\textbf{DO NOT FORGET} that when using the gauge transformation, not only the states but also the operators will change. Let's check the Schrödinger equation is still hold under gauge transformation.
+\begin{equation}
+ \tilde{H} \ket{\tilde{\alpha}}=g g^\dagger \tilde{H}g\ket{\alpha}=g H\ket{\alpha}=i\hbar  \frac{\pa}{\pa t}g \ket{\alpha}=i\hbar \frac{\pa }{\pa t}\ket{\tilde{\alpha}}.
+\end{equation}
+
+Since $t$ is only a parameter, it does not affct the commutators, so when $\frac{\pa\Lambda}{\pa t}\not=0$, \eqref{12.17} still holds. \textbf{BUT}, $\tilde{H}\not=g^\dagger Hg$, since  $\phi$ contributes a term. So our notation is not convenient in the $\Lambda$ is time-dependent case.
 \end{document}

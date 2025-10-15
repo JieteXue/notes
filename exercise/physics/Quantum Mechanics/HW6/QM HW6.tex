@@ -1,0 +1,129 @@
+\documentclass{article}
+\newcommand{\mydate}{October 14, 2025}
+\newcommand{\mytitle}{QM HW6}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{tikz}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+
+\begin{document}
+\maketitle
+\begin{problem}[Current, gauge transformation]
+    (1) Use the substitution:
+    \begin{equation}
+        -i\hbar \nabla\longrightarrow -i\hbar \nabla -\frac{q\vec{A}}{c},
+    \end{equation}
+    the probability current will be:
+    \begin{equation}
+        \vec{j}=\frac{\hbar}{m}\mathrm{Im}\left(\psi^*\nabla \psi\right)\longrightarrow\frac{\hbar}{m}\mathrm{Im}\left(\psi^*\nabla \psi\right)-\frac{q}{mc} \vec{A}\left|\psi\right|^2.
+    \end{equation}
+    Hence,
+    \begin{equation}
+        \boxed{\vec{j}=\frac{\hbar}{m}\mathrm{Im}\left(\psi^*\nabla \psi\right)-\frac{q}{mc} \vec{A}\left|\psi\right|^2.}
+    \end{equation}
+    (2) 
+    \begin{equation}
+        A_\mu'=A_\mu+\pa_\mu f.
+    \end{equation}
+    Since the commutator is antisymmetric and the derivative is commutative,
+    \begin{equation}
+        \pa_{[\mu}\pa_{\nu]}f=0.
+    \end{equation}
+    Thus,
+    \begin{equation}
+        F_{\mu\nu}'=\pa_{[\mu}A'_{\nu]}=\pa_{[\mu}A_{\nu]}+\pa_{[\mu}\pa_{\nu]}f=F_{\mu\nu}.
+    \end{equation}
+    So, 
+    \begin{equation}
+        \mathbf{E}'=\mathbf{E},\ \mathbf{B}'=\mathbf{B}.
+    \end{equation}
+    (3) 
+    \begin{equation}
+        \frac{\pa \psi'}{\pa t}=i\frac{\pa \varphi}{\pa t}\psi'+e^{i\varphi}\frac{\pa \psi}{\pa t}
+    \end{equation}
+    Cancelate  $e^{i\varphi}$, and plug in Schrödinger equation, we should take
+    \begin{equation}
+        \boxed{\varphi=\frac{q}{\hbar c}f.}
+    \end{equation}
+    (4)
+    \begin{equation}
+        \rho'=e^{i\varphi}\psi e^{-i\varphi}\psi^*=\psi\psi^*=\rho.
+    \end{equation}
+    If we let 
+    \begin{equation}
+        \psi=\sqrt{\rho}e^{\frac{iS}{\hbar}},
+    \end{equation}
+    then,
+    \begin{equation}
+        \mathbf{j}=\frac{\rho}{m}\left(\nabla S-\frac{q\mathbf{A}}{c}\right).
+    \end{equation}
+    \begin{equation}
+       S'=S+\hbar \varphi,\quad  \nabla S'-\frac{q\mathbf{A}'}{c}=\nabla S-\frac{q\mathbf{A}}{c}.
+    \end{equation}
+    So the probability current  is invariant under the gauge transformation.
+    
+\end{problem}
+\begin{problem}[Landau gauge]
+    (1)
+    \begin{equation}
+        \left(p_x-\frac{qB}{c}y\right)^2e^{ik_x x}=\left(\hbar k_x-\frac{qB}{c}y\right)^2 e^{ik_x x}.
+    \end{equation}
+    \begin{equation}
+        \left[\frac{\left(\hbar k_x-\frac{qBy}{c}\right)^2}{2m}+(V(y)-E)\right]\phi_{k_x}(y)=\frac{\hbar^2}{2m}\phi_{k_x}''(y).
+    \end{equation}
+    We can define $H_y(k_x)$ as 
+    \begin{equation}
+        H_y(k_x)=\frac{\left(\hbar k_x-\frac{qBy}{c}\right)^2}{2m}+\frac{p_y^2}{2m}+V(y).
+    \end{equation}
+    (2) Note that 
+    \begin{equation}
+        \frac{\pa H_y(k_x)}{\pa k_x}=\frac{\hbar k_x-qBy/c}{m}.
+    \end{equation}
+    \begin{equation}
+        I_x(x,k_x)=qJ=\frac{q\rho}{m}\left(\hbar k_x-\frac{qBy}{c}\right)=\frac{q}{L_x}\frac{\pa E_n}{\hbar \pa k_x}.
+    \end{equation}
+    (3) 
+    \begin{equation}
+    I_{x,n}=\frac{1}{2\pi}\int\dd{k_x}I_x(n,k_x)  =\frac{q^2}{h}\Delta V/L_x. 
+    \end{equation}
+    \begin{equation}
+        \sigma_{xy}=\frac{I_x}{E_y}=\frac{q^2}{h}\nu.
+    \end{equation}
+    This result is not related to $V_{\text{imp}}$.
+\end{problem}
+
+
+\end{document}
