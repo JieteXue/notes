@@ -275,8 +275,8 @@ $$\liminf_{n\in I,n\rightarrow+\infty}a_n=\sup_{j\in J}\inf_{n\in I_{\ge j}}a_n.
     $$J=\{n\in I\mid \forall m\in I_{\ge n},a_m\le a_n\}.$$
     If $J$ is infinite, $(a_n)_{n\in J}$ is decreasing. Hence it admits
     $$\alpha:=\inf_{n\in J}a_n$$
-    as its limit. For any $n\in J,\ \sup_{n\in I_{\ge n}}a_m=a_n$. So 
-    $$\limsup_{n\in I,n\rightarrow+\infty}a_n=\inf_{n\in J}\sup_{n\in I_{\ge n}}\inf_{n\in J}a_n=\alpha.$$
+    as its limit. For any $n\in J,\ \sup_{m\in I_{\ge n}}a_m=a_n$. So 
+    $$\limsup_{n\in I,n\rightarrow+\infty}a_n=\inf_{n\in J}\sup_{m\in I_{\ge n}}a_m=\alpha.$$
     Suppose that $J$ is finite. Pick $n_0\in I $ such that $\forall j\in J,j<n_0$. We construct  in a recursive way a strictly increasing sequence $(n_k)_{k\in \NN}$ in $I$ as follows: Suppose $n_0<n_1<\dots<n_k$ have been chosen. Since $G$ is totally ordered, there exists $i\in I$ such that $n_0\le i\le n_k$ and 
     $$a_i=\max\{a_j\mid j\in I,n_0\le j\le n_k\}.$$
     Since $i\notin J$, there exists $n_{k+1}\in I, n_{k+1}>i$ such that 
@@ -285,7 +285,7 @@ $$\liminf_{n\in I,n\rightarrow+\infty}a_n=\sup_{j\in J}\inf_{n\in I_{\ge j}}a_n.
     $$J_1=\{n_{k}\mid k\in \NN\},$$
     $(a_n)_{n\in J_1}$ is increasing, hence it admits 
     $$\beta:=\sup_{n\in J}a_n$$
-    as its limit. For any $j\in I$ such that $j\ge n_0$, there exists $k\in \NN$ such that $j\le n_k$. Thus $a_j\le a_{n_{k+1}}\le \beta$. So $\dis\limsup_{n\in I,n\rightarrow+\infty}\le \beta$. Moreover, since $J_1\subseteq I$, 
+    as its limit. For any $j\in I$ such that $j\ge n_0$, there exists $k\in \NN$ such that $j\le n_k$. Thus $a_j\le a_{n_{k+1}}\le \beta$. So $\dis\limsup_{n\in I,n\rightarrow+\infty}a_n\le \beta$. Moreover, since $J_1\subseteq I$, 
     $$\beta=\lim_{n\in J_1,n\rightarrow+\infty}a_n=\limsup_{n\in J_1,n\rightarrow +\infty}a_n\le\limsup_{n\in I,n\rightarrow +\infty}a_n.$$
     Therefore,
     $$\beta=\limsup_{n\in I,n\rightarrow+\infty}a_n.$$
@@ -383,17 +383,17 @@ $$\liminf_{n\in I,n\rightarrow+\infty}a_n=\sup_{j\in J}\inf_{n\in I_{\ge j}}a_n.
     We extend $\le $ to $\bar{S}$ by letting $\bot<x<\top,\forall x\in S$. We extend $*$ to a mapping
     $$\left(\bar{S}\times\bar{S}\right)\backslash \{(\bot,\top),(\top,\bot)\}\longrightarrow \bar{S},$$
     such that 
-    $$\forall x\in S\cup\{\top\},x*\top=\top*x\top.$$
+    $$\forall x\in S\cup\{\top\},x*\top=\top*x=\top.$$
     $$\forall x\in S\cup\{\bot\},x*\bot=\bot*x=\bot.$$
     $\top*\bot$ and $\bot*\top$ are NOT DEFINED. $(\bar{S},*,\le)$ is called the \textbf{enhancement} of $(S,*,\le)$. If $A$ and $B$ are subset of $\bar{S}$, we denote by $A*B$ the set 
-    $$\{x*y\mid (x,y)\in A\times B\,\{x,y\}\not=\{\bot,\top\}\}.$$
+    $$\{x*y\mid (x,y)\in A\times B\ ,\{x,y\}\not=\{\bot,\top\}\}.$$
 \end{definitionenv}
 \begin{exampleenv}
     \quad 
     \newline
     (1) $(\RR,+,\le ), \bar{\RR}=\RR\cup\{+\infty,-\infty\}$.
     \newline
-    (2) $(\RR_{>0},\cdot,\le),\bar{\RR_{>0}}=\RR_{>0}\cup\{0,+\infty\}$.
+    (2) $(\RR_{>0},\cdot,\le),\bar{\RR}_{>0}=\RR_{>0}\cup\{0,+\infty\}$.
 \end{exampleenv}
 \begin{remark}
     \quad 
@@ -445,7 +445,7 @@ $$\liminf_{n\in I,n\rightarrow+\infty}a_n=\sup_{j\in J}\inf_{n\in I_{\ge j}}a_n.
     \newline
     (1) $a<b$.
     \newline
-    (2) $\iota(a)*b$ is defined and $e<\iota(a)*b$. (Where $iota(\bot)=\top, \iota(\top)=\bot$.)
+    (2) $\iota(a)*b$ is defined and $e<\iota(a)*b$. (Where $\iota(\bot)=\top, \iota(\top)=\bot$.)
     \newline
     (3) $b*\iota(a)$ is defined and $e<b*\iota(a)$.
 \end{propositionenv}
@@ -464,3 +464,118 @@ $$\liminf_{n\in I,n\rightarrow+\infty}a_n=\sup_{j\in J}\inf_{n\in I_{\ge j}}a_n.
     $$e<\iota(a)*b=\iota(a)*\iota(\iota(b)).$$
     So $\iota(b)<\iota(a)$.
 \end{proofenv}
+\begin{lemmaenv}
+    Let $(S,*,\le)$ be a partially ordered monoid. Let $A\subseteq \bar{S}, b\in S^\times\cup\{\bot,\top\}$. Then the following statements hold:
+    \newline
+    (1) If $\sup(A)*b$ is defined, then $A*\{b\}$ has a supremum in $\bar{S}$, and $$\sup(A*\{b\})=\sup(A)*b.$$
+    (2) If $\inf(A)*b$ is defined, then $A*\{b\}$ has a infimum in $\bar{S}$, and $$\inf(A*\{b\})=\inf(A)*b.$$
+    (3) If $b*\sup(A)$ is defined, then $A*\{b\}$ has a supremum in $\bar{S}$, and $$\sup(\{b\}*A)=b*\sup(A).$$
+    (4) If $b*\inf(A)$ is defined, then $A*\{b\}$ has a infimum in $\bar{S}$, and $$\inf(\{b\}*A)=b*\inf(A).$$
+\end{lemmaenv}
+\begin{proofenv}
+    \quad \newline
+    (1) Suppose that $b=\bot$, then $\sup(A)\not=\top$, $\sup(A)*b=\bot$. $A*\{b\}\subseteq\{\bot\}$, so $\sup(A*\{b\})=\bot$.
+    Suppose that $b=\top$, then $\sup(A)\not=\bot$, $A\not=\varnothing$, $\sup(A)*b=\top$. So $\sup(A*\{b\})=\top=\sup(A)*\top$.
+    We suppose that $b\in S^\times$. $\forall a\in A,\ A\le \sup(A)$, so $a*b\le \sup(A)*b$. This means that $\sup(A)*b$ is an upper bound of $A*\{b\}$. Let $M$ be an upper bound of $A*\{b\}$. For any $a\in A$, $a\times b\in A*\{b\}$, so $a*b\le M$. Hence, 
+    $$a=(a*b)*\iota(b)\le M*\iota(b).$$
+    We then deduce $\sup(A)\le M*\iota(b)$. Hence $\sup(A)*b\le M*\iota(b)*b$. Therefore, $\sup(A)*b$ is the supremum of $A*\{b\}$.
+\end{proofenv}
+\begin{remark}
+    Consider
+    $$S=\{0\}\cup\interval[open right]{2}{3}\cup\interval[open right ]{4}{+\infty}\subseteq \RR.$$ 
+    $A=\interval[open right]{2}{3}, \sup(A)=4, A+\{2\}=\interval[open right]{4}{5}, \sup(A+\{2\})=5, \sup(A)+2=6.$
+\end{remark}
+\begin{theoremenv}
+    Let $(S,*,\le)$ be a partially ordered group. Let $A$ and $B$ be subsets of $\bar{S}$.
+    \newline
+    (1) If $\sup(A)*\sup(B)$ is defined, then $A*B$ has a supremum in $\bar{S}$ and
+    $$\sup(A*B)=\sup(A)*\sup(B).$$
+    (2) If $\inf(A)*\inf(B)$ is defined, then $A*B$ has a infimum in $\bar{S}$ and
+    $$\inf(A*B)=\inf(A)*\inf(B).$$
+\end{theoremenv}
+\begin{proofenv}
+    For any $(a,b)\in A\times B$, if $a*b$ id defined, then 
+    $$a*b\le \sup(A)*\sup(B).$$
+    So $\sup(A)*\sup(B)$ is an upper bound of $A*B$. If $\bot\in \{\sup(A),\sup(B)\}$, then $A*B$ has $\bot$ as an upper bound. So $\sup(A*B)=\bot=\sup(A)*\sup(B)$. We suppose that $\bot\notin \{\sup(A)*\sup(B)\}$. Thus $A\backslash\{\bot\}\not=\varnothing$, $B\backslash\{\bot\}\not=\varnothing$. Suppose that $\sup(A)=\top$. Take $b\in B\backslash\{\bot\}$.
+    \[\sup(A*B)\ge\sup(A)*\{b\}=\sup(A)*b=\top.\]
+    So $\sup(A*B)=\top=\sup(A)*\sup(B)$. Similarly, if $\sup(B)=\top$, then 
+    $$\sup(A*B)=\top=\sup(A)*\sup(B).$$
+    Suppose that $\top\notin\{\sup (A),\sup (B)\}$. For any $b\in B$, $\sup(A)*b$ is defined since $\sup(A)\in S$. Hence
+    $$\sup(A)*\{b\}=\sup(A)*b.$$
+    $$A*B=\bigcup_{b\in B}A*\{b\},$$
+    $$\{\sup(A)*b\mid b\in B\}=\{\sup(A)\}*B.$$
+    By the lemma, $\{\sup(A)\}*B$ has a supremum, which is $\sup(A)*\sup(B)$. So $\sup(A*B)$ exists, and is equal to 
+    $$\{\sup(A*\{b\})\mid b\in B\}=\sup(A)*\sup(B).$$
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(S,*,\le)$ be a partially ordered group. Let $f,g: X\longrightarrow \bar{S}$ be two mappings. Let 
+    $$Y=\{x\in X\mid f(x)*g(x) \text{ is defined }\}.$$
+    Let $$f*g: Y\longrightarrow \bar{S},$$
+    $$y\longmapsto f(y)*g(y).$$
+    (1) If $(\sup f)*(\sup g)$ is defined, and $f*g$ has a supremum, then $$\sup(f*g)\le \sup(f)*\sup(g).$$
+    (2) If $(\inf f)*(\inf g)$ is defined, and $f*g$ has a infimum, then $$\inf(f*g)\ge \inf(f)*\inf(g).$$
+\end{corollaryenv}
+\begin{proofenv}
+    Let $A=f(X), B=g(X)$. By the theorem, $A*B$ has a supremum, and 
+    $$\sup(A*B)=\sup(A)*\sup(B).$$
+    Let $$C=(f*g)(Y)=\{f(y)*g(y)\mid y\in Y\}.$$
+    One has 
+    $$C\subseteq A*B=\{f(x)*g(y)\mid (x,y)\in X\times X,\  f(x)*g(y)\text{ is defined }\}.$$
+    So $\sup(C)\le \sup(A*B).$
+\end{proofenv}
+\begin{theoremenv}
+    Let $(S,*,\le)$ be a partially ordered group. We suppose that $\bar{S}$ is order complete. Let $X$ be a set and 
+    $f,g:X\longrightarrow \bar{S}$ be mappings. Let $\mathcal{F}$ be a filter on $X$ that is non-degenerate. Suppose that $\forall x\in X, f(x)*g(x)$ is defined. Then 
+    $$\limsup_{\mathcal{F}}(f*g)\le \limsup_{\mathcal{F}}f*\limsup_{\mathcal{F}}g,$$
+    $$\limsup_{\mathcal{F}}(f*g)\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g,$$
+    $$\liminf_{\mathcal{F}}(f*g)\ge \liminf_{\mathcal{F}}f*\liminf_{\mathcal{F}}g,$$
+    $$\liminf_{\mathcal{F}}(f*g)\le \liminf_{\mathcal{F}}f*\limsup_{\mathcal{F}}g.$$
+    Provided that the term on the right hand side id defined.
+
+\end{theoremenv}
+\begin{proofenv}
+    \quad\newline
+    (1) $\forall U\in\mathcal{F},$
+    $$(f*g)^s(U)\le f^s(U)*g^s(U).$$
+    Provided that $f^s(U)* g^s(U)$ is defined.
+    If $\dis \limsup_{\mathcal{F}}f*\limsup_{\mathcal{F}}g$ is defined, then 
+    $$\limsup _{\mathcal{F}}(f*g)=\inf_{U\in \mathcal{F}}(f*g)^s(U)\le \inf_{U\in \mathcal{F}}\left[f^s(U)*g^s(U)\right].$$
+\begin{align*}
+\limsup_{\mathcal{F}}f*\limsup_{\mathcal{F}}g=&\left(\inf_{U\in \mathcal{F}}f^s(U)\right)*\left(\inf_{V\in\mathcal{F}}g^s(V)\right)\\
+=&\inf_{(U,V)\in \mathcal{F}\times\mathcal{F},\text{ defined}}\left(f^s(U)*g^s(V)\right)
+\end{align*}
+If $(U,V)\in \mathcal{F}\times\mathcal{F}$ is such that $f^s(U)*g^s(V)$ is defined, then 
+$$f^s(U)* g^s(V)\ge f^s(U\cap V)*g^s(U\cap V)\ge l$$
+provided that $f^s(U\cap V)*g^s(U\cap V)$ is defined.
+If $f^s(U\cap V)*g^s(U\cap V)$ is not defined, then $\top\in\{f^s(U),g^s(V)\}$, so that 
+$$f^s(U)*g^s(V)=\top \ge l.$$
+Therefore, $$\limsup_{\mathcal{F}}f*\limsup_{\mathcal{F}}g\ge l\ge \limsup_{\mathcal{F}}f*g.$$
+(2) $$\limsup_{\mathcal{F}}f*g\ge \limsup_\mathcal{F}f *\liminf_\mathcal{F}g.$$
+Let $U\in\mathcal{F}$. Suppose that $\left(f*g\right)^s(U)\not=\top$. $\forall V\in \mathcal{F}$, one has $\forall x\in U\cap V$,
+$$\left(f*g\right)^s(U\cap V)\ge f(x)*g(x)\ge f(x)*g^i(U\cap V)\ge f(x)*g^i(V).$$
+So $$\left(f*g\right)^s(U)\ge f^s(U\cap V)*g^i(V),$$
+provided that $f^s(U\cap V)*g^i(V)$ is defined. Taking the infimum which respect to $U$, we obtain
+$$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*g^i(V),$$
+provided that $\dis \limsup_{\mathcal{F}}f*g^i(V)$ is defined. Taking the supremum with respect to $V$, we obtain
+$$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g.$$
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(S,*,\le)$ be a partially ordered group, such that $\bar{S}$ is order complete. Let $f,g: X\longrightarrow \bar{S}$ be mappings such that $\forall x\in X, f(x)*g(x)$ is defined. Let $\mathcal{F}$ be a  non-degenerate filter on $X$. Assume that $g$ has a limit along $\mathcal{F}$.
+    \newline
+    (1) $$\limsup_{\mathcal{F}}f*g=\limsup_{\mathcal{F}}f*\lim_{\mathcal{F}}g.$$
+    (2) $$\liminf_{\mathcal{F}}f*g=\liminf_{\mathcal{F}}f*\lim_{\mathcal{F}}g.$$
+    Provided that the term on the right hand side is defined.
+\end{corollaryenv}
+\begin{proofenv}
+ $$\limsup_{\mathcal{F}}f*g\le \limsup_{\mathcal{F}}f*\limsup_{\mathcal{F}}g=\limsup_{\mathcal{F}}f*\lim_{\mathcal{F}}g.$$
+    $$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g=\limsup_{\mathcal{F}}f*\lim_{\mathcal{F}}g.$$
+\end{proofenv}
+\begin{exampleenv}
+    \quad \newline
+    (1)
+    $$\limsup_{n\rightarrow+\infty}\left((-1)^n+\frac{1}{n}\right)=\limsup_{n\rightarrow+\infty}(-1)^n=1.$$
+    (2) For $a>1$, let $a=1+b$. $a^n=(1+b)^n\ge nb$. so 
+    $$0\le \frac{\sqrt{n}}{a^n}\le \frac{1}{b\sqrt{n}},$$
+    $$\lim_{n\rightarrow +\infty}\frac{\sqrt{n}}{a^n}.$$
+    $$\forall k\in \NN_{\ge 1}, \ \lim_{n\rightarrow+\infty}\left(\frac{\sqrt{n}}{a^n}\right)^k.$$
+\end{exampleenv}

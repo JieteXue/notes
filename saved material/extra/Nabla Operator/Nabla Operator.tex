@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{.}{\newline}{}
+\newtheoremstyle{2}{0}{0}{}{}{\texttt}{.}{\newline}{}
+\theoremstyle{1}
+\newtheorem{definition}{Definition}
+\newtheorem{property}{Property}
+\theoremstyle{2}
+\newtheorem*{proof_env}{Proof}
+\newcommand{\pa}{\partial}
+\begin{document}
+\begin{center}
+    \huge{\textbf{Nabla Opertor}}
+\end{center}
+
+This article aim to give a proof\footnote{I will use tensor notation.}  of the expression\footnote{Mainly for 3D vectors.} of nabla operator in different coordinate system and explain its ``meaning''. And this will be a cheat sheet.
+\section{The Nabla Operator $\nabla$}
+Nabla operator has three action modules: ``association'', ``inner product'', ``cross product''\footnote{In my words.}. Or we can say we denote three different actions as a same notation .
+They have different meanings, and so have the different expressions. 
+
+
+\section{Physical Component and Orthogonal Basis}
+$\mathbf{g}^i,\mathbf{g}_i$ as the natural basis have different units. That is inconvenient for physics calculation. So we construct another covariant basis:
+\begin{equation}
+    \mathbf{g}_{(i)}=\frac{\mathbf{g}_i}{\sqrt{g_{\underline{i}\underline{i}}}}=\beta^j_{(i)}\mathbf{g}_j,
+\end{equation}
+where, underline means do not take summation, and 
+\begin{equation}
+    \beta^j_{(i)}=\frac{\delta^j_i}{\sqrt{\mathbf{g}_{\underline{i}}\cdot\mathbf{g}_{\underline{i}}}}.
+\end{equation}
+Then the physical component can be written as
+\begin{equation}
+    v^{(i)}=\sqrt{g_{\underline{i}\underline{i}}}v^i,\quad v_{(i)}=\frac{1}{\sqrt{g_{\underline{i}\underline{i}}}}v_i.
+\end{equation}
+If $\mathbf{g}_i$ is orthogonal, let 
+\begin{equation}
+    \left|\mathbf{g}_i\right|=A_i,
+\end{equation}
+which are called the \textbf{Lamé coefficient}, then
+\begin{equation}
+    g_{ij}=\left\{
+    \begin{matrix}
+        0,&i\not=j\\
+        A_i^2,&i=j.
+    \end{matrix}
+    \right.
+\end{equation}
+Let 
+\begin{equation}
+    \mathbf{e}_i=\frac{\mathbf{g}_i}{A_i},\quad \mathbf{e}^i=A_i\mathbf{g}^i,
+\end{equation}
+then,
+\begin{equation}
+    \mathbf{e}_i=\mathbf{e}^i=\mathbf{e}(i).
+\end{equation}
+\begin{equation}
+    \Gamma_{ij}^k=0,(i\not=j\not=k),\quad \Gamma_{ij}^i=\frac{1}{A_i}\frac{\pa A_i}{\pa x^j}, \quad \Gamma_{ii}^j=-\frac{A_i}{A_j^2}\pdv{A_i}{x^j},(i\not=j).
+\end{equation}
+
+
+
+\section{Gradient}
+Let $\mathbf{T}$ be a tensor, then we define the gradient of the tensor as
+\begin{equation}
+    \nabla \mathbf{T}=\mathbf{g}^i\pdv{\mathbf{T}}{x^i}=\frac{\mathbf{e}^i}{A_i}\pdv{\mathbf{T}}{x^i}.
+\end{equation}
+
+
+
+\section{Divergence}
+Note that 
+\begin{equation}
+    \frac{\pa \sqrt{g}}{\pa x^i}=\Gamma_{ji}^i\sqrt{g},
+\end{equation}
+we have 
+\begin{equation}
+    \nabla\cdot\mathbf{F}=\pa_i F^i+F^m\Gamma_{im}^i=\pa_i F^i+ F^m\frac{1}{\sqrt{g}}\pa _m\sqrt{g}=\frac{1}{\sqrt{g}}\pa_i\left(\sqrt{g}F^i\right).
+\end{equation}
+In orthogonal coordinate system, we have
+\begin{equation}
+    \nabla\cdot\mathbf{F}=\sum_{i=1}^3\frac{1}{A_1A_2A_3}\pa_i\left(\frac{A_1A_3A_3}{A_i}F(i)\right).
+\end{equation}
+
+
+
+\section{Curl}
+\begin{align}
+    \nabla\times \mathbf{F}&=\epsilon^{ijk}\nabla_i F_j\mathbf{g}_k=\epsilon^{ijk}\left(\pa_i F_j-F_m\Gamma_{ij}^m\right)\mathbf{g}^k=\epsilon^{ijk}\pa_iF_j\mathbf{g}^k\\
+    &=\frac{1}{\sqrt{g}}\begin{vmatrix}
+ \mathbf{g}_1  & \mathbf{g}_1 &\mathbf{g}_1 \\
+ \partial _1 & \partial _2 &\partial _3 \\
+ F_1 & F_2 &F_3
+\end{vmatrix}.
+\end{align}
+In orthogonal coordinate system, we have
+\begin{equation}
+    \nabla\times \mathbf{F}=\frac{1}{A_1A_2A_3} \begin{vmatrix}
+ \mathbf{e}_1  & \mathbf{e}_1 &\mathbf{e}_1 \\
+ \partial _1 & \partial _2 &\partial _3 \\
+ A_1F(1) & A_2F_(2) &A_3F(3)
+\end{vmatrix}.
+\end{equation}
+
+
+\section{Laplacian}
+For a scalar function $f$, we have
+\begin{equation}
+    \nabla^2f=\nabla\cdot\nabla f=\frac{1}{A_1A_2A_3}\sum_{i=1}^{3}\pa_i\left(\frac{A_1A_2A_3}{A_i^2}\pa_i f\right).
+\end{equation}
+\end{document}

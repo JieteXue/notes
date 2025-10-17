@@ -48,6 +48,8 @@
 \usepackage{chngcntr}
 \counterwithin{equation}{section}
 \newcommand{\pa}{\partial}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
 
 \begin{document}
 \maketitle
@@ -72,7 +74,7 @@ This is not always right, but it's a good approximation.
 \section{Heisenberg's Breakthrough}
 Heisenberg use matrices to represent quantum states.\footnote{Here use the similar notation $x(t)$ and $x$, but they represent different things. In some cases, we will ignore $(t)$ but still represent $x(t)$ for convenience.}
 \begin{equation}
-    x_{n,m}(t)=x_{n,m}e^{i\omega_{n,m}t}.
+    x_{n,m}(t)=x_{n,m}\ee^{\ii\omega_{n,m}t}.
 \end{equation}
 With the \textbf{Ritz combination law}\footnote{You can imagine a electron moving from state $m$ to state $n$ passing state $k$.}
 \begin{equation}
@@ -80,7 +82,7 @@ With the \textbf{Ritz combination law}\footnote{You can imagine a electron movin
 \end{equation}
 we can calculate $x^2$ like
 \begin{equation}
-    \left(x^2\right)_{n,m}e^{i\omega_{n,m}t}=\sum_{k}x_{n,k}(t)x_{k,m}(t)=\sum_{k}x_{n,k}x_{k,m}e^{i\omega_{n,m}t}.
+    \left(x^2\right)_{n,m}\ee^{\ii\omega_{n,m}t}=\sum_{k}x_{n,k}(t)x_{k,m}(t)=\sum_{k}x_{n,k}x_{k,m}\ee^{\ii\omega_{n,m}t}.
 \end{equation}
 
 \singleline
@@ -99,7 +101,7 @@ Their's a strange assumption, we may treat\footnote{Their must exists a $\omega_
 \newline
 Only when $n=m$, the integration of 
 \begin{equation}
-    -m \omega_{n,k}\omega_{k,m}x_{n,k}x_{k,m}e^{i\omega_{n,m}t}
+    -m \omega_{n,k}\omega_{k,m}x_{n,k}x_{k,m}\ee^{\ii\omega_{n,m}t}
 \end{equation}
  in a period can not be zero.\footnote{$\omega_{n,n}=0.$} Then we obtain \footnote{Here I used f-sum rule exactly. But I think there's some details need to check, about where the $\frac{1}{2}$ comes from. It appear as $C$ in quantization condition.}
  \begin{equation}
@@ -130,9 +132,9 @@ It is wave-like. The Debye told to Schrödinger that: If it is a wave, then you 
 \newline
 If we consider a plane wave, the it take the form of 
 \begin{equation}
-    \psi\sim e^{\frac{i}{\hbar}\left(px-Et\right)}.
+    \psi\sim \ee^{\frac{\ii}{\hbar}\left(px-Et\right)}.
 \end{equation}
-The exponent is similar to $S$- the action. So we can let $\psi=e^{iS/\hbar}$, and try to explore what we can get after plugging  it into the Hamilton equation.
+The exponent is similar to $S$- the action. So we can let $\psi=\ee^{\ii S/\hbar}$, and try to explore what we can get after plugging  it into the Hamilton equation.
 \begin{equation}
     \frac{\hbar^2}{2m}\left(\nabla \psi\right)^2+\left(E-V(r)\right)\psi^2=0.
 \end{equation}
@@ -385,7 +387,7 @@ For the fourth property,
 \end{equation}
 Consider
 \begin{equation}\label{8.11}
-    \mathscr{J}(\dd{\mathbf{x}})=1-i\hat{\mathbf{K}}\cdot\dd{\mathbf{x}},
+    \mathscr{J}(\dd{\mathbf{x}})=1-\ii\hat{\mathbf{K}}\cdot\dd{\mathbf{x}},
 \end{equation}
 it let all the properties we want hold, if $\hat{\mathbf{K}}$ is Hermitian. We can check that 
 \begin{equation}
@@ -393,7 +395,7 @@ it let all the properties we want hold, if $\hat{\mathbf{K}}$ is Hermitian. We c
 \end{equation}
 Plug in \eqref{8.11}, we obtain
 \begin{equation}\label{8.13}
-    [\hat{x}_i,\hat{K}_j]=i\delta_{ij}.
+    [\hat{x}_i,\hat{K}_j]=\ii\delta_{ij}.
 \end{equation}
 
 \subsection{Momentum}
@@ -407,19 +409,19 @@ obtainable from the generating function
 \end{equation}
 This equation has a striking similarity to the infinitesimal translation operator. Let 
 \begin{equation}\label{8.16}
-    \mathscr{J}(\dd{\mathbf{x}})=1-i\hat{\mathbf{p}}\cdot\dd{\mathbf{x}}/\hbar. 
+    \mathscr{J}(\dd{\mathbf{x}})=1-\ii\hat{\mathbf{p}}\cdot\dd{\mathbf{x}}/\hbar. 
 \end{equation}
 The commutation relation \eqref{8.13} now becomes
 \begin{equation}
-    [\hat{x}_i,\hat{p}_j]=i\hbar\delta_{i,j}.
+    [\hat{x}_i,\hat{p}_j]=\ii\hbar\delta_{i,j}.
 \end{equation}
 By \eqref{7.3}, we obtain the \textbf{position-momentum uncertainty relation}:
 \begin{equation}
     \expval{\left(\Delta x\right)^2}\expval{\left(\Delta p\right)^2}\ge\frac{\hbar^2}{4}
 \end{equation}
-As for finite position\label{dispalcement operator}, 
+As for finite position\label{displacement operator}, 
 \begin{equation}
-    \mathscr{J}(\Delta \mathbf{x})=\lim_{N\rightarrow \infty}\left(1-\frac{i\hat{\mathbf{p}}\cdot\Delta\mathbf{x}}{N\hbar}\right)^N=\exp\left(-\frac{i\hat{\mathbf{p}}\cdot\Delta \mathbf{x}}{\hbar}\right).
+    \mathscr{J}(\Delta \mathbf{x})=\lim_{N\rightarrow \infty}\left(1-\frac{\ii\hat{\mathbf{p}}\cdot\Delta\mathbf{x}}{N\hbar}\right)^N=\exp\left(-\frac{\ii\hat{\mathbf{p}}\cdot\Delta \mathbf{x}}{\hbar}\right).
 \end{equation}
 By computation,
 \begin{equation}
@@ -429,11 +431,11 @@ By computation,
 By computing $\mathscr{J}\left(\dd{\mathbf{x}}\right)\ket{\alpha}$ in
 the representation where the position eigenkets are used as base kets, and plug in \eqref{8.16}, we obtain 
 \begin{equation}
-    \hat{\mathbf{p}}\ket{\alpha}=\int \dd{\mathbf{x}}\ket{\mathbf{x}}\left(-i\hbar\nabla\bra{\mathbf{x}}\ket{\alpha}\right).
+    \hat{\mathbf{p}}\ket{\alpha}=\int \dd{\mathbf{x}}\ket{\mathbf{x}}\left(-\ii\hbar\nabla\bra{\mathbf{x}}\ket{\alpha}\right).
 \end{equation}
 That is also 
 \begin{equation}\label{8.23}
-    \bra{\mathbf{x}}\hat{\mathbf{p}}\ket{\alpha}=-i\hbar\nabla\braket{\mathbf{x}}{\alpha}.
+    \bra{\mathbf{x}}\hat{\mathbf{p}}\ket{\alpha}=-\ii\hbar\nabla\braket{\mathbf{x}}{\alpha}.
 \end{equation}
 \subsection{Momentum-Space Wave Function}
 The notation $\phi_\alpha(p)$ is often used 
@@ -448,11 +450,11 @@ One have
 \end{equation}
 By \eqref{8.23},
 \begin{equation}
-   \bra{x}\hat{p}\ket{p}=-i\hbar\frac{\pa}{\pa x}\bra{x}\ket{p}.
+   \bra{x}\hat{p}\ket{p}=-\ii\hbar\frac{\pa}{\pa x}\bra{x}\ket{p}.
 \end{equation}
 Thus, 
 \begin{equation}
-    \bra{x}\ket{p}=A\exp\left(\frac{ipx}{\hbar}\right).
+    \bra{x}\ket{p}=A\exp\left(\frac{\ii px}{\hbar}\right).
 \end{equation}
 Do the derivation will lose a constant, but integration won't.\footnote{Is it an easy integration?}
 \begin{equation}
@@ -460,16 +462,16 @@ Do the derivation will lose a constant, but integration won't.\footnote{Is it an
 \end{equation}
 For convenience, we take $A$ as a real number, then 
 \begin{equation}
-    \bra{x}\ket{p}=\frac{1}{\sqrt{2\pi \hbar}}\exp\left(\frac{ipx}{\hbar}\right).
+    \bra{x}\ket{p}=\frac{1}{\sqrt{2\pi \hbar}}\exp\left(\frac{\ii px}{\hbar}\right).
 \end{equation}
 For three dimension case, 
 \begin{equation}
-    \bra{\mathbf{x}}\ket{\mathbf{p}}=\left[\frac{1}{\left(2\pi\hbar\right)^{\frac{3}{2}}}\right]\exp\left(\frac{i\mathbf{p}\cdot\mathbf{x}}{\hbar}\right).
+    \bra{\mathbf{x}}\ket{\mathbf{p}}=\left[\frac{1}{\left(2\pi\hbar\right)^{\frac{3}{2}}}\right]\exp\left(\frac{\ii\mathbf{p}\cdot\mathbf{x}}{\hbar}\right).
 \end{equation}
 \subsection{Dirac's Corresponding Rule}
 Replace classical Poission bracket by commutator as follows\footnote{I think the $i\hbar$ comes from the translation where setting a constant as $i\hbar$.}
 \begin{equation}
-    [\quad ,\quad ]_{\text{classical}}\longrightarrow \frac{[\quad ,\quad ]}{i\hbar}.
+    [\quad ,\quad ]_{\text{classical}}\longrightarrow \frac{[\quad ,\quad ]}{\ii\hbar}.
 \end{equation}
 
 
@@ -489,7 +491,7 @@ Then we can deduce from Schrödinger equation that
 \end{equation}
 If we write $\psi$ into the form of 
 \begin{equation}
-    \psi=\sqrt{\rho}e^{\frac{iS}{\hbar}},
+    \psi=\sqrt{\rho}\ee^{\frac{\ii S}{\hbar}},
 \end{equation}
 then\footnote{\hyperref[charged case]{Here} is the case with charge.} 
 \begin{equation}
@@ -505,27 +507,27 @@ It is some thing like velocity.
 \section{Exponential Operators and Baker-Hausdorff Lemma }
 If it exists, then we denote\footnote{Sometimes we denote as $\exp(A)$.}
 \begin{equation}
-    e^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}.
+    \ee^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}.
 \end{equation}
 Easy to check that if $[A,B]=0$, then 
 \begin{equation}
     \exp(A)\exp(B)=\exp(A+B).
 \end{equation}
-Define\footnote{We write extra $i$ because we often use the Hermitian conjugate, and $i$ will give a negative sign to fit the form if $G$ is Hermitian.}
+Define\footnote{We write extra $\ii$ because we often use the Hermitian conjugate, and $i$ will give a negative sign to fit the form if $G$ is Hermitian.}
 \begin{equation}
-    O(\lambda)=e^{i\lambda G}Ae^{-i\lambda G},
+    O(\lambda)=\ee^{\ii\lambda G}A\ee^{-\ii\lambda G},
 \end{equation}
 where $A$ and $G$ are operators, and $\lambda$ is a complex parameter. Then,
 \begin{equation}
-    \frac{\dd}{\dd{\lambda}}O(\lambda)=ie^{i\lambda G}[G,A]e^{-i\lambda G}=i[G,O(\lambda)].
+    \frac{\dd}{\dd{\lambda}}O(\lambda)=\ii \ee^{\ii\lambda G}[G,A]\ee^{-\ii\lambda G}=\ii[G,O(\lambda)].
 \end{equation}
 Hence, 
 \begin{equation}
-    O(\lambda)=O(0)+i\int_{0}^{\lambda}\dd{\lambda_1}[G,O(\lambda_1)].
+    O(\lambda)=O(0)+\ii\int_{0}^{\lambda}\dd{\lambda_1}[G,O(\lambda_1)].
 \end{equation}
 We have $O(0)=A$. And we replace $O(\lambda_1)$ similarly, also for $\lambda_2,\lambda_3,\dots$, then we obtain,
 \begin{equation}
-    O(\lambda)=A+i\int_{0}^{\lambda}\dd{\lambda_1}[G,A]+i^2\int_{0}^{\lambda}\dd{\lambda_1}\int_{0}^{\lambda_1}\dd{\lambda_2}[G,[G,A]]+\dots
+    O(\lambda)=A+\ii\int_{0}^{\lambda}\dd{\lambda_1}[G,A]+\ii^2\int_{0}^{\lambda}\dd{\lambda_1}\int_{0}^{\lambda_1}\dd{\lambda_2}[G,[G,A]]+\dots
 \end{equation}
 Easy to check 
 \begin{equation}
@@ -533,7 +535,7 @@ Easy to check
 \end{equation}
 Therefore\footnote{ It is easy to take the wrong signature, remember it is something like derivative and note the first term, like $[G,A]$, then it won't be wrong.},
 \begin{equation}
-    \boxed{e^{i\lambda G}Ae^{-i\lambda G}=\sum_{n=0}^{\infty}\frac{\left(i\lambda\right)^n}{n!}C_G^{(n)}(A)},
+    \boxed{\ee^{\ii\lambda G}A\ee^{-\ii\lambda G}=\sum_{n=0}^{\infty}\frac{\left(\ii\lambda\right)^n}{n!}C_G^{(n)}(A)},
 \end{equation}
 where\footnote{This notation is not formal, but the following notation ``$\mathrm{Ad}$'' (get from Deepseek)  may be better to use in articles.}, 
 \begin{equation}
@@ -541,20 +543,20 @@ where\footnote{This notation is not formal, but the following notation ``$\mathr
 \end{equation}
 Or we can write in the form\label{Baker-Hausdorff lemma} 
 \begin{equation}
-    e^\Omega A e^{-\Omega }=e^{\mathrm{Ad}_\Omega}(A).
+    \ee^\Omega A \ee^{-\Omega }=\ee^{\mathrm{Ad}_\Omega}(A).
 \end{equation}
 
 Let us consider a special case: $[A,B]$ is  commutable with $A$ and $B$. By Baker-Hausdorff lemma, we have
 \begin{equation}
-    e^Ae^Be^{-A}=e^B+[A,e^B]+\dots.
+    \ee^A\ee^B\ee^{-A}=\ee^B+[A,\ee^B]+\dots.
 \end{equation}
 By \eqref{5.4}, we can induct on $n$ that 
 \begin{equation}
-    [A,[A,B]^{n-1}e^B]=[A,B]^ne^B.
+    [A,[A,B]^{n-1}\ee^B]=[A,B]^n\ee^B.
 \end{equation}
 So, 
 \begin{equation}\label{9.13}
-    e^Ae^B=e^Be^Ae^{[A,B]}.
+    \ee^A\ee^B=\ee^B\ee^A\ee^{[A,B]}.
 \end{equation}
 
 
@@ -565,22 +567,22 @@ We also have another more symmetrical form\footnote{In fact we do not need any c
 \begin{theorem}
 
     \begin{equation}
-         [A,[A,B]]=[B,[A,B]]=0\Rightarrow e^A e^B = e^{A + B} e^{\frac{1}{2}[A, B]}.
+         [A,[A,B]]=[B,[A,B]]=0\Rightarrow \ee^A \ee^B = \ee^{A + B} \ee^{\frac{1}{2}[A, B]}.
     \end{equation}
 \end{theorem}
 \singleline
 \begin{proof}
     Let 
     \begin{equation}
-        O(\lambda)=e^{\lambda A}e^{\lambda B},
+        O(\lambda)=\ee^{\lambda A}\ee^{\lambda B},
     \end{equation}
     then,
     \begin{equation}
-        \frac{\dd{O}}{\dd{\lambda}}=e^{\lambda A}\left(A+B\right)e^{\lambda B}.
+        \frac{\dd{O}}{\dd{\lambda}}=\ee^{\lambda A}\left(A+B\right)\ee^{\lambda B}.
     \end{equation}
     We want to get a differential equation of $o(\lambda)$, so we have to take $(A+B)$ to the left of $\exp(\lambda A)$\footnote{Trick: If there is not we want, then create one, like $+1\, -1$, here we times $1$.}.
     \begin{equation}
-        e^{\lambda A}Be^{\lambda B}=e^{\lambda A}Be^{-\lambda A}e^{\lambda A}e^{\lambda B}.
+        \ee^{\lambda A}B\ee^{\lambda B}=\ee^{\lambda A}B\ee^{-\lambda A}\ee^{\lambda A}\ee^{\lambda B}.
     \end{equation}
     By Baker-Hausdorff lemma, we obtain
     \begin{equation}
@@ -620,7 +622,7 @@ Comparison of two expression yields
 \end{equation}
 The leading order leads to $s'=\pm z$, $s=\pm\frac{1}{2}z^2$. So we can try the solution 
 \begin{equation}
-    \psi(z)=e^{-\frac{z^2}{2}} u(z).
+    \psi(z)=\ee^{-\frac{z^2}{2}} u(z).
 \end{equation}
 \begin{equation}\label{9.6}
     \frac{\dd^2}{\dd{z}^2}u(z)-2z\frac{\dd}{\dd{z}}u(z)-\left(\lambda-1\right)u(z)=0.
@@ -647,22 +649,22 @@ which means
 \end{equation}
 The solution of \eqref{9.6} is Hermite polynomials\footnote{There's some properties about \href{run:Hermite polynomial.pdf alias}{Hermite polynomial}.} $H_n(z)$.
 \begin{equation}
-    \psi(x)=e^{-\frac{1}{2}\frac{m\omega x^2}{\hbar}}\sum_{n=0}^{+\infty}\frac{c_n}{n!}H_n\left(x\slash\sqrt{\frac{\hbar}{m\omega}}\right).
+    \psi(x)=\ee^{-\frac{1}{2}\frac{m\omega x^2}{\hbar}}\sum_{n=0}^{+\infty}\frac{c_n}{n!}H_n\left(x\slash\sqrt{\frac{\hbar}{m\omega}}\right).
 \end{equation}
 And for a fixed $n$, the normalized wavefunction is
 \begin{equation}
-    \psi_n(x)=\frac{1}{\sqrt{2^nn!\sqrt{\pi}}}e^{-\frac{x^2}{2}H_n(x)}.
+    \psi_n(x)=\frac{1}{\sqrt{2^nn!\sqrt{\pi}}}\ee^{-\frac{x^2}{2}H_n(x)}.
 \end{equation}
 
 
 \subsection{Method of Algebra}
 In usual computing law, 
 \begin{equation}
-    H=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2=\frac{1}{2}m\omega^2\left(x-\frac{ip}{m\omega}\right)\left(x+\frac{ip}{m\omega}\right).
+    H=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2=\frac{1}{2}m\omega^2\left(x-\frac{\ii p}{m\omega}\right)\left(x+\frac{\ii p}{m\omega}\right).
 \end{equation}
 Let \footnote{If we denote $l=\frac{\hbar}{m\omega}$, then it will be $a=\frac{1}{\sqrt{2}}\left(\frac{x}{l}+i\frac{pl}{\hbar}\right)$. $\frac{1}{\sqrt{2}}$ seems like to normalize.}
 \begin{equation}
-    \hat{a}^\dagger=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}-\frac{i\hat{p}}{m\omega}\right),\ \hat{a}=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}+\frac{i\hat{p}}{m\omega}\right).
+    \hat{a}^\dagger=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}-\frac{\ii\hat{p}}{m\omega}\right),\ \hat{a}=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}+\frac{\ii\hat{p}}{m\omega}\right).
 \end{equation}
 Then, 
 \begin{equation}
@@ -716,7 +718,7 @@ If we act $\hat{a}$ on a state for many times, we can conclude that the sequence
 terminate with $n=0$, or it won't stop and $n$ will become not real.
 Use 
 \begin{equation}
-    \hat{x}=\sqrt{\frac{\hbar}{2m\omega}}\left(\hat{a}+\hat{a}^\dagger\right),\ \hat{p}=i\sqrt{\frac{m\hbar\omega}{2}}\left(-\hat{a}+\hat{a}^\dagger\right),
+    \hat{x}=\sqrt{\frac{\hbar}{2m\omega}}\left(\hat{a}+\hat{a}^\dagger\right),\ \hat{p}=\ii\sqrt{\frac{m\hbar\omega}{2}}\left(-\hat{a}+\hat{a}^\dagger\right),
 \end{equation}
 we can get more information. To solve the wave function, we can deduce $\bra{x}\hat{a}\ket{0}=0$, which leads to a differential equation for the wave function.
 
@@ -741,7 +743,7 @@ We want it to be related to the states we have known. And the simplest one is $\
 \end{equation*}
 where $f$ is a arbitrary function. We want to make it easy, let us set $f(a)=a$. Then by the \hyperref[Baker-Hausdorff lemma]{Baker-Hausdorff lemma}, the following let what we want holds
 \begin{equation}
-    A=e^{\lambda a^\dagger}.
+    A=\ee^{\lambda a^\dagger}.
 \end{equation}
 use \eqref{9.13} to do the normalization\footnote{Expand the series we get $\exp(\lambda a)\ket{0}=\ket{0}$.},
 \begin{equation}
@@ -749,11 +751,11 @@ use \eqref{9.13} to do the normalization\footnote{Expand the series we get $\exp
 \end{equation}
 Therefore\footnote{A Poission distribution.},
 \begin{equation}
-    \ket{\lambda}=e^{-\left|\lambda\right|^2/2}e^{\lambda a^\dagger}\ket{0}=e^{-\left|\lambda\right|^2/2}\sum_{n=0}^{\infty}\frac{\lambda^n}{\sqrt{n!}}\ket{n}.
+    \ket{\lambda}=\ee^{-\left|\lambda\right|^2/2}\ee^{\lambda a^\dagger}\ket{0}=\ee^{-\left|\lambda\right|^2/2}\sum_{n=0}^{\infty}\frac{\lambda^n}{\sqrt{n!}}\ket{n}.
 \end{equation}
-We have discussed in \ref{dispalcement operator} that the operator $e^{-i  pl/\hbar}$ is a displacement operator. Let us show we can obtain a coherent state by applying it on $\ket{0}$.
+We have discussed in \ref{displacement operator} that the operator $e^{-i  pl/\hbar}$ is a displacement operator. Let us show we can obtain a coherent state by applying it on $\ket{0}$.
 \begin{equation}
-    e^{-ip\Delta x/\hbar}\ket{0}=e^{\frac{(a^\dagger-a)\Delta x}{\sqrt{2}l}}\ket{0}\sim e^{\frac{a^\dagger \Delta x}{\sqrt{2}l}}\ket{0}.
+    \ee^{-ip\Delta x/\hbar}\ket{0}=\ee^{\frac{(a^\dagger-a)\Delta x}{\sqrt{2}l}}\ket{0}\sim \ee^{\frac{a^\dagger \Delta x}{\sqrt{2}l}}\ket{0}.
 \end{equation}
 \subsection{High Dimensional Case}
 We use the Einstein summation convention. Hamilton in $n$-dimensional case can be written as
@@ -762,7 +764,7 @@ We use the Einstein summation convention. Hamilton in $n$-dimensional case can b
 \end{equation}
 And the creation and annihilation operators are
 \begin{equation}
-    a_i=\frac{1}{\sqrt{2}}\left(\frac{x_i}{l}+\frac{ip_il}{\hbar}\right), \quad a^\dagger_i=\frac{1}{\sqrt{2}}\left(\frac{x_i}{l}-\frac{ip_il}{\hbar}\right).
+    a_i=\frac{1}{\sqrt{2}}\left(\frac{x_i}{l}+\frac{\ii p_il}{\hbar}\right), \quad a^\dagger_i=\frac{1}{\sqrt{2}}\left(\frac{x_i}{l}-\frac{\ii p_il}{\hbar}\right).
 \end{equation}
 \begin{equation}
     [a_i,a_j]=0,\quad [a_i,a^\dagger_j]=\delta_{ij}.
@@ -781,6 +783,7 @@ That means the angular momentum is conserved.
 
 
 \section{Gauge Transformations in Electromagnetism}
+\subsection{Gauge Transformations}
 \label{charged case}In Classic mechanics, the Hamiltonian is
 \begin{equation}
     H=\frac{1}{2m}\left(\mathbf{p}-\frac{q\mathbf{A}}{c}\right)^2+q\phi.
@@ -791,7 +794,7 @@ Where $\mathbf{p}$ is the canonical momentum, $\mathbf{A}$ is the vector potenti
 \end{equation}
 Easy to check that
 \begin{equation}
-    [\Pi_i,\Pi_j]=\frac{i\hbar q}{c}\varepsilon_{ijk}B_k.
+    [\Pi_i,\Pi_j]=\frac{\ii\hbar q}{c}\varepsilon_{ijk}B_k.
 \end{equation}
 The Hamiltonian:
 \begin{equation}
@@ -804,7 +807,7 @@ From \eqref{12.2} we can use the substitution
 
 In position representation\footnote{We can use it only when the $\nabla$ comes from $\mathbf{p}$.},
 \begin{equation}
-    \nabla\longrightarrow \nabla-\left(\frac{iq}{\hbar c}\right)\mathbf{A}.
+    \nabla\longrightarrow \nabla-\left(\frac{\ii q}{\hbar c}\right)\mathbf{A}.
 \end{equation}
 to get the expressions of the electromagnetism case. For example, the probability current now is 
 \begin{equation}\label{12.8}
@@ -840,7 +843,7 @@ By intuition, $g$ is a function of $\Lambda$, and it is a function of $\mathbf{x
 \end{equation}
 It is easy to find 
 \begin{equation}
-    g=\exp\left(\frac{iq\Lambda}{\hbar c}\right)
+    g=\exp\left(\frac{\ii q\Lambda}{\hbar c}\right)
 \end{equation}
 satisfies the above conditions. And we have 
 \begin{equation}
@@ -861,8 +864,155 @@ This is highly satisfactory because we see that the probability flux given by \e
 
 \textbf{DO NOT FORGET} that when using the gauge transformation, not only the states but also the operators will change. Let's check the Schrödinger equation is still hold under gauge transformation.
 \begin{equation}
- \tilde{H} \ket{\tilde{\alpha}}=g g^\dagger \tilde{H}g\ket{\alpha}=g H\ket{\alpha}=i\hbar  \frac{\pa}{\pa t}g \ket{\alpha}=i\hbar \frac{\pa }{\pa t}\ket{\tilde{\alpha}}.
+ \tilde{H} \ket{\tilde{\alpha}}=g g^\dagger \tilde{H}g\ket{\alpha}=g H\ket{\alpha}=\ii\hbar  \frac{\pa}{\pa t}g \ket{\alpha}=\ii\hbar \frac{\pa }{\pa t}\ket{\tilde{\alpha}}.
 \end{equation}
 
-Since $t$ is only a parameter, it does not affct the commutators, so when $\frac{\pa\Lambda}{\pa t}\not=0$, \eqref{12.17} still holds. \textbf{BUT}, $\tilde{H}\not=g^\dagger Hg$, since  $\phi$ contributes a term. So our notation is not convenient in the $\Lambda$ is time-dependent case.
+Since $t$ is only a parameter, it does not affect the commutators, so when $\frac{\pa\Lambda}{\pa t}\not=0$, \eqref{12.17} still holds. \textbf{BUT}, $\tilde{H}\not=g^\dagger Hg$, since  $\phi$ contributes a term. So our notation is not convenient in the $\Lambda$ is time-dependent case.
+
+\subsection{Landau Levels and Quantum Hall Effect}
+\footnote{We use IS of units this subsection.}
+Let's consider a simple magnetic field,
+\begin{equation}
+    \mathbf{B}=-B\hat{\mathbf{z}}.
+\end{equation}
+We take 
+\begin{equation}
+    A_x=By,\quad A_y=A_z=0.
+\end{equation}
+We just consider 2D case, the Hamiltonian is 
+\begin{equation}
+    H=\frac{\left(p_x-qBy\right)^2}{2m}+\frac{p_y^2}{2m}=\frac{1}{2}m\omega_c^2\left(y-\frac{p_xl_B^2}{\hbar}\right)^2+\frac{p_y^2}{2m},
+\end{equation}
+where,
+\begin{equation}
+    \omega_c=\frac{qB}{m},\quad l_B=\sqrt{\frac{\hbar}{qB}}.
+\end{equation}
+Since $\frac{\pa H}{\pa x}=0$, we suppose 
+\begin{equation}
+    \psi_{n,k_x}(x,y)=\mathrm{e}^{\mathrm{i}k_x x}\psi(y).
+\end{equation}
+Then, 
+\begin{equation}
+    \left[\frac{p_y^2}{2m}+\frac{1}{2}m\omega_c^2(y-l_B^2k_x)^2\right]\ket{\psi}=E_n\ket{\psi}.
+\end{equation}
+It has the same solution as the 1D harmonic oscillator, but with a displacement. 
+\begin{equation}
+    E_n=\hbar\omega_c\left(n+\frac{1}{2}\right).
+\end{equation}
+
+
+
+
+
+
+\section{Angular Momentum}
+\subsection{Infinitesimal Rotations in Quantum Mechanics}
+
+We want to construct a rotation operator $\mathscr{D}$\footnote{The symbol $\mathscr{D}$ stems from the German word Drehung, meaning ``rotation."}. The appropriate infinitesimal operators could be
+written as
+\begin{equation}
+    U_{\varepsilon}=1-\ii G\varepsilon
+\end{equation}
+with a Hermitian operator $G$. Define the angular-momentum operator
+$J_k$ in such a way that the operator for an infinitesimal rotation around the $k$th axis
+by angle $\dd{\varphi}$ can be obtained by letting 
+\begin{equation}
+    G\rightarrow \frac{J_k}{\hbar},\quad \varepsilon\rightarrow \dd{\phi}.
+\end{equation}
+With $J_k$ taken to be Hermitian, the infinitesimal-rotation operator is
+guaranteed to be unitary and reduces to the identity operator in the limit $\dd{\phi}\rightarrow 0$. More generally, we have
+\begin{equation}
+    \mathscr{D}(\hat{\mathbf{n}},\dd{\phi})=1-\ii\left(\frac{\mathbf{J}\cdot\hat{\mathbf{n}}}{\hbar}\right)\dd{\phi}
+\end{equation}
+for a rotation about the direction characterized by a unit vector $\hat{\mathbf{n}}$ by an infinitesimal angle $\dd{\phi}$. For instance, if we are interested in a finite rotation
+about the $\hat{\mathbf{n}}$-axis by angle $\phi$, we consider
+\begin{equation}
+    \mathscr{D}_{\hat{\mathbf{n}}}(\phi)=\lim_{N\rightarrow +\infty}\left[1-\ii\left(\frac{\mathbf{J}\cdot\hat{\mathbf{n}}}{\hbar}\right)\frac{\phi}{N}\right]^N=\exp\left[-\ii\left(\frac{\mathbf{J}\cdot\hat{\mathbf{n}}}{\hbar}\right)\phi\right].
+\end{equation}
+Taking $\phi=\varepsilon$, the first three term is 
+\begin{equation}
+    \mathscr{D}_{\hat{\mathbf{n}}}(\varepsilon)\approx 1-\ii\left(\frac{\mathbf{J}\cdot\hat{\mathbf{n}}}{\hbar}\right)\varepsilon-\frac{1}{2!}\left(\frac{\mathbf{J}\cdot\hat{\mathbf{n}}}{\hbar}\right)^2\varepsilon^2.
+\end{equation}
+Let $\hat{\mathbf{n}}$ be $\hat{\mathbf{x}}$ and $\hat{\mathbf{y}}$, by the properties of rotation, $\mathscr{D}$ need to satisfy
+\begin{equation}
+    \left[\mathscr{D}_x(\varepsilon),\mathscr{D}_y(\varepsilon)\right]=\mathscr{D}_z(\varepsilon^2)-1.
+\end{equation}
+So, 
+\begin{equation}\label{13.7}
+    [J_x,J_y]=\ii \hbar J_z.
+\end{equation}
+In general,
+\begin{equation}
+    [J_i,J_k]=\ii \hbar \varepsilon_{ijk}J_k.
+\end{equation}
+By the meaning of rotation, we can also know that for any scalar $a$ and vector $v_i$,
+\begin{equation}
+    \left[J_i,a\right]=0,\quad \left[J_i,v_j\right]=\ii \hbar \varepsilon_{ijk}v_k.
+\end{equation}
+
+
+\subsection{Orbital Angular Momentum}
+Orbital angular momentum is defined as
+\begin{equation}
+    \mathbf{L}=\mathbf{x}\times \mathbf{p}.
+\end{equation}
+Easy to check that $\mathbf{L}$ satisfies \eqref{13.7}.
+Expand $\mathbf{L}^2$:
+\begin{equation}
+\begin{aligned}
+\mathbf{L}^2 &= \sum_{ijlmk} \varepsilon_{ijk}x_i p_j \varepsilon_{lmk}x_l p_m \\
+&= \sum_{ijlm} (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl})x_i p_j x_l p_m \\
+&= \sum_{ijlm} [\delta_{il}\delta_{jm}x_i (x_l p_j - \ii\hbar\delta_{jl})p_m - \delta_{im}\delta_{jl}x_i p_j(p_m x_l + \ii\hbar\delta_{lm})]  \\
+&= \mathbf{x}^2 \mathbf{p}^2 - \ii\hbar \mathbf{x} \cdot \mathbf{p} - \sum_{ijlm} \delta_{im}\delta_{jl}[x_i p_m(x_l p_j - \ii\hbar\delta_{jl}) + \ii\hbar\delta_{lm}x_i p_j] \\
+&= \mathbf{x}^2 \mathbf{p}^2 - (\mathbf{x} \cdot \mathbf{p})^2 + \ii\hbar \mathbf{x} \cdot \mathbf{p}.
+\end{aligned}
+\end{equation}
+We have 
+\begin{equation}
+    \left[L_i,H\right]=0,\quad \left[L^iL_i,H\right]=0,\quad \left[L^iL_i,L_j\right]=0.
+\end{equation}
+So we can get the eigen value of $L_z, \mathbf{L}^2, H$ at the same time.
+\begin{equation}
+    \bra{\mathbf{x}}\mathbf{L}\ket{\alpha}=-\ii \hbar \mathbf{x}\times\nabla\braket{\mathbf{x}}{\alpha}.
+\end{equation}
+Under spherical coordinates, the \href{run:Nabla Operator.pdf alias}{nabla operator} can be written as\footnote{$\mathbf{p}$ represent a displacement, it always acts like a gradient.}
+\begin{equation}
+    \nabla=\pdv{r}\hat{\mathbf{r}}+\frac{1}{r}\pdv{\theta}\hat{\mathbf{\theta}}+\frac{1}{r\sin\theta}\pdv{\phi}\hat{\mathbf{\phi}}.
+\end{equation}
+One has,
+\begin{equation}
+    \mathbf{x}=r \hat{\mathbf{r}},
+\end{equation}
+so, 
+\begin{equation}
+    \mathbf{x}\times\nabla=\pdv{\theta}\hat{\mathbf{\phi}}-\frac{1}{\sin\theta}\pdv{\phi}\hat{\mathbf{\theta}}.
+\end{equation}
+Then, project on $\hat{\mathbf{x}},\hat{\mathbf{y}},\hat{\mathbf{z}}$, we obtain
+\begin{eqnarray}
+    &\bra{\mathbf{x}}L_z\ket{\alpha}=&-\ii \hbar \pdv{\phi}\braket{\mathbf{x}}{\alpha},\\
+    &\bra{\mathbf{x}}L_x\ket{\alpha}=&-\ii \hbar \left(-\sin \phi \pdv{\theta}-\cot\theta\cos\phi \pdv{\phi}\right)\braket{\mathbf{x}}{\alpha},\\
+    &\bra{\mathbf{x}}L_y\ket{\alpha}=&-\ii \hbar \left(\cos \phi \pdv{\theta}-\cot\theta\sin\phi \pdv{\phi}\right)\braket{\mathbf{x}}{\alpha}.
+\end{eqnarray}
+We now look for the simultaneous eigenkets of $\mathbf{J}^2$ and $J_z$. We denote the eigen-values of $\mathbf{J}^2$ and $J_z$ by $a$ and $b$, respectively:
+\begin{equation}
+    \mathbf{J}^2\ket{a,b}=a\ket{a,b},\quad J_z\ket{a,b}=b\ket{a,b}.
+\end{equation}
+Consider
+\begin{equation}
+    J_\pm:=J_x\pm J_y,
+\end{equation}
+\begin{equation}
+    [J_+,J_-]=2\hbar J_z,\quad [J_z,J_\pm]=\pm\hbar J_\pm,\quad [\mathbf{J}^2,J_\pm]=0.
+\end{equation}
+\begin{equation}
+    J_z\left(J_\pm\ket{a,b}\right)=\left(b\pm\hbar\right)\left( J_\pm\ket{a,b}\right).
+\end{equation}
+So, we call $J_\pm$ the \textbf{ladder operators}.
+\begin{equation}
+    \mathbf{J}^2\left(J_\pm\ket{a,b}\right)=J_\pm \mathbf{J}^2\ket{a,b}=a\left(J_\pm\ket{a,b}\right).
+\end{equation}
+So, 
+\begin{equation}
+    J_\pm\ket{a,b}=c_\pm\ket{a,b\pm \hbar}.
+\end{equation}
 \end{document}
