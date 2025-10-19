@@ -999,7 +999,11 @@ We now look for the simultaneous eigenkets of $\mathbf{J}^2$ and $J_z$. We denot
 \end{equation}
 Consider
 \begin{equation}
-    J_\pm:=J_x\pm J_y,
+    J_\pm:=J_x\pm \ii  J_y,
+\end{equation}
+then, 
+\begin{equation}\label{13.22}
+    J_-=J_+^\dagger, \quad \mathbf{J}^2=J_z^2+\frac{1}{2}\{J_+,J_-\}.\quad J_-J_+ =\mathbf{J}^2- J_z^2 -\hbar J_z,
 \end{equation}
 \begin{equation}
     [J_+,J_-]=2\hbar J_z,\quad [J_z,J_\pm]=\pm\hbar J_\pm,\quad [\mathbf{J}^2,J_\pm]=0.
@@ -1015,4 +1019,42 @@ So,
 \begin{equation}
     J_\pm\ket{a,b}=c_\pm\ket{a,b\pm \hbar}.
 \end{equation}
+Then there must exists $b_\mathrm{max}$ and $b_\mathrm{min}$, such that\footnote{By \eqref{13.22}} 
+\begin{equation}
+    a=b_\mathrm{max}\left(b_\mathrm{max}+\hbar\right)=b_\mathrm{min}\left(b_\mathrm{min}-\hbar\right).
+\end{equation}
+We can infer that 
+\begin{equation}
+   - b_\mathrm{max}=b_\mathrm{min},
+\end{equation}
+with $b_\mathrm{max}$ is positive, and that the allowed values of $b$ lie within
+\begin{equation}
+    b_\mathrm{min}\le b\le b_\mathrm{max}.
+\end{equation}
+\begin{equation}
+    b_\mathrm{max}=\frac{n\hbar}{2}\equiv j\hbar,
+\end{equation}
+where $j$ is either an integer or a half-integer, then 
+\begin{equation}
+    a=\hbar^2 j(j+1).
+\end{equation}
+Let us also define $m$ such that 
+\begin{equation}
+    b\equiv m\hbar.
+\end{equation}
+The allowed $m$-values for a given $j$ are
+\begin{equation}
+    m=\underset{2j+1 \text{ states}}{\underbrace{-j,-j+1,\dots,j-1,j}}.
+\end{equation}
+Instead of $\ket{a,b}$, it is more convenient to denote a simultaneous eigenket of $\mathbf{J}^2$
+and $J_z$ by $\ket{j,m}$.
+\begin{equation}
+    \mathbf{J}^2\ket{j,m}=\hbar^2 j(j+1)\ket{j,m},\quad J_z\ket{j,m}=m\hbar\ket{j,m}.
+\end{equation}
+Then we can deduce that 
+\begin{equation}
+    J_\pm\ket{j,m}=\sqrt{\left(j\mp m\right)\left(j\pm m+1\right)}\hbar\ket{j,m},
+\end{equation}
+
+
 \end{document}

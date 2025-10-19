@@ -98,7 +98,7 @@ In orthogonal coordinate system, we have
 In orthogonal coordinate system, we have
 \begin{equation}
     \nabla\times \mathbf{F}=\frac{1}{A_1A_2A_3} \begin{vmatrix}
- \mathbf{e}_1  & \mathbf{e}_1 &\mathbf{e}_1 \\
+ A_1\mathbf{e}_1  & A_2\mathbf{e}_2 &A_3\mathbf{e}_3 \\
  \partial _1 & \partial _2 &\partial _3 \\
  A_1F(1) & A_2F_(2) &A_3F(3)
 \end{vmatrix}.
@@ -109,5 +109,18 @@ In orthogonal coordinate system, we have
 For a scalar function $f$, we have
 \begin{equation}
     \nabla^2f=\nabla\cdot\nabla f=\frac{1}{A_1A_2A_3}\sum_{i=1}^{3}\pa_i\left(\frac{A_1A_2A_3}{A_i^2}\pa_i f\right).
+\end{equation}
+\section{Special 3D Coordinates}
+\subsection{Rectangular coordinates}
+\begin{equation}
+    A_1=A_2=A_3=1.
+\end{equation}
+\subsection{Cylindrical Coordinates}
+\begin{equation}
+    A_1=A_3=1,\quad A_2=\rho.
+\end{equation}
+\subsection{Spherical Coordinates}
+\begin{equation}
+    A_1=1,\quad A_2=r,\quad A_3=r \sin\theta.
 \end{equation}
 \end{document}
