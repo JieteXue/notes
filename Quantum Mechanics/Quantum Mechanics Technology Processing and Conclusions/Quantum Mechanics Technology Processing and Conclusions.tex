@@ -23,6 +23,9 @@
 \usepackage{physics}
 \usepackage{tikz}
 \usepackage{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{{./}{images/}}
+\usepackage{float}
 
 %% 右矢
 %\ket{\psi}          % 输出：|ψ⟩
@@ -47,6 +50,7 @@
 \newtheorem{theorem}[problem]{Theorem}
 \usepackage{chngcntr}
 \counterwithin{equation}{section}
+\counterwithin{figure}{section}
 \newcommand{\pa}{\partial}
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\ee}{\mathrm{e}}
@@ -652,7 +656,7 @@ The solution of \eqref{9.6} is Hermite polynomials\footnote{There's some propert
     \psi(x)=\ee^{-\frac{1}{2}\frac{m\omega x^2}{\hbar}}\sum_{n=0}^{+\infty}\frac{c_n}{n!}H_n\left(x\slash\sqrt{\frac{\hbar}{m\omega}}\right).
 \end{equation}
 And for a fixed $n$, the normalized wavefunction is
-\begin{equation}
+\begin{equation}    
     \psi_n(x)=\frac{1}{\sqrt{2^nn!\sqrt{\pi}}}\ee^{-\frac{x^2}{2}H_n(x)}.
 \end{equation}
 
@@ -991,8 +995,13 @@ Then, project on $\hat{\mathbf{x}},\hat{\mathbf{y}},\hat{\mathbf{z}}$, we obtain
 \begin{eqnarray}
     &\bra{\mathbf{x}}L_z\ket{\alpha}=&-\ii \hbar \pdv{\phi}\braket{\mathbf{x}}{\alpha},\\
     &\bra{\mathbf{x}}L_x\ket{\alpha}=&-\ii \hbar \left(-\sin \phi \pdv{\theta}-\cot\theta\cos\phi \pdv{\phi}\right)\braket{\mathbf{x}}{\alpha},\\
-    &\bra{\mathbf{x}}L_y\ket{\alpha}=&-\ii \hbar \left(\cos \phi \pdv{\theta}-\cot\theta\sin\phi \pdv{\phi}\right)\braket{\mathbf{x}}{\alpha}.
+    &\bra{\mathbf{x}}L_y\ket{\alpha}=&-\ii \hbar \left(\cos \phi \pdv{\theta}-\cot\theta\sin\phi \pdv{\phi}\right)\braket{\mathbf{x}}{\alpha},\\
+    &\bra{\mathbf{x}}L_\pm\ket{\alpha}=&-\ii\hbar \ee^{\pm \ii \phi}\left(\pm \ii\frac{\pa}{\pa \theta}-\cot \theta\frac{\pa}{\pa \phi}\right)\braket{\mathbf{x}}{\alpha}.\label{13.20}
 \end{eqnarray}
+Where, $L_\pm=L_x\pm \ii L_y$.
+
+
+\subsection{Eigen Value}
 We now look for the simultaneous eigenkets of $\mathbf{J}^2$ and $J_z$. We denote the eigen-values of $\mathbf{J}^2$ and $J_z$ by $a$ and $b$, respectively:
 \begin{equation}
     \mathbf{J}^2\ket{a,b}=a\ket{a,b},\quad J_z\ket{a,b}=b\ket{a,b}.
@@ -1048,7 +1057,7 @@ The allowed $m$-values for a given $j$ are
 \end{equation}
 Instead of $\ket{a,b}$, it is more convenient to denote a simultaneous eigenket of $\mathbf{J}^2$
 and $J_z$ by $\ket{j,m}$.
-\begin{equation}
+\begin{equation}\label{13.34}
     \mathbf{J}^2\ket{j,m}=\hbar^2 j(j+1)\ket{j,m},\quad J_z\ket{j,m}=m\hbar\ket{j,m}.
 \end{equation}
 Then we can deduce that 
@@ -1056,5 +1065,81 @@ Then we can deduce that
     J_\pm\ket{j,m}=\sqrt{\left(j\mp m\right)\left(j\pm m+1\right)}\hbar\ket{j,m},
 \end{equation}
 
+\subsection{Representations of the Rotation Operator}
+If an arbitrary $y$-axis is rotated around the arbitrary $z$-axis by $\alpha$ to become $y'$, then for any angle $\beta$, then\footnote{$R$ also means rotation.}
+\begin{equation}
+    R_{y'}(\beta)=R_z(\alpha)R_y(\beta)R^{-1}_z(\alpha).
+\end{equation}
+If we use the Euler Rotations\footnote{This figure is from \textit{Modern Quantum Mechanics}}, then
+\begin{equation}
+    R(\alpha,\beta,\gamma)\equiv R_{z'}(\gamma)R_{y'}(\beta)R_z(\alpha)=R_z(\alpha)R_{y}(\beta)R_{z}(\gamma).
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/Euler Rotation.png}
+    \caption{Euler Rotations}
+\end{figure}
+Having obtained the matrix elements of $J_z$ and $J_\pm$, we are now in a position to
+study the matrix elements of the rotation operator $\mathscr{D}(R)$. If a rotation $R$ is specified
+by $\hat{\mathbf{n}}$ and $\phi$, we can define its matrix elements by
+\begin{equation}
+    \mathscr{D}^{(j)}_{m'm}(R)=\bra{j,m'}\exp\left(\frac{-\ii \mathbf{J}\cdot\hat{\mathbf{n}}\phi}{\hbar}\right)\ket{j,m}.
+\end{equation}
+These matrix elements are sometimes called \textbf{Wigner functions}.
+In Euler Rotations, the rotation operator is defined by
+\begin{equation}
+    \begin{aligned}
+        &\mathscr{D}^{(j)}_{m'm}(\alpha,\beta,\gamma)\\
+        =&\bra{j,m'}\exp\left(\frac{-\ii J_z \alpha}{\hbar }\right)\exp\left(\frac{\ii J_y \beta}{\hbar}\right)\exp\left(\frac{-\ii J_z \gamma}{\hbar}\right)\ket{j,m}\\
+        =&\ee ^{-\ii\left( m' \alpha+m\gamma\right)}\bra{j,m'}\exp\left(\frac{-\ii J_y \beta}{\hbar}\right)\ket{j,m}.
+    \end{aligned}
+\end{equation}
+We denote nontrivial part as 
+\begin{equation}
+    d^{(j)}_{m'm}(\beta)=\bra{j,m'}\exp\left(\frac{-\ii J_y \beta}{\hbar}\right)\ket{j,m}.
+\end{equation}
+Since 
+\begin{equation}
+    \left[\mathbf{J}^2,\mathscr{D}(R)\right]=0,
+\end{equation}
+any state $\ket{j,m}$ after a rotation $R$ is also an eigenket of $\mathbf{J}^2$, and its eigenvalue is still $j(j+1)\hbar^2$.
+
+To find the amplitude for being found in $\ket{j,m}$ , we simply expand the rotated state as follows:
+\begin{equation}
+    \mathscr{D}(R)\ket{j,m}=\sum_{m'}\ket{j,m'}\bra{j,m'}\mathscr{D}(R)\ket{j,m}=\sum_{m'}\ket{j,m'}\mathscr{D}^{(j)}_{m'm}(R).
+\end{equation}
+
+
+\subsection{Spherical Harmonics}
+Let us consider a problem with spherical symmetry, we can consider
+\begin{equation}
+    \bra{\hat{\mathbf{n}}}\ket{l,m}=Y_l^m(\hat{\mathbf{n}})=Y_l^m\left(\theta,\phi\right),
+\end{equation}
+where we have defined a \textbf{direction eigenket} $\ket{\hat{\mathbf{n}}}$.
+
+By \eqref{13.34}, we have 
+\begin{equation}\label{13.44}
+    -\ii \hbar \frac{\pa}{\pa \phi}Y_l^m\left(\theta,\phi\right)=m\hbar Y_l^m\left(\theta,\phi\right),
+\end{equation}
+\begin{equation}
+    \left[\frac{1}{\sin \theta}\frac{\pa}{\pa \theta}\left(\sin\theta\frac{\pa}{\pa \theta}\right)+\frac{1}{\sin^2\theta}\frac{\pa^2}{\pa \phi^2}+l\left(l+1\right)\right]Y_l^m=0.
+\end{equation}
+By 
+\begin{equation}
+    \bra{l',m'}\ket{l,m}=\delta_{ll'}\delta_{mm'},
+\end{equation}
+we obtain,
+\begin{equation}\label{13.48}
+    \int_{0}^{2\pi}\dd{\phi}\int_{-1}^{1}\dd{(\cos\theta)}{Y_{l'}^{m'}}^*\left(\theta,\phi\right)Y^m_l\left(\theta,\phi\right)=\delta_{ll'}\delta_{mm'}.
+\end{equation}
+\eqref{13.44} implies that the $\phi$-independence $Y_l^m\left(\theta,\phi\right)$ must behave like $\ee^{\ii m \phi}$. By \eqref{13.20},
+\begin{equation}
+    \left[\ii \frac{\pa }{\pa \theta}-\cot\theta\frac{\pa}{\pa \phi}\right]\braket{\hat{\mathbf{n}}}{l,l}=0.
+\end{equation}
+So, 
+\begin{equation}
+    Y_l^l\left(\theta,\phi\right)=c_l\ee^{\ii l\phi}\sin^l\theta.
+\end{equation}
+Use \eqref{13.48} to normalize,
 
 \end{document}

@@ -579,3 +579,173 @@ $$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g.$$
     $$\lim_{n\rightarrow +\infty}\frac{\sqrt{n}}{a^n}.$$
     $$\forall k\in \NN_{\ge 1}, \ \lim_{n\rightarrow+\infty}\left(\frac{\sqrt{n}}{a^n}\right)^k.$$
 \end{exampleenv}
+\begin{propositionenv}
+    Let $(G,\le)$ be a totally ordered set that is order complete. Let $X$ be a set and $f,g:X\longrightarrow G$ be mappings. We denote by 
+    $$f\wedge g:X\longrightarrow G, x\longmapsto \min\{f(x),g(x)\},$$
+    $$f\vee g:X\longrightarrow G, x\longmapsto \max\{f(x),g(x)\}.$$
+    Let $\mathcal{F}$ be a filter on $X$ that is non-degenerate. Then 
+    $$\limsup_\mathcal{F}\left(f\vee g\right)=\max\{\limsup_\mathcal{F} f,\limsup_\mathcal{F} g\},$$
+    $$\liminf_\mathcal{F}\left(f\wedge g\right)=\min\{\liminf_\mathcal{F} f,\liminf_\mathcal{F} g\}.$$
+    If $f$ and $g$ have limit along $\mathcal{F}$, so do $f\vee g$ and $f \wedge g$ and $$\limsup_\mathcal{F}\left(f\vee g\right),\limsup_\mathcal{F}\left(f\wedge g\right).$$
+\end{propositionenv}
+\begin{proofenv}
+    Let $$\mathcal{B}_1=\{A\in \mathcal{F}\mid f^s(A)\ge g^s(A)\},$$
+    $$\mathcal{B}_2=\mathcal{F}\backslash\mathcal{B}_1=\{A\in\mathcal{F}\mid f^s(A)<g^s(A)\}.$$
+    Case 1. $\forall U\in \mathcal{F},\exists A\in \mathcal{B}_1, A\subseteq U$.
+    $$\limsup_\mathcal{F}(f\vee g)=\inf_{\mathcal{F}}(f\vee g)^s(U)=\inf_{A\in \mathcal{B}_1}(f\vee g)^s(A)=\inf _{A\in \mathcal{B}_1}f^s(A)=\limsup_{\mathcal{F}}f.$$
+    Case 2. $\exists W\in \mathcal{F}, \forall A\in \mathcal{B}_1,A\nsubseteq  W$. If $\mathcal{B}_1=\varnothing, \mathcal{B}_2=\mathcal{F}.\quad (U\in \mathcal{F},U\in\mathcal{B}_2)$ If $A\in \mathcal{B}_1, \forall U\in \mathcal{F}, U\subseteq W, U\cap A\notin \mathcal{B}_1 $, so $U\cap A\in \mathcal{B}_2$ and $U\cap A\subseteq U$. ($U$ contains an elements in $\mathcal{B}_2$.)
+    $$\limsup_{\mathcal{F}}(f\vee g)=\inf _{U\in \mathcal{F}|_W}(f\vee g)^s(U)=\inf_{A\in \mathcal{B}_2}(f\vee g)^s(A)=\inf_{U\in \mathcal{B}_2}g^s(A)=\liminf_{\mathcal{F}}g.$$
+    Hence,
+    $$\limsup_{\mathcal{F}}(f\vee g)\le \max\{\limsup_{\mathcal{F}}f,\limsup_{\mathcal{F}}g\}.$$
+    Moreover, $f\vee g\ge f, f\vee g\ge g$, so
+    $$\limsup_{\mathcal{F}}(f\vee g)\ge \max\{\limsup_{\mathcal{F}}f,\limsup_{\mathcal{F}}g\}.$$
+    If $\lim_{\mathcal{F}}f$ and $\lim_{\mathcal{F}}g$ exists, then
+    \begin{align*}
+        \liminf_{\mathcal{F}}(f\wedge g)&\ge \min\{\liminf_{\mathcal{F}}f,\liminf_{\mathcal{F}}g\}\\
+        &=\max\{\lim_\mathcal{F} f,\lim_\mathcal{F} g\}=\limsup_{\mathcal{F}}(f\vee g).
+    \end{align*}
+\end{proofenv}
+\begin{propositionenv}
+    Let $(S,*,\le)$ be a partially orderes group. for any $A\subseteq S$,let 
+    $$\iota(A):=\{\iota(a)\mid a\in A\}.$$
+    If $A$ has an supremum in $\bar{S}$ then $\iota(A)$ has an infimum in $\bar{S}$ and
+    $$\inf(\iota(A))=\iota(\sup(A)).$$
+    Resp. infimum, supremum.
+\end{propositionenv}
+\begin{proofenv}
+    \quad \newline
+    $\forall a\in A, a\le \sup (A)$, so $\iota(a)\ge \iota(\sup(A))$. Hence $\iota(\sup(A))$ is a lower bound of $\iota(A)$. Let $m$ be a lower bound of $\iota(A)$. For any $a\in A$, $\iota(a)\ge m, \iota(m)\ge a$. Hence $\iota(m)\ge \sup(A),\iota(\sup(A))\ge m$. 
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(S,*,\le)$ be a partially orderes group. $f:X\longrightarrow \bar{S}$ be a mapping, and $\mathcal{F}$ be a filter on $X$. Let $$\iota(f):X\longrightarrow \bar{S},\ x\longmapsto \iota(f(x)).$$
+    Assume that $\bar{S}$ is order complete. Then 
+    $$\limsup_{\mathcal{F}}\iota(f)=\iota(\liminf_{\mathcal{F}}f),$$
+    $$\liminf_{\mathcal{F}}\iota(f)=\iota(\limsup_{\mathcal{F}}f).$$
+\end{corollaryenv}
+\begin{proofenv}
+    $$\limsup_{\mathcal{F}}\iota(f)=\inf_{U\in \mathcal{F}}=\inf_{U\in \mathcal{F}}\iota\left(\inf_{x\in u}f(x)\right)=\iota\left(\sup_{U\in \mathcal{F}}\inf_{x\in U}f(x)\right)=\iota\left(\liminf_{\mathcal{F}}f\right).$$
+\end{proofenv}
+
+
+
+\section{Absolute Values}
+We fix a totolly ordered abelian group $(R,+,\le)$.
+\begin{remark}
+    $\forall a\in R$, either $a=0$, or $a>0$, or $a<0$. We add two final elements $-\infty,+\infty$ to $R$ to construct the enhancement of $(R,+,\le)$.
+\end{remark}
+\begin{definitionenv}
+    For any $x\in \bar{R}$, we let 
+    $$\left|x\right|:=\max\{x,-x\}.$$
+    By definition, $\left|-x\right|=\left|x\right|$.
+\end{definitionenv}
+\begin{propositionenv}
+    For any $(a,b)\in \bar{R}\times\bar{R}$, if $a+b$ is defined, then 
+    $$\left|a+b\right|\le \left|a\right|+\left| b\right|.$$
+\end{propositionenv}
+\begin{proofenv}
+    If $\{-\infty,+\infty\}\cap\{a,b\}\not=\varnothing$, then 
+    $$\left|a\right|+\left|b\right|=+\infty\le\left|a+b\right|$$
+    if $a+b$ is defined. Suppose that $\{a,b\}\subseteq R$, 
+    $$a+b\le \left|a\right|+\left|b\right|,$$
+    $$-\left(a+b\right)=\left(-a\right)+\left(-b\right)\le \left|a\right|+\left|b\right|,$$
+    so,
+    $$\left|a+b\right|\le \left|a\right|+\left| b\right|.$$
+\end{proofenv}
+\begin{corollaryenv}
+    For any $(a,b)\in \bar{R}\times\bar{R}$,
+    $$\left|\left|a\right|-\left|b\right|\right|\le \left|a-b\right|,\left|\left|a\right|-\left|b\right|\right|\le \left|a+b\right|,$$
+    provided that the terms on both sides are defined.
+\end{corollaryenv}
+\begin{proofenv}
+    If $\{-\infty,+\infty\}\cap\{a,b\}\not=\varnothing, \left|a-b\right|=+\infty$. Suppose that $\{a,b\}\subseteq R$.
+    $$\left|a\right|-\left|b\right|=\left|(a-b)+b\right|-\left|b\right|\le \left|a-b\right|+\left|b\right|-\left|b\right|=\left|a-b\right|.$$
+    Similarly, 
+    $$\left|b\right|-\left|a\right|\le \left|b-a\right|=\left|a-b\right|.$$
+    So,
+    $$\left|\left|a\right|-\left|b\right|\right|\le\left|a-b\right|.$$
+\end{proofenv}
+\begin{theoremenv}
+    Let $X$ be a set, $\mathcal{F}$ be a non-degenerate filter on $X$, $f:X\longrightarrow R$ be a mapping and $l\in R$. The following statements are equivalent.
+    \newline
+    (1) $f$ admits $l$ along $\mathcal{F}$.
+    \newline
+    (2) $\limsup_{\mathcal{F}}\left|f-l\right|=0$, where $f-l:X\longrightarrow R, x\longmapsto f(x)-l$. Moreover, there conditions imply.
+    \newline
+    (3) $\forall \varepsilon\in R_{>0}, \exists U\in \mathcal{F}, \forall x\in U, \left|f(x)-l\right|<\varepsilon.$
+    The converse is true when $\inf R_{>0}=0$. 
+\end{theoremenv}
+\begin{proofenv}
+    Note that 
+    $$\limsup_{\mathcal{F}}\left(f-l\right)=\left(\limsup_{\mathcal{F}}f\right)-l,$$
+    $$\liminf_{\mathcal{F}}\left(f-l\right)=\left(\liminf_{\mathcal{F}}f\right)-l.$$
+    (1)$\Rightarrow$(2): (1) gives $\limsup_{\mathcal{F}} f=\liminf_{\mathcal{F}} f=l$. So 
+    $$\limsup_{\mathcal{F}}\left(f-l\right)=\liminf_{\mathcal{F}}\left(f-l\right)=0.$$
+    So, \begin{align*}
+        \limsup_{\mathcal{F}}\left|f-l\right|&=\limsup_\mathcal{F}\left(f-l\right)\vee \left(l-f\right)\\
+        &=\max\{\limsup_{\mathcal{F}}(f-l),\limsup_{\mathcal{F}}(l-f)\}\\
+        &=0.
+    \end{align*}
+    (2)$\Rightarrow$(1): $\max\{\limsup_{\mathcal{F}}(f-l),\limsup_{\mathcal{F}}(l-f)\}=0.$ So 
+    $$\left(\limsup_{\mathcal{F}}f\right)-l \le 0,\quad l-\liminf_{\mathcal{F}}f\le 0.$$
+    Hence, $$l\le \liminf_{\mathcal{F}}f\le \limsup_{\mathcal{F}}f\le l.$$
+    (2)$\Rightarrow$(3): One has $\dis \inf_{U\in \mathcal{F}}\sup_{x\in U}\left|f(x)-l\right|=0.$ For any $\varepsilon\in R_{>0}$, $\varepsilon$ is not a lower bound of
+    $$\left\{\sup_{x\in U}\left|f(x)-l\right|\mid U\in \mathcal{F}\right\}.$$
+    So, $\dis \exists U\in \mathcal{F}, \sup_{x\in U}\left|f(x)-l\right|<\varepsilon.$ So $\forall x\in U, \left|f(x)-l\right|<\varepsilon$.
+    \newline
+    (3)$\Rightarrow$(2): Under the hypothesis, $\inf R_{>0}=0$. 
+    $$\forall \varepsilon \in R_{>0}, \exists U\in \mathcal{F}, \forall x\in U, \left|f(x)-l\right|<\varepsilon.$$ 
+    $$0\le \limsup_{\mathcal{F}}\left|f-l\right|\le \varepsilon.$$
+    Taking the infimum with respect to $\varepsilon\in R_{>0}$, we obtain $\limsup_{\mathcal{F}}\left|f-l\right|=0.$
+\end{proofenv}
+\begin{definitionenv}
+    Let $A\subseteq R$. If $\exists M\in R_{>0}$ such that $\forall a\in A, \left|a\right|\le M$,we say that $A$ is \textbf{bounded}. If $f:X\longrightarrow R$ is such that $f(X)$ is bounded, we say that $f$ is bounded.
+\end{definitionenv}
+\begin{corollaryenv}
+    Let $X$ be a set, $\mathcal{F}$ be a non-degenerate filter on $X$, and $f:X\longrightarrow R$  be a mapping. If $f$ has a limit along $\mathcal{F}$ and $\lim_{\mathcal{F}}f\in R$, then there exists $U\in \mathcal{F}$ such that $f|_U$ is bounded.
+\end{corollaryenv}
+\begin{proofenv}
+    If $R=\{0\}$, then $f$ is constant, so bounded. Suppose that there exists $\varepsilon\in R_{>0}$,
+    $$\exists U\in \mathcal{F}, \forall x\in U, \left|f(x)-l\right|<\varepsilon,$$
+    where $l=\lim f$. So $\left|f(x)\right|\le\left|f(x)-l\right|+\left|l\right|\le\varepsilon+\left|l\right|$, on $U$.
+\end{proofenv}
+
+
+
+\section{Ordered Rings}
+\begin{definitionenv}
+    Let $(R,+,\cdot)$ be a non-zero unitary ring and $\le$ be a partially ordered group and 
+    $$\forall (a,b)\in R_{>0}\times R_{>0}, ab>0,$$
+    then we say that $(R,+,\cdot,\le)$ is an \textbf{partially ordered ring}.
+
+    Let $\bar{R}=R\cup\{-\infty,+\infty\}$ be an enhancement of $R$. We extend partially the multiplication on $\bar{R}$ as follows
+    $$\forall x\in \bar{R}_{>0},\  x(+\infty)=(+\infty)x=+\infty,\  x(-\infty)=(-\infty)x=-\infty.$$
+    $$\forall x\in \bar{R}_{<0},\  x(+\infty)=(+\infty)x=(-\infty),\  x(-\infty)=(-\infty)x=+\infty.$$
+    $$\cancel{0\cdot \infty}$$
+    are NOT defined.
+    $$(+\infty)^{-1}=(-\infty)^{-1}=0.$$
+\end{definitionenv}
+We fix a partially ordered ring. 
+\begin{box2}
+    (1) If $a\ge 0,b\ge 0$, then $ab\ge 0$.
+    \newline
+    (2) $a<b\Rightarrow -b< -a$.
+    \newline
+    (3) $a\le b\Rightarrow -b\le -a$.
+    \newline
+    (4) If $\lambda>0,\ a>b$ then $\lambda a>\lambda b,\ a\lambda>b\lambda,\ (-\lambda )a<(-\lambda)b,\ a(-\lambda)<b(-\lambda)$.
+    \newline
+    (5) If $\lambda>0, \ a\ge b$, then $\lambda a\ge \lambda b,\ a\lambda\ge b\lambda,\ (-\lambda )a\le (-\lambda)b,\ a(-\lambda)\le b(-\lambda)$.
+\end{box2}
+\begin{propositionenv}
+    Let $(R,+,\cdot,\le)$ be a totally ordered unitary ring. 
+    \newline
+    (1) $\forall a\in R,\ a\not=0\Rightarrow a^2>0.$
+    \newline
+    (2) $\forall a\in R^\times,\ a>0\Rightarrow a^{-1}>0, a<0\Rightarrow a^{-1}<0.$ 
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) Since $\le$ is a total order, either $a>0,\ a^2=a\cdot a >0$, or $a<0,\ a^2=(-a)\cdot(-a)>0$.
+    \newline
+    (2) $a^2>0$. If $a^{-1}<0$, then $a=a^{-1}\cdot a^2<0$. If $a^{-1}>0,\ a=a^{-1}\cdot a^2>0$.
+\end{proofenv}
