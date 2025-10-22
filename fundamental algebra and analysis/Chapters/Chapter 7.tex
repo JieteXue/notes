@@ -363,22 +363,22 @@ $$\liminf_{n\in I,n\rightarrow+\infty}a_n=\sup_{j\in J}\inf_{n\in I_{\ge j}}a_n.
 \begin{proofenv}
     Let $(x,y)\in G^\times\times G^\times$ such that $x< y$. Then 
     $$e=\iota(x)*x<\iota(x)*y,$$
-    where $e$ is the neutual element of $(G,*)$. Thus 
+    where $e$ is the neutral element of $(G,*)$. Thus 
     $$e*\iota(y)<\iota(x)*y*\iota(y).$$
     That is $\iota(y)<\iota(x)$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $(G,*,\le)$ be a totally ordered group, and $e$ be the neutual element of $(G,*)$. If $G\not=\{e\}$, then $G$ has neither a greatest element nor a least element.
+    Let $(G,*,\le)$ be a totally ordered group, and $e$ be the neutral element of $(G,*)$. If $G\not=\{e\}$, then $G$ has neither a greatest element nor a least element.
 \end{propositionenv}
 \begin{proofenv}
-    Suppose that $(G,\le)$ has a greastest element $\beta$. We first show by contradiction that $\beta\not=e$. Suppose that $e=\max G$. Pick $x\in G,x\not= e$. Then $x<e$. Thus $\iota (x)>\iota(e)$. Contradiction. If $\beta>e, \beta*\beta>e*\beta=\beta$, contradiction, too.
+    Suppose that $(G,\le)$ has a greatest element $\beta$. We first show by contradiction that $\beta\not=e$. Suppose that $e=\max G$. Pick $x\in G,x\not= e$. Then $x<e$. Thus $\iota (x)>\iota(e)$. Contradiction. If $\beta>e, \beta*\beta>e*\beta=\beta$, contradiction, too.
 \end{proofenv}
 
 
 
 \section{Enhancement}
 \begin{definitionenv}
-    Let $(S,*,\le)$ be a partially ordered semigroup. Suppose that $(S,\le )$ has no greastest element and has no least element. Let $\bot$ and $\top$ be formal elements and let 
+    Let $(S,*,\le)$ be a partially ordered semigroup. Suppose that $(S,\le )$ has no greatest element and has no least element. Let $\bot$ and $\top$ be formal elements and let 
     $$\bar{S}=S\cup\{\bot,\top\}.$$
     We extend $\le $ to $\bar{S}$ by letting $\bot<x<\top,\forall x\in S$. We extend $*$ to a mapping
     $$\left(\bar{S}\times\bar{S}\right)\backslash \{(\bot,\top),(\top,\bot)\}\longrightarrow \bar{S},$$
@@ -441,7 +441,7 @@ $$\liminf_{n\in I,n\rightarrow+\infty}a_n=\sup_{j\in J}\inf_{n\in I_{\ge j}}a_n.
     If $\{x,y,a,b\}\subseteq S$, then $x*y\le a*y \le a*b$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $(S,*,\le)$ be a partially ordered monoid and $e\in S$ be the neutual element. Let $(a,b)\in \bar{S}\times\bar{S}$, with $a\in S^\times\cup\{\bot,\top\}$. Then the following conditions are equivalent.
+    Let $(S,*,\le)$ be a partially ordered monoid and $e\in S$ be the neutral element. Let $(a,b)\in \bar{S}\times\bar{S}$, with $a\in S^\times\cup\{\bot,\top\}$. Then the following conditions are equivalent.
     \newline
     (1) $a<b$.
     \newline
@@ -594,7 +594,7 @@ $$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g.$$
     Case 1. $\forall U\in \mathcal{F},\exists A\in \mathcal{B}_1, A\subseteq U$.
     $$\limsup_\mathcal{F}(f\vee g)=\inf_{\mathcal{F}}(f\vee g)^s(U)=\inf_{A\in \mathcal{B}_1}(f\vee g)^s(A)=\inf _{A\in \mathcal{B}_1}f^s(A)=\limsup_{\mathcal{F}}f.$$
     Case 2. $\exists W\in \mathcal{F}, \forall A\in \mathcal{B}_1,A\nsubseteq  W$. If $\mathcal{B}_1=\varnothing, \mathcal{B}_2=\mathcal{F}.\quad (U\in \mathcal{F},U\in\mathcal{B}_2)$ If $A\in \mathcal{B}_1, \forall U\in \mathcal{F}, U\subseteq W, U\cap A\notin \mathcal{B}_1 $, so $U\cap A\in \mathcal{B}_2$ and $U\cap A\subseteq U$. ($U$ contains an elements in $\mathcal{B}_2$.)
-    $$\limsup_{\mathcal{F}}(f\vee g)=\inf _{U\in \mathcal{F}|_W}(f\vee g)^s(U)=\inf_{A\in \mathcal{B}_2}(f\vee g)^s(A)=\inf_{U\in \mathcal{B}_2}g^s(A)=\liminf_{\mathcal{F}}g.$$
+    $$\limsup_{\mathcal{F}}(f\vee g)=\inf _{U\in \mathcal{F}|_W}(f\vee g)^s(U)=\inf_{A\in \mathcal{B}_2}(f\vee g)^s(A)=\inf_{A\in \mathcal{B}_2}g^s(A)=\limsup_{\mathcal{F}}g.$$
     Hence,
     $$\limsup_{\mathcal{F}}(f\vee g)\le \max\{\limsup_{\mathcal{F}}f,\limsup_{\mathcal{F}}g\}.$$
     Moreover, $f\vee g\ge f, f\vee g\ge g$, so
@@ -606,7 +606,7 @@ $$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g.$$
     \end{align*}
 \end{proofenv}
 \begin{propositionenv}
-    Let $(S,*,\le)$ be a partially orderes group. for any $A\subseteq S$,let 
+    Let $(S,*,\le)$ be a partially orders group. For any $A\subseteq S$, let 
     $$\iota(A):=\{\iota(a)\mid a\in A\}.$$
     If $A$ has an supremum in $\bar{S}$ then $\iota(A)$ has an infimum in $\bar{S}$ and
     $$\inf(\iota(A))=\iota(\sup(A)).$$
@@ -617,7 +617,7 @@ $$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g.$$
     $\forall a\in A, a\le \sup (A)$, so $\iota(a)\ge \iota(\sup(A))$. Hence $\iota(\sup(A))$ is a lower bound of $\iota(A)$. Let $m$ be a lower bound of $\iota(A)$. For any $a\in A$, $\iota(a)\ge m, \iota(m)\ge a$. Hence $\iota(m)\ge \sup(A),\iota(\sup(A))\ge m$. 
 \end{proofenv}
 \begin{corollaryenv}
-    Let $(S,*,\le)$ be a partially orderes group. $f:X\longrightarrow \bar{S}$ be a mapping, and $\mathcal{F}$ be a filter on $X$. Let $$\iota(f):X\longrightarrow \bar{S},\ x\longmapsto \iota(f(x)).$$
+    Let $(S,*,\le)$ be a partially orders group. $f:X\longrightarrow \bar{S}$ be a mapping, and $\mathcal{F}$ be a filter on $X$. Let $$\iota(f):X\longrightarrow \bar{S},\ x\longmapsto \iota(f(x)).$$
     Assume that $\bar{S}$ is order complete. Then 
     $$\limsup_{\mathcal{F}}\iota(f)=\iota(\liminf_{\mathcal{F}}f),$$
     $$\liminf_{\mathcal{F}}\iota(f)=\iota(\limsup_{\mathcal{F}}f).$$
@@ -629,7 +629,7 @@ $$\limsup_{\mathcal{F}}f*g\ge \limsup_{\mathcal{F}}f*\liminf_{\mathcal{F}}g.$$
 
 
 \section{Absolute Values}
-We fix a totolly ordered abelian group $(R,+,\le)$.
+We fix a totally ordered abelian group $(R,+,\le)$.
 \begin{remark}
     $\forall a\in R$, either $a=0$, or $a>0$, or $a<0$. We add two final elements $-\infty,+\infty$ to $R$ to construct the enhancement of $(R,+,\le)$.
 \end{remark}
@@ -749,3 +749,46 @@ We fix a partially ordered ring.
     \newline
     (2) $a^2>0$. If $a^{-1}<0$, then $a=a^{-1}\cdot a^2<0$. If $a^{-1}>0,\ a=a^{-1}\cdot a^2>0$.
 \end{proofenv}
+\begin{propositionenv}
+    Let $(R,+,\cdot,\le)$ be a totally ordered unitary ring. The unique homomorphism of rings
+    $$f:\ZZ\longrightarrow R,$$
+    $$n\longmapsto \begin{cases} n 1_R,\ n>0\\ -(-n)1_R,\ n<0\end{cases}$$
+    is strictly increasing. In particular, it is injective.
+\end{propositionenv}
+\begin{proofenv}
+    We first prove that $1_R>0_R$. Since $(R,\le )$ is totally ordered, either $1_R>0_R$, or $1_R<0_R$. If $1_R<0_R$, then $-1_R>0_R$. So $(-1_R)(-1_R)=1_R>0$, contradiction. Let $(a,b)\in \RR^2$, such that $n<m$. Then $\exists k\in \NN_{>0}$, $m=n+k$. So 
+    $$f(m)=f(n)+f(k)=f(n)+1_R+\dots+1_R>f(n).$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(R,+,\cdot,\le)$ be a non-zero totally ordered unitary ring. If $f:\QQ\longrightarrow R$ is a ring homomorphism, then $f$ is strictly increasing.
+\end{propositionenv}
+\begin{proofenv}
+    Let $\frac{a}{b}$ and $\frac{c}{d}$ be element in $\QQ$, where $(b,d)\in \ZZ_{>0}^2,\  (a,c)\in \ZZ^2$, such that $\frac{a}{b}>\frac{c}{d}$. Then $f\left(\frac{a}{b}\right)=\frac{f(a)}{f(b)},\ f\left(\frac{c}{d}\right)=\frac{f(c)}{f(d)}$. So,
+    $$f\left(\frac{a}{b}\right)-f\left(\frac{c}{d}\right)=\frac{f(a)f(d)-f(b)f(c)}{f(b)f(d)}=\frac{f(ad-bc)}{f(b)f(d)}>0.$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(R,+,\cdot,\le)$ be a totally ordered unitary ring. 
+    $$\forall (a,b)\in R^2,\ \left|ab\right|=\left|a\right|\left| b\right|$$
+\end{propositionenv}
+\begin{proofenv}
+    $|a|\in \{a,-a\},\ |b|\in \{b,-b\}$, $|a||b|\in\{ab,-ab\}$. Moreover, $|a||b|\ge 0$. So $|a||b| = |ab|$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(R,+,\cdot,\le)$ be a totally ordered unitary ring. 
+    Let $X$ be a set and $\mathcal{F}$ be a non-degenerate filter on $X$. Let $f,g:X\longrightarrow R$ be mappings. Assume that $\bar{R}$ is order complete, $f$ and $g$ have limits (in $\bar{R}$) along $\mathcal{F}$, and $\dis a:=\lim_{\mathcal{F}}f,\ b:=\lim_{\mathcal{F}}g$. Then the mapping $fg: X\longrightarrow R, x\longmapsto f(x)g(x)$ has a limit along $\mathcal{F}$, and $\dis \lim_{\mathcal{F}}fg=ab$.
+\end{theoremenv}
+\begin{proofenv}
+    Since $f$ and $g$ have limits along $\mathcal{F}$ in $\bar{R}$, there exists $U\in \mathcal{F}, \ \exists M\in R_{\ge 0}$ such that $\forall x\in U,\ \left|f(x)\right|\le M$. Therefore,
+    \begin{align*}
+        \forall x\in U,\ &\left|f(x)g(x)-ab\right|\\
+        =&\left|f(x)g(x)-f(x)b+f(x)b-ab\right|\\
+        \le& \left|f(x)\left(g(x)-b\right)\right|+\left|\left(f(x)-a\right)b\right|\\
+        =& \left|f(x)\right|\left|g(x)-b\right|+\left|f(x)-a\right| \left|b\right|\\
+        \le &M \left|g(x)-b\right|+\left|b\right|\left|f(x)-a\right|.
+    \end{align*}
+    Hence,
+    $$\limsup_{\mathcal{F}}\left|fg-ab\right|\le M\limsup\left|g(x)-b\right|+\left|b\right|\limsup_{\mathcal{F}}\left|f(x)-a\right|=0.$$
+    Therefore, 
+    $$\lim_{\mathcal{F}}fg=ab.$$
+\end{proofenv}
+

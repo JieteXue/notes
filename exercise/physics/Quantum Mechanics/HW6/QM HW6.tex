@@ -38,6 +38,8 @@
 \newcommand{\pa}{\partial}
 \newcommand{\rn}[1]{\romannumeral #1\relax}
 \newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
 
 \begin{document}
 \maketitle
@@ -124,6 +126,162 @@
     \end{equation}
     This result is not related to $V_{\text{imp}}$.
 \end{problem}
+\begin{problem}[Spherical coordinates]
 
+    I will use Einstein summation convention if there's neither special announcement nor summation symbol.
 
+    In spherical coordinates, Lamé coefficients are
+    \begin{equation}
+        A_r=1,\quad A_\theta=r,\quad A_\phi=r\sin\theta.
+    \end{equation}
+    (1)
+    \begin{equation}
+        \nabla f=\mathbf{g}^i\pa_i f=\sum_i \frac{1}{A_i}\mathbf{e}^i\pa_i f.
+    \end{equation}
+    So,
+    \begin{equation}
+        \nabla f=\frac{\pa f}{\pa r}\mathbf{e}_r+\frac{1}{r}\frac{\pa f}{\pa \theta}\mathbf{e}_\theta+\frac{1}{r\sin\theta}\frac{\pa f}{\pa \phi}\mathbf{e}_\phi.
+    \end{equation}
+    (2) Note that
+    \begin{equation}
+        \frac{\pa \sqrt{g}}{\pa x^i}=\Gamma_{ji}^j\sqrt{g}.
+    \end{equation}
+    We have,
+    \begin{equation}
+        \nabla\cdot\mathbf{V}=\pa_i V^i+V^m\Gamma^i_{im}=\pa_iV^i+V^m\frac{1}{\sqrt{g}}\pa_m\sqrt{g}=\frac{1}{\sqrt{g}}\pa_i\left(\sqrt{g}V^i\right).
+    \end{equation}
+    That is 
+    \begin{equation}
+        \nabla\cdot\mathbf{V}=\sum_i\frac{1}{A_rA_\theta A_\phi}\pa_i\left(\frac{A_rA_\theta A_\phi}{A_i}V\langle i\rangle \right).
+    \end{equation}
+    \begin{equation}
+        \nabla\cdot \mathbf{V}=\frac{1}{r^2}\frac{\pa}{\pa r}\left(r^2 V \langle r\rangle\right)+\frac{1}{r\sin\theta}\frac{\pa}{\pa \theta}\left(\sin\theta V\langle \theta\rangle\right)+\frac{1}{r\sin\theta}\frac{\pa V\langle \phi\rangle}{\pa \phi}.
+    \end{equation}
+    (3)
+    \begin{equation}
+        \nabla\times\mathbf{V}=\epsilon^{ijk}\nabla_i V_j\mathbf{g}_k=\epsilon^{ijk}\left(\pa_i V_j-V_m\Gamma_{ij}^m\right)\mathbf{g}^k=\epsilon^{ijk}\pa_iV_j\mathbf{g}^k.
+    \end{equation}
+    \begin{equation}
+        \nabla\times \mathbf{V}=\frac{1}{r^2\sin\theta}\begin{vmatrix}
+  \mathbf{e}_r & r\mathbf{e}_\theta  & r\sin\theta\mathbf{e}_\phi \\
+  \partial _r& \partial _\theta  & \partial _\phi \\
+ V\langle r\rangle  &rV\langle\theta \rangle   &r\sin\theta V\langle \phi\rangle 
+\end{vmatrix}.
+    \end{equation}
+    (4) By (1) and (2),
+    \begin{equation}
+        \nabla^2 f=
+\nabla^2 = \frac{1}{r^2} \frac{\partial }{\partial r} \left( r^2 \frac{\partial f}{\partial r} \right)
++ \frac{1}{r^2 \sin\theta} \frac{\partial}{\partial \theta} \left( \sin\theta \frac{\partial f}{\partial \theta} \right)
++ \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}.
+    \end{equation}
+
+\end{problem}
+\begin{problem}[Angular momentum operators]
+    (1) 
+    \begin{equation}
+        \mathbf{l}=\mathbf{r}\times\mathbf{p}:=-\ii\hbar\mathbf{r}\times\nabla=\pdv{\theta}\hat{\mathbf{\phi}}-\frac{1}{\sin\theta}\pdv{\phi}\hat{\mathbf{\theta}}.
+    \end{equation}
+    Then, project on $\hat{\mathbf{x}},\hat{\mathbf{y}},\hat{\mathbf{z}}$, we obtain
+    \begin{eqnarray}
+    &l_z=&-\ii \hbar \pdv{\phi},\\
+    &l_x=&-\ii \hbar \left(-\sin \phi \pdv{\theta}-\cot\theta\cos\phi \pdv{\phi}\right),\label{4.3}\\
+    &l_y=&-\ii \hbar \left(\cos \phi \pdv{\theta}-\cot\theta\sin\phi \pdv{\phi}\right).\label{4.4}
+\end{eqnarray}
+(2) \begin{equation}
+    l_x=\left(l_++l_-\right)/2,\quad l_y=\left(l_+-l_-\right)/2\ii,
+\end{equation}
+\begin{equation}
+    l^2=l_x^2+l_y^2+l_z^2=l_z^2+l_+l_-+l_-l_+.
+\end{equation}
+By \eqref{4.3} and \eqref{4.4}, 
+\begin{equation}
+    l^2=-\hbar^2\left[ \frac{1}{ \sin\theta} \frac{\partial}{\partial \theta} \left( \sin\theta \frac{\partial }{\partial \theta} \right)
++ \frac{1}{ \sin^2\theta} \frac{\partial^2 }{\partial \phi^2}\right].
+\end{equation}
+(3) To avoid confusion, we use $\mathbf{L}$ and $\mathbf{x}$ to represent $\mathbf{l}$ and $\mathbf{r}$ respectively.
+\begin{equation}
+\begin{aligned}
+\mathbf{L}^2 &= \sum_{ijlmk} \varepsilon_{ijk}x_i p_j \varepsilon_{lmk}x_l p_m \\
+&= \sum_{ijlm} (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl})x_i p_j x_l p_m \\
+&= \sum_{ijlm} [\delta_{il}\delta_{jm}x_i (x_l p_j - \ii\hbar\delta_{jl})p_m - \delta_{im}\delta_{jl}x_i p_j(p_m x_l + \ii\hbar\delta_{lm})]  \\
+&= \mathbf{x}^2 \mathbf{p}^2 - \ii\hbar \mathbf{x} \cdot \mathbf{p} - \sum_{ijlm} \delta_{im}\delta_{jl}[x_i p_m(x_l p_j - \ii\hbar\delta_{jl}) + \ii\hbar\delta_{lm}x_i p_j] \\
+&= \mathbf{x}^2 \mathbf{p}^2 - (\mathbf{x} \cdot \mathbf{p})^2 + \ii\hbar \mathbf{x} \cdot \mathbf{p}.
+\end{aligned}
+\end{equation}
+That is 
+\begin{equation}
+    -\frac{\hbar ^2}{2m}\nabla^2=-\frac{\hbar^2}{2m}\frac{1}{r^2} \frac{\partial }{\partial r} \left( r^2 \frac{\partial }{\partial r} \right)+\frac{\mathbf{L}^2}{2mr^2}.
+\end{equation}
+\end{problem}
+\begin{problem}[Associated Legendre Polynomials]
+    (1)
+    \begin{equation}
+        \frac{\dd}{\dd{z}}P^{|m|} (z)=\left(1-z^2\right)^{\frac{|m|}{2}-1}\left[-z|m|G(z)+\left(1-z^2\right)G'(z)\right].
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+           \frac{\dd}{\dd{z}}\left[(1-z^2)\frac{\dd}{\dd{z}}P^{| m| }\right] =\left(1-z^2\right)^{\frac{| m| }{2}-1} \left(\left(z^2-1\right) | m|  \left(2 z
+       G'(z)+G(z)\right)\right.\\
+       \left.
+       +z^2 | m| ^2 G(z)+\left(z^2-1\right) \left(\left(z^2-1\right)
+       G''(z)+2 z G'(z)\right)\right).
+        \end{aligned}
+    \end{equation}
+    Hence,
+    \begin{equation}
+        (1 - z^2)G'' - 2(|m| + 1)zG' + \left[\beta - |m|(|m| + 1)\right] G = 0.
+    \end{equation}
+    (2) 
+    \begin{equation}
+        (1-z^2)G''=\sum_{z=2}^{+\infty}n(n-1)a_n\left(z^{n-2}-z^n\right),
+    \end{equation}
+    \begin{equation}
+        zG'=\sum_{n=1}^{+\infty}na_nz^n.
+    \end{equation}
+    Thus, 
+    \begin{equation}
+        \begin{aligned}
+            \sum_{n=0}^{+\infty}\left\{(n+2)(n+1)a_{n+2}-n(n+1)a_n-2(|m|+1)na_n\right.\\
+            \left.+\left[\beta-|m|(|m|+1)\right]a_n\right\}z^n=0.
+        \end{aligned}
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        a_{n+2}=\frac{\left(n+|m|\right)\left(n+|m|+1\right)-\beta}{(n+1)(n+2)}a_n.
+    \end{equation}
+    (3) If $\beta=l(l+1)$, then, when $n+\left|m\right|\ge l$, $a_{n+2}=0$. So $G$ becomes a polynomial.
+\end{problem}
+\begin{problem}[Generation function of Legendre Polynomials]
+    (1) One has 
+    \begin{equation}
+        \frac{\pa T}{\pa t}=\sum_{n=0}^{+\infty}lP_l\left(z\right)t^{l-1}.
+    \end{equation}
+    \begin{equation}
+        \frac{\pa}{\pa t}\left(\frac{1}{\sqrt{1-2tz+t^2}}\right)=\left(z-t\right)\left(1-2z+t^2\right)^{\frac{3}{2}}=\frac{z-t}{1-2zt+t^2}T.
+    \end{equation}
+    Compare the coefficients of $t^l$, we obtain,
+    \begin{equation}\label{6.3}
+        (l+1)P_{l+1}\left(z\right)-(2l+1)zP_l(z)+lP_{l-1}(z)=0.
+    \end{equation}
+    (2) \begin{equation}
+        \frac{\pa T}{\pa z}=\sum_{n=0}^{+\infty}P_{l}'(z)t^l.
+    \end{equation}
+    \begin{equation}
+        \frac{\pa }{\pa z}\left(\frac{1}{\sqrt{1-2tz+t^2}}\right)=\frac{t}{1-2zt+t^2}T.
+    \end{equation}
+    Hence,
+    \begin{equation}\label{6.6}
+        P'_{l+1}-2zP'_l+P'_{l-1}=P_l.
+    \end{equation}
+    (3) $l\times$\eqref{6.6}$-\frac{\dd}{\dd{z}}$ \eqref{6.3}:
+    \begin{equation}\label{6.7}
+        zP'_l-P'_{l-1}=lP_l.
+    \end{equation}
+    \eqref{6.6}$+$\eqref{6.7}:
+    \begin{equation}
+        P'_{l+1}-zP'_l=(l+1)P_l.
+    \end{equation}
+
+\end{problem}
 \end{document}

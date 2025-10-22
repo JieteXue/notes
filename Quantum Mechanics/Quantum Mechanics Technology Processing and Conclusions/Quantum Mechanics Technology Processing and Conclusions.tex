@@ -962,7 +962,7 @@ Orbital angular momentum is defined as
 \end{equation}
 Easy to check that $\mathbf{L}$ satisfies \eqref{13.7}.
 Expand $\mathbf{L}^2$:
-\begin{equation}
+\begin{equation}\label{13.11}
 \begin{aligned}
 \mathbf{L}^2 &= \sum_{ijlmk} \varepsilon_{ijk}x_i p_j \varepsilon_{lmk}x_l p_m \\
 &= \sum_{ijlm} (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl})x_i p_j x_l p_m \\
@@ -998,7 +998,11 @@ Then, project on $\hat{\mathbf{x}},\hat{\mathbf{y}},\hat{\mathbf{z}}$, we obtain
     &\bra{\mathbf{x}}L_y\ket{\alpha}=&-\ii \hbar \left(\cos \phi \pdv{\theta}-\cot\theta\sin\phi \pdv{\phi}\right)\braket{\mathbf{x}}{\alpha},\\
     &\bra{\mathbf{x}}L_\pm\ket{\alpha}=&-\ii\hbar \ee^{\pm \ii \phi}\left(\pm \ii\frac{\pa}{\pa \theta}-\cot \theta\frac{\pa}{\pa \phi}\right)\braket{\mathbf{x}}{\alpha}.\label{13.20}
 \end{eqnarray}
-Where, $L_\pm=L_x\pm \ii L_y$.
+Where, $L_\pm=L_x\pm \ii L_y$. \eqref{13.11} gives the fact that 
+\begin{equation}
+    \bra{\mathbf{x}}\mathbf{L}^2\ket{\alpha}=-r^2\hbar^2\nabla^2_{\theta,\phi}\braket{\mathbf{x}}{\alpha}.
+\end{equation}
+$\nabla_{\theta,\phi}$ is the laplacian in spherical coordinates, but without the term of $r$.
 
 
 \subsection{Eigen Value}
@@ -1043,7 +1047,7 @@ with $b_\mathrm{max}$ is positive, and that the allowed values of $b$ lie within
 \begin{equation}
     b_\mathrm{max}=\frac{n\hbar}{2}\equiv j\hbar,
 \end{equation}
-where $j$ is either an integer or a half-integer, then 
+where $j$ is either an integer or a half-integer\footnote{If it represent the orbital angular momentum, we will denote $j$ as $l$, and $l$ can only take integer number, since the following will show the factor $\ee^{\ii l\phi}$, and it must admit $2\pi$ as a period.}, then 
 \begin{equation}
     a=\hbar^2 j(j+1).
 \end{equation}
@@ -1111,6 +1115,7 @@ To find the amplitude for being found in $\ket{j,m}$ , we simply expand the rota
 
 
 \subsection{Spherical Harmonics}
+\footnote{\href{run:Spherical Functions.pdf alias}{Spherical Functions.}}
 Let us consider a problem with spherical symmetry, we can consider
 \begin{equation}
     \bra{\hat{\mathbf{n}}}\ket{l,m}=Y_l^m(\hat{\mathbf{n}})=Y_l^m\left(\theta,\phi\right),
@@ -1141,5 +1146,8 @@ So,
     Y_l^l\left(\theta,\phi\right)=c_l\ee^{\ii l\phi}\sin^l\theta.
 \end{equation}
 Use \eqref{13.48} to normalize,
-
+\begin{equation}
+    \int_{0}^{\pi}\sin^{2l}\theta \sin\theta \dd{\theta}=B\left(l+1,\frac{1}{2}\right)=\frac{\Gamma\left(l+1\right)\Gamma\left(\frac{1}{2}\right)}{\Gamma\left(l+\frac{3}{2}\right)}.
+\end{equation}
+Then we can use the ladder operator to get $Y_l^m$. Check details in the reference.
 \end{document}

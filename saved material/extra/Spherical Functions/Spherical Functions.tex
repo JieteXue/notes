@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{.}{\newline}{}
+\newtheoremstyle{2}{0}{0}{}{}{\texttt}{.}{\newline}{}
+\theoremstyle{1}
+\newtheorem{definition}{Definition}
+\newtheorem{property}{Property}
+\theoremstyle{2}
+\newtheorem*{proof_env}{Proof}
+\newcommand{\pa}{\partial}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\begin{document}
+\begin{center}
+    \huge{\textbf{Spherical Functions}}
+\end{center}
+
+\section{Legendre Polynomial}
+\begin{equation}\label{1}
+    P_l(x)=\sum_{n=0}^l\frac{1}{\left(n!\right)^2}\frac{\left(l+n\right)!}{\left(l-n\right)!}\left(\frac{x-1}{2}\right)^n.
+\end{equation}
+Where $l$ is a natural number.
+\subsection{Rodrigues Formula:}
+\begin{equation}\label{2}
+    P_l\left(x\right)=\frac{1}{2^ll!}\frac{\dd^l}{\dd{x^l}}\left(x^2-1\right)^l.
+\end{equation}
+\subsection{Differential Equation:}
+\begin{equation}
+    \frac{\dd}{\dd{x}}\left[\left(1-x^2\right)\frac{\dd{P_l(x)}}{\dd{x}}\right]+l(l+1)P_l(x)=0.
+\end{equation}
+We can get 
+\begin{equation}
+    P_l(1)=1
+\end{equation}
+via \eqref{1} and obtain 
+\begin{equation}
+    P_l(-x)=(-)^lP_l(x)
+\end{equation}
+from \eqref{2}.
+
+\subsection{Explicit Expression:}
+\begin{equation}
+    P_l(x)=\sum_{k=0}^{\left[l/2\right]}(-)^k\frac{\left(2l-2k\right)!}{2^lk!\left(l-k\right)!\left(l-2k\right)!}x^{l-2k}.
+\end{equation}
+So,
+\begin{equation}
+    P_{2l}(0)=(-)^l\frac{(2l)!}{\left(2^ll!\right)^2},\quad P_{2l+1}(0)=0.
+\end{equation}
+\subsection{Orthogonal Completeness}
+\begin{equation}
+    \int_{-1}^{1}P_k(x)P_l(x)\dd{x}=\frac{2}{2l+1}\delta_{kl}.
+\end{equation}
+\subsection{Generating Function}
+\begin{equation}\label{9}
+    \frac{1}{\sqrt{1-2xt+t^2}}=\sum_{l=0}^{\infty}P_l(x)t^l,\quad \left|t\right|<\min\left|x\pm\sqrt{x^2-1}\right|.
+\end{equation}
+\subsection{Recursive Relation}
+Use \eqref{9} to get
+\begin{equation}
+    (2l+1)xP_l(x)=(l+1)P_{l+1}(x)+lP_{l-1}(x),
+\end{equation}
+and 
+\begin{equation}
+    P_{l}(x)=P_{l+1}'(x)-2xP_l'(x)+P_{l-1}(x),
+\end{equation}
+\begin{equation}
+    P_{l+1}'(x)=xP_l'(x)+\left(l+1\right)P_l(x),
+\end{equation}
+
+
+\section{Associated Legendre Function}
+\subsection{Differential Equation}
+\begin{equation}
+    \frac{\dd}{\dd{x}}\left[(1-x^2)\frac{\dd}{\dd{x}}P_l^m(x)\right]+\left[l(l+1)-\frac{m^2}{1-x^2}\right]P_l^m(x)=0,
+\end{equation}
+where, $m\le l$ are natural numbers. We have the solution
+\begin{equation}
+    P_l^m(x)=(-)^m(1-x^2)^\frac{m}{2}\frac{\dd^m}{\dd{x}}P_l(x),
+\end{equation}
+\begin{equation}
+    P_l^{-m}(x)=(-)^m\frac{(l-m)!}{(l+m)!}P_l^m(x).
+\end{equation}
+\subsection{Orthogonal Relation}
+\begin{equation}
+    \int_{-1}^{1}P_l^m(x)P_k^m(x)\dd{x}=\frac{(l+m)!}{(l-m)!}\frac{2}{2l+1}\delta_{lk},
+\end{equation}
+\section{Spherical Harmonics}
+Special Harmonic functions are the normalized associated Legendre functions.
+\begin{equation}
+    Y_l^m\left(\theta,\phi\right)=\sqrt{\frac{2l+1}{4\pi}\frac{\left(l-m\right)!}{\left(l+m\right)!}}P_l^m\left(\cos \theta\right) \ee^{\ii m\phi}.
+\end{equation}
+\subsection{Orthogonal Relation}
+\begin{equation}
+    \int_{0}^{2\pi}\dd{\phi}\int_{0}^{\pi}Y_{l'}^{m'}\left(\theta,\phi\right){Y^m_l}^*\left(\theta,\phi\right)\sin\theta\dd{\theta}=\delta_{ll'}\delta_{mm'},
+\end{equation}
+\subsection{Parity}
+Under the transformation of $\mathbf{r}\rightarrow -\mathbf{r}$, 
+\begin{equation}
+    Y_l^m\left(\pi-\theta,\phi+\pi\right)=\left(-1\right)^mY_l^m\left(\theta,\phi\right).
+\end{equation}
+\subsection{Addition Theorem}
+\begin{equation}
+    P_l\left(\hat{\mathbf{n}}\cdot\hat{\mathbf{n}}'\right)=\frac{4\pi}{2l+1}\sum_{m=-l}^{l}{Y_l^m}^*\left(\hat{\mathbf{n}}\right)Y_l^m\left(\hat{\mathbf{n}}'\right).
+\end{equation}
+\end{document}
