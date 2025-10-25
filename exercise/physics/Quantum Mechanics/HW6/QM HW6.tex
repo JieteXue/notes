@@ -279,9 +279,119 @@ That is
         zP'_l-P'_{l-1}=lP_l.
     \end{equation}
     \eqref{6.6}$+$\eqref{6.7}:
-    \begin{equation}
+    \begin{equation}\label{6.8}
         P'_{l+1}-zP'_l=(l+1)P_l.
     \end{equation}
+    (4) \eqref{6.7}:$l\rightarrow l+1$, \eqref{6.8}$\times z$:
+    \begin{equation}
+        (z^2-1)P_l'=(l+1)(P_{l+1}-zP_l).
+    \end{equation}
+    So, 
+    \begin{equation}
+        \frac{\dd}{\dd{z}}\left[(1-z^2)\frac{\dd}{\dd{z}}P_l\right]=(l+1)\frac{\dd}{\dd{z}}\left(zP_l-P_{l+1}\right)=(l+1)(P_l+zP_l'-P_{l+1}').
+    \end{equation}
+    Plug in \eqref{6.8}, we obtain
+    \begin{equation}\label{6.11}
+        \frac{d}{dz} \left[ (1 - z^2) \frac{\dd P_l(z)}{\dd z} \right] + l(l + 1)P_l(z) = 0
+    \end{equation}
+    By \eqref{6.11}
+    \begin{equation}\label{6.12}
+        \dv{z} \left[ (1 - z^2) \left( P_n \dv{P_m}{z} - P_m \dv{P_n}{z} \right) \right] + \left[m(m+1) - n(n+1)\right] P_m P_n = 0
+    \end{equation}
+    Since $\left[1-z^2\right]_{z=\pm 1}=0$, the first term in \eqref{6.12} will be zero after integrating. So the second term must be zero after integrating if $n\not=m$, exact,
+    \begin{equation}
+        \int_{-1}^{1}P_n(z)P_m(z)=0,\quad n\not=m.
+    \end{equation}
+    (5) By \eqref{6.3}, 
+    \begin{equation}
+        lP_l-(2l-1)zP_{l-1}+(l-1)P_{l-2}=0,\quad zP_l=\frac{(l+1)P_l+lP_{l-1}}{2l+1}.
+    \end{equation}
+    Multiplying both sides by $P_l$, and integrate, we obtain,
+    \begin{equation}
+        l\int_{-1}^{1}P_l^2\dd{z}=(2l-1)\int_{-1}^{1}zP_[l-1]P_{l}\dd{z}=\frac{l(2l-1)}{2l+1}\int_{-1}^{1}P_{l-1}^2\dd{z}.
+    \end{equation}
+    Thus,
+    \begin{equation}
+        (2l+1)\int_{-1}^{1}P_l^2(z)\dd{z}=(2(l-1)+1)\int_{-1}^{1}P_{l-1}^2(z)\dd{z}=\int_{-1}^{1}P_0^2(z)\dd{z}=2.
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        \int_{-1}^{1}P_{l}^2(z)\dd{z}=\frac{2}{2l+1}.
+    \end{equation}
+    
+\end{problem}
+\begin{problem}[Associated Legendre Polynomials]
+    (1) 
+    \begin{equation}
+        \dv{z} P^{|m|}_l=\left(1-z^2\right)^{\frac{|m|}{2}-1}\left[(1-z^2)\frac{\dd^{|m|+1}}{\dd{z^{|m|+1}}}P_l-z|m|\frac{\dd^{|m|}}{\dd{z}^{|m|}}P_l\right].
+    \end{equation}
+    \begin{equation}
+        \frac{\dd^{|m|}}{\dd{z}^{|m|}}\left[(1-z^2)\frac{\dd{P_l}}{\dd{z}}\right]=(1-z^2)\frac{\dd^{|m|}}{\dd{z}^{|m|}}P_l-2|m|z\frac{\dd^{|m|-1}}{\dd{z}^{|m|-1}}\frac{\dd{P_l}}{\dd{z}}-|m|(|m|-1)\frac{\dd^{|m|-2}}{\dd{z}^{|m|-2}}\frac{\dd{P_l}}{\dd{z}}.
+    \end{equation}
+    By \eqref{6.11},
+    \begin{equation}
+        -l(l+1)\frac{\dd^{|m|}}{\dd{z}^{|m|}}P_l=\dv{z}\frac{\dd^{|m|}}{\dd{z}^{|m|}}\left[(1-z^2)\frac{\dd{P_l}}{\dd{z}}\right].
+    \end{equation}
+    So,
+    \begin{equation}
+        \frac{\dd}{\dd z } \left[ (1 - z^2) \frac{\dd}{\dd z} P_l^{|m|}(z) \right] + \left[ l(l + 1) - \frac{m^2}{1 - z^2} \right] P_l^{|m|}(z) = 0.
+    \end{equation}
+    (2) {\small
+    \begin{equation}
+        \dv{z}\left[(1-z^2)\left(\dv{z}P_l^{|m|}P_{l'}^{|m|}-P_l^{|m|}\dv{z}P_{l'}^{|m|}\right)\right]+\left[l(l+1)-l'(l'+1)\right]P_l^{|m|}P_{l'}^{|m|}=0.
+    \end{equation}}
+    So,
+    \begin{equation}
+        \int_{-1}^{1}P_l^{|m|}P_{l'}^{|m|}\dd{z}=0.
+    \end{equation}
+\end{problem}
+\begin{problem}[Laguerre polynomials]
+    (3) One has 
+    \begin{equation}
+        \frac{\pa U}{\pa u}=\sum_{m=0}^{+\infty}\frac{L_{m+1}(\xi)}{m!}u ^m.
+    \end{equation}
+    \begin{equation}
+        \frac{\pa}{\pa u}\left[\frac{1}{1-u}e^{-\frac{\xi u}{1-u}}\right]=\frac{1}{1-u}e^{-\frac{\xi u}{1-u}}\frac{\pa}{\pa u}\ln\left[\frac{1}{1-u}e^{-\frac{\xi u}{1-u}}\right]=U\frac{1-u-\xi}{(1-u)^2}.
+    \end{equation}
+    Hence,
+    \begin{equation}\label{8.3}
+        L_{m+1}(\xi)+\left(\xi-2m-1\right)L_m(\xi)+m^2L_{m-1}(\xi)=0.
+    \end{equation}
+    \begin{equation}
+        \frac{\pa U}{\pa \xi}=U\frac{\pa}{\pa \xi}\ln U=U\frac{-u}{1-u},
+    \end{equation}
+    so,
+    \begin{equation}\label{8.5}
+        L'_m(\xi)-mL_{m-1}'(\xi)+mL_{m-1}(\xi)=0.
+    \end{equation}
+    (4) Derivative of \eqref{8.3} shows that 
+    \begin{equation}
+        L_{m+1}'+L_m+(\xi -1-2m)L_m'+m^2L_{m-1}'=0.
+    \end{equation}
+    By \eqref{8.5} and \eqref{8.3}
+    \begin{equation}
+        L_{m+1}'-L_{m+1}+(2m+2-\xi)L_m+(\xi -1-m)L_m'=0,
+    \end{equation}
+    \begin{equation}
+        L''_{m+1}-L_{m+1}'+L_m'(2m+2-\xi)+(\xi-1-m)L_m''=0.
+    \end{equation}
+    Plug in \eqref{8.5} after $m\rightarrow m+1$:
+    \begin{equation}
+        \xi L_m''+(1-\xi)L_m'+(m+1)L_m=0.
+    \end{equation}
+    (5) 
+    \begin{equation}
+        \frac{\dd^s}{\dd{\xi}^s}\left[\xi L_m''(\xi)\right]=s\frac{\dd^{s-1}}{\dd{\xi}^{s-1}}\left[L_m''(\xi)\right]+\xi\frac{\dd^s}{\dd{\xi}^s}\left[\xi L_m''(\xi)\right].
+    \end{equation}
+    \begin{equation}
+        \frac{\dd^s}{\dd{\xi}^s}\left[(1-\xi) L_m'(\xi)\right]=-s\frac{\dd^{s-1}}{\dd{\xi}^{s-1}}\left[L_m'(\xi)\right]+(1-\xi)\frac{\dd^s}{\dd{\xi}^s}\left[\xi L_m'(\xi)\right].
+    \end{equation}
+    Therefore,
+    \begin{equation}
+        \xi {L_m^s}''(\xi)+\left(s+1-\xi\right){L_m^s}'(\xi)+\left(m-s\right) L_m^s(\xi)=0.
+    \end{equation}
+
+
 
 \end{problem}
 \end{document}
