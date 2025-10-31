@@ -1,0 +1,125 @@
+\documentclass{article}
+\newcommand{\mydate}{October 26, 2025}
+\newcommand{\mytitle}{QM HW7}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{tikz}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+
+\begin{document}
+\maketitle
+\begin{problem}[Hydrogen atom wavefunction]
+(1) 
+\begin{equation}
+    \psi_{n_r,l,m}=R_{n_r,l}(r)Y_{l}^m(\theta,\phi),
+\end{equation}
+where, $Y_l^m$ is the spherical harmonics and 
+\begin{equation}
+    R_{n_R,l}(r)\sim \rho^l \ee^{-\frac{\rho}{2}}L_{n_r}^{2l+1}(\rho),
+\end{equation}
+\begin{equation}
+    \rho=\frac{2r}{na_0},\ a_0 \text{is a constant.}
+\end{equation}
+\begin{equation}
+    E_n=\frac{E_0}{n^2}.
+\end{equation}
+
+
+\end{problem}
+\begin{problem}[Gaussian orbital approximation]
+    (1) 
+    \begin{equation}
+        \psi_{1s}(\mathbf{r})=\frac{1}{\sqrt{\pi a^3}}\ee^{-\frac{r}{a}},\ \psi_{1s}^G(\mathbf{r})=\sqrt{\frac{2\sqrt{2}}{\pi^\frac{3}{2}\lambda^3}}\ee^{-\frac{r^2}{\lambda^2}}.
+    \end{equation}
+    \begin{equation}
+    \begin{aligned}
+            \mathrm{Err}(\lambda)&=4\pi\int_{0}^{+\infty}\left|\frac{1}{\sqrt{\pi a^3}}\ee^{-\frac{r}{a}}-\sqrt{\frac{2\sqrt{2}}{\pi^\frac{3}{2}\lambda^3}}\ee^{-\frac{r^2}{\lambda^2}}\right|^2\dd{r}\\
+            &=2-\sqrt{\frac{128\sqrt{2}}{\sqrt{\pi}a^3\lambda^3}}\ee^{\left(\frac{\lambda}{2a}\right)^2}\int_{0}^{+\infty}\ee^{-\left(\frac{r}{\lambda}+\frac{\lambda}{2a}\right)^2}\dd{r}.
+    \end{aligned}
+    \end{equation}
+    
+\end{problem}
+
+\begin{problem}[2D hydrogen atom]
+Let $\psi=R(r)\ee ^{\ii n \phi}$, then the Schröedinger equation is
+\begin{equation}
+    R''+\frac{1}{\rho}R'-\frac{n^2}{\rho^2}R+\left(\frac{\lambda}{\rho}-\frac{1}{4}\right)R=0,
+\end{equation}
+where,
+\begin{equation}
+    \kappa^2=-\frac{2mE}{\hbar^2},\ \rho=2\kappa r,\ \lambda=\frac{me^2}{\hbar^2 \kappa}.
+\end{equation}
+Considering the tendency at $\rho\rightarrow\infty$ and $\rho\rightarrow 0$, we have the form of $R$ as
+\begin{equation}
+    R(\rho)=\rho^{|n|}e^{-\frac{\rho}{2}}w(\rho).
+\end{equation}
+Then, $w(\rho)$ satisfies confluent hypergeometric equation:
+\begin{equation}
+    \rho w''+\left(2|n|+1-\rho\right)w'+\left(\lambda-|n|-\frac{1}{2}\right)w=0.
+\end{equation}
+When
+\begin{equation}
+    \lambda=n_r+|n|+\frac{1}{2}, \text{ with } n_r \text{ a natural number}
+\end{equation}
+the solution is a polynomial. So 
+\begin{equation}
+    E_n= -\frac{me^4}{2\hbar^2\left(N+\frac{1}{2}\right)^2}.
+\end{equation}
+where $N=n_r+|n|$. The degeneracy is $2N+1$. In 3D case, the energy is related to a integer with power of $-2$, and has a degeneracy of $n^2$.
+\end{problem}
+\begin{problem}[Edge spectrum of the edge state of QHE]
+    
+\end{problem}
+\begin{problem}[Schwinger boson representation of angular momentum]
+    (1) 
+    \begin{equation}
+        [J_\mu,J_\nu]=\frac{1}{4}\sigma_{\alpha\beta}^{\mu}\sigma_{\rho\lambda}^{\nu}[a_\alpha^\dagger a_\beta,a_\rho^\dagger a_\lambda].
+    \end{equation}
+    \begin{equation}
+        [a\alpha^\dagger a_\beta,a_\rho^\dagger a_\lambda]=a_\alpha^\dagger a_\lambda\delta_{\beta\rho}-a_\beta^\dagger a_\rho\delta_{\alpha\lambda}.
+    \end{equation}
+    So,
+    \begin{equation}
+        [J_\mu,J_\nu]=\frac{1}{4}a_\alpha^\dagger a_\beta[\sigma^\mu,\sigma^\nu]_{\alpha\beta}=\ii\epsilon_{\mu\nu\lambda}\frac{1}{2}a_\alpha^\dagger \sigma_{\alpha\beta}^\lambda a_\beta=\ii \epsilon_{\mu\nu\lambda}J_\lambda .
+    \end{equation}
+    (2) 
+    \begin{equation}
+        \sigma_{\alpha\beta}^\mu\sigma_{\rho\lambda}^\mu=2\delta_{\alpha\lambda}\delta_{\beta\rho}-\delta_{\alpha\beta}\delta_{\rho\lambda}.
+    \end{equation}
+\end{problem}
+\end{document}

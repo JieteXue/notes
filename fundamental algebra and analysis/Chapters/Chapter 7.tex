@@ -41,7 +41,7 @@ If $\mathcal{F}$ is a non-degenerate filter such that, for any non-degenerate fi
     $$\mathcal{F}_S:=\{U\in \wp(X)\mid \exists n\in \NN_{\ge 1}, \exists(A_1,\dots,A_n)\in S^n, A_1\cap\cdots\cap A_n\subseteq U\}.$$
 \end{propositionenv}
 \begin{proofenv}
-    Denote by $\mathcal{F}_S'$ the set on the right hand side of the equality. One has $\mathcal{F}_S'\subseteq \mathcal{F}_S$. It remains to check that $\mathcal{F}_S'$ is a filter containing $S$. By definition, $S\subseteq \mathcal{F}_S'$. If $(U,V)\in \mathcal{ F}_S'^2, \exists A_1,\dots,A_n,B_1,\dots,B_n\in S, A_1\cap\cdots\cap A_n\subseteq U, B_1\cap\cdots\cap B_n\subseteq V$, so $A_1\cap\cdots\cap A_n\cap B_1\cap\cdots\cap B_n\subseteq U\cap V$. If $W\supseteq U$, then $A_1\cap\cdots\cap A_n\subseteq W$, so $W\in \mathcal{F}_S'$.
+    Denote by $\mathcal{F}_S'$ the set on the right hand side of the equality. One has $\mathcal{F}_S'\subseteq \mathcal{F}_S$\footnote{$A_i\in S\subseteq\mathcal{F}_S$. Since $\mathcal{F}_S$ is a filter $U\in \mathcal{F}_S$.} . It remains to check that $\mathcal{F}_S'$ is a filter containing $S$. By definition, $S\subseteq \mathcal{F}_S'$. If $(U,V)\in \mathcal{ F}_S'^2, \exists A_1,\dots,A_n,B_1,\dots,B_n\in S, A_1\cap\cdots\cap A_n\subseteq U, B_1\cap\cdots\cap B_n\subseteq V$, so $A_1\cap\cdots\cap A_n\cap B_1\cap\cdots\cap B_n\subseteq U\cap V$. If $W\supseteq U$, then $A_1\cap\cdots\cap A_n\subseteq W$, so $W\in \mathcal{F}_S'$.
 \end{proofenv}
 \begin{definitionenv}
     We say that a subset $S$ of $\wp(X)$ is a \textbf{filter basis} if, for any $(A,B)\in S\times S$, there exists $C\in S$, such that $C\subseteq A\cap B$.\footnote{If $n\in \NN_{\ge 1}$ and $(A_1,\dots,A_n)\in S^n,\exists C\in S$ such that $C\subseteq A_1\cap \dots\cap A_n$.}

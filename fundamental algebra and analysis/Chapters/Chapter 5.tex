@@ -169,7 +169,7 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     Let $(M, *)$ be a monoid,  $H\subseteq M$ be a non-empty subset. Suppose that any element of $H$ is invertible in $M$ ,  and ($\forall x, y \in H, (x, y)\mapsto x*\iota(y)$),  if $\forall x, y\in H,  x*\iota(y)\in H$,  then $H$ is a submonoid of $M$. Moreover,  $H$ equipped with the restriction of $*$ forms a group $(H, *|_H)$. 
 \end{propositionenv}
 \begin{proofenv}
-    Let $e$ be the neutral element of $(M, *)$. Let $a\in H$,  then $e=a\circ\iota(a)\in H$. For any $y\in H$,  one has $\iota(y)=e*\iota(y)\in H$. For any $(x, y)\in H^2$,  $x*y=x*\iota(\iota(y))\in H$. Hence $H$ is closed under $*$ and it contains the neutral element. Also,  $\forall y\in H,  \iota(y)\in H$,  hence $H$ is group. 
+    Let $e$ be the neutral element of $(M, *)$. Let $a\in H$,  then $e=a*\iota(a)\in H$. For any $y\in H$,  one has $\iota(y)=e*\iota(y)\in H$. For any $(x, y)\in H^2$,  $x*y=x*\iota(\iota(y))\in H$. Hence $H$ is closed under $*$ and it contains the neutral element. Also,  $\forall y\in H,  \iota(y)\in H$,  hence $H$ is group. 
 \end{proofenv}
 \begin{corollaryenv}
     Let $(M, *)$ be a monoid,  $G$ be the set of all invertible element in $M$. Then $G$ is a submonoid. Moreover,  $G$ equipped with the restriction of $*$ forms a group.
@@ -192,17 +192,17 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     Then $H$ is a subgroup of $M^\times$.
 \end{propositionenv}
 \begin{proofenv}
-    Let $e$ be the neutral element of $(M, *)$.By Proposition\ref{proposition5.3.1},  we obtain that $H$ forms a submonoid of $M^\times$.Moreover,  $\forall x \in H$,  one has $\iota(x)=e*\iota(x)\in H$.So $H$ is a subgroup of $M^\times$.
+    Let $e$ be the neutral element of $(M, *)$. By Proposition\ref{proposition5.3.1},  we obtain that $H$ forms a submonoid of $M^\times$.Moreover,  $\forall x \in H$,  one has $\iota(x)=e*\iota(x)\in H$.So $H$ is a subgroup of $M^\times$.
 \end{proofenv}
 \begin{propositionenv}
     Let $(G, *)$ be a semigroup (resp. monoid, group),  $(H_i)_{i\in I}$ be a family of subsemigroups (resp. submonoids, subgroups), where $I$ is a non-empty set. Then 
     $$H:=\bigcap_{i\in I}H_i$$
-    is a subsemigroup (resp.submonoid, subgroup) of $G$.
+    is a subsemigroup (resp. submonoid, subgroup) of $G$.
 \end{propositionenv}
 \begin{proofenv}
     \quad\newline
     For semigroup case, let $x, y\in H$ then $x, y\in H_i, \forall i \in I$.Then $x*y\in H_i, \forall i \in I $,  thus 
-    $$x*y\in \cap_{i\in I}H_i=H.$$
+    $$x*y\in \bigcap_{i\in I}H_i=H.$$
     For monoid case, the neutral element $e$ of $G$ satisfies
     $$e \in H_i, \forall i \in I\Rightarrow e\in \bigcap_{i\in I}H_i=H.$$
     For group case, to check $x*\iota(y)\in H$ like above.
@@ -225,8 +225,10 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
 \begin{remark}
     Let $(M,*),(N,\star)$ be groups, we claim that if $\forall a,b\in M,f(a*b)=f(a)\star f(b)$, then $f(e_M)=e_N$ and $f(\iota(a))=\iota(f(a))$. 
     Let $b=e_M$, then 
-    {\small$$ f(e_M)=\left(\iota(f(a))\star f(a)\right)\star f(e_M)=\iota(f(a))\star\left( f(a)\star f(e_M)\right)=\iota(f(a))\star f(a)=e_N.$$
-    $$\iota(f(a))=\iota(f(a))\star e_N=\iota(f(a))\star\left(f(a)\star f(\iota(a))\right)=\iota(f(a))\star f(a)\star f(\iota(a))=f(\iota(a)).$$}
+    {\small
+    $$ f(e_M)=\left(\iota(f(a))\star f(a)\right)\star f(e_M)=\iota(f(a))\star\left( f(a)\star f(e_M)\right)=\iota(f(a))\star f(a)=e_N.$$
+    $$\iota(f(a))=\iota(f(a))\star e_N=\iota(f(a))\star\left(f(a)\star f(\iota(a))\right)=\iota(f(a))\star f(a)\star f(\iota(a))=f(\iota(a)).$$
+    }
     But for monoid,  we need $f(e_M)=e_N$.
 \end{remark}
 \begin{propositionenv}
@@ -235,7 +237,7 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     Let $f:(M, *)\rightarrow (N, \star)$ be a semigroup (resp. monoid, group) homomorphism. If $M_1$ is a subsemigroup (resp. submonoid, subgroup) of $M$,  then the image $f(M_1)$ is a subsemigroup (resp. submonoid, subgroup).
 \end{propositionenv}
 \begin{proofenv}
-    The semigroup case.Let $x, y\in f(M_1)$,  we may write $x=f(a), y=f(b), a, b\in M_1$
+    The semigroup case. Let $x, y\in f(M_1)$,  we may write $x=f(a), y=f(b), a, b\in M_1$
     $$x\star y=f(a)\star f(b)=f(a*b)\in f(M_1).$$
     The monoid case.We denote $e_M, e_N$ be the neutral elements of $M, N$
     $$e_M\in M_1, e_N=f(e_M)\in f(M_1).$$
@@ -251,10 +253,10 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     $$f:(\NN, \times)\rightarrow (\NN, \times), n\mapsto 0$$
     of two monoids, but is not a monoid homomorphism, and its image is $\{0\}$,  which is not a submonoid of $(\NN, \times)$.
     \newline
-    (2) Let $M$ be a semigroup (resp. monoid, group) and let $N$ be a subsemigroup (resp. submonoid, subgroup).Then the inclusion mapping $\jmath :N\rightarrow M$ is a semigroup (resp. monoid,  group) homomorphism.
+    (2) Let $M$ be a semigroup (resp. monoid, group) and let $N$ be a subsemigroup (resp. submonoid, subgroup). Then the inclusion mapping $\jmath :N\rightarrow M$ is a semigroup (resp. monoid,  group) homomorphism.
 \end{remark}
 \begin{propositionenv}\label{propositions5.4.2}
-    Let $(X, *)\overset{f}{\rightarrow} (Y, \star)\overset{g}{\rightarrow}(Z, \diamond ) $ be semigroup (resp. monoid,  group) homomorphisms.Then so does the composite mapping $g\circ f$.
+    Let $(X, *)\overset{f}{\rightarrow} (Y, \star)\overset{g}{\rightarrow}(Z, \diamond ) $ be semigroup (resp. monoid,  group) homomorphisms. Then so does the composite mapping $g\circ f$.
 \end{propositionenv}
 \begin{proofenv}
     The semigroup case.
@@ -268,7 +270,7 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     $$(g\circ f)(\iota(x))=g(f(\iota(x)))=g(\iota(f(x)))=\iota((g\circ f)(x)).$$
 \end{proofenv}
 \begin{propositionenv}
-    Let $f:(X, *)\rightarrow (Y, \star)$ be a semigroup (resp.monoid,  group) homomorphism between semigroups (resp.monoids groups).If $f$ is bijective,  then its inverse mapping $f^{-1}:Y\rightarrow X$ is also a semigroup homomorphism (resp.monoid, group) 
+    Let $f:(X, *)\rightarrow (Y, \star)$ be a semigroup (resp.monoid,  group) homomorphism between semigroups (resp.monoids groups). If $f$ is bijective,  then its inverse mapping $f^{-1}:Y\rightarrow X$ is also a semigroup homomorphism (resp.monoid, group) 
 \end{propositionenv}
 \begin{proofenv}
     The semigroup case: Let $y_1, y_2\in Y$ and let $x_i=f^{-1}(y_i), \, i=1, 2$. Then 
@@ -285,7 +287,7 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
 \end{definitionenv}
 By Proposition \ref{propositions5.4.2},  a semigroup (resp.monoid group) homomorphism is a semigroup (resp.monoid , group) isomorphism if and only if $f$ is a bijection.
 \begin{propositionenv}
-    Let $(G, *)$ be a group.The inversion mapping $\imath :(G, *)\rightarrow(G, \hat{*})$ is a group isomorphism.
+    Let $(G, *)$ be a group. The inversion mapping $\imath :(G, *)\rightarrow(G, \hat{*})$ is a group isomorphism.
 \end{propositionenv}
 \section{Quotient}\label{5.5}
 \begin{definitionenv}

@@ -25,7 +25,7 @@ $\dagger$This chapter was first written in pre-course,  then added some sections
 
 \end{definitionenv}
 \begin{definitionenv}
-    Let $\thicksim$ be an equivalent relation on $X$.For any $x\in X$,  we call the set $$[x]:=\{y\in X|y\thicksim x\}$$ the equivalent class of $x$ under $\thicksim$, we denote by $X/\thicksim$ the set $\{[x]|x\in X\}$ of all equivalent class.It is a subset of $\wp (X)$.Moreover,  since $\forall x\in X, x\in [x] $,  one has $$X=\bigcup_{A\in X/\thicksim}A.$$
+    Let $\thicksim$ be an equivalent relation on $X$. For any $x\in X$,  we call the set $$[x]:=\{y\in X\mid y\thicksim x\}$$ the equivalent class of $x$ under $\thicksim$, we denote by $X/\thicksim$ the set $\{[x]\mid x\in X\}$ of all equivalent class.It is a subset of $\wp (X)$.Moreover,  since $\forall x\in X, x\in [x] $,  one has $$X=\bigcup_{A\in X/\thicksim}A.$$
 \end{definitionenv}
 \begin{propositionenv}
     $\forall (x, y)\in X\times X$,  either $[x]=[y]$ or $[x]\cap [y]=\varnothing$.
@@ -58,7 +58,7 @@ $\dagger$This chapter was first written in pre-course,  then added some sections
     then we say that $R$ is a \textbf{partial order} on $X$ and $(X, R) $ is a \textbf{partially ordered set}.If in addition , $\forall (x, y)\in X , xRy$ or $yRx$,  we say that $R$ is a \textbf{total order} and $(X, R)$ is totally ordered set. 
 \end{definitionenv}
 \begin{exampleenv}
-    $(\RR , \le)$ is a totally ordered set.$(\NN , |)$ is a partially ordered set.  
+    $(\RR , \le)$ is a totally ordered set.$(\NN , \mid )$ is a partially ordered set.  
 \end{exampleenv}
 \begin{definitionenv}
     Let $(X, \underline{R})$ be a partially ordered set. We denote by $R$ the binary relation on $X$ defined as:$$xRy \Leftrightarrow x\underline{R}y \wedge x\not=y, $$ we call $R$ the \textbf{strict partial order}(not a partial order) associated with $\underline{R}$.
@@ -71,7 +71,7 @@ $\dagger$This chapter was first written in pre-course,  then added some sections
     (2) $\subset $on$ \wp (X)$.
 \end{exampleenv}
 \begin{propositionenv}
-    $R$ is the strict partial order associated with some partial order iff.the following condition are satisfied:
+    $R$ is the strict partial order associated with some partial order if and only if the following condition are satisfied:
     \newline
     (1) Irreflexivity $\forall x\in X, x \cancel{R}x$.
     \newline
@@ -158,8 +158,8 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 \end{definitionenv}
 \begin{notationenv}\label{notation4.5.1}
     
-         Let $(X, \le)$ be a partially ordered set , $f:I\rightarrow X$ be a function.$$\mathrm{max}f(I), \mathrm{min}f(I), \mathrm{sup}f(I), \mathrm{inf}f(I)$$ are written as $$\mathrm{max}f, \mathrm{min}f, \mathrm{sup}f, \mathrm{inf}f.$$
-         Let $(X, \le)$ be a partially ordered set , and $(x_i)_{i\in I}\in X^I$, $$\mathrm{max}\{x_i|i\in I\}, \mathrm{min}\{x_i|i\in I\}, \mathrm{sup}\{x_i|i\in I\}, \mathrm{inf}\{x_i|i\in I\}$$ are denoted as $$\max _{i\in I}x_i, \min _{i\in I}x_i, \sup _{i\in I}x_i, \inf _{i\in I}x_i.$$
+         Let $(X, \le)$ be a partially ordered set, $f:I\rightarrow X$ be a function.$$\mathrm{max}f(I), \mathrm{min}f(I), \mathrm{sup}f(I), \mathrm{inf}f(I)$$ are written as $$\mathrm{max}f, \mathrm{min}f, \mathrm{sup}f, \mathrm{inf}f.$$
+         Let $(X, \le)$ be a partially ordered set, and $(x_i)_{i\in I}\in X^I$, $$\mathrm{max}\{x_i|i\in I\}, \mathrm{min}\{x_i|i\in I\}, \mathrm{sup}\{x_i|i\in I\}, \mathrm{inf}\{x_i|i\in I\}$$ are denoted as $$\max _{i\in I}x_i, \min _{i\in I}x_i, \sup _{i\in I}x_i, \inf _{i\in I}x_i.$$
     
 \end{notationenv}
 \begin{propositionenv}\label{proposition4.5.1}
@@ -167,20 +167,20 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     \newline
     Let $(X, \le)$ be a partially ordered set $(A, Z, Y)\in \wp (X)^3, A\subseteq Z\subseteq Y$.
     \newline
-   (1) If $\max A$ exists, then it is also the supremum of $A$ in $(Y, \le)$.So as infimum
+   (1) If $\max A$ exists, then it is also the supremum of $A$ in $(Y, \le)$. Resp. infimum
     \newline
     (2) If $\sup_{(Y, \le)}A$ exists and belongs to $Z$ , then it is also the supremum of $A$ in $(Z, \le)$. Resp. infimum.
 \end{propositionenv}
 \begin{proofenv}
     \quad \newline
-   (1) By definition, $\max A $ is an upper bound of $A$. Since $A\subseteq Y,  \max A \in Y$, Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $.Since $M$ is upper bound of $A$ and $\max A\in A, \max A\le M$ .Then $\max A=\min A_Y^\mathrm{u}$.
+   (1) By definition, $\max A $ is an upper bound of $A$. Since $A\subseteq Y,  \max A \in Y$, Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $. Since $M$ is upper bound of $A$ and $\max A\in A, \max A\le M$. Then $\max A=\min A_Y^\mathrm{u}$.
 \newline
-(2) Since $Z\subseteq Y, A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$, one has $\sup _{Y, \le}A\le M$.If $\sup_{(Y, \le)}A\in Z$, then $\sup_{(Y, \le)}A\in A_Z^\mathrm{u}$.Hence $\sup _{(Y, \le)}A=\min A_Z^\mathrm{u}$.
+(2) Since $Z\subseteq Y, A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$, one has $\sup _{Y, \le}A\le M$.If $\sup_{(Y, \le)}A\in Z$, then $\sup_{(Y, \le)}A\in A_Z^\mathrm{u}$. Hence $\sup _{(Y, \le)}A=\min A_Z^\mathrm{u}$.
 \end{proofenv}
 \begin{propositionenv}\label{proposition4.5.2}
     \quad
     \newline
-    Let $(X, \le )$ be a partially ordered set , $(A, B, Y)\in \wp (X)^3, A\subseteq B\subseteq Y$
+    Let $(X, \le )$ be a partially ordered set, $(A, B, Y)\in \wp (X)^3, A\subseteq B\subseteq Y$.
     \newline
     (1) If $\sup_{(Y, \le)}A$ and $\sup_{(Y, \le)}B$ exist,  then $$\sup_{(Y, \le)}A \le \sup_{(Y, \le)}B.$$
     \newline
@@ -193,14 +193,14 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     (1) $\forall x\in A$, since $A\subseteq B, x\in B \le \sup B$, by definition,  $\sup B$ is an upper bound of $A$, $\sup B\in A_Y^\mathrm{u}$.$\sup A$ is the least in $A_Y^\mathrm{u}$. Hence, $\sup_{(Y, \le)}A \le \sup_{(Y, \le)}B$.
 \end{proofenv}
 \begin{propositionenv}\label{proposition4.5.3}
-    Let $(X, \le )$ be a partially ordered set , $f, g$ be elements of $X^I$ where $I$ is a set .Suppose that , $\forall i\in  I , f(i)\le g(i)$
+    Let $(X, \le )$ be a partially ordered set, $f, g$ be elements of $X^I$ where $I$ is a set. Suppose that, $\forall i\in  I , f(i)\le g(i)$
  \newline
- (1) If $\sup f, \sup g$ exist , then $\sup f\le\sup g$.
+ (1) If $\sup f, \sup g$ exist, then $\sup f\le\sup g$.
  \newline
  (2) Resp. infimum.
 \end{propositionenv}
 \begin{proofenv}
-    $\forall t\in I, f(t)\le g(t)\le \sup g$, hence $\sup g$ is an upper bound of $f$.Since $\sup f $ is a the least upper bound of $f(i)$, $\sup f\le\sup g$.
+    $\forall t\in I, f(t)\le g(t)\le \sup g$, hence $\sup g$ is an upper bound of $f$. Since $\sup f $ is a the least upper bound of $f(i)$, $\sup f\le\sup g$.
 \end{proofenv}
 \begin{propositionenv}
     Let $I$ be a totally ordered set $J\subseteq I $, and $f:I\rightarrow X $ be a mapping. Assume that $J$ does not have any upper bound in $I$.
@@ -212,17 +212,17 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 \begin{proofenv}
     \quad 
     \newline
-    (1) $f(J)\subseteq f(I)$ Any upper bound of $f(I)$ is also an upper bound of $f(J)$, hence $f(I)^\mathrm{u}\subseteq f(J)^\mathrm{u}$.Let $M\in f(J)^\mathrm{u}$, for any $i\in I, \exists j\in J, i<j$. Hence $f(i)\le f(j)\le M$ .So $M\in f(I)^\mathrm{u}$, $f(J)^\mathrm{u}\subseteq f(I)^\mathrm{u}$.Therefore, $f(I)^\mathrm{u}=f(J)^\mathrm{u}$.
+    (1) $f(J)\subseteq f(I)$ Any upper bound of $f(I)$ is also an upper bound of $f(J)$, hence $f(I)^\mathrm{u}\subseteq f(J)^\mathrm{u}$. Let $M\in f(J)^\mathrm{u}$, for any $i\in I, \exists j\in J, i<j$. Hence $f(i)\le f(j)\le M$. So $M\in f(I)^\mathrm{u}$, $f(J)^\mathrm{u}\subseteq f(I)^\mathrm{u}$. Therefore, $f(I)^\mathrm{u}=f(J)^\mathrm{u}$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $(X, \le)$ be a partially ordered set , $Y\subseteq X, I$ be a set,  and $(A_i)_{i\in I}\in \wp (Y)^I$ .Let $A=\bigcup _{i\in I}A_i$
+    Let $(X, \le)$ be a partially ordered set , $Y\subseteq X, I$ be a set,  and $(A_i)_{i\in I}\in \wp (Y)^I$. Let $\dis A=\bigcup _{i\in I}A_i$
     \newline
-    (1) Suppose that , $\forall i \in I, A_i$ has a supremum $y_i$ in $(Y, \le)$ and $\{y_i|i\in I\}$ has a supremum in $(Y, \le)$. Then $A$ has a supremum in $(Y, \le )$ and $$\sup_{(Y, \le)}A=\sup_{(Y, \le)}\{y_i|i\in I\}.$$
+    (1) Suppose that , $\forall i \in I, A_i$ has a supremum $y_i$ in $(Y, \le)$ and $\{y_i\mid i\in I\}$ has a supremum in $(Y, \le)$. Then $A$ has a supremum in $(Y, \le )$ and $$\sup_{(Y, \le)}A=\sup_{(Y, \le)}\{y_i\mid i\in I\}.$$
     \newline
     (2) Resp. inf.
 \end{propositionenv}
 \begin{proofenv}
-    Let $y=\sup_{(Y, \le)}\{y_i|i\in I\}, \forall a\in A , \exists i\in I, a\in A_i$. Hence $a\le y_i\le y$. Thus $y $ is an upper bound of $A$ in $Y$.Let $M\in A_Y^\mathrm{u}, \forall i \in I, M\in (A_i)_Y^\mathrm{u}$,  So $y_i \le M $ We then deduce that $y\le M$.
+    Let $y=\sup_{(Y, \le)}\{y_i\mid i\in I\}, \forall a\in A , \exists i\in I, a\in A_i$. Hence $a\le y_i\le y$. Thus $y $ is an upper bound of $A$ in $Y$.Let $M\in A_Y^\mathrm{u}, \forall i \in I, M\in (A_i)_Y^\mathrm{u}$,  So $y_i \le M $ We then deduce that $y\le M$.
 \end{proofenv}
 \begin{propositionenv}
     Let $(X, \le)$ be a partially ordered set , $Y\subseteq X$.$$\varnothing_Y^\mathrm{u}=\varnothing_Y^\mathrm{l}=Y.$$
@@ -231,7 +231,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 
 \section{Intervals}
 
-\begin{definitionenv}
+\begin{definitionenv}[Intervals]
     Let $(X, \le)$ be a partially ordered set.$\forall (a, b)\in X^2$,  let 
     $$[a, b]:=\{x\in X|a\le x\le b \}, $$
      $$\interval[open right]{a}{b}:=\{x\in X|a\le x <b\}.$$ 
@@ -252,7 +252,8 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     If $b\le x$,  then $[a, b]\subseteq [a, x]\subseteq I_\alpha$,  if $x\le a $,  then $[a, b]\subseteq [x, b]\subseteq I_\beta$. Suppose that $a<x<b$,  one has $[a, b]=[a, x]\cup[x, b]$ and so on ,  $[a, b]=[a, x]\cup[x, b]\subseteq I_\alpha\cup I_\beta \subseteq J$.
 
 \end{proofenv}
-\begin{definitionenv}
+\begin{definitionenv}[Endpoints]
+    \ \newline
     Let $(X, \le )$ be a partially ordered set and $I $ be a non-empty interval in $X$. 
     \newline
     If $\sup I$ exists,  we call it the right endpoint of $I$.
@@ -266,11 +267,8 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
    \newline
    (2) Suppose that $I$ has a infimum $b$ in $X, \forall x\in I, \interval[open left]{b}{x}\subseteq I$.
 \end{propositionenv}
-\begin{remark}
-    totally ordered set condition is used to prove (2)
-\end{remark}
 \begin{propositionenv}
-   Let $(X, \le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$  .Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a, b], \interval[open right]{a}{b}, \interval[open left]{a}{b}, \interval[open]{a}{b}$.
+   Let $(X, \le )$ be a totally ordered set and $I $ be a  non-empty interval in $X$. Assume that $I$ has an infimum $a$ and a supremum $b$ in $X$. Then $I$ is one of the following sets:$[a, b], \ \interval[open right]{a}{b}, \ \interval[open left]{a}{b}, \ \interval[open]{a}{b}$.
 \end{propositionenv}
 \begin{proofenv}
     $\forall x\in I , a\le x\le b $, hence $I\subseteq [a, b]$.
@@ -279,7 +277,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     \newline
     (ii) if $a\in I,  b\notin I, I\subseteq\interval[open right]{a}{b}=[a, b]\backslash\{b\}$. Let $x\in \interval[open right]{a}{b}$,  since $x<b$,  $x$ is not an upper bound of $I$. Hence $\exists y\in I,  x<y$. Note that $[a, y]\subseteq I$,  hence $x\in I$,  therefore $\interval[open right]{a}{b}\subseteq I$. Similarly ,  is $b\in I, a\notin I$,  then $\interval[open left]{a}{b}=I$.
     \newline
-    (iii) if $\{a, b\}\cap I=\varnothing$,  then $I\subseteq\interval[open]{a}{b} .\forall x\in \interval[open]{a}{b}, \exists s, t\in I, s<x<t$ Hence $x\in [s, t]\subseteq I$. Therefore $\interval[open]{a}{b}=I$.
+    (iii) if $\{a, b\}\cap I=\varnothing$,  then $I\subseteq\interval[open]{a}{b}$. $\forall x\in \interval[open]{a}{b}, \exists s, t\in I, s<x<t$ Hence $x\in [s, t]\subseteq I$. Therefore $\interval[open]{a}{b}=I$.
 
 \end{proofenv}
 \begin{definitionenv}[Dense]
@@ -295,7 +293,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 
 
 \section{Well-ordered Set}
-\begin{definitionenv}\label{4.7.1}
+\begin{definitionenv}[Well-ordered]\label{4.7.1}
     Let $(X, \le)$ be a partially ordered set. If $\forall A\in \wp(X), A\not=\varnothing\Rightarrow A$ has a least element, we say that $(X, \le)$ is a \textbf{well-ordered set}.
 \end{definitionenv}
 \begin{axiomenv}
@@ -308,26 +306,29 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     $(X, \le)$ is a well-ordered set, $Y\subseteq X$,  then $(Y, \le)$ is a well-ordered set. 
 \end{propositionenv}
 \begin{theoremenv}
-    Let $(X, \le)$ be a well-ordered set .Let $P(\cdot)$ be a condition on $X$. If 
+    Let $(X, \le)$ be a well-ordered set. Let $P(\cdot)$ be a condition on $X$. If 
     $$\forall x\in X, (\forall y\in X_{<x} , P(y))\Rightarrow P(x), $$
     then $\forall x\in X, P(x)$.
 \end{theoremenv}
 \begin{remark}
-    Suppose that $X\not=\varnothing$, There is a least element $m$ of $X$.The statement
-    $$\forall x\in X, (\forall y\in X_{<m} , P(m))\Rightarrow P(x) \text{ and } P(m) \text{ have the same truth value.}$$
+    Suppose that $X\not=\varnothing$, there is a least element $m$ of $X$. The statement
+    $$ (\forall y\in X_{<m} , P(y))\Rightarrow P(m) \text{ and } P(m) \text{ have the same truth value.}$$
 \end{remark}
 \begin{proofenv}
     Let $A=\{x\in X|\neg P(x)\}$. If $A\not=\varnothing, \exists x\in A$ which is the least element of $A$. By definition,  $(\forall y\in X_{<x} , P(y))$ is true. It contradicts to .
 \end{proofenv}
 \begin{remark}
-    We add a formal element $+\infty$ to $\mathbb{N}$ and require $\forall n\in \NN,  n<+\infty$
+    We add a formal element $+\infty$ to $\mathbb{N}$ and require $\forall n\in \NN,  n<+\infty$.
 \end{remark}
-Fact:$\NN \cup \{+\infty\}$ is a well-ordered set. Let $P(\cdot)$ be a condition on $\NN \cup \{+\infty\}$. We need to check:
+\begin{box2}
+    Fact: $\NN \cup \{+\infty\}$ is a well-ordered set. Let $P(\cdot)$ be a condition on $\NN \cup \{+\infty\}$. We need to check:
 \begin{enumerate}
     \item $P(0)$.
     \item $\forall n\in \NN_{\leq 1}, P(0)\wedge\dots\wedge P(n-1)\Rightarrow P(n)$.
     \item $(\forall n \in \NN, P(n))\Rightarrow P(+\infty)$.
 \end{enumerate}
+\end{box2}
+
 \section{Order-completeness}
 \begin{definitionenv}\label{4.8.1}
     Let $(X, \le)$ be a partially ordered set. If any subset of $X$ has a supremum in $X$,  we say that  $(X,  \le)$ is \textbf{order-complete}. Note that an order-complete
@@ -344,15 +345,15 @@ partially ordered set is never empty.
     \begin{proofenv}
         Let $Y\subseteq X$.Then 
         $$Y^{\mathrm{u}}=\{B\in\wp(\Omega)\mid \forall A\in Y, A\subseteq B\}.$$
-        $\displaystyle \bigcup_{A\in Y}A$ is the least upper bound of $Y$ in $X$. So $\sup (Y)=\bigcup_{A\in Y}A$.
+        $\displaystyle \bigcup_{A\in Y}A$ is the least upper bound of $Y$ in $X$. So $\dis \sup (Y)=\bigcup_{A\in Y}A$.
     \end{proofenv}
 \begin{propositionenv}
     Let $(X, \le)$ be an order complete partially ordered set. Any subset of $X$ has an infimum in $X$.
 \end{propositionenv}
 \begin{proofenv}
-    Let $A\subseteq X, m:=\sup A^\mathrm{l}$. We prove that $m\in A^\mathrm{l}$.
+    Let $A\subseteq X,\  m:=\sup A^\mathrm{l}$. We prove that $m\in A^\mathrm{l}$.
     \newline
-    Let $x\in A, \forall y \in A^\mathrm{l}, y\le x $,  so $x\in (A^\mathrm{l})^\mathrm{u}$. Hence $m\le x$.
+    Let $x\in A, \forall y \in A^\mathrm{l},\  y\le x $,  so $x\in (A^\mathrm{l})^\mathrm{u}$. Hence $m\le x$.
 \end{proofenv}
 Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1}, then came to Proposition\ref{proposition4.5.1} and the following.
 \begin{definitionenv}
@@ -444,7 +445,7 @@ is a bijection.
 \begin{theoremenv}[Dedekind-MacNeille]
     \quad
     \newline
-    Let $(X, \le )$ be a partially ordered set. Let $\hat{X}:=\{A\in \wp (X)\mid (A^\mathrm{u})^\mathrm{l}=A\}$
+    Let $(X, \le )$ be a partially ordered set. Let $\hat{X}:=\{A\in \wp (X)\mid (A^\mathrm{u})^\mathrm{l}=A\}$.
 \newline
 (1) $(\hat{X}, \subseteq)$ is order complete.
 \newline
@@ -606,7 +607,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
     $\NN\times\NN$ and $\NN$ are equipotent.
 \end{theoremenv}
 \begin{proofenv}
-    Let $f:\NN\times\NN\rightarrow \NN, (a, b)\mapsto2^a(2b+1)$. It is an injective mapping since $2^a(2b+1)=2^{a'}(2b'+1)$.So $a=a', b=b'$.Moreover $x\mapsto(0, x)$ is injective.
+    Let $f:\NN\times\NN\rightarrow \NN, (a, b)\mapsto2^a(2b+1)$. It is an injective mapping since $2^a(2b+1)=2^{a'}(2b'+1)$. So $a=a', b=b'$. Moreover $x\mapsto(0, x)$ is injective.
 \end{proofenv}
 \begin{corollaryenv}
     $\forall n\in \NN,  n\ge 1, \NN^n$ and $\NN$ are equipotent.
@@ -615,7 +616,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
     Induction on $n$.
     \newline
     For $n=1$,  easy. We assume that $\NN^n$ is equipotent to $\NN$ and $f:\NN^n\rightarrow\NN$ be a bijection. Then the mapping
-    $$f':\NN^n\times \NN\rightarrow \NN\times\NN, \, \left(x_1, \dots, x_n;x_{n+1}\right)\mapsto\left(f(x_1, \dots, x_n), x_{n+1}\right)$$ 
+    $$f':\NN^n\times \NN\rightarrow \NN\times\NN, \ \left(x_1, \dots, x_n;x_{n+1}\right)\mapsto\left(f(x_1, \dots, x_n), x_{n+1}\right)$$ 
     is a bijection. By Theorem \ref{4.9.12},  there exists a bijection $g:\NN^2\rightarrow\NN$.Therefore, 
     $$g\circ f':\NN^{n+1}\rightarrow\NN$$
     is a bijection,  which leads to $\NN^{n+1}$ and $\NN$ are equipotent.
@@ -623,7 +624,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
 
 \textbf{Motivation}: Let $X$ be a set. A sequence in $X$ is by definition a family $(x_i)_{i\in I}$,  where $I$ is an infinite subset of $\NN$,  and each $x_i$ is an element of $X$.
 \begin{exampleenv}
-    $(a+bn)_{n\in \NN};\left(\frac{1}{n}\right)_{n\in \NN_{\ge 1}}$.
+    $(a+bn)_{n\in \NN};\ \left(\frac{1}{n}\right)_{n\in \NN_{\ge 1}}$.
 \end{exampleenv}
 \begin{propositionenv}
     Let $I\subseteq \NN$.
@@ -646,7 +647,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
     So by the lemma \ref{4.9.8},  $k\le f^k(n_0)$,  this contradicts the assumption that $I$ is bounded from above.
 \end{proofenv}
 \begin{corollaryenv}
-    Let $I\subseteq \NN$ bounded from above,  and $J\subseteq I$.If $J\not=I$,  there does not exist a strictly increasing mapping from $I$ to $J$.
+    Let $I\subseteq \NN$ bounded from above, and $J\subseteq I$. If $J\not=I$,  there does not exist a strictly increasing mapping from $I$ to $J$.
 \end{corollaryenv}
 \begin{proofenv}
     Suppose that $f:I\rightarrow J$ is a strictly increasing mapping. Let $g:J\rightarrow I, x\mapsto x$ be a inclusion mapping. So $g\circ f:I\rightarrow I$ is strictly increasing and hence $g\circ f=\mathrm{Id}_I$. However $\mathrm{Im}(g\circ f)\subseteq\mathrm{Im}(g)=J\not=I$. Contradiction.
@@ -659,8 +660,6 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
     (2) If $I$ is NOT bounded from above,  there exists an increasing bijection from $\NN$ to $I$. (We say that the cardinality of $I$ is $\aleph_0$) 
 \end{propositionenv}
 \begin{proofenv}
-    \quad
-    \newline
     We construct in a recursive way a family of elements in $I$. Let $x_0=\min(I)$. If $x_0, \dots , x_n$ are chosen (with $x_0<\dots<x_n$) we pick $x_{n+1}=\min(I\backslash\{x_0, \dots, x_n\})$. We slop at $N$ if $\{x_0, \dots, x_N\}=I$. Thus we obtain the increasing bijection needed by the proposition.
     \newline
     ``Uniqueness" for (2): If $f:\NN\rightarrow I, g:\NN\rightarrow I$ are increasing bijections,  then $f^{-1}\circ g:\NN\rightarrow\NN$ and $g^{-1}\circ f:\NN\rightarrow\NN$ are increasing bijections. So $f^{-1}\circ g=\mathrm{Id}_{\NN}$. Hence $f=g$.
