@@ -713,7 +713,7 @@ We fix a totally ordered abelian group $(R,+,\le)$.
 
 \section{Ordered Rings}
 \begin{definitionenv}
-    Let $(R,+,\cdot)$ be a non-zero unitary ring and $\le$ be a partially ordered group and 
+    Let $(R,+,\cdot)$ be a non-zero unitary ring and $(R,+,\le)$ be a partially ordered group and 
     $$\forall (a,b)\in R_{>0}\times R_{>0}, ab>0,$$
     then we say that $(R,+,\cdot,\le)$ is an \textbf{partially ordered ring}.
 
@@ -775,10 +775,10 @@ We fix a partially ordered ring.
 \end{proofenv}
 \begin{theoremenv}
     Let $(R,+,\cdot,\le)$ be a totally ordered unitary ring. 
-    Let $X$ be a set and $\mathcal{F}$ be a non-degenerate filter on $X$. Let $f,g:X\longrightarrow R$ be mappings. Assume that $\bar{R}$ is order complete, $f$ and $g$ have limits (in $\bar{R}$) along $\mathcal{F}$, and $\dis a:=\lim_{\mathcal{F}}f,\ b:=\lim_{\mathcal{F}}g$. Then the mapping $fg: X\longrightarrow R, x\longmapsto f(x)g(x)$ has a limit along $\mathcal{F}$, and $\dis \lim_{\mathcal{F}}fg=ab$.
+    Let $X$ be a set and $\mathcal{F}$ be a non-degenerate filter on $X$. Let $f,g:X\longrightarrow R$ be mappings. Assume that $\bar{R}$ is order complete, $f$ and $g$ have limits (in $\bar{R}$) along $\mathcal{F}$, and $\dis a:=\lim_{\mathcal{F}}f,\ b:=\lim_{\mathcal{F}}g$. If $ab$ is defined, then the mapping $fg: X\longrightarrow R, x\longmapsto f(x)g(x)$ has a limit along $\mathcal{F}$, and $\dis \lim_{\mathcal{F}}fg=ab$.
 \end{theoremenv}
 \begin{proofenv}
-    Since $f$ and $g$ have limits along $\mathcal{F}$ in $\bar{R}$, there exists $U\in \mathcal{F}, \ \exists M\in R_{\ge 0}$ such that $\forall x\in U,\ \left|f(x)\right|\le M$. Therefore,
+    Suppose $ab$ is defined. Since $f$ and $g$ have limits along $\mathcal{F}$ in $\bar{R}$, there exists $U\in \mathcal{F}, \ \exists M\in \bar{R}_{\ge 0}$ such that $\forall x\in U,\ \left|f(x)\right|\le M$. Therefore,
     \begin{align*}
         \forall x\in U,\ &\left|f(x)g(x)-ab\right|\\
         =&\left|f(x)g(x)-f(x)b+f(x)b-ab\right|\\

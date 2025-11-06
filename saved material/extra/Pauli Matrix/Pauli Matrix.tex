@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{.}{2em}{}
+\newtheoremstyle{2}{0}{0}{}{}{\texttt}{.}{\newline}{}
+\theoremstyle{1}
+\newtheorem{definition}{Definition}
+\newtheorem{property}{Property}
+\theoremstyle{2}
+\newtheorem*{proof_env}{Proof}
+\newcommand{\pa}{\partial}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\begin{document}
+\begin{center}
+    \huge{\textbf{Pauli Matrix}}
+\end{center}
+We define
+\begin{equation}
+    \sigma^0=\begin{pmatrix}
+        1&0\\
+        0&1
+    \end{pmatrix},\
+    \sigma^1=\begin{pmatrix}
+        0&1\\
+        1&0
+    \end{pmatrix},\
+    \sigma^2=\begin{pmatrix}
+        0&-\ii\\
+        \ii&0
+    \end{pmatrix},\
+    \sigma^3=\begin{pmatrix}
+        1&0\\
+        0&-1
+    \end{pmatrix}.
+\end{equation}
+We define $\sigma^0=I_{2\times 2}(\mathbb{C})$ just for convenience, it is used for balancing the index, you should not replace $I$ any where. In the following part, we will use $i,j,k$ to represent $1,2,3$ and other Latin letters to represent $0,1,2,3$. Also, we will use Greek letters to represent $1,2$, which are the components of matrices. So there are something crazy:
+\begin{equation}
+    \delta_{\ \mu}^\mu=2,\ \delta_{\ i}^i=3,\ \delta_{\ a}^a=4.
+\end{equation}
+\begin{property}
+    \begin{equation}
+        \sigma^i\sigma^j=\delta^{ij}I+\ii\varepsilon^{ijk}\sigma_k.
+    \end{equation}
+    If we define a general\footnote{It is also anti-symmetric: $\forall a,b,c\in\{0,1,2,3\},\  (a-b)(b-c)(c-a)=0\Rightarrow \epsilon^{abc}=0$.} $\epsilon^{abc}$:
+    \begin{equation}
+        \epsilon_{abc}=
+        \begin{cases}
+            \varepsilon^{abc}& ,0\notin\{a,b,c\}\\
+            0& ,0\in\{a,b,c\}
+        \end{cases}
+    \end{equation}
+    Replace $\varepsilon^{ijk}$ with $\epsilon^{abc}$, the equality is still valid:
+    \begin{equation}
+        \boxed{\sigma^a\sigma^b=\delta^{ab}\sigma^0+\ii\epsilon^{abc}\sigma_c.}
+    \end{equation}
+\end{property}
+\begin{property}
+    For any $i\in \{1,2,3\}$,
+    \begin{equation}
+        \boxed{\det(\sigma^i)=-1,\ \mathrm{tr}(\sigma^i)=0,\ (\sigma^i)^\dagger=\sigma^i.}
+    \end{equation}
+\end{property}
+\begin{property}[Completeness]
+    \ \newline
+    Any $M\in M_{2\times 2}(\mathbb{C})$ can be written as a linear combination of $\sigma^0,\sigma^1,\sigma^2,\sigma^3$. Since,
+    \begin{equation}
+        \sigma^0+\sigma^3=\begin{pmatrix}
+            2&0\\
+            0&0
+        \end{pmatrix},\
+        \sigma^0-\sigma^3=\begin{pmatrix}
+            0&0\\
+            0&2
+        \end{pmatrix},\
+        \sigma^1+\ii\sigma^2=\begin{pmatrix}
+            0&2\\
+            0&0
+        \end{pmatrix},\
+        \sigma^1-\ii\sigma^2=\begin{pmatrix}
+            0&0\\
+            2&0
+        \end{pmatrix}.
+    \end{equation}
+    Let $M=\beta_a\sigma^a$, then
+    \begin{equation}
+        M\sigma^b=\beta_a\sigma^a\sigma^b=\beta_a\left(\delta^{ab}I+\ii \epsilon^{abc}\sigma_c\right).
+    \end{equation}
+    We take its trace, the second term at right hand side is zero, so
+    \begin{equation}
+        \boxed{\beta^b=\frac{1}{2}\mathrm{tr}(M\sigma^b).}
+    \end{equation}
+    That means
+    \begin{equation}
+        M_{\ \rho}^\lambda \delta_{\ \lambda}^{\mu}\delta_{\ \nu}^{\rho}= M^\mu_{\ \nu}=\frac{1}{2}M^\lambda_{\ \rho}\left(\sigma_a\right)^\rho_{\ \lambda}\left(\sigma^a\right)^\mu_{\ \nu}.
+    \end{equation}
+    Since $M^\lambda_{\ \rho}$ is arbitrary, we can deduce that 
+\begin{equation}
+    \boxed{\left(\sigma_a\right)^\rho_{\ \lambda}\left(\sigma^a\right)^\mu_{\ \nu}=2\delta_{\ \lambda}^{\mu}\delta_{\ \nu}^{\rho}.}
+\end{equation}
+In particular,
+\begin{equation}
+    \left(\sigma_i\right)^\rho_{\ \lambda}\left(\sigma^i\right)^\mu_{\ \nu}=2\delta_{\ \lambda}^{\mu}\delta_{\ \nu}^{\rho}-\delta_{\ \lambda}^{\rho}\delta_{\ \nu}^{\mu}.
+\end{equation}
+\end{property}
+\begin{property}[Relation with cross product of vectors]
+    \ \newline
+    Let $u^i$, $v^i$ be two vectors, then
+    \begin{equation}
+        \boxed{\left(u_i \sigma^i\right)\left(v_j \sigma^j\right)=\ii \left(u^i v^j\varepsilon_{ijk}\right)\sigma^k+ u_k v^k I.}
+    \end{equation}
+    In particular, 
+    \begin{equation}
+        \left(u_i\sigma^i\right)^2=\left(u^iu_i\right)^2I.
+    \end{equation}
+\end{property}
+\begin{property}[Exponential form]
+    \ \newline
+    Let $\mathbf{n}$ be a unitary vector, then we can deduce that 
+    \begin{equation}
+        \boxed{\exp\left[\ii \left(n_i \sigma^i\right)\frac{\theta}{2}\right]=I\cos\frac{\theta}{2}+\ii \left(n_i\sigma^i\right)\sin\frac{\theta}{2}.}
+    \end{equation}
+\end{property}
+
+
+
+\end{document}

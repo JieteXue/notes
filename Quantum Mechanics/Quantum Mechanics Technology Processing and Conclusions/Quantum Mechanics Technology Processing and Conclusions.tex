@@ -480,6 +480,83 @@ Replace classical Poission bracket by commutator as follows\footnote{I think the
 
 
 
+
+\section{Schrödinger Equation}
+Let $\mathscr{U}$ be the time-evolution operator, which means
+\begin{equation}
+    \ket{\psi(t)}=\mathscr{U}(t,t_0)\ket{\psi(t_0)}.
+\end{equation}
+We want it to satisfy the following conditions:
+\newline
+(1) $\mathscr{U}$ should be linear:
+\begin{equation}
+    \mathscr{U}(t,t_0)\left[c_1\ket{\psi_1(t_0)}+c_2\ket{\psi_2(t_0)}\right]=c_1\mathscr{U}(t,t_0)\ket{\psi_1(t_0)}+c_2\mathscr{U}(t,t_0)\ket{\psi_2(t_0)}.
+\end{equation}
+(2) $\mathscr{U}$ should be unitary (to make a state always normalized):
+\begin{equation}
+    \mathscr{U}^\dagger\mathscr{U}=\mathscr{U}\mathscr{U}^\dagger=1.
+\end{equation}
+(3) Composition property:
+\begin{equation}
+    \mathscr{U}(t_2,t_1)\mathscr{U}(t_1,t_0)=\mathscr{U}(t_2,t_0).
+\end{equation}
+(4) Continuous and identity:
+\begin{equation}
+    \lim_{\dd{t}\rightarrow0}\mathscr{U}(t_0+\dd{t},t_0)=1.
+\end{equation}
+Similar to the previous section, we can use a Hermitian operator to construct this operator. And by the classical corresponding rule, we have 
+\begin{equation}
+    \mathscr{U}(t_0+\dd{t},t_0)=1-\frac{\ii H \dd{t}}{\hbar}.
+\end{equation}
+Then,
+\begin{equation}
+    \mathscr{U}(t+\dd{t},t_0)=\mathscr{U}(t+\dd{t},t)\mathscr{U}(t,t_0)=\left(1-\frac{\ii H \dd{t}}{\hbar}\right)\mathscr{U}(t,t_0).
+\end{equation}
+That is 
+\begin{equation}
+    \ii \hbar \frac{\pa}{\pa t}\mathscr{U}(t,t_0)=H\mathscr{U}(t,t_0).
+\end{equation}
+This is the \textbf{Schrödinger equation for the time-evolution operator}. Apply this operator to a state $\ket{\alpha,t_0;t}$, we obtain
+\begin{equation}
+    \ii \hbar \frac{\pa}{\pa t}\ket{\alpha,t_0;t}=H\ket{\alpha,t_0;t}.
+\end{equation}
+In integration form,
+\begin{equation}
+    \mathscr{U}(t,t_0)=1-\frac{\ii}{\hbar}\int_{t_0}^{t}\dd{t_1}H(t_1)\mathscr{U}(t_1,t_0).
+\end{equation}
+Then we can induction on $n$ that 
+\begin{equation}
+    \mathscr{U}(t,t_0)=\sum_{n=0}^{\infty}\left(\frac{-\ii}{\hbar}\right)^{n}\int_{t_0}^{t}\dd{t_1}\int_{t_0}^{t_1}\dd{t_2}\dots\int_{t_0}^{t_{n-1}}\dd{t_n}H(t_1)H(t_2)\ldots H(t_n).
+\end{equation}
+
+Now we want to simplify this expression. The bad thing is $H$ at different time may not commute. So we define a time-ordering operator $\mathcal{T}$:
+\begin{equation}
+    \mathcal{T}[A(t_1)B(t_2)]=\begin{cases}
+        B(t_2)A(t_1),&\text{if }t_1<t_2\\
+        A(t_1)B(t_2),&\text{if }t_1\ge t_2\\
+    \end{cases}.
+\end{equation}
+If we consider the integration is dealing on $[t_0,t]^n$, then it can be divided into $n!$ part, each part has an order of a permutation of $(t_1,\ldots,t_n)$, but it should in order of $(t_1,\ldots,t_n)$. Thus,
+\begin{equation}
+    \begin{aligned}
+    &\int_{t_0}^{t}\dd{t_1}\int_{t_0}^{t_1}\dd{t_2}\dots\int_{t_0}^{t_{n-1}}\dd{t_n}H(t_1)H(t_2)\ldots H(t_n)\\
+    =&\frac{1}{n!}\int_{t_0}^{t}\dd{t_1}\int_{t_0}^{t}\dd{t}\dots\int_{t_0}^{t}\dd{t_n}\mathcal{T}\left[H(t_1)H(t_2)\ldots H(t_n)\right]\\
+    &=\frac{1}{n!}\mathcal{T}\left[\left(\int_{t_0}^{t}\dd{t'}H(t')\right)^n\right].
+    \end{aligned}
+\end{equation}
+Therefore,
+\begin{equation}
+    \mathscr{U}(t,t_0)=\mathcal{T}\exp\left[-\frac{\ii}{\hbar}\int_{t_0}^{t}\dd{t'}H(t')\right].
+\end{equation}
+In particular, if $H(t)$ is commutable at any different time, then 
+\begin{equation}
+    \mathscr{U}(t,t_0)=\exp\left[-\frac{\ii}{\hbar}\int_{t_0}^{t}\dd{t'}H(t')\right].
+\end{equation}
+Moreover, if $H$ is time-independent, then
+\begin{equation}
+    \mathscr{U}(t,t_0)=\exp\left[-\frac{\ii}{\hbar}H(t-t_0)\right].
+\end{equation}
+
 \section{Probability Density and Probability Current}
 Let $\psi $ be  the wave function, then the probability density is
 \begin{equation}
@@ -874,7 +951,8 @@ This is highly satisfactory because we see that the probability flux given by \e
 Since $t$ is only a parameter, it does not affect the commutators, so when $\frac{\pa\Lambda}{\pa t}\not=0$, \eqref{12.17} still holds. \textbf{BUT}, $\tilde{H}\not=g^\dagger Hg$, since  $\phi$ contributes a term. So our notation is not convenient in the $\Lambda$ is time-dependent case.
 
 \subsection{Landau Levels and Quantum Hall Effect}
-\footnote{We use IS of units this subsection.}
+We use IS of units this subsection.
+\subsubsection{Landau Gauge}
 Let's consider a simple magnetic field,
 \begin{equation}
     \mathbf{B}=-B\hat{\mathbf{z}}.
@@ -900,12 +978,62 @@ Then,
     \left[\frac{p_y^2}{2m}+\frac{1}{2}m\omega_c^2(y-l_B^2k_x)^2\right]\ket{\psi}=E_n\ket{\psi}.
 \end{equation}
 It has the same solution as the 1D harmonic oscillator, but with a displacement. 
-\begin{equation}
+\begin{equation}\label{12.26}
     E_n=\hbar\omega_c\left(n+\frac{1}{2}\right).
 \end{equation}
+\subsubsection{Symmetrical Gauge}
+Let 
+\begin{equation}
+    l_B=\sqrt{\frac{\hbar}{eB}},\quad \omega_c=\frac{eB}{m},
+\end{equation}
+\begin{equation}
+    a=\frac{1}{\sqrt{2}}\frac{l_B}{\hbar}\left(\Pi_x+\ii \Pi_y\right),\ a^\dagger=\frac{1}{\sqrt{2}}\frac{l_B}{\hbar}\left(\Pi_x-\ii \Pi_y\right).
+\end{equation}
+Then, 
+\begin{equation}
+    [a,a^\dagger]=1,\ H=\hbar\omega_c\left(a^\dagger a+\frac{1}{2}\right).
+\end{equation}
+Then we can derivative \eqref{12.26} quickly. 
 
+To solve the wave function, we need choose a gauge, here we use symmetrical gauge, $(A_x,A_y)=\frac{B}{2}(-y,x)$. Let $w=x+\ii y$, $\overline{\pa }=\frac{\pa}{\pa \overline{w}}=\frac{1}{2}(\pa_x+\ii \pa_y)$. Then
+\begin{equation}
+    \bra{\mathbf{x}}a\ket{\psi}=-\ii \sqrt{2}l_B\left(\overline{\pa}+\frac{w}{4l_B^2}\right)\braket{\mathbf{x}}{\psi}, \bra{\mathbf{x}}a^\dagger\ket{\psi}=\ii \sqrt{2}l_B\left(\pa-\frac{\overline{w}}{4l_B^2}\right)\braket{\mathbf{x}}{\psi}.
+\end{equation}
+The wave function of the ground state satisfies
+\begin{equation}
+    \left(\overline{\pa}+\frac{w}{4l_B^2}\right)\psi_0(w,\overline{w})=0.
+\end{equation}
+The solution is 
+\begin{equation}
+    \psi_0(w,\overline{w})=\ee^{-\frac{\left|w\right|^2}{4l_B^2}}f(w,\overline{w}),
+\end{equation}
+where $f$ satisfies
+\begin{equation}
+    \overline{\pa}f=0.
+\end{equation}
+So, we can write $\psi_0$ as 
+\begin{equation}
+    \psi_0 (w,\overline{w})=f(w)\ee^{-\frac{\left|w\right|^2}{4l_B^2}}.
+\end{equation}
+Then 
+\begin{equation}
+    \psi_n(w,\overline{w})=\ee^{- \frac{\left|w\right|^2}{4l_B^2}}\left(\pa-\frac{\overline{w}}{2l_B^2}\right)^nf(w).
+\end{equation}
+An arbitrary $f(w)$ makes the states highly degenerate. Expand $f$ in a series,
+\begin{equation}
+    f(w)=\sum_{m\in \mathbb{N}}c_m w^m,
+\end{equation}
+and denote
+\begin{equation}
+    \psi_{0,m}\sim w^m \ee^{- \frac{\left|w\right|^2}{4l_B^2}}.
+\end{equation}
+In fact, $\psi_{0,m}$ is also the eigenstates of $L_z=\hbar(\pa w-\overline{\pa}\overline{w})$, and the eigenvalues are $m\hbar$.
 
-
+$|\psi_{0,m}|^2$ take the maximum when $|w|=r_m$, where
+\begin{equation}
+    r_m=\sqrt{2m}l_B.
+\end{equation}
+Easy to note that each state has a area of $2\pi l_B^2$ greater than another.
 
 
 
@@ -1065,7 +1193,7 @@ and $J_z$ by $\ket{j,m}$.
     \mathbf{J}^2\ket{j,m}=\hbar^2 j(j+1)\ket{j,m},\quad J_z\ket{j,m}=m\hbar\ket{j,m}.
 \end{equation}
 Then we can deduce that 
-\begin{equation}
+\begin{equation}\label{13.37}
     J_\pm\ket{j,m}=\sqrt{\left(j\mp m\right)\left(j\pm m+1\right)}\hbar\ket{j,m},
 \end{equation}
 \textbf{Important result}: If $[K,\mathbf{J}]=0$, then $K\ket{j,m}$ is also a eigenket of $\mathbf{J}^2$ and $J_z$. So,
@@ -1160,18 +1288,99 @@ Use \eqref{13.48} to normalize,
 Then we can use the ladder operator to get $Y_l^m$. Check details in the reference.
 
 
+
+\subsection{Schwinger’s Oscillator Model of Angular Momentum}
+Consider a 2D harmonic oscillator $H=\hbar \omega(a_1^\dagger a_1+a_2^\dagger a_2)$ exhibiting the SU(2) symmetry. We define,
+\begin{equation}
+    J_\mu=\frac{1}{2}a^\dagger_\alpha\left(\sigma^\mu\right)^\alpha_{\ \beta}a^\beta,
+\end{equation}
+where $\sigma^\mu$ is one of the Pauli matrix with $\mu=1,2,3$, $\{\alpha,\beta\}\subseteq\{1,2\}$. We can prove that 
+\begin{equation}
+    [J_\mu,J_\nu]=\ii \varepsilon_{\mu\nu\rho}J_\rho.
+\end{equation}
+If we let $2J=a^\dagger_\alpha a^\alpha$, then
+\begin{equation}
+    J^\mu J_\mu=J(J+1).
+\end{equation}
+And the state can be represented as:
+\begin{equation}
+    \ket{j,m}=\frac{(a^\dagger_1)^{j+m}}{\sqrt{(j+m)!}}\frac{(a_2^\dagger)^{j-m}}{\sqrt{(j-m)!}}\ket{0,0}.
+\end{equation}
+It satisfies \eqref{13.34} and \eqref{13.37}.
+
+
+
 \subsection{Addition of Angular Momenta}
-Consider two independent state $\ket{\alpha}$, $\ket{\beta}$, we can see them as a state $\ket{\alpha,\beta}$,
+Consider two independent state $\ket{\alpha}$, $\ket{\beta}$, we can see them as a state $\ket{\alpha,\beta}$\footnote{The following is tensor product, but in many physics books they mess up with direct product.},
 \begin{equation}
     \ket{\alpha,\beta}=\ket{\alpha}\otimes\ket{\beta},
 \end{equation}
-When we are talking about
-\begin{equation}\label{13.56}
-    \mathbf{L}=\mathbf{L}_1+\mathbf{L}_2,
-\end{equation}
-we should understand it as 
+Consider the rotation 
 \begin{equation}
-    \mathbf{L}_1\otimes 1+ 1\otimes \mathbf{L}_2.
+    \mathscr{D}(R)=\mathscr{D}_1(R)\otimes \mathscr{D}_2(R)=\exp\left(\frac{-\ii \mathbf{J}_1\cdot\hat{\mathbf{n}}\phi}{\hbar}\right)\otimes \exp\left(\frac{-\ii \mathbf{J}_2\cdot\hat{\mathbf{n}}\phi}{\hbar}\right).
 \end{equation}
-Easy to check that \eqref{13.56} satisfies the commutation relation of angular momentum. But neither $\mathbf{L}_1+\mu\mathbf{L}_2$ nor $\lambda\left(\mathbf{L}_1+\mathbf{L}_2\right)$ ($\mu,\lambda\neq1$).
+Let $\phi=\varepsilon$, and $\mathscr{D}(R)=\exp\left(-\ii \mathbf{J}\cdot\hat{\mathbf{n}}\phi/\hbar\right)$ we can get
+\begin{equation}\label{13.57}
+    \mathbf{J}=\mathbf{J}_1\otimes 1+1\otimes\mathbf{J}_2.
+\end{equation}
+When we are talking about\footnote{The computing law are very similar, so many other places always write like this.}
+\begin{equation}\label{13.58}
+    \mathbf{J}=\mathbf{J}_1+\mathbf{J}_2,
+\end{equation}
+we should understand it as \eqref{13.57}. 
+Easy to check that \eqref{13.58} satisfies the commutation relation of angular momentum. But neither $\mathbf{J}_1+\mu\mathbf{J}_2$ nor $\lambda\left(\mathbf{J}_1+\mathbf{J}_2\right)$ ($\mu,\lambda\neq1$).
+
+Also, we define 
+\begin{equation}
+    J_x=J_{1x}\otimes 1+1\otimes J_{2x},\quad J_y=J_{1y}\otimes 1+1\otimes J_{2y},\quad J_z=J_{1z}\otimes 1+1\otimes J_{2z},
+\end{equation}
+\begin{equation}
+    J_+=J_{1+}\otimes 1+1\otimes J_{2+},\quad J_-=J_{1-}\otimes 1+1\otimes J_{2-},
+\end{equation}
+\begin{equation}
+    \mathbf{J}^2=J_x^2+J_y^2+J_z^2.
+\end{equation}
+
+A calculate example\footnote{Attention: $A\otimes B+C\otimes D\overset{?}{=}(A+C)\otimes (B+D)$. But this is true: $A\otimes C+ B\otimes C=(A+B)\otimes C$. }:
+\begin{equation}
+    (A\otimes B)(C\otimes D)=(AC)\otimes (BD).
+\end{equation}
+\begin{equation}
+    J_z^2= J_{1z}^2\otimes 1+1\otimes J_{2z}^2+2J_{1z}\otimes J_{2z}.
+\end{equation}
+So we can also write $\mathbf{J}^2$ into the form of
+\begin{equation}
+    \mathbf{J}^2=\mathbf{J}_1^2\otimes 1+1\otimes \mathbf{J}_2^2+2J_{1z}\otimes J_{2z}+J_{1+}\otimes J_{2-}+J_{1-}\otimes J_{2+}.
+\end{equation}
+
+\subsubsection{Clebsch-Gordan Coefficients}
+
+As for the choice of base kets, since $[\mathbf{J}^2,J_{1,2z}]\neq0$, we have two options: 
+$$\ket{j_1j_2; jm}\text{ and }\ket{j_1j_2;m_1m_2}.$$
+We connect them with Clebsch-Gordan coefficients $\braket{j_1j_2m_1m_2}{j_1j_2;jm}$:
+\begin{equation}
+    \ket{j_1 j_2 ;j m}= \sum_{m_1, m_2}  \ket{j_1j_2 ;m_1m_2 } \braket{j_1j_2m_1m_2}{j_1j_2;jm} .
+\end{equation}
+
+We figure out some properties about CG coefficients:
+\newline
+(1) CG coefficients vanish unless
+\begin{equation}
+    m=m_1+m_2,
+\end{equation}
+because
+\begin{equation}
+    \begin{aligned}
+        0=&\bra{j_1j_2;m_1m_2}(J_z-J_{1z}-J_{2z})\ket{j_1j_2;jm}\\
+        =&(m-m_1-m_2)\braket{j_1j_2;m_1m_2}{j_1j_2;jm}.
+    \end{aligned}
+\end{equation}
+(2) The coefficients vanish unless
+\begin{equation}
+    |j_1-j_2|\leq j\leq j_1+j_2.
+\end{equation}
+This is based on our choice of base kets, just for convenience, it has already provided a complete bases\footnote{Check the dimension yourself.}. In addition, we even choose CG coefficients to be real numbers. 
+\newline
+(3) Recursive relations 
+
 \end{document}
