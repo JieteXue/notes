@@ -1,0 +1,122 @@
+\documentclass{article}
+\newcommand{\mydate}{November 7, 2025}
+\newcommand{\mytitle}{QM HW8}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{float}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+
+\begin{document}
+\maketitle
+\begin{problem}[Derivative $x^H,p^H$ in harmonic oscillator case]
+    We have 
+    \begin{equation}
+        [H,x]=-\ii \hbar \frac{p}{m},\ \ [H,p]=\ii \hbar m\omega^2{x}.
+    \end{equation}
+    Thus,
+    \begin{equation}
+        \underset{n\text{ copies}}{\underbrace{[H,\ldots[H,x]]}}=\begin{cases}
+            -\ii \hbar^{2k-1}\omega^{2k-2} \frac{p}{m}&,n=2k-1\\
+            \hbar^{2k} \omega^{2k} x&,n=2k\\
+        \end{cases}
+    \end{equation}
+    \begin{equation}
+        \underset{n\text{ copies}}{\underbrace{[H,\ldots[H,p]]}}=\begin{cases}
+           \ii \hbar^{2k-1} m \omega^{2k}\frac{p}{m}&,n=2k-1\\
+             \hbar^{2k} \omega^{2k}x&,n=2k\\
+        \end{cases}
+    \end{equation}
+    By Baker-Hausdorff lemma, we have
+    \begin{equation}
+        \begin{aligned}
+            x(t)=\ee^\frac{\ii H t}{\hbar}x\ee^{-\frac{\ii H t}{\hbar}}&=\sum_{n=0}^{+\infty}\frac{1}{n!}\left(\frac{\ii}{\hbar}\right)^n\underset{n\text{ copies}}{\underbrace{[H,\ldots[H,x]]}}\\
+            &=\frac{p}{m\omega}\sum_{k=0}^{+\infty}\frac{1}{(2k-1)!}(-1)^{k-1}\omega^{2k-1}+\sum_{k=0}^{+\infty}\frac{1}{(2k)!}\omega^{2k}x\\
+            &=x\cos(\omega t)+\frac{p}{m\omega}\sin(\omega t).
+        \end{aligned}
+    \end{equation}
+    Similarly,
+    \begin{equation}
+        p(t)=\ee^\frac{\ii H t}{\hbar}p\ee^{-\frac{\ii H t}{\hbar}}=-m\omega x\sin(\omega t)+p\cos(\omega t).
+    \end{equation}
+\end{problem}
+\begin{problem}
+    We decompose the Hamiltonian \( H^S \) of the Schr\"{o}dinger picture into the free part \( H_0 \) and the perturbative part \( V \) as
+\[
+H^S = H_0 + V,
+\]
+where \( H_0 \) is independent of time; \( V \) may depend on time. We define the state vector evolution with time as
+\[
+\ket{\Psi^I(t)} = e^{iH_0 t/\hbar} \ket{\Psi^S(t)} = e^{iH_0 t/\hbar} T(t,0)\ket{\Psi^S(0)},
+\]
+and correspondingly the operator
+\[
+F^I(t) = e^{iH_0 t/\hbar} F^S e^{-iH_0 t/\hbar}.
+\]
+In such a convention, we keep the inner product invariant:
+\[
+\bra{\Psi_A^I(t)} F^I(t) \ket{\Psi_B^I(t)} = \bra{\Psi_A^S(t)} F^S(t) \ket{\Psi_B^S(t)}.
+\]
+
+Now let us derive the equation of motion. We have
+\[
+\frac{d}{dt} F^I(t) = \frac{1}{i\hbar} [F^I(t), H_0] + e^{iH_0 t/\hbar} \frac{\partial F^S(t)}{\partial t} e^{-iH_0 t/\hbar}.
+\]
+
+For the state vector, we have
+\[
+\begin{aligned}
+\frac{\partial}{\partial t} \ket{\Psi^I(t)} &= \frac{i}{\hbar} H_0 e^{iH_0 t/\hbar} \ket{\Psi^S(t)} + e^{iH_0 t/\hbar} \frac{1}{i\hbar} H^S \ket{\Psi^S(t)} \\
+&= e^{iH_0 t/\hbar} \frac{i}{\hbar} (H_0 - H^S) e^{-iH_0 t/\hbar} \ket{\Psi^I(t)} \\
+&= \frac{1}{i\hbar} V^I(t) \ket{\Psi^I(t)}.
+\end{aligned}
+\]
+
+From the above equation, we can derive the time-evolution operator \( U(t, t_0) \) in the interaction picture as
+\[
+\ket{\Psi^I(t)} = U(t, t_0) \ket{\Psi^I(t_0)},
+\]
+\[
+U(t, t_0) = T \exp\left\{-\frac{i}{\hbar} \int_{t_0}^t dt' V^I(t') \right\}.
+\]
+\end{problem}
+
+\end{document}
+
+
+

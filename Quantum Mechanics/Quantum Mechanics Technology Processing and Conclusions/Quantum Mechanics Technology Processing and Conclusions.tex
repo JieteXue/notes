@@ -743,7 +743,7 @@ In usual computing law,
 \begin{equation}
     H=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2=\frac{1}{2}m\omega^2\left(x-\frac{\ii p}{m\omega}\right)\left(x+\frac{\ii p}{m\omega}\right).
 \end{equation}
-Let \footnote{If we denote $l=\frac{\hbar}{m\omega}$, then it will be $a=\frac{1}{\sqrt{2}}\left(\frac{x}{l}+i\frac{pl}{\hbar}\right)$. $\frac{1}{\sqrt{2}}$ seems like to normalize.}
+Let \footnote{If we denote $l=\sqrt{\frac{\hbar}{m\omega}}$, then it will be $a=\frac{1}{\sqrt{2}}\left(\frac{x}{l}+\ii\frac{pl}{\hbar}\right)$. $\frac{1}{\sqrt{2}}$ seems like to normalize.}
 \begin{equation}
     \hat{a}^\dagger=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}-\frac{\ii\hat{p}}{m\omega}\right),\ \hat{a}=\sqrt{\frac{m\omega}{2\hbar}}\left(\hat{x}+\frac{\ii\hat{p}}{m\omega}\right).
 \end{equation}
@@ -1248,6 +1248,12 @@ To find the amplitude for being found in $\ket{j,m}$ , we simply expand the rota
 \begin{equation}
     \mathscr{D}(R)\ket{j,m}=\sum_{m'}\ket{j,m'}\bra{j,m'}\mathscr{D}(R)\ket{j,m}=\sum_{m'}\ket{j,m'}\mathscr{D}^{(j)}_{m'm}(R).
 \end{equation}
+\singleline
+\begin{theorem}[Wigner]
+    Given an operator $R$, if for any state $\ket{\psi}$, $\ket{\phi}$, $\left|\braket{R\psi}{R\phi}\right|$ is held, then $R$ is unitary or anti-unitary.
+    
+\end{theorem}
+\singleline
 
 
 \subsection{Spherical Harmonics}
@@ -1294,7 +1300,7 @@ Consider a 2D harmonic oscillator $H=\hbar \omega(a_1^\dagger a_1+a_2^\dagger a_
 \begin{equation}
     J_\mu=\frac{1}{2}a^\dagger_\alpha\left(\sigma^\mu\right)^\alpha_{\ \beta}a^\beta,
 \end{equation}
-where $\sigma^\mu$ is one of the Pauli matrix with $\mu=1,2,3$, $\{\alpha,\beta\}\subseteq\{1,2\}$. We can prove that 
+where $\sigma^\mu$ is one of the \href{run:Pauli Matrix.pdf alias}{Pauli matrix} with $\mu=1,2,3$, $\{\alpha,\beta\}\subseteq\{1,2\}$. We can prove that 
 \begin{equation}
     [J_\mu,J_\nu]=\ii \varepsilon_{\mu\nu\rho}J_\rho.
 \end{equation}

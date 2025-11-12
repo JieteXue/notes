@@ -41,6 +41,13 @@
 \newcommand{\RR}{\mathbb{R}} % 黑板粗体R
 \newcommand{\ZZ}{\mathbb{Z}} % 黑板粗体Z
 \newcommand{\NN}{\mathbb{N}} % 黑板粗体N
+\newcommand{\defm}[2]{%
+  \hypertarget{#1}{{#2}}%
+}
+% 引用命令：\refm{标签}{显示内容}
+\newcommand{\refm}[2]{%
+  \hyperlink{#1}{\textcolor{mlv}{#2}}%
+}
 \newcommand{\dis}{\displaystyle}
 \newcommand{\pl}{|\!|}
 \newcommand{\dd}{\mathrm{d}}

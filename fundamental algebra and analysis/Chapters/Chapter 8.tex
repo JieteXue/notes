@@ -932,3 +932,419 @@ pattern radius = 1pt}
 \begin{definitionenv}
     Let $(X,\dd)$ be a semimetric space, $Y\subseteq X$, we define the diameter of $Y$ as $ \mathrm{diam}(Y)\coloneq\sup_{(x,y)\in Y^2}\dd(x,y)$. If $\mathrm{diam}(Y)<+\infty$, we say that $Y$ is \textbf{bounded}.
 \end{definitionenv}
+\begin{remark}
+    Let $(E,\dd)$ be a semimetric space. 
+    \newline
+    (1) If $A$ and $B$ are subsets of $E$, then 
+    $$A\subseteq B\Rightarrow \diam(A)\le \diam(B).$$
+    (2) If $A\subseteq B\subseteq E$ and $B$ is bounded, then $A$ is bounded.
+    \newline
+    (3) If $A=\{x_1,\dots,x_n\}\subseteq E$, $n\in\NN_{\ge1}$. Then 
+    $$\diam(A)=\max_{(i,j)\in \{1,\dots,n\}^2}\dd(x_i,x_j)<+\infty.$$
+    So $A$ is bounded.
+    \newline
+    (4) $\forall p\in X$, $\diam(\bar{B}(p,r))\le 2r$, $\forall r\in \RR_{>0}$. In fact, $\forall (x,y)\in \bar{B}(p,r)^2$, $\dd(x,y)\le\dd(x,p)+\dd(p,y)\le 2r$.
+\end{remark}
+\begin{propositionenv}
+    Let $(E,\dd)$ be a semimetric space, $A\subseteq E$. Suppose that $A$ is bounded. Let $r=\diam(A)$. For any $p\in A$, $A\subseteq\bar{B}(p,r)$.
+\end{propositionenv}
+\begin{proofenv}
+    $\forall x\in A,\ \dd(p,x)\le \diam(A)=r.$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(E,\dd)$ be a semimetric space, $A\subseteq E$, $B\subseteq E$ and $(x_0,y_0)\in A\times B$. Then 
+    $$\diam(A\cup B)\le \diam(A)+\diam(B)+\dd(x_0,y_0).$$
+\end{propositionenv}
+\begin{proofenv}
+    Let $(x,y)\in \left(A\cup B\right)^2$.
+    \newline
+    Case 1. $\{x,y\}\in A$, $\dd(x,y)\le \diam(A)$.
+    \newline
+    Case 2. $\{x,y\}\in B$, $\dd(x,y)\le \diam(B)$.
+    \newline
+    Case 3. $x\in A,\ y\in B,$
+    $$\dd(x,y)\le \dd(x,x_0)+\dd(x_0,y_0)+\dd(y_0,y)\le \diam(A)+\diam(B)+\dd(x_0,y_0).$$
+    Case 4. $x\in B,\ y\in A$. Same as case 3.
+    \begin{figure}[H]
+        \centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Regular Polygon [id:dp2830885640667714] 
+\draw  [line width=2.25]  (178.45,40.02) .. controls (168.57,40.02) and (125.53,37.32) .. (135.86,64.18) .. controls (137.33,68.01) and (140.8,70.66) .. (143.6,73.58) .. controls (145.55,75.6) and (147.85,77.23) .. (150.05,78.95) .. controls (159.66,86.44) and (192.79,95.62) .. (204.26,88.34) .. controls (218.6,80.85) and (209.98,67.67) .. (209.42,64.18) .. controls (207.67,53.24) and (186.09,40.02) .. (178.45,40.02) -- cycle ;
+%Shape: Regular Polygon [id:dp5369449128522238] 
+\draw  [line width=2.25]  (233.77,134.54) .. controls (219.59,135.17) and (206.11,160.06) .. (214.89,172.29) .. controls (220.91,180.68) and (232.32,186.08) .. (241.98,186.87) .. controls (247.51,187.32) and (269.81,190.58) .. (278.92,183.44) .. controls (283.42,179.91) and (286.55,173.88) .. (288.77,168.85) .. controls (292.34,148.12) and (282.49,141.26) .. (266.61,135.4) .. controls (255.4,132.68) and (244.73,129.25) .. (233.77,134.54) -- cycle ;
+%Shape: Free Drawing [id:dp9278093506246873] 
+\draw  [line width=3] [line join = round][line cap = round] (181.06,64.14) .. controls (181.06,65.64) and (180.06,65.64) .. (180.06,64.14) ;
+%Shape: Free Drawing [id:dp5177768898138636] 
+\draw  [line width=3] [line join = round][line cap = round] (243.06,150.14) .. controls (243.4,150.14) and (244.06,150.47) .. (244.06,150.14) ;
+%Shape: Free Drawing [id:dp9393552590803542] 
+\draw  [line width=3] [line join = round][line cap = round] (243.06,172.14) .. controls (242.59,172.14) and (242.06,171.61) .. (242.06,171.14) ;
+%Straight Lines [id:da5018713202956172] 
+\draw [line width=1.5]    (151.45,61.32) -- (180.45,65.32) ;
+%Shape: Free Drawing [id:dp8007345261566203] 
+\draw  [line width=3] [line join = round][line cap = round] (151.45,61.32) .. controls (151.78,61.32) and (152.12,61.32) .. (152.45,61.32) ;
+%Straight Lines [id:da12265525507083463] 
+\draw [line width=1.5]    (180.45,65.32) -- (244.45,151.32) ;
+%Straight Lines [id:da35248354429149964] 
+\draw [line width=1.5]    (243.45,151.32) -- (242.45,171.32) ;
+%Straight Lines [id:da8163970346630994] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (151.45,61.32) -- (242.45,171.32) ;
+
+% Text Node
+\draw (211,49.4) node [anchor=north west][inner sep=0.75pt]    {$X$};
+% Text Node
+\draw (281,119.4) node [anchor=north west][inner sep=0.75pt]    {$Y$};
+% Text Node
+\draw (138,45.4) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (170,42.4) node [anchor=north west][inner sep=0.75pt]    {$x_{0}$};
+% Text Node
+\draw (248,138.4) node [anchor=north west][inner sep=0.75pt]    {$y_0$};
+% Text Node
+\draw (246.95,164.72) node [anchor=north west][inner sep=0.75pt]    {$y$};
+
+
+\end{tikzpicture}
+\caption{Prop. 1.7.4}
+    \end{figure}
+\end{proofenv}
+\begin{corollaryenv}
+    If $A\cap B\neq\varnothing$, then 
+    $$\diam(A\cup B)\le \diam(A)+\diam(B).$$
+\end{corollaryenv}
+\begin{definitionenv}
+    Let $(E,\dd)$ be a semimetric space, and $\mathcal{F}$ be a non-degenerate filter on $E$. If $\inf_{A\in \mathcal{F}}\diam(A)=0$, we say that $\mathcal{F}$ is a \textbf{Cauchy filter}.
+\end{definitionenv}
+\begin{exampleenv}
+    $E=\interval[open left]{0}{1}$. If $\mathcal{F}$ is generated by $\interval[open]{0}{\varepsilon}$, $\varepsilon\le 1$, then $\mathcal{F}$ is a Cauchy filter.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(E,\dd)$ be a semimetric space and $\mathcal{F}$ be a non-degenerate filter on $E$. If $\mathcal{F}$ has a limit point $p$, then $\mathcal{F}$ is a Cauchy filter.
+\end{propositionenv}
+\begin{proofenv}
+    $\forall \varepsilon>0$, $\bar{B}(p,\frac{\varepsilon}{2})\in \mathcal{F}$, $\diam(\bar{B}(p,\frac{\varepsilon}{2}))\le \varepsilon$. So $\dis \inf_{A\in \mathcal{F}}\diam(A)=0.$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(E,\dd)$ be a semimetric space, and $\mathcal{F}$ be a Cauchy filter on $E$. Any adherent point of $\mathcal{F}$ is a limit point of $\mathcal{F}$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $\varepsilon>0$. Let $A\in \mathcal{F}$ such that $\diam(A)<\frac{\varepsilon}{2}$. Note that $B(p,\frac{\varepsilon}{4})\cap A\neq\varnothing$. So 
+    $$\diam(B(p,\frac{\varepsilon}{4})\cup A)\le \diam(B(p,\frac{\varepsilon}{4}))+\diam(A)<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}.$$
+    So $A\subseteq B(p,\varepsilon)$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(E,\dd)$ be a semimetric space. $I\subseteq \NN$ be an infinite subset, $\mathcal{F}$ be the Fréchet filter on $I$. We say that a sequence $x\coloneq (x_n)_{n\in I}\in E^I$ is a Cauchy sequence if $x_*(\mathcal{F})\coloneqq\{U\subseteq E\mid x^{-1}(U)\in \mathcal{F}\}$ is a Cauchy filter. Or equivalently,
+    $$\forall \varepsilon>0,\ \exists N\in I,\ \forall n,m\in I^2_{\ge N},\ \dd(x_n,x_m)\le \varepsilon.$$
+\end{definitionenv}
+\begin{proofenv}
+    ``$\Rightarrow$'' $\forall \varepsilon>0,\ \exists U\in x_*(\mathcal{F}),\ \diam(U)\le\varepsilon$. Since $x^{-1}(U)\in \mathcal{F}$, $\exists N\in \NN$ such that $I_{\ge N}\subseteq x^{-1}(U)$. So $\{x_n\mid n\in I_{\ge N}\}\subseteq U$, which leads to 
+    $$\forall (n,m)\in I_{\ge N}^2,\ \dd(x_n,x_m)\le \varepsilon.$$
+    ``$\Leftarrow$'' $\forall \varepsilon>0,\ \exists N\in \NN$, $\diam\left(\{x_n\mid n\in I_{\ge N}\}\right)\le \varepsilon$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(E,\dd)$ be a semimetric space, and $(x_n)_{n\in I}$ be a sequence in $E$.
+    \newline
+    (1) If $(x_n)_{n\in I}$ is convergent, then it is a Cauchy sequence.
+    \newline
+    (2) If $(x_n)_{n\in I}$ is a Cauchy sequence, then $\{x_n\mid n\in I\}$ is bounded.
+    \newline
+    (3) If $(x_n)_{n\in I}$ is a Cauchy sequence, then any of its subsequence is a Cauchy sequence.
+    \newline
+    (4) If $(x_n)_{n\in I}$ is a Cauchy sequence, and if there exists a subsequence $(x_n)_{n\in J}$ that converges to some $p\in E$, then $(x_n)_{n\in I}$ converges to $p$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $\mathcal{F}_I$ be a Fréchet filter on $I$.
+    \newline
+    (1) $x_*(\mathcal{F}_I)$ has a limit point. So it is a Cauchy filter. 
+    \newline
+    (2) $\exists N\in \NN$ such that $\diam(\{x_n\mid n\in I_{\ge \NN}\})\le 1<+\infty$. So $\diam\left(\{x_n\mid n\in I\}\right)<+\infty$ since
+    $$\{x_n\mid n\in I\}=\{x_n\mid n\in I_{< N}\}\cup\{x_n\mid n\in I_{\ge N}\}.$$
+    (3) Let $J$ be an infinite subset of $I$, $\lambda:J\longrightarrow I$ be the inclusion mapping, and $\mathcal{F}_J$ be the Fréchet filter. Then $\lambda_*(\mathcal{F}_J)\supseteq \mathcal{F}_I$.
+    $$(x\circ \lambda)_*(\mathcal{F}_J)=x_*(\lambda_*(\mathcal{F}_J))\supseteq x_*(\mathcal{F}_I.)$$
+    Since $x_*(\mathcal{F}_I)$ is a Cauchy filter, $(x\circ \lambda)_*(\mathcal{F}_J)$ is a Cauchy filter.
+    \newline
+    (4) We keep the notation introduced in the proof of (3). If $p$ is a limit point of $x\circ \lambda_*\left(\mathcal{F}_J\right)$. Then $p$ is an adherent point of $x_*(\mathcal{F}_I)$. Since $x_*(\mathcal{F}_I)$  is a Cauchy filter, $p$ is a limit point of $x_*(\mathcal{F}_I)$. 
+\end{proofenv}
+\begin{definitionenv}
+    Let $(X,\dd)$ be a semimetric space. If any Cauchy filter on $X$ has a limit point, then we say that $(X,\dd)$ is complete.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(X,\dd)$ be a {\color{brown} metric space} and $Y$ be a subset of $X$. If $(Y,\dd)$ is complete, then $Y$ is a closed subset of $X$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(y_n)_{n\in\NN}$ be a sequence in $Y$ that converges in $X$ to some $p\in X$. So $(y_n)_{n\in \NN}$ is a Cauchy sequence in $Y$, thus it converges to some $q\in Y$. Since $X$ is Hausdorff, $p=q$. Then $\bar{Y}=Y$ (Since $\bar{Y}$ is the set of limits of all sequence in $Y$). So $Y$ is closed.
+\end{proofenv}
+\begin{exampleenv}
+    $(\RR,\left|\ \cdot\ \right|)$ is complete.
+    \newline
+    Let $(x_n)_{n\in I}$ be a Cauchy sequence in $\RR$. Let $M>0$ such that $\forall n\in I, |x_n|\le M$. Hence,
+    $$ -M\le \liminf_{n\rightarrow +\infty} x_n\le \limsup_{n\rightarrow +\infty}x_n\le M.$$
+    By Bolzano-Weierstrass, $\exists J\subseteq I$ infinite such that $(x_n)_{n\in I}$ converges to $\limsup_{n\rightarrow +\infty}x_n\in \RR$. So $(x_n)_{n\in I}$ converges.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(X,\dd)$ be a semimetric space, $(X,\dd)$ is complete if and only if any Cauchy sequence in $X$ is convergent.
+\end{propositionenv}
+\begin{proofenv}
+    It is suffices to prove ``$\Leftarrow$''. Suppose that all Cauchy sequence in $X$ converges. Let $\mathcal{F}$ be a Cauchy filter on $X$. 
+    $\forall n\in \NN$, let $A_n\in \mathcal{F}$, $\diam(A)<\frac{1}{n+1}$. $\forall n\in \NN$, let $B_n=A_0\cap\ldots\cap A_n\in \mathcal{F}$, $\diam(B)\le \frac{1}{n+1}$. Take $x_n\in B_n$. Then $(x_n)_{n\in \NN}$ is a Cauchy sequence. Hence $(x_n)_{n\in \NN}$ converges to $p\in X$. 
+    
+    \quad We claim that $p$ is a limit point of $\mathcal{F}$. If $V$ is a neighborhood of $p$, then $\exists N\in \NN$ such that $\{x_n\mid  n\in \NN_{\ge N}\}\subseteq V$. So $V\cap B_n\neq\varnothing, \ \forall n \in \NN_{\ge N}$.
+    
+    \quad Let $A\in \mathcal{F}$, $A\cap B_n\neq\varnothing$. Take $y_n\in A\cap B_n$, $(y_n)_{n\in\NN}$ is a Cauchy sequence. $\dd(y_n,x_n)\le\frac{1}{1+n}$, so $(y_n)_{n\in \NN}$ converges to $p$. Thus $V\cap A\neq \varnothing$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $n$ be a positive integer. For any $i\in\{1,\ldots,n\}$, let $(X_i,\dd_i)$ be a semimetric space. Let $X=X_1\times\ldots\times X_n$ and 
+    $$\pi_i:X\longrightarrow X_i$$
+    $$(x_1,\ldots,x_n)\longmapsto x_i$$
+    be the projection mapping. We equip $X$ with the product semimetric $\dd$
+    $$\dd((x_1,\ldots,x_n),(y_1,\ldots,y_n))\coloneqq \max_{i\in\{1,\ldots,n\}}\dd_i(x_i,y_i).$$
+    Let $\mathcal{F}$ be a non-degenerate filter on $X$. For any $i\in\{1,\ldots, n\}$, let
+    $$\mathcal{F}_i=\left(\pi_i\right)_{*}\left(\mathcal{F}\right).$$ 
+    (1) The filter $\mathcal{F}$ is a Cauchy filter if and only if $\mathcal{F}_i$ is a Cauchy filter for any $i\in \{1,\ldots,n\}$.
+    \newline
+    (2) The filter $\mathcal{F}$ has a limit point if and only if $\mathcal{F}_i$ has a limit point for any $i\in \{1,\ldots,n\}$. If $p_i$ is the limit point of $\mathcal{F}_i$, then $p=\left(p_1,\ldots,p_n\right)$ is a limit point of $\mathcal{F}$.
+    \newline
+    (3) If $\left(X_1,\dd_1\right),\ldots,\left(X_n,\dd_n\right)$ are complete, then $(X,\dd)$ is complete.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1)
+    Since $\pi_i$ are Lipschitzian, if $\mathcal{F}$ is a Cauchy filter, then $\mathcal{F}_i$  are all Cauchy filters. Conversely, let $\mathcal{F}$ be a non-degenerate filter such that $\mathcal{F}_i$ is a Cauchy filter for all $i\in\{1,\ldotp,n\}$. For any $\varepsilon>0$, any $i\in\{1,\ldots,n\}$, there exists $A_i\in \mathcal{F}_i$ such that $\diam(A_i)<\varepsilon$. We define 
+    $$A\coloneqq A_1\times\ldots\times A_n=\bigcap_{i=1}^n\pi_{i}^{-1}\left(A_i\right)\in\mathcal{F}.$$
+    For any $\left(x_1,\ldots,x_n\right),\left(y_1,\ldots,y_n\right)\in A$, $\dis\dd(x,y)=\max_{i\in\{1,\ldots,n\}}\dd_{i}(x_i,y_i)<\varepsilon.$
+    \newline
+    (2) $\pi_i$ is Lipschitzian so also continuous $i\in \{1,\ldots,n\}$, therefore, if $p=(p_1,\ldots,p_n)$ a limit point of $\mathcal{F}$, then $\pi_i(p)=p_i$ is a limit point of $\mathcal{F}_i$. 
+    
+    \quad Conversely, Suppose that $p_i$ is a limit point of $\mathcal{F}_i$. Let $U$ be a neighborhood of $p$. There exists $U_i\in\mathcal{F}_i$ neighborhood of $p_i$ such that $U_1\times \ldots\times U_n\subseteq U$.
+    $$U\supseteq \bigcap_{i=1}^n\pi_{i}^{-1}\left(U_i\right)\in\mathcal{F},$$
+    so $U\in\mathcal{F}$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\dd_X)$, $(Y,\dd_Y)$ be two semimetric spaces, $f:X\longrightarrow Y$ be uniformly continuous. For any Cauchy filter $\mathcal{F}$ on $X$, $f_*(\mathcal{F})$ is also a Cauchy filter on $Y$.
+\end{propositionenv}
+\begin{proofenv}
+    $\forall \varepsilon>0,\ \exists \delta>0$ such that 
+    $$\forall (x,y)\in X\times X,\ \dd_X(x,y)<\delta\Rightarrow \dd_Y(f(x),f(y))<\varepsilon.$$
+    Let $A\in \mathcal{F}$ such that $\diam(A)<\delta$, then $f(A)\in f_*(\mathcal{F})$ and $\diam(f(A))<\varepsilon$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\dd),(X',\dd')$ be two semimetric spaces, $f:X\longrightarrow X'$ injective mapping. Assume that there exists positive constants $C_1$ and $C_2$ such that $\forall (x,y)\in X\times X$, $C_1\cdot \dd(x,y)\le \dd'\left(f(x),f(y)\right)\le C_2\cdot\dd(x,y)$. 
+    \newline
+    (1) For any sequence $(x_i)_{i\in I}$ in $X$, the sequence $(x_i)_{i\in I}$ is a Cauchy sequence if and only if the sequence $\left(f(x_i)\right)_{i\in I}$ is a Cauchy sequence.
+    \newline
+    (2) For any $(x_i)_{i\in I}$ in $X$, $(x_i)_{i\in I}$ is a convergent if and only if $\left(f(x_i)\right)_{i\in I}$ is convergent.
+    \newline
+    (3) If $(X,\dd)$ is complete, then $(f(X),\dd')$ is complete. $f(X)$ is closed in $X'$ if in addition we assume that $\dd'$ is a metric.
+\end{propositionenv}
+\begin{proofenv}
+    Note that $f:X\longrightarrow f(X)$, $f^{-1}: f(X)\longrightarrow X$ are Lipschitzian. Apply the previous proposition.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(K,\left|\ \cdot\ \right|)$ be a valued filed such that $\left(K,\left|\ \cdot\ \right|\right)$ is complete. Let $V$ be a finite dimensional vector space over $K$. 
+    \newline
+    (1) All possible norms on $K$ are equivalent.
+    \newline
+    (2) For any norm $\pl\cdot\pl $ on $V$, the normed space $\left(V,\pl\cdot\pl\right)$ is complete.
+    \newline
+    (3) If we equip $V$ with the topology induced by an arbitrary norm $\pl\cdot\pl$. For any normed vector space $\left(V,\pl\cdot\pl\right)$, any $K$-linear mapping $f:V\longrightarrow V'$ is bounded and $f\left(V\right)$ is closed in $V'$.
+\end{theoremenv}
+\begin{proofenv}
+    Let $e\coloneq \left(e_i\right)_{i=1}^n$ be a basis of $V$. Then, the mapping
+    $$\pl\cdot\pl_e: V\longrightarrow \RR_{>0},\ \pl a_1e_1+\ldots+ a_ne_n\pl=\max_{i\in\{1,\ldots,n\}}\left|e_i\right|$$
+    is a norm on $V$. For $f:V\longrightarrow V'$, 
+    \begin{align}
+        \pl f\left(a_1e_1+\ldots+a_ne_n\right)\pl'&=\pl a_1 f\left(e_1\right)+\ldots+ a_nf\left(e_n\right)\pl'\\
+        &\le\left|a_1\right|\pl f\left(e_1\right)\pl' +\ldots+\left|a_n\right|\pl f\left(e_n\right)\pl'\\
+        &\le \max_{i\in\{1,\ldots,n\}}\left|a_i\right|\sum_{i=1}^{n}\pl f\left(e_i\right)\pl'.
+    \end{align}
+    Therefore the $K$-linear mapping $f:\left(V,\pl\cdot\pl_e\right)\longrightarrow \left(V',\pl\cdot\pl'\right)$ is bounded. In particular, for any $\pl\cdot\pl$ on $V$, 
+    $\mathrm{Id}: \left(V,\pl\cdot\pl\right)\longrightarrow \left(V,\pl\cdot\pl\right)$ is bounded. So there exists $C>0$, $\pl\cdot\pl\le C\pl\cdot\pl_e$.
+
+    \quad To prove the theorem, we reason by induction with respect to $n=\dim\left(V\right)$. 
+    
+    \quad In case when $n=0$, $V=\{0\}$ has the unique norm $\pl\cdot\pl_0$ (constant mapping with the value $0\in \RR$). Any sequence in $\{0_V\}$ is constant, and hence convergent ($\left(\{0\},\pl\cdot\pl_0\right)$ complete). If $f:\left(\{0_V\},\pl\cdot\pl\right)\longrightarrow \left(V,\pl\cdot\pl\right)$ is $K$-linear, then it is bounded. The unique $f\left(\{0_V\}\right)$ is a one-point set, which is closed, since $\left(V,\pl\cdot\pl\right)$ is Hausdorff. 
+
+    \quad In case when $n=1$, let $e_1$ be the basis of $V$, and $\pl\cdot\pl$ be an arbitrary norm on $V$.
+    $$\pl a_1e_1\pl =\left|a_1\right|\pl e_1\pl=\pl a_1e_1\pl_{e_1}\cdot\pl e_1\pl, $$
+    so $\pl\cdot\pl$ is equivalent to $\pl\cdot\pl_{e_1}$.
+    \newline
+    (2) Since $(K,\left|\ \cdot\ \right|)$ is complete, so $(V,\pl\cdot\pl_{e_1})$ is also complete, since 
+    $$(K,\left|\ \cdot\ \right|)\longrightarrow (V,\pl\cdot\pl_{e_1})$$
+    $$a\longmapsto ae_1$$
+    is an isomorphism.
+    \newline
+    (3) We have seen that the mapping $f:\left(V,\pl\cdot\pl_{e_1}\right)\longrightarrow \left(V',\pl\cdot\pl'\right)$ is bounded. So $f:\left(V,\pl\cdot\pl\right)\longrightarrow \left(V',\pl\cdot\pl'\right)$ is also bounded. $f(V)=\{0\}$, or $(f(V),\pl\cdot\pl')$ is of dimension $1$, so $(f(V),\pl\cdot\pl')$ is complete, so $f(V)$ is closed.
+    \newline
+    Suppose that the theorem holds for normed vector space of dimension $<n$. Then the case of dimension $n$:
+
+    \quad Let $e=(e_i)_{i=1}^n$ be a basis of $V$. Let $W=\mathrm{span}_K\left(\{e_1,\ldots,e_n\}\right)$. If $\pl\cdot\pl$ is a norm on $V$, then, by the induction hypothesis,
+    
+    (i) $\pl\cdot\pl$ and $\pl\cdot\pl_{\underline{e}}$ are equivalent on $W$, that is, $\exists A>0$ such that $\forall(a_1,\ldots,a_{n-1})$, 
+    $$\max\{|a_1|,\ldots,|a_n|\}=\pl a_1e_1+\ldots+a_{n-1}e_{n-1}\pl_{\underline{e}}\le A\pl a_1e_1+\ldots+a_{n-1}e_{n-1}\pl.$$ 
+    (ii) $(W,\pl\cdot\pl)$ is complete.
+
+    (iii) $W$ is a closed subset of $V$.
+
+    Let $Q=V/W$, and $\pl\cdot\pl_Q$ be the quotient norm on $Q$. Let $(b_1,\ldots,b_n)\in K^n,$
+    $$s=b_1e_1+\ldots+b_ne_n\in V,\ t=b_1e_1+\ldots+b_ne_n+w\in V,\ \alpha=[s]=b_n[e_n]\in Q.$$
+    $$\pl t\pl =\pl s-b_ne_n\pl\le \pl s\pl+\left|b_n\right|\pl e_n\pl.$$
+    Take $B=\frac{\pl e_n\pl}{\pl[e_n]\pl_Q}\in \RR$, $\pl s\pl\ge\pl\alpha\pl_Q=\left|b_n\right|\pl[e_n]\pl_Q=B^{-1}|b_n|\pl e_n\pl$.
+    $$B^{-1}\pl s\pl\ge\left(\pl t\pl-|b_n|\cdot\pl e_n\pl\right)B^{-1}$$
+    $$\pl s\pl \ge B^{-1}\cdot|b_n|\cdot\pl e_n\pl.$$
+    $$\left(B^{-1}+1\right)\pl s\pl \ge B^{-1}\pl t\pl\ge B^{-1}A^{-1}\max\{|b_1|,\ldots,|b_n|\}$$
+    Take $C=\min\left\{\frac{B^{-1}A^{-1}}{B^{-1}+1},B^{-1}\cdot\pl e_n\pl\right\}$. Then $\pl s\pl\ge C\max\{|b_1|,\ldots,|b_n|\}$. So $\pl\cdot\pl$ is equivalent to $\pl\cdot\pl_{\underline{e}}$.
+    \newline
+    (2) Since $(V,\pl\cdot\pl)_e$ is complete and $\pl\cdot\pl$ is equivalent to $\pl\cdot\pl_e$, we obtain that $(V,\pl\cdot\pl)$ is also complete.
+    \newline
+    (3) Since $f:\left(V,\pl\cdot\pl_e\right)\longrightarrow \left(V',\pl\cdot\pl'\right)$ is bounded, $f:\left(V,\pl\cdot\pl\right)\longrightarrow \left(V',\pl\cdot\pl'\right)$ is also bounded. 
+    
+    \quad If $f$ is not injective, $\dim\left(f(V)\right)<n$, so $\left(f(V),\pl\cdot\pl'\right)$ is complete, $f(V)$ is thus closed.
+
+    \quad If $f$ is injective, then $\pl f(\cdot)\pl'$ and $\pl\cdot\pl$ are equivalent norms on $V$. So $\left(f(V),\pl\cdot\pl'\right)$ is complete. Hence $f(V)$ is closed.
+    
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\dd)$ be a complete semimetric space. Let $Y\subseteq X$ be a closed subset. Then $(Y,\dd)$ is complete.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(x_n)_{n\in\NN}$ be a Cauchy sequence in $Y$. It is also a Cauchy sequence in $X$, so converges to some $l\in X$. Since $Y$ is closed, one has $l\in Y$. So $(Y,\dd)$ is complete.
+\end{proofenv}
+
+
+\section{Compactness}
+\begin{definitionenv}
+    Let $X$ be a set and $\mathcal{F}$ be a non-degenerate filter on $X$. If there does not exists any non-degenerate filter $\mathcal{G}$ on $X$ such that $\mathcal{F}\subsetneq\mathcal{G}$, then we say that $\mathcal{F}$ is an ultrafilter.
+\end{definitionenv}
+\begin{propositionenv}
+    For any non-degenerate filter $\mathcal{F}$ on $X$, there exists an ultrafilter on $X$ containing $\mathcal{F}$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $\Theta$ be a set of non-degenerate filters containing $\mathcal{F}$, equipped with $\subseteq$. Let $\Theta_0$ be a non-empty totally ordered subset. Let $\dis \mathcal{F}'=\bigcup_{\mathcal{H}\in\Theta_0}\mathcal{H}$.
+    
+    We prove that $\mathcal{F}'$ is a filter.
+
+    (1) Let $(V_1,V_2)\in \mathcal{F}'\times\mathcal{F}'$, $\exists \mathcal{H}_1,\mathcal{H}_2$ in $\Theta_0$, $V_1\in\mathcal{H}_1,\ V_2\in \mathcal{H}_2$. Since $\Theta_0$ is totally ordered, either $\mathcal{H}_1\subseteq\mathcal{H}_2$ or $\mathcal{H}_2\subseteq\mathcal{H}_1$. 
+
+    If $\mathcal{H}_1\subseteq \mathcal{H}_2, V_1\cap V_2\in \mathcal{H}_2\subseteq\mathcal{F}'$. If $\mathcal{H}_2\subseteq\mathcal{H}_1,V_1\cap V_2\in \mathcal{H}_1\subseteq\mathcal{F}'$.
+
+    (2) Let $V\in \mathcal{F}'$, let $\mathcal{H}\in \Theta_0$ such that $V\in \mathcal{H}$. $\forall U\in \wp(X), U\supseteq V$, one has $U\in \mathcal{H}\subseteq\mathcal{F}'$. So $\mathcal{F}'\in \Theta$. It is an upper bound of $\Theta_0$. By Zorn's lemma, there exists maximal $\mathcal{G}\in \Theta$, it is an ultrafilter containing $\mathcal{F}$.
+
+\end{proofenv}
+\begin{propositionenv}
+    Let $X$ be a set and $\mathcal{F}$ be a non-degenerate filter on $X$. The following conditions are equivalent.
+    \newline
+    (1) $\mathcal{F}$ is an ultrafilter.
+    \newline
+    (2) $\forall A\in \wp(X)$, either $A\in \mathcal{F}$ or $X\backslash A\in \mathcal{F}$.
+    \newline
+    (3) $\forall (A,B)\in \wp(X)^2$, if $A\cup B\in \mathcal{F}$, then $A\in \mathcal{F}$ or $B\in\mathcal{F}$.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1)$\Rightarrow $(2): Suppose that $A\in \wp(X)$ such that $A\notin \mathcal{F}$ and $X\backslash A\notin\mathcal{F}$. Let $B\in \mathcal{F}$. If $B\cap A=\varnothing$, then $B\subseteq X\backslash A$. So $\mathcal{F}\cup\{A\}$ generates a non-degenerate filter $\mathcal{F}'\supsetneq\mathcal{F}$, contradiction.
+    \newline
+    (2)$\Rightarrow$(3): Suppose that $B\notin \mathcal{F}$. Then $X\backslash B\in \mathcal{F}$. So $\left(A\cup B\right)\cap \left(X\backslash B\right)\in \mathcal{F}$. So $A\in \mathcal{F}$.
+    \newline
+    (3)$\Rightarrow$(1): Let $\mathcal{F}'$ be a non-degenerate filter such that $\mathcal{F}\subsetneq\mathcal{F}'$. Take $A\in \mathcal{F}'\backslash \mathcal{F}$.
+
+    Then $X=A\cup\left(X\backslash A\right)$. Since $A\notin\mathcal{F}$, $X\backslash A\in \mathcal{F}\subseteq \mathcal{F}'$. So $\varnothing=A\cap\left(X\backslash A\right)\in \mathcal{F}'$. Contradiction.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $f:X\longrightarrow Y$ be mapping of sets. If $\mathcal{F}$ is an ultrafilter on $X$, then $f_*(\mathcal{F})$ is an ultrafilter on $Y$.
+\end{corollaryenv}
+\begin{proofenv}
+    Let $A$ and $B$ be subsets of $Y$ such that 
+    $$A\cup B\in f_*(\mathcal{F}):=\{C\subseteq Y\mid f^{-1}(C)\in \mathcal{F}\}$$
+    $$f^{-1}\left(A\cup B\right)=f^{-1}(A)\cup f^{-1}(B)\in \mathcal{F}.$$
+    Since $\mathcal{F}$ is an ultrafilter, $f^{-1}(A)\in \mathcal{F}$ or $f^{-1}(B)\in \mathcal{F}$. Namely, $A\in f_*(\mathcal{F})$ or $B\in f_*(\mathcal{F})$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(X,\mathscr{T})$ be a topological space, $Y\subseteq X$ and $\left(U_i\right)_{i\in I}$  be a family of subset of $X$.
+    \newline
+    (1) If $Y\subseteq\bigcup_{i\in I}U_i$, we say that $\left(U_i\right)_{i\in I}$ is a \textbf{cover} of $Y$.
+    \newline
+    (2) If $\exists J\in I$ such that $Y\subseteq \bigcup_{j\in J}U_j$, we say that $\left(U_j\right)_{j\in J}$ is a \textbf{subcover} of $\left(U_i\right)_{i\in I}$ of $Y$.
+    \newline
+    (3) If $\left(U_i\right)_{i\in I}\in \mathscr{T}^I$ is a cover of $Y$, we say that ti is an \textbf{open cover} of $Y$.
+    \newline
+    (4) If $I$ is a finite set and $\left(U_i\right)_{i\in I}$ is a cover of $Y$, we say that $\left(U_i\right)_{i\in I}$ is a \textbf{finite open cover}.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $\left(X,\mathscr{T}\right)$ be a topological space and $Y\subseteq X$. The following conditions are equivalent:
+    \newline
+    (1) For any ultrafilter $\mathcal{G}$ on $X$ such that $Y\in \mathcal{G}$, $\mathcal{G}$ has a limit point in $Y$.
+    \newline
+    (2) For any non-degenerate filter $\mathcal{F}$ on $X$, such that $Y\in \mathcal{F}$, $\mathcal{F}$ has an adherent point in $Y$.
+    \newline
+    (3) Any open cover of $Y$ has a finite subcover.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1)$\Rightarrow$(2) Let $\mathcal{G}$ be an ultrafilter containing $\mathcal{F}$ and $x\in Y$ be a limit point of $\mathcal{G}$. For any $U\in \mathcal{V}_x\left(\mathcal{T}\right)$, $U\in \mathcal{G}$, so $\forall A\in \mathcal{F}$, $U\cap A\neq\varnothing$.
+    \newline
+    (2)$\Rightarrow$(1) Let $\mathcal{G}$ be an ultrafilter, and let $x\in Y$ be an adherent point of $\mathcal{G}$. Then the filter $\mathcal{G}'$ generated by $\mathcal{G}\cup\mathcal{V}_x(\mathscr{T})$ is non-degenerate and contains $\mathcal{G}$. So $\mathcal{G}'=\mathcal{G}$. This means $\mathcal{V}_x(\mathscr{T})\subseteq\mathcal{G}$.
+    \newline
+    (2)$\Rightarrow$(3) Let $(\mathcal{U}_i)_{ i\in I}$ be an open cover of $Y$. Suppose that it does not have any finite subcover. For any $i\in I$, let $F_i=X\backslash U_i$. For any finite subset $J$ of $I$, $Y\subseteq \bigcup_{j\in \mathcal{F}}U_j$. So
+    $$Y\bigcap\left(X\backslash \bigcup_{j\in J}U_j\right)=Y\bigcup\bigcap_{j\in J}F_j\neq\varnothing.$$
+    So $\{F_i\mid i\in I\}\cup\{Y\}$ generates a non-degenerate filter $\mathcal{F}$. It has an adherent point of $x\in Y$. Since $Y\subseteq \bigcup_{i\in I}U_i$, $\exists i_0\in I$, $x\in U_{i_0}$. So $U_{i_0}\in \mathcal{V}_x(\mathcal{T})$. This is impossible since $U_{i_0}\cap F_{i_0}=\varnothing.$
+    \newline
+    (3)$\Rightarrow$(2) Let $\mathcal{F}$ be a non-degenerate filter such that $Y\in \mathcal{F}$. Suppose that $\mathcal{F}$ does not have any adherent point in $Y$.
+
+    \quad For any $y\in Y$, there exists open neighborhood $U_y$ of $y$ and $A_y\in \mathcal{F}$, such that $U_y\cap A_y=\varnothing$. Since $\dis Y\subseteq\bigcup_{y\in Y}U_y$, $\exists \{y_1,\ldots,y_n\}\subseteq Y$ such that $Y\dis\subseteq\bigcup_{i=1}^n U_{y_i}$. Take $\dis A=\left(\bigcap_{i=1}^nA_{y_i}\right)\cap Y\in \mathcal{F}$, $A\neq \varnothing$, $A\subseteq Y$.
+    \begin{align*}
+        A=A\cap Y&\subseteq A\bigcap \bigcup_{i=1}^n U_{y_i}\\
+        &=\bigcup_{i=1}^n\left(A\cap U_{y_i}\right)\\
+        &\subseteq \bigcup_{i=1}^n\left(A_{y_i}\cap U_{y_i}\right)\\
+        &=\varnothing.
+    \end{align*}
+    Contradiction.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(X,\mathscr{T})$ eb a topological space. If $Y\subseteq X$ satisfies the equivalent conditions described in the previous proposition, we say that $Y$ is \textbf{compact}.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(X,\mathscr{T}_X)$ and $(Y,\mathscr{T}_Y)$ be two topological spaces, $f:X\longrightarrow Y$ be a continuous mapping. If $F\subseteq X$ is compact, then $f(F)$ is also compact.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(V_i)_{i\in I}$ be a open cover of $f(F)$. Then 
+    $$F\subseteq f^{-1}\left(f(F)\right)\subseteq \bigcup_{i\in I}f^{-1}(V_i).$$
+    Since $F$ is closed, $\exists J\subseteq I$ finite such that $\dis F\subseteq \bigcup_{j\in J}f^{-1}(V_j)$. Hence $f(F)\subseteq\bigcup_{j\in J}V_j$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $\left(X,\mathscr{T}\right)$ be a topological space, $A$ be a compact subset of $X$, $F$ is a closed subset of $X$, then $A\cap F$ is a compact subset of $X$.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(U_i)_{i\in I}$ be an open cover of $A\cap F$. Then
+    $$A\subseteq \left(\bigcup_{i\in I}U_i\right)\cup\left(X\backslash F\right).$$
+    So $\exists J\subseteq I$ finite, $A\subseteq \left(\bigcup_{j\in J}U_j\right)\cup\left(X\backslash F\right)$. Hence
+    $$A\cap F\subseteq \left(\bigcup_{j\in J}U_j\right)\cup\left((X\backslash F)\cap F\right)=\bigcup_{{j\in J}}U_j.$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(X,\mathscr{T})$ be a topological space, $A$ be a compact subset of $X$. 
+    \newline
+    (1) For any $x\in X\backslash A$, there exists open subsets $U$ and $V$ of $X$, such that $A\subseteq U$, $x\in V$ and $U\cap V=\varnothing$.
+    \newline
+    (2) $A$ is closed.
+\end{propositionenv}
+\begin{proofenv}
+    (1)$\Rightarrow$(2): $\forall x\in X\backslash A$, $\exists (U,V)\in \mathscr{T}^2$, $A\subseteq U$, $x\in V$, $U\cap V=\varnothing$. Hence, $V\subseteq X\backslash A$. So $X\backslash A$ is a neighborhood of $x$.
+    \newline
+    Proof of (1): $\forall y\in A$, $\exists U_y\in \mathscr{T}$, $V_y\in \mathscr{T}$ such that $y\in U_y$, $x\in V_y$, $U_y\cap V_y=\varnothing$. (Hausdorff) Since $\dis A\subseteq \bigcup_{y\in A}$ and $A$ is compact. $\exists \{y_1,\ldots,y_n\}\subseteq A$, $\dis A\subseteq \bigcup_{i=1}^{n}U_{y_i}$. Let $\dis U=\bigcup_{i=1}^n U_{y_i}$, $\dis V=\bigcap_{i=1}^{n}V_{y_i}$. These are open subsets of $X$, and $A\subseteq U$, $x\in V$. 
+    $$U\cap V=\bigcup_{i=1}^n U_{y_i}\cap V\subseteq \bigcup_{i=1}^n U_{y_i}\cap V_{y_i}=\varnothing.$$
+
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(X,\mathscr{T})$ be a topological space, and $A$ and $B$ be disjoint compact subset of $X$. There exist $(U,V)\in\mathscr{T}^2$, such that $A\subseteq U$, $B\subseteq V$ and $U\cap V=\varnothing$.
+\end{corollaryenv}
+\begin{proofenv}
+    By (1) of the previous proposition.
+    $$\forall x\in B,\ \exists (U_x, V_x)\in \mathscr{T}^2,\ A\subseteq U_x,\ x\in V_x,\ U_x\cap V_x=\varnothing.$$
+    $B\subseteq \bigcup_{x\in B}V_x.$ So, $\exists \{x_1,\ldots,x_n\}\subseteq B$, such that $\dis B\subseteq \bigcup_{i=1}^n V_{x_i}$. Let
+    $$U=\bigcap_{i=1}^nU_{x_i}\in \mathscr{T},\ V=\bigcup_{i=1}^nV_{x_i}\in \mathscr{T}.$$
+    Then, $A\subseteq U$, $B\subseteq V$, and $U\cap V=\varnothing$.
+\end{proofenv}
