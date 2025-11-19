@@ -117,7 +117,7 @@
 \end{definitionenv}
 \begin{definitionenv}
     \ \newline
-    Let $\mathcal{B}$ be a subset of $\wp(X)$, we say that $\mathcal{B}$ is a topological basis if:
+    Let $\mathcal{B}$ be a subset of $\wp(X)$, we say that $\mathcal{B}$ is a \textbf{topological basis} if:
     \newline
     (1) $\dis X=\bigcup_{V\in \mathcal{B}}V$.
     \newline
@@ -128,7 +128,6 @@
     
     If $S\subseteq\wp(X)$, we denote by $\mathscr{T}_S$ the intersection of all topology containing $S$. It is the coarsest topology containing $S$. 
     
-    Let  $\mathcal{B}\subseteq \wp(X)$. If $\dis X=\bigcup_{V\in \mathcal{B}}V$ and $\forall (U,V)\in \mathcal{B}\times\mathcal{B},\ \forall x\in U\cap V,\ \exists W_x\in \mathcal{B},$ such that $x\in W_x\subseteq U\cap V$, we say that $\mathcal{B}$ is a \textbf{topological basis} on $X$.
 \end{definitionenv}
 \begin{propositionenv}
     Let $S$ be s subset of $\wp(X)$. Let 
@@ -147,7 +146,7 @@
     $$\mathscr{T}_{\mathcal{B}}=\left\{U\in\wp(X)\mid \exists \text{ a set }I \text{ and }(V_i)_{i\in I}\in \mathcal{B}^I, U=\bigcup_{i\in I}V_i\right\}.$$
 \end{propositionenv}
 \begin{proofenv}
-    We denote by $\mathscr{T}$ te set 
+    We denote by $\mathscr{T}$ the set 
     $$\{U\in \wp(X)\mid U\text{ can be written as as the union of a family sets in }\mathcal{B}\}.$$
     By definition, $\mathcal{B}\subseteq\mathscr{T}\subseteq\mathscr{T}_{\mathcal{B}}$. It remains to check that $\mathscr{T}$ is a topology.
 
@@ -208,7 +207,7 @@ We fix a topology space $(E,\mathscr{T})$, $l\in E$ and $S\subseteq \wp(E)$ that
     $$\lim_{n\rightarrow+\infty}x_n=l.$$
     \newline
     (2) Let $(X,\mathscr{T}_X)$ be a topological space. Let $Y\subseteq X$ be a subset of $X$, $p\in X$. Let 
-    $$\mathcal{F}=\mathcal{V}_p(\mathscr{T}_X)|_Y=\{V\cap Y\}\mid V\in \mathcal{V}_p(\mathscr{T}_X).$$
+    $$\mathcal{F}=\mathcal{V}_p(\mathscr{T}_X)|_Y=\{V\cap Y\mid V\in \mathcal{V}_p(\mathscr{T}_X)\}.$$
     Assume that $\mathcal{F}$ is non-degenerate. Let $f:X\longrightarrow E$ be a mapping. If $f$ converges to $l$ along $\mathcal{F}$, we day that $f(x)$ converges to $l$ when $x\in Y$ tends to $p$, denoted as 
     $$\lim_{x\in Y,\ x\rightarrow p}f(x)=l.$$
     This condition is equivalent to:
@@ -463,7 +462,7 @@ $$\forall x\in \mathrm{Dom}(f),\ \exists \delta>0,\ \mathrm{d}_X(x,p)<\delta\Rig
     \newline
     Note that (1) implies that $|\!|0_V|\!|=|0_K|\cdot|\!|0_V|\!|=0$.
 
-    The pair $(V,|\!| \cdot |\!|)$ is called \textbf{seminormed vector space} \textit{over} $(K,\left|\ \cdot\ \right|)$. If $\forall(x,y)\in V\times V,\ |\!|x+y|\!|\le \max\{|\!|x|\!|,|\!|y|\!|\}$, then we say that $|\!|\cdot|\!|$ is \textbf{ultrametric}. If $\forall x\in V\cdot\{0\}$, $|\!|x|\!|>0$, then we say that $|\!| \cdot|\!|$ is a \textbf{norm} and $(V,|\!| \cdot |\!|)$ is a \textbf{normed vector space} \textit{over} $(K,\left|\ \cdot\ \right|)$.
+    The pair $(V,|\!| \cdot |\!|)$ is called \textbf{seminormed vector space} \textit{over} $(K,\left|\ \cdot\ \right|)$. If $\forall(x,y)\in V\times V,\ |\!|x+y|\!|\le \max\{|\!|x|\!|,|\!|y|\!|\}$, then we say that $|\!|\cdot|\!|$ is \textbf{ultrametric}. If $\forall x\in V\backslash\{0\}$, $|\!|x|\!|>0$, then we say that $|\!| \cdot|\!|$ is a \textbf{norm} and $(V,|\!| \cdot |\!|)$ is a \textbf{normed vector space} \textit{over} $(K,\left|\ \cdot\ \right|)$.
 \end{definitionenv}
 \begin{exampleenv}
     $\mathrm{d}:V\times V\longrightarrow \RR_{\ge 0}$, $\mathrm{d}(x,y):=|\!|x-y|\!|$ is a semi-metric. 
@@ -707,8 +706,8 @@ $$\forall x\in \mathrm{Dom}(f),\ \exists \delta>0,\ \mathrm{d}_X(x,p)<\delta\Rig
     The mapping $\dd(\cdot,Y): X\longrightarrow \RR$, $x\longmapsto \mathrm{d}(x,Y)$ is $1$-Lipschitzian.
     \newline
     Let $(x,x')\in X\times X$, $\forall y\in Y$,
-    $$\dd (x,y)-\dd(x',y)\le \dd(x,x').$$
-    Taking the infimum, we get 
+    $$\dd (x,Y)-\dd(x',y)\le \dd(x,y)-\dd(x',y)\le\dd(x,x').$$
+    Taking the supremum, we get 
     $$\dd(x,Y)-\dd(x',Y)\le \dd(x,x').$$
     By symmetry between $x$ and $x'$, $\dd(x',Y)-\dd(x,Y)\le \dd(x,x')$. So 
     $$|\dd(x,Y)-\dd(x',Y)|\le |\dd(x,x')|.$$
@@ -951,7 +950,7 @@ pattern radius = 1pt}
 \begin{proofenv}
     $\forall x\in A,\ \dd(p,x)\le \diam(A)=r.$
 \end{proofenv}
-\begin{propositionenv}
+\begin{propositionenv}\label{8.7.4}
     Let $(E,\dd)$ be a semimetric space, $A\subseteq E$, $B\subseteq E$ and $(x_0,y_0)\in A\times B$. Then 
     $$\diam(A\cup B)\le \diam(A)+\diam(B)+\dd(x_0,y_0).$$
 \end{propositionenv}
@@ -1010,7 +1009,7 @@ pattern radius = 1pt}
 
 
 \end{tikzpicture}
-\caption{Prop. 1.7.4}
+\caption{proposition. \ref{8.7.4}}
     \end{figure}
 \end{proofenv}
 \begin{corollaryenv}
@@ -1246,7 +1245,7 @@ pattern radius = 1pt}
 \end{propositionenv}
 \begin{proofenv}
     \ \newline
-    (1)$\Rightarrow $(2): Suppose that $A\in \wp(X)$ such that $A\notin \mathcal{F}$ and $X\backslash A\notin\mathcal{F}$. Let $B\in \mathcal{F}$. If $B\cap A=\varnothing$, then $B\subseteq X\backslash A$. So $\mathcal{F}\cup\{A\}$ generates a non-degenerate filter $\mathcal{F}'\supsetneq\mathcal{F}$, contradiction.
+    (1)$\Rightarrow $(2): Suppose that $A\in \wp(X)$ such that $A\notin \mathcal{F}$ and $X\backslash A\notin\mathcal{F}$. Let $B\in \mathcal{F}$. If $B\cap A=\varnothing$, then $B\subseteq X\backslash A$, $(X\backslash A)\in \mathcal{F}$. So $\mathcal{F}\cup\{A\}$ generates a non-degenerate filter $\mathcal{F}'\supsetneq\mathcal{F}$, contradiction.
     \newline
     (2)$\Rightarrow$(3): Suppose that $B\notin \mathcal{F}$. Then $X\backslash B\in \mathcal{F}$. So $\left(A\cup B\right)\cap \left(X\backslash B\right)\in \mathcal{F}$. So $A\in \mathcal{F}$.
     \newline
@@ -1285,17 +1284,17 @@ pattern radius = 1pt}
 \end{propositionenv}
 \begin{proofenv}
     \ \newline
-    (1)$\Rightarrow$(2) Let $\mathcal{G}$ be an ultrafilter containing $\mathcal{F}$ and $x\in Y$ be a limit point of $\mathcal{G}$. For any $U\in \mathcal{V}_x\left(\mathcal{T}\right)$, $U\in \mathcal{G}$, so $\forall A\in \mathcal{F}$, $U\cap A\neq\varnothing$.
+    (1)$\Rightarrow$(2) Let $\mathcal{G}$ be an ultrafilter containing $\mathcal{F}$ and $x\in Y$ be a limit point of $\mathcal{G}$. For any $U\in \mathcal{V}_x\left(\mathscr{T}\right)$, $U\in \mathcal{G}$, so $\forall A\in \mathcal{F}$, $U\cap A\neq\varnothing$.
     \newline
     (2)$\Rightarrow$(1) Let $\mathcal{G}$ be an ultrafilter, and let $x\in Y$ be an adherent point of $\mathcal{G}$. Then the filter $\mathcal{G}'$ generated by $\mathcal{G}\cup\mathcal{V}_x(\mathscr{T})$ is non-degenerate and contains $\mathcal{G}$. So $\mathcal{G}'=\mathcal{G}$. This means $\mathcal{V}_x(\mathscr{T})\subseteq\mathcal{G}$.
     \newline
-    (2)$\Rightarrow$(3) Let $(\mathcal{U}_i)_{ i\in I}$ be an open cover of $Y$. Suppose that it does not have any finite subcover. For any $i\in I$, let $F_i=X\backslash U_i$. For any finite subset $J$ of $I$, $Y\subseteq \bigcup_{j\in \mathcal{F}}U_j$. So
-    $$Y\bigcap\left(X\backslash \bigcup_{j\in J}U_j\right)=Y\bigcup\bigcap_{j\in J}F_j\neq\varnothing.$$
-    So $\{F_i\mid i\in I\}\cup\{Y\}$ generates a non-degenerate filter $\mathcal{F}$. It has an adherent point of $x\in Y$. Since $Y\subseteq \bigcup_{i\in I}U_i$, $\exists i_0\in I$, $x\in U_{i_0}$. So $U_{i_0}\in \mathcal{V}_x(\mathcal{T})$. This is impossible since $U_{i_0}\cap F_{i_0}=\varnothing.$
+    (2)$\Rightarrow$(3) Let $(U_i)_{ i\in I}$ be an open cover of $Y$. Suppose that it does not have any finite subcover. For any $i\in I$, let $F_i=X\backslash U_i$. For any finite subset $J$ of $I$, $\dis Y\nsubseteq  \bigcup_{j\in J}U_j$. So
+    $$Y\bigcap\left(X\backslash \bigcup_{j\in J}U_j\right)=Y\bigcap\left(\bigcap_{j\in J}F_j\right)\neq\varnothing.$$
+    So $\{F_i\mid i\in I\}\cup\{Y\}$ generates a non-degenerate filter $\mathcal{F}$. It has an adherent point of $x\in Y$. Since $Y\subseteq \bigcup_{i\in I}U_i$, $\exists i_0\in I$, $x\in U_{i_0}$. So $U_{i_0}\in \mathcal{V}_x(\mathscr{T})$. This is impossible since $U_{i_0}\cap F_{i_0}=\varnothing.$
     \newline
     (3)$\Rightarrow$(2) Let $\mathcal{F}$ be a non-degenerate filter such that $Y\in \mathcal{F}$. Suppose that $\mathcal{F}$ does not have any adherent point in $Y$.
 
-    \quad For any $y\in Y$, there exists open neighborhood $U_y$ of $y$ and $A_y\in \mathcal{F}$, such that $U_y\cap A_y=\varnothing$. Since $\dis Y\subseteq\bigcup_{y\in Y}U_y$, $\exists \{y_1,\ldots,y_n\}\subseteq Y$ such that $Y\dis\subseteq\bigcup_{i=1}^n U_{y_i}$. Take $\dis A=\left(\bigcap_{i=1}^nA_{y_i}\right)\cap Y\in \mathcal{F}$, $A\neq \varnothing$, $A\subseteq Y$.
+    \quad For any $y\in Y$, there exists open neighborhood $U_y$ of $Y$ and $A_y\in \mathcal{F}$, such that $U_y\cap A_y=\varnothing$. Since $\dis Y\subseteq\bigcup_{y\in Y}U_y$, $\exists \{y_1,\ldots,y_n\}\subseteq Y$ such that $Y\dis\subseteq\bigcup_{i=1}^n U_{y_i}$. Take $\dis A=\left(\bigcap_{i=1}^nA_{y_i}\right)\cap Y\in \mathcal{F}$, $A\neq \varnothing$, $A\subseteq Y$.
     \begin{align*}
         A=A\cap Y&\subseteq A\bigcap \bigcup_{i=1}^n U_{y_i}\\
         &=\bigcup_{i=1}^n\left(A\cap U_{y_i}\right)\\
@@ -1305,7 +1304,7 @@ pattern radius = 1pt}
     Contradiction.
 \end{proofenv}
 \begin{definitionenv}
-    Let $(X,\mathscr{T})$ eb a topological space. If $Y\subseteq X$ satisfies the equivalent conditions described in the previous proposition, we say that $Y$ is \textbf{compact}.
+    Let $(X,\mathscr{T})$ be a topological space. If $Y\subseteq X$ satisfies the equivalent conditions described in the previous proposition, we say that $Y$ is \textbf{compact}.
 \end{definitionenv}
 \begin{propositionenv}
     Let $(X,\mathscr{T}_X)$ and $(Y,\mathscr{T}_Y)$ be two topological spaces, $f:X\longrightarrow Y$ be a continuous mapping. If $F\subseteq X$ is compact, then $f(F)$ is also compact.
@@ -1313,9 +1312,9 @@ pattern radius = 1pt}
 \begin{proofenv}
     Let $(V_i)_{i\in I}$ be a open cover of $f(F)$. Then 
     $$F\subseteq f^{-1}\left(f(F)\right)\subseteq \bigcup_{i\in I}f^{-1}(V_i).$$
-    Since $F$ is closed, $\exists J\subseteq I$ finite such that $\dis F\subseteq \bigcup_{j\in J}f^{-1}(V_j)$. Hence $f(F)\subseteq\bigcup_{j\in J}V_j$.
+    Since $F$ is compact, $\exists J\subseteq I$ finite such that $\dis F\subseteq \bigcup_{j\in J}f^{-1}(V_j)$. Hence $\dis f(F)\subseteq\bigcup_{j\in J}V_j$.
 \end{proofenv}
-\begin{propositionenv}
+\begin{propositionenv}\label{8.8.9}
     Let $\left(X,\mathscr{T}\right)$ be a topological space, $A$ be a compact subset of $X$, $F$ is a closed subset of $X$, then $A\cap F$ is a compact subset of $X$.
 \end{propositionenv}
 \begin{proofenv}
@@ -1323,23 +1322,192 @@ pattern radius = 1pt}
     $$A\subseteq \left(\bigcup_{i\in I}U_i\right)\cup\left(X\backslash F\right).$$
     So $\exists J\subseteq I$ finite, $A\subseteq \left(\bigcup_{j\in J}U_j\right)\cup\left(X\backslash F\right)$. Hence
     $$A\cap F\subseteq \left(\bigcup_{j\in J}U_j\right)\cup\left((X\backslash F)\cap F\right)=\bigcup_{{j\in J}}U_j.$$
+    \begin{figure}[H]
+        \centering
+
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_oxs1nqd62}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_oxs1nqd62}
+{\pgfqpoint{0pt}{-\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_o1760qkfr}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_o1760qkfr}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_qrsx7od7d}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_qrsx7od7d}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_a0fqj89sm}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_a0fqj89sm}
+{\pgfqpoint{0pt}{-\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Rectangle [id:dp1807941089173597] 
+\draw  [fill={rgb, 255:red, 251; green, 177; blue, 186 }  ,fill opacity=1 ][line width=2.25]  (100,104) -- (326.5,104) -- (326.5,217) -- (100,217) -- cycle ;
+%Shape: Rectangle [id:dp26427748991703814] 
+\draw  [pattern=_oxs1nqd62,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=2.25]  (100,104) -- (326.5,104) -- (326.5,217) -- (100,217) -- cycle ;
+%Shape: Regular Polygon [id:dp3508538721574953] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ][line width=2.25]  (278.4,111.26) .. controls (258.97,111.26) and (237.62,126.45) .. (220.25,134.71) .. controls (155.23,165.61) and (223.1,193.34) .. (276.07,188.77) .. controls (324,185.74) and (327.78,162.01) .. (309.24,129.24) .. controls (301.27,116.39) and (288.5,111.26) .. (278.4,111.26) -- cycle ;
+%Shape: Regular Polygon [id:dp7178567174888238] 
+\draw  [line width=2.25]  (176.14,113.75) .. controls (160.65,113.75) and (143.57,106.87) .. (129.72,116.27) .. controls (77.91,151.45) and (132.07,207.19) .. (174.28,201.98) .. controls (185.3,200.62) and (214.24,195.66) .. (224.41,191.9) .. controls (242.77,185.1) and (261.26,155.06) .. (242.97,136.44) .. controls (237.77,131.14) and (184.19,113.75) .. (176.14,113.75) -- cycle ;
+%Shape: Regular Polygon [id:dp10521615882136603] 
+\draw  [pattern=_o1760qkfr,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=2.25]  (201.01,130.82) .. controls (182.4,141.48) and (183.21,165.74) .. (190.11,175.89) .. controls (193.13,180.32) and (200.1,195.27) .. (216.44,190.91) .. controls (253.66,198.66) and (276.35,158.93) .. (258.2,139.54) .. controls (245.03,122.58) and (224.61,116.77) .. (201.01,130.82) -- cycle ;
+%Shape: Rectangle [id:dp9064393210274385] 
+\draw  [pattern=_qrsx7od7d,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=1.5]  (365,117) -- (383.5,117) -- (383.5,135) -- (365,135) -- cycle ;
+%Shape: Rectangle [id:dp8357629082537468] 
+\draw  [pattern=_a0fqj89sm,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}][line width=1.5]  (365,146) -- (383.5,146) -- (383.5,164) -- (365,164) -- cycle ;
+
+% Text Node
+\draw (336,192.4) node [anchor=north west][inner sep=0.75pt]    {$X$};
+% Text Node
+\draw (133,147.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (292,151.4) node [anchor=north west][inner sep=0.75pt]    {$F$};
+% Text Node
+\draw (222,191.4) node [anchor=north west][inner sep=0.75pt]    {$( U_{i})_{i\in I}$};
+% Text Node
+\draw (392,118.4) node [anchor=north west][inner sep=0.75pt]    {$\text{open cover of} \ A\cap F$};
+% Text Node
+\draw (392,148.4) node [anchor=north west][inner sep=0.75pt]    {$\text{open cover of} \ A$};
+
+\end{tikzpicture}
+\caption{proposition \ref{8.8.9}}
+    \end{figure}
 \end{proofenv}
-\begin{propositionenv}
-    Let $(X,\mathscr{T})$ be a topological space, $A$ be a compact subset of $X$. 
+\begin{propositionenv}\label{8.8.10}
+    Let $(X,\mathscr{T})$ be a Hausdorff topological space, $A$ be a compact subset of $X$. 
     \newline
     (1) For any $x\in X\backslash A$, there exists open subsets $U$ and $V$ of $X$, such that $A\subseteq U$, $x\in V$ and $U\cap V=\varnothing$.
     \newline
     (2) $A$ is closed.
 \end{propositionenv}
 \begin{proofenv}
-    (1)$\Rightarrow$(2): $\forall x\in X\backslash A$, $\exists (U,V)\in \mathscr{T}^2$, $A\subseteq U$, $x\in V$, $U\cap V=\varnothing$. Hence, $V\subseteq X\backslash A$. So $X\backslash A$ is a neighborhood of $x$.
-    \newline
-    Proof of (1): $\forall y\in A$, $\exists U_y\in \mathscr{T}$, $V_y\in \mathscr{T}$ such that $y\in U_y$, $x\in V_y$, $U_y\cap V_y=\varnothing$. (Hausdorff) Since $\dis A\subseteq \bigcup_{y\in A}$ and $A$ is compact. $\exists \{y_1,\ldots,y_n\}\subseteq A$, $\dis A\subseteq \bigcup_{i=1}^{n}U_{y_i}$. Let $\dis U=\bigcup_{i=1}^n U_{y_i}$, $\dis V=\bigcap_{i=1}^{n}V_{y_i}$. These are open subsets of $X$, and $A\subseteq U$, $x\in V$. 
+    \ \newline
+    (1) $\forall y\in A$, $\exists U_y\in \mathscr{T}$, $V_y\in \mathscr{T}$ such that $y\in U_y$, $x\in V_y$, $U_y\cap V_y=\varnothing$. (Hausdorff) Since $\dis A\subseteq \bigcup_{y\in A}U_y$ and $A$ is compact. $\exists \{y_1,\ldots,y_n\}\subseteq A$, $\dis A\subseteq \bigcup_{i=1}^{n}U_{y_i}$. Let $\dis U=\bigcup_{i=1}^n U_{y_i}$, $\dis V=\bigcap_{i=1}^{n}V_{y_i}$. These are open subsets of $X$, and $A\subseteq U$, $x\in V$. 
     $$U\cap V=\bigcup_{i=1}^n U_{y_i}\cap V\subseteq \bigcup_{i=1}^n U_{y_i}\cap V_{y_i}=\varnothing.$$
+    (1)$\Rightarrow$(2): $\forall x\in X\backslash A$, $\exists (U,V)\in \mathscr{T}^2$, $A\subseteq U$, $x\in V$, $U\cap V=\varnothing$. Hence, $V\subseteq X\backslash A$. So $X\backslash A$ is a neighborhood of $x$.
+    \begin{figure}[H]
+        \centering
 
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Polygon Curved [id:ds7476061327261551] 
+\draw  [line width=2.25] [line join = round][line cap = round] (183.79,131.76) .. controls (165.79,122.76) and (150.48,126.87) .. (141.8,136.27) .. controls (131.79,147.76) and (135.79,177.76) .. (139.79,182.76) .. controls (148.79,197.76) and (189.79,224.76) .. (208.79,211.76) .. controls (221.79,202.76) and (231.79,190.76) .. (222.79,167.76) .. controls (217.79,152.76) and (203.79,138.76) .. (183.79,131.76) -- cycle ;
+%Shape: Circle [id:dp8494851000309646] 
+\draw  [dash pattern={on 2.53pt off 3.02pt}][line width=2.25]  (115,172.65) .. controls (115,136.56) and (144.26,107.31) .. (180.35,107.31) .. controls (216.44,107.31) and (245.69,136.56) .. (245.69,172.65) .. controls (245.69,208.74) and (216.44,238) .. (180.35,238) .. controls (144.26,238) and (115,208.74) .. (115,172.65) -- cycle ;
+%Shape: Regular Polygon [id:dp01574201056466351] 
+\draw  [dash pattern={on 2.53pt off 3.02pt}][line width=2.25]  (278.68,168.31) .. controls (270.59,181.22) and (269.18,189.93) .. (276.68,199.31) .. controls (284.18,208.68) and (291.57,208.11) .. (299.68,208.31) .. controls (307.79,208.5) and (373.17,193) .. (381.17,176) .. controls (389.17,159) and (373.17,146) .. (359.17,142) .. controls (345.17,138) and (327.17,133) .. (311.78,140.39) .. controls (296.38,147.78) and (286.78,155.39) .. (278.68,168.31) -- cycle ;
+%Shape: Free Drawing [id:dp4390180870472238] 
+\draw  [line width=3] [line join = round][line cap = round] (294.5,187) .. controls (294.5,186.67) and (294.5,186.33) .. (294.5,186) ;
+
+% Text Node
+\draw (147,135.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (127,99.4) node [anchor=north west][inner sep=0.75pt]    {$U$};
+% Text Node
+\draw (300,171.4) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (303,147.4) node [anchor=north west][inner sep=0.75pt]    {$V$};
+
+
+\end{tikzpicture}
+\caption{proposition \ref{8.8.10}}
+    \end{figure}
 \end{proofenv}
 \begin{corollaryenv}
-    Let $(X,\mathscr{T})$ be a topological space, and $A$ and $B$ be disjoint compact subset of $X$. There exist $(U,V)\in\mathscr{T}^2$, such that $A\subseteq U$, $B\subseteq V$ and $U\cap V=\varnothing$.
+    Let $(X,\mathscr{T})$ be a Hausdorff topological space, and $A$ and $B$ be disjoint compact subset of $X$. There exist $(U,V)\in\mathscr{T}^2$, such that $A\subseteq U$, $B\subseteq V$ and $U\cap V=\varnothing$.
 \end{corollaryenv}
 \begin{proofenv}
     By (1) of the previous proposition.
@@ -1347,4 +1515,205 @@ pattern radius = 1pt}
     $B\subseteq \bigcup_{x\in B}V_x.$ So, $\exists \{x_1,\ldots,x_n\}\subseteq B$, such that $\dis B\subseteq \bigcup_{i=1}^n V_{x_i}$. Let
     $$U=\bigcap_{i=1}^nU_{x_i}\in \mathscr{T},\ V=\bigcup_{i=1}^nV_{x_i}\in \mathscr{T}.$$
     Then, $A\subseteq U$, $B\subseteq V$, and $U\cap V=\varnothing$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(X,\mathscr{T})$ be a topological space and $A$ be a compact subset of $X$. Let $(I,\le)$ be a partially ordered set and $(F_i)_{i\in I}$ be a decreasing family of closed subsets of $X$. Assume that, any finite subset of $I$ has an upper bound in $I$. If $\dis \left(\bigcap_{i\in I}F_i\right)\cap A=\varnothing$, then exists $i_0\in I$ such that $F_{i_0}\cap A=\varnothing$.
+\end{theoremenv}
+\begin{remark}
+    In the particular case where $I=\mathbb{N}$, the theorem becomes: If $(A_n)_{n\in \NN}$ is a sequence of compact non-empty subsets of $X$ such that $A_0\supseteq A_1\supseteq A_2\supseteq\cdots$, then $\dis\bigcap_{n\in \NN}A_n\neq\varnothing$. 
+\end{remark}
+\begin{proofenv}
+    $\forall i\in I$, let $U_i=X\backslash F_i\in \mathscr{T}$. Since $\dis \left(\bigcap_{i\in I}F_i\right)\cap A=\varnothing$. $\dis A\subseteq X\backslash \bigcap_{i\in I}F_i=\bigcup_{i\in I}U_i$.
+    Since $A$ is compact, $\exists J\subseteq I$, finite such that $\dis A\subseteq \bigcup_{j\in J}U_j$. Let $i_0$ be an upper bound of $J$. $\forall j\in J$, $j\le i_0$. So $F_j\supset F_{i_0}$. $U_j\subseteq U_{i_0}$. Hence $A\subseteq U_{i_0}$, $A\cap F_{i_0}=\varnothing$.
+\end{proofenv}
+\begin{theoremenv}[Tychonoff]
+    Let $I$ be a non-empty set and $(X_i,\mathscr{T}_i)$, $i\in I$ be topological spaces. Let $\dis X=\prod_{i\in I}X_i$, and $\mathscr{T}$ be the product topology of $\left(\mathscr{T}_i\right)_{i\in I}$. For any $i\in I$, let $A_i$ be a compact subset of $X_i$, let $\dis A=\prod_{i\in I}A_i \subseteq X$. Then $A$ is compact subset of $X$.
+    
+\end{theoremenv}
+\begin{proofenv}
+    For any $i\in I$, let $\pi_i: (x_j)_{j\in I}\longmapsto x_i$ be the projection mapping. 
+    $$A=\bigcap_{i\in I}\pi^{-1}_{i}(A_i).$$
+    Let $\mathcal{F}$ be an ultrafilter on $X$ such that $A\in \mathcal{F}$. Then $\forall i\in I$, $\pi_{i*}(\mathcal{F})=:\mathcal{F}_i$ is an ultrafilter on $X_i$ such that $A_i\in \mathcal{F}_i$. Since $A_i$ is compact, $\mathcal{F}_i$ has a limit point $x_i\in A_i$. Let $x=(x_i)_{i\in I}$. Let $U$ be a neighborhood of $x$. There exists $J\subseteq I$ finite and $U_j\in J_j\ (j\in J)$ such that $x_j\in U_j$ and $\dis \bigcap_{j\in J}\pi_{j}^{-1}(U_j)\subseteq U$. $\forall j\in J, U_j\in \mathcal{F}_j$. Since $x_j$ is a limit point of $\mathcal{F}_j$. Hence $\pi^{-1}_j(U_j)\in \mathcal{F}$. Thus $\dis \bigcap_{j\in J}\pi_{j}^{-1}(U_j)\in \mathcal{F}$, which implies $U\in \mathcal{F}$. 
+\end{proofenv}
+
+\newpage
+\section{Compact Metric Spaces}
+\begin{definitionenv}
+    Let $(X,\mathscr{T})$ be a topological space and $Y\subseteq X$. If any sequence in $Y$ has a subsequence that converges to some element of $X$. We say that $Y$ is \textbf{sequentially compact}.
+\end{definitionenv}
+\begin{theoremenv}
+    Let $(X,\mathscr{T})$ be a topological space and $Y\subseteq X$. If $Y$ is compact and if each $y\in Y$ has a countable neighborhood basis, then $Y$ is sequentially compact.
+\end{theoremenv}
+\begin{proofenv}
+    Let $x=(x_n)_{n\in I}$ be a sequence in $Y$ and $\mathcal{F}$ be the Fréchet filter of $I$. Then $x_*(\mathcal{F})$ is a non-degenerate filter on $X$ and $Y\in x_*(\mathcal{F})$. Since $Y$ is compact, $x_*(\mathcal{F})$ has an adherent point $p\in Y$. Let $(U_k)_{k\in \NN}$ be a decreasing sequence of neighborhood of $p$ such that $\{U_k\mid k\in \NN\}$ forms a neighborhood basis of $p$. Therefore we can construct in a recursive way  a strictly increasing sequence $(n_k)_{k\in \NN} $ in $I$ such that $x_{n_k}\in U_k$. Thus $(x_{n_k})_{k\in \NN}$ converges to $p$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(X,\dd)$ be a metric space, and $Y\subseteq X$. The following conditions are equivalent:
+    \newline
+    (1) $Y$ is compact.
+    \newline
+    (2) $(Y,\dd)$ is complete and
+    $$\forall \varepsilon>0,\ \exists A_\varepsilon\subseteq Y\text{ finite},\ Y\subseteq \bigcup_{x\in A_\varepsilon}B(x,\varepsilon).  $$
+    \newline
+    (3) $Y$ is sequentially compact.
+\end{theoremenv}
+\begin{proofenv}
+    \ \newline
+    (1)$\Rightarrow$ (2) Let $\mathcal{F}$ be a Cauchy filter on $Y$. Let $f:Y\longrightarrow X$ be the inclusion mapping. Then $f_*(\mathcal{F})$ is a Cauchy filter on $X$ and $Y\in f_*(\mathcal{F})$. Since $Y$ is compact, $f_*(\mathcal{F})$ has an adherent point $l\in Y$. So $l$ is a limit point of $f_*(\mathcal{F})$ (since $f_*(\mathcal{F})$ is a Cauchy filter.) For any $U\in V_{l}(\mathscr{T})$, $U\in f_*(\mathcal{F})$, namely, $f^{-1}(U)=U\cap Y\in \mathcal{F}$. Thus $l$ is a limit point of $\mathcal{F}$. Since $Y\subseteq \bigcup_{y\in Y}B(y,\varepsilon)$. Since $Y$ is compact, $\exists A_\varepsilon\subseteq Y$ finite, such that $\dis Y\subseteq \bigcup_{x\in A_\varepsilon}B(x,\varepsilon)$.
+    \newline
+    (2)$\Rightarrow$ (1) Let $\mathcal{F}$ be an ultrafilter on $X$ such that $Y\in \mathcal{F}$. For any $\varepsilon>0$, $\dis\bigcup_{x\in A_\varepsilon}B(x,\varepsilon)\in \mathcal{F}$. Hence $\mathcal{F}$ is a Cauchy filter, which implies that $\mathcal{F}|_Y\coloneq\{Y\cap U\mid U\in \mathcal{F}\}$ is a Cauchy filter. Thus $\mathcal{F}|_Y$ has a limit point $l\in Y$, which is also a limit point of $\mathcal{F}$.
+    \newline
+    (2)$\Rightarrow$ (3) is already known.
+    \newline
+    (3)$\Rightarrow$ (1) Let $(x_n)_{n\in I}$ be a Cauchy sequence in $Y$. Since $Y$ is sequentially compact, $(x_n)_{n\in I}$ has a subsequence that converges to some $l\in Y$. Since $(x_n)_{n\in I}$ is a Cauchy sequence, it converges to $l$. We prove the second statement by contradiction. 
+    
+    \quad Assume that $\varepsilon>0$ is such that $Y$ cannot be covered by finitely many balls centered in $Y$ with radius $\varepsilon$. We construct recursively a sequence $(x_n)_{n\in\NN}$ as follows. $x_0\in Y$ is chosen arbitrarily. If $x_0,\ldots,x_n$ are chosen, we pick 
+    $$x_{n+1}\in Y\backslash \bigcup_{i=0}^{n}B(x_i,\varepsilon).$$
+    Then $\forall(i,j)\in \NN^2, i\neq j, \dd(x_i,x_j)<\varepsilon$. So $(x_n)_{n\in \NN}$ does not have any Cauchy subsequence. It cannot have a convergent subsequence.
+\end{proofenv}
+\begin{exampleenv}
+    Let $(a,b)\in \RR^2$, $a<b$. $\interval{a}{b}$ is closed. $\forall \varepsilon, \exists N\in \NN_{>0}$. $\frac{b-a}{N}<\varepsilon$. $\forall i\in \{0,\ldots, N\}$, let $x_i=a+\frac{i}{N}(b-a)$. $a=x_0<x_1<\cdots<x_{N-1}<x_N=b$. 
+    $$[a,b]\subseteq\bigcup_{i=0}^{N}B(x_i,\varepsilon)=\bigcup_{i=0}^{n}\interval[open]{x_i-\varepsilon}{x_{i}+\varepsilon}.$$
+    So $[a,b]$ is compact.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(X,\dd)$ be a metric space and $Y\subseteq X$. If $Y$ is compact, then $Y$ is bounded and closed.
+\end{propositionenv}
+\begin{proofenv}
+    Since $X$ is Hausdorff, $Y$ is closed. $\exists A\subseteq Y$ finite, $Y\subseteq \bigcup_{x\in A}B(x,1)$. Since each $B(x,1)$ is bounded, so is $Y$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(X,\mathscr{T})$ be a topological space. If $\forall x\in X$, $x$ has a compact neighborhood, we say that $X$ is \textbf{locally compact}.
+\end{definitionenv}
+\begin{exampleenv}
+    $(\RR),\left|\ \cdot\ \right|$ is locally compact. 
+    $$\forall x\in \RR, [x-1,x+1] \text{ is compact neighborhood of } x.$$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(K,\left|\ \cdot\ \right|)$ be a locally compact valued field. Then,
+    \newline
+    (1) $(K,\left|\ \cdot\ \right|)$ is complete.
+    \newline
+    (2) Assume that exists $a\in K$, $|a|>1$. Let $(V,\pl\cdot\pl)$ be a finite-dimensional vector space over $K$. Then any bounded closed subset of $V$ is compact.
+    \newline
+    (3) $(V,\pl\cdot\pl)$  is locally compact.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (2) Assume that $V=K^n$, $\pl(a_1,\ldots,a_n)\pl=\max\{|a_1|,\ldots,|a_n|\}.$ Let $A\subseteq K^n$, bounded, closed. Let $R>0$, $A\subseteq \bar{B}(0_V,R)$. 
+
+    \quad Since $(K,\left|\ \cdot\ \right|)$ is locally compact, there exists a compact neighborhood $U$ of $0_K\in K$. $\exists\varepsilon>0, \bar{B}(0,\varepsilon)\subseteq U$. So $\bar{B}(0_K,\varepsilon)$ is compact. Take $n\in \NN_{\ge 1}$ such that $|a|^n\varepsilon> R$.
+    $$f:K\longrightarrow K \text{continuous}$$
+    $$b\longmapsto a^n b$$
+    $f\left(\bar{B}(0_K,\varepsilon)\right)=a^n\bar{B}(0_K,\varepsilon)\supseteq \bar{B}(0_K,R).$ is compact. By Tychonoff theorem, $\bar{B}(0_V,R)$ is compact. Since $A$ is closed, $A$ is compact.
+    \newline
+    (3) $\bar{B}(0_V,R)$ is compact for any $R>0$.
+    \newline
+    (1) $B(0_K,R)$ is compact for any $R>0$. For any Cauchy sequence $(a_n)_{n\in \NN}$ in $K$, $\exists R>0$. $\{a_n\mid n\in \NN\}\subseteq \bar{B}(0_K,R)$, so $(a_n)_{n\in \NN}$ converges.
+\end{proofenv}
+\begin{lemmaenv}
+    Let $A\subseteq R$ be a non-empty compact subset. Then $A$ has a greatest and least element.
+\end{lemmaenv}
+\begin{proofenv}
+    Since $A$ is non-empty and bounded, $\{\sup A,\inf A\}\subseteq \RR$. Since $A=\bar{A}$, $\sup A\in A, \inf A\in A$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(X,\mathscr{T})$ be a topological space and $f:X\longrightarrow \RR$ be a continuous mapping. If $Y\subseteq X$ is compact, then $f|_Y$ has its maximum and minimum. ($\exists x_1\in Y, f(x_1)\ge f(y), \forall y\in Y$. $\exists x_2\in Y,\forall y\in Y, f(x_2)\le f(y)$.)
+\end{theoremenv}
+\begin{proofenv}
+    $f(Y)\subseteq \RR\text{ is compact.}$
+\end{proofenv}
+\begin{theoremenv}
+    Let $(X,\dd_X)$ and $(Y,\dd_Y)$ be metric spaces, $f:X\longrightarrow Y$ be a continuous mapping. If $(X,\dd_X)$ is compact, then $f$ is uniformly continuous.
+\end{theoremenv}
+\begin{proofenv}
+    $f$ is uniformly continuous if and only if 
+    $$\forall \varepsilon>0,\ \exists \delta>0,\ \forall x,y\in X,\ \dd_X(x,y)<\delta \Rightarrow \dd_Y(f(x),f(y))<\varepsilon.$$
+    Suppose by contradiction that $f$ is not uniformly continuous. That is 
+    $$\exists \varepsilon>0,\ \forall \delta>0,\ \exists (x_1,x_2)\in X^2,\ \dd_X(x_1,x_2)<\delta \text{ and } \dd_Y(f(x_1),f(x_2))\ge \varepsilon.$$
+    So we can choose sequences $(x_n)_{n\in \NN_{\ge1}}$ and $(y_n)_{n\in \NN_{\ge1}}$ in $X$ such that
+    $$\forall n\in \NN, \dd_{X}(x_n,y_n)\le \frac{1}{n},\ \dd_Y(f(x_n),f(y_n))\ge \varepsilon.$$
+    By compactness of $X$, there exists a subsequence $I\subseteq \NN_{\ge 1}$ finite, such that $(x_n)_{n\in I}$ converges to some $a\in X$, and $(y_n)_{n\in I}$ converges to some $b\in X$. Since $\dd_X:X\times X\longrightarrow \RR_{\ge 0}$ is continuous, 
+    $$0\le \dd_{X}(a,b)=\lim_{n\in I,n\rightarrow+\infty}\dd_{X}(x_n,y_n)\le \lim_{n\in I,n\rightarrow+\infty}\frac{1}{n}.$$
+\end{proofenv}
+
+\newpage
+\section{Path Connectedness}
+\begin{definitionenv}
+    Let $(X,\mathscr{T})$ be a topological space and $C$ be a subset of $X$. If for any $(x,y)\in C\times C$, there exists a continuous mapping $\varphi: [0,1]\longrightarrow C$, such that $\varphi(0)=x$ and $\varphi(1)=y$, we say that $C$ is \textbf{path connected}.
+
+    \begin{figure}[H]
+        \centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da4419444137553179] 
+\draw [line width=2.25]    (120,104) -- (120.5,246) ;
+\draw [shift={(120.5,246)}, rotate = 269.8] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=2.25]    (0,7.83) -- (0,-7.83)   ;
+\draw [shift={(120,104)}, rotate = 269.8] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=2.25]    (0,7.83) -- (0,-7.83)   ;
+%Shape: Regular Polygon [id:dp4361348822258063] 
+\draw  [line width=2.25]  (292.77,130.33) .. controls (281.5,130.33) and (270.23,130.12) .. (258.96,130.33) .. controls (251.27,130.47) and (237.48,139.96) .. (231.91,144.63) .. controls (229.41,146.73) and (225.86,147.55) .. (223.8,150.08) .. controls (221.21,153.24) and (219.2,156.83) .. (217.03,160.3) .. controls (213.2,166.42) and (209.44,190.16) .. (217.71,195.71) .. controls (236.61,208.41) and (255.93,203.93) .. (277.22,206.61) .. controls (296.7,209.07) and (314.22,214.2) .. (334.02,212.74) .. controls (350.44,211.53) and (364.51,195.23) .. (366.48,179.37) .. controls (367.22,173.45) and (368.9,168.09) .. (365.13,163.02) .. controls (357.39,152.62) and (343.57,153.37) .. (332.67,150.08) .. controls (324,147.46) and (321.35,144.81) .. (316.44,139.86) .. controls (314.23,137.64) and (302.2,129.76) .. (292.77,130.33) -- cycle ;
+%Curve Lines [id:da285151310243584] 
+\draw [line width=2.25]    (120.25,175) .. controls (173.5,166) and (198.5,162.44) .. (248.5,172.44) ;
+\draw [shift={(197.67,166.44)}, rotate = 179.99] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (19.2,-4.8) -- (0,0) -- (19.2,4.8) -- cycle    ;
+%Shape: Regular Polygon [id:dp12922208257094558] 
+\draw  [line width=2.25]  (241.1,149.67) .. controls (218.3,163.62) and (221.84,177.72) .. (224.52,182.23) .. controls (228.41,188.79) and (250.24,194.19) .. (259.75,196.19) .. controls (272.85,198.94) and (301.83,198.1) .. (307.42,183.98) .. controls (312.32,171.6) and (299.94,146.81) .. (282.55,145.59) .. controls (273.49,144.96) and (270.11,139.2) .. (241.1,149.67) -- cycle ;
+%Shape: Free Drawing [id:dp6548439894976998] 
+\draw  [line width=2.25] [line join = round][line cap = round] (238.5,181.11) .. controls (238.5,177.77) and (245.34,173.54) .. (247.5,172.11) .. controls (251.79,169.25) and (259.06,170.28) .. (264.5,168.11) .. controls (273.94,164.33) and (273.63,150.11) .. (283.5,150.11) ;
+
+% Text Node
+\draw (129,106.4) node [anchor=north west][inner sep=0.75pt]    {$[ 0,1]$};
+% Text Node
+\draw (342,120.4) node [anchor=north west][inner sep=0.75pt]    {$( X,\mathscr{T})$};
+% Text Node
+\draw (170,141.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi $};
+% Text Node
+\draw (244,173.4) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (283.55,152.99) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (315,171.4) node [anchor=north west][inner sep=0.75pt]    {$C$};
+
+
+\end{tikzpicture}
+\caption{Path connected}
+    \end{figure}
+\end{definitionenv}
+
+\begin{propositionenv}
+    Let $(X,\mathscr{T}_X)$, $(Y,\mathscr{T}_Y)$ be two topological spaces and $f:X\longrightarrow Y$ be continuous mapping. If $C\subseteq X$ is path connected, then $f(C)\subseteq Y$ is path connected.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(a,b)\in C\times C$. There exist $(x,y)\in C\times C$ such that $f(x)=a$ and $f(y)=b$. Since $C$ is path connected, so we have a continuous $\varphi: [0,1]\longrightarrow C$ such that $\varphi(0)=x$ and $\varphi(1)=y$. Then $f\circ \varphi: [0,1]\longrightarrow f(C)$ is continuous, and 
+    $$\left(f\circ\varphi\right)(0)=f(x)=a,\ \left(f\circ\varphi\right)(1)=f(y)=b.$$
+    Hence $f(C)$ is path connected.
+\end{proofenv}
+\begin{theoremenv}
+    Let $I$ be a subset of $\RR$. $I$ is path connected if and only if $I$ is an interval.
+\end{theoremenv}
+\begin{proofenv}
+    \ \newline
+    $\Leftarrow$ Assume that $I$ is an interval. Let $(a,b)\in I\times I$ such that $a\le b$. One has $[a,b]\subseteq I$. Consider $\varphi:[0,1]\longrightarrow I$ defined as:
+    $$\varphi(t)=\frac{a+b}{2}+\frac{b-a}{2}t,\ t\in [0,1].$$
+    This is the sum of a constant mapping and a linear mapping. Hence $\varphi$ is continuous. So $I$ is path connected.
+    \newline
+    $\Rightarrow$ Assume that $I$ is path connected. Let $(a,b)\in I\times I$, $a\le b$, $\varphi :[0,1]\longrightarrow I$ a continuous mapping such that $\varphi(0)=a$ and $\varphi(1)=b$. Let $c\in [a,b]$. It is suffices to show that $c\in I$. Assume that $c\notin I$. We have $a<c<b$. We will define two sequences $(x_n)_{n\in \NN}$, $(y_n)_{n\in \NN}$ in a recursive way: $x_0=0, y_0=1$. We want to have $\varphi(x_n)<\varphi(y_n)$. Let $(z_n)\coloneq \frac{x_n+y_n}{2}$.
+    $$\begin{cases}
+        x_{n+1}=x_n, y_{n+1}=z_n,\ \text{if }\varphi(z_n)>c,\\
+        x_{n+1}=z_n, y_{n+1}=y_n,\ \text{if }\varphi(z_n)<c.
+    \end{cases}$$
+    Then the sequence $(x_n)_{n\in \NN}$ is increasing, $(y_n)_{n\in\NN}$ is decreasing, and $0\le y_n-x_n\le \frac{1}{2^n}$. So $(x_n)_{n\in\NN}$, $(y_n)_{n\in\NN}$ converge to the same point $d\in [0,1]$. Note that 
+    $$\forall n\in \NN,\ \left(c-\varphi(x_n)\right)\left(c-\varphi(y_n)\right)<0.$$
+    $$0\le \left(c-\varphi(d)\right)^2=\lim_{n\rightarrow \infty}\left(c-\varphi(x_n)\right)\left(c-\varphi(y_n)\right)\le0.$$
+    So, $\varphi(d)=c$. Contradiction.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $I$ be an interval in $\RR$. If $f:I\longrightarrow R$ is a continuous mapping, then $f(I)$ is also an interval. In particular, if $f$ has a positive value and a negative value, then it must have a zero.
+\end{corollaryenv}
+\begin{proofenv}
+    Since $I$ is path connected, so $f(I)$ is path connected. Hence $f(I)\subseteq \RR$ is an interval.
 \end{proofenv}

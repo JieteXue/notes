@@ -15,7 +15,7 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \usepackage{tcolorbox}
 \definecolor{mlv}{RGB}{40, 137, 124}
-\usepackage[colorlinks=true, linkcolor=mlv, citecolor=red, urlcolor=cyan, filecolor=mlv]{hyperref}
+\usepackage[colorlinks=true, linkcolor=mlv, citecolor=red, urlcolor=mlv, filecolor=mlv]{hyperref}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -48,6 +48,7 @@
 \theoremstyle{1}
 \newtheorem{problem}{Problem}[section]
 \newtheorem{theorem}[problem]{Theorem}
+\newtheorem{notation}{Notation}[section]
 \usepackage{chngcntr}
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
@@ -182,11 +183,32 @@ In fact, all the states forms a vector space $V$ over $\mathbb{C}$.
 
 
 
-\subsection{Operator}
-All the operator\footnote{Some where will use hat to distinguish the operator, but not always for convenience.} forms a unitary ring $K$, it can be a $K$-module structure acting on $V$. If $X$ is an operator, then we define an operator (\textbf{Hermitian adjoint}) $X^\dagger$ as 
+\subsection{Operator}\label{4.2}
+All the operator\footnote{Some where will use hat to distinguish the operator, but not always for convenience.} forms a unitary ring $K$, it can be a $K$-module structure acting on $V$. If $X$ is an operator, then we define an operator (\textbf{Hermitian adjoint}) $X^\dagger$ as\footnote{When define the computing law of a Hermitian adjoint operator, we need to ensure any $\braket{\psi}{\phi}=\braket{\phi}{\psi}^*$. And if $T$ is an anti-linear operator, we DO NOT define $T^\dagger$. And we'd better understand a expression with right combination.} 
 \begin{equation}
    X\ket{\psi} \overset{DC.}{\longleftrightarrow}\bra{\psi}X^\dagger.
 \end{equation}
+\singleline
+\begin{notation}
+Since $X\ket{\psi}$ is also a ket, we denote it as $\ket{X\psi}$. And its dual form is $\bra{X\psi}$.
+\end{notation}
+\singleline
+
+
+%There's still something wrong.
+%If $\bra{\psi}\ket{\psi}=1$, we can define inverse operator $X^{-1}$ satisfies:
+%\begin{equation}
+%    X^{-1}X=I.
+%\end{equation}
+%If  in addition, $X$ is unitary or anti-unitary, then
+%\begin{equation}
+%    \bra{\alpha}X^{-1}X\ket{\beta}=\braket{\alpha}{\beta}=\bra{X\alpha}\ket{X\beta}.
+%\end{equation}
+%Since $\ket{\alpha}$ and $\ket{\beta}$ are arbitrary,
+%\begin{equation}
+%    \bra{X\alpha}=\bra{\alpha}X^{-1}.
+%\end{equation}
+
 We say $X$ is \textbf{Hermitian} iff.
 \begin{equation}
     X^\dagger=X.
@@ -195,8 +217,26 @@ Easy to prove:
 \begin{eqnarray}
     (XY)^\dagger&=&Y^\dagger X^\dagger,\\
     \left(\ket{\alpha}\bra{\beta}\right)^\dagger&=&\ket{\beta}\bra{\alpha},\\
-    \bra{\beta}X\ket{\alpha}&=&\bra{\alpha}X^\dagger\ket{\beta}^*.
 \end{eqnarray}
+
+We should tell difference between linear operator and anti-linear operator. They have important difference.
+\newline
+For linear operator $A$,
+\begin{equation}
+    A(\alpha\ket{\psi}+\beta\ket{\phi})=\alpha A\ket{\psi}+\beta A\ket{\phi}.
+\end{equation}
+\begin{equation}
+    \bra{\beta}A\ket{\alpha}=\bra{\alpha}A^\dagger\ket{\beta}^*.
+\end{equation}
+But for anti-linear operator $T$,
+\begin{equation}
+    T(\alpha\ket{\psi}+\beta\ket{\phi})=\alpha^* T\ket{\psi}+\beta^* T\ket{\phi}.
+\end{equation}
+If we still want to define $T^\dagger$, we should satisfies the conditions in the footnote. Compare the form of the linear case, and let all the operator act on kets but not bras.
+\begin{equation}\label{4.13}
+   \bra{\beta}\ket{T\alpha}=\bra{\alpha}\ket{T^\dagger\beta}. 
+\end{equation}
+Then $\ket{\alpha}$ and $\ket{\beta}$ still anti-linear in this expression.
 \singleline
 \begin{theorem}
     \quad The eigenvalues of a Hermitian operator $A$ are real; the eigenkets
@@ -1389,4 +1429,144 @@ This is based on our choice of base kets, just for convenience, it has already p
 \newline
 (3) Recursive relations 
 
+
+
+
+
+\section{Discrete Symmetry}
+\subsection{Wigner Theorem}
+\singleline
+\begin{theorem}[Wigner]
+    Given an operator $R$, if for any state $\ket{\psi}$, $\ket{\phi}$, $\left|\braket{R\psi}{R\phi}\right|$ is held, then $R$ is unitary or anti-unitary\footnote{Review \ref{4.2} first.}.
+\end{theorem}
+\singleline
+\begin{quotation}
+    Let $\mathbb{H}$ denote the Hilbert space describing a system, with its inner product denoted by $\langle \cdot, \cdot \rangle$, and let $\mathbb{P}\mathbb{H}$ denote the corresponding projective space (the set of all one-dimensional subspaces of $\mathbb{H}$). The reason for using $\mathbb{P}\mathbb{H}$ is that its points correspond bijective to physical states. The inner product $\langle \cdot, \cdot \rangle$ on $\mathbb{H}$ induces a metric $d$ on $\mathbb{P}\mathbb{H}$ (the Fubini--Study metric). It is easy to see that a unitary or anti-unitary operator $K : \mathbb{H} \rightarrow \mathbb{H}$ (where anti-unitary means $\langle Kv, Kw \rangle = \langle w, v \rangle$) induces a homeomorphism from $\mathbb{P}\mathbb{H}$ to $\mathbb{P}\mathbb{H}$ that preserves the metric $d$, meaning $d(Kx, Ky) = d(x, y)$. Wigner's theorem states that any homeomorphism of $\mathbb{P}\mathbb{H}$ onto itself that preserves the metric $d$ is necessarily induced by some unitary or anti-unitary operator on $\mathbb{H}$.
+
+
+\textbf{Theorem (Wigner):} If the dimension of $\mathbb{H}$ is greater than or equal to 2, and $U : \mathbb{P}\mathbb{H} \rightarrow \mathbb{P}\mathbb{H}$ is a homeomorphism preserving the metric $d$, i.e., $d(Ux, Uy) = d(x, y)$, then there exists a unitary or anti-unitary operator $\mathcal{U}$ on $\mathbb{H}$ such that $\mathcal{U}$ induces $U$. If $\mathcal{V}$ also induces $U$, then $\mathcal{V} = e^{i\theta} \mathcal{U}$, where $\theta \in \mathbb{R}$.\hfill \href{https://zhuanlan.zhihu.com/p/638385348?share_code=oQHLdmPp3g4I&utm_psn=1972351456918115809}{---\textit{Reference}}
+\end{quotation}
+\subsection{Parity Transformation}
+Parity operator $\pi$ will changes a right-handed system into a left-handed system. Somewhere, we denote any ket $\ket{\alpha}$ after action by $\pi$ as $\ket{\alpha^\pi}$, but in most of my habits, I will just write $\ket{\pi\alpha}$.
+\begin{equation}
+    \ket{\pi\alpha}:=\pi\ket{\alpha}
+\end{equation}
+Consider the physical meaning, we require
+\begin{align}
+    \braket{\pi\alpha}{\pi\alpha}&=\braket{\alpha}{\alpha},\label{15.2}\\
+    \expval{\mathbf{x}}{\pi\alpha}&=-\expval{\mathbf{x}}{\alpha}.
+\end{align}
+
+\ref{15.2} implies that $\pi$ is whether unitary or anti-unitary. 
+
+Since the expectation value is a real number, and $\pi$ keep the module invariant, 
+\begin{equation}
+    \expval{\mathbf{x}}{\pi\alpha}=\expval{\pi^{-1}\mathbf{x}\pi}{\alpha}.
+\end{equation}
+
+Then we will use $\bra{\alpha}\pi^{-1} \mathbf{x}\pi\ket{\alpha}=-\bra{\alpha}\mathbf{x}\ket{\alpha}$ to prove $\pi^{-1} \mathbf{x}\pi=-\mathbf{x}$. Since $\ket{\alpha}$ is arbitrary, let $\ket{\alpha}=\ket{\psi}+\ket{\phi}$. Then, we can deduce that 
+\begin{equation}
+    \mathrm{Re}\left(\bra{\psi}\pi^{-1}\mathbf{x}\pi\ket{\phi}\right)=-\mathrm{Re}\left(\bra{\psi}\mathbf{x}\ket{\phi}\right).
+\end{equation} 
+Let $\ket{\alpha}=\ket{\psi}+\ii \ket{\phi}$, then,
+\begin{equation}
+    \mathrm{Im}\left(\bra{\psi}\pi^{-1}\mathbf{x}\pi\ket{\phi}\right)=-\mathrm{Im}\left(\bra{\psi}\mathbf{x}\ket{\phi}\right).
+\end{equation}
+So, for any $\ket{\psi}$, $\ket{\phi}$, 
+\begin{equation}
+    \bra{\psi}\pi^{-1}\mathbf{x}\pi\ket{\phi}=-\bra{\psi}\mathbf{x}\ket{\phi}.
+\end{equation}
+Which means 
+\begin{equation}
+    \pi^{-1}\mathbf{x}\pi=-\mathbf{x},\quad \mathbf{x}\pi=-\pi\mathbf{x}.
+\end{equation}
+
+
+Then we derive the effect $\pi$ act on momentum $p$. Let us start from position translation. We have
+\begin{equation}
+    \pi\mathscr{T}(\dd{\mathbf{x}'})=\mathscr{T}(-\dd{\mathbf{x}'})\pi,
+\end{equation}
+so,
+\begin{equation}
+    \pi^{-1}\mathbf{p\pi=-\mathbf{p}},\ \{\pi,\mathbf{p}\}=0.
+\end{equation}
+
+Easy to check that 
+\begin{equation}
+ \pi^{-1}\ii \hbar \pi= \pi^{-1}[\mathbf{x},\mathbf{p}]\pi=[\mathbf{x},\mathbf{p}]=\ii \hbar.
+\end{equation}
+So, $\pi$ is unitary. Then we can define $\pi^\dagger$, and $\pi^\dagger\pi=1$.
+
+Note that 
+\begin{equation}
+    \mathbf{x}\pi\ket{\mathbf{x}'}=-\pi\mathbf{x}\ket{\mathbf{x'}}=(-\mathbf{x}')\pi\ket{\mathbf{x}'}.
+\end{equation}
+So $\pi\ket{\mathbf{x}'}=\ee^{\ii \delta}\ket{-\mathbf{x}'}$. It is customary to take $\ee^{\ii \delta} = 1$ by convention. Then $\pi^2=1$. Hence,
+\begin{equation}
+    \pi^{-1}=\pi^\dagger=\pi.
+\end{equation}
+Its eigen-value can only be $\pm 1$.
+
+In geometry, reflection is commutable with rotation. In the language of operators,
+\begin{equation}
+    \pi\mathscr{D}(R)=\mathscr{D}(R)\pi.
+\end{equation}
+So,
+\begin{equation}
+    \pi^\dagger\mathbf{J}\pi=\mathbf{J},\ [\pi,\mathbf{J}]=0.
+\end{equation}
+
+Now, we consider the wave-function under parity transformation. For any state $\ket{\psi}$, let the its state after parity transformation be $\ket{\psi'}$, then we have
+\begin{equation}
+    \psi'(\mathbf{x})=\braket{\mathbf{x}}{\psi'}=\bra{\mathbf{x}}\pi\ket{\psi}=\bra{-\mathbf{x}}\ket{\psi}=\psi(-\mathbf{x}).
+\end{equation}
+If $\ket{\psi}$ is an eigen-state of $\pi$, $\pi\ket{\psi}=\pm\ket{\psi}$, then
+\begin{equation}
+    \psi(\mathbf{x})=\pm \psi(-\mathbf{x})\begin{cases}
+        \text{even parity,}\\
+        \text{odd parity.}
+    \end{cases}
+\end{equation}
+So for 1D harmonic oscillator,
+\begin{equation}
+    \psi_n(-x)=(-)^n\psi_n(x).
+\end{equation}
+For angular momentum eigenstates $Y_{l,m}(\hat{\mathbf{n}})$
+\begin{equation}
+    Y_{lm}(-\hat{\mathbf{n}})=Y_{lm}(\pi-\theta,\pi+\varphi)=(-)^l Y_{lm}(\theta,\varphi).
+\end{equation}
+\singleline
+\begin{theorem}
+    Suppose 
+    \begin{equation*}
+        [H,\pi]=0
+    \end{equation*}
+    and $\ket{n}$ is a nondegenerate eigenket of $H$ with eigenvalue $E_n$: 
+    \begin{equation*}
+        H\ket{n}=E_n\ket{n};
+    \end{equation*}
+    then $\ket{n}$ is also a parity eigenket.
+\end{theorem}
+\singleline
+\begin{proof}
+    Note that $\frac{1}{2}(1\pm\pi)\ket{n}$ is a parity eigenket with eigenvalues $\pm1$. But this is also an energy eigenket with eigenvalue $E_n$, which means it represent the same state as $\ket{n}$.
+\end{proof}
+
+\subsection{Time-Reversal Symmetry}
+First we claim that any anti-unitary operator can be written as
+\begin{equation}
+    \theta=UK,
+\end{equation}
+where $U$ is a unitary operator, and $K$ is the complex-conjugate operator that forms
+the complex conjugate of any coefficient that multiplies a ket.
+
+
+
+\section{Approximation Methods}
+\subsection{{\small Time-independent Perturbation Theory}: {\small Non-degenerate Case}}
+Consider 
+\begin{equation}
+    H=H_0+\lambda V,
+\end{equation}
+where $\lambda\ll1$, and we have known the eigenvalues and eigenkets of $H_0$. Then we want to know the eigenvalues and eigenkets of $H$.
 \end{document}

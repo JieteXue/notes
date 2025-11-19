@@ -1,5 +1,5 @@
 \documentclass{article}
-\newcommand{\mydate}{November 7, 2025}
+\newcommand{\mydate}{November 14, 2025}
 \newcommand{\mytitle}{QM HW8}
 \title{\textbf{\mytitle}}
 \author{Jiete XUE}
@@ -75,8 +75,8 @@
         p(t)=\ee^\frac{\ii H t}{\hbar}p\ee^{-\frac{\ii H t}{\hbar}}=-m\omega x\sin(\omega t)+p\cos(\omega t).
     \end{equation}
 \end{problem}
-\begin{problem}
-    We decompose the Hamiltonian \( H^S \) of the Schr\"{o}dinger picture into the free part \( H_0 \) and the perturbative part \( V \) as
+\begin{problem}[Interaction picture]
+    We decompose the Hamiltonian \( H^S \) of the Schrödinger picture into the free part \( H_0 \) and the perturbative part \( V \) as
 \[
 H^S = H_0 + V,
 \]
@@ -114,6 +114,150 @@ From the above equation, we can derive the time-evolution operator \( U(t, t_0) 
 \[
 U(t, t_0) = T \exp\left\{-\frac{i}{\hbar} \int_{t_0}^t dt' V^I(t') \right\}.
 \]
+\end{problem}
+\begin{problem}[Rotation Operator]
+    (1) Consider the commutator
+    \begin{equation}
+        [\hat{n}\cdot \vec{J},r_i]=\left. -\frac{\ii}{\alpha}\frac{\pa g}{\pa \theta}\right|_{\theta=0;i,j}r_j.
+    \end{equation}
+    Take $\hat{n}$ to be $z$-axis, it should be $-\frac{\ii}{\hbar}\frac{\pa g}{\pa \theta}_{\theta=0;,i,j}r_j$. So, $\alpha=\hbar$.
+    \newline
+    (2) For a infinitesimal rotation
+    \begin{equation}
+        D(g(\hat{n},\theta))=1-\ii \frac{\varepsilon}{\hbar}\hat{n}\cdot\vec{J},\ g_{ij}=\delta_{ij}-\varepsilon\epsilon_{ijk}\hat{n}_k.
+    \end{equation} 
+    So, 
+    \begin{equation}
+        D^\dagger S_i D=S_i+\ii\frac{\varepsilon}{\hbar}[\hat{n}\cdot\vec{J},S_i],\ g_{ij}S_j=S_i-\varepsilon\epsilon_{ijk}\hat{n}_kS_j.
+    \end{equation}
+    Take angular momentum to be $\vec{S}$, then
+    \begin{equation}
+        [S_i,S_j]=\ii \hbar \epsilon_{ijk}S_k.
+    \end{equation}
+    (3)  
+    \begin{equation}
+        \begin{aligned}
+            \left[L_i,L_j\right]=&[\epsilon_{imn}x_mp_n,\epsilon_{jkl}x_kp_l]\\
+            =&\epsilon_{imn}\epsilon_{jkl}\left(x_mx_k[p_n,p_l]+x_m[p_n,x_k]p_l+x_k[x_m,p_l]p_n+[x_m,x_k]p_lp_n\right)\\
+            =&i\hbar\epsilon_{imn}\epsilon_{jln}(x_mp_l-x_lp_m)\\
+            =&i\hbar (x_ip_j-x_jp_i)\\
+            =&i\hbar \epsilon_{ijk}\epsilon_{kmn}x_mp_n\\
+            =&i\hbar \epsilon_{ijk}L_k.
+        \end{aligned}
+    \end{equation}
+    (4) Take $\vec{J}$ as $\vec{L}$, Similar to (2).
+\end{problem}
+\begin{problem}[Pauli Matrices]
+    (1)
+    \begin{equation}
+        \sigma_i^2=I,\ \sigma_i\sigma_j=-\sigma_j\sigma_i\ (i\neq j).
+    \end{equation}
+    So, 
+    \begin{equation}
+        \{\sigma_i,\sigma_j\}=2\delta_{ij}.
+    \end{equation}
+    (2)
+    \begin{equation}
+        \sigma_i\sigma_j=\delta_{ij}I+\ii \epsilon_{ijk} \sigma_k.
+    \end{equation}
+    Thus,
+    \begin{equation}
+        \left(\vec{\sigma}\cdot\vec{n}\right)^2=I.
+    \end{equation}
+    Hence,
+    \begin{equation}
+        \exp\left[-\frac{\ii}{2}\theta\vec{\sigma}\cdot\vec{n}\right]=\sum_{k=0}^\infty\frac{1}{k!}(-\frac{\ii}{2}\theta\vec{\sigma}\cdot\vec{n})^k=\cos\left(\frac{\theta}{2}\right)-\ii\frac{\vec{\sigma}\cdot\vec{n}}{2}\sin\left(\frac{\theta}{2}\right).
+    \end{equation}
+\end{problem}
+\begin{problem}[Anti-unitary transformation]
+    (1) 
+    \begin{equation}
+        R^{-1}=(UK)^{-1}=K^{-1}U{-1}=K U^{-1}=K U^\dagger.
+    \end{equation}
+    So,
+    \begin{equation}
+        \braket{R\psi}{R\phi}=\bra{\psi^*}U^\dagger U\ket{\phi^*}=\bra{\phi}\ket{\psi}.
+    \end{equation}
+    (2)\begin{equation}
+        \braket{R^{-1}\psi}{R^{-1}\phi}=\braket{U^\dagger\psi}{U^\dagger \phi}^*=\braket{\phi}{\psi}
+    \end{equation}
+\end{problem}
+\begin{problem}[Time-reversal transformation]
+    (1) 
+    \begin{equation}
+        \ii\epsilon_{ijk}L_k=[L_i,L_j]=T[L_i,L_j]T^{-1}=T\ii\epsilon_{ijk}L_kT^{-1}
+    \end{equation}
+    Since $L_k$ is arbitrary, 
+    \begin{equation}
+        T\ii T^{-1}=-\ii.
+    \end{equation}
+    (2) Let $\Pi$ be the mechanical momentum, we expect $T\Pi T^{-1}=-\Pi$. So $H=\frac{\Pi^2}{2m}$ should not change under time-reversal transformation.
+    \begin{equation}
+        H^T=H.
+    \end{equation}
+    (3) No, consider integer spin system, it is not always an energy level degeneracy.
+\end{problem}
+\begin{problem}[Parity Transformation]
+    (1) We expect any $\ket{\psi}$ satisfies:
+    \begin{equation}
+        \bra{P\psi}\ket{P \psi}=\bra{\psi}\ket{\psi}.
+    \end{equation}
+    Let $\ket{\psi}=\ket{\alpha}+\ket{\beta}$, then 
+    \begin{equation}
+        \mathrm{Re}\left(\bra{P\alpha}\ket{P\beta}\right)=\mathrm{Re}\left(\bra{\alpha}\ket{\beta}\right).
+    \end{equation}
+    Let $\ket{\psi}=\ket{\alpha}+\ii \ket{\beta}$, then
+    \begin{equation}
+        \mathrm{Im}\left(\bra{P\alpha}\ket{P\beta}\right)=\mathrm{Im}\left(\bra{\alpha}\ket{\beta}\right).
+    \end{equation}
+    So,
+    \begin{equation}
+        \bra{P\alpha}\ket{P\beta}=\bra{\alpha}\ket{\beta}.
+    \end{equation}
+    By Wigner theorem, $P$ is unitary, we choose $P^2=1$. But $T^2=\pm 1$ is depend on the spin of system.
+    \newline
+    (2) (a) Momentum eigenstate
+
+Let the momentum eigenstate be:
+\[
+\psi_p(x,t) = e^{i(p x - \omega t)}
+\]
+
+Time reversal transformation $T$:
+\[
+\psi_p^T(x,t) = T \psi_p(x,t) = \psi_p^*(x,-t) = e^{-i(p x + \omega t)} = e^{i[(-p)x - \omega t]} = \psi_{-p}(x,t)
+\]
+
+Parity transformation $P$:
+\[
+\psi_p^P(x,t) = P \psi_p(x,t) = \psi_p(-x,t) = e^{i[p(-x) - \omega t]} = e^{i[(-p)x - \omega t]} = \psi_{-p}(x,t)
+\]
+
+Both $T$ and $P$ reverse the momentum: $p \to -p$.
+
+(b) Angular momentum eigenstate
+
+Let the angular momentum eigenstate be:
+\[
+\psi_m(\varphi, t) = e^{i m \varphi - i \omega t}
+\]
+Considering only the spatial part at $t=0$:
+\[
+\psi_m(\varphi) = e^{i m \varphi}
+\]
+
+Time reversal transformation $T$:
+\[
+\psi_m^T(\varphi) = T \psi_m(\varphi) = \psi_m^*(\varphi) = \psi_{-m}(\varphi)
+\]
+Time reversal changes $m \to -m$.
+
+Parity transformation $P$:
+In spherical coordinates, parity acts as $\varphi \to \varphi + \pi$:
+\[
+\psi_m^P(\varphi) = P \psi_m(\varphi) = \psi_m(\varphi + \pi)  = (-1)^m \psi_m(\varphi)
+\]
+Parity gives a phase factor $(-1)^m$ but does not change $m$.
 \end{problem}
 
 \end{document}

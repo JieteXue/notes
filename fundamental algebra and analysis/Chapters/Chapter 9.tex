@@ -1,0 +1,233 @@
+\chapter{Differential Calculus}
+\section{Landau symbol}
+\quad In this section, we fix a complete valued field \defm{9.1}{$(K,\left|\ \cdot\ \right|)$} and a normed vector space $(V,\pl\cdot\pl)$ over $K$.
+\begin{definitionenv}
+    Let $X$ be a set, $f:X\longrightarrow V$, $g:X\longrightarrow \RR_{\ge 0}$ be mappings. 
+    \newline
+    \quad Let $Y\subseteq X$ be a subset. We use the expression 
+    $$f(x)=\mathcal{O}(g(x))$$ to denote the statement:
+    $$\exists C>0, \forall x\in Y, \pl f(x)\pl \le C\cdot g(x).$$
+    \quad Let $\mathcal{F}$ be a filter on $X$, we use the expression 
+    $$f(x)=\mathcal{O}\left(g(x)\right) \text{ along } \mathcal{F}$$ to denote the statement:
+    $$\exists C>0, \exists A\in \mathcal{F}, \pl f(x)\pl\le C\cdot g(x), \forall x\in A.$$
+    We use the expression 
+    $$f(x)=o\left(g(x)\right)\text{ along }\mathcal{F}$$ to denote the statement: 
+    $$\exists \varepsilon:X\longrightarrow \RR_{\ge 0}, \exists A\in \mathcal{F}, \lim_{\mathcal{F}}\varepsilon=0 \text{ and }\forall x\in A, \pl f(x)\pl\le \varepsilon(x)g(x).$$
+\end{definitionenv}
+\begin{propositionenv}
+    Let $X$ be a set and $\mathcal{F}$ be a filter on $X$.
+    \newline
+    (1) Let $f:X\longrightarrow V$, $g:X\longrightarrow \RR_{\ge 0}$ be mappings. If $f(x)=o(g(x))$ along $\mathcal{F}$, then $f(x)=\mathcal{O}(g(x))$ along $\mathcal{F}$.
+    \newline
+    (2) \begin{enumerate}
+        \item Let $f_1:X\longrightarrow V$, $f_2:X\longrightarrow V$ and $g:X\longrightarrow \RR_{\ge 0}$ be mappings. If $f_1(x)=\mathcal{O}(g(x))$ and $f_2(x)=\mathcal{O}(g(x))$ along $\mathcal{F}$, then $f_1(x)+f_2(x)=\mathcal{O}(g(x))$ along $\mathcal{F}$.
+        \item Let $f_1:X\longrightarrow V$, $f_2:X\longrightarrow V$ and $g:X\longrightarrow \RR_{\ge 0}$ be mappings. If $f_1(x)=o(g(x))$ and $f_2(x)=o(g(x))$ along $\mathcal{F}$, then $f_1(x)+f_2(x)=o(g(x))$ along $\mathcal{F}$.
+    \end{enumerate}
+    (3) Let $\lambda:X\longrightarrow K$, $f:X\longrightarrow V$, $g:X\longrightarrow \RR_{\ge 0}$, $h:X\longrightarrow \RR_{\ge 0}$ be mappings. 
+    \begin{enumerate}
+        \item If $\lambda(x)=\mathcal{O}\left(g(x)\right)$ along $\mathcal{F}$, $f(x)=\mathcal{O}\left(h(x)\right)$ along $\mathcal{F}$, then
+            $$(\lambda f)(x)=\lambda(x)f (x)=\mathcal{O}\left(g(x)h(x)\right).$$
+        \item If $\lambda(x)=\mathcal{O}\left(g(x)\right)$ along $\mathcal{F}$, $f(x)=o\left(h(x)\right)$ along $\mathcal{F}$, or if $\lambda(x)=o\left(g(x)\right)$ along $\mathcal{F}$, $f(x)=\mathcal{O}\left(h(x)\right)$ along $\mathcal{F}$, then
+            $$\lambda(x)f(x)=o\left(g(x)h(x)\right).$$
+    \end{enumerate}
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) We have $\varepsilon: X\longrightarrow \RR_{\ge 0}$, $A\in \mathcal{F}$ such that $\lim_{\mathcal{F}}\varepsilon=0$ and $\forall x\in A$, $\pl f(x)\pl\le \varepsilon (x)g(x)$. Since $\lim_{\mathcal{F}}\varepsilon=0$, there exists $B\in \mathscr{T}$ such that $\forall x\in B$, $\left|\varepsilon(x)\right|<1$, hence $\forall x\in A\cap B$, $\pl f(x)\pl\ge (x)$.
+    \newline
+    (2)
+    \begin{enumerate}
+        \item $A_1,A_2\in \mathcal{F}, C_1,C_2>0$, $\forall x\in A_1, \pl f_1(x)\pl\le C_1g(x), \forall x\in A_2, \pl f_2(x)\pl\le C_2g(x)$. So $f_1(x)+f_2(x)=\mathcal{O}(g(x))$
+        \item Let $\varepsilon_1:X\longrightarrow \RR_{\ge 0}$, $\varepsilon_2:X\longrightarrow \RR_{\ge 0}$, $A\in \mathcal{F}$, $\lim_{\mathcal{F}}\varepsilon_1=\lim_{\mathcal{F}}\varepsilon_2=0$. $\forall x\in A_1, \pl f_1(x)\pl\le \varepsilon_1(x)\cdot g(x), \forall x\in A_2, \pl f_2(x)\pl\le \varepsilon_2(x)g(x)$. So $\lim_{\mathcal{F}}\varepsilon_1+\varepsilon_2=0$.
+            $$\forall x\in A_1\cap A_2,\ \pl f_1(x)+f_2(x)\pl \le \pl f_1(x)\pl+\pl f_2(x)\pl\le \left(\varepsilon_1(x)+\varepsilon_2(x)\right)g(x).$$
+    \end{enumerate}
+    (3) 
+    \begin{enumerate}
+        \item There exists $(C_1,C_2)\in \RR_{>0}^2$ and $(A_1,A_2)\in \mathcal{F}^2$ such that
+            $$\forall x\in A_1,\ \left|\lambda(x)\right|\le C_1 g(x),\ \forall x\in A_2,\ \pl f(x)\pl\le C_2 h(x).$$
+            Hence, 
+            $$\forall x\in A_1\cap A_2,\ \pl (\lambda(x)f(x))\pl \le \left|\lambda(x)\right|\cdot \pl f(x)\pl \le C_1 C_2 g(x) h(x).$$
+        \item We assume that 
+            $$\lambda(x)=\mathcal{O}\left(g(x)\right)\text{ along }\mathcal{F},\ f(x)=o\left(h(x)\right) \text{ along }\mathcal{F}.$$
+            There exists $(A_1,A_2)\in \mathcal{F}\times \mathcal{F}, C\in \RR_{\ge 0}$ and a mapping $\varepsilon:X\longrightarrow \RR_{\ge 0}$ such that 
+            $$\forall x\in A_1,\  \left|\lambda(x)\right|\le C\cdot g(x),\ \forall x\in A_2, \pl f(x)\pl\le \varepsilon(x)h(x).$$
+            Then one has 
+            $$\lim_{\mathcal{F}}C\varepsilon(x)=0$$
+            and 
+            $$\forall x\in A_1\cap A_2,\ \pl (\lambda(x)f(x))\pl\le \left|\lambda(x)\right|\cdot \pl f(x)\pl\le C\cdot g(x)\cdot \varepsilon(x)h(x)$$
+            As required. 
+    \end{enumerate}
+\end{proofenv}
+\begin{exampleenv}
+    \ \newline
+    (1) Let $I\subseteq\NN$ infinite. Let $(V,\pl\cdot\pl)$ be a normed vector space over complete valued field $(K,\left|\ \cdot\ \right|)$. Let $\mathcal{F}$ be the filter on $I$. Let $(x_n)_{n\in I}\in V^I, (b_n)_{n\in I}\in \RR_{\ge 0}^I$. We denote by 
+        $$x_n=\mathcal{O}\left(b_n\right),\ n\in I,\ n\rightarrow+\infty$$
+        the statement $x_n=\mathcal{O}\left(b_n\right)$ along $\mathcal{F}$. Namely,
+        $$\exists N\in \NN,\ \exists C>0,\ \forall n\in I_{\ge N},\ \pl x_n\pl \le C\cdot b_n.$$
+        $$x_n=o\left(b_n\right),\ n\in I,\ n\rightarrow +\infty$$
+        denotes the statement $x_n=o\left(b_n\right)$ along $\mathcal{F}$. Namely, 
+        $$\exists (\varepsilon_n)_{n\in I}\text{ such that } \lim_{n\rightarrow +\infty}\varepsilon_n=0,\ \exists N\in \NN,\ \forall n\in I_{\ge N},\ \pl x_n\pl \le \varepsilon_{n}\cdot b_n.$$
+    \newline
+    (2) Let $(X,\mathscr{T})$ be a topological space, $Y\subseteq X$, $y_0\in \overline{Y}$. Let $f:Y\longrightarrow V$ and $g:Y\longrightarrow \RR_{\ge 0}$ be mappings. 
+    $$\mathcal{F}=\mathcal{V}_{y_0}\left(\mathscr{T}\right)|_Y\coloneq\{U\cap Y\mid U \text{ is a neighborhood of } y_0 \}$$
+    $f(y)\mathcal{O}\left(g(y)\right)$, $y\in Y$, $y\rightarrow y_0$ denotes $f(y)=\mathcal{O}\left(g(y)\right)$ along $\mathcal{F}$. Namely, 
+    $$\exists C>0,\ \exists U\in \mathcal{V}_{y_0}\left(\mathscr{T}\right),\ \forall y\in U\cap Y,\ \pl f(y)\pl \le C\cdot g(y).$$
+    $$f(y)=o\left(g(y)\right),\ y\in Y,\ y\rightarrow y_0$$
+    denotes $f(y)=o\left(g(y)\right)$ along $\mathcal{F}$. Namely, 
+    $$\exists \varepsilon:Y\longrightarrow \RR_{\ge 0},\ \lim_{y\in Y,y\rightarrow y_0}\varepsilon(y)=0,\ \exists U\in \mathcal{V}_{y_0}\left(\mathscr{T}\right),$$
+    $$ \forall y\in U\cap Y,\ \pl f(y)\pl \le \varepsilon(y)g(y).$$
+    (3) Let $\mathcal{F}$ be a filter on $\RR$ generated by subsets of the form $\interval[open right]{a}{+\infty}$. Let $Y\subseteq \RR$ not bounded from above. Let $f:Y\longrightarrow V$ and $g:Y\longrightarrow \RR_{\ge 0}$ be mappings. Then
+    $$f(y)=\mathcal{O}\left(g(y)\right),\ y\in Y,\ y\rightarrow +\infty$$
+    denotes $f(y)=\mathcal{O}\left(g(y)\right)$ along $\mathcal{F}|_Y$. Namely, 
+    $$\exists C>0,\ \exists a\in \RR,\ \forall y\in Y_{\ge a},\ \pl f(y)\pl \le C\cdot g(y).$$
+    $$f(y)=o\left(g(y)\right),\ y\in Y,\ y\rightarrow +\infty$$
+    denotes $f(y)=o\left(g(y)\right)$ along $\mathcal{F}|_Y$. Namely, 
+    $$\exists \varepsilon:Y\longrightarrow \RR_{\ge 0},\ \lim_{y\rightarrow +\infty}\varepsilon(y)=0,\ \exists a\in \RR,\ \forall y\in Y_{\ge a},\ \pl f(y)\pl \le \varepsilon(y)g(y).$$
+\end{exampleenv}
+\section{Differentiability}
+We fix a complete valued field \defm{9.2.1}{$(K,\left|\ \cdot\ \right|)$}. We suppose that there exists $a\in K^\times$, such that $\left|a\right|<1$. Let $(E, \pl \cdot\pl_E)$ and $(F,\pl \cdot\pl_F)$ be normed vector spaces over $K$.
+$$\mathscr{L}(E,F)\coloneq\{\varphi\in\mathrm{Hom}_{K}(E,F)\mid \pl\varphi\pl<+\infty\}.$$
+$(\mathscr{L}(E,F),\pl \cdot\pl) $ is a normed vector space over $K$.
+\begin{definitionenv}
+    Let $U\subseteq E$ be subset and $p\in U^\circ$. We say that a mapping $f:U\longrightarrow F$ is \textbf{differentiable} at $p$ if there exists $\varphi\in\mathscr{L}(E,F)$ such that 
+    $$f(p+h)-f(p)-\varphi(h)=o\left(\pl h\pl_E\right),\ h\rightarrow0_E.$$
+    If $U=U^\circ$ and $f$ is differentiable at every point of $U$, we say that $f$ is \textbf{differentiable} on $U$.
+\end{definitionenv}
+\begin{propositionenv}
+    Assume that $f:U\longrightarrow F$ is differentiable at $p\in U^\circ$. There exists a unique $\varphi\in \mathscr{L}(E,F)$ such that
+    $$f(p+h)-f(p)-\varphi(h)=o\left(\pl h\pl_E\right),\ h\rightarrow 0_E.$$
+\end{propositionenv}
+\begin{lemmaenv}
+    $\forall \eta\in \mathscr{L}(E,F)$, $\forall r>0$. 
+    $$\pl\eta\pl=\sup_{x\in E,0<\pl x\pl_E\le r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}=\sup_{x\in E,0<\pl x\pl_E< r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}.$$
+\end{lemmaenv}
+\begin{proofenv}[of Lemma]
+    $\pl\eta\pl\ge \sup_{x\in E,0<\pl x\pl_E< r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}$. $\forall y\in E\backslash\{0\}$, $\pl a^N y\pl_{E}=\left|a\right|^N\pl y\pl_E<r$.
+    $$\frac{\pl \eta(a^N y)\pl_F}{\pl a^N y\pl_E}=\frac{\left|a\right|^N\cdot\pl \eta(y)\pl_F}{\left|a\right|^N\cdot\pl y\pl_E}=\frac{\pl \eta(y)\pl_F}{\pl y\pl_E}\le \sup_{x\in E,0<\pl x\pl_E< r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}.$$
+\end{proofenv}
+\begin{proofenv}[of Proposition]
+    Suppose $\varphi,\psi\in\mathscr{L}(E,F)$ are such that
+    $$f(p+h)-f(p)-\varphi(h)=o\left(\pl h\pl_E\right),\ h\rightarrow 0_E,$$
+    $$f(p+h)-f(p)-\psi(h)=o\left(\pl h\pl_E\right),\ h\rightarrow 0_E.$$
+    Then
+    $$\varphi(h)-\psi(h)=o\left(\pl h\pl_E\right),\ h\rightarrow 0_E.$$
+    $$\exists r>0, \exists\varepsilon:\overline{B}(0_E,r)\longrightarrow \RR_{\ge0}\text{ such that }\lim_{h\rightarrow 0_E}\varepsilon(h)=0.$$
+    $$\forall h\in \overline{B}(0_E,r),\ \pl (\varphi-\psi)(h)\pl_F = \varepsilon(h)\pl h\pl_E.$$
+    $$\pl \varphi-\psi\pl=\sup_{x\in E,0<\pl h\pl_E< r'}\frac{\pl\varphi(h)-\psi(h)\pl_F}{\pl h\pl_E}\le\sup_{0<\pl h\pl_E<r'}\varepsilon(h).$$
+    Taking the limit when $r'\rightarrow 0$, by $\limsup_{h\rightarrow 0_E}\varepsilon(h)=0$. We get $\pl \varphi-\psi\pl=0$, hence $\varphi=\psi$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $U\subseteq E$ and $f:U\longrightarrow F$ be a mapping that is differentiable at $p\in U^\circ$. The unique $\varphi\in \mathscr{L}(E,F)$ such that
+    $$f(p+h)-f(p)-\varphi(h)=o\left(\pl h\pl_E\right),\ h\rightarrow 0_E$$
+    is called the \textbf{differential} of $f$ at $p$ and is denoted as
+    $$\DD(f(p)).$$
+\end{definitionenv}
+\begin{exampleenv}
+    \ \newline
+    (1) $f:U\longrightarrow F$, $f(x)\equiv c$, $c\in F$. 
+    $$f(x+h)-f(x)=0_E=o\left(\pl h\pl_E\right).$$
+    So $f$ is differentiable at every point of $U$ and $\DD(f(x))=0_F$.
+    \newline
+    (2) $\varphi\in \mathscr{L}(E,F)$. 
+    $$\varphi(p+h)-\varphi(p)-\varphi(h)=0_F=o\left(\pl h\pl_E\right).$$
+    So $\varphi$ is differentiable at every point of $E$ and $\DD(\varphi(p))=\varphi$.
+    \newline
+    (3) Let $\left(F_i,\pl\cdot\pl_i\right)$ be normed vector spaces over $K$, $i\in\{1,\ldots,n\}$, $n\in\NN$. Suppose that $F=F_1\oplus\ldots\oplus F_n$ and 
+    $$\pl\left(s_1,\ldots,s_n\right)\pl_F=\max\{\pl s_1\pl_1, \ldots,\pl s_n\pl_n\}.$$
+    Let $U\subseteq E$ be an open subset, $f_i:U\longrightarrow F_i$ be a mapping. 
+    $$f:U\longrightarrow F,\ f(x)=\left(f_1(x),\ldots,f_n(x)\right).$$
+    $$f(p+h)-f(p)=\left(f_1(p+h)-f_1(p),\ldots,f_n(p+h)-f_n(p)\right).$$
+    Suppose that each $f_i$ is differentiable
+    \begin{align*}
+        &f(p+h)-f(p)-\left(\DD f_1(p)(h),\ldots,\DD f_n(p)(h)\right)|_F\\
+    =&\max_{i\in\{1,\ldots,n\}}\pl f_i(p+h)-f_i(p)-\DD f_i(p)(h)\pl_{F_i}\\
+    =&o\left(\pl h\pl_E\right).
+    \end{align*}
+    So $f$ is differentiable at $p$ and
+    $$\DD f(p)(h)=\left(\DD f_1(p)(h),\ldots,\DD f_n(p)(h)\right).$$
+    (4) Suppose that $E=K$. If $U\subseteq K$ is open and $f:U\longrightarrow F$ is differentiable at $p\in U$. We denote by $f'(p)$ the element $\DD f(p)(1)\in F$.
+    $$f(p+h)-f(p)-\DD f(p)(h)=o\left(\pl h\pl_E\right).$$ 
+    So
+    $$f(p+h)-f(p)-hf'(p)=o\left(\pl h\pl_E\right),$$
+    $$\frac{f(p+h)-f(p)}{h}-f'(p)=o(1).$$
+    That is,
+    $$\lim_{h\rightarrow 0}\frac{f(p+h)-f(p)}{h}=f'(p).$$
+\end{exampleenv}
+\begin{theoremenv}
+    Let $(E,\pl\cdot\pl_E)$, $(F,\pl\cdot\pl_F)$, $(G,\pl\cdot\pl_G)$ be normed vector spaces over a complete valued field $(K,\left|\ \cdot\ \right|)$. Let $U\subseteq E$ and $V\subseteq F$ be open subsets, $f:U\longrightarrow F$ and $g:V\longrightarrow G$ be mappings such that $f(U)\subseteq V$. Let $p\in U$. If $f$ is differentiable at $p$ and $g$ is differentiable at $f(p)$, then $g\circ f:U\longrightarrow G$ is differentiable at $p$ and
+    $$\DD(g\circ f)(p)(h)=\DD g(f(p))\left( \DD f(p)(h)\right).$$
+\end{theoremenv}
+\begin{proofenv}
+    $$f(p+h)-f(p)-\DD f(p)(h)=o\left(\pl h\pl_E\right),$$
+    so, 
+    $$f(p+h)-f(p)=\mathcal{O}\left(\pl h\pl_E\right).$$
+    \begin{align*}
+        &g(f(p+h))-g(f(p))-\DD g(f(p))\left(f(p+h)-f(p)\right)\\
+        =&o\left(\pl f(p+h)-f(p)\pl_F\right)=o\left(\mathcal{O}\pl h\pl_E\right)=o\left(\pl h\pl_E\right).
+    \end{align*}
+    \begin{align*}
+        &\DD g(f(p))\left(f(p+h)-f(p)\right)-\DD g(f(p))\left(\DD f(p)(h)\right)\\
+        =& \DD g(f(p))\left(f(p+h)-f(p)-\DD f(p)(h)\right)\\
+        =& \mathcal{O}\left(o\left(\pl h\pl_E\right)\right)=o\left(\pl h\pl_E\right).
+    \end{align*}
+    So, 
+    $$g(f(p+h))-g(f(p))-\DD g(f(p))\left(\DD f(p)(h)\right)=o\left(\pl h\pl_E\right).$$
+\end{proofenv}
+\begin{remark}
+    If $(E,\pl\cdot\pl_E)=(K,\left|\ \cdot\ \right|)$, 
+    $$(g\circ f)'(p)=\DD g(f(p))(f'(p)).$$
+    If $E=F=K$, $\pl\cdot\pl_E=\pl\cdot\pl_F=\left|\ \cdot\ \right|$.
+    $$(g\circ f)'(p)=g'(f(p))\cdot f'(p).$$ 
+\end{remark}
+\begin{remark}
+    Let $U\subseteq E$ be open. $f:U\longrightarrow F_1\times \dots\times F_n$. If $f$ is differentiable at $p\in U$, for any $i\in\{1,\ldots,n\}$, the mapping
+    $$f_i\coloneq\pi_i\circ f:U\longrightarrow F_i$$
+    is differentiable at $p$ and
+    $$\DD(f_i)(p)(h)=\DD \pi_i(f(p))\left(\DD f(p)(h)\right)=\pi_{i}\left(\DD f(p)(h)\right).$$
+\end{remark}
+
+
+\section{Multilineal Mappings}
+\begin{definitionenv}
+    Let $K$ be a commutative unitary ring. Let $E_1,\ldots,E_n;F$ be $K$-modules. We say that 
+    $$\varphi:E_1\times\ldots\times E_n\longrightarrow F$$
+    is $n$-linear if for any $i\in\{1,\ldots,n\}$ and any $(x_1,\ldots,x_{i-1},x_{i+1},\ldots,x_n)\in E_1\times\ldots\times E_{i-1}\times E_{i+1}\times\ldots\times E_n$, the mapping
+    $$E_i\longrightarrow F,\ x_i\mapsto \varphi(x_1,\ldots,x_{i-1},x_i,x_{i+1},\ldots,x_n)$$
+    is a homomorphism of $K$-modules. ($K$-linear mapping)
+    \newline
+    If $n=1$, $1$-linear is also called linear.
+    \newline
+    If $n=2$, $2$-linear is also called bilinear.
+\end{definitionenv}
+\begin{exampleenv}
+    \ \newline
+    (1) $K\times K\longrightarrow K$ $(a,b)\longmapsto ab$ is bilinear.
+    \newline
+    (2) $K^n\times K^n\longrightarrow K$ $(x,y)\longmapsto x\cdot y=\sum_{i=1}^n x_i y_i$ is bilinear.
+    \newline
+    (3) $K\times \ldots \times K\longrightarrow K$ $(x_1,\ldots,x_n)\longmapsto x_1\cdots x_n$ is $n$-linear.
+\end{exampleenv}
+\begin{definitionenv}
+    We denote by $\mathrm{Hom}_{K}^{(n)} (E_1\times\ldots\times E_n,F)$ the set of $n$-linear mappings from $E_1\times\ldots\times E_n$ to $F$.
+\end{definitionenv}
+\begin{definitionenv}
+    Let $(K,\left|\ \cdot\ \right|)$ be a complete valued field. 
+    \newline
+    Let $(E_1,\pl\cdot\pl_{E_1}),\ldots,(E_n,\pl\cdot\pl_{E_n}),(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$. For any $\varphi\in \mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F)$, we define
+    $$\pl \varphi\pl \coloneq \sup_{x_i\in E_i\backslash\{0\},i=1,\ldots,n}\frac{\pl \varphi(x_1,\ldots,x_n)\pl_F}{\pl x_1\pl_{E_1}\cdots \pl x_n\pl_{E_n}}.$$
+    We denote by $\mathscr{L}(E_1\times\ldots\times E_n,F)$ the set
+    $$\{\varphi\in \mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F)\mid \pl \varphi\pl<+\infty\}.$$
+    $\mathscr{L}^{(n)}(E_1\times\ldots\times E_n,F)$ is a normed vector space of $\mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F)$, and the norm is $\pl\cdot\pl$. 
+\end{definitionenv}
+\begin{theoremenv}
+    Let $\varphi\in \mathscr{L}^{(n)}(E_1\times\ldots\times E_n,F)$. For any $p=(p_1,\ldots,p_n)\in E_1\times \ldots\times E_n$, $\varphi$ is differentiable at $p$ and
+    $$\DD \varphi(p)(h_1,\ldots,h_n)=\sum_{i=1}^n \varphi(p_1,\ldots,p_{i-1},h_i,p_{i+1},\ldots,p_n).$$
+\end{theoremenv}
+\begin{proofenv}
+    \begin{align*}
+        \varphi(p+h)-\varphi(p)=\sum_{i=1}^n & \varphi(p_1+h_1,\ldots,p_{i-1}+h_{i-1},p_{i}+h_i,p_{i+1},\ldots,p_n)\\
+        -&\varphi(p_1+h_1,\ldots,p_{i-1}+h_{i-1},p_{i},p_{i+1},\ldots,p_n)\\
+        =&\sum_{i=1}^n \varphi(p_1+h_1,\ldots,p_{i-1}+h_{i-1},h_i,p_{i+1},\ldots,p_n)\\
+        =&\sum_{i=1}^n \varphi(p_1,\ldots,p_{i-1},h_i,p_{i+1},\ldots,p_n)+o\left(\pl h_i\pl\right).
+    \end{align*}
+\end{proofenv}
