@@ -99,11 +99,11 @@ $(\mathscr{L}(E,F),\pl \cdot\pl) $ is a normed vector space over $K$.
 \end{propositionenv}
 \begin{lemmaenv}
     $\forall \eta\in \mathscr{L}(E,F)$, $\forall r>0$. 
-    $$\pl\eta\pl=\sup_{x\in E,0<\pl x\pl_E\le r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}=\sup_{x\in E,0<\pl x\pl_E< r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}.$$
+    $$\pl\eta\pl=\sup_{x\in E,0<\pl x\pl_E\le r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}=\sup_{\substack{x\in E\\0<\pl x\pl_E< r}}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}.$$
 \end{lemmaenv}
 \begin{proofenv}[of Lemma]
     $\pl\eta\pl\ge \sup_{x\in E,0<\pl x\pl_E< r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}$. $\forall y\in E\backslash\{0\}$, $\pl a^N y\pl_{E}=\left|a\right|^N\pl y\pl_E<r$.
-    $$\frac{\pl \eta(a^N y)\pl_F}{\pl a^N y\pl_E}=\frac{\left|a\right|^N\cdot\pl \eta(y)\pl_F}{\left|a\right|^N\cdot\pl y\pl_E}=\frac{\pl \eta(y)\pl_F}{\pl y\pl_E}\le \sup_{x\in E,0<\pl x\pl_E< r}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}.$$
+    $$\frac{\pl \eta(a^N y)\pl_F}{\pl a^N y\pl_E}=\frac{\left|a\right|^N\cdot\pl \eta(y)\pl_F}{\left|a\right|^N\cdot\pl y\pl_E}=\frac{\pl \eta(y)\pl_F}{\pl y\pl_E}\le \sup_{\substack{x\in E\\0<\pl x\pl_E< r}}\frac{\pl\eta(x)\pl_F}{\pl x\pl_E}.$$
 \end{proofenv}
 \begin{proofenv}[of Proposition]
     Suppose $\varphi,\psi\in\mathscr{L}(E,F)$ are such that
@@ -113,7 +113,7 @@ $(\mathscr{L}(E,F),\pl \cdot\pl) $ is a normed vector space over $K$.
     $$\varphi(h)-\psi(h)=o\left(\pl h\pl_E\right),\ h\rightarrow 0_E.$$
     $$\exists r>0, \exists\varepsilon:\overline{B}(0_E,r)\longrightarrow \RR_{\ge0}\text{ such that }\lim_{h\rightarrow 0_E}\varepsilon(h)=0.$$
     $$\forall h\in \overline{B}(0_E,r),\ \pl (\varphi-\psi)(h)\pl_F = \varepsilon(h)\pl h\pl_E.$$
-    $$\pl \varphi-\psi\pl=\sup_{x\in E,0<\pl h\pl_E< r'}\frac{\pl\varphi(h)-\psi(h)\pl_F}{\pl h\pl_E}\le\sup_{0<\pl h\pl_E<r'}\varepsilon(h).$$
+    $$\pl \varphi-\psi\pl=\sup_{\substack{x\in E\\0<\pl h\pl_E< r'}}\frac{\pl\varphi(h)-\psi(h)\pl_F}{\pl h\pl_E}\le\sup_{0<\pl h\pl_E<r'}\varepsilon(h).$$
     Taking the limit when $r'\rightarrow 0$, by $\limsup_{h\rightarrow 0_E}\varepsilon(h)=0$. We get $\pl \varphi-\psi\pl=0$, hence $\varphi=\psi$.
 \end{proofenv}
 \begin{definitionenv}
@@ -132,8 +132,8 @@ $(\mathscr{L}(E,F),\pl \cdot\pl) $ is a normed vector space over $K$.
     $$\varphi(p+h)-\varphi(p)-\varphi(h)=0_F=o\left(\pl h\pl_E\right).$$
     So $\varphi$ is differentiable at every point of $E$ and $\DD(\varphi(p))=\varphi$.
     \newline
-    (3) Let $\left(F_i,\pl\cdot\pl_i\right)$ be normed vector spaces over $K$, $i\in\{1,\ldots,n\}$, $n\in\NN$. Suppose that $F=F_1\oplus\ldots\oplus F_n$ and 
-    $$\pl\left(s_1,\ldots,s_n\right)\pl_F=\max\{\pl s_1\pl_1, \ldots,\pl s_n\pl_n\}.$$
+    (3) Let $\left(F_i,\pl\cdot\pl_i\right)$ be normed vector spaces over $K$, $i\in\{1,\ldots,n\}$, $n\in\NN$. Suppose that $F=F_1\oplus\dots\oplus F_n$ and 
+    $$\pl\left(s_1,\dots,s_n\right)\pl_F=\max\{\pl s_1\pl_1, \ldots,\pl s_n\pl_n\}.$$
     Let $U\subseteq E$ be an open subset, $f_i:U\longrightarrow F_i$ be a mapping. 
     $$f:U\longrightarrow F,\ f(x)=\left(f_1(x),\ldots,f_n(x)\right).$$
     $$f(p+h)-f(p)=\left(f_1(p+h)-f_1(p),\ldots,f_n(p+h)-f_n(p)\right).$$
@@ -214,12 +214,13 @@ $(\mathscr{L}(E,F),\pl \cdot\pl) $ is a normed vector space over $K$.
     Let $(K,\left|\ \cdot\ \right|)$ be a complete valued field. 
     \newline
     Let $(E_1,\pl\cdot\pl_{E_1}),\ldots,(E_n,\pl\cdot\pl_{E_n}),(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$. For any $\varphi\in \mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F)$, we define
-    $$\pl \varphi\pl \coloneq \sup_{x_i\in E_i\backslash\{0\},i=1,\ldots,n}\frac{\pl \varphi(x_1,\ldots,x_n)\pl_F}{\pl x_1\pl_{E_1}\cdots \pl x_n\pl_{E_n}}.$$
-    We denote by $\mathscr{L}(E_1\times\ldots\times E_n,F)$ the set
-    $$\{\varphi\in \mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F)\mid \pl \varphi\pl<+\infty\}.$$
+    $$\pl \varphi\pl \coloneq \sup_{\substack{x_i\in E_i\backslash\{0\}\\i\in\{1,\ldots,n\}}}\frac{\pl \varphi(x_1,\ldots,x_n)\pl_F}{\pl x_1\pl_{E_1}\cdots \pl x_n\pl_{E_n}}.$$
+    We denote by $\mathscr{L}(E_1\times\dots\times E_n,F)$ the set
+    $$\{\varphi\in \mathrm{Hom}_{K}^{(n)}(E_1\times\dots\times E_n,F)\mid \pl \varphi\pl<+\infty\}.$$
     $\mathscr{L}^{(n)}(E_1\times\ldots\times E_n,F)$ is a normed vector space of $\mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F)$, and the norm is $\pl\cdot\pl$. 
 \end{definitionenv}
 \begin{theoremenv}
+    Let $(E_1,\pl\cdot\pl_{E_1}),\ldots,(E_n,\pl\cdot\pl_{E_n}),(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$.
     Let $\varphi\in \mathscr{L}^{(n)}(E_1\times\ldots\times E_n,F)$. For any $p=(p_1,\ldots,p_n)\in E_1\times \ldots\times E_n$, $\varphi$ is differentiable at $p$ and
     $$\DD \varphi(p)(h_1,\ldots,h_n)=\sum_{i=1}^n \varphi(p_1,\ldots,p_{i-1},h_i,p_{i+1},\ldots,p_n).$$
 \end{theoremenv}
@@ -227,7 +228,758 @@ $(\mathscr{L}(E,F),\pl \cdot\pl) $ is a normed vector space over $K$.
     \begin{align*}
         \varphi(p+h)-\varphi(p)=\sum_{i=1}^n & \varphi(p_1+h_1,\ldots,p_{i-1}+h_{i-1},p_{i}+h_i,p_{i+1},\ldots,p_n)\\
         -&\varphi(p_1+h_1,\ldots,p_{i-1}+h_{i-1},p_{i},p_{i+1},\ldots,p_n)\\
-        =&\sum_{i=1}^n \varphi(p_1+h_1,\ldots,p_{i-1}+h_{i-1},h_i,p_{i+1},\ldots,p_n)\\
-        =&\sum_{i=1}^n \varphi(p_1,\ldots,p_{i-1},h_i,p_{i+1},\ldots,p_n)+o\left(\pl h_i\pl\right).
+    \end{align*}
+    \begin{align*}
+        & \varphi(p_1+h_1,\ldots,p_{i-1}+h_{i-1},h_i,p_{i+1},\ldots,p_n)\\
+        -& \varphi(p_1,\ldots,p_{i-1},h_i,p_{i+1},\ldots,p_n)\\
+        =&\sum_{j=1}^{i-1}\varphi (p_1+h_1,\ldots,p_{j-1}+h_{j-1},h_j,p_{j+1},\ldots,h_i,\ldots,p_n).
+    \end{align*}
+    \begin{align*}
+        &\pl \varphi(p_1+h_1,\ldots,p_{j-1}+h_{j-1},h_j,p_{j+1},\ldots,h_i,\ldots,p_n)\pl_F\\
+        \le &\pl \varphi\pl \cdot \prod_{\substack{k=1}}^{j-1} \pl p_k+h_k\pl_{E_k}\cdot\pl h_j\pl_{E_j}\cdot \prod_{k=j+1}^{i-1}\pl p_k\pl_{E_k}\cdot \pl h_i\pl_{E_i} \cdot \prod_{\substack{k=i+1}}^{n}\pl p_k\pl_{E_k}\\
+        =&\mathcal{O}\left(\pl h\pl^2\right)=o(h),\ h\rightarrow 0.
     \end{align*}
 \end{proofenv}
+\begin{definitionenv}
+    Let $K$ be a commutative unitary ring. $n\in\NN_{\ge1}$, $E$ and $F$ be $K$-modules. We say that 
+    $$\varphi\in \mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F)$$
+    is \textbf{symmetric} if
+    $$\forall \sigma\in \mathfrak{S}_{\{1,\ldots,n\}},\ \forall (x_1,\ldots,x_n)\in E^n,\ \varphi(x_{\sigma(1)},\ldots,x_{\sigma(n)})=\varphi(x_1,\ldots,x_n).$$
+    Let $P:E\longrightarrow F$ be a mapping. If there exists a symmetric $\varphi\in \mathrm{Hom}_{K}^{(n)}(E\times\ldots\times E,F)$ such that
+    $$\forall x\in E,\ P(x)=\varphi(x,\ldots,x),$$
+    we say that $P$ is a \textbf{homogeneous polynomial mapping of degree $\mathbf{n}$}.
+
+    If $F=K$, $P$ is called a \textbf{homogeneous polynomial} on $E$. The symmetric polynomial mapping $\varphi$ is called the \textbf{polarization} of $P$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $(K,\left|\ \cdot\ \right|)$ be a complete valued field that is non-trivial. Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$. Assume that $P:E\longrightarrow F$ is a homogeneous polynomial mapping of degree $n$. Which admits a bounded polarization $\varphi$. Then $P$ is differentiable on $E$ and,
+    $$\forall (x,h)\in E\times E,\ \DD P(x)(h)=n\varphi(x,\ldots,x,h).$$
+\end{propositionenv}
+\begin{proofenv}
+    Let $$ \begin{array}{rrcl}
+            \Delta:&E&\longrightarrow& E^n,\\
+             &x&\longmapsto& (x,\ldots,x).
+        \end{array}$$
+        Then $P=\varphi\circ \Delta$. Since $\varphi$ and $\Delta$ are differentiable, so it is $P$. 
+
+    Moreover,
+    \begin{align*}
+        \DD P(x)(h)&=\DD \varphi(\Delta(x))\left(\DD \Delta(x)(h)\right)\\
+        &=\DD \varphi(x ,\ldots,x)(h,\ldots,h)\\
+        &=\sum_{i=1}^n \varphi(x,\ldots,x,h,x,\ldots,x)\\
+        &=n\varphi(x,\ldots,x,h).
+    \end{align*}
+\end{proofenv}
+\begin{remark}
+    Assume that $E=K$. Let $P:K\longrightarrow F$ be a homogeneous polynomial mapping of degree $n$ of form $P(x)=x^n s$, where $s\in F$. Its polarization is of the form 
+    $$\varphi(a_1,\ldots,a_n)=a_1\cdots a_n s.$$
+    $$P'(x)=\DD P(x)(1)=n\varphi(x,\ldots,x,1)=n x^{n-1} s.$$
+\end{remark}
+\begin{propositionenv}
+    Let $n$ be a positive integer $n\ge 2$. Let $(E_1,\pl\cdot\pl_1),\ldots,(E_n,\pl\cdot\pl_n), (F,\pl\cdot\pl_F)$ be normed vector spaces. For any $i\in\{1,\ldots,n_1\}$, the mapping
+    $$\mathscr{L}^{(n)}(E_1,\ldots,E_n;F)\overset{f}{\longrightarrow}\mathscr{L}^{(i)}(E_1,\ldots,E_i,\mathscr{L}^{(n-i)}(E_{i+1},\ldots,E_n;F))$$
+    $$\varphi\longmapsto \left(\substack{E_1\times \ldots e_n\longrightarrow\mathscr{L}^{(i)}(E_{i+1},\ldots,E_n;F)\\ (x_1,\ldots,x_i)\longmapsto\left(\substack{(x_{i+1},\ldots,x_n)\longmapsto \varphi(x_1,\ldots,x_n)\\E_{i+1}\times\ldots\times E_n\in F}\right)}\right)$$
+    is an isomorphism of vector spaces over $K$, and in the same time an isometry, ($\pl f(\varphi)\pl=\pl\varphi\pl$).
+\end{propositionenv}
+\begin{remark}
+    \ \newline
+    $\forall (x_1,\ldots,x_n)\in E_1\times\ldots\times E_n$, $f(\varphi)(x_1,\ldots,x_i)(x_{i+1},\ldots,x_n)=\varphi(x_1,\ldots,x_n)$
+\end{remark}
+\begin{proofenv}
+    $\forall (x_1,\ldots,x_n)\in E_1\times\ldots\times E_n$, 
+    \begin{align*}
+        \varphi(x_1,\ldots,x_n):&E_{i+1}\times\ldots\times E_n\longrightarrow F \text{ is bounded }\\
+        &(x_{i+1},\ldots,x_n)\longmapsto \varphi(x_1,\ldots,x_n)
+    \end{align*}
+    Since 
+    $$\pl\varphi(x_1,\ldots,x_n)\pl_F\le \left(\pl\varphi\pl\cdot\pl x_1\pl\ldots\pl x_i\pl\right)\pl x_{i+1}\pl\ldots\pl x_n\pl.$$
+    \begin{align*}
+        \pl f(\varphi)\pl&=\sup_{x_j\in E_j\backslash\{0\},j=1,\ldots,i}\frac{\pl \varphi(x_1,\ldots,x_i,\cdot)\pl}{\pl x_1\pl_{E_1}\cdots \pl x_n\pl_{E_i}}\\
+        &=\sup_{x_j\in E_j\backslash\{0\},j=1,\ldots,i}\sup_{x_k\in E_k\backslash\{0\},k=i+1,\ldots,n}\frac{\pl \varphi(x_1,\ldots,x_n)\pl_F}{\pl x_1\pl_{E_1}\cdots \pl x_n\pl_{E_n}}\\
+        &=\pl \varphi\pl.
+    \end{align*}
+    Hence $f$ is injective. ($\ker(f)=\{0\}$)
+
+    For any $\psi\in \mathscr{L}^{(i)}(E_1,\ldots,E_i,\mathscr{L}^{(n-i)}(E_{i+1},\ldots,E_n))$,
+    $$\begin{array}{rrcl}
+        \varphi:&E_1\times\ldots\times E_n&\longrightarrow &F\\
+        &(x_1,\ldots,x_n)&\longmapsto &\psi(x_1,\ldots,x_i)(x_{i+1},\ldots,x_n)
+    \end{array}$$
+    belongs to $\mathscr{L}^{(n)}(E_1,\ldots,E_n;F)$ and $f(\varphi)=\psi$. So $f$ is surjective.
+\end{proofenv}
+\begin{corollaryenv}
+    If $E_1,\ldots,E_n$ are all finite dimensional, then 
+    $$\mathscr{L}^{(n)}(E_1,\ldots,E_n;F)=\mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F).$$ 
+\end{corollaryenv}
+\begin{proofenv}
+    If $n=1$, $\mathscr{L}(E_1,F)=\mathrm{Hom}_{K}(E_1,F)$.
+    \begin{align*}
+        \mathscr{L}^{(n)}(E_1,\ldots,E_n;F)
+        \cong &\mathscr{L}(E_1,\mathscr{L}^{(n-1)}(E_2,\ldots,E_n;F))\\
+        = &\mathrm{Hom}_{K}(E_1,\mathrm{Hom}_{K}^{(n-1)}(E_2\times\ldots\times E_n,F))\\
+        \cong &\mathrm{Hom}_{K}^{(n)}(E_1\times\ldots\times E_n,F).
+    \end{align*}
+\end{proofenv}
+
+Let $(K,\left|\ \cdot\ \right|)$ be a complete nontrivial valued field. Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$.
+\begin{definitionenv}
+    Let $U\subseteq E$ be an open subset of $E$, $f:U\longrightarrow F$ be a mapping. 
+
+    If $f$ is continuous on $U$, we say that $f$ is \textbf{of class $\mathcal{C}^0$} and we denote by 
+    $$\DD^0f$$
+    the mapping $f:U\longrightarrow F$. Denote by 
+    $$\mathcal{C}^0(U,F)$$
+    the set of mappings from $U$ to $F$.
+    $$U\overset{(f,g)}{\longrightarrow}K\times K\overset{\times}{\longrightarrow}K$$
+    $$p\longmapsto (f(p),g(p))\longmapsto f(p)\times g(p)$$
+    Let $p\in U$. If $f$ is differentiable on an open neighborhood $V$ of $p$ such that $V\subseteq U$. Then
+    \begin{align*}
+        \DD f:&V\longrightarrow \mathscr{L}(E,F)\\
+        &x\longmapsto \DD f(x)
+    \end{align*} 
+    is a mapping. If $\DD f$ is $(n-1)$-times differentiable at $p$, we say that $f$ is \textbf{of class $\mathcal{C}^n$} at $p$. If $f$ is of class $\mathcal{C}^n$ at every point of $U$, we say that $f$ is \textbf{$\mathbf{n}$-times differentiable} at $p$. We denote by
+    $$\DD^n f(p)\in\mathscr{L}^{(n)}(E,\ldots,E,F)$$
+    the $n$-linear mapping that sends $(h_1,\ldots,h_n)\in E^n$ to
+    $$\DD^{n-1} (\DD f)(p)(h_1,\ldots,h_{n-1})(h_n)\in F.$$
+\end{definitionenv}
+\begin{remark}
+    $$\DD^n f(p)(h_1,\ldots,h_n)=\DD^{i} (\DD^{n-i} f)(p)(h_1,\ldots,h_{i})(h_{i+1},\ldots,h_n).$$
+\end{remark}
+\newpage
+\section{Convexity}
+\begin{definitionenv}
+    Let $E$ be a vector space over a field $K$. $S\subseteq E$ be a non-empty subset. 
+
+    We call affine combination of elements of $S$ any element of $E$ of the form
+    $$a_1s_1+a_2s_2+\cdots+a_ns_n,$$
+    where $n\in\NN_{\ge1}$, $s_1,\ldots,s_n\in S$, $a_1,\ldots,a_n\in K$ such that
+    $$a_1+a_2+\cdots+a_n=1.$$
+    We denote by $\mathrm{Aff}(S)$ the set of all affine combinations of elements of $S$. One has $S\subseteq\mathrm{Aff}(S)$. $\mathrm{Aff}(S)$ is called the affine hull of $S$.
+
+    If $S=\Aff(S)$, we say that $S$ is an affine subspace of $E$.
+\end{definitionenv}
+\begin{propositionenv}
+    \ \newline
+    (1) If $F$ is a vector subspace of $E$, $\forall p\in E$, $$p+F=\{p+x\mid x\in F\}$$ is an affine subspace of $E$.
+    \newline
+    (2) If $A\subseteq E$ is an affine subspace of $E$. For any $p\in A$, 
+    $$A-p\coloneq \{x-p\mid x\in A\}$$
+    is a vector subspace of $E$, which is not dependent on the choice of $p$. We call it the vector space \textbf{associated} with $A$.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) Let $(x_1,\ldots,x_n)\in F^n$, $(a_1,\ldots,a_n)\in K^n$, such that $\sum_{i=1}^n a_i=1$. Then
+    \begin{align*}
+        \sum_{i=1}^n a_i (p+x_i)&=p\cdot \sum_{i=1}^n a_i + \sum_{i=1}^n a_i x_i\\
+        &=p+\sum_{i=1}^n a_i x_i\in p+F.
+    \end{align*}
+    (2) Let $(x_1,\ldots,x_n)\in A^n$, $(b_1,\ldots,b_n)\in K^n$.
+    \begin{align*}
+        \sum_{i=1}^n b_i (x_i - p)&=\sum_{i=1}^n b_i x_i - \left(\sum_{i=1}^n b_i\right) p\\
+        &=\left(\sum_{i=1}^n b_i x_i+ \left(1-\sum_{i=1}^n b_i\right)p\right)   - p\\
+        &\in A - p.
+    \end{align*}
+    Let $q\in A$, $\forall x\in A$, $x-p=(x-q)+(q-p)\in A-q$. So $A-p\subseteq A-q$. By symmetry, $A-q\subseteq A-p$. Hence $A-p=A-q$.
+\end{proofenv}
+\begin{exampleenv}
+    Let $A$ be an $m$ by $p$ matrix with coefficients in $\RR$. Let $(b_1,\ldots,b_n)\in E^m$. Consider the linear equation
+    $$ A\begin{pmatrix}
+x_1\\
+\vdots\\
+x_p
+\end{pmatrix}=\begin{pmatrix}
+b_1\\
+\vdots\\
+b_m
+\end{pmatrix}.$$
+    The solution set is 
+    $$S\coloneq \{(x_1,\dots,x_p)\in E^p\mid A \begin{pmatrix}
+x_1\\
+\vdots\\
+x_p
+\end{pmatrix}=\begin{pmatrix}
+b_1\\
+\vdots\\
+b_m
+\end{pmatrix}\}.$$
+Claim: $S$ is an affine subspace of $E^p$.
+\begin{proofenv}
+    Let $\underline{x}^{(1)},\dots, \underline{x}^{(n)}$ be elements of $S$, where
+    $\underline{x}^{(i)}=(x_1^{(i)},\dots,x_p^{(i)}).$
+    Let $(a_1,\ldots,a_n)\in \RR^n$, $\underline{x}=a_1x^{(1)}+\dots+a_nx^{(n)}$.
+    $$A\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_p
+    \end{pmatrix}=A\left(a_1\begin{pmatrix}
+        x_1^{(1)}\\
+        \vdots\\
+        x_p^{(1)}
+    \end{pmatrix}+\dots+a_n\begin{pmatrix}
+        x_1^{(n)}\\
+        \vdots\\
+        x_p^{(n)}
+    \end{pmatrix}\right).$$
+    $$a_1 A\begin{pmatrix}
+        x_1^{(1)}\\
+        \vdots\\
+        x_p^{(1)}
+    \end{pmatrix}+\dots a_n A\begin{pmatrix}
+        x_1^{(n)}\\
+        \vdots\\
+        x_p^{(n)}
+    \end{pmatrix}=(a_1+\dots+a_n)\begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+    \end{pmatrix}=\begin{pmatrix}
+        b_1\\
+        \vdots\\
+        b_n
+    \end{pmatrix}.$$
+    $$x_j=a_1x_j^{(1)}+\dots+a_n x_j^{(n)}.$$
+\end{proofenv}
+\end{exampleenv}
+\begin{propositionenv}
+    Let $S\subseteq E$. Then $\Aff(S)$ is the smallest affine subspace of $E$ containing $S$.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    Let $A\subseteq E$ be an affine subspace containing $S$. $\forall n\in\NN_{\ge1}$, $\forall (x_1,\dots,x_n)\in S^n\subseteq A^n$, $(a_1,\dots,a_n)\in \RR$, $a_1+\dots+a_n=1$, one has
+    $$\sum_{i=1}^n a_i x_i\in A.$$
+    So $\Aff(S)\subseteq A$.
+
+    \quad To show that $\Aff(S)$ is an affine subspace containing $S$, it is sufficient to check that $\Aff(S)$ is an affine subspace.
+
+    \quad If $S=\varnothing$, then $\Aff(S)=\varnothing$. It is an affine subspace.
+
+    Suppose that $S\neq \varnothing$, $p\in S$. We prove that $\Aff(S)-p$ is equal to $\mathrm{Span}_\RR (S-p)$. 
+    
+    Let $y=a_1x_1+\dots+a_nx_n\in \Aff(S)$.
+    $$y-p=a_1(x_1-p)+\dots+a_n(x_n-p)\in \mathrm{Span} _\RR (S-p).$$
+    Let $(x_1,\dots,x_n)\in S^n$, $(b_1,\dots,b_n)\in \RR^n$.
+    $$\sum_{i=1}^n b_i (x_i - p)=\left(\sum_{i=1}^n b_i x_i+ \left(1-\sum_{i=1}^n b_i\right)p\right)   - p\in \Aff(S)-p.$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $S\subseteq E$. We call \textbf{convex combination} of elements of $S$ any element of $E$ of the form
+    $$a_1s_1+a_2s_2+\cdots+a_ns_n,$$
+    where $n\in\NN_{\ge1}$, $s_1,\ldots,s_n\in S$, $a_1,\ldots,a_n\in \RR_{\ge 0}$ such that
+    $$a_1+a_2+\cdots+a_n=1.$$
+    We denote by $\mathrm{Conv}(S)$ the set of all convex combinations of elements of $S$. $\mathrm{Conv}(S)$ is called the \textbf{convex hull} of $S$. One has $S\subseteq \mathrm{Conv}(S)\subseteq \mathrm{Aff}(S)$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $E$ be a vector space over $\RR$ and $C\subseteq E$. Then $C$ is convex if and only if
+    $$\forall (x,y)\in C^2,\  \forall \lambda\in [0,1],\  \lambda x+(1-\lambda)y\in C.$$
+\end{propositionenv}
+\begin{proofenv}
+    It is sufficient to check ``$\Leftarrow$''. We prove by induction on $n$ that 
+    $$\forall n\in \NN_{\ge1},\ \forall (x_1,\ldots,x_n)\in C^n,\ \forall (a_1,\ldots,a_n)\in \RR^n_{\ge 0},\ \sum_{i=1}^n a_i=1,\ \sum_{i=1}^n a_i x_i\in C.$$
+    The case where $n=1$ is trivial. The case where $n=2$  comes from the hypothesis. 
+
+    Suppose $n\ge 3$ in assuming that the statement holds for any integer less than $n$. If $a_n=1$, then $a_1=\dots=a_{n-1}=0$, so $\sum_{i=1}^n a_i x_i=x_n\in C$. If $a_n< 1$, we have $a_1+\dots+a_{n-1}=1-a_n>0$. By the induction hypothesis,
+    $$x\coloneq \sum_{i=0}^{n-1} \frac{a_i}{1-a_n} x_i\in C.$$
+    Taking $y=x_n$, $t=1-a_n$,
+    $$C\ni tx+(1-t)y=\sum_{i=1}^{n} a_ix_i.$$
+\end{proofenv}
+
+\section{Mean Value Theorems}
+\begin{theoremenv}[Mean Value Inequality]
+    Let $(F,\pl\cdot\pl_F)$ be normed vector spaces over $\RR$. Let $(a,b)\in \RR^2$ such that $a<b$. Let $f:[a,b]\longrightarrow F$ be a continuous mapping that is differentiable on $\interval[open]{a}{b}$. Then 
+    $$\pl f(b)-f(a)\pl_F\le  (b-a)\cdot \sup_{t\in \interval[open]{a}{b}}\pl f'(t)\pl_F.$$
+    
+\end{theoremenv}
+\begin{proofenv}
+    We may suppose that $\dis \sup_{t\in \interval[open]{a}{b}}\pl f'(t)\pl_F<+\infty$. Take
+    $$M>\sup_{t\in \interval[open]{a}{b}}\pl f'(t)\pl_F.$$
+    Let $m=\frac{a+b}{2}$. Let
+    $$J=\{x\in[m,b]\mid \forall t\in [m,x], \pl f(t)-f(m)\pl_{F} \le M(t-m)\}.$$
+    It is an interval containing $m$. So it is of the form 
+    \[\interval[open right]{m}{c} \text{ or } [m,c]
+    \]
+    $$\forall t\in \interval[open right]{m}{c},\ \pl f(t)-f(m)\pl_{F}\le M(t-m).$$
+    Taking the limit $t<c$, $t\rightarrow c$, we get $c\in J$. So $J=[m,c]$. We then check $c=b$.
+
+    \quad If $c\neq b$, then $c\in \interval[open]{a}{b}$, so $f$ is differentiable at $c$. That is 
+    $$\pl f(c+h)-f(c)\pl_{F}=\pl f'(c)h+o(\pl h \pl )\pl_{F}\le \pl f'(c)\pl_{F}h+o(\pl h\pl ),\ h\rightarrow 0.$$ 
+    Since $M>\pl f'(c)\pl_F$, $\exists h_{0}>0$ such that 
+    $$\forall h\in \interval[open left]{0}{h_0},\ \pl f(c+h)-f(c)\pl_{F}\le Mh.$$
+    \begin{align*}
+        \pl f(c+h)-f(m)\pl&\le \pl f(c+h)-f(c)\pl +\pl f(c)-f(m)\pl \\
+        &\le M h +M(c-m)=M(c+h-m).
+    \end{align*}
+    So $[m,c+h_0]\subseteq J$, contradiction. Thus $b=c$. $\pl f(b)-f(m)\pl_F\le M(b-m).$
+
+    \quad By the same reason, $\pl f(m)-f(a)\pl_F\le M(m-a)$. So
+    $$\pl f(b)-f(a)\pl_F\le \pl f(b)-f(m)\pl_F+\pl f(m)-f(a)\pl_F\le  M(b-a).$$
+    Taking the limit when $\dis M\rightarrow \sup_{t\in \interval[open]{a}{b}}\pl f'(t)\pl_F$, we get the announced result.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(E,\pl \cdot\pl_{E})$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over $\RR$. $U\subseteq E$ be an open subset, and $(x,y)\in U^2$ such that 
+    $$[x,y]=\{tx+(1-t)y\mid t\in [0,1]\}\subseteq U.$$
+    Let $f:U\longrightarrow F$ be a differentiable mapping. Then
+    $$\pl f(x)-f(y)\pl_F \le \left(\sup_{z\in \interval[open]{x}{y}}\pl \DD f(z)\pl\right)\cdot \pl x-y\pl_E .$$ 
+\end{corollaryenv}
+\begin{proofenv}
+    Let 
+    $$\begin{array}{rrcl}
+        g:&[0,1]&\longrightarrow& U\\
+        &t&\longmapsto& tx+(1-t)y.
+    \end{array}$$
+    $$g(0)=x,\ g(1)=y,\ g'(t)=x-y.$$
+    Then, 
+    $$\left(f\circ g\right)'(t)=\DD f\left(g(t)\right)\left(x-y\right),$$
+    $$\DD \left(f\circ g\right)(t)(1)=\DD f\left(g(t)\right)\left(\DD g(t)(1)\right).$$
+    By the theorem, 
+    \begin{align*}
+        \pl f(x)-f(y)\pl_F&= \pl f(g(1))-f(g(0))\pl_F\\
+        &\le \sup_{t\in \interval[open]{0}{1}}\pl \DD f\left(g(t)\right)(x-y)\pl_F\\
+        &\le \sup_{t\in \interval[open]{0}{1}}\left|\DD f\left(g(t)\right)\right|\cdot \pl x-y\pl_E\\
+        &=\sup_{z\in \interval[open]{x}{y}}\pl \DD f(z)\pl\cdot \pl x-y\pl_E.
+    \end{align*}
+
+\end{proofenv}
+\begin{definitionenv}
+    Let $(X,\mathscr{T})$  be a topological space, $p\in X$. Let $U$ be a neighborhood of $p$ and $f: U\longrightarrow \RR$ be a mapping. If there exists a neighborhood $V$ of $p$ such that $p\in V\subseteq U$ and 
+    $$\forall x\in V,\ f(p)\ge f(x),$$
+    we say that $p$ is a \textbf{local maximum point} of $f$ on $U$.
+
+    \quad If $p$ is a local maximum point or a local minimum point, we say that $p$ is a \textbf{local extremum} of $f$ on $U$.
+
+    \quad If $(E,\pl\cdot\pl_E)$ and $(F,\pl \cdot\pl_F)$ are normed vector spaces. $U\subseteq E$ open, $f:U\rightarrow F$ is differentiable. If $p\in U$ is such that
+    $$\DD f(p)=0\in \mathscr{L}(E,F),$$ 
+    we say that $p$ is a \textbf{critical point} of $f$.
+\end{definitionenv}
+\begin{theoremenv}
+    Let $(E,\pl\cdot\pl)$ be a normed vector space over $\RR$. $U\subseteq E$ be an open subset, $f:U\longrightarrow \RR$ be a differentiable mapping. If $p\in U$ is a local extremum point of $f$, then  it is a critical point $(\DD f(p)=0)$.
+\end{theoremenv}
+\begin{proofenv}
+    There exists $r>0$ such that $p+B(0,r)\subseteq U$ and 
+    $$\left(h\in B(0,r)\right)\longmapsto f(p+h)- f(p)\in \RR$$
+    does not change the sign.
+
+    $\forall h\in B(0,r),\ \forall \in [0,1],$
+    $$\left(f(p+th)-f(p)\right)\left(f(p-th)-f(p)\right)\ge 0.$$
+    Taking the limit when $t\rightarrow 0$, $-\DD f(p)(h)^2\ge 0$. So $\DD f(p)(h)=0.$
+\end{proofenv}
+\begin{theoremenv}[Rolle]
+    Let $(a,b)\in \RR^2$, $a<b$. Let $f:[a,b]\longrightarrow \RR$ be a continuous mapping that is differentiable on $\interval[open]{a}{b}$. If $f(a)=f(b)$, then
+    $$\exists t\in \interval[open]{a}{b},\ f'(t)=0.$$
+    
+\end{theoremenv}
+\begin{proofenv}
+    If there exists $t$ which is in $\interval[open]{a}{b}$ and is an extremum point of $f$, then $f'(t)=0$.
+    Since $[a,b]$ is compact and $f$ is continuous, so $f$ attains its maximum and minimum.
+    
+    \quad If the extremum points of $f$ are in $\{a,b\}$. Since $f(a)=f(b)$, $f$ is compact, so $f'(t)=0$ on $\interval[open]{a}{b}$.
+\end{proofenv}
+\begin{theoremenv}[Gronwall inequality]
+    Let $(F,\pl\cdot\pl)$ be a normed vector space over $\RR$, $(a,b)\in \RR^2$, $a<b$. Let $f:[a,b] \longrightarrow F$ and $g:[a,b]\longrightarrow \RR$ be differentiable mappings on $\interval[open]{a}{b}$.
+    If $\forall t\in \interval[open]{a}{b}$, $\pl f'(t)\pl \le g'(t)$, then 
+    $$\pl f(b)-f(a)\pl_F\le g(b)-g(a).$$ 
+\end{theoremenv}
+\begin{proofenv}
+    Let $m\in \interval[open]{a}{b}$. Let $\varepsilon>0$, 
+    $$J\coloneq\{t\in[m,b]\mid \forall s\in [m,t],\ \pl f(s)-f(m)\pl_F\le g(s)-g(m)+\varepsilon(s-m)\}.$$
+    Since $f$ and $g$ are continuous, $J$ is a closed interval of the form $[m,c]$.
+    
+    If $c<b$, 
+    $$\begin{array}{rl}
+        f(c+h)=f(c)+hf'(c)+o(h),&\\
+        g(c+h)=g(c)+hg'(c)+o(h),&\ h>0,h\rightarrow 0.
+    \end{array}$$
+    $\exists \delta>0$, such that $[c,c+\delta]\subseteq [c,b]$ and $\forall h\in [0,\delta]$,
+    $$\pl f(c+h)-f(c)\pl \le h\pl f'(c)\pl+ \frac{\varepsilon}{2}h.$$
+    $$g(c+h)-g(c)\ge hg'(c)-\frac{\varepsilon}{2}h.$$
+    So, 
+    $$\pl f(c+h)-f(c)\pl\le g(c+h)-g(c)+\varepsilon h.$$
+    By the triangle inequality,
+    $$\pl f(c+h)-f(m)\pl\le g(c+h)-g(m)+\varepsilon(c+h-m).$$
+    So $J\supseteq [m,c+\delta]$, contradiction.
+
+    Therefore $c=b$.
+    $$\pl f(b)-f(m)\pl\le g(b)-g(m)+\varepsilon(b-m).$$
+    A similar argument shows that
+    $$\pl f(m)-f(a)\pl\le g(m)-g(a)+\varepsilon(m-a).$$
+    Hence,
+    $$\pl f(b)-f(a)\pl\le g(b)-g(a)+\varepsilon(b-a).$$
+    $$\pl f(c+h) -f(c) + h f'(c)\pl \le \varphi(h)h,\ \lim_{h\rightarrow 0}\varphi(h)=0.$$
+    $$\exists \delta>0,\ \forall h>0,\ 0\le h< \delta\Rightarrow \left| \varphi(h)\right|\le \frac{\varepsilon}{2}.$$
+\end{proofenv}
+\begin{theoremenv}[Mean value theorem of Lagrange]
+    Let $(a,b)\in \RR^2$, $a<b$. Let $f:[a,b]\longrightarrow \RR$ be a continuous mapping that is differentiable on $\interval[open]{a}{b}$. Then 
+    $$\exists \xi\in \interval[open]{a}{b},\ f(b)-f(a)=f'(\xi)(b-a).$$
+    
+\end{theoremenv}
+\begin{proofenv}
+    Let $g:[a,b]\longrightarrow \RR$.
+    $$ g(t)\coloneq f(b)-f(t)+C(b-t), \text{ where } C=-\frac{f(b)-f(a)}{b-a}.$$
+    Then $g(a)=g(b)=0$, $g'(t)=-f'(t)-C$. 
+    $$\exists \xi\in \interval[open]{a}{b},\ g'(\xi)=0,\ f'(\xi)=-C=\frac{f(b)-f(a)}{b-a}.$$
+\end{proofenv}
+
+\begin{theoremenv}[Darboux]
+    Let $I$ be an open interval in $\RR$ and $f:I\longrightarrow \RR$ be a differentiable mapping. Then $f'(I)$  is an interval.
+\end{theoremenv}
+\begin{proofenv}
+    Let $a$, $b$ be two elements in $I$ such that $a<b$. Let
+    $$\begin{array}{rrcl}
+        g:&[a,b]&\longrightarrow& \RR\\
+        &t&\longmapsto& \begin{cases}
+            \frac{f(t)-f(a)}{t-a},\ t\neq a\\
+            f'(a),\ t=a
+        \end{cases}
+        
+    \end{array}$$
+    $g$ is continuous, and $g([a,b])$ is an interval. By the mean value theorem of Lagrange, $g([a,b])\subseteq f'(I)$.
+    
+    Let
+    $$\begin{array}{rrcl}
+        h:&[a,b]&\longrightarrow& \RR\\
+        &t&\longmapsto& \begin{cases}
+            \frac{f(t)-f(b)}{t-b},\ t\neq b\\
+            f'(b),\ t=b
+        \end{cases}
+        
+    \end{array}$$
+    $h([a,b])$ is an interval contained in $f'(I)$. 
+
+    \quad $h([a,b])\cup g([a,b])$ is an interval since 
+    $$ \frac{f(b)-f(a)}{b-a}\in h([a,b])\cap g([a,b]),$$
+    $$\{ f'(a),f'(b)\}\subseteq h([a,b])\cup g([a,b]).$$
+    So the interval liking $f'(a)$, $f'(b)$ is contained in $f'(I)$. Hence, $f'(I)$ is an interval.
+\end{proofenv}
+
+
+
+\section{Higher Differential}
+
+We fix a complete non-trivially valued field \defm{9.6.1}{$(K,\left|\ \cdot\ \right|)$}. Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$.
+
+\begin{definitionenv}
+    Let $U\subseteq E$ be an open subset, $f:U\longrightarrow F$ be a mapping, $p\in U$.
+    \newline
+    (1) If $f$ is continuous at $p$, we say that $f$ is $0$-time differentiable at $p$, and we let 
+    $$\DD^0 f(p)\coloneq f(p).$$
+    (2) If $f$ is differentiable at $p$, we say that $f$ is $1$-time differentiable at $p$, and we let 
+    $$\DD^1 f(p)\coloneq \DD f(p).$$
+    (3) Let $n\ge 2$. If exists open neighborhood $V$ of $p$ such that $V\subseteq U$ and $f$ is differentiable on $V$ and $\DD f$ is $n-1$-time differentiable on $V$, we say that $f$ is $n$-time differentiable at $p$, and we let
+    $$\DD^n f(p)\in \mathscr{L}(E,\ldots,E,F)$$
+    be the multilineal mapping sending $(h_1,\ldots,h_n)\in E^n$ to
+    $$\DD^{n-1} (\DD f)(p)(h_1,\ldots,h_{n-1})(h_n).$$
+    If $E=K$, $\DD^n f(p)(1,\ldots,1)$ is denoted as $ f^{(n)}(p)\in F$. $f^{(0)}(p)$ is often denoted as $f(p)$. 
+\end{definitionenv}
+\begin{remark}
+    $\forall i\in \{1,\ldots,n\}$,
+    $$ \DD^{n} f(p)(h_1,\ldots,h_n) = \DD^{i} (\DD^{n-i} f)(p)(h_1,\ldots,h_{i})(h_{i+1},\ldots,h_n).$$
+    If $E=K$, 
+    $$f^{(n)}(p)(h_1,\ldots,h_n)=\DD^{n-1} (\DD f)(p)(h_1,\ldots,h_{n-1})(h_n).$$
+\end{remark}
+\begin{definitionenv}
+    Let $X$ be a set, we denote by $\mathfrak{S}_X$ the element of all bijection from $X$ to $X$. $(\mathfrak{S}_X,\circ)$ forms a group.
+    The identity mapping $\mathrm{Id}_X$ is the neutral element of $(\mathfrak{S}_X,\circ)$. $(\mathfrak{S}_X,\circ)$ is called the symmetric group of $X$. The elements of $(\mathfrak{S}_X,\circ)$ are called permutations of $X$.
+
+    \quad Let $n\in \NN_{\ge 2}$, $x_1,\ldots,x_n$ be distinct elements of $X$. We denote by $(x_1\ x_2\cdots x_n)$ the element of $\mathfrak{S}_X$ that sends $x_i$ to $x_{i+1}$, $(i\in \{1,\ldots,n-1\})$, $x_n$ to $x_1$, $y\in X\backslash\{x_1,\ldots,x_n\}$ to $y$ itself. This element is called an $n$-cycle.
+    A $2$-cycle is also called a transposition.
+\end{definitionenv}
+\begin{remark}
+    $\mathfrak{S}_X$ acts on $X$.
+    $$\begin{array}{rcl}
+        \mathfrak{S}_X\times X&\longrightarrow &X\\
+        (\sigma,x)&\longmapsto& \sigma(x).
+    \end{array}$$
+    If $\sigma\in\mathfrak{S}_X$, $x\in X$, we denote by $\mathrm{orb}_\sigma(x)$ the set $\{\sigma^n(x)\mid n\in \ZZ\}$.
+    $$\left \langle \sigma\right \rangle \coloneq \{\sigma^n\mid n\in \ZZ\}\subseteq \mathfrak{S}_X$$
+    is a group. $\mathrm{orb}_\sigma(x)$ is the orbit of $x$ under the action of $\left \langle \sigma\right \rangle$.
+\end{remark}
+\begin{propositionenv}
+    If $\orb_\sigma(x)$ is finite of $d$ elements, then $\sigma^d(x)=x$, and $\orb_\sigma (x)=\{x,\sigma(x),\ldots,\sigma^{d-1}(x)\}$. Moreover, the restriction of $\sigma$ to $\orb_\sigma(x)$ identifies to the restriction of the cycle $(x,\sigma(x),\ldots,\sigma^{d-1}(x))$.
+\end{propositionenv}
+\begin{proofenv}
+    Since $\orb_\sigma(x)$ is finite,
+    $$\{(n,m)\in \ZZ^2\mid n<m,\ \sigma^n(x)=\sigma^m(x)\}$$
+    Let $$l=\min\{m-n\mid (n,m)\in \ZZ^2\,\ n<m,\ \sigma^n(x)=\sigma^m(x)\}.$$
+    Then $x,\sigma(x),\ldots,\sigma^{l-1}(x)$ are distinct, and $\sigma^l(x)=x$.
+    $\forall n\in \ZZ$, then $n$ can be written as $n=lp+r$, where $p\in \ZZ$, $r\in \{0,\ldots,l-1\}$.
+    $$ \sigma^n(x)=\sigma^r(\sigma^{lp}(x))=\sigma^r((\sigma^{l}\circ\dots\sigma^l)(x))=\sigma^r(x).$$
+    So, $\orb_\sigma(x)=\{x,\sigma(x),\ldots,\sigma^{l-1}(x)\}$, ($l=d$).
+\end{proofenv}
+\begin{remark}
+    If $X$ is finite, then $X$ can be written as a distinct union of orbits (under the action of $\left\langle \sigma\right\rangle$). Let $d_i=\#(\mathrm{orb}_\sigma(x_i))$, $i=1,\ldots,n$, then
+    $$\sigma|_{\orb_\sigma (x^{(i)})}=\left(x^{(i)},\sigma(x^{(i)}),\ldots,\sigma^{d_i-1}(x^{(i)})\right)|_{\orb_\sigma(x^{(i)})}.$$
+    So $\sigma=\tau_1\circ\dots\circ\tau_n$, where $\tau_i\coloneq (x^{(i)},\sigma(x^{(i)}),\ldots,\sigma^{d_i-1}(x^{(i)}))$.
+\end{remark}
+\begin{corollaryenv}
+    Suppose that $X$ is finite. Any $\sigma\in \mathfrak{S}_X$ can be written as a composition of transpositions.
+\end{corollaryenv}
+\begin{proofenv}
+    $$(x_1 \ \dots \ x_n)=(x_1\ x_2)\circ (x_2 \dots \ x_n),$$
+    So, $$(x_1 \ \dots \ x_n)=(x_1\ x_2)\circ (x_2\ x_3)\circ \cdots \circ (x_{n-1}\ x_n).$$
+\end{proofenv}
+\begin{definitionenv}
+    Denote by $\mathfrak{S}_n$ the symmetric group $\mathfrak{S}_{\{1,\ldots,n\}}$. A composition of the form $(i \ i+1)$, $i\in \{1,\ldots,n-1\}$  is called an adjacent transposition.
+\end{definitionenv}
+\begin{corollaryenv}
+    Any $\sigma\in \mathfrak{S}_n$ can be written as a composition of adjacent transpositions.
+\end{corollaryenv}
+\begin{proofenv}
+    Let $(j,k)\in\{1,\ldots,n\}^2$, $j<k$,
+    $$(j-1\ j)\circ(j\ k)\circ (j-1\ j)=(j-1\ k).$$
+    $$(j\ k)=(j \ j+1)\circ (j+1\ j+2)\circ \cdots \circ (k-1\ k)\circ\dots (j\ j+1).$$
+\end{proofenv}
+\begin{theoremenv}[Schwarz]
+    Let $U\subseteq E$ be an open subset, $f: U\longrightarrow F$ be a mapping. $n\in \NN_{\ge 1}$, $p\in U$. Assume that $f$ is $n$-times differentiable at $p$. Then $\forall \sigma\in \mathfrak{S}_{n}$, $\forall (h_1,\ldots h_n)\in E^n$,
+    $$\DD^n f(p)(h_1,\ldots,h_n)=\DD^n f(p)(h_{\sigma(1)},\ldots,h_{\sigma(n)}).$$
+\end{theoremenv}
+\begin{proofenv}[By induction] 
+    The case where $n=1$ is trivial.
+    Case $n = 2$: Exists $V$ open, $p\in V\subseteq U$. $f$ is differentiable on $V$ and $\DD f$ is differentiable at $p$.
+    $$ \DD f(p+h)(\cdot)-\DD f(p)(\cdot) -\DD^2 f(p)(h,\cdot)=o\left(\pl h\pl_E\right).$$
+    Let $\varepsilon>0$, $\exists \delta>0$, $\forall h\in E$, $\pl h\pl_E\le 2\delta$ $\Rightarrow p+h\in V$ and
+    $$ \pl \DD f(p+h)(\cdot)- \DD f(p)(\cdot) -\DD^2 f(p)(h,\cdot)\pl \le \varepsilon\pl h\pl_E.$$
+    Let $h\in E$ such that $\pl h\pl_E\le \delta$. Define $g_h:B(0,\delta)\longrightarrow F$ as
+    $$g_h(k)=f(p+h+k)-f(p+h)-f(p+k)+f(p)-\DD^2 f(p)(h,k).$$
+    Then,
+    \begin{align*}
+        \DD g_h(k)(\cdot)=&\DD f(p+h+k)(\cdot)-\DD f(p+k)(\cdot)-\DD^2 f(p)(h,\cdot)\\
+        =&\DD f(p+h+k)(\cdot)-\DD f(p)(\cdot)-\DD^2 f(p)(h+k,\cdot)\\
+        -&(\DD f(p+k)(\cdot)-\DD f(p)(\cdot)-\DD^2 f(p)(k,\cdot))
+    \end{align*}
+    $$\pl \DD g_h(k)(\cdot)\pl \le \varepsilon\pl h+ k\pl_E+ \varepsilon\pl k\pl_E\le 3\varepsilon\max\{\pl k\pl_E,\pl h\pl_E\}.$$
+    $g_h(0)=0$. Therefore, $\pl g_{h}(k)\pl \le 3\varepsilon\max{\pl k\pl_E,\pl h\pl_E}^2$ (mean value inequality).
+    $$\pl g_h(k)- g_h(0)\pl\le \left(\sup_{t\in \interval[open]{0}{1}}\pl \DD g_h(tk)\pl\right)\cdot\pl k\pl .$$
+    Therefore, 
+    $$ f(p+h+k)-f(p+h)-f(p+k)+f(p)-\DD^2 f(p)(h,k)=o\left(\max\{\pl k\pl_E,\pl h\pl_E\}^2\right).$$
+    By symmetry, 
+    $$ f(p+h+k)-f(p+h)-f(p+k)+f(p)-\DD^2 f(p)(k,h)=o\left(\max\{\pl k\pl_E,\pl h\pl_E\}^2\right).$$
+    $$\DD^2 f(p)(h,k)-\DD^2 f(p)(k,h)=o\left(\max\{\pl h\pl_E,\pl k\pl_h\}^2\right).$$
+    $$ \DD^2 f(p)(th,tk)-\DD^2 f(p)(tk,th)=o(\left|t\right|^2),\ t\rightarrow 0.$$
+    $$\DD^2 f(p)(h,k)-\DD^2 f(p)(k,h)=o(1),\ t\rightarrow 0.$$
+
+    \quad Suppose $n\ge 3$.
+    $$ \DD^n f(p)(h_1,\ldots,h_n)=\DD^{n-1}(\DD f)(p)(h_1,\ldots,h_{n-1})(h_n).$$
+    If $\sigma=(j\ j+1)$, $j\le 2$,
+    $$\DD^{n-1}(\DD f)(p)(h_1,\ldots,h_{n-1})(h_n)=\DD^{n-1}(\DD f)(p)(h_{\sigma(1)},\ldots,h_{\sigma(n-1)})(h_n)$$
+    by the induction hypothesis, if $\sigma=(n-1\ n)$,
+    $$\DD^n f(p)(h_1,\ldots,h_n)=\DD^2\left((\DD^{n-2} f)(h_1,\ldots,h_{n-2})(h_{n-1}, h_n)\right)$$
+    \begin{align*}
+        \DD^n f(p)(h_{\sigma(1)},\ldots,h_{\sigma(n)})&=\DD^n f(p)(h_1,\ldots,h_{n-1})\\
+        &=\DD^2\left((\DD^{n-2} f)(h_1,\ldots,h_{n-2})(h_{n}, h_{n-1})\right)\\
+        &=\DD^n f(p)(h_1,\ldots,h_{n}).
+    \end{align*}
+\end{proofenv}
+
+
+\newpage
+\section{Taylor's Formula}
+\begin{theoremenv}[Toylor-Young]
+    Let $(E,\pl \cdot\pl_E)$ and $(F,\pl \cdot\pl_F)$ be normed vector spaces over $\RR$, $U\subseteq E$ open, $n\in \NN$, $f:U\longrightarrow F$ be a mapping, $p\in U$.
+    Suppose that $f$ is $n$-times differentiable at $p$. Then
+    $$ f(x)=f(p)+\sum_{k=1}^{n}\frac{1}{k!}\DD^{k} f(p)(x-p,\ldots,x-p)+o(\pl x-p\pl^n),\ x\rightarrow p.$$
+\end{theoremenv}
+\begin{proofenv}[By induction on $n$]
+    \ \newline
+    $n=0$, $f(x)=f(p)+o(1)$  follows by continuity of $f$; $n=1$ follows by the differentiability of $f$.
+
+    \quad From $n-1$ to $n$. Let $g:U\longrightarrow F$
+    $$g(x)=f(x)-f(p)-\sum_{k=1}^{n}\frac{1}{k!}\DD^k f(p)(x-p,\ldots,x-p).$$
+    $g$ is differentiable on an open neighborhood of $p$,
+    {$$\DD g(x)(h) =\DD f(x)(h)-\sum_{k=1}^{n}\frac{1}{k!}k \DD^{k}f(p)(x-p,\ldots,x-p,h)$$}
+    $$\DD g(x)=\DD f(x)-\sum_{l=0}^{n-1}\frac{1}{l!}\DD^l(\DD f)(x-p,\ldots,x-p)\overset{\text{hyp.}}{=\! =}o(\pl x-p\pl^{n-1}), x\rightarrow p.$$
+    So $g(x)=o(\pl x-p\pl^n)$.
+    $$ \forall \varepsilon>0,\ \exists\delta>0,\forall x\in B(p,\delta),\ \pl \DD g(x)\pl\le \varepsilon\pl x-p\pl^{n-1}.$$
+    $g(p)=0$, so
+    $$\pl g(x)-g(p)\pl\le \varepsilon\pl x-p\pl ^{n-1}\cdot\pl x-p\pl = \varepsilon\pl x-p\pl ^n.$$
+\end{proofenv}
+
+\begin{theoremenv}[Taylor-Lagrange]
+    Let $(a,b)\in \RR^2$, $a<b$. $f:[a,b]\longrightarrow \RR$ be a continuous mapping. Suppose that $f$ is $(n+1)$-times differentiable on $\interval[open]{a}{b}$ and $\forall k\in \{3,\ldots,n\}$, $f^{(k)}:\interval[open]{a}{b}\longrightarrow \RR$   tends to a continuous mapping $[a,b]\longrightarrow \RR$. Then
+    $$\exists \xi\in \interval[open]{a}{b}, f(b)-\sum_{k=0}^{n}\frac{(b-a)^k}{k!}f^{(k)}(a)=\frac{f^{(n+1)}(\xi)(b-a)^{n+1}}{(n+1)!}.$$
+\end{theoremenv}
+\begin{proofenv}
+    Let $g:[a,b]\longrightarrow \RR$.
+    $$ g(t)\coloneq \sum_{k=0}^{n}\frac{(b-t)^k}{k!}f^{(k)}(t)-C\frac{(b-t)^{n+1}}{(n+1)!}.$$
+    Then $g(b)=f(b)$, $\dis g(a)=\sum_{k=0}^{n}\frac{(b-a)^k}{k!}f^{(k)}(a)-C\frac{(b-a)^{n+1}}{(n+1)!}$.
+    \begin{align*}
+        g'(t)=&\sum_{k=0}^{n}\frac{(b-t)^k}{k!}f^{(k+1)}(t)-\sum_{k=1}^{n}\frac{(b-t)^{k-1}}{(k-1)!}f^{(k)}(t)+C\frac{(b-t)^n}{n!}\\
+        =& \frac{(b-t)^n}{n!}f^{(n+1)}(t)+C\frac{(b-t)^n}{n!}.
+    \end{align*}
+    Take $C$ such that $g(a)=g(b)$. Then by Rolle's theorem,
+    $\exists \xi\in \interval[open]{a}{b}, g'(\xi)=0$, $C=-f^{(n+1)}(\xi)$. Then,
+    $$g(a)=\sum_{k=0}^{n}\frac{(b-a)^k}{k!}f^{(k)}(a)+\frac{f^{(n+1)}(\xi)}{(n+1)!}+\frac{f^{(n+1)}(\xi)}{(n+1)!}(b-a)^{n+1}=f(b)=g(b).$$
+\end{proofenv}
+
+\begin{theoremenv}
+    Let $(E,\pl \cdot\pl_E)$ and $(F,\pl \cdot\pl_F)$ be two normed vector spaces over $\RR$, $U\subseteq E$ be an open subset, and $f: U\longrightarrow F$ be a mapping that is $(n+1)$-times differentiable, where $n\in \NN$.
+    Let $p\in U$, $h\in E$ such that $\forall t\in [0,1]$, $p+th\in U$. Let 
+    $$M=\sup_{t\in [0,1]}\pl \DD^{n+1} f(p+th)\pl.$$
+    Then,
+    $$\pl f(p+h)-\sum_{k=0}^{n}\frac{1}{k!}\DD^k f(p)(h,\ldots,h)\pl_F \le \frac{M}{(n+1)!}\pl h\pl_E^{n+1}.$$
+\end{theoremenv}
+\begin{proofenv}
+    We define $\phi:[0,1]\longrightarrow F$
+    $$ \phi(t)=f(p+th)+\sum_{k=1}^{n}\frac{(1-t)^k}{k!}\DD^k f(p+th)(h,\ldots,h).$$
+    $$ \phi(0)=\sum_{k=0}^{n}\frac{1}{k!}\DD^k f(p)(h,\ldots,h),\ \phi(1)=f(p+h).$$
+    \begin{align*}
+        \phi'(t)=& \DD f(p+h)(h)+ \sum_{k=1}^{n}\frac{(1-t)^k}{k!}\DD^{k+1} f(p+th)(h,\ldots,h)\\
+        -& \sum_{k=1}^{n}\frac{(1-t)^{k-1}}{(k-1)!}\DD^k f(p+th)(h,\ldots,h)\\
+        =& \sum_{k=0}^{n}\frac{(1-t)^k}{k!}\DD^{k+1} f(p+th)(h,\ldots,h)\\
+        -&\sum_{l=0}^{n-1}\frac{(1-t)^{l}}{(l)!}\DD^{l+1} f(p+th)(h,\ldots,h)\\
+        =& \frac{(1-t)^n}{n!}\DD^{n+1} f(p+th)(h,\ldots,h).
+    \end{align*}
+    So, 
+    $$ \pl \phi'(t)\pl\le M\pl h\pl_E^{n+1} \frac{(1-t)^n}{n!},\ t\in [0,1].$$
+    By Gronwall's inequality,
+    $$ \pl \phi(1)-\phi(0)\pl_F \le M\cdot \pl h\pl ^{n+1}\frac{1}{(n+1)!}.$$
+\end{proofenv}
+
+
+\section{Banach Space}
+\begin{propositionenv}
+    Let $(X,d)$ be a metric space and $(x_n)_{n\in \NN}$ be a sequence in $X$. If 
+    $$\sum_{n\in NN}\dd(x_n,x_{n+1})<+\infty,$$
+    then $(x_n)_{n\in \NN}$ is a Cauchy sequence.
+\end{propositionenv}
+\begin{proofenv}
+    Let $N\in \NN$. If $(n,m)\in \NN^2$, $n>m$, by the triangle inequality, 
+    $$ \dd(x_m,x_n)\le \sum_{k=m}^{n-1}\dd(x_k,x_{k+1})\le \sum_{k\ge N}\dd(x_k,x_{k+1}).$$
+    So, 
+    $$ 0\le \sup_{(n,m)\in \NN_{\ge N}} \dd(x_n,x_m)\le \sum_{k\ge N}\dd(x_k,x_{k+1}).$$
+    Taking the limit when $N\rightarrow +\infty$, we get 
+    $$ \lim_{(n,m)\in \NN_{\ge N}^2} \dd(x_n,x_m)=0.$$
+    Let $(a_n)_{n\in\NN}\in \RR^\NN$. If $\dis \left(\sum_{k=0}^{n}a_k\right)_{n\in\NN}$ converges to some $l$ in $\RR$. Then, $l-\sum_{k=0}^{N-1}a_k$ converges to $0$. If $a_k\le 0$ for any $k\in\NN$, $l-\sum_{k=0}^{N-1}a_k=\sum_{k=N}^{+\infty}a_k$.
+    $$ l-\sum_{k=0}^{N-1}a_k=\lim_{n\rightarrow +\infty}\left(\sum_{k=0}^{n}a_k-\sum_{k=0}^{N-1}a_k\right)=\lim_{n\rightarrow +\infty}\sum_{k=N}^{n}a_k.$$
+
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $(K,\left| \ \cdot\ \right|)$ be a complete valued field and $(E,\pl\cdot\pl)$ be a normed vector space over $K$. If $E$ equipped with the metric
+    $$\begin{array}{rcl}
+        E\times E &\longrightarrow & \RR_{\ge 0}\\
+        (x,y) &\longmapsto & \pl x-y\pl_E.
+    \end{array}$$
+    is complete, we say that $(E,\pl \cdot\pl )$ is a \textbf{Banach space}.
+
+    Let $(E,\pl\cdot\pl)$ be a Banach space. If $(x_n)_{n\in\NN}$ is a sequence in $E$ such that $\sum_{n\in\NN}\pl x_n\pl<+\infty$, we say that $\sum_{n\in\NN}x_n$ \textbf{converges absolutely}.
+\end{definitionenv}
+\begin{remark}
+    Suppose that $\dis \sum_{n\in \NN}x_n$ converges absolutely. Then $\dis \left(\sum_{k=0}^{n}x_k\right)_{n\in\NN}$ is a Cauchy sequence, since 
+    $$ \pl x_n \pl=\pl \sum_{k=0}^{n}x_k- \sum_{k=0}^n x_{k-1}\pl.$$
+    So, $\dis \sum_{n\in\NN}x_n$ converges.
+\end{remark}
+\begin{theoremenv}[Root test of Cauchy]
+    Let $(E,\pl \cdot\pl)$ be a Banach space and $(x_n)_{n\in \NN}\in E^\NN$. Let
+    $$ r=\limsup_{n\rightarrow_\infty}\pl x_n\pl^{\frac{1}{n}}\in [0,+\infty]$$
+    If $r<1$, then $\sum_{n\in \NN}x_n$ converges absolutely.
+    \newline
+    If $r>1$, then $\sum_{n\in \NN}x_n$ diverges.
+\end{theoremenv}
+\begin{lemmaenv}
+    If a series $\sum_{n\in \NN}x_n$ converges, then $\lim_{n\rightarrow+\infty}\pl x_n\pl =0$.
+\end{lemmaenv}
+\begin{proofenv}[of lemma]
+    $$ \pl x_n\pl =\pl \sum_{k=0}^{n}x_k-\sum_{k=0}^{n-1}x_k\pl .$$
+    Since $\sum_{k}^n x_k$ converges to some $l\in E$.
+    $$ \lim_{n\rightarrow+\infty}\pl x_n\pl =\lim_{n\rightarrow+\infty}\pl \sum_{k=0}^{n}x_k- \sum_{k=0}^{n-1}x_k\pl =\pl l-l\pl=0.$$
+\end{proofenv}
+\begin{proofenv}[of theorem]
+    If $r>1$, $\exists \beta>1$ such that $r>\beta$. Since $r=\limsup_{n\rightarrow +\infty}\pl x_n\pl ^{\frac{1}{n}}$, $\exists I\subseteq \NN$ infinite such that $\lim_{n\in I,n\rightarrow+\infty}\pl x_n \pl^{\frac{1}{n}}=r$ (Bolzano-Weierstrass).
+    $$\exists N\in \NN, \forall n\in I_{\ge N}, \pl x_n\pl^{\frac{1}{n}}\ge \beta.$$
+    So, $\pl x_n\pl \ge \beta^n\ge 1$. So $\sum_{n\in \NN}x_n$ diverges.
+
+    If $r<1$, $\exists\alpha\in \interval[open]{0}{1}$,$r<\alpha$. Since $r=\limsup_{n\rightarrow +\infty}\pl x_n\pl ^{\frac{1}{n}}$,
+    $$\exists N\in \NN,\ \forall n\ge N,\ \pl x_n\pl^{\frac{1}{n}}\le \alpha, \pl x_n\pl \le \alpha^n.$$
+    So,
+    $$ \sum_{n\ge N}\pl x_n\pl \le \sum{n\ge N}\alpha^n=\frac{\alpha^N}{1-\alpha}<+\infty.$$
+    Therefore, $\sum_{n\in \NN}x_n$ converges absolutely.
+\end{proofenv}
+\begin{theoremenv}[Ratio test of D'Alembert]
+    LEt $(E,\pl \cdot\pl )$ be a Banach space and $(x_n)_{n\in \NN}\in E^\NN$.
+    \newline
+    (1) If 
+    $$ \limsup_{n\rightarrow+\infty}\frac{\pl x_{n+1}\pl}{\pl x_n\pl}<1,$$
+    then $\sum_{n\in\NN}x_n$ converges absolutely.
+    \newline
+    (2) If 
+    $$ \limsup_{n\rightarrow+\infty}\frac{\pl x_{n+1}\pl}{\pl x_n\pl}>1,$$
+    then $\sum_{n\in\NN}x_n$ diverges.
+\end{theoremenv}
+\begin{proofenv}
+\ \newline
+(1) Let $0<\alpha<1$ such that 
+$$ \limsup_{n\rightarrow +\infty}\frac{\pl x_{n+1}\pl}{\pl x_n\pl}<\alpha.$$
+$$ \exists N\in \NN, \forall x\in \NN_{N}, \pl x_{n+1}\pl \alpha \pl x_n\pl\le \alpha^{n+1-N}\pl x_N\pl.$$
+Thus,
+$$ \sum_{n\ge \NN}\pl x_n\pl \le \sum_{n\ge \NN}\pl x_N\pl \alpha^{n-N}=\pl x_N\pl \frac{1}{1-\alpha}<+\infty.$$
+(2) Let $\beta>1$ such that 
+$$ \liminf_{n\rightarrow +\infty}\frac{\pl x_{n+1}\pl }{\pl x_n\pl}>\beta.$$
+$$ \exists N\in \NN, x_N\neq 0, \text{ and } \forall n\in \NN_{\ge N},\pl x_{n+1}\pl\ge \beta\pl x_n\pl$$
+$$ \forall n\ge N,\pl x_n\pl\ge \beta ^{n-N} \pl x_N\pl \rightarrow +\infty (n\rightarrow+\infty)$$
+So $\sum_{n\in \NN}x_n$ diverges.
+\end{proofenv}
+\begin{box2}
+    Let $z\in \CC$. The series $\sum_{n\in \NN}\frac{z^n}{n!}$ converges absolutely since
+    $$\left|\frac{z^{n+1}/(n+1)!}{z^n/n!}\right|=\frac{ |z| }{n+1}\rightarrow 0 (n\rightarrow +\infty).$$
+    We denote by $\mathrm{e}^z$ this limit.
+\end{box2}
+
+
+\section{Local inversion}
+\begin{definitionenv}
+     Let $X$ be a topological space an $Y\subseteq X$. If $\overline{Y}=X$, we say that $Y$ is dense.
+\end{definitionenv}
+\begin{theoremenv}[Baire]
+    Let $(X,\dd)$ be a complete metric space. Let $(\Omega_n)_{n\in NN}$ be a sequence of dense open subset of $X$.
+    Let $\dis \Omega=\bigcap_{n\in\NN}\Omega_n$, then $\Omega$ is dense in $X$.
+\end{theoremenv}
+\begin{proofenv}
+    Suppose that $\Omega$ is not dense. Let $x_0\in X\backslash \overline{\Omega}$, exists $\varepsilon>0$ such that $B(x_0,\varepsilon)\subseteq X\backslash \overline{\Omega}$.
+
+    Let $r_0=\varepsilon$. We construct in a recursive way sequence $(x_n)_{n\in \NN}\in X^\NN$ and $(r_n)_{n\in \NN}\in \RR_{\ge 0}^n$ as follows.
+
+    \quad Suppose that $(x_n,r_n)$ is chosen. $B(x_n,r_n)\cap \Omega_{n}\neq \varnothing$. We pick $x_{n+1}\in X$ and $r_{n+1}\le \frac{x_n}{2}$ such that $B(x_{n+1},r_{n+1})\subseteq B(x_n,r_n)\cap \Omega_n$, $\dd(x_{n+1},x_n)<r_n$. $\sum_{n\in \NN}r_n<+\infty$ (ratio test).
+
+    \quad Then the sequence converges to some $l$. For any $n\in\NN$, $x_n\in B(x_0,\varepsilon)$. So $l\in \overline{B}(x_0,\varepsilon)$.
+
+    \quad Moreover, $\forall n\in \NN$, $l\in \overline{B}(x_{n+1},r_{n+1})\subseteq B_{x_n,r_n}\cap \Omega_{n}$. Thus $l\in \cap_{n\in \NN}\Omega_{n}=\Omega$. Contradiction.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(X,\dd)$ be a non-empty complete metric space and $(Y_n)_{n\in NN}$ be a family of closed subsets of $X$ such that $X=\bigcup_{n\in \NN}Y_n$. Then exists $n\in \NN$ such that $Y^\circ\neq\varnothing$.
+\end{corollaryenv}
+\begin{proofenv}
+    Let $\Omega_n=X\backslash Y_n$. Suppose that $\forall n\in \NN$, $Y_n^\circ=\varnothing$.
+    Then $\overline{\Omega}_n=X\backslash Y_n^\circ=X$. Thus $\Omega\coloneq \bigcap_{n\in \NN}\Omega_n$ is dense in $X$. Namely, $X=\Omega$. So
+    $$\varnothing=X\backslash \overline{\Omega}=\left(X\backslash \Omega\right)^\circ=\left(X\backslash bigcap_{n\in \NN}\Omega_n\right)^\circ=\left(\bigcup_{n\in \NN}Y_n\right)^\circ=X^\circ=X.$$
+    Contradiction.
+\end{proofenv}
+
+\begin{theoremenv}[Banach]
+    Let $(K,\left| \ \cdot\ \right|)$ be a complete non-trivially valued filed, and $E$ be a vector space over $K$. Let $\pl \cdot\pl_1$, $\pl \cdot\pl_2$ be two norms on $E$ such that $(E,\pl\cdot\pl_1)$ and $(E,\pl\cdot\pl_2)$ are both Banach spaces. 
+
+    \quad If $\exists C>0$ such that $\pl \cdot\pl_2\le C\pl\cdot\pl_1$. Then $\pl\cdot\pl_1$ and $\pl \cdot\pl_2$ are equivalent. ($\exists C'>0$, $\pl\cdot\pl_1\le C'\pl\cdot\pl_2$) 
+\end{theoremenv}
+\begin{proofenv}
+    For $x\in E$ and $r>0$. Let
+    $$ B_i(x,r)\coloneq \{y\in E\mid \pl y-x\pl_i<r\},\ i=1,2 $$
+    $\forall y\subseteq E$, let $\overline{Y}^{\pl\cdot\pl_2}$ be the closure of $Y$ in $(E,\pl\cdot\pl_2)$.
+    $$ E=\bigcup_{n\ge 1}B_1(0,n)=\bigcup_{n\ge 1}\overline{B_1(0,n)}^{\pl\cdot\pl_2}.$$
+    Hence, $\exists n_0\ge 1$, $p\in E$, $r_0>0$ such that 
+    $$ B_2(p,r_0)\subseteq \overline{B_1(0,n_0)}^{\pl\cdot\pl_2}$$
+    or equivalently,
+    $$ B_2(0,r_0)\subseteq \overline{B_1(-p,n_0)}^{\pl\cdot\pl_2}\subseteq \overline{B_1(0,n_0+\pl p\pl_1)}^{\pl\cdot\pl_2}$$
+    since $\forall x\in B_1(-p,n_0)$
+    $$ \pl x_\pl_1=\pl x-p+p\pl_1\le \pl x -p\pl+\pl p\pl_1<n_0+\pl p\pl_1.$$
+    Let $r_1=n_0+\pl p\pl_1$,
+    $$ B_{2}(0,r_0)\subseteq \overline{B_1(0,r_1)}^{\pl\cdot\pl_2}\subseteq B_1(0,r_1)+B_2(0,r_0|a|)$$
+    where $a\in K$, $0<|a|<\frac{1}{2}$. 
+
+    In fact, $\forall x\in \overline{B_1(0,r_0)}^{\pl\cdot\pl_2}$, exists sequence $(x_n)_{n\in \NN}\in B_1(0,r_1)^{\NN}$, such that $x_n\rightarrow x$ in $(E,\pl\cdot\pl_2)$, $\exists n\in \NN$, $\pl x_n-x\pl_2<r_0|a|$
+    $$ B_2(0,r_0|a|^n)\subseteq  B_1(0,r_1|a|^n)+B_2(0,r_0|a|^{n+1})$$
+    Let $y\in B_2(0,r_0)$, we choose $(x_0,y_0)\in B_1(0,r_1)\times B_2(0,r_0|a|)$ such that $y=x_0+y_0$. When $(x_n,y_n)$ si chosen, let $(x_{n+1},y_[n+1])\in B_1(0,r_0|a|^{n+1})\times B_2(0,r_0|a|^{n+2})$, $y_n=x_{n+1}+y_{n+1}$, $y=y_n+\sum_{k=0}^{n} x_k$. So $\sum_{n\in \NN}x_n$ converges to $y$.
+
+    Moreover, $\sum_{n\in\NN}\pl x_n\pl<+\infty$, so it converges in $(E,\pl\cdot\pl_1)$ to some $x$.
+    Therefore, $x=y$ since $\pl\cdot\pl_2\le C\pl\cdot\pl_1$. So $\pl y\pl _1\pl x\pl_1\le \sum_{n\in \NN}\pl x_n\pl_1\le \frac{r_1}{1-|a|}$.
+
+    \quad Therefore $B_2(0,r_0)\subseteq B_1(0,\frac{r}{1-|a|})$. So $\pl\cdot\pl_1$ is bounded by a constant times $\pl\cdot\pl_2$.
+\end{proofenv}
+
+

@@ -1,0 +1,147 @@
+\documentclass{article}
+\newcommand{\mydate}{November 26, 2025}
+\newcommand{\mytitle}{QM HW9}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{float}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+
+\setlist[enumerate]{label=(\arabic*), leftmargin=*, align=left}
+
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+
+\begin{document}
+\maketitle
+\begin{problem}
+
+(1) The energy of three lowest-lying states are 
+    \begin{equation}
+        \begin{split}
+            E_0 &= \hbar\omega\\
+            E_1 &= \frac{3\hbar\omega}{2}\\
+            E_2 &= 2\hbar\omega.
+        \end{split}
+    \end{equation}
+    $E_0$ is not degenerate, while $E_1$ and $E_2$ have degeneracy of $2,3$ respectively.
+\newline
+(2) $E_0$ is non-degenerate, $\expval{V}{0}=0$, so $\Delta_0^{(1)}=0$.
+\begin{equation}
+    V=\delta m\omega^2 l^2\frac{(a_1+a_1^\dagger)(a_2+a_2^\dagger)}{2}.
+\end{equation}
+\begin{equation}
+    \frac{\delta m \omega^2 l^2}{2}\begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}\begin{pmatrix}
+    \braket{\psi}{1_1}\\
+    \braket{\psi}{1_2}
+    \end{pmatrix}=\Delta_1^{(1)}\begin{pmatrix}
+    \braket{\psi}{1_1}\\
+    \braket{\psi}{1_2}
+    \end{pmatrix}.
+\end{equation}
+So,
+\begin{equation}
+    \Delta_1^{(1)}=\pm \frac{\delta m \omega^2 l^2}{2},
+\end{equation}
+with respect to eigen-kets $\frac{\ket{1,0}+\ket{0,1}}{\sqrt{2}}$ and $\frac{\ket{1,0}-\ket{0,1}}{\sqrt{2}}$.
+Similarly,
+\begin{equation}
+    \Delta_2^{(1)}=\pm \frac{\delta m \omega^2 l^2}{\sqrt{2}} \text{ or }0.
+\end{equation}
+(3) 
+\end{problem}
+
+\begin{problem}
+    Let
+    \begin{equation}
+        l=\sqrt{\frac{\hbar}{m \omega}},\ a=\frac{1}{\sqrt{2}}\left(\frac{x}{l}+\frac{\ii l p}{\hbar}\right),\ N=a^\dagger a.
+    \end{equation}
+    Then,
+    \begin{equation}
+        H_0=\hbar \omega \left(N + \frac{1}{2}\right),\ H'=\frac{\epsilon}{4} \hbar \omega \left((a^\dagger)^2+a^2 +2N+ 1\right).
+    \end{equation}
+    Perturbation:
+            \begin{equation}
+                \Delta_0^{(1)}=\expval{H'}{0}=\frac{\epsilon}{4}\hbar \omega.
+            \end{equation}
+            \begin{equation}
+                \Delta_0^{(2)}=\sum_{k=1}^{+\infty}\frac{\left|\bra{k}H'\ket{0}\right|^2}{E_0-E_k}=-\frac{\epsilon^2}{16}\hbar \omega.
+            \end{equation}
+            So, 
+            \begin{equation}
+                \tilde{E_0}\approx \hbar \omega\left(\frac{1}{2}+\frac{\epsilon}{4}-\frac{\epsilon^2}{16}\right).
+            \end{equation}
+            \begin{equation}
+                \ket*{\tilde{0}^{(1)}}=\sum_{k=1}^{+\infty}\frac{\ket{k}\bra{k}H'\ket{0}}{E_0-E_k}=-\frac{\epsilon\sqrt{2}}{8}\ket{2}.
+            \end{equation}
+            Thus,
+            \begin{equation}
+                \tilde{\psi}(x)\approx \bra{x}\left(\ket{0}-\frac{\epsilon\sqrt{2}}{8}\ket{2}\right)\sim \ee^{-\frac{x^2}{2l^2}}\left(H_0\left(\frac{x}{l}\right)-\frac{\epsilon\sqrt{2}}{8}H_2\left(\frac{x}{l}\right)\right)
+            \end{equation}
+        Exact:
+            
+            Let 
+            \begin{equation}
+                m'=m\sqrt{1+\epsilon},\ l'=\sqrt{\frac{\hbar}{m' \omega}},\ a'=\frac{1}{\sqrt{2}}\left(\frac{x}{l'}+\frac{\ii l' p}{\hbar}\right).
+            \end{equation}
+            Then,
+            \begin{equation}
+                H=\sqrt{1+\epsilon}\hbar \omega \left(N' + \frac{1}{2}\right).
+            \end{equation}
+            \begin{equation}
+                \tilde{E_0}= \frac{1}{2}\sqrt{1+\epsilon}\hbar \omega\approx \hbar \omega\left(\frac{1}{2}+\frac{\epsilon}{4}-\frac{\epsilon^2}{16}\right).
+            \end{equation}
+            \begin{equation}
+                \tilde{\psi}(x)\sim \ee^{-\frac{x^2}{2l^2}}\left[1-\frac{\epsilon}{8}-\frac{m\omega}{4\hbar}\epsilon x^2\right].
+            \end{equation}
+    
+\end{problem}
+\begin{problem}
+    (1) 
+    \begin{equation}
+        V=\lambda r^2 \cdot2\sqrt{\frac{2\pi}{15}}\left(Y_2^2+Y_2^{-2}\right).
+    \end{equation}
+\end{problem}
+
+\end{document}
+
+
+
