@@ -925,10 +925,10 @@ So $\sum_{n\in \NN}x_n$ diverges.
 
 \section{Local inversion}
 \begin{definitionenv}
-     Let $X$ be a topological space an $Y\subseteq X$. If $\overline{Y}=X$, we say that $Y$ is dense.
+     Let $X$ be a topological space and $Y\subseteq X$. If $\overline{Y}=X$, we say that $Y$ is dense.
 \end{definitionenv}
 \begin{theoremenv}[Baire]
-    Let $(X,\dd)$ be a complete metric space. Let $(\Omega_n)_{n\in NN}$ be a sequence of dense open subset of $X$.
+    Let $(X,\dd)$ be a complete metric space. Let $(\Omega_n)_{n\in \NN}$ be a sequence of dense open subset of $X$.
     Let $\dis \Omega=\bigcap_{n\in\NN}\Omega_n$, then $\Omega$ is dense in $X$.
 \end{theoremenv}
 \begin{proofenv}
@@ -943,12 +943,12 @@ So $\sum_{n\in \NN}x_n$ diverges.
     \quad Moreover, $\forall n\in \NN$, $l\in \overline{B}(x_{n+1},r_{n+1})\subseteq B_{x_n,r_n}\cap \Omega_{n}$. Thus $l\in \cap_{n\in \NN}\Omega_{n}=\Omega$. Contradiction.
 \end{proofenv}
 \begin{corollaryenv}
-    Let $(X,\dd)$ be a non-empty complete metric space and $(Y_n)_{n\in NN}$ be a family of closed subsets of $X$ such that $X=\bigcup_{n\in \NN}Y_n$. Then exists $n\in \NN$ such that $Y^\circ\neq\varnothing$.
+    Let $(X,\dd)$ be a non-empty complete metric space and $(Y_n)_{n\in \NN}$ be a family of closed subsets of $X$ such that $X=\bigcup_{n\in \NN}Y_n$. Then exists $n\in \NN$ such that $Y^\circ\neq\varnothing$.
 \end{corollaryenv}
 \begin{proofenv}
     Let $\Omega_n=X\backslash Y_n$. Suppose that $\forall n\in \NN$, $Y_n^\circ=\varnothing$.
     Then $\overline{\Omega}_n=X\backslash Y_n^\circ=X$. Thus $\Omega\coloneq \bigcap_{n\in \NN}\Omega_n$ is dense in $X$. Namely, $X=\Omega$. So
-    $$\varnothing=X\backslash \overline{\Omega}=\left(X\backslash \Omega\right)^\circ=\left(X\backslash bigcap_{n\in \NN}\Omega_n\right)^\circ=\left(\bigcup_{n\in \NN}Y_n\right)^\circ=X^\circ=X.$$
+    $$\varnothing=X\backslash \overline{\Omega}=\left(X\backslash \Omega\right)^\circ=\left(X\backslash \bigcap_{n\in \NN}\Omega_n\right)^\circ=\left(\bigcup_{n\in \NN}Y_n\right)^\circ=X^\circ=X.$$
     Contradiction.
 \end{proofenv}
 
@@ -981,5 +981,203 @@ So $\sum_{n\in \NN}x_n$ diverges.
 
     \quad Therefore $B_2(0,r_0)\subseteq B_1(0,\frac{r}{1-|a|})$. So $\pl\cdot\pl_1$ is bounded by a constant times $\pl\cdot\pl_2$.
 \end{proofenv}
+\begin{propositionenv}
+    Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be Banach spaces over a complete non-trivially valued filed $(K,\left|\ \cdot\ \right|)$, and $f:E\longrightarrow F$ be a bounded mapping.
+    \newline
+    (1) If $f$ is invertible, then $f^{-1}$ is bounded.
+    \newline
+    (2) If $f$ is surjective, for any $U\subseteq E$ open, $f(U)$ is open in $F$.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) We define a mapping 
+    $$\begin{array}{rrcl}
+        \pl\cdot\pl_E':& E&\longrightarrow& \RR_{\ge 0}\\
+        & x&\longmapsto& \pl f(x)\pl_{F}.
+    \end{array}$$
+    This is a norm on $E$. In fact, if $\pl x\pl_E'=\pl f(x)\pl_F=0$, then $f(x)=0_F$. So $x=0_E$. Moreover, 
+    $$\forall x\in E,\ \pl x\pl'_E=\pl f(x)\pl_F\le \pl f\pl \pl x\pl_E.$$
+    So there exists $C>0$ such that $\pl\cdot\pl_E\le C\pl \cdot\pl'_E$. That is, 
+    $$ \forall y\in F,\ \pl y\pl_F=\pl f(f^{-1}(y))\pl_F=\pl f^{-1}(y)\pl'_E\ge C^{-1}\pl f^{-1}(y)\pl_E.$$
+    So, $\pl f^{-1}\pl \le C$.
+    \newline
+    (2) Let 
+    $$ E_0=\ker(f)=\{x\in E\mid f(x)=0_F\}.$$
+    This is a closed vector subspace of $E$. 
+    $\pl\cdot\pl_E$ induces by passing to quotient a norm $\pl\cdot\pl_Q$ on $Q\coloneq E/E_0$.
+    Let 
+    $$\begin{array}{rrcl}
+        g:& Q&\longrightarrow& F\\
+        &[x]&\longmapsto & f(x).
+    \end{array} $$
+    This is a $K$-linear bijection.
 
+    \quad If $\alpha \in Q$, 
+    $$\forall x\in \alpha,\ \pl g(\alpha)\pl_F=\pl f(x)\pl_F\le \pl f\pl \cdot\pl x\pl_E. $$
+    Since $\pl \alpha\pl_Q\coloneq \inf_{x\in \alpha}\pl x\pl_E$, $\pl g(\alpha)\pl_F\le \pl f\pl\cdot\pl \alpha\pl_Q$.
+    So $\pl g \pl\le \pl f\pl$. By (1), $g^{-1}$ is bounded (hence is continuous).
 
+    \quad If $V\subseteq Q$ is open, then $g(V)\subseteq F$ is open. 
+    Let $U\subseteq E$ be an open subset. Let 
+    $$\begin{array}{rrcl}
+        \pi:& E &\longrightarrow& Q\\
+        & x&\longmapsto &[x].
+    \end{array}$$
+    Let $x\in U$, $r>0$ such that $B(x,r)\subseteq U$. For any $\alpha\in Q$, if 
+    $$ \pl \alpha-[x]\pl_Q=\inf_{y\in \alpha} \pl y-x\pl_E<r,$$
+    then, exists $y\in \alpha$ such that $\pl y-x\pl_E<r$.
+
+    Therefore, 
+    $$ B([x],r)\subseteq\pi(B(x,r))\subseteq \pi (U).$$
+    This means that $\pi (U)$ is open. So $f(U)=g(\pi(U))$ is open.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector space over a complete non-trivially valued field $(K,\left| \ \cdot\ \right|)$, $U\subseteq E$ open, $f:U\longrightarrow F$. If $\forall p\in U$, $f$ is $n$-times differentiable at $p$, and $\DD^n f: U\longrightarrow \mathscr{L}^{(n)}(E,\ldots,E,F)$ is continuous, we say that $f$ is of class $\mathcal{C}^n$.
+
+    \quad If $\forall n\in \NN$, $f$ is $n$-times differentiable on $U$, we say that $f$ is smooth, or of class $\mathcal{C}^\infty$. ($\forall n\in \NN$, $f$ is of class $\mathcal{C}^n$.)
+\end{definitionenv}
+\begin{propositionenv}
+   Let $(E,\pl\cdot\pl_E)$, $(F,\pl\cdot\pl_F)$ and $(G,\pl\cdot\pl_G)$ be normed vector space over a complete non-trivially valued field $(K,\left| \ \cdot\ \right|)$. $U\subseteq E$, $V\subseteq F$ be open subsets, $f: U\longrightarrow V$, $g:V\longrightarrow G$ be mappings. $n\in\NN$.
+   \newline
+   (1) Let $p\in U$. If $f$ is $n$-times differentiable at $p$ and $g$ is $n$-times differentiable at $f(p)$, then $g\circ f$ is $n$-times differentiable at $p$.
+   \newline
+   (2) If $f$ is of class $\mathcal{C}^{n}$ on $U$ and $g$ is of class $\mathcal{C}^n$ on $V$, then $g\circ f$ is of class $\mathcal{C}^n$ on $U$.
+\end{propositionenv}
+\begin{proofenv}[induction on $n$]
+    \ \newline
+    $n=0$, continuity composition.
+    \newline
+    $n=1$, differentiability of composition.
+    \newline
+    $n\ge 2$, 
+    $$ \DD (g\circ f)(p)(\cdot)=\DD g(f(p))(\DD f(p)(\cdot))$$
+    Let 
+    $$\begin{array}{rrcl}
+        \Phi:&\mathscr{L}(F,G)\times \mathscr{L}(E,F)&\longrightarrow & \mathscr{L}(E,G)\\
+        &(\alpha, \beta)&\longmapsto & \alpha\circ\beta.
+    \end{array}$$
+    This is a bounded bilinear mapping. $\pl \alpha\circ\beta\pl \le \pl \alpha\pl\cdot\pl\beta\pl$.
+    $$(\pl \alpha\circ\beta(h)\pl_G=\pl \alpha(\beta(h))\pl_G\le \pl \alpha\pl\cdot\pl \beta(h)\pl_F\le \pl\alpha\pl\pl \beta\pl\pl h\pl_E)$$
+    $\Phi$ is of class $\mathcal{C}^{\infty}$.
+    $$ \DD (g\circ f)=\Phi(\DD g\circ f, \DD f).$$
+    (2) Since $\DD g$ and $\DD f$ is of class $\mathcal{C}^{n-1}$, we obtain that $\DD (g\circ f)$ is of class $\mathcal{C}^{n-1}$, so $g\circ f$ is of class $\mathcal{C}^{n}$.
+    \newline
+    (1) If $g$ is $n$-times differentiable at $f(p)$, $\DD g$ is $(n-1)$-times differentiable at $f(p)$. So $\DD g\circ f$ is $(n-1)$-times differentiable at $p$.
+    $\DD f$ is $(n-1)$-times differentiable at $p$. So $\DD (g\circ f)$ is $(n-1)$-times differentiable at $p$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(E,\pl\cdot\pl)$ be a Banach space over a complete non-trivially valued filed $(K,\left| \ \cdot\ \right|)$. Let 
+    $$ \GL (E)\coloneq \{\varphi\in \mathscr{L}(E,E)\mid \varphi \text{ is invertible}\}.$$
+    This set forms a group under $\circ$.
+    \newline
+    (1) $\forall \varphi\in \mathscr{L}(E,E)$, if $\pl \varphi\pl<1$, then $\mathrm{Id}_E+\varphi\in \GL(E)$.
+    \newline
+    (2) $\GL(E)\subseteq \mathscr{L}(E,E)$ is open.
+    \newline
+    (3) $$\begin{array}{rrcl}
+        \iota:& \GL(E)&\longrightarrow &\GL(E)\\
+        &\varphi&\longmapsto &\varphi^{-1}
+    \end{array}$$ is of class $\mathcal{C}^{\infty}$.
+\end{theoremenv}
+\begin{proofenv}
+    \ \newline
+    (1) The series $\sum_{n\in\NN}(-1)^{n}\varphi^{n}$ converges absolutely since $\pl \varphi^n\pl\le \pl \varphi\pl ^n$. 
+
+    Let $\eta$ be the limit of $\sum_{n\in\NN} (-1)^n\varphi^n$. 
+    $$ \left(\mathrm{Id}+\varphi\right)\circ \sum_{k=0}^{n}(-1)^k\varphi^k=\mathrm{Id}+(-1)^n\varphi ^{n+1}.$$
+    Taking the limit when $n\rightarrow +\infty$, we get $\left(\mathrm{Id}_E+\varphi\right)\circ \eta=\mathrm{Id_E}$. For the same reason, $\eta \circ\left(\mathrm{Id}_E+\varphi\right)=\mathrm{Id}_E$.
+    \newline
+    (2) If $f\in \GL (E)$, $\forall \varphi\in \mathscr{L}(E,E)$ such that 
+    $$\pl \varphi\pl<\frac{1}{\pl f^{-1}\pl},\ f+\varphi=f\circ\left(\mathrm{Id}_E+f^{-1}\circ \varphi\right),\ \pl f^{-1}\circ \varphi\pl \le \pl f^{-1}\pl \cdot\pl \varphi\pl <1.$$
+    So $\mathrm{Id}_E+f^{-1}\circ \varphi\in \GL(E)$. Hence $f+\varphi\in \GL(E)$.
+    \newline
+    (3) Let $f\in \GL(E)$, $\varphi\in \mathscr{L}(E,E)$. $\pl \varphi\pl\le \frac{1}{\pl f^{-1}\pl }$.
+    \begin{align*}
+        \iota\left(f+\varphi\right)-\iota\left(f\right)=&\left(f+\varphi\right)^{-1}-f^{-1}\\
+        =& \left(f\circ\left(\mathrm{Id}_E+f^{-1}\circ\varphi\right)\right)^{-1}-f^{-1}\\
+        =& \left(\mathrm{Id}_E+f^{-1}\circ\varphi\right)^{-1}\circ f^{-1}-f^{-1}\\
+        =&\sum_{n\in\NN} (-1)^n \left(f^{-1}\circ \varphi\right)^n\circ f^{-1}-f^{-1}\\
+        =& -f^{-1}\circ\varphi\circ f^{-1}+o(\pl \varphi\pl)
+    \end{align*}
+    since 
+    \begin{align*}
+        &\sum_{n\ge 2}\pl (-1)^n\left(f^{-1}\circ\varphi\right)^n \circ f^{-1}\pl\\
+        \le & \sum_{n\ge 2}\pl f^{-1}\pl \cdot \left(\pl f^{-1}\pl\cdot\pl \varphi\pl\right) ^n\\
+        =& \pl \varphi\pl ^2 \left( \pl f\pl^3 \cdot\sum_{n\ge 2} \left(\pl f^{-1}\pl \cdot\pl \varphi\pl\right)^{n-2}\right)\\
+        =&o(\pl \varphi\pl ).
+    \end{align*}
+    Let
+    $$\begin{array}{rrcl}
+        \Phi:& \mathscr{L}(E,E)^3&\longrightarrow& \mathscr{L}(E,E)\\
+        & (\alpha,\beta, \gamma)&\longmapsto& \alpha\circ\beta\circ\gamma.
+    \end{array}$$
+    bounded $3$-linear mapping. 
+    $$ \DD \iota(f)(\cdot)=-\Phi \left(\iota(f), \cdot, \iota(f)\right).$$
+    By induction, we obtain that $\iota$ is of class $\mathcal{C}^n$ for any $n\in \NN$.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $(X,\dd)$ be a metric space, $f: X\longrightarrow X$ be a mapping. If exists $\alpha\in \interval[open]{0}{1}$, such that $f$ is $\alpha$-Lipschitzian, we say that $f$ is a \textbf{contraction}.
+\end{definitionenv}
+\begin{definitionenv}
+    Let $f:X\longrightarrow X$ be a mapping. If $x\in X$ id such that $f(x)=x$, we say that $x$ is a \textbf{fixed point} of $f$.
+\end{definitionenv}
+\begin{theoremenv}[Banach fixed point theorem]
+    Let $(X,\dd)$ be a non-empty complete metric space and $f: X\longrightarrow X$ be a contraction. Then $f$ admits a unique fixed point.
+\end{theoremenv}
+\begin{proofenv}
+    \ \newline
+    `` Uniqueness'': Let $\alpha\in \interval[open]{0}{1}$, such that $f$ is $\alpha$-Lipschitzian. If $a$ and $b$ are fixed point of $f$, then $\dd(a,b)=\dd(f(a),f(b))\le \alpha \dd (a,b)$. 
+    So $\dd(a,b)=0$, $a=b$.
+    \newline
+    `` Existence'': Let $x_0\in X$. For any $n\in \NN$, let $x_n=f^n(x_0)$. Then 
+    $$\dd(x_n,x_{n+1})=\dd(f(x_{n-1}),f(x_n))\le \alpha \dd(x_{n-1},x_n)\le \dots\le \alpha^n \dd(x_0,x_1).$$
+    So 
+    $$ \sum_{n\in \NN} \dd (x_n,x_{n+1})\le \sum_{n\in\NN}\alpha^n \dd(x_0,x_1)=\frac{1}{1-\alpha}\dd (x_0,x_1)<+\infty.$$
+    Hence $(x_n)_{n\in \NN}$ converges to some $a\in X$.
+    $$ \dd(a,f(a))=\lim_{n\rightarrow +\infty}\dd(x_n,f(x_n))=\lim_{n\rightarrow+\infty}\dd (x_n,x_{n+1})=0.$$
+    So $a=f(a)$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over a complete value filed $(K,\left|\ \cdot\ \right|)$, $U\subseteq E$, $V\subseteq F$ be open subsets, $f:U\longrightarrow V$ be a bijection, $n\in \NN\cup\{\infty\}$.
+    If $f$ and $f^{-1}$ are both of class $\mathcal{C}^{n}$, we say that $f$ is a $\mathcal{C}^{n}$-diffeomorphism.
+\end{definitionenv}
+\begin{theoremenv}
+    Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be Banach spaces over $\RR$, $U\subseteq E$ open and $f:U\longrightarrow F$ be a mapping of class $\mathcal{C}^n$ ($n\in \NN\cup \{\infty\}$).
+    Let $p\in U$. Suppose that $\DD f(p)\in \mathscr{L}(E,F)$ is invertible. Then there exists a open neighborhood $V$ of $p$ contained in $U$, such that $f|_{V}:V\longrightarrow f(V)$ is a $\mathcal{C}^n$-homeomorphism. Moreover
+    $$ \DD f^{-1}(y)=\DD f(f(y))^{-1}.$$
+\end{theoremenv}
+\begin{proofenv}
+    By replacing $f$ by 
+    $$\tilde{ f}:x\longmapsto \DD f(p)^{-1}\left(f(p+x)-f(p)\right).$$
+    We may assume that $E=F$, $p=f(p)=0$, $\DD f(p)=\mathrm{Id}_E$.
+    $$ \DD \tilde{f}(0)(h)=\DD f(p)^{-1}(\DD f(p)(h))=h,\DD \tilde{f}(0)=\mathrm{Id}_E.$$
+    Let $\mu: U\longrightarrow E$, $\mu(x)=f(x)-x$, $\DD \mu(0)=0$. Since $\DD f$ is continuous, so is $\DD \mu$.
+    $$ \exists r>0,\ \forall x \in \overline{B}(0_E,r),\ \pl \DD \mu(x)\pl\le \frac{1}{2}.$$
+    So $\mu$ is $\frac{1}{2}$-Lipschitzian on $\overline{B}(0_E,r)$ (mean value inequality).
+    $$ \forall (x,y)\in \overline{B}(0_E,r)^2,\ \pl f(x)- f(y)\pl \ge \pl x-y\pl \pl \mu(x)-\mu(y)\pl \ge \frac{1}{2}\pl x-y\pl.$$
+    So $f$ is injective on $\overline{B}(0_E,r)$. Let $a\in \overline{B}(0_E,\frac{r}{2})$.
+    $$ \forall x\in \overline{B}(0_E,r),\ \pl a-\mu(x)\pl\le \pl a\pl+\pl \mu(x)\pl \le \frac{1}{2}r+\frac{1}{2}r=r.$$
+    Let
+    $$\begin{array}{rrcl}
+        \nu :&\overline{B}(0,r)&\longrightarrow &\overline{B}(0,r)\\
+        &x&\longmapsto &a-\mu(x)
+    \end{array}$$
+    $\nu$ is a contraction. By Banach's fixed point theorem, 
+    $$\exists ! g(a)\in \overline{B}(0,r),\ \nu(g(a))=a-\mu(g(a))=a-f(g(a)).$$
+    That is $f(g(a))=a$. Let $W=B(0,\frac{r}{2})$, $V=f^{-1}(W)\cap B(0,r)$, $f|_V:V\longrightarrow W$ is a bijection.
+
+    \quad $\forall z\in B(0,r)$, $\DD f(z)=\mathrm{Id}_E+\DD \mu(z)\in \GL(E)$. 
+    $$\forall (x,x_0)\in V\times V,y=f(x), y_0=f(x_0), y-y_0=\DD f(x_0)(x-x_0)+o\left(\pl x-x_0\pl\right).$$
+    $$ \pl x-x_0 \pl= \pl y-y_0- (\mu(x)-\mu(x_0))\pl \le \pl y-y_0\pl +\frac{1}{2}\pl x-x_0\pl ,$$
+    $$ \frac{1}{2} \pl f^{-1}(y)-f^{-1}(y_0)\pl =\frac{1}{2} \pl x-x_0 \pl \le \pl y-y_0\pl. $$
+    So,
+    $$ \DD f(x_0)(x-x_0)=y-y_0+o(\pl y-y_0\pl),$$
+    \begin{align*}
+        f^{-1}(y)-f^{-1}(y_0)=&x-x_0=\DD f(x_0)^{-1}(y-y_0)+o(\pl y-y_0\pl )\\
+        =&\DD f(f^{-1}(y_0))^{-1}(y-y_0)+o(\pl y-y_0\pl) \\
+    \end{align*}
+    Thus,
+    $$ \DD f^{-1}=\iota\circ \DD f \circ f^{-1}.$$
+\end{proofenv}

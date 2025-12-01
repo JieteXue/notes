@@ -49,7 +49,7 @@
 
 \begin{document}
 \maketitle
-\begin{problem}
+\begin{problem}[2D Coupled Harmonic Oscillator]
 
 (1) The energy of three lowest-lying states are 
     \begin{equation}
@@ -84,12 +84,24 @@ So,
 with respect to eigen-kets $\frac{\ket{1,0}+\ket{0,1}}{\sqrt{2}}$ and $\frac{\ket{1,0}-\ket{0,1}}{\sqrt{2}}$.
 Similarly,
 \begin{equation}
-    \Delta_2^{(1)}=\pm \frac{\delta m \omega^2 l^2}{\sqrt{2}} \text{ or }0.
+    \Delta_2^{(1)}=\pm \delta m \omega^2 l^2 \text{ or }0.
 \end{equation}
-(3) 
+(3) Let $u=\frac{x+y}{\sqrt{2}}$, $v=\frac{u-v}{\sqrt{2}}$, then,
+\begin{equation}
+    H=\frac{p_u^2}{2m}+\frac{1}{2}m \omega^2(1+\delta)u^2+\frac{p_u^2}{2m}+\frac{1}{2}m\omega^2(1-\delta)v^2.
+\end{equation}
+Let,
+\begin{equation}
+    \omega_u=\omega\sqrt{1+\delta},\ \omega_v=\omega\sqrt{1-\delta}.
+\end{equation}
+Then,
+\begin{equation}
+    E_{n_u,n_v}=\hbar \omega_u(n_u+1/2)+\hbar \omega_v(n_v+1/2)\approx\hbar \omega\left(n_u+n_v+1+\frac{\delta}{2}(n_u-n_v)\right).
+\end{equation}
+We get the same result as perturbation theory.
 \end{problem}
 
-\begin{problem}
+\begin{problem}[Quadratic Perturbation]
     Let
     \begin{equation}
         l=\sqrt{\frac{\hbar}{m \omega}},\ a=\frac{1}{\sqrt{2}}\left(\frac{x}{l}+\frac{\ii l p}{\hbar}\right),\ N=a^\dagger a.
@@ -134,11 +146,123 @@ Similarly,
             \end{equation}
     
 \end{problem}
-\begin{problem}
+\begin{problem}[Quadrupole Perturbation]
     (1) 
     \begin{equation}
         V=\lambda r^2 \cdot2\sqrt{\frac{2\pi}{15}}\left(Y_2^2+Y_2^{-2}\right).
     \end{equation}
+    By Wigner-Eckart Theorem, 
+    \begin{equation}
+        V \bumpeq A \begin{pmatrix}
+            0 & 0 & 1 \\
+            0 & 0 & 0 \\
+            1 & 0 & 0
+        \end{pmatrix},
+    \end{equation}
+    where $A$ is a constant. Eigen-value of $V$ is $E_1=0$, $E_2$, $E_3=0$. And eigen-kets are 
+    \begin{equation}
+        \ket{+}=\frac{1}{\sqrt{2}}\left(\ket{1}+\ket{-1}\right),\ket{-}=\frac{1}{\sqrt{2}}\left(\ket{1}-\ket{-1}\right),\ket{0}=\ket{m=0}
+    \end{equation}
+    respectively. Threefold degeneracy has been removed completely.
+    \newline
+    (2) 
+\end{problem}
+\begin{problem}[Second-order lifting of degeneracy]
+\noindent(1) \textbf{Nondegenerate perturbation theory (Wrong)}
+
+Unperturbed states: $\ket{1}, \ket{2}$ with energy $E_1$, $\ket{3}$ with energy $E_2$.
+
+Using $E_n = E_n^{(0)} + \bra{n}V\ket{n} + \sum_{k\neq n} \frac{|\bra{k}V\ket{n}|^2}{E_n^{(0)}-E_k^{(0)}}$:
+
+For $\ket{1}$: $\bra{1}V\ket{1} = 0$, only coupling to $\ket{3}$: $\bra{3}V\ket{1} = a^*$, so
+\[
+E_1^{(2)} = \frac{|a|^2}{E_1 - E_2}
+\]
+For $\ket{2}$:
+\[
+E_2^{(2)} = \frac{|b|^2}{E_1 - E_2}
+\]
+For $\ket{3}$: couplings to $\ket{1}, \ket{2}$:
+\[
+E_3^{(2)} = \frac{|a|^2 + |b|^2}{E_2 - E_1}
+\]
+
+Thus:
+\[
+E_A \approx E_1 + \frac{|a|^2}{E_1 - E_2}, \quad
+E_B \approx E_1 + \frac{|b|^2}{E_1 - E_2}, \quad
+E_C \approx E_2 + \frac{|a|^2 + |b|^2}{E_2 - E_1}
+\]
+
+\noindent(2) Exact
+
+Characteristic equation:
+\[
+\det\begin{pmatrix}
+E_1 - E & 0 & a \\
+0 & E_1 - E & b \\
+a^* & b^* & E_2 - E
+\end{pmatrix} = 0
+\]
+Expansion gives:
+\[
+(E_1 - E)\left[(E_1 - E)(E_2 - E) - |b|^2\right] - |a|^2(E_1 - E) = 0
+\]
+\[
+(E_1 - E)\left[(E_1 - E)(E_2 - E) - (|a|^2 + |b|^2)\right] = 0
+\]
+So one root is $E = E_1$, others satisfy:
+\[
+(E_1 - E)(E_2 - E) - S = 0, \quad S = |a|^2 + |b|^2
+\]
+Solving:
+\[
+E = \frac{E_1 + E_2 \pm \sqrt{(E_2 - E_1)^2 + 4S}}{2}
+\]
+For small $S$:
+\[
+E \approx E_1 - \frac{S}{\Delta}, \quad E_1, \quad E_2 + \frac{S}{\Delta}
+\]
+
+\noindent(3) Degenerate perturbation theory
+
+Degenerate subspace: $\{\ket{1}, \ket{2}\}$, unperturbed energy $E_1$.
+
+Effective Hamiltonian:
+\[
+(H_{\text{eff}})_{ij} = E_1 \delta_{ij} + V_{ij} + \sum_{k \notin \text{deg}} \frac{V_{ik}V_{kj}}{E_1 - E_k}
+\]
+Only $k=3$ contributes, with $E_3^{(0)} = E_2$:
+
+\[
+H_{\text{eff}} = E_1 - \frac{1}{\Delta} \begin{pmatrix}
+|a|^2 & ab^* \\
+a^*b & |b|^2
+\end{pmatrix}
+\]
+Eigenvalues:
+\[
+\lambda = E_1, \quad E_1 - \frac{S}{\Delta}
+\]
+Third eigenvalue from nondegenerate PT on $\ket{3}$:
+\[
+E_3 \approx E_2 + \frac{S}{\Delta}
+\]
+
+\noindent(4) Comparison
+
+\begin{itemize}
+\item Nondegenerate PT (wrong): \\
+$E_1 + \frac{|a|^2}{E_1 - E_2}$, $E_1 + \frac{|b|^2}{E_1 - E_2}$, $E_2 + \frac{S}{E_2 - E_1}$
+
+\item Exact \\
+$E_1$, $E_1 - \frac{S}{\Delta}$, $E_2 + \frac{S}{\Delta}$
+
+\item Degenerate PT (correct): \\
+Same as exact to second order
+\end{itemize}
+
+The nondegenerate treatment fails because it doesn't account for degeneracy lifting between $\ket{1}$ and $\ket{2}$.
 \end{problem}
 
 \end{document}
