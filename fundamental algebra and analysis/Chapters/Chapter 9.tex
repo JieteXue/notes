@@ -836,7 +836,7 @@ We fix a complete non-trivially valued field \defm{9.6.1}{$(K,\left|\ \cdot\ \ri
 \section{Banach Space}
 \begin{propositionenv}
     Let $(X,d)$ be a metric space and $(x_n)_{n\in \NN}$ be a sequence in $X$. If 
-    $$\sum_{n\in NN}\dd(x_n,x_{n+1})<+\infty,$$
+    $$\sum_{n\in \NN}\dd(x_n,x_{n+1})<+\infty,$$
     then $(x_n)_{n\in \NN}$ is a Cauchy sequence.
 \end{propositionenv}
 \begin{proofenv}
@@ -1146,7 +1146,7 @@ So $\sum_{n\in \NN}x_n$ diverges.
 \begin{theoremenv}
     Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be Banach spaces over $\RR$, $U\subseteq E$ open and $f:U\longrightarrow F$ be a mapping of class $\mathcal{C}^n$ ($n\in \NN\cup \{\infty\}$).
     Let $p\in U$. Suppose that $\DD f(p)\in \mathscr{L}(E,F)$ is invertible. Then there exists a open neighborhood $V$ of $p$ contained in $U$, such that $f|_{V}:V\longrightarrow f(V)$ is a $\mathcal{C}^n$-homeomorphism. Moreover
-    $$ \DD f^{-1}(y)=\DD f(f(y))^{-1}.$$
+    $$ \DD f^{-1}(y)=\DD f(f^{-1}(y))^{-1}.$$
 \end{theoremenv}
 \begin{proofenv}
     By replacing $f$ by 
@@ -1180,4 +1180,305 @@ So $\sum_{n\in \NN}x_n$ diverges.
     \end{align*}
     Thus,
     $$ \DD f^{-1}=\iota\circ \DD f \circ f^{-1}.$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $n\in \NN_{\ge 1}$. Let $(K,\left|\ \cdot\ \right|)$ be a complete valued field, $(E_i,\pl\cdot\pl_i)$, $i\in \{1,\ldots,n\}$ be normed vector spaces over $K$, $(F,\pl\cdot\pl_F)$ be a Banach space over $K$. 
+    Then, $(\mathscr{L}^{(n)}(E_1,\ldots,E_n, F),\pl \cdot\pl)$ is a Banach space.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(\varphi_i)_{i\in \NN}$ be a Cauchy sequence in $\mathscr{L}^{(n)}(E_1,\ldots,E_n, F)$. 
+    For $N\in \NN$, let
+    $$ \varepsilon_N\coloneq \sup_{(i,j)\in \NN_{\ge N}} \pl \varphi_i-\varphi_j \pl,\ \lim_{N\rightarrow +\infty}\varepsilon_N=0.$$
+    For any $(x_1,\ldots,x_n)\in E_1\times\dots\times E_n$, and any $(i,j)\in\NN_{\ge N}^2$,
+    $$ \pl \varphi_i(x_1,\ldots,x_n)-\varphi_j(x_1,\ldots,x_n)\pl \le \pl \varphi_i-\varphi_j\pl\cdot\prod_{l=1}^{n}\pl x_l\pl_l\le \varepsilon_N\prod_{l=1}^{n}\pl x_l\pl_l.$$
+    So $(\varphi_i(x_1,\ldots,x_n))_{i\in \NN}$ is a Cauchy sequence in $F$, hence it converges to some element of $F$, denoted as $\varphi(x_1,\ldots,x_n)$.
+
+    \quad Note that $\varphi$ is a point-wise limit of an $n$-linear mapping, so it is also $n$-linear. 
+    \begin{align*}
+        \pl \varphi(x_1,\ldots,x_n)\pl_F&=\lim_{i\rightarrow +\infty}\pl \varphi_i(x_1,\ldots,x_n)\pl_F\\
+        &\le \limsup_{i\rightarrow +\infty} \pl \varphi_i\pl \cdot\pl x_1\pl_{E_1}\cdots \pl x_n\pl_{E_n}\\
+        \le \left(\sup_{i\in \NN}\pl \varphi_i\pl\right)\cdot\pl x_1\pl_{E_1}\cdots \pl x_n \pl_{E_n}
+    \end{align*}
+    So $\varphi\in \mathscr{L}(E_1,\ldots,E_n, F)$.
+
+    \quad For fixed $N\in \NN$, $\forall (x_1,\ldots,x_n)\in E_1\times \dots E_n$,
+    \begin{align*}
+        &\pl \varphi(x_1,\ldots,x_n)-\varphi_N(x_1,\ldots,x_n)\pl_F\\
+        =& \lim_{n\rightarrow +\infty}\pl \varphi_n(x_1,\ldots,x_n)-\varphi_N(x_1,\ldots,x_n)\pl_F\\
+        \le & \varepsilon_N \pl x_1 \pl \cdot\pl x_n\pl.
+    \end{align*}
+    So $0\le \pl \varphi-\varphi_N\pl\le \varepsilon_N$. By squeeze theorem
+    $$ \lim_{N\rightarrow +\infty}\pl \varphi-\varphi_N\pl=0.$$
+\end{proofenv}
+
+
+\newpage
+\section{Uniform Convergence}
+\begin{definitionenv}
+    Let $X$ be a set, $(Y,\mathscr{T})$ be a topological space, $(f_n)_{n\in\NN}$ be a sequence of mappings from $X$ to $Y$. We say that the sequence $(f_n)_{n\in\NN}$ converges \textbf{point-wise} to a mapping $f:X\longrightarrow Y$ if for every $x\in X$ the sequence $(f_n(x))_{n\in\NN}$ converges to $f(x)$.
+
+    \quad Suppose that $(Y,\dd)$ is a metric space. We say that the sequence $(f_n)_{n\in\NN}$ converges \textbf{uniformly} to a mapping $f:X\longrightarrow Y$ if
+    $$ \lim_{n\rightarrow +\infty} \sup_{x\in X} \dd(f_n(x),f(x))=0.$$
+\end{definitionenv}
+\begin{remark}
+    Let $f,g: X\longrightarrow Y$ be mappings. 
+    $$ \dd(f,g)=\sup_{x\in X}\dd(f(x),g(x))$$
+    is a metric. Uniform convergence can be seen as convergence of $(f_n)_{n\in\NN}$ with respect to this metric.
+\end{remark}
+
+\begin{theoremenv}
+    Let $(X,\mathscr{T}_X)$ be a topological space, $(Y,\dd_{Y})$ be a metric space, $(f_n)_{n\in\NN}$ be a sequence of mappings from $X$ to $Y$ that converges uniformly to a mapping $f:X\longrightarrow Y$. If $\forall n\in \NN$, $f_n$ is continuous at $p\in X$, then $f$ is continuous at $p$.
+\end{theoremenv}
+\begin{proofenv}
+    We will prove that for any $\varepsilon>0$, $f^{-1}(B(f(p),\varepsilon))$ is a neighborhood of $p$.
+
+    Let $n\in\NN$ such that
+    $$ \sup_{x\in X}\dd(f_n(x),f(x))<\frac{\varepsilon}{3}.$$
+    We claim that 
+    $$ f_n^{-1}(B(f_n(x),\frac{\varepsilon}{3}))\subseteq f^{-1}(B(f(x),\varepsilon)).$$
+    Let $x$ be a element of $X$ such that 
+    $$ \dd (f_n(x),f_n(p))<\frac{\varepsilon}{3}.$$
+    One has
+    $$ \dd(f(x),f(p))\le \dd(f(x),f_n(x))+\dd(f_n(x),f_n(p))+\dd(f_n(p),f(p))<\varepsilon.$$
+\end{proofenv}
+\begin{theoremenv}
+    Let $(X,\dd_X)$ and $(Y,\dd_Y)$ be two metric spaces, $(f_n)_{n\in\NN}$ sequence of uniformly continuous mappings from $X$ to $Y$. Suppose that $(f_n)_{n\in\NN}$ converges uniformly to $f:X\longrightarrow Y$. Then $f$ is uniformly continuous.
+\end{theoremenv}
+\begin{proofenv}
+    Let $\varepsilon>0$. There exists $n\in \NN$ such that 
+    $$ \sup_{x\in X}\dd(f_n(x),f(x))<\frac{\varepsilon}{3}.$$
+    $f_n$ is uniformly continuous, so the exists $\delta>0$
+    $$ \forall (x,y)\in X\times X,\ \dd(x,y)<\delta\Rightarrow \dd(f_n(x),f_n(y))<\frac{\varepsilon}{3}.$$
+    Therefore, for any $(x,y)\in X\times X$ such that $\dd(x,y)<\delta$,
+    $$ \dd(f(x),f(y))\le \dd(f(x),f_n(x))+\dd(f_n(x),f_n(y))+\dd(f_n(y),f(y))<\varepsilon.$$
+    So $f$ is uniformly continuous.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(E,\pl\cdot\pl_E)$, $(F,\pl\cdot\pl_F)$ be normed vector spaces over a complete non-trivially valued field $(K,\left| \ \cdot\ \right|)$. Let $U\subseteq E$ open, $(f_n)_{n\in\NN}$ a sequence of differentiable mappings from $U$ to $F$. Let $f: U\longrightarrow F$, $g:U\longrightarrow \mathscr{L}(E,F)$ be mappings, $p\in U$. Suppose that 
+
+    (1) The sequence $(\DD f_n)_{n\in \NN}$ converges uniformly to $g$.
+
+    (2) $(f_n)_{n\in\NN}$ converges uniformly to $f$.
+
+    (3) There exists $N\in \NN$ and mapping $\delta: U\longrightarrow \RR_{\ge 0}$ such that $\lim_{x\rightarrow p}\delta(x)=0$ and for any $n\in\NN_{\ge N}$, any $x\in U$,
+    $$ \pl f_n(x)-f_n(p)-\DD f_n(p)(x-p)\pl_{F}\le \delta(x) \pl x-p\pl_E.$$
+    Then $f$ is differentiable and $\DD f=g$.
+\end{theoremenv}
+\begin{proofenv}
+    For any $n\in \NN$, define
+    $$ \varepsilon_n\coloneq \sup_{x\in U}\pl \DD f_n(x)-g(x)\pl,\ \dd_n\coloneq \sup_{x\in U}\pl f_n(x)-f(x)\pl.$$
+    One has 
+    \begin{align*}
+        \pl f(x)-f(p)-g(p)(x-p)\pl \le& \pl (f(x)-f_n(x))-(f(p)-f_n(p))\pl\\
+        &+\pl  f_n(x)-f_n(p) -\DD f_n(p)(x-p)\pl\\
+        &+\pl \DD f_n(p)(x-p)-g(p)(x-p)\pl\\
+        \le & 2 \dd_n+\delta(x)\pl x-p\pl_E+\varepsilon_n\pl x-p\pl_E.
+    \end{align*}
+    for sufficiently large $n$.
+
+    Therefore, 
+    $$ \limsup_{x\rightarrow p} \frac{\pl f(x)-f(p)-g(p)(x-p)\pl_F}{\pl x-p\pl_E}\le 2\varepsilon_n.$$
+    Taking the limit when $n\rightarrow \infty$, we obtain
+    $$ \limsup_{x\rightarrow p} \frac{\pl f(x)-f(p)-g(p)(x-p)\pl_F}{\pl x-p\pl_E}=0.$$
+    Namely, 
+    $$ f(x)-f(p)-g(p)(x-p)=o(\pl x-p\pl_E),\ x\rightarrow p.$$
+\end{proofenv}
+\begin{theoremenv}\label{9.10.7}
+    Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over $\RR$, $U\subseteq E$ open, $(f_n)_{n\in\NN}$ be sequence of differentiable mappings from $U$ to $F$, $g:U\longrightarrow \mathscr{L}(E,F)$. We suppose that
+
+    (1) $(\DD f_n)_{n\in\NN}$ converges uniformly to $g$.
+
+    (2) $(f_n)_{n\in\NN}$ converges point-wise to $f: U\longrightarrow F$.
+
+    Then $f$ is differentiable and $\DD f=g$.
+\end{theoremenv}
+\begin{proofenv}
+    Let $p\in U$, for any $(n,m)\in \NN\times\NN$, for any $n\in\NN$,
+    $$ c_{m,n}\coloneq \sup_{x\in U}\pl \DD f_m(x)-\DD f_n(x)\pl, \ \varepsilon_n\coloneq \sup_{x\in U}\pl \DD f_n(x)-g(x)\pl.$$
+    For $r>0$, $B(p,r)\subseteq U$ by the mean value inequality,
+    $$ \pl (f_n(x)-f_m(x))-(f_n(p)-f_m(p))\pl \le c_{m,n}\pl x-p\pl, \  x\in B(p,r) .$$
+    Passing to the limit when $m\rightarrow +\infty$, we obtain
+    $$ \pl (f_n(x)-f(x))-(f_n(p)-f(p))\pl \le \varepsilon_n \pl x-p\pl.$$
+    we have 
+    \begin{align*}
+        \pl f(x)-f(p)-g(p)(x-p)\pl \le & \pl (f(x)-f_n(x))-(f(p)-f_n(p))\pl \\
+        &+\pl f_n(x)-f_n(p) -\DD f_n(p)(x-p)\pl\\
+        &+\pl \DD f_n(p)(x-p)-g(p)(x-p)\pl.
+    \end{align*}
+    $$ \limsup_{x\rightarrow p} \frac{\pl f(x)-f(p)-g(p)(x-p)\pl_F}{\pl x-p\pl_E}\le 3\varepsilon_n.$$
+    Taking the limit $n\rightarrow+\infty$
+    $$ \lim_{x\rightarrow p} \frac{\pl f(x)-f(p)-g(p)(x-p)\pl_F}{\pl x-p\pl_E}=0.$$
+    Namely, 
+    $$ f(x)-f(p)-g(p)(x-p)=o(\pl x-p\pl_E),\ x\rightarrow p.$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(E,\pl\cdot\pl_E)$, $(F,\pl\cdot\pl_F)$ be  normed vector spaces over $\RR$. Assume that $(F,\pl\cdot\pl_F)$ is a Banach space, $U\subseteq E$ be a path connected open, $(f_n)_{n\in\NN}$ be a sequence of differentiable mappings from $U$ to $F$. Suppose that 
+
+    (1) $(\DD f_n)_{n\in\NN}$ converges uniformly to $g: U\longrightarrow \mathscr{L}(E,F)$.
+
+    (2) There exists $p\in U$ such that $(f_n(p))_{n\in \NN}$ converges.
+
+    Then the sequence $(f_n)_{n\in\NN}$ converges point-wise on $U$ to a differentiable mapping $f: U\longrightarrow F$ such that $\DD f=g$.
+\end{propositionenv}
+\begin{proofenv}
+    We first treat the case where $U$ is convex.
+
+    For any $(n,m)\in \NN\times \NN$, let 
+    $$c_{m,n}\coloneq \sup_{x\in U}\pl \DD f_m(x)-\DD f_n(x)\pl.$$
+    Let $x\in U$. By the mean value inequality,
+    $$ \pl (f_n(x)-f_m(x))-(f_n(p)-f_m(p))\pl \le c_{m,n}\pl x-p\pl,$$
+    which leads to
+    $$ \pl f_n(x)- f_m(x)\pl_F\le \pl f_n(p)-f_m(p)\pl_F+c_{m,n}\pl x-p\pl_E.$$
+    Therefore $(f_n(x))_{n\in \NN}$ is a Cauchy sequence in $F$ (Banach space), so $f_n(x)$ converges in $F$ to some $f(x)$. Now it suffices to use the theorem \ref{9.10.7}.
+    
+    We will now treat the general case. Let $x\in U$. There exists $\gamma:[0,1]\longrightarrow U$ continuous such that $\gamma(0)=p,\gamma(1)=x$. Let $I$  be the set of $t\in [0,1]$ such that $f_n(\gamma(s))$ converges for all $s\in [0,t]$. By definition, $I$ is an interval in $[0,1]$ and $0\in I$.
+    Therefore, it is of the form $[0,c]$ or $\interval[open right]{0}{c}$.
+
+    \quad Let $B(\gamma(c),r)\subseteq U$. Since $\gamma$ is continuous, $\gamma^{-1}(B(\gamma(c),r))$ is open in $[0,1]$ and $c\in \gamma^{-1}(B(\gamma(c),r))$. Assume by contraction that $I=\interval[open right]{0}{c}$, then $I\cap \gamma^{-1}(B(\gamma(c),r))\neq \varnothing$.
+    There exists $q\in \gamma^{-1}(B(\gamma(c),r))\cap I$ such that $f_n(q)$ converges. So from the ``convex $U$ version'' $f$ converges point-wise on $B(\gamma(c),r)$.
+    So $f_n(\gamma(c))$ converges. Contradiction. We deduce that $I=[0,c]$.
+
+    \quad If $c\neq 1$, then $c$ is an adherent point of $\interval[open left]{c}{1}$.
+    $\gamma^{-1}(B(\gamma(c),r))$ open, so there exists $r'>0$ such that $B(c,r')\subseteq \gamma^{-1}(B(\gamma(c),r))$. In particular, $B(c,r')\cap \interval[open left]{c}{1}$ is an open interval in $[0,1]$ that continuous.
+    So $I\supseteq \interval[open left]{0}{c+r'}$. Contradiction. Therefore $c=1$.
+\end{proofenv}
+
+\begin{definitionenv}
+    Let $U$ be a set and $(F,\pl\cdot\pl)$ be a Banach space over complete valued field $(K,\left| \ \cdot\ \right|)$. $(f_n)_{n\in \NN}\in \left(F^U\right)^\NN$ be a sequence of mappings from $U$ to $F$. If 
+    $$ \sum_{n\in \NN}\sup_{p\in U}\pl f_n(p)\pl_F<+\infty,$$
+    then we say that $\dis \sum_{n\in \NN}f_n$ \textbf{converges normally}.
+\end{definitionenv}
+\begin{propositionenv}
+    If $\sum f_n$ converges normally, then it converges uniformly.
+\end{propositionenv}
+\begin{proofenv}
+    For any $n\in\NN$, let $g_n=\sum_{k=0}^{n} f_k$. We need to check that the sequence $(g_n)_{n\in\NN}$ converges uniformly. For any $x\in U$, $\sum_{n\in\NN}\pl f_n(x)\pl<+\infty$.
+    So $\sum_{n\in\NN}f_n(x)$ converges absolutely. In particular, $(g_n(x))_{n\in\NN}$ converges to some $g(x)$.
+    \begin{align*}
+        \pl g_n(x)-g(x) \pl_F=&\lim_{m\rightarrow +\infty}\pl g_n(x)-g_m(x)\pl_F\\
+        \le & \lim_{m\rightarrow +\infty}\pl f_{n+1}(x)+\dots +f_m(x)\pl_F\\
+        \le & \limsup_{m\rightarrow +\infty}\sum_{k\ge n+1}\pl f_k(x)\pl_F\\
+        \le & \varepsilon_n.
+    \end{align*}
+    Let 
+    $$\varepsilon_n=\sum_{k\ge n+1}\sup_{p\in U}\pl f_k(p)\pl_F, \ \lim_{n\rightarrow +\infty}\varepsilon_n=0.$$
+    So, 
+    $$ \limsup_{n\rightarrow +\infty}\left(\sup_{x\in U} \pl g_n(x)-g(x)\pl_F\right)=0,$$
+    namely, $(g_n)_{n\in\NN}$ converges to $g$.
+\end{proofenv}
+\begin{propositionenv}
+    Let $(K,\left| \ \cdot\ \right|)$ be a complete valued field which is non-trivially valued, $(E,\pl\cdot\pl)$ be a normed vector space and $(F,\pl\cdot\pl_F)$ be a  Banach space over $K$. $U\subseteq E$ be an open subset, $(f_n)_{n\in\NN}$ be a sequence of differentiable mappings $U\longrightarrow F$ and $p\in U$. Assume that 
+    \newline
+    (1) $\dis \sum_{n\in\NN}f_n$ converges normally (uniformly suffices).
+    \newline
+    (2) $\dis \sum_{n\in\NN}\DD f_n$ converges normally (uniformly suffices).
+    \newline
+    (3) $\exists N\in \NN$ and mappings $(\delta_n: U\longrightarrow \RR_[\ge 0])_{n\in\NN_{\ge N}}$ such that
+    \begin{enumerate}
+        \item $\forall n\in \NN_{\ge N}$, $\lim_{x\rightarrow p}\delta_(x)=\delta_n(p)=0$.
+        \item $\sum_{n\in \NN}\delta_n$ converges normally (uniformly suffices).
+        \item $\forall n\in \NN_{\ge N}$, $\forall x\in U$,
+            $$ \pl f_n(x)-f_n(p)-\DD f_n(p)(x-p)\pl_F\le \delta_n(x)\pl x-p\pl_E.$$
+    \end{enumerate}
+    Let $f$ and $g$ be limits of $\sum_{n\in\NN}f_n$ and $\sum_{n\in \NN}\DD f_n$ respectively. Then $f$ is differentiable at $p$ and $\DD f=g$.
+\end{propositionenv}
+\begin{propositionenv}
+    Let $(E,\pl\cdot\pl_E)$ be a normed vector space and $(F,\pl\cdot\pl_F)$ be a Banach space over $\RR$. Let $U\subseteq E$ open, and $(f_n:U\longrightarrow F)_{n\in\NN}$ be a sequence of mappings $U\longrightarrow F$. Suppose that
+    \newline
+    (1) $\sum_{n\in\NN} \DD f_n$ converges normally (uniformly suffices) to some $g:U\longrightarrow \mathscr{L}(E,F)$.
+    \newline
+    (2) $\sum_{n\in\NN}f_n$ converges point-wise to some $f:U\longrightarrow F$.
+    \newline
+    Then $f$ is differentiable on $U$ and $\DD f=g$.
+\end{propositionenv}
+\begin{remark}
+    If $U$ is path connected, one can replace (2) by (2'): $\exists p\in U$, $\sum_{n\in\NN}f_n(p)$ converges.
+\end{remark}
+
+\section{Power Series}
+We fix a complete non-trivially valued field $(K,\left| \ \cdot\ \right|)$, and let $(E,\pl\cdot\pl_E)$ be a Banach space over $K$. 
+\begin{definitionenv}
+    Let $(S_n)_{n\in\NN}\in E^\NN$ and $b\in K$. We call power series \textbf{centered at} $b$ with  coefficients $(s_n)_{n\in\NN}$ the sequence of polynomial mappings.
+    $$ \left((z\in K)\longmapsto \sum_{l=0}^{n}(z-b)^l s_l\right)_{n\in\NN}$$
+    denoted as 
+    $$\sum_{l=0}^{n}(z-b)^l s_l.$$
+    If  $S=\sum_{n\in\NN}(z-b)^ns_n$, we denote by $R(S)$ the element 
+    $$ \left(\limsup_{n\rightarrow +\infty}\pl s_n\pl ^{\frac{1}{n}}\right)^{-1}\in [0,+\infty]$$
+    called the \textbf{convergence radius} of $S$. ($0^+\coloneq+\infty$, $(+\infty)^{-1}\coloneq 0$)
+\end{definitionenv}
+\begin{propositionenv}
+    Let $S=\sum_{n\in\NN}(z-b)^ns_n$. 
+    \newline
+    (1) $\forall a\in K$, if $|a-b|<R(s)$, then $S(a)\coloneq \sum_{n\in\NN}(a-b)^n s_n$ converges absolutely.
+    \newline
+    (2) If $r>0$ such that $(r^n\pl s_n\pl)_{n\in\NN}$ is bounded, then $R(S)\ge r$.
+    \newline
+    (3) If $a\in K$ is such that $|a-b|> R(S)$, then $\sum_{n\in \NN}(a-b)^n s_n$ diverges.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) 
+    $$ \pl (a-b)^n s\pl ^\frac{1}{n}=\left(|(a-b)^n|\cdot\pl s_n\pl\right)^{\frac{1}{n}}=|a-b|\cdot\pl s_n\pl^{\frac{1}{n}}.$$
+    $$ \limsup_{n\rightarrow +\infty}\pl (a-b)^ns_n\pl^{\frac{1}{n}}= |a-b|\cdot\limsup_{n\rightarrow +\infty}\pl s_n\pl^{\frac{1}{n}}.$$
+    If $|a-b|<R(S)$, then $|a-b|\cdot\limsup_{n\rightarrow +\infty}\pl s_n\pl^{\frac{1}{n}}<1$. By the root test of Cauchy, $\sum_{n\in \NN}(a-b)^ns_n$ converges absolutely. 
+    \newline
+    (2) $$ \pl s_n\pl^{\frac{1}{n}}=\frac{1}{r}\left(r^n\pl s_n\pl\right)^{\frac{1}{n}}.$$
+    Since $(r^n\pl s_n\pl)_{n\in\NN}$ is bounded, 
+    $$ \limsup_{n\rightarrow +\infty}\left(r^n \pl s_n\pl\right)^{\frac{1}{n}}\le 1.$$
+    So $\limsup_{n\rightarrow +\infty}\pl s_n\pl^{\frac{1}{n}}\le \frac{1}{r}.$ So $R(S)\ge r$.
+    \newline
+    (3) If $|a-b|>R(S)$, then 
+    $$\limsup_{n\rightarrow+\infty}\pl (a-b)^ns_n\pl^{\frac{1}{n}}=|a-b|\cdot\limsup_{n\rightarrow+\infty}\pl s_n\pl^{\frac{1}{n}}>1.$$
+    So $\sum_{n\in\NN}(a-b)^ns_n$ diverges.
+\end{proofenv}
+\begin{propositionenv}
+    Let $\dis S=\sum_{n\in\NN} (z-b)^ns_n$ be a power series.
+    \newline
+    (1) $\forall r\in \RR_{\ge 0}$ such that $r<R(S)$. the series $S$ converges normally on $\overline{B}(b,r)$. 
+    \newline
+    (2) $\dis \left(a\in B(b,R(S))\right)\longmapsto S(a)\coloneq \sum_{n\in\NN}(a-b)^nS_n$ is continuous.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) $\forall a\in \overline{B}(b,r)$,
+    $$ \sum_{n\in\NN}\pl (a-b)^n s_n \pl \le \sum_{n\in\NN} r^n \pl s_n\pl <+\infty$$
+    since $\dis \limsup_{n\rightarrow +\infty} r\cdot \pl s_n\pl^{\frac{1}{n}}<1$.
+    \newline
+    (2) $a\longmapsto S(a)$ is continuous on any $B(b,r)$, $r<R(S)$. Since 
+    $$B(b,R(S))=\bigcup_{r<R(S)}B(b,r),$$
+    $S$ is continuous on $B(b,R(S))$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $\dis S=\sum_{n\in\NN}(z-b)^ns_n$. We define the formal derivative of $S$ as 
+    $$ \sum_{n\in \NN_{\ge 1}}(z-b)^{n-1}(ns_{n}).$$
+\end{definitionenv}
+\begin{propositionenv}
+    Let $S=\sum_{n\in\NN}(z-b)^ns_n$ be a formal power series. LEt $P\in K[T]$. For any $n\in\NN$, let $P(n)\coloneq P(n 1_K)\in K$.
+    Let 
+    $$ S_p\coloneq \sum_{n\in\NN}(z-b)^n(P(n)s_n).$$
+    Then $R(S_p)\ge R(S)$.
+\end{propositionenv}
+\begin{proofenv}
+    We assume that $P\neq 0$, $P(T)$ is of the form
+    $$ C_dT^d+C_{d-1}T^{d-1}+\cdots+C_1T+C_0, \ c_d\neq 0.$$
+    $$|P(n)|=\mathcal{O}(n^d)=o(r^n), \text{ for any }r>1.$$
+    Hence, $\exists N\in\NN$ such that $|P(n)|\le r^n$, $\forall n\in \NN_{\ge N}$.
+    $$\limsup_{n\rightarrow+\infty}\pl P(n)s_n\pl^{\frac{1}{n}}\le r\cdot\limsup_{n\rightarrow+\infty}\pl s_n\pl^{\frac{1}{n}}.$$
+    Taking the limit when $r\rightarrow 1$, get
+    $$ \limsup_{n\rightarrow+\infty}\pl P(n)s_n\pl^{\frac{1}{n}}\le \limsup_{n\rightarrow+\infty}\pl s_n\pl^{\frac{1}{n}}.$$
+    $$ R(S_p)\ge R(S).$$
+\end{proofenv}
+\begin{lemmaenv}
+    Let $(z_0,z)\in K^2$, $n\in\NN_{\ge 1}$.
+    $$ z^n -z_0^n-n z_0^{n-1}(z-z_0)=(z-z_0)^2 \sum_{j=0}^{n-2}(n-j-1)z^j z_0^{n-2-j}.$$
+\end{lemmaenv}
+\begin{proofenv}
+    \begin{align*}
+        z^n-z_0^n=&(z-z_0)\sum_{i=0}^{n-1}z^iz^{n-1-i}.\\
+        z^n-z_0^n-nz_0^{n-1}(z-z_0)=&(z-z_0)\sum_{i=0}^{n-1}(z^i z_0^{n-1-i}-z_0^{n-1})\\
+        =&(z-z_0)\sum_{i=0}^{n-1}z_0^{n-i-1} (z^i-z_0^i)\\
+        =& (z-z_0)^2\sum_{i=1}^{n-1}z_0^{n-1-i}\sum_{j=0}^{i-1}z^jz_0^{i-j-1}\\
+        =&(z-z_0)^2\sum_{j=0}^{n-2}\sum_{i=j+1}^{n-1}z^j z_0^{n-2-j}\\
+        =&(z-z_0)^2 \sum_{j=0}^{n-2}(n-j-1)z^j z_0^{n-2-j}.
+    \end{align*}
 \end{proofenv}

@@ -585,7 +585,7 @@ If we consider the integration is dealing on $[t_0,t]^n$, then it can be divided
     \end{aligned}
 \end{equation}
 Therefore,
-\begin{equation}
+\begin{equation}\label{9.14}
     \mathscr{U}(t,t_0)=\mathcal{T}\exp\left[-\frac{\ii}{\hbar}\int_{t_0}^{t}\dd{t'}H(t')\right].
 \end{equation}
 In particular, if $H(t)$ is commutable at any different time, then 
@@ -1661,5 +1661,168 @@ In fact, we have (not only up to second order)
 \begin{equation}
     Z_n=\frac{\pa E_n}{\pa E_n^{(0)}}.
 \end{equation}
+\subsection{{\small Time-independent Perturbation Theory: Degenerate Case}}
+This is the case where some subtraction of eigenvalues not much greater than perturbation. So we need to deal with the part out of hypothesis in the previous case. We define a projection operator $P_0$ that project a state to $\{\ket*{m^{(0)}}\}$, where the eigen-values are very close such that we do not need to consider their difference while dealing with the perturbation. We denote this subspace as $D$ (Without losing of generality, we concentrate on one subspace.) For convenience, we also define $P_1:=1-P_0$.
+For any ket in $D$,
+\begin{equation}
+    \ket*{l^{(0)}}=\sum_{m\in D}\braket*{m^{(0)}}{l^{(0)}}\ket*{m^{(0)}}.
+\end{equation}
+Different from the reference book, I will estimate the order of difference between eigen-energy in $D$. And we choose $\ket{n}\in D$.
 
+By projection and orthogonality, it is easy to get
+\begin{equation}\label{16.26}
+    (E-H_0-\lambda P_0 V)P_0\ket{n}-\lambda P_0VP_1\ket{n}=0.
+\end{equation}
+\begin{equation}\label{16.27}
+    (E-H_0-\lambda P_1 V)P_1\ket{n}-\lambda P_1VP_0\ket{n}=0.
+\end{equation}
+By \eqref{16.27},
+\begin{equation}\label{16.28}
+    P_1\ket{n}=P_1\frac{\lambda}{E-H_0-\lambda P_1 V P_1}P_1VP_0\ket{n}.
+\end{equation}
+Let 
+\begin{equation}
+    \ket{n}=\ket*{n^{(0)}}+\lambda \ket*{n^{(1)}}+\mathcal{O}(\lambda^2),
+\end{equation}
+\begin{equation}
+    E=E_n^{(0)}+\lambda \Delta_n^{(1)}+\mathcal{O}(\lambda^2),
+\end{equation}
+Then,
+\begin{equation}
+    P_1\ket*{n^{(1)}}=\sum_{k\notin D}\frac{V_{kl}\ket*{k^{(0)}}}{E_n^{(0)}-E_k^{(0)}}.
+\end{equation}
+Plug \eqref{16.28} into \eqref{16.26}, we obtain (we can call it effect Hamiltonian)
+\begin{equation}\label{16.32}
+    (E-H_0-\lambda P_0 VP_0 -\lambda^2P_0VP_1\frac{1}{E-H_0-\lambda P_1 V P_0}P_1 V P_0)P_0\ket{n}=0.
+\end{equation}
+The second term:
+\begin{equation}
+    H_0P_0\ket{n}=H_0\ket*{n^{(0)}}+\lambda H_0P_0\ket*{n^{(1)}}+\mathcal{O}(\lambda^2).
+\end{equation}
+\begin{equation}
+    \begin{split}
+        H_0P_0\ket*{n^{(1)}}&=\sum_{k\in D}E_k^{(0)}\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\ket*{k^{(0)}}\\
+        &= \sum_{k\in D}(E_D^{(0)}+\varepsilon_k^{(0)})\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\ket*{k^{(0)}}\\
+        &= \sum_{k\in D}\varepsilon_k^{(0)}\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\ket*{k^{(0)}} + E_D^{(0)}P_0 \ket*{n^{(1)}}
+    \end{split}
+\end{equation}
+$\varepsilon_k^{(0)}:=E_k^{(0)}-E_D^{(0)}$ can estimate the difference between eigenvalues in $D$. I think a good choice is to let
+\begin{equation}
+    \left|\sum_{k\in D}\varepsilon_k^{(0)}\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\ket*{k^{(0)}}\right|^2=\sum_{k\in D}\left(\varepsilon_k^{(0)}\right)^2\left|\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\right|^2
+\end{equation}
+be possibly the smallest.
+
+Given a shift $\varepsilon$, we want
+\begin{equation}
+    \frac{\pa}{\pa \varepsilon} \sum_{k\in D}\left(\varepsilon_k^{(0)}+\varepsilon\right)^2\left|\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\right|^2=0.
+\end{equation}
+So,
+\begin{equation}
+    \varepsilon=-\frac{\sum\varepsilon_k^{(0)}\left|\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\right|^2}{\sum\left|\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\right|^2}
+\end{equation}
+In the following, we assume $\varepsilon_k^{(0)}$ satisfies
+\begin{equation}
+    \sum_{k\in D}\varepsilon_k^{(0)}\left|\bra*{k^{(0)}}P_0\ket*{n^{(1)}}\right|^2=0,
+\end{equation}
+and
+\begin{equation}
+    \max_{p,q\in D} |\varepsilon_p^{(0)}-\varepsilon_q^{(0)}|=\max_{p,q\in D} |E_p^{(0)}-E_q^{(0)}|.
+\end{equation}
+If we want to ignore $\varepsilon_k^{(0)}$ in the first $\lambda$ term, we need
+\begin{equation}
+    \max_{p,q\in D} |E_p^{(0)}-E_q^{(0)}|=o (\lambda) VP_0\ket{n}.
+\end{equation}
+
+The term of $\lambda$ in \eqref{16.32} give us eigen-functions
+\begin{equation}
+    (E-E_D^{(0)}-\lambda P_0 VP_0)\ket*{n^{(0)}}=0.
+\end{equation}
+That is 
+\begin{equation}
+    \det \left(V-\Delta^{(1)}_D I\right)=0,
+\end{equation}
+with a stroke of eigenkets $\{\ket*{l^{(0)}}\}$.
+
+Then we can follow the same procedure as non-degenerate case.
+\begin{equation}
+    \Delta^{(1)}_l=\expval*{V}{l^{(0)}}
+\end{equation}
+\begin{equation}
+P_0 \ket*{l_i^{(1)}} 
+= \lambda\sum_{j \neq i} \frac{P_0 \ket*{l_j^{(0)}}}{\Delta_j^{(1)} - \Delta_i^{(1)}} 
+\; \bra*{l_j^{(0)}} \bigg( V P_1 \frac{1}{E_D^{(0)} - H_0} P_1 V \bigg) \ket*{l_i^{(0)}}
+\end{equation}
+\begin{equation}
+    \Delta_l^{(2)}=\sum_{k\notin D}\frac{| V_{kl} |^2}{E_D^{(0)}-E_k^{(0)}}.
+\end{equation}
+
+\subsection{Time-dependent Potentials: The Interact Picture}
+Consider a Hamiltonian that can be split into two parts,
+\begin{equation}
+    H=H_0+V(t),
+\end{equation}
+where $H_0$ does not contain time explicitly. The problem $V(t)=0$ is assumed to be solved in the sense that the energy eigenkets $\ket{n}$  and the energy eigenvalues $E_n$
+defined by
+\begin{equation}
+    H_0\ket{n}=E_n\ket{n}
+\end{equation}
+are completely known. Suppose
+that at $t = 0$, the state ket of a physical system is given by
+\begin{equation}
+    \ket{\alpha}=\sum_{n}c_n(0)\ket{n}.
+\end{equation}
+We wish to find $c_n(t)$ for $t >0$ such that
+\begin{equation}
+    \ket{\alpha,t_0;t}=\sum_{n}c_n(t)\ee^{-\ii E_n t/\hbar}\ket{n}.
+\end{equation}
+We now use interaction picture, define
+\begin{equation}
+    \ket{\alpha,t_0;t}_I=\ee^{\ii H_0 t/\hbar}\ket{\alpha,t_0;t}_S.
+\end{equation}
+Then any operator under interaction picture can be defined as 
+\begin{equation}
+    A_I=\ee^{\ii H_0 t/\hbar}A_S\ee^{-\ii H_0 t/\hbar}.
+\end{equation}
+And now the Schrödinger equation becomes
+\begin{equation}
+    \ii \hbar \frac{\pa}{\pa t}\ket{\alpha,t_0;t}_I=V_I\ket{\alpha,t_0;t}_I.
+\end{equation}
+So we have
+\begin{equation}
+    \ii \hbar \frac{\pa}{\pa t}\braket{n}{\alpha,t_0;t}_I=\sum_{m}\bra{n}V_I\ket{m}\braket{m}{\alpha,t_0;t}_I.
+\end{equation}
+Using
+\begin{equation}
+    \bra{n}\ee^{\ii H_0 t/\hbar}V(t)\ee^{-\ii H_0 t/\hbar}\ket{m}=V_{nm}(t)\ee^{\ii (E_n-E_m)t/\hbar},
+\end{equation}
+and
+\begin{equation}
+    c_n=\braket{n}{\alpha,t_0;t}_I,
+\end{equation}
+we have
+\begin{equation}
+    \ii \hbar \frac{\dd}{\dd t}c_{n}=\sum_{m}V_{nm}\ee^{\ii \omega_{nm}t/\hbar}c_{m}(t),
+\end{equation}
+where
+\begin{equation}
+    \omega_{nm}=(E_n-E_m)/\hbar.
+\end{equation}
+Now we deal the case that $V(t)\ll H_0$. Similar to \eqref{9.14}, 
+\begin{equation}
+    U_I(t,t_0)=\mathcal{T}\exp\left[\frac{-\ii}{\hbar}\int_{t_0}^{t}\dd{t'}V_I(t')\right].
+\end{equation}
+if we let 
+\begin{equation}
+    c_n(t)=c_n^{(0)}+c_n^{(1)}+\dots,
+\end{equation}
+then,
+\begin{equation}
+    c_n^{(k)}=\left(\frac{-\ii}{\hbar}\right)^{k}\bra{n}\mathcal{T}\left[\int_{t_0}^{t}\dd{t'}V_I(t')\right]^k\ket{\text{init}}.
+\end{equation}
+In particular,
+\begin{eqnarray}
+    &c_n^{(0)}(t)=\delta_{ni}\\
+    &c_n^{(1)}(t)=\left(\frac{-\ii}{\hbar}\right)\int_{t_0}^{t}\dd{t'}\ee^{\ii \omega_{ni}t'}V_{ni}(t')\\
+    &c_n^{(2)}(t)=\left(\frac{-\ii}{\hbar}\right)^{2}\sum_{m}\int_{t_0}^{t}\dd{t_1}\int_{t_0}^{t_1}\dd{t_2}\ee^{\ii \omega_{nm} t_1}V_{nm}(t_1)\ee^{\ii \omega_{mi}t_2}V_{mi}(t_2)
+\end{eqnarray}
 \end{document}
