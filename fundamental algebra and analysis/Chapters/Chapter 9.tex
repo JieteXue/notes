@@ -585,7 +585,7 @@ Claim: $S$ is an affine subspace of $E^p$.
     If $c<b$, 
     $$\begin{array}{rl}
         f(c+h)=f(c)+hf'(c)+o(h),&\\
-        g(c+h)=g(c)+hg'(c)+o(h),&\ h>0,h\rightarrow 0.
+        g(c+h)=g(c)+hg'(c)+o(h),&\ h>0,\ h\rightarrow 0.
     \end{array}$$
     $\exists \delta>0$, such that $[c,c+\delta]\subseteq [c,b]$ and $\forall h\in [0,\delta]$,
     $$\pl f(c+h)-f(c)\pl \le h\pl f'(c)\pl+ \frac{\varepsilon}{2}h.$$
@@ -835,18 +835,18 @@ We fix a complete non-trivially valued field \defm{9.6.1}{$(K,\left|\ \cdot\ \ri
 
 \section{Banach Space}
 \begin{propositionenv}
-    Let $(X,d)$ be a metric space and $(x_n)_{n\in \NN}$ be a sequence in $X$. If 
+    Let $(X,\dd)$ be a metric space and $(x_n)_{n\in \NN}$ be a sequence in $X$. If 
     $$\sum_{n\in \NN}\dd(x_n,x_{n+1})<+\infty,$$
     then $(x_n)_{n\in \NN}$ is a Cauchy sequence.
 \end{propositionenv}
 \begin{proofenv}
-    Let $N\in \NN$. If $(n,m)\in \NN^2$, $n>m$, by the triangle inequality, 
+    Let $N\in \NN$. If $(n,m)\in \NN_{\ge N}^2$, $n>m$, by the triangle inequality, 
     $$ \dd(x_m,x_n)\le \sum_{k=m}^{n-1}\dd(x_k,x_{k+1})\le \sum_{k\ge N}\dd(x_k,x_{k+1}).$$
     So, 
     $$ 0\le \sup_{(n,m)\in \NN_{\ge N}} \dd(x_n,x_m)\le \sum_{k\ge N}\dd(x_k,x_{k+1}).$$
     Taking the limit when $N\rightarrow +\infty$, we get 
-    $$ \lim_{(n,m)\in \NN_{\ge N}^2} \dd(x_n,x_m)=0.$$
-    Let $(a_n)_{n\in\NN}\in \RR^\NN$. If $\dis \left(\sum_{k=0}^{n}a_k\right)_{n\in\NN}$ converges to some $l$ in $\RR$. Then, $l-\sum_{k=0}^{N-1}a_k$ converges to $0$. If $a_k\le 0$ for any $k\in\NN$, $l-\sum_{k=0}^{N-1}a_k=\sum_{k=N}^{+\infty}a_k$.
+    $$ \lim_{N\rightarrow +\infty}\sup_{(n,m)\in \NN_{\ge N}^2} \dd(x_n,x_m)=0.$$
+    Let $(a_n)_{n\in\NN}\in \RR^\NN$. If $ \left(\sum_{k=0}^{n}a_k\right)_{n\in\NN}$ converges to some $l$ in $\RR$. Then, $l-\sum_{k=0}^{N-1}a_k$ converges to $0$. If $a_k\le 0$ for any $k\in\NN$, $\dis l-\sum_{k=0}^{N-1}a_k=\sum_{k=N}^{+\infty}a_k$.
     $$ l-\sum_{k=0}^{N-1}a_k=\lim_{n\rightarrow +\infty}\left(\sum_{k=0}^{n}a_k-\sum_{k=0}^{N-1}a_k\right)=\lim_{n\rightarrow +\infty}\sum_{k=N}^{n}a_k.$$
 
 \end{proofenv}
@@ -868,17 +868,17 @@ We fix a complete non-trivially valued field \defm{9.6.1}{$(K,\left|\ \cdot\ \ri
 \end{remark}
 \begin{theoremenv}[Root test of Cauchy]
     Let $(E,\pl \cdot\pl)$ be a Banach space and $(x_n)_{n\in \NN}\in E^\NN$. Let
-    $$ r=\limsup_{n\rightarrow_\infty}\pl x_n\pl^{\frac{1}{n}}\in [0,+\infty]$$
-    If $r<1$, then $\sum_{n\in \NN}x_n$ converges absolutely.
+    $$ r=\limsup_{n\rightarrow +\infty}\pl x_n\pl^{\frac{1}{n}}\in [0,+\infty]$$
+    If $r<1$, then $\dis \sum_{n\in \NN}x_n$ converges absolutely.
     \newline
-    If $r>1$, then $\sum_{n\in \NN}x_n$ diverges.
+    If $r>1$, then $\dis \sum_{n\in \NN}x_n$ diverges.
 \end{theoremenv}
 \begin{lemmaenv}
-    If a series $\sum_{n\in \NN}x_n$ converges, then $\lim_{n\rightarrow+\infty}\pl x_n\pl =0$.
+    If a series $\dis \sum_{n\in \NN}x_n$ converges, then $\dis \lim_{n\rightarrow+\infty}\pl x_n\pl =0$.
 \end{lemmaenv}
 \begin{proofenv}[of lemma]
     $$ \pl x_n\pl =\pl \sum_{k=0}^{n}x_k-\sum_{k=0}^{n-1}x_k\pl .$$
-    Since $\sum_{k}^n x_k$ converges to some $l\in E$.
+    Since $\dis \sum_{k}^n x_k$ converges to some $l\in E$.
     $$ \lim_{n\rightarrow+\infty}\pl x_n\pl =\lim_{n\rightarrow+\infty}\pl \sum_{k=0}^{n}x_k- \sum_{k=0}^{n-1}x_k\pl =\pl l-l\pl=0.$$
 \end{proofenv}
 \begin{proofenv}[of theorem]
@@ -889,11 +889,11 @@ We fix a complete non-trivially valued field \defm{9.6.1}{$(K,\left|\ \cdot\ \ri
     If $r<1$, $\exists\alpha\in \interval[open]{0}{1}$,$r<\alpha$. Since $r=\limsup_{n\rightarrow +\infty}\pl x_n\pl ^{\frac{1}{n}}$,
     $$\exists N\in \NN,\ \forall n\ge N,\ \pl x_n\pl^{\frac{1}{n}}\le \alpha, \pl x_n\pl \le \alpha^n.$$
     So,
-    $$ \sum_{n\ge N}\pl x_n\pl \le \sum{n\ge N}\alpha^n=\frac{\alpha^N}{1-\alpha}<+\infty.$$
+    $$ \sum_{n\ge N}\pl x_n\pl \le \sum_{n\ge N}\alpha^n=\frac{\alpha^N}{1-\alpha}<+\infty.$$
     Therefore, $\sum_{n\in \NN}x_n$ converges absolutely.
 \end{proofenv}
 \begin{theoremenv}[Ratio test of D'Alembert]
-    LEt $(E,\pl \cdot\pl )$ be a Banach space and $(x_n)_{n\in \NN}\in E^\NN$.
+    Let $(E,\pl \cdot\pl )$ be a Banach space and $(x_n)_{n\in \NN}\in E^\NN$.
     \newline
     (1) If 
     $$ \limsup_{n\rightarrow+\infty}\frac{\pl x_{n+1}\pl}{\pl x_n\pl}<1,$$
@@ -907,18 +907,18 @@ We fix a complete non-trivially valued field \defm{9.6.1}{$(K,\left|\ \cdot\ \ri
 \ \newline
 (1) Let $0<\alpha<1$ such that 
 $$ \limsup_{n\rightarrow +\infty}\frac{\pl x_{n+1}\pl}{\pl x_n\pl}<\alpha.$$
-$$ \exists N\in \NN, \forall x\in \NN_{N}, \pl x_{n+1}\pl \alpha \pl x_n\pl\le \alpha^{n+1-N}\pl x_N\pl.$$
+$$ \exists N\in \NN, \forall x\in \NN_{\ge N}, \pl x_{n+1}\pl \le  \alpha \pl x_n\pl\le \alpha^{n+1-N}\pl x_N\pl.$$
 Thus,
 $$ \sum_{n\ge \NN}\pl x_n\pl \le \sum_{n\ge \NN}\pl x_N\pl \alpha^{n-N}=\pl x_N\pl \frac{1}{1-\alpha}<+\infty.$$
 (2) Let $\beta>1$ such that 
 $$ \liminf_{n\rightarrow +\infty}\frac{\pl x_{n+1}\pl }{\pl x_n\pl}>\beta.$$
 $$ \exists N\in \NN, x_N\neq 0, \text{ and } \forall n\in \NN_{\ge N},\pl x_{n+1}\pl\ge \beta\pl x_n\pl$$
-$$ \forall n\ge N,\pl x_n\pl\ge \beta ^{n-N} \pl x_N\pl \rightarrow +\infty (n\rightarrow+\infty)$$
+$$ \forall n\ge N,\pl x_n\pl\ge \beta ^{n-N} \pl x_N\pl \rightarrow +\infty\  (n\rightarrow+\infty)$$
 So $\sum_{n\in \NN}x_n$ diverges.
 \end{proofenv}
 \begin{box2}
     Let $z\in \CC$. The series $\sum_{n\in \NN}\frac{z^n}{n!}$ converges absolutely since
-    $$\left|\frac{z^{n+1}/(n+1)!}{z^n/n!}\right|=\frac{ |z| }{n+1}\rightarrow 0 (n\rightarrow +\infty).$$
+    $$\left|\frac{z^{n+1}/(n+1)!}{z^n/n!}\right|=\frac{ |z| }{n+1}\rightarrow 0\  (n\rightarrow +\infty).$$
     We denote by $\mathrm{e}^z$ this limit.
 \end{box2}
 
@@ -1121,7 +1121,7 @@ So $\sum_{n\in \NN}x_n$ diverges.
     Let $(X,\dd)$ be a metric space, $f: X\longrightarrow X$ be a mapping. If exists $\alpha\in \interval[open]{0}{1}$, such that $f$ is $\alpha$-Lipschitzian, we say that $f$ is a \textbf{contraction}.
 \end{definitionenv}
 \begin{definitionenv}
-    Let $f:X\longrightarrow X$ be a mapping. If $x\in X$ id such that $f(x)=x$, we say that $x$ is a \textbf{fixed point} of $f$.
+    Let $f:X\longrightarrow X$ be a mapping. If $x\in X$ is such that $f(x)=x$, we say that $x$ is a \textbf{fixed point} of $f$.
 \end{definitionenv}
 \begin{theoremenv}[Banach fixed point theorem]
     Let $(X,\dd)$ be a non-empty complete metric space and $f: X\longrightarrow X$ be a contraction. Then $f$ admits a unique fixed point.
@@ -1242,7 +1242,7 @@ So $\sum_{n\in \NN}x_n$ diverges.
     $$ \dd(f(x),f(p))\le \dd(f(x),f_n(x))+\dd(f_n(x),f_n(p))+\dd(f_n(p),f(p))<\varepsilon.$$
 \end{proofenv}
 \begin{theoremenv}
-    Let $(X,\dd_X)$ and $(Y,\dd_Y)$ be two metric spaces, $(f_n)_{n\in\NN}$ sequence of uniformly continuous mappings from $X$ to $Y$. Suppose that $(f_n)_{n\in\NN}$ converges uniformly to $f:X\longrightarrow Y$. Then $f$ is uniformly continuous.
+    Let $(X,\dd_X)$ and $(Y,\dd_Y)$ be two metric spaces, $(f_n)_{n\in\NN}$ be sequence of uniformly continuous mappings from $X$ to $Y$. Suppose that $(f_n)_{n\in\NN}$ converges uniformly to $f:X\longrightarrow Y$. Then $f$ is uniformly continuous.
 \end{theoremenv}
 \begin{proofenv}
     Let $\varepsilon>0$. There exists $n\in \NN$ such that 
@@ -1260,7 +1260,7 @@ So $\sum_{n\in \NN}x_n$ diverges.
 
     (2) $(f_n)_{n\in\NN}$ converges uniformly to $f$.
 
-    (3) There exists $N\in \NN$ and mapping $\delta: U\longrightarrow \RR_{\ge 0}$ such that $\lim_{x\rightarrow p}\delta(x)=0$ and for any $n\in\NN_{\ge N}$, any $x\in U$,
+    (3) There exists $N\in \NN$ and mapping $\delta: U\longrightarrow \RR_{\ge 0}$ such that $\dis \lim_{x\rightarrow p}\delta(x)=0$ and for any $n\in\NN_{\ge N}$, any $x\in U$,
     $$ \pl f_n(x)-f_n(p)-\DD f_n(p)(x-p)\pl_{F}\le \delta(x) \pl x-p\pl_E.$$
     Then $f$ is differentiable and $\DD f=g$.
 \end{theoremenv}
@@ -1366,21 +1366,21 @@ So $\sum_{n\in \NN}x_n$ diverges.
     $$ \limsup_{n\rightarrow +\infty}\left(\sup_{x\in U} \pl g_n(x)-g(x)\pl_F\right)=0,$$
     namely, $(g_n)_{n\in\NN}$ converges to $g$.
 \end{proofenv}
-\begin{propositionenv}
+\begin{propositionenv}\label{9.10.10}
     Let $(K,\left| \ \cdot\ \right|)$ be a complete valued field which is non-trivially valued, $(E,\pl\cdot\pl)$ be a normed vector space and $(F,\pl\cdot\pl_F)$ be a  Banach space over $K$. $U\subseteq E$ be an open subset, $(f_n)_{n\in\NN}$ be a sequence of differentiable mappings $U\longrightarrow F$ and $p\in U$. Assume that 
     \newline
     (1) $\dis \sum_{n\in\NN}f_n$ converges normally (uniformly suffices).
     \newline
     (2) $\dis \sum_{n\in\NN}\DD f_n$ converges normally (uniformly suffices).
     \newline
-    (3) $\exists N\in \NN$ and mappings $(\delta_n: U\longrightarrow \RR_[\ge 0])_{n\in\NN_{\ge N}}$ such that
+    (3) $\exists N\in \NN$ and mappings $(\delta_n: U\longrightarrow \RR_{\ge 0})_{n\in\NN_{\ge N}}$ such that
     \begin{enumerate}
-        \item $\forall n\in \NN_{\ge N}$, $\lim_{x\rightarrow p}\delta_(x)=\delta_n(p)=0$.
+        \item $\forall n\in \NN_{\ge N}$, $\lim_{x\rightarrow p}\delta_n(x)=\delta_n(p)=0$.
         \item $\sum_{n\in \NN}\delta_n$ converges normally (uniformly suffices).
         \item $\forall n\in \NN_{\ge N}$, $\forall x\in U$,
             $$ \pl f_n(x)-f_n(p)-\DD f_n(p)(x-p)\pl_F\le \delta_n(x)\pl x-p\pl_E.$$
     \end{enumerate}
-    Let $f$ and $g$ be limits of $\sum_{n\in\NN}f_n$ and $\sum_{n\in \NN}\DD f_n$ respectively. Then $f$ is differentiable at $p$ and $\DD f=g$.
+    Let $f$ and $g$ be limits of $\dis \sum_{n\in\NN}f_n$ and $\dis \sum_{n\in \NN}\DD f_n$ respectively. Then $f$ is differentiable at $p$ and $\DD f=g$.
 \end{propositionenv}
 \begin{propositionenv}
     Let $(E,\pl\cdot\pl_E)$ be a normed vector space and $(F,\pl\cdot\pl_F)$ be a Banach space over $\RR$. Let $U\subseteq E$ open, and $(f_n:U\longrightarrow F)_{n\in\NN}$ be a sequence of mappings $U\longrightarrow F$. Suppose that
@@ -1407,13 +1407,13 @@ We fix a complete non-trivially valued field $(K,\left| \ \cdot\ \right|)$, and 
     called the \textbf{convergence radius} of $S$. ($0^+\coloneq+\infty$, $(+\infty)^{-1}\coloneq 0$)
 \end{definitionenv}
 \begin{propositionenv}
-    Let $S=\sum_{n\in\NN}(z-b)^ns_n$. 
+    Let $ S=\sum_{n\in\NN}(z-b)^ns_n$. 
     \newline
-    (1) $\forall a\in K$, if $|a-b|<R(s)$, then $S(a)\coloneq \sum_{n\in\NN}(a-b)^n s_n$ converges absolutely.
+    (1) $\forall a\in K$, if $|a-b|<R(S)$, then $S(a)\coloneq \sum_{n\in\NN}(a-b)^n s_n$ converges absolutely.
     \newline
     (2) If $r>0$ such that $(r^n\pl s_n\pl)_{n\in\NN}$ is bounded, then $R(S)\ge r$.
     \newline
-    (3) If $a\in K$ is such that $|a-b|> R(S)$, then $\sum_{n\in \NN}(a-b)^n s_n$ diverges.
+    (3) If $a\in K$ is such that $|a-b|> R(S)$, then $ \sum_{n\in \NN}(a-b)^n s_n$ diverges.
 \end{propositionenv}
 \begin{proofenv}
     \ \newline
@@ -1453,14 +1453,14 @@ We fix a complete non-trivially valued field $(K,\left| \ \cdot\ \right|)$, and 
     $$ \sum_{n\in \NN_{\ge 1}}(z-b)^{n-1}(ns_{n}).$$
 \end{definitionenv}
 \begin{propositionenv}
-    Let $S=\sum_{n\in\NN}(z-b)^ns_n$ be a formal power series. LEt $P\in K[T]$. For any $n\in\NN$, let $P(n)\coloneq P(n 1_K)\in K$.
+    Let $S=\sum_{n\in\NN}(z-b)^ns_n$ be a formal power series. Let $P\in K[T]$. For any $n\in\NN$, let $P(n)\coloneq P(n 1_K)\in K$.
     Let 
     $$ S_p\coloneq \sum_{n\in\NN}(z-b)^n(P(n)s_n).$$
     Then $R(S_p)\ge R(S)$.
 \end{propositionenv}
 \begin{proofenv}
     We assume that $P\neq 0$, $P(T)$ is of the form
-    $$ C_dT^d+C_{d-1}T^{d-1}+\cdots+C_1T+C_0, \ c_d\neq 0.$$
+    $$ C_dT^d+C_{d-1}T^{d-1}+\cdots+C_1T+C_0, \ C_d\neq 0.$$
     $$|P(n)|=\mathcal{O}(n^d)=o(r^n), \text{ for any }r>1.$$
     Hence, $\exists N\in\NN$ such that $|P(n)|\le r^n$, $\forall n\in \NN_{\ge N}$.
     $$\limsup_{n\rightarrow+\infty}\pl P(n)s_n\pl^{\frac{1}{n}}\le r\cdot\limsup_{n\rightarrow+\infty}\pl s_n\pl^{\frac{1}{n}}.$$
@@ -1480,5 +1480,137 @@ We fix a complete non-trivially valued field $(K,\left| \ \cdot\ \right|)$, and 
         =& (z-z_0)^2\sum_{i=1}^{n-1}z_0^{n-1-i}\sum_{j=0}^{i-1}z^jz_0^{i-j-1}\\
         =&(z-z_0)^2\sum_{j=0}^{n-2}\sum_{i=j+1}^{n-1}z^j z_0^{n-2-j}\\
         =&(z-z_0)^2 \sum_{j=0}^{n-2}(n-j-1)z^j z_0^{n-2-j}.
+    \end{align*}
+\end{proofenv}
+
+\begin{theoremenv}
+    Let $\sum_{n\in\NN}(z-b)^n s_n$ be a power series and $R$ be its convergence radius. For any $z\in B(b,R)$, let $S(z)$ be the limit of the series.
+    Then the mapping $S: B(b,R)\longrightarrow E$ is differentiable, and its derivative is given by the limit of the power series
+    $$ \sum_{n\in \NN_{\ge 1}}(z-b)^{n-1}(ns_{n}).$$
+\end{theoremenv}
+\begin{proofenv}
+    Let $r<R$, $(z,z_0)\in B(b,r)^2$.
+    \begin{align*}
+        &\pl (z-b)^n s_n-(z_0-b)^n s_n- (z-z_0)(z_0-b)^{n-1} n s_n\pl \\
+        =& |z-z_0|^2 \cdot\pl \sum_{j=0}^{n-2}(n-1-j)(z-b)^j(z_0-b)^{n-2-j}s_n\pl .\\
+        &\pl \sum_{j=0}^{n-2}(n-1-j)(z-b)^j(z_0-b)^{n-2-j}s_n\pl \\
+        \le & \sum_{j=0}^{n-2}(n-1-j)r^{n-2}\pl s_n\pl =\frac{n(n-1)}{2} r^{n-2}\pl s_n\pl.
+    \end{align*}
+    We know that 
+    $$ \sum_{n\in\NN}\frac{n(n-1)}{2} r^{n-2} \pl s_n\pl<+\infty.$$
+    Therefore, the result follows from the proposition \ref{9.10.10}.
+\end{proofenv}
+\begin{definitionenv}
+    Let $(a_n)_{n\in\NN}\in K^{\NN}$ and $(s_n)_{n\in\NN}\in E^{\NN}$. We call \textbf{Cauchy product} of the series $\sum_{n\in\NN}a_n$ and $\sum_{n\in\NN} s_n$ as the series:
+    $$ \sum_{n\in\NN}\left(\sum_{k=0}^{n} a_k s_{n-k}\right).$$
+\end{definitionenv}
+\begin{theoremenv}[Merterns]
+    Let $(a_n)_{n\in\NN}\in K^{\NN}$ and $(s_n)_{n\in\NN}\in E^{\NN}$. Suppose that $\sum_{n\in\NN}a_n$ and $\sum_{n\in \NN}s_n$ converges to $b\in K$ and $t\in E$ respectively.
+    \newline
+    (1) If at least one of $\sum_{n\in\NN}a_n$, $\sum_{n\in\NN}s_n$ converges absolutely, then the their Cauchy product converges to $bt$.
+    \newline
+    (2) If both $\sum_{n\in\NN}a_n$ and $\sum_{n\in\NN}s_n$ converge absolutely, then the Cauchy product also converges absolutely.
+\end{theoremenv}
+\begin{proofenv}
+    \ \newline
+    (1) Suppose that $\sum_{n\in\NN}a_n$ converges absolutely. For any $n\in\NN$, let
+    $$ A_n\coloneq \sum_{k=0}^{n}a_k,\ S_n\coloneq\sum_{k=0}^{n}s_k.$$
+    For any $N\in\NN$, let
+    $$ t_N = \sum_{n=0}^{N}\left(\sum_{k=0}^{n} a_k s_{n-k}\right)= \sum_{\substack{(k,l)\in\NN^2\\k+l\le N}}a_k s_l=\sum_{k=0}^{N}a_k S_{N-k}=A_n t+\sum_{k=0}^{N}a_k \left(S_{N-k}-t\right).$$
+    Then,
+    $$ t_N-bt=\left(A_N-b\right) t+\sum_{k=0}^{N}a_k \left(S_{N-k}-t\right).$$
+    Let $\alpha\coloneq\sum_{n\in \NN}|a_n|$ and for any $n\in\NN$， let
+    $$ \varepsilon_n\coloneq \sup_{m\in \NN,\ m\le n} \pl S_m-t \pl.$$
+    For any $l\in \{0,\ldots,N\}$, one has
+    \begin{align*}
+        \pl \sum_{k=0}^{N}a_k \left(S_{N-k}-t\right)\pl &\le \sum_{k=0}^{N-l} |a_k|\cdot\pl S_{N-k} -t\pl +\sum_{k=N-l+1}^{N}|a_k|\cdot\pl S_{N-k}-t \pl \\
+        &\le \varepsilon_{l}\cdot\alpha +\max_{i\in \{0,\ldots,l-1\}}\pl S_i-t\pl \cdot\sum_{k=N-l+1}^{N}|a_k|.
+    \end{align*}
+    We get 
+    $$ \forall l\in \NN,\ \limsup_{N\rightarrow +\infty} \pl \sum_{k=0}^{N}a_k \left(S_{N-k}-t\right)\pl \le \varepsilon_{l} \alpha.$$
+    Taking the infimum with respect to $l$, we get 
+    $$ \limsup_{N\rightarrow+\infty}\pl \sum_{k=0}^{N} a_k \left(S_{N-k}-t\right)\pl=0.$$
+    We deduce therefore that 
+    $$ \lim_{N\rightarrow +\infty}t_N=bt.$$
+    \newline
+    (2) Let 
+    $$ \alpha=\sum_{n\in\NN}|a_n|,\ \beta=\sum_{n\in\NN}\pl s_n\pl.$$
+    For any $N\in\NN$, one has
+    $$ \sum_{n=0}^{N} \pl \sum_{k=0}^{n}a_k s_{n-k}\pl \le \sum_{n=0}^{N}\sum_{k=0}^{n}|a_k|\cdot\pl s_n\pl\le \sum_{\substack{(k,l)\in \NN^2\\ k\le N,\ l\le N}} |a_k|\pl s_l\pl \le \alpha\cdot\beta.$$
+    So the Cauchy product of $\sum_{n\in\NN}a_n$ and $\sum_{n\in\NN}s_n$ converges absolutely.
+\end{proofenv}
+\begin{exampleenv}
+    Consider
+    $$ \mathrm{e}^z=\exp(z)\coloneq\sum_{n\in\NN}\frac{z^n}{n!},\  z\in \mathbb{C}.$$
+    By thw ratio test of D'Alembert, for any $r>0$, $\sum_{n\in\NN}\frac{r^n}{n!}<+\infty$. $\mathrm{e}^z$ is well defined.
+
+    Let $\alpha\in \mathbb{C}$,
+    $$ \exp'(\alpha z)= \alpha \exp(\alpha z).$$
+    We define 
+    $$ \cos (z)\coloneq \frac{\mathrm{e}^{\ii z}+\mathrm{e}^{-\ii z}}{2},\ \sin(z)\coloneq \frac{\mathrm{e}^{\ii z}-\mathrm{e}^{-\ii z}}{2\ii},$$
+    $$ \cosh (z)\coloneq \frac{\mathrm{e}^{ z}+\mathrm{e}^{- z}}{2},\ \sinh(z)\coloneq \frac{\mathrm{e}^{ z}-\mathrm{e}^{- z}}{2}.$$
+
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(a,b,z)\in \CC^3$, then
+    $$ \exp((a+b)z)=\exp(az)\exp(bz).$$
+\end{propositionenv}
+\begin{proofenv}
+    The Cauchy product of $\dis \sum_{n\in\NN}\frac{(az)^n}{n!}$ and $\dis \sum_{n\in\NN}\frac{(bz)^n}{n!}$ is $\dis \sum_{n\in\NN}\frac{(a+b)^nz^n}{n!}$. Use the theorem of Merterns.
+\end{proofenv}
+
+\section{Directional Differential}
+\begin{definitionenv}
+    Let $(K,\left|\ \cdot\ \right|)$ be a complete non-trivially valued field, and $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$. Let $U\subseteq K$ open, $f:U\longrightarrow F$ be a mapping, $p\in U$, $h\in E$.
+    If the limit 
+    $$ \lim_{t\rightarrow 0} \frac{f(p+th)-f(p)}{t}$$
+    exists, we say that $f$ admits the \textbf{directional derivative} at $p$ along $h$.
+\end{definitionenv}
+\begin{notationenv}
+    $$ \pa_h f(p)= \lim_{t\rightarrow 0} \frac{f(p+th)-f(p)}{t}.$$
+\end{notationenv}
+\begin{definitionenv}
+    Let $(E_1,\pl\cdot\pl_1),\ldots,(E_n,\pl\cdot\pl_n)$ be normed vector spaces, $E\coloneq E_1\times\dots\times E_n$,
+    $$ \pl (s_1,\ldots,s_n)\pl=\max_{i\in \{1,\ldots,n\}}\pl s_i\pl.$$
+    If $f: U\longrightarrow F$. We say that $f$ has the \textbf{$\mathbf{i}$-th partial differential} at $p=(p_1,\ldots,p_n)\in U$, if the mapping
+    $$ x_i\longmapsto f(p_1,\ldots,p_{i-1},x_i,p_{i+1},\ldots,p_n)$$
+    is differentiable at $p_i$. We denote the existing differential at $p_i$ by
+    $$ \DD_i f(p)\in \mathscr{L}(E_i,F).$$
+    In the case when $E_i=K$,
+    $$ \DD_i f(p)(1)\coloneq \pa_i f(p) \text{ or }\frac{\pa f}{\pa x_i}(p).$$
+    Note that
+    $$\pa_i f(p)= \pa_{\substack{(0,\cdots,1,\cdots,0)\\ i\text{-th}}}f(p).$$
+\end{definitionenv}
+\begin{remark}
+    Let $(K,\left| \ \cdot\ \right|)$ be a complete non-trivially valued filed, $(E_i,\pl\cdot\pl_i)$, $i\in\{1,\cdots,n\}$, $(F,\pl\cdot\pl_F)$ be normed vector spaces. $E=E_1\times\dots\times E_n$, equipped with the norm $\pl\cdot\pl$ defined as
+    $$ \pl (x_1,\cdots,x_n)\pl=\max_{i\in \{1,\cdots,n\}}\pl x_i\pl_i.$$
+    Let $U\subseteq E$ be an open subset, $p\in U$, $f:U\longrightarrow F$ be a mapping. If $f$ is differentiable at $p$, then $f$ has the $i$-th partial differential at $p$ for $i\in\{1,\cdots,n\}$.
+    In fact,
+    $$ f(p_1,\cdots,p_i+h_i,\cdots,p_n)=f(p)+\DD f(p)(0,\cdots,h_i,\cdots,0)+o(\pl h_i\pl_i).$$
+    $$ \DD_i f(p)(h_i)=\DD f(p)(0,\cdots,h_i,\cdots,0).$$
+    $$ \DD f(p)(h)=\sum_{i=1}^n \DD f(p)(0,\cdots,h_i,\cdots,0)=\sum_{i=1}^n \DD_i f(p)(h_i).$$
+\end{remark}
+\begin{propositionenv}
+    Let $(E_i,\pl\cdot\pl_i)$, $i\in\{1,\cdots,n\}$, $(F,\pl\cdot\pl_F)$ be normed vector spaces over $\RR$, with $\dim _\RR(F)<+\infty$. Let $E=E_1\times\dots\times E_n$, equipped with the norm $\pl\cdot\pl$ defined as
+    $$ \pl (x_1,\cdots,x_n)\pl=\max_{i\in \{1,\cdots,n\}}\pl x_i\pl_i.$$
+    Let $U\subseteq E$ be an open subset, $f: U\longrightarrow F$ be a mapping.
+    Suppose that, for any $i\in\{1,\cdots,n\}$, $f$ has $i^{\text{th}}$ partial differential on $U$, and $\DD_i f:U\longrightarrow \mathscr{L}(E_i,F) $ is continuous. Then $f$ is differentiable on $U$, and
+    $$ \forall p\in U,\ \DD f(p)(h_1,\cdots,h_n)=\sum_{i=1}^{n} \DD_i f(p)(h_i).$$
+\end{propositionenv}
+\begin{proofenv}
+    We first treat the case where $F=\RR$. Let $p\in U$, and $r>0$ such that $B(p,r)\subseteq U$. Let $h=(h_1,\cdots,h_n)\in B(0,r)$.
+    \begin{align*}
+        f(p+h)-f(p)=\sum_{i=1}^{n}&(f(p_1+h_1,\cdots,p_i+h_i+\cdots,p_{i+1},\cdots,p_n)\\
+        &-f(p_1+h_1,\cdots,p_i,\cdots,p_{i+1},\cdots,p_n)).
+    \end{align*}
+    By the mean value theorem of Lagrange, 
+    $$ \exists (t_1(h),\cdots,t_n(h))\in \interval[open]{0}{1}^n$$
+    such that 
+    $$ f(p+h)-f(p)=\sum_{i=1}^{n}\DD_i f(p_1+h_1,\cdots,p_i+t_i(h) h_i,\cdots,p_{i+1},\cdots,p_n)(h_i).$$
+    \begin{align*}
+        &f(p+h)-f(p)-\sum_{i=1}^{n}\DD_i f(p)(h)\\
+        =&\sum_{i=1}^{n}\DD_i f(p_1+h_1,\cdots,p_i+t_i(h) h_i,\cdots,p_{i+1},\cdots,p_n)(h_i)\\
+        -&\sum_{i=1}^{n}\DD_i f(p_1,\cdots,p_i,\cdots,p_{i+1},\cdots,p_n)(h_i)\\
+        =& o(\pl h\pl).
     \end{align*}
 \end{proofenv}

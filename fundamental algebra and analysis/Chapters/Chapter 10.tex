@@ -1,0 +1,191 @@
+\chapter{Integral Calculus}
+
+\section{Differential 1-form}
+\begin{definitionenv}
+    Let $(K,\left|\ \cdot\ \right|)$ be a complete non-trivially valued field.
+    
+    Let $(E,\pl\cdot\pl_E)$ and $(F,\pl\cdot\pl_F)$ be normed vector spaces over $K$.
+    Let $U\subseteq E$ be an open subset. We call \textbf{1-form} \textit{on $U$ with coefficients in} $F$ any mapping
+    $$ \alpha: U\longrightarrow \mathscr{L}(E,F).$$
+    If there exists $f:U\longrightarrow F$ differentiable such that $\DD f=\alpha$, we say that $\alpha$ is an \textbf{exact} $1$-form. (Sometimes $\DD f$ is also written as $\dd f$.)
+\end{definitionenv}
+\begin{definitionenv}
+    We call a complete valued filed \textbf{extension} of $(K,\left|\ \cdot\ \right|)$ any complete valued field $(K',\left|\ \cdot\ \right|')$ such that $K\subseteq K'$ and $\left| \ \cdot\ \right|=\left| \ \cdot\ \right|'|_K$.
+    \newline
+    Let $(F,\pl\cdot\pl)$ be a normed vector space over $K$. If $\alpha: U\longrightarrow \mathscr{L}(E,K')$ and $s: U\longrightarrow F$ be mappings, we denote by 
+    $$ \alpha\otimes s: U\longrightarrow \mathscr{L}(E,F)$$
+    be the mapping sending $p\in U$ to
+    $$ (h\in E)\longmapsto \alpha(p)(h)s(p).$$
+    Note that 
+    $$\pl \alpha(p)(h)s(p)\pl_F\le | \alpha(p)(h)|_{K'}\cdot\pl s(p)\pl_F\le \pl \alpha(p)\pl \cdot\pl s(p)\pl_F\cdot\pl h\pl_E.$$
+    If $(F,\pl\cdot\pl_F)=(K',\left|\ \cdot\ \right|')$, $\alpha\otimes s$ is also written as $\alpha s$.
+\end{definitionenv}
+\begin{exampleenv}
+    $(K,\left|\ \cdot\ \right|)=(\RR,\left|\ \cdot\ \right|)$, $K'=\CC$, $|x+\ii y|'\coloneq\sqrt{x^2+y^2}$.
+\end{exampleenv}
+\begin{exampleenv}
+    Let $\varphi\in \mathscr{L}(E,F)$, 
+    $$\begin{array}{rrcl}
+        \DD \varphi:& E&\longrightarrow &\mathscr{L}(E,F)\\
+        & p&\longmapsto& \varphi.
+    \end{array}$$
+    is a constant mapping.
+
+    As a $1$-form, it is often written as $\dd \varphi$.
+    \begin{exampleenv}
+        $E=K^n$, $x_i: K^n\longrightarrow K$, $(p_1,\cdots,p_n)\longmapsto p_i$. $U\subseteq E$ open, $f: U\longrightarrow K$ differentiable.
+        $$ \dd f(p)=\sum_{i=1}^{n}\frac{\pa f}{\pa x_i}(p)\dd x_i.$$
+    \end{exampleenv}
+    \begin{exampleenv}
+        Let $w\in \CC$, $f: \RR\longrightarrow \CC$, $t\longmapsto \exp(wt)$.
+        $$ \dd f(t)=f'(t)\dd t=w\exp(wt) \dd t.$$
+    \end{exampleenv}
+\end{exampleenv}
+\begin{propositionenv}
+    Let $(K',\left|\ \cdot\ \right|)$ be a complete valued extension of $(K,\left|\ \cdot\ \right|)$, and $(F,\pl\cdot\pl_F)$ be a normed vector space over $K'$. Let $(E,\pl\cdot\pl_E)$ be a normed vector space over $K$, $U\subseteq E$ be ann open subset.
+    Let $f: U\longrightarrow K'$ and $g: U\longrightarrow F$ be two mappings that are differentiable, then 
+    $$ \dd(f g)=f \dd g+\dd f \otimes g.$$
+\end{propositionenv}
+\begin{propositionenv}
+    Let $(K',\left| \ \cdot\ \right|')$ be a complete valued extension of $(K,\left|\ \cdot\ \right|)$. $(E,\pl\cdot\pl_E)$ be a normed vector space over $K$, $(F,\pl\cdot\pl_F)$ be a normed vector space over $K'$. Let $U\subseteq E$ be an open subset, and $V\subseteq K'$ be an open subset. $f:U\longrightarrow V$, $g:V\longrightarrow F$ be differentiable mappings, then 
+    $$ \dd(g\circ f)= \dd f \otimes (g'\circ f).$$
+\end{propositionenv}
+\begin{proofenv}
+    For $p\in U$ and $h\in E$,
+    \begin{align*}
+        \DD(g\circ f)(p)(h)&=\DD g(f(p))(\DD f(p)(h))\\
+        &=\DD f(p)(h)\cdot \DD g(f(p))(1)\\
+        &=\DD f(p)(h)\cdot g'(f(p))\\
+    \end{align*}
+\end{proofenv}
+\section{Primitive Functions}
+\begin{propositionenv}
+    Let $(E,\pl\cdot\pl)$ and $(F,\pl\cdot\pl)$ be normed vector spaces over $\RR$ and $U\subseteq E$ be a path connected open subset.
+    If $f: U\longrightarrow F$ is a mapping such that $\dd f=0$, then $f$ is a constant mapping.
+\end{propositionenv}
+\begin{proofenv}
+    Let $p$ and $q$ be elements of $U$. There exists $\gamma:[0,1]\longrightarrow U$ continuous and differentiable on $\interval[open]{0}{1}$, such that $\gamma(0)=p$, $\gamma(1)=q$.
+    $$ \pl f(p)-f(q)\pl_F=\pl f(\gamma(0))- f(\gamma(1))\pl_F\le \sup_{t\in \interval[open]{0}{1}}\pl \DD f(\gamma(t))(\gamma'(t))\pl_F=0.$$
+    So $f(p)=f(q)$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $I\subseteq \RR$ be an open interval and $\varphi: I\longrightarrow F$ be a mapping. If there exists $\varPhi: I\longrightarrow F$ such that $\varPhi'=\varphi$, we say that $\varPhi$ is a primitive function of $\varphi$. We denote by 
+    $$ \int\varphi(t)\dd t$$
+    an arbitrary primitive function of $\varphi$.
+    By the previous proposition,
+    $$ \int\varphi(t)\dd t=\varPhi(t)+C.$$
+    where $C$ is a constant mapping.
+\end{definitionenv}
+\begin{exampleenv}
+    Let $w\in \CC$,
+    $$ \int \exp(wt)\dd t=\left\{\begin{array}{cl}
+         \frac{\exp(wt)}{w}+C&,w\neq 0\\
+         t+C&,w=0.
+    \end{array}\right.$$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $I\subseteq \RR$ be an open interval. Let $g: I\longrightarrow \RR$ and $\varphi:I\longrightarrow F$  be mappings having $G: I\longrightarrow \RR$ and $\varPhi: I\longrightarrow F$ as primitive functions.
+    Then
+    $$ \int G(t) \dd \varPhi(t)+\int \dd G(t)\otimes \varPhi(t)=G(t)\varPhi(t) + C.$$
+    or equivalently,
+    $$ \int G(t) \dd t \otimes \varphi (t)+\int g(t)\dd t\otimes \varPhi(t)=G(t)\varPhi(t) + C.$$
+    If $F=\RR$ or $F=\CC$, the formula can be written as 
+    $$ \int G(t) \dd \varPhi(t)+\int \Phi(t) \dd G(t) =G(t)\varPhi(t) +C.$$
+    or 
+    $$ \int G(t)  \varphi (t) \dd t +\int  \varPhi(t) g(t) \dd t =G(t)\varPhi(t) + C.$$
+
+\end{propositionenv}
+\begin{exampleenv}
+    $$ \int t\ee^{t} \dd t=\int  t\dd(\ee^t)= t\ee^t-\int \ee^t \dd t=t \ee^t-\ee^t+C.$$
+\end{exampleenv}
+\begin{propositionenv}
+    Let $U\subseteq\RR$ be an open subset, $V\subseteq\RR$ be an open subset, $f: U\longrightarrow V$ and $g: V\longrightarrow F$ differentiable mappings. One has 
+    $$ \int \dd f(t) \otimes g'(f(t)) =g(f(t))+C.$$
+\end{propositionenv}
+\begin{exampleenv}
+    $$ \int \sin (t)\cos (t)\dd t= \int \sin(t)\dd(\sin(t))=\frac{1}{2}\sin(t)^2+C.$$
+\end{exampleenv}
+
+\section{Riesz Space}
+We fix a set $\Omega$. We equipped $\RR^\Omega$ with the partial order $\le $ as follows:
+$$\forall (f,g)\in \RR^\Omega\times \RR^\Omega,\ f\le g \Leftrightarrow \forall \omega\in \Omega,\ f(\omega)\le g(\omega).$$
+If $(f_1,\cdots,f_n)\in \left(\RR^\Omega\right)^n$, $\inf\{f_1,\cdots,f_n\}$ and $\sup\{f_1,\cdots,f_n\}$ exists.
+$$ \forall \omega\in \Omega,\ \inf\{f_1,\cdots,f_n\}(\omega)=\min\{f_1(\omega),\cdots,f_n(\omega)\}$$
+$$ \forall \omega\in \Omega,\ \sup\{f_1,\cdots,f_n\}(\omega)=\max\{f_1(\omega),\cdots,f_n(\omega)\}$$
+
+\begin{definitionenv}
+    We call Riesz space on $\Omega$ any vector space $S$ of $\RR^\Omega$, such that 
+    $$ \forall (f,g)\in S\times S,\ \inf\{f,g\}\in S.$$
+\end{definitionenv}
+\begin{remark}
+    $\forall (f,g)\in S\times S$, 
+    $$ \sup \{f,g\}=f+g-\inf\{f,g\}\in S.$$
+    By induction, $\forall n\in \NN_{\ge 1}$, $\forall (f_1,\cdots,f_n)\in S^n$, 
+    $$ \inf\{f_1,\cdots,f_n\}, \sup\{f_1,\cdots,f_n\}\subseteq S.$$
+    $$ \forall \omega \in \Omega,\ \sup\{f,g\}(\omega)=\max\{f(\omega),g(\omega)\}=f(\omega)+g(\omega)-\min\{f(\omega),g(\omega)\}.$$
+\end{remark}
+\begin{definitionenv}
+    Let $S$ be a Riesz space on $\Omega$. We call \textbf{integral operator} on $S$ any $\RR$-linear mapping $I:S\longrightarrow \RR$ such that
+    \newline
+    (1) $\forall (f,g)\in S\times S$, if $f\le g$, then $I(f)\le I(g)$.
+    \newline
+    (2) If $(f_n)_{n\in\NN}$ is a decreasing sequence in $S$, that converges point-wise to constant zero mapping $0$, one has 
+    $$ \lim_{n\rightarrow +\infty}I(f_n)=0.$$
+\end{definitionenv}
+\begin{exampleenv}
+    Let $\Omega=\RR$, $\forall A\subseteq \RR$, let 
+    $$ \begin{array}{rrcl}
+        \mathbbm{1}_A:& \RR &\longrightarrow& \{0,1\}\\
+        &x&\longmapsto& \begin{cases}
+            1,\ x\in A\\
+            0,\ x\notin A
+        \end{cases}
+    \end{array}$$
+    Let $S$ be the vector space of $\RR^\RR$ generated by mappings of the form $\mathbbm{1}_{\interval[open left]{a}{b}}$, ($a\le b$)
+    
+
+    Let $\varphi:\RR\longrightarrow \RR$ be a right continuous mapping,
+    $$\forall t\in \RR,\  \varphi(t)=\lim_{\varepsilon>0,\varepsilon\rightarrow 0}\varphi(t+\varepsilon).$$
+    which is increasing.
+    Then $I_{\varphi}: S\longrightarrow \RR$, 
+    $$I_\varphi\left(\sum_{i=1}^{n}\lambda_i \mathbbm{1}_{\interval[open left]{a_i}{b_i}}\right)\coloneq \sum_{i=1}^{n}\lambda_i\left(\varphi(b_i)-\varphi(a_i)\right)$$
+    is an integral operator.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $\Omega$ be a set and $S$ be a Riesz space on $\Omega$. An $\RR$-linear mapping $I:S\longrightarrow \RR$ that satisfies $(f\le g\Rightarrow I(f)\le I(g))$ is an integral operator if and only if, for any increasing sequence $(f_n)_{n\in \NN}$ in $S$ that converges point-wise to some $f\in S$, one has
+    $$ \lim_{n\rightarrow +\infty}I(f_n)=I(f).$$
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    ``$\Rightarrow$'': $(f-f_n)_{n\in\NN}$ is decreasing and converges to $0$. So
+    $$ \lim_{n\rightarrow +\infty}I(f-f_n)=0.$$
+    So $\lim_{n\rightarrow +\infty}I(f_n)=I(f).$
+    \newline
+    ``$\Leftarrow$'': Let $(f_n)_{n\in\NN}$ be a decreasing sequence in $S$ that converges point-wise to $0$. Then $(f_n)_{n\in\NN}$ is increasing and converges point-wise to $0$. So
+    $$ \lim_{n\rightarrow +\infty}I(-f_n)=0.$$
+    So, $\lim_{n\rightarrow +\infty}I(f_n)=0.$
+\end{proofenv}
+\begin{propositionenv}
+    Let $\Omega$ be a set and $S$ be a Riesz space on $\Omega$ and $I: S\longrightarrow \RR$ be an integral operator. Let $g\in S$ and $(f_n)_{n\in\NN}$ be an increasing sequence in $S$. If
+    $$ \forall \omega\in \Omega,\ g(\omega)\le \lim_{n\rightarrow +\infty}f_n(\omega),$$
+    then
+    $$ I(g) \le \lim_{n\rightarrow +\infty}I(f_n).$$
+\end{propositionenv}
+\begin{proofenv}
+    $(\inf\{g,f_n\})_{n\in\NN}$ is an increasing sequence in $S$.
+    It converges to $g$. Hence, 
+    $$ I(g)=\lim_{n\rightarrow +\infty}I(\inf\{g,f_n\})\le \lim_{n\rightarrow +\infty}I(f_n).$$
+\end{proofenv}
+\begin{corollaryenv}
+    Let $(f_n)_{n\in\NN}$ and $(g_n)_{n\in\NN}$ be increasing sequences in $S$. Suppose that 
+    $$ \forall \omega\in \Omega,\ \lim_{n\rightarrow +\infty}f_n(\omega)\le \lim_{n\rightarrow +\infty}g_n(\omega).$$
+    Then,
+    $$ \lim_{n\rightarrow +\infty}I(f_n)\le \lim_{n\rightarrow +\infty}I(g_n).$$
+\end{corollaryenv}
+\begin{proofenv}
+    $\forall k\in \NN$, $\forall \omega \in\Omega$,
+    $$ f_k (\omega)\le \lim_{n\rightarrow +\infty}f_n(\omega)\le \lim_{n\rightarrow +\infty}g_n(\omega).$$
+    So $I(f_k)\le \lim_{n\rightarrow +\infty}I(g_n)$.
+    Taking the limit when $k\rightarrow +\infty$, we get
+    $$ \lim_{k\rightarrow +\infty}I(f_k)\le \lim_{n\rightarrow +\infty}I(g_n).$$
+\end{proofenv}
