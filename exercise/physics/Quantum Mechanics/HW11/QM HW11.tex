@@ -1,0 +1,105 @@
+\documentclass{article}
+\newcommand{\mydate}{December 15, 2025}
+\newcommand{\mytitle}{QM HW11}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.markings}
+\usepackage{float}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+
+\setlist[enumerate]{label=(\arabic*), leftmargin=*, align=left}
+
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+
+\begin{document}
+\maketitle
+\begin{problem}
+    We need to solve the equation:
+    \begin{equation}
+        \begin{cases}
+            i \frac{\pa}{\pa t} G(x,t)=-\frac{\hbar^2}{2m}\frac{\pa^2}{\pa x^2}G(x,t)\\
+            G(x,0)=-i \delta(x).
+        \end{cases}
+    \end{equation}
+
+Let the Laplace transform of \( G(x,t) \) with respect to \( t \) be
+
+\begin{equation}
+    \widetilde{G}(x,s) = \mathcal{L}\{ G(x,t) \} = \int_{0}^{\infty} e^{-s t} \, G(x,t) \dd{t},
+\end{equation}
+where \( s \) is a complex parameter with \( \Re(s) > 0 \).
+
+\begin{equation}
+    \mathcal{L}\left\{ i \frac{\partial G}{\partial t} \right\} 
+    = i \big[ s \widetilde{G}(x,s) - G(x,0) \big]=i s \widetilde{G}(x,s) - \delta(x).
+\end{equation}
+The right-hand side transforms as:
+
+\begin{equation}
+    \mathcal{L}\left\{ -\frac{\hbar^2}{2m} \frac{\partial^2 G}{\partial x^2} \right\}
+    = -\frac{\hbar^2}{2m} \frac{\partial^2 \widetilde{G}(x,s)}{\partial x^2}.
+\end{equation}
+Thus the transformed equation is:
+\begin{equation}
+    \frac{\partial^2 \widetilde{G}}{\partial x^2} - k^2 \widetilde{G} = \frac{2m}{\hbar^2} \, \delta(x).
+\end{equation}
+where $k = \sqrt{\frac{2m i s}{\hbar^2}}$. We choose the branch such that \( \Re(k) > 0 \).
+
+The solution decaying as \( |x| \to \infty \) is:
+
+\begin{equation}
+    \widetilde{G}(x,s) = -\frac{m}{\hbar^2 k} e^{-k |x|}= -\sqrt{\frac{m}{2 i \hbar^2 s}} \, e^{-\sqrt{\frac{2m i s}{\hbar^2}} \, |x|}.
+\end{equation}
+
+We recognize the Laplace transform pair (from tables):
+\begin{equation}
+    \mathcal{L}^{-1}\left\{ \frac{e^{-a\sqrt{s}}}{\sqrt{s}} \right\} = \frac{1}{\sqrt{\pi t}} \, e^{-a^2/(4t)}, \quad a > 0.
+\end{equation}
+So,
+
+\begin{equation}
+    \boxed{ G(x,t) = - e^{-i\pi/4} \sqrt{\frac{m}{2\pi \hbar^2 t}} \; \exp\left( \frac{i m x^2}{2\hbar^2 t} \right) }.
+\end{equation}
+\end{problem}
+\end{document}
+
+
+

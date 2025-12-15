@@ -120,6 +120,7 @@ $$ \forall \omega\in \Omega,\ \sup\{f_1,\cdots,f_n\}(\omega)=\max\{f_1(\omega),\
 \begin{remark}
     $\forall (f,g)\in S\times S$, 
     $$ \sup \{f,g\}=f+g-\inf\{f,g\}\in S.$$
+    $$ |f|=\sup \{f,0\} -\inf\{f,0\} \in S.$$
     By induction, $\forall n\in \NN_{\ge 1}$, $\forall (f_1,\cdots,f_n)\in S^n$, 
     $$ \inf\{f_1,\cdots,f_n\}, \sup\{f_1,\cdots,f_n\}\subseteq S.$$
     $$ \forall \omega \in \Omega,\ \sup\{f,g\}(\omega)=\max\{f(\omega),g(\omega)\}=f(\omega)+g(\omega)-\min\{f(\omega),g(\omega)\}.$$
@@ -188,4 +189,317 @@ $$ \forall \omega\in \Omega,\ \sup\{f_1,\cdots,f_n\}(\omega)=\max\{f_1(\omega),\
     So $I(f_k)\le \lim_{n\rightarrow +\infty}I(g_n)$.
     Taking the limit when $k\rightarrow +\infty$, we get
     $$ \lim_{k\rightarrow +\infty}I(f_k)\le \lim_{n\rightarrow +\infty}I(g_n).$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $S^{\uparrow}$ be the set of all mappings $f: \Omega \longrightarrow \interval[open left]{-\infty}{+\infty}$ that can be written as the point-wise limit of an increasing sequence in $S$.
+\end{definitionenv}
+\begin{remark}
+    \ \newline
+    (1) If $f\in S^{\uparrow}$, $\lambda>0$, then $\lambda f \in S^{\uparrow}$.
+    \newline
+    (2) If $(f,g)\in S^{\uparrow}\times S^{\uparrow}$, then $f+g\in S^{\uparrow}$, $\inf\{f,g\}\in S^{\uparrow}$, $\sup\{f,g\}\in S^{\uparrow}$.
+    \newline
+    (3) If $I:S\longrightarrow \RR$ is an integral operator, then for any $f\in S^{\uparrow}$ that is written as the point-wise limit of two increasing sequences $(f_n)_{n\in\NN}$ and $(g_n)_{n\in\NN}$ in $S$, then 
+    $$ \lim_{n\rightarrow +\infty}I(f_n)=\lim_{n\rightarrow +\infty} I(g_n).$$
+    We denote by $I(f)$ this limit.
+\end{remark}
+\begin{propositionenv}
+    Let $(f_n)_{n\in\NN}\in (S^{\uparrow})^{\NN}$ be an increasing sequence, and $f$ be its point-wise limit. Then $f\in S^{\uparrow}$, and $\dis I(f)=\lim_{n\rightarrow +\infty}I(f_n)$ for any operator $I$.
+\end{propositionenv}
+\begin{proofenv}
+    For any $k\in \NN$, let $(g_{k,m})_{m\in\NN}\in S^{\NN}$ be an increasing sequence in $S$ that converges point-wise to $f_k$. For any $n\in\NN$, let 
+    $$h_n=\sup \{g_{0,n},g_{1,n},\cdots,g_{n,n}\}\in S.$$
+    $(h_n)_{n\in\NN}$ is an increasing sequence in $S$. 
+
+    \quad $\forall n\in \NN$, $\forall k\in \NN$, $k\le n$, one has
+    $$ f_n\ge f_k \ge g_{k,n},\  f_n\ge h_n.$$
+    So,
+    $$ f=\lim_{n\rightarrow +\infty} f_n\ge \lim_{n\rightarrow +\infty}h_n \ge \lim_{n\rightarrow +\infty} g_{k,n}=f_k.$$
+    This leads to 
+    $$ f=\lim_{n\rightarrow +\infty} h_n,\   f\in S^{\uparrow}.$$
+    One has
+    $$ I(f)=\lim_{n\rightarrow +\infty} I(h_n) \le \lim_{n\rightarrow +\infty} I(f_n).$$
+    Moreover, $\forall n\in\NN$, $f\ge f_n$, so $I(f)\ge I(f_n)$. Thus leads to 
+    $$I(f)\ge \lim_{n\rightarrow +\infty}I(f_n).$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $\Omega$ be a set and $S$ be a Riesz space on $\Omega$. We denote by $S^{\downarrow}$ the set of all mappings $f: \Omega \longrightarrow \interval[open right]{-\infty}{+\infty}$ that can be written as the point-wise limit of a decreasing sequence in $S$.
+\end{definitionenv}
+\begin{remark}
+    \ \newline
+    (1) $f\in S^{\downarrow}\Leftrightarrow -f\in S^{\uparrow}$.
+    \newline
+    (2) If $f\in S^{\downarrow}$, $\lambda>0$, then $\lambda f \in S^{\downarrow}$.
+    \newline
+    (3) If $(f,g)\in S^{\downarrow}\times S^{\downarrow}$, then $f+g\in S^{\downarrow}$, $-\inf\{f,g\}\in S^{\downarrow}$, $-\sup\{f,g\}\in S^{\downarrow}$.
+    \newline
+    (4) If $(f_n)_{n\in\NN}\in (S^{\downarrow})^{\NN}$ is a decreasing sequence, then $$ \lim_{n\rightarrow +\infty}f_n\in S^{\downarrow}.$$
+    \newline
+    (5) If $I:S\longrightarrow \RR$ is an integral operator. For any $f\in S^{\downarrow}$, let
+    $$ I(f)\coloneq - I(f).$$
+    \begin{enumerate}
+        \item If $(f,g)\in S^{\downarrow}\times S^{\downarrow}$ or $(f,g)\in S^{\uparrow}\times S^{\uparrow}$,
+        $$ f\le g\Rightarrow I(f)\le  I(g), I(f+g)=I(f)+I(g),$$
+        $$I(\lambda f)=\lambda I(f), \forall \lambda\in \RR\backslash\{0\}.$$
+        \item If $(f_n)_{n\in\NN}\in (S^{\downarrow})^{\NN}$ is a decreasing sequence, then $$ I(\lim_{n\rightarrow +\infty}f_n)=\lim_{n\rightarrow +\infty}I(f_n).$$
+    \end{enumerate}
+\end{remark}
+\begin{propositionenv}
+    Let $\Omega$ be a set, $S$ be a Riesz space on $\Omega$ and $I:S\longrightarrow\Omega$ be an integral operator. For any $(f,g)\in (S^{\uparrow}\cup S^{\downarrow})^2$, if $f\le g$, then $I(f)\le I(g)$.
+\end{propositionenv}
+\begin{proofenv}
+    It is suffices to treat the case where $(f,g)\in S^{\uparrow}\times S^{\downarrow}$ or $(f,g)\in S^{\downarrow}\times S^{\uparrow}.$
+
+    \quad If $(f,g)\in S^{\uparrow}\times S^{\downarrow}$, then $(-f,g)\in S^{\downarrow}\times S^{\downarrow}$, so $g-f\in S^{\downarrow}$. $I(g-f)=I(g)-I(f)\ge 0$. So $I(f)\le I(g)$.
+
+    \quad If $(f,g)\in S^{\downarrow}\times S^{\uparrow}$, then $(-f,g)\in S^{\uparrow}\times S^{\uparrow}$, so $g-f\in S^{\uparrow}$. $I(g-f)=I(g)-I(f)\le 0$. So $I(f)\le I(g)$.
+\end{proofenv}
+\begin{definitionenv}
+    Let $\Omega$ be a set, $S$ be a Riesz space on $\Omega$, and $I:S\longrightarrow \RR$ be an integral operator. Let $f: \Omega\longrightarrow \RR$ be a mapping. If 
+    $$ \sup_{\substack{l\in S\\ l \le f}}I(l)=\inf _{\substack{\mu\in S\\ \mu \ge f}}I(\mu).$$
+    We say that $f$ is \textbf{Riemann integrable}.
+    
+    \quad Let 
+    $$\underline{I}(f)\coloneq \sup_{\substack{l\in S^{\downarrow}\\ l\le f}}I(l),$$
+    $$ \overline{I}(f)\coloneq \inf_{\substack{\mu\in S^{\uparrow}\\ \mu \ge f}}I(\mu),$$
+    then,
+    $$ \underline{I}(f)\le I(f)\le \overline{I}(f).$$
+    If $ \underline{I}(f)=\overline{I}(f)\in\RR$, we say that $f$ is \textbf{Daniell integrable}, and we denote by $I(f)$ the real number $\underline{I}(f)=\overline{I}(f)$.
+
+    \quad We denote by $\mathcal{L}^{1}(I)$ the set of all Daniell integrable mappings from $\Omega$ to $\RR$. We got a mapping
+    $$ I:\mathcal{L}^1 (I)\longrightarrow \RR.$$
+\end{definitionenv}
+\begin{lemmaenv}
+    Let $\Omega$ be a set, $S$ be a Riesz space on $\Omega$, and $I:S\longrightarrow \RR$ be an integral operator.
+    \newline
+    (1) For any mapping $f:\Omega \longrightarrow \RR$,
+    $$ \underline{I}(-f)=-\overline{I}(f),\ \overline{I}(-f)=-\underline{I}(f).$$
+    In particular,
+    $$ f\in\mathcal{L}^1(I)\Leftrightarrow -f\in\mathcal{L}^1(I).$$
+    And in this case, 
+    $$ -I(f)=I(-f).$$
+    (2) For any $(f,g)\in \RR^\Omega\times \RR^{\Omega}$,
+    $$ \underline{I}(f+g)\ge \underline{I}(f)+\underline{I}(g),\ \overline{I}(f+g)\le \overline{I}(f)+\overline{I}(g).$$
+    In particular, if $(f,g)\in \mathcal{L}^1(I)\times \mathcal{L}^1(I)$, then $f+g\in \mathcal{L}^1(I)$, and $I(f+g)=I(f)+I(g).$
+    \newline
+    (3) For any $f\in \RR^{\Omega}$ and any $\lambda\in \RR_{>0}$,
+    $$ \underline{I}(\lambda f)=\lambda \underline{I}(f),\ \overline{I}(\lambda f)=\lambda \overline{I}(f).$$
+    In particular, if $f\in \mathcal{L}^1(I)$, then $\lambda f \in \mathcal{L}^1(I)$, and $I(\lambda f)=\lambda I(f).$
+    \newline
+    (4) If $(f,g)\in \RR^{\Omega}\times \RR^{\Omega}$ such that $f\le g$, then 
+    $$ \underline{I}(f)\le \underline{I}(g),\ \overline{I}(f)\le \overline{I}(g).$$
+    (5) If $(f:\Omega\longrightarrow \RR)\in S^\uparrow\cup S^{\downarrow}$ such that $I(f)\in \RR$, then $f\in \mathcal{L}^1(I)$.
+
+\end{lemmaenv}
+\begin{proofenv}
+    \ \newline
+    (1) If $\mu\in S^{\uparrow}$, $\mu \ge f$, then $-\mu\in S^{\downarrow}$, $-\mu\le -f$. So
+    $$-I(\mu)=I(-\mu)\le \underline{I}(-f).$$
+    $$ I(\mu)\ge -\underline{I}(-f).$$
+    Taking $\dis \inf_{\substack{\mu\in S^{\uparrow}\\\mu\ge f}}$, we get 
+    $$ \overline{I}(f)\ge -\underline{I}(-f).$$
+    $\forall l\in S^{\downarrow}$, $l\le f$, one has $-l\in S^{\uparrow}$, $-l\ge -f$. So 
+    $$ I(-l)\ge \overline{I}(-f),\  I(l)\le -\overline{I}(-f).$$
+    Taking $\dis \sup_{\substack{l\in S^{\downarrow}\\\le f}}$, we get 
+    $$ \underline{I}(f)\le -\overline{I}(-f).$$
+    Replacing $f$ by $-f$, we get
+    $$ \underline{I}(-f)\ge -\overline{I}(f),\ -\overline{I}(-f)\ge\underline{I}(f).$$
+    So $-\underline{I}(-f)=\overline{I}(f),\ -\overline{I}(-f)=\underline{I}(f)$.
+    \newline
+    (2) For any $(l_1,l_2)\in S^{\downarrow}\times S^{\downarrow}$, $l_1\le f$, $l_2\le g$. One has $l_1+l_2\le f+g$, so
+    $$ \sup_{\substack{(l_1,l_2)\in S^{\downarrow}\times S^{\downarrow}\\ l_1\le f,l_2\le g}} I(l_1+l_2)\le \underline{I}(f+g).$$
+    $$ \overline{I} (f+g)=-\underline{I}(-f-g)\ge -(\underline{I}(-f)+\underline{I}(-g))=\overline{I}(f)+\overline{I}(g).$$
+    If $\overline{I}(f)=\underline{I}(f)$, $\overline{I}(g)=\underline{I}(g)$, one has
+    $$\overline{I}(f)+\overline{I}(g)=\underline{I}(f)+\underline{I}(g)\le \underline{I}(f+g)\le \overline{I}(f+g).$$
+    $$ \overline{I}(f+g)\le \overline{I}(f)+\overline{I}(g)=I(f)+I(g).$$
+    (3) $$ \underline{ I}(\lambda f)=\sup_{\substack{l\in S\\ l\le \lambda f}}I(l)=\sup_{\substack{l\in S^{\downarrow}\\ l\le f}}I(\lambda l)=\lambda \underline{I}(f).$$
+    $$ \overline{I}(\lambda f)=-\underline{I}(\lambda(-f))=-\lambda \underline{I}(-f)=\lambda \overline{I}(f).$$
+    (5) Let $f\in S^{\uparrow}$. By definition, $\overline{I}(f)=I(f)$. Moreover, there exists an increasing sequence $(f_n)_{n\in\NN}\in S^{\NN}\subseteq (S^{\uparrow})^{\NN}$ such that
+    $$ I(f)=\lim_{n\rightarrow \infty} I(f_n)\le \underline{I}(f).$$
+    So, 
+    $$ \underline{I}(f)= I(f)= \overline{I}(f).$$
+\end{proofenv}
+\begin{theoremenv}[Beppo Levi]
+    Let $(f_n)_{n\in\NN}$ be a monotone sequence in $\mathcal{L}^1(I)$ such that converges point-wise to a mapping $f:\Omega\longrightarrow \RR$. If $\dis \lim_{n\rightarrow +\infty} I(f_n)\in\RR$, then
+    $$ f\in \mathcal{L}^1(I),\  I(f)=\lim_{n\rightarrow +\infty} I(f_n).$$
+\end{theoremenv}
+\begin{proofenv}
+    Suppose that $(f_n)_{n\in\NN}$ is increasing. By replacing $f_n$ by $f_n-f_0$ and $f$ by $f-f_0$, we may assume $f_0=0$.
+
+    \quad Let $\varepsilon>0$. For any $n\in\NN_{\ge 1}$, let $\mu_0\in S^\uparrow$ such that $f_n-f_{n-1}\le \mu_n$ and
+    $$ I(f_n-f_{n-1})\ge I(\mu_n)-\frac{\varepsilon}{2^n}.$$
+    $$ f_n=\sum_{k=1}^{n}(f_k-f_{k-1})\le \mu_{1}+\cdots+\mu_n,$$
+    and
+    $$ I(f_n)=\sum_{k=1}^{n}I(f_k-f_{k-1})\ge \sum_{k=1}^{n}\left(I(\mu_k)-\frac{\varepsilon}{2^n}\right)\ge I(\mu_1)+\cdots+I(\mu_n)-\varepsilon.$$
+    Let 
+    $$\mu= \lim_{N\rightarrow +\infty} \sum_{k=1}\mu_k\in S^\uparrow.$$
+    One has $I(\mu)=\sum_{n\in\NN}I(\mu_n)$, $\mu\ge \lim_{n\rightarrow+\infty}f_n=f$. Let $\alpha=\lim_{n\rightarrow +\infty}I(f_n)$, one has
+    $$ \alpha\ge I(\mu)-\varepsilon \ge \overline{I}(f)-\varepsilon.$$
+    For any $n\in\NN$, let $l_n\in S^{\downarrow}$ such that $l_n\le f_n\le f$ and $I(l_n)\ge I(f_n)-\varepsilon$. Then 
+    $$\alpha-\varepsilon\liminf_{n\rightarrow +\infty} I(l_n)\le \underline{ I}(f)
+     .$$
+    Thus, 
+    $$ \alpha-\varepsilon\underline{I}(f)\le \overline{I}(f)\le \alpha+\varepsilon.$$
+    Since $\varepsilon$ is arbitrary, we have 
+    $$ \underline{I}(f)=\overline{I}(f)=\alpha\lim_{n\rightarrow +\infty}I(f_n).$$
+\end{proofenv}
+\section{Convexity}
+\begin{definitionenv}
+    Let $E$ be a vector space over $\RR$, $U\subseteq E$ convex. We say that the mapping $f:U\longrightarrow \RR$ is \textbf{convex} if the \textbf{epigraph} 
+    $$ \Gamma_+(f) \coloneq \{(x,a)\in U\times \RR\mid f(x)\le a\}$$
+    is convex in $E\times \RR$.
+
+    We say that $f:U\longrightarrow \RR$ is \textbf{concave} if its \textbf{hypergraph}
+    $$ \Gamma_-(f) \coloneq \{(x,a)\in U\times \RR\mid  f(x)\ge a\}$$
+    is convex in $E\times \RR$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $E$ be a vector space over $\RR$, $U\subseteq E$ convex, and $f:U\longrightarrow \RR$ a mapping. Then the following conditions are equivalent:
+    \newline
+    (1) $f$ is convex.
+    \newline
+    (2) For any $(x,y)\in U\times U$, and $t\in [0,1]$,
+    $$ f(tx+y(1-t))\le tf(x)+y(1-t)f(y).$$
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1)$\Rightarrow$(2): Note that $((x,f(x)), (y,f(y)))\in \Gamma_+^2(f)$, $(x,y)\in U^2$.
+    $$ t(x,f(x))+(1-t)(y,f(y))=(tx+y(1-t),tf(x)+(1-t)f(y))\in \Gamma_+(f).$$
+    Hence, 
+    $$f(tx+y(1-t))\le tf(x)+(1-t)f(y).$$
+    (2)$\Rightarrow$(1): Let $((x,a),(y,b))\in \Gamma_+^2(f)$, then $a\ge f(x)$, $b\ge f(y)$. Let $t\in [0,1]$, then
+    $$ t a + (1-t)b\ge tf(x)+(1-t)f(y)\ge f(tx+(1-t)y).$$
+    Hence, 
+    $$ (tx+(1-t)y, ta+(1-t)b)\in \Gamma_+(f).$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $E$ be a vector space over $\RR$, $U\subseteq E$ convex, and $f:U\longrightarrow \RR$ a mapping. Then the following conditions are equivalent:
+    \newline
+    (1) $f$ is concave.
+    \newline
+    (2) For any $(x,y)\in U\times U$, and $t\in [0,1]$,
+    $$ f(tx+y(1-t))\ge tf(x)+y(1-t)f(y).$$
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1)$\Rightarrow$(2): Note that $((x,f(x)), (y,f(y)))\in \Gamma_-^2(f)$, $(x,y)\in U^2$.
+    $$ t(x,f(x))+(1-t)(y,f(y))=(tx+y(1-t),tf(x)+(1-t)f(y))\in \Gamma_-(f).$$
+    Hence, 
+    $$f(tx+y(1-t))\ge tf(x)+(1-t)f(y).$$
+    (2)$\Rightarrow$(1): Let $((x,a),(y,b))\in \Gamma_-^2(f)$, then $a\le f(x)$, $b\le f(y)$. Let $t\in [0,1]$, then
+    $$ t a + (1-t)b\le tf(x)+(1-t)f(y)\le f(tx+(1-t)y).$$
+    Hence, 
+    $$ (tx+(1-t)y, ta+(1-t)b)\in \Gamma_-(f).$$
+\end{proofenv}
+\begin{propositionenv}\label{10.4.4}
+    Let $E$ be a vector space over $\RR$, $U\subseteq E$ convex, and $f:U\longrightarrow \RR$ a mapping. $(f_i)_{i\in I}$ is a family of linear forms on $U$. ($f_i: E\longrightarrow \RR$ linear.) $(c_i)_{i\in I}$ is a family of real numbers.
+    If
+    $$ \forall p\in U, f(p)=\sup_{i\in I} (f_i(p)+c_i),$$
+    then, $f$ is convex.
+\end{propositionenv}
+\begin{proofenv}
+    Let $(x,y)\in U^2$, $t\in [0,1]$, then for any $i\in I$,
+    $$f_{i}(tx+(1-t)y)+c_i= t(f_i(x)+c_i)+(1-t)(f_i(y)+c_i)\le tf(x) +(1-t)f(y).$$
+    Taking the supremum with respect to $i$, we obtain
+    $$ f(tx+y(1-t))\le tf(x)+(1-t)f(y).$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $(E,\pl \cdot\pl)$ be a normed vector space over $\RR$, $U\subseteq E$ be a convex open subset, $f:U\longrightarrow\RR$ be a differentiable mapping.
+    Then $f$ is convex if and only if
+    $$ \forall (p,x)\in U^2, \ f(x)\ge f(p)+ \DD f(p)(x-p).$$
+    Moreover, when $f$ is convex, then
+    $$ \forall x\in U, \ f(x)=\sup_{p\in U}\left(f(p)+\DD f(p)(x-p)\right).$$
+\end{propositionenv}
+\begin{proofenv}
+    For any $p\in U$, we define
+    $$\begin{array}{rrcl}
+        g_p: &U&\longrightarrow &\RR\\
+        &x&\longmapsto &f(p)+\DD f(p)(x-p). 
+    \end{array}$$
+    We have that $f(p)=g_p(p)$.
+    $$ \forall (p,x)\in U^2,\ f(x)\ge g_p(x) \Rightarrow f=\sup_{p\in U} g_p.$$
+    By proposition \ref{10.4.4},  $f$ is convex. 
+
+    \quad Conversely, assume that $f$ is convex, $(p,x)\in U^2$, $t\in[0,1]$,
+    $$ f(tx+(1-t)p)= f(p+t(x-p))\le t f(x) +(1-t) f(p)=f(p)+t(f(x)-f(p)).$$
+    $f$ is differentiable at $p$,
+    $$ f(p+t(x-p))=f(p)+t \DD f(p)(x-p)+o(|t|).$$
+    Taking the limit when $t\rightarrow 0$, we get
+    $$ f(x)-f(p)\ge \DD f(p)(x-p).$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $E$ be a vector space over $\RR$. \textbf{Bilinear form} on $E$ is a bilinear mapping from $E\times E$ to $\RR$. Let $\varphi: E\times E\longrightarrow \RR $ be a symmetric bilinear form.
+    
+    If 
+    $$ \forall x\in E, \ \varphi(x,x)\ge 0,$$
+    we say that $\varphi$ is \textbf{semipositive}.
+
+    If
+    $$ \forall x\in E\backslash\{0\}, \ \varphi(x,x)>0,$$
+    we say that $\varphi$ is \textbf{positive define}.
+\end{definitionenv}
+\begin{exampleenv}
+    Let $(x_1,\cdots,x_n)$ and $(y_1,\cdot,y_n)$ be elements of $\RR^n$,
+    $$ \left((x_1,\cdots,x_n),(y_1,\cdots,y_n)\right) \longmapsto \sum_{i=1}^{n} x_i y_i$$
+    is a linear bilinear positive define form on $\RR^n$.
+\end{exampleenv}
+\begin{definitionenv}
+    Let $E$ be a vector space over $\RR$, $\varphi: E\times E\longrightarrow \RR$ be a symmetric bilinear form.
+    $$ \ker (\varphi)\coloneq \{x\in E\mid \forall y\in E, \ \varphi(x,y)=0\}$$
+    is the intersection of $\ker\left(\varphi(\cdot,y)\right)$ over all $y\in E$.
+
+    \quad The \textbf{isotropic cone} of $\varphi$ is the set of $x\in E$ such that $\varphi(x,x)=0$. $\ker(\varphi)$ is contained  in the isotropic cone of $\varphi$.
+\end{definitionenv}
+\begin{propositionenv}
+    Let $E$ be a vector space over $\RR$, $\varphi: E\times E\longrightarrow \RR$ be a symmetric bilinear form.
+    If $\varphi$ is semipositive, then $\ker(\varphi)$ is equal to the isotropic cone of $\varphi$.
+\end{propositionenv}
+\begin{proofenv}
+    It is suffices to show that any element $y$ of the isotropic cone of $\varphi $ is in $\ker(\varphi)$.
+
+    \quad Let $x\in E$, $t\in \RR$,
+    $$ \varphi(x+ty,x+ty)=\varphi(x,x)+ 2t\varphi(x,y)+t^2\varphi(y,y)\ge 0.$$
+    Since $\varphi(y,y)=0$, we obtain 
+    $$ \forall t\in \RR,\ \varphi(x,x) + 2t\varphi(x,y)\ge 0,$$
+    $$ \forall -t\in \RR,\ \varphi(x,x) - 2t\varphi(x,y)\ge 0.$$
+    Thus, for any $t\in\RR$,
+    $$\left(\varphi(x,x) + 2t\varphi(x,y)\right)\left(\varphi(x,x) - 2t\varphi(x,y)\right)= \varphi(x,x)^2-4t^2\varphi(x,y)^2\ge 0. $$
+    Take the limit $|t|\rightarrow +\infty$, we obtain, $\varphi(x,y)=0$.
+\end{proofenv}
+\begin{theoremenv}[Cauchy-Schwartz]
+    Let $E$ be a vector space over $\RR$, $\varphi: E\times E\longrightarrow \RR$ be a semipositive, bilinear form. For any $(x,y)\in E\times E$,
+    $$ \varphi(x,y)^2\le \varphi (x,x)\varphi(y,y).$$
+    The equality holds if and only if $\varphi(y-x,h)=0$ for any $h\in E$.
+\end{theoremenv}
+\begin{proofenv}
+    First, we show that if $[x]=h[y]$ in  $E/\ker(\varphi)$ then $\varphi(x,y)^2=\varphi(x,x)\varphi(y,y)$.
+
+    We have 
+    $$\{x-ah,y-bh\}\subseteq \ker \varphi.$$
+    $$ \varphi(x,y)=\varphi((x-ah)+ah,(y-bh)+bh)=\varphi(ah,bh)=ab\varphi(h,h).$$
+    $$ \varphi(x,x)=a^2\varphi(h,h),\ \varphi(y,y)=b^2\varphi(h,h).$$
+    Hence, 
+    $$ \varphi(x,y)^2\varphi(x,x)\varphi(y,y).$$
+    We know if $\varphi(y,y)=0$, then $y\in \ker\varphi$. In this case, $[y]=0$. So $[x], [y]$ are colinear in $E/\ker \varphi$.
+
+    Assume that $\varphi(y,y)\neq 0$, $t\in\RR$, 
+    $$\varphi(x+ty,x+ty)=t^2 \varphi(y,y)+\varphi(x,x)+2t\varphi(x,y)\ge 0.$$
+    Take $t=-\frac{\varphi(x,y)}{\varphi(y,y)}$, we obtain
+    $$ \varphi(x,y)^2\le \varphi(x,x)\varphi(y,y).$$
+    If the equality holds, then $\varphi(x+ty,x+ty)=0$, for $t=-\frac{\varphi(x,y)}{\varphi(y,y)}$ and hence $x+ty\in \ker\varphi$.
+\end{proofenv}
+\begin{theoremenv}
+    Let $(E,\pl\cdot\pl)$ be a normed vector space over $\RR$, $U\subseteq E$ be an open convex subset, $f: U\longrightarrow \RR$ be a second-order differentiable mapping. If $\DD^2 f(p)$ is semipositive for any $p$, then $f$ is convex.
+\end{theoremenv}
+\begin{proofenv}
+    Let $(p,x)\in U^2$, we define
+    $$\begin{array}{rrcl}
+        g: & [0,1]&\longrightarrow & \RR\\
+        & t&\longmapsto & f(tx+(1-t)p).
+    \end{array}$$
+    Then, 
+    $$g'(t)=\DD f(p+t(x-p))(x-p),\ g''(t)=\DD^2 f(p+t(x-p))(x-p,x-p)\ge 0.$$
+    By Taylor-Lagrange, there exists $\xi\in [0,1]$,
+    $$ g(1)-g(0)=g'(0)+\xi g''(\xi)\le g'(0)= \DD f(p)(x-p).$$
+    So $f(x)-f(p)\ge \DD f(p)(x-p)$. So $f$ is convex.
 \end{proofenv}

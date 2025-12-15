@@ -1827,4 +1827,69 @@ In particular,
 \end{eqnarray}
 
 In most of system in the real world, other atoms will disturb a specific coherent state, thus we can only consider the leaner term, not to worry time too long that can not fit the time condition.
+
+\section{Path Integral}
+\subsection{Propagators}
+One has
+\begin{equation}
+    \begin{split}
+        \bra{\mathbf{x}}\ket{\alpha,t_0;t}&=\bra{\mathbf{x}}\exp\left[\frac{-\ii H (t-t_0)}{\hbar}\right]\ket{\alpha,t_0}\\
+        &=\int \dd{\mathbf{x}'} \bra{\mathbf{x}}\exp\left[\frac{-\ii H (t-t_0)}{\hbar}\right]\ket{\mathbf{x}'}\bra{\mathbf{x}'}\ket{\alpha,t_0}.
+    \end{split}
+\end{equation}
+Let 
+\begin{equation}
+    K(\mathbf{x},t;\mathbf{x}',t_0)=\bra{\mathbf{x}}\exp\left[\frac{-\ii H (t-t_0)}{\hbar}\right]\ket{\mathbf{x}'},
+\end{equation}
+then,
+\begin{equation}
+    \psi(\mathbf{x},t)=\int \dd{\mathbf{x}'} K(\mathbf{x},t;\mathbf{x}',t_0)\psi(\mathbf{x}',t_0).
+\end{equation}
+We call $K(\mathbf{x},t;\mathbf{x}',t_0)$ the propagator, it connects the wave functions at $t$ and $t_0$.
+It is easy to know that
+\begin{equation}
+    \lim_{t\rightarrow t_0}K(\mathbf{x},t;\mathbf{x}',t_0)=\delta(\mathbf{x}-\mathbf{x}').
+\end{equation}
+
+Let us consider a free particle in one dimension as an example.
+\begin{equation}
+    K(x,t;x',t_0)=\frac{1}{2\pi \hbar} \int_{-\infty}^{+\infty}\dd{p'} \exp\left[ \frac{\ii p'(x-x') }{\hbar}-\frac{\ii p'^2(t-t_0)}{2m\hbar}\right].
+\end{equation}
+The result is\footnote{We need to deal with a integral in the form of $\int_{x\in \mathbb{R}}\exp (\pm \ii \alpha x^2)\dd{x}= \sqrt{\frac{\pi }{\alpha}}\exp(\pm \ii \pi/4)$. See \href{https://en.wikipedia.org/wiki/Fresnel_integral}{Fresnel integral}. Usually, it can be written as $\sqrt{\frac{\pi}{\mp \ii \alpha}}$.}. 
+\begin{equation}\label{17.6}
+    K(x,t;x',t_0)=\sqrt{\frac{m}{2\pi \ii \hbar (t-t_0)}}\exp \left[ \frac{\ii m (x-x')^2}{ 2\hbar (t-t_0)}\right].
+\end{equation}
+\subsection{Propagator as a Transition Amplitude}
+In Heisenberg picture, the propagator can also be written as 
+\begin{equation}
+    \begin{split}
+        K(\mathbf{x},t;\mathbf{x}',t_0)&=\bra{\mathbf{x}}\exp\left(\frac{-\ii H t}{\hbar}\right)\exp\left(\frac{\ii H t_0}{\hbar}\right)\ket{\mathbf{x}'}\\
+        &=\braket{\mathbf{x},t}{\mathbf{x'},t_0}.
+    \end{split}
+\end{equation}
+It is the amplitude for the particle to go from a space-time point $(\mathbf{x},t)$ to $(\mathbf{x}',t_0)$.
+
+Because at any given time the position kets in the Heisenberg picture
+form a complete set, it is legitimate to insert the identity operator written as
+\begin{equation}
+    \int \dd{\mathbf{x'}} \ket{\mathbf{x'},t'}\bra{\mathbf{x'},t'}=1.
+\end{equation}
+Clearly, we can divide the time interval into as many smaller sub-intervals as we wish.
+\subsection{Feynman’s Formulation}
+    Without loss of generality we restrict ourselves to one-dimensional problems.
+    \begin{equation}
+        \begin{split}
+            \braket{x_N,t_N}{x_1,t_1}=&\int \dd{x_{N-1}}\int \dd{x_{N-2}}\cdots \int \dd{x_2} \braket{x_N,t_N}{x_{N-1},t_{N-1}}\\
+            & \times \braket{x_{N-1},t_{N-1}}{x_{N-2},t_{N-2}}\cdots \braket{x_2,t_2}{x_1,t_1}.
+        \end{split}
+    \end{equation}
+
+    Let us make some correspondence between the classical and quantum formalism. We shall know from \eqref{17.6} that
+    \begin{equation}
+        \exp\left[\ii \int_{t_1}^{t_2} \frac{L_{\text{classical}}(x,\dot{x})\dd{t}}{\hbar}\right]\sim \braket{x_2,t_2}{x_1,t_1}.
+    \end{equation}
+    Denote
+    \begin{equation}
+        S(n,n-1):=\int_{t_{n-1}}^{t_n}L_{\text{classical}}(x,\dot{x})\dd{t}.
+    \end{equation}
 \end{document}
