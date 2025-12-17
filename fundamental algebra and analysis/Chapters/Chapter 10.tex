@@ -162,7 +162,7 @@ $$ \forall \omega\in \Omega,\ \sup\{f_1,\cdots,f_n\}(\omega)=\max\{f_1(\omega),\
     $$ \lim_{n\rightarrow +\infty}I(f-f_n)=0.$$
     So $\lim_{n\rightarrow +\infty}I(f_n)=I(f).$
     \newline
-    ``$\Leftarrow$'': Let $(f_n)_{n\in\NN}$ be a decreasing sequence in $S$ that converges point-wise to $0$. Then $(f_n)_{n\in\NN}$ is increasing and converges point-wise to $0$. So
+    ``$\Leftarrow$'': Let $(f_n)_{n\in\NN}$ be a decreasing sequence in $S$ that converges point-wise to $0$. Then $(-f_n)_{n\in\NN}$ is increasing and converges point-wise to $0$. So
     $$ \lim_{n\rightarrow +\infty}I(-f_n)=0.$$
     So, $\lim_{n\rightarrow +\infty}I(f_n)=0.$
 \end{proofenv}
@@ -343,7 +343,59 @@ $$ \forall \omega\in \Omega,\ \sup\{f_1,\cdots,f_n\}(\omega)=\max\{f_1(\omega),\
     Since $\varepsilon$ is arbitrary, we have 
     $$ \underline{I}(f)=\overline{I}(f)=\alpha\lim_{n\rightarrow +\infty}I(f_n).$$
 \end{proofenv}
-\section{Convexity}
+\begin{theoremenv}[Daniell]
+    $\mathcal{L}^1(I)$ forms a Riesz space on $\Omega$, and $I:\mathcal{L}^(I)\longrightarrow \RR$ is an integral operator extending $I: S\longrightarrow \RR$.
+\end{theoremenv}
+\begin{proofenv}
+    By the property of $\overline{I}$ and $\underline{I}$, $\mathcal{L}^1(I)$ is a vector subspace of $\RR^\Omega$ and $I:\mathcal{L}^1(I)\longrightarrow \RR$ is an $\RR$-linear mapping. Moreover, if $f\le g$, then $I(f)\le I(g)$.
+    Let $(f_1,f_2)\in \mathcal{L}^1(I)^2$, $\forall \varepsilon>0$, $\exists(l_1,l_2)\in \left(S^\downarrow\right)^2$, $\exists (\mu_1,\mu_2)\in \left(S^\uparrow\right)^2$, 
+    $$l_i\le f_i \le \mu_i,\ i\in \{1,2\}\text{ and } I(\mu_i-l_i)\le \frac{\varepsilon}{2}.$$
+    Then,
+    $$ \inf\{l_1,l_2\}\le \inf\{f_1,f_2\} \le \inf\{\mu_1,\mu_2\},$$
+    and
+    $$ \inf\{\mu_1,\mu_2\}-\inf\{l_1,l_2\}\le (\mu_1-l_1)+(\mu_2-l_2).$$
+    Suppose that $\mu_1(\omega)\le \mu_2(\omega)$, $l_2(\omega)\le l_1(\omega)$. LFS$=\mu_1(\omega)-l_2(\omega)$, $\mu_2(\omega)\ge \mu_1(\omega)\ge l_1(\omega)$,
+    $$ I\left(\inf\{\mu_1,\mu_2\}-\inf\{l_1,l_2\}\right)\le I(\mu_1-l_1)+I(\mu_2-l_2)\le \varepsilon.$$
+    By Beppo Levi's theorem, if $(f_n)_{n\in\NN}$ is an increasing sequence in $\mathcal{L}^1(I)$ that converges to some $f\in \mathcal{L}^1(I)$. One has $I(f)=\lim_{n\rightarrow +\infty}I(f_n)$.
+\end{proofenv}
+\begin{remark}
+    If $f\in\mathcal{L}^1(I)$, then $|f|\in \mathcal{L}^1(I)$.
+\end{remark}
+\begin{theoremenv}[Fatou's lemma]
+    Let $(f_n)_{n\in\NN}$ be a sequence in $\mathcal{L}^1(I)$. Assume that there exists $g\in \mathcal{L}^1(I)$ such that $\forall n\in \NN$, $f_n\ge g$. Then
+    $$ \liminf_{n\rightarrow +\infty}f_n\in \mathcal{L}^1(I),$$
+    and 
+    $$ I\left(\liminf_{n\rightarrow +\infty}f_n\right)\le \liminf_{n\rightarrow +\infty}I(f_n).$$
+    Moreover, when $\dis \liminf_{n\rightarrow +\infty}I(f_n)<+\infty$ and $\dis \liminf_{n\rightarrow +\infty}f_n$ takes finite values, then
+    $$ \liminf_{n\rightarrow +\infty}f_n\in \mathcal{L}^1(I).$$
+\end{theoremenv}
+\begin{proofenv}
+    For any $n\in\NN$, let $g_n$ be 
+    $$ \inf_{k\in \NN}f_{n+k}=\lim_{k\rightarrow +\infty} \inf\{f_n,f_{n+1},\cdots,f_{n+k}\}\ge g.$$
+    $$ I(f_n)\ge \lim_{k\rightarrow +\infty}I\left(\inf\{f_n,\cdot,f_{n+k}\}\right)\ge I(g).$$
+    By Beppo Levi's theorem, $g_n\in \mathcal{L}^1(I)$, and $I(g_n)\le I(f_n).$
+    The sequence $(g_n)_{n\in\NN}$ is increasing and converges point-wise to $\dis \liminf_{n\rightarrow +\infty}f_n$.
+    So $\dis \liminf_{n\rightarrow +\infty} f_n\in \mathcal{L}^1(I)^\uparrow$, and
+    $$ I\left(\liminf_{n\rightarrow +\infty}f_n\right)=\lim_{n\rightarrow +\infty}I(g_n)\le \liminf_{n\rightarrow +\infty}I(f_n).$$
+    If $\dis \liminf_{n\rightarrow +\infty}I(f_n)<+\infty$, then $\dis I\left(\liminf_{n\rightarrow +\infty} f_n\right)<+\infty$. By Beppo Levi's theorem, 
+    $$\liminf_{n\rightarrow +\infty}f_n\in \mathcal{L}^1(I).$$
+\end{proofenv}
+\begin{theoremenv}[Dominated convergence theorem, Lebesgue]
+    Let $(f_n)_{n\in\NN}$ be a sequence in $\mathcal{L}^1(I)$ that convergence pointwise to a mapping $f:\Omega\longrightarrow \RR$. Assume that there exists $g\in \mathcal{L}^1(I)$ such that
+    $$ \forall n\in\NN, |f_n|\le g,$$
+    then, 
+    $$f\in \mathcal{L}^1(I)\text{ and }\dis I(f)=\lim_{n\rightarrow +\infty}I(f_n).$$
+\end{theoremenv}
+\begin{proofenv}
+    $$ f_n\ge g_n,\ -f_n\ge -g_n, \forall n\in\NN.$$
+    By Fatou's lemma,
+    $$ I(\lim_{n\rightarrow +\infty}f_n)\le \lim_{n\rightarrow +\infty}I(f_n),$$
+    $$I(\lim_{n\rightarrow +\infty}(-f_n))\le \liminf_{n\rightarrow +\infty}I(-f_n)=-\limsup_{n\rightarrow +\infty}I(f_n),$$
+    $$ -I(g)\le \limsup_{n\rightarrow +\infty}I(f_n)\le I(\lim_{n\rightarrow +\infty}f_n)\le \liminf_{n\rightarrow +\infty}I(f_n)\le I(g).$$
+    So $\left(I(f_n)\right)_{n\in\NN}$ converges to $\dis I\left(\lim_{n\rightarrow +\infty}f_n\right)\in \RR$. Hence,
+    $$ \lim_{n\rightarrow +\infty} f_n\in \mathcal{L}^1(I).$$
+\end{proofenv}
+\section{Convexity$^*$}
 \begin{definitionenv}
     Let $E$ be a vector space over $\RR$, $U\subseteq E$ convex. We say that the mapping $f:U\longrightarrow \RR$ is \textbf{convex} if the \textbf{epigraph} 
     $$ \Gamma_+(f) \coloneq \{(x,a)\in U\times \RR\mid f(x)\le a\}$$
@@ -503,3 +555,126 @@ $$ \forall \omega\in \Omega,\ \sup\{f_1,\cdots,f_n\}(\omega)=\max\{f_1(\omega),\
     $$ g(1)-g(0)=g'(0)+\xi g''(\xi)\le g'(0)= \DD f(p)(x-p).$$
     So $f(x)-f(p)\ge \DD f(p)(x-p)$. So $f$ is convex.
 \end{proofenv}
+\section{Semirings}
+\begin{definitionenv}
+    Let $\Omega$ be a set. We call semiring on $\Omega$ any $\mathcal{C}\subseteq \mathcal{P}(\Omega)$ that satisfies
+    \newline
+    (1) $\varnothing \in \mathcal{C}$.
+    \newline
+    (2) $\forall (A,B)\in \mathcal{C}\times \mathcal{C}$, $A\cap B\in \mathcal{C}$.
+    \newline
+    (3) $\forall (A,B)\in \mathcal{C}\times \mathcal{C}$, there exists a family $C_1,\cdots,C_n$ of pairwise disjoint sets in $\mathcal{C}$ such that 
+    $$B\backslash A=\bigcup_{i=1}^{n}C_i.$$
+\end{definitionenv}
+\begin{exampleenv}
+    $\Omega=\RR$, $\mathcal{C}=\{\interval[open left]{a}{b}\mid (a,b)\in \RR^2,a\le b\}$.
+    \newline
+    (1) $\varnothing=\interval[open left]{0}{0}\in \mathcal{C}$.
+    \newline
+    (2) $\interval[open left]{a}{b}\cap \interval[open left]{c}{d}\neq \varnothing\Leftrightarrow c<b\ (a\le c)$. When $c<b$, $\interval[open left]{a}{b}\cap \interval[open left]{c}{d}=\interval[open left]{c}{b}$.
+    \newline
+    (3) $B\backslash A=B\backslash\left(A\cap B\right)$. We may assume $A\subseteq B$. If $A=\interval[open left]{a}{b}$, $B=\interval[open left]{c}{d}$, $A\subseteq B$ implies $c\le a$, $b\le d$.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $\Omega$ be a set and $\mathcal{C}$ be a semiring on $\Omega$.
+    \newline
+    (1) Let $B\in \mathcal{C}$. Let $A_1,\cdots,A_n$ be sets in $\mathcal{C}$. Then $B\backslash \left(A_1\cup \cdots\cup A_n\right)$ can be written as the union of  a finite family of pairwise disjoint sets in $\mathcal{C}$.
+    \newline
+    (2) Let $\Theta$ be a finite subset of $\mathcal{C}$. There exists a finite family $\Phi$ of pairwise disjoint sets in $\mathcal{C}$ such that each element of $\Theta$ ca be written as the union of some elements of $\Phi$.
+    \newline
+    (3) Let $\mathcal{A}$ be the set
+    $$ \{A\in \mathcal{P}(\Omega)\mid \exists n\in\NN, \exists (A_1,\cdots,A_n)\in \mathcal{C}^n, A=A_1\cup \cdots\cup A_n\}.$$
+    Then any $A\in\mathcal{A}$ can be written as the union of a finite family of pairwise disjoint sets in $\mathcal{C}$.
+    In particular, $\forall (A,A')\in \mathcal{A}^2$, $\{A\cup A',A\cap A', A\backslash A'\}\subseteq \mathcal{A}$.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) We reason by induction on $n$. The case where $n=0$ is trivial. Suppose that $B\backslash(A_1,\cup\cdots,\cup A_{n-1})=\bigcup_{i=1}^{n}C_i$, where $C_1,\cdots,C_m$ are pairwise disjoint sets in $\mathcal{C}$. Then 
+    $$B\backslash(A_1,\cup\cdots,\cup A_{n})=\bigcup_{i=1}^{n}C_i\backslash A_n.$$
+    Each $C_i\backslash A_i$ is of the form $\dis \bigcup_{j=1}^{d_i}D_{ij}$ with $D_{i,1},\cdots,D_{i,d_i}$  in $\mathcal{C}$, pairwise disjoint. So
+    $$ B\backslash(A_1,\cup\cdots,\cup A_{n})=\bigcup_{i=1}^{n}\bigcup_{j=1}^{d_i}D_{ij}.$$
+    \newline
+    (2) Suppose that $\Theta=\{B_1,\cdots,B_n\}$. For any $i\in \{1,\cdot,n\}$, one has
+    $$ B_i=\bigcup_{i\in J\subseteq\{1,\cdots,n\}}\left(\bigcap_{j\in J}B_j\right)\backslash\left(\bigcup_{k\in \{1,\cdots,n\}\backslash J} B_k\right).$$
+    For any $J\subseteq\{1,\cdots,n\}$, $J\neq \varnothing$, we let
+    $$ B_j\coloneq \left(\bigcap_{j\in J}B_j\right)\backslash \left(\bigcup_{k\in\{1,\cdots,n\}\backslash J}B_k\right)= \left(\bigcap_{j\in J}B_j\right)\bigcap \left(\bigcap_{k\in \{1,\cdots,n\}\backslash J} \complement_\Omega B_k\right).$$
+    $ \left(B_J\right)_{\substack{J\subseteq \{1,\cdots,n\}\\ J\neq \varnothing}}$ are pairwise disjoint. By (1), each $B_J$ is the union of fa finite family of pairwise disjoint elements $C_{J,1},\cdots,C_{J,d_J}$ in $\mathcal{C}$. Let 
+    $$\Phi=\{C_{J,l}\mid  l\in \{1,\cdots,d_J\}, J\subseteq \{1,\cdots,n\}, J\neq\varnothing\}.$$
+    (3) By (2), there exists a finite subset $\Phi$ of pairwise disjoint elements of $\mathcal{C}$ such that each $A_i$ is the union of some sets in $\Phi$. Then 
+    $$A=\bigcup_{\substack{C\in \Phi\\C\subseteq A}}C.$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $\Omega$ be a set and $\mathcal{C}$ be a semiring on $\Omega$. Let $S$ be the vector subspace of $\RR^\Omega$ generated by mappings of the form $\mathbbm{1}_A$, $A\in \mathcal{C}$.
+    \newline
+    (1) Any pair $(f,g)\in S^2$ can be written as 
+    $$ f=\sum_{i=1}^{n}a_i\mathbbm{1}_{C_i},\ g=\sum_{i=1}^{n}b_i\mathbbm{1}_{C_i},$$
+    where $n\in\NN$, $(a_1,\cdots,a_n)\in \RR^\NN$, $(b_1,\cdots,b_n)\in \RR^\NN$, $(C_1,\cdots,C_n)\in \mathcal{C}^n$, pairwise disjoint.
+    \newline
+    (2) $S$ is a Riesz space.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) By definition, $f$ and $g$ are of the form
+    $$ f=\sum_{A\in \Theta_f}\lambda_A\mathbbm{1}_{A},\ g=\sum_{B\in \Theta_g} \mu_B\mathbbm{1}_{B},$$
+    where $\Theta_f$ and $\Theta_g$ are finite subsets of $\mathcal{C}$, $\lambda_A$ and $\mu_B$ are real numbers. Let $\Theta=\Theta_f\cup \Theta_g$. There is a subset $\Phi\subseteq \mathcal{C}$ consisting of pairwise disjoint sets, such that element of $\Theta$ can be written as the union of some sets in $\Phi$.
+
+    \quad Suppose that $\Phi=\{C_1,\cdots,C_n\}$. Then
+    $$ f=\sum_{i=1}^{n}\left(\sum_{\substack{A\in \Theta_f\\ A\cap C_i\neq \varnothing}}\lambda_A\right)\mathbbm{1}_{C_i},\ g=\sum_{i=1}^{n}\left(\sum_{\substack{B\in \Theta_g\\ B\cap C_i\neq \varnothing}}\mu_B\right)\mathbbm{1}_{C_i}.$$
+    (2) If
+    $$ f=\sum_{i=1}^{n}a_i\mathbbm{1}_{C_i},\ g=\sum_{i=1}^{n}b_i\mathbbm{1}_{C_i},$$
+    with $C_1,\cdots,C_n$ in $\mathcal{C}$ pairwise disjoint, then 
+    $$\inf\{f,g\}=\sum_{i=1}^{n}\min\{a_i,b_i\}\mathbbm{1}_{C_i}\in S.$$
+\end{proofenv}
+\section{$\sigma$-additive Functions}
+\begin{definitionenv}
+    Let $\Omega$ be a set, $\mathcal{C}\subseteq \mathcal{P}(\Omega)$, $\mu:\mathcal{C}\longrightarrow \RR_{\ge 0}$ be a mapping. We say that $\mu$ is \textbf{additive} if for any finite family $(A_n)^{n}_{i=1}$ of pairwise disjoint sets in $\mathcal{C}$ such that $A_1\cap\cdots\cap A_n\in \mathcal{C}$. One has
+    $$\mu(A_1\cup\cdots\cup A_n)=\sum_{i=1}^{n}\mu(A_i).$$
+\end{definitionenv}
+\begin{remark}
+    If $\varnothing \in \mathcal{C}$, then $\varnothing=\varnothing\cup\varnothing$. So $\mu(\varnothing)=2\mu(\varnothing)$, that means $\mu(\varnothing)=0$.
+\end{remark}
+\begin{exampleenv}
+    Let $\varphi:\RR\longrightarrow \RR$ right continuous and increasing.
+    $$ \mathcal{C}=\{\interval[open left]{a}{b}\mid (a,b)\in \RR^2,a\le b\}.$$
+    We define 
+    $$\mu_{\varphi}:\mathcal{C}\longrightarrow \RR_{\ge 0},\ \mu_{\varphi}(\interval[open left]{a}{b})=\varphi(b)-\varphi(a).$$
+    If $a_0\le \cdots\le a_n$ are real numbers.
+    $$ \mu_\varphi\left(\interval[open left]{a_0}{a_n}\right)=\varphi(a_n)-\varphi(a_0)=\sum_{i=1}^{n}\varphi(a_i)-\varphi(a_{i-1})=\sum_{i=1}^{n}\mu_{\varphi}\left(\interval[open left]{a_{i-1}}{a_i}\right).$$
+    Therefore, $\mu_\varphi$ is additive.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $\Omega$ be a set, $\mathcal{C}$ be a semiring on $\Omega$, $\mu:\mathcal{C}\longrightarrow \RR_{\ge 0}$ be a additive mapping, $S$ be the vector subspace of $\RR^\Omega$ generated by $\mathbbm{1}_A$, where $A\in \mathcal{C}$.
+    \newline
+    (1) There exists a unique $\RR$-linear mapping $I:S\longrightarrow \RR$ such that $I(\mathbbm{1}_A)=\mu(A)$ for any $A\in \mathcal{C}$.
+    \newline
+    (2) Let 
+    $$ \mathcal{A}=\{A\in \mathcal{P}(\Omega)\mid \exists n\in \NN, \exists (A_1,\cdots,A_n)\in \mathcal{C}^n, A=A_1\cup\cdots\cup A_n\}.$$
+    Then $\mu$ extends in a unique way to an additive mapping from $\mathcal{A}$ to $\RR_{\ge 0}$.
+\end{propositionenv}
+\begin{proofenv}
+    \ \newline
+    (1) If $I:S\longrightarrow \RR$ exists, then it is unique since $S$ is generated by $\mathbbm{1}_A$, $A\in \mathcal{C}$. ($\forall f\in  S$, $f$ is of form $\sum_{i=1}^{n}a_i\mathbbm{1}_{A_i}$, $A_i\in \mathcal{C}$, $a_i\in \RR$. $I(f)$ should be $\sum_{i=1}^{n}a_i\mu(A_i)$.)
+    It remains to check that such $I$ is well defined. Suppose that $f\in S$ can be written as 
+    $$ f=\sum_{A\in \Theta}\lambda_A\mathbbm{1}_{A}=\sum_{B\in \Theta'}\lambda_B'\mathbbm{1}_{B'}.$$
+    We aim to check that
+    $$ \sum_{A\in \Theta}\lambda_A\mu(A)=\sum_{B\in \Theta'}\lambda_B'\mu(B).$$
+    Take $C_1,\cdots,C_n\in \mathcal{C}$, pairwise disjoint, such that exch $A\in \Theta \cup\Theta'$ can be written as the union of some sets among $\{C_1,\cdots,C_n\}$.
+    $$ f=\sum_{i=1}^{n}\left(\sum_{\substack{A\in \Theta\\ C_i\cap A\neq\varnothing}}\lambda_A\right)\mathbbm{1}_{C_i}=\sum_{i=1}^{n}\left(\sum_{\substack{B\in \Theta'\\ C_i\cap B\neq\varnothing}}\lambda_B'\right)\mathbbm{1}_{C_i}.$$
+    $$\forall i\in \{1,\cdots,n\},\ \sum_{\substack{A\in \Theta\\ C_i\cap A\neq \varnothing}}\lambda_A=\sum_{\substack{B\in \Theta'\\C_i\cap B\neq \varnothing}}\lambda_B'.$$
+    \begin{align*}
+        \sum_{A\in \Theta}\lambda_A \mu(A)&=\sum_{A\in \Theta}\lambda_A\sum_{\substack{i\in\{1,\cdots,n\}\\ A\cap C_i\neq \varnothing}}\mu(C_i)\\
+        &=\sum_{i=1}^{n}\mu(C_i)\sum_{\substack{A\in \Theta\\ A\cap C_i\neq \varnothing}}\lambda_A\\
+        &=\sum_{i=1}^{n}\mu(C_i)\sum_{\substack{B\in \Theta'\\ B\cap C_i\neq \varnothing}}\lambda_B'\\
+        &=\sum_{B\in \Theta'}\lambda_B'\sum_{\substack{i\in\{1,\cdots,n\}\\ B\cap C_i\neq \varnothing}}\mu(C_i)\\
+        &=\sum_{B\in \Theta'}\lambda_B'\mu(B).
+    \end{align*}
+    (2) We take, for any $A\in \mathcal{A}$, $\mu(A)$ as $I(\mathbbm{1}_A)$. If $A$ is write as a disjoint union $B_1\cup\cdots\cup B_m$, with $B_i\in \mathcal{A}$.
+    $$ I(\mathbbm{1}_A)=I(\sum_{j=1}^{m}\mathbbm{1}_{B_j})=\sum_{j=1}^{m}I(\mathbbm{1}_{B_j}).$$
+    
+\end{proofenv}
+\begin{definitionenv}
+    Let $\Omega$ be a set and $\mathcal{C}\subseteq \mathcal{P}(\Omega)$. We say that a mapping $\mu:\mathcal{C}\longrightarrow \RR_{\ge 0}$ is $\sigma$-additive if, for any countable set $\Theta$ and any family $(C_i)_{i\in \Theta}$ of pairwise disjoint sets in $\mathcal{C}$, one has
+    $$ \bigcup_{i\in \Theta}C_i\in \mathcal{C} \Rightarrow \mu\left(\bigcup_{i\in \Theta}C_i\right)=\sum_{i\in \Theta}\mu(C_i).$$
+    $$\left(\sum_{i\in \Theta}\mu(C_i)\right)\coloneq \sup_{\substack{\Theta'\subseteq\Theta \\ \Theta' \text{ finite}}}\sum_{i\in \Theta'}\mu(C_i).$$
+\end{definitionenv}
+

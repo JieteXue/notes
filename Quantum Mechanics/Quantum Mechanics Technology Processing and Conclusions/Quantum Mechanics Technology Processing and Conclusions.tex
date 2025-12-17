@@ -1828,6 +1828,88 @@ In particular,
 
 In most of system in the real world, other atoms will disturb a specific coherent state, thus we can only consider the leaner term, not to worry time too long that can not fit the time condition.
 
+\subsection{Adiabatic Evolution and Berry Phase}
+Consider a parameter dependent Hamiltonian $H(\vec{R})$, and $\vec{R}(t)$ is a slow varying. For each $\vec{R}$, define eigen states:
+\begin{equation}
+    H(\vec{R})\ket*{\psi_n(\vec{R})}=E(\vec{R})\ket*{\psi_n(\vec{R})}.
+\end{equation}
+We can write 
+\begin{equation}
+    \ket{\alpha;t}=\sum_{n}c_n(t)\ee^{\ii \theta_n(t)}\ket*{\psi_n(\vec{R}(t))},
+\end{equation}
+where
+\begin{equation}
+    \theta_n(t)=-\int_{t_0}^{t}\dd{t'}E_n(t')/ \hbar.
+\end{equation}
+We find
+\begin{equation}
+    \sum_{n}\ee^{\ii \theta_n}\left[\dot{c}_n(t)\ket{n;t}+c_n(t)\frac{\pa}{\pa t}\ket{n;t}\right]=0.
+\end{equation}
+So,
+\begin{equation}
+    \dot{c}_m(t)=-\sum_{n}c_n(t)\ee^{\ii [\theta_n(t)-\theta_m(t)]} \bra{m;t}\frac{\pa}{\pa t}\ket{n;t}.
+\end{equation}
+Since
+\begin{equation}
+    \bra{n;t}\dot{H}\ket{m;t}=[E_n(t)-E_m(t)]\bra{m;t}\frac{\pa}{\pa t}\ket{n;t},
+\end{equation}
+so,
+\begin{equation}\label{16.70}
+    \dot{c}_m(t)=-c_m(t)\bra{m;t}\frac{\pa }{\pa t}\ket{m;t}-\sum_{n}c_n(t)\ee^{\ii (\theta_n-\theta_m)}\frac{\bra{m;t}\dot{H}\ket{n;t}}{E_n-E_m}.
+\end{equation}
+
+Now we can apply the adiabatic approximation, which amounts to neglecting
+the second term in \eqref{16.70}. Roughly, this means that
+\begin{equation}
+    \frac{\bra{m;t}\dot{H}\ket{n;t}}{E_n-E_m}\ll \bra{m;t}\frac{\pa }{\pa t}\ket{m;t} \sim\frac{E_m}{\hbar}.
+\end{equation}
+Let
+\begin{equation}
+    c_n(t)=\ee^{\ii \gamma_n(t)}c_n(0),\ \gamma_n(t)=\ii \int_{0}^{t}\expval*{\frac{\pa}{\pa t'}}{n;t'}\dd{t'}.
+\end{equation}
+In other words,
+\begin{equation}
+    \dot{\gamma}_n(t)=\ii \expval*{\frac{\pa}{\pa t}}{n;t}.
+\end{equation}
+In replace of derivative $R(t)$,
+\begin{equation}
+    \nabla_R \gamma_n=\ii \expval*{\nabla_R}{n;\vec{R}}=\mathbf{A}(\mathbf{R}).
+\end{equation}
+
+We can find that it is independent from time. So we call it geometrical phase. And $\mathbf{A}(\mathbf{R})$ is called Berry connection.
+
+\begin{equation}
+    \gamma_n=\oint \mathbf{A}\cdot\dd{\mathbf{R}}=\iint_S \mathbf{B}\cdot \dd{\mathbf{S}}.
+\end{equation}
+Where 
+\begin{equation}
+    \mathbf{B}=\nabla_\mathbf{R} \times \mathbf{A}.
+\end{equation}
+
+We now multiply $\ket{n;t}$ by  an arbitrary phase phase factor that changes through $\mathbf{R}$-space:
+\begin{equation}
+    \ket{n;t}\longrightarrow \ee^{\ii \delta(\mathbf{R})}\ket{n;t}.
+\end{equation} 
+Then 
+\begin{equation}
+    \tilde{A}_n(\mathbf{R})=\mathbf{A}_n(\mathbf{R})-\nabla_\mathbf{R}\delta(\mathbf{R}),
+\end{equation}
+\begin{equation}
+    \tilde{\mathbf{B}}=\mathbf{B}.
+\end{equation}
+
+For further calculation, we derive another form of $\mathbf{B}_n(\mathbf{R})$.
+\begin{equation}
+    \mathbf{B}_n(\mathbf{R})=\ii \left[\nabla_\mathbf{R}\bra{n;t}\right]\times \left[\nabla_\mathbf{R}\ket{n;t}\right]=\ii \sum_{n\neq m }\left[\nabla_\mathbf{R}\bra{n;t}\right]\ket{m;t}\times \bra{m;t}\left[\nabla_\mathbf{R}\ket{n;t}\right].
+\end{equation}
+Since 
+\begin{equation}
+    \bra{m;t}\left[\nabla_\mathbf{R}\ket{n;t}\right]=\frac{\bra{m;t}\left[\nabla_\mathbf{R} H\right]\ket{n;t}}{E_n-E_m},\ n\neq m,
+\end{equation}
+we have
+\begin{equation}
+    \mathbf{B}_n(\mathbf{R})=\ii \sum_{m\neq n}\frac{\bra{n;t}\left[\nabla_\mathbf{R} H\right]\ket{m;t}\times\bra{m;t}\left[\nabla_\mathbf{R} H\right]\ket{n;t}}{(E_n-E_m)^2}
+\end{equation}
 \section{Path Integral}
 \subsection{Propagators}
 One has
@@ -1892,4 +1974,15 @@ Clearly, we can divide the time interval into as many smaller sub-intervals as w
     \begin{equation}
         S(n,n-1):=\int_{t_{n-1}}^{t_n}L_{\text{classical}}(x,\dot{x})\dd{t}.
     \end{equation}
+    We multiple this kind of expressions
+    \begin{equation}
+        \prod_{i=2}^{N}\exp\left[\frac{\ii S(n,n-1)}{\hbar}\right]=\exp\left[\left(\frac{\ii}{\hbar}\sum_{n=2}{N}S(n,n-1)\right)\right]=\exp\left[\frac{\ii S(N,1)}{\hbar}\right].
+    \end{equation}
+    This does not yet give $\braket{x_N,t_N}{x_1,t_1}$; rather, this equation is the contribution. We must still
+    integrate over $x_2,x_3,\cdots,x_{N-1}$. At the same time, exploiting the composition property, we let the time interval between $t_{n-1}$ and $t_n$ be infinitesimally small. 
+    Thus, we can feel that 
+    \begin{equation}
+        \braket{x_N,t_N}{x_1,t_1}\sim \sum_{\text{all paths}} \exp\left[\frac{\ii S(N,1)}{\hbar}\right].
+    \end{equation}
+
 \end{document}
