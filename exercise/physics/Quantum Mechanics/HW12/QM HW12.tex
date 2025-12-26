@@ -1,0 +1,121 @@
+\documentclass{article}
+\newcommand{\mydate}{December 22, 2025}
+\newcommand{\mytitle}{QM HW12}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.markings}
+\usepackage{float}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+
+\setlist[enumerate]{label=(\arabic*), leftmargin=*, align=left}
+
+\newcommand{\pa}{\partial}
+\newcommand{\rn}[1]{\romannumeral #1\relax}
+\newcommand{\Rn}[1]{\expandafter\@slowromancap\romannumeral#1@}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+
+\begin{document}
+\maketitle
+\begin{problem}[Resonance scattering]
+    We have potential:
+    \begin{equation}
+        V(r)=\frac{\gamma \hbar^2}{2m}\delta(r-R).
+    \end{equation}
+    Since we only consider the case where $l=0$, the Schrödinger equation becomes
+    \begin{equation}
+        -\frac{\hbar^2}{2m} \cdot\frac{1}{r}\frac{\dd^2}{\dd{r}^2}(rR_0)+(V(r)-E)R_0=0.
+    \end{equation}
+    $R_0$ is the radial contribution.
+
+    Let $u(r)=rR_0(r)$, then,
+    \begin{equation}
+        -\frac{\hbar^2}{2m}u''+(V-E)u=0.
+    \end{equation}
+    We suppose the solution at $r<R$ and $r>R$ are $u_1$ and $u_2$ respectively. Both of them are of the form
+    \begin{equation}
+        u_i(r)=A_i \ee^{ k r} +B_i\ee^{- k r},\ i\in \{1,2\},\ k=\sqrt{-\frac{2mE}{\hbar^2}}>0.
+    \end{equation}
+\begin{enumerate}
+    \item We suppose the bound state exists, then $E<0$, and $A_2=0$, or the integral of wavefunction will diverge. The derivative continuous at $r=0$, thus equals zero, it require $A_1+B_1=0$.
+        Then the connection condition becomes
+        \begin{equation}
+            u(R)=A_1\left(\ee^{k R}-\ee^{-kR}\right)=B_2\ee^{-kR},
+        \end{equation}
+        \begin{equation}
+            -\frac{\hbar^2}{2m}\left[\left(-B_2 k \ee^{-kR}\right)-A_1 k\left(\ee^{kR}+\ee^{-k R}\right)\right]+\frac{\gamma \hbar^2}{2m}u(R)=0.
+        \end{equation}
+        Then we can deduce that 
+        \begin{equation}
+            \frac{2kR}{\gamma R}=\left(\ee^{-2kR}-1\right).
+        \end{equation}
+        The derivative of function $\ee^{-x}-1$ is monotone, and is $-1$ at $x=0$, so $|\gamma_c|=R^{-1}$.
+    \item Suppose $k=\sqrt{\frac{2mE}{\hbar^2}}$ and 
+        \begin{equation}
+            u(r)=\begin{cases}
+                A \sin(k r), & r<R,\\
+                C \sin(k r+\delta_0), & r>R.
+            \end{cases}
+        \end{equation}
+        The connection conditions give
+        \begin{equation}
+            A\sin (kR)= C[\sin(kR)\cos\delta_0+\cos(kR)\sin\delta_0],
+        \end{equation}
+        \begin{equation}
+            Ak\cos(kR)=Ck[\cos(kR)\cos\delta_0-\sin(kR)\sin\delta_0] +\gamma A\sin(kR).
+        \end{equation}
+        So,
+        \begin{equation}
+            \tan\delta_0= \frac{\gamma \sin^2(kR)}{k{-\gamma \sin(kR)\cos(kR)}}=\frac{1-\cos(2kR)}{2k-\gamma \sin(2kR)}.
+        \end{equation}
+        It is odd function of $k$.
+        \begin{equation}
+            2k-\gamma \sin(2kR)=(1-\gamma R)(2k)+ \frac{\gamma}{6} (2kR)^3+ \mathcal{O}(k^5).
+        \end{equation}
+        \begin{equation}
+            1-\cos(2kR)=\frac{1}{2} (2kR)^2 -\frac{1}{24}(2kR)^4+\mathcal{O}(k^6).
+        \end{equation}
+        So,
+        \begin{equation}
+            a_0=\left(\frac{1}{R}-\frac{1}{\gamma R^2}\right)^{-1},\ r_0=\frac{1}{3}\left(R+\frac{1}{\gamma}\right).
+        \end{equation}
+\end{enumerate}
+\end{problem}
+\end{document}
+
+
+

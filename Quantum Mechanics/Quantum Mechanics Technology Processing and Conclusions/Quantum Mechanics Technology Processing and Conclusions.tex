@@ -26,7 +26,7 @@
 \usepackage{graphicx}
 \graphicspath{{./}{images/}}
 \usepackage{float}
-
+\usepackage{bm}
 %% 右矢
 %\ket{\psi}          % 输出：|ψ⟩
 %\ket{\psi(t)}       % 输出：|ψ(t)⟩
@@ -615,7 +615,7 @@ If we write $\psi$ into the form of
     \psi=\sqrt{\rho}\ee^{\frac{\ii S}{\hbar}},
 \end{equation}
 then\footnote{\hyperref[charged case]{Here} is the case with charge.} 
-\begin{equation}
+\begin{equation}\label{10.5}
     \mathbf{j}=\frac{\rho\nabla S}{m}.
 \end{equation}
 Taking the classical limit, we can see that $S$ is the action.
@@ -1179,7 +1179,7 @@ We now look for the simultaneous eigenkets of $\mathbf{J}^2$ and $J_z$. We denot
     \mathbf{J}^2\ket{a,b}=a\ket{a,b},\quad J_z\ket{a,b}=b\ket{a,b}.
 \end{equation}
 Consider
-\begin{equation}
+\begin{equation}\label{14.23}
     J_\pm:=J_x\pm \ii  J_y,
 \end{equation}
 then, 
@@ -1244,6 +1244,18 @@ By using $\mathbf{J}_{\pm}$, we can prove that
 \begin{equation}
     \bra{j,m+1}K\ket{j,m+1}=\bra{j,m}K\ket{j,m}.
 \end{equation}
+
+Now we derive the matrices representation for $J_x$, $J_y$, $J_z$ with angular momentum quantum number $j$.
+
+Since we have know eigenkets $\ket{\hat{z},m}$ (the following we only write $\ket{m}$) with respect to eigenvalue $m$, we have
+\begin{equation}
+    (J_z)_{m,m'}=m\delta_{mm'}.
+\end{equation}
+The effect of ladder operator shows that the non-zero elements are:
+\begin{equation}
+    (J_{\pm})_{m\pm1,m}=\sqrt{(j\mp m)(j\pm m+1)}.
+\end{equation}
+Then, by \eqref{14.23}, we can write $J_x$ and $J_y$.
 
 \subsection{Representations of the Rotation Operator}
 If an arbitrary $y$-axis is rotated around the arbitrary $z$-axis by $\alpha$ to become $y'$, then for any angle $\beta$, then\footnote{$R$ also means rotation.}
@@ -1873,7 +1885,7 @@ In other words,
 \end{equation}
 In replace of derivative $R(t)$,
 \begin{equation}
-    \nabla_R \gamma_n=\ii \expval*{\nabla_R}{n;\vec{R}}=\mathbf{A}(\mathbf{R}).
+    \nabla_R \gamma_n=\ii \expval*{\nabla_R}{n;\mathbf{R}}=\mathbf{A}(\mathbf{R}).
 \end{equation}
 
 We can find that it is independent from time. So we call it geometrical phase. And $\mathbf{A}(\mathbf{R})$ is called Berry connection.
@@ -1910,6 +1922,36 @@ we have
 \begin{equation}
     \mathbf{B}_n(\mathbf{R})=\ii \sum_{m\neq n}\frac{\bra{n;t}\left[\nabla_\mathbf{R} H\right]\ket{m;t}\times\bra{m;t}\left[\nabla_\mathbf{R} H\right]\ket{n;t}}{(E_n-E_m)^2}
 \end{equation}
+
+Here we consider an example: spin system with Hamiltonian $H=\mathbf{R}(\mathbf{n})\cdot\bm{\sigma}$ We can use projection operator to find the eigenkets, but now we use a general method to treat it.
+
+Define 
+\begin{equation}
+    \ket{\mathbf{n},m}=\ee^{-\ii \phi \sigma_z}\ee^{-\ii \theta\sigma_y}\ket{\hat{\mathbf{z}},m}.
+\end{equation}
+It is the eigenket of $H$. By definition,
+\begin{equation}
+    \mathbf{A}(\mathbf{R}(\mathbf{n}))=\ii \expval{\left(\frac{\pa}{\pa \theta},\frac{1}{\sin \theta}\,\frac{\pa}{\pa \phi}\right)}{\mathbf{n},m}
+\end{equation}
+So,
+\begin{equation}
+    A_\theta= \ii \expval{-\ii \sigma_y}{\hat{\mathbf{z}},m}=0.
+\end{equation}
+\begin{equation}
+    A_\phi=\frac{\ii }{\sin \theta} \expval{\ee^{\ii \theta \sigma_y}(-\ii  \sigma_z )\ee^{-\ii \theta \sigma_y}}{\hat{\mathbf{z}},m}.
+\end{equation}
+By Baker-Hausdorff lemma, we can deduce that 
+\begin{equation}
+    A_\phi= m \cot \theta.
+\end{equation}
+Thus,
+\begin{equation}
+    \mathbf{A}= m\cot \theta \hat{\bm{\phi}}.
+\end{equation}
+\begin{equation}
+    \dd{\mathbf{S}}\cdot\left(\nabla\times \mathbf{A}\right) = m \dd{S}.
+\end{equation}
+If we know the route of integration, then $\gamma_{m}=m S $, with a gauge integer times $2\pi$ contributes nothing to real effect.
 \section{Path Integral}
 \subsection{Propagators}
 One has
@@ -1984,5 +2026,143 @@ Clearly, we can divide the time interval into as many smaller sub-intervals as w
     \begin{equation}
         \braket{x_N,t_N}{x_1,t_1}\sim \sum_{\text{all paths}} \exp\left[\frac{\ii S(N,1)}{\hbar}\right].
     \end{equation}
+    
+    Consider classic limit $\hbar\rightarrow 0$. The exponential part then oscillates very violently, so there is a tendency for cancellation among various contributions from neighboring paths.
+    So most paths do not contribute. But there's a exception: the path that satisfies
+    \begin{equation}
+        \delta S(N,1)=0.
+    \end{equation}
+    
+    Now we derivate the path integral directly. To split the processing, we take an infinitesimal parameter $\varepsilon$. Trotter formula shows:
+    \begin{equation}
+        \exp\left[\frac{-\ii H \varepsilon}{\hbar}\right]=\exp\left[\frac{-\ii V(x)\varepsilon}{2\hbar}\right]\exp\left[\frac{-\ii p^2\varepsilon}{2m\hbar}\right]\exp\left[\frac{-\ii V(x)\varepsilon}{2\hbar}\right]+O(\varepsilon^3).
+    \end{equation}
+    By calculation,
+    \begin{equation}
+        \bra{x_{i+1}}\ee^{-\ii H \varepsilon/\hbar}\ket{x_{i}}\approx \sqrt{\frac{m}{2\pi \ii \hbar\varepsilon}}\exp\left\{\frac{\ii \varepsilon}{\hbar}\left[\frac{m}{2}\left(\frac{x_{i+1}-x_{i}}{\varepsilon}\right)^2-V(x_i)\right]\right\}.
+    \end{equation}
+    What in the bracket is exactly the discrete Lagrangian approximation. So if we define
+    \begin{equation}
+        S_N[x]=\sum_{i=0}^{N}\varepsilon \left[\frac{m}{2}\left(\frac{x_{i+1}-x_i}{\varepsilon}-V(x_i)\right)\right],
+    \end{equation}
+    Then,
+    \begin{equation}
+        K(x_b,t_b;x_a,t_a)=\lim_{N\rightarrow +\infty}\left(\frac{m}{2\pi \ii \hbar \varepsilon}\right)^{\frac{N+1}{2}}\int \prod_{i=1}^{N}\dd{x_i}\exp\left[\frac{\ii}{\hbar}S_{N}[x]\right].
+    \end{equation}
+    We can denote it as
+    \begin{equation}
+        K(x_b,t_b;x_a,t_a)=\int_{x(t_a)=x_a}^{x(t_b)=x_b}\mathcal{D}x(t)\ee^{\frac{\ii}{\hbar}S[x(t)]}.
+    \end{equation}
 
+\section{Scattering Theory}
+There are two lines of thought:
+\begin{enumerate}
+    \item Time-Dependent Scattering Theory – The "Physical Process" Perspective. This method is closer to the physical picture, describing a real dynamical process.
+    \item Time-Independent (Stationary) Scattering Theory – The "Solve the Equation" Perspective. This is a more streamlined approach, most commonly used in introductory treatments and practical calculations. It is derived from the time-dependent theory in the "monochromatic plane wave" limit.
+\end{enumerate}
+We introduce the stationary scattering theory first.
+
+\subsection{Stationary Scattering Theory (partial wave method)}
+
+We suppose a cylindrical symmetry, and the wavefunction to be
+\begin{equation}\label{18.1}
+    \psi \overset{r\rightarrow +\infty}{\longrightarrow} \ee^{\ii \mathbf{k}\cdot\mathbf{r}} + f(\theta)\cdot\frac{\ee^{\ii k r}}{r}.
+\end{equation}
+$f(\theta)$ is the scattering amplitude to be determined. We suppose we have already the solution $f(\theta)$ by solving Schrödinger equation. We write \eqref{18.1} since we consider the wave in two parts:
+\begin{equation}
+    \psi_{\text{in}}=\ee^{\ii \mathbf{k}\cdot\mathbf{r}} \text{ and } \psi_{\text{sc}}= f(\theta) \cdot\frac{\ee^{\ii k r}}{r}.
+\end{equation}
+
+It is suffice to consider this two part, but not the term of interference. That's because we are interested in the case where $r$ is large enough and $\theta\neq$. When $\theta=0$, two part contribute to the same direction, and we can not neglect the interference.
+
+Use \eqref{10.5} to calculate the probability current,
+\begin{equation}
+    \mathbf{j}_{\text{in}}=\frac{\hbar \mathbf{k}}{m},
+\end{equation}
+\begin{equation}
+    \mathbf{j}_{\text{sc}}=\frac{\hbar k}{m}|f(\theta)|^2\frac{\hat{\mathbf{r}}}{r^2}.
+\end{equation}
+
+By the definition of differential scattering cross-section,
+\begin{equation}
+    \dd{n}=j_{\text{sc}}r^2 \dd{\Omega}=j_{\text{in}}\frac{\dd{\sigma}}{\dd{\Omega}} \dd{\Omega},
+\end{equation}
+so,
+\begin{equation}
+    \frac{\dd \sigma(\theta)}{\dd{\Omega}}=|f(\theta)|^2.
+\end{equation}
+\singleline
+\begin{theorem}[Optical Theorem]
+    The total scattering cross-section can be represent as
+    \begin{equation}
+        \sigma_{\text{tot}}=\frac{4\pi}{k}\mathrm{Im} f(0).
+    \end{equation}
+\end{theorem}
+\singleline
+\begin{proof}
+    By Green's theorem and Schrödinger equation, we have
+    \begin{equation}
+        \oint_S \left(\psi \nabla \psi^* -\psi^* \nabla \psi\right)\dd{\mathbf{S}}=0.
+    \end{equation}
+    \begin{equation}
+        \left(\psi \nabla \psi^* -\psi^* \nabla \psi\right)\dd{\mathbf{S}}/R^2=\left(\psi \frac{\pa }{\pa r} \psi^* -\psi^* \frac{\pa }{\pa r} \psi\right)\dd{\Omega}= 2\ii \cdot\mathrm{Im} \left(\psi \frac{\pa \psi^*}{\pa r}\right)\dd{\Omega}.
+    \end{equation}
+    Plug in the asymptotic form \eqref{18.1}, and keep the term of $1/r^2$. The result of in-in term is $-2\ii \mathbf{k}\cdot\mathbf{r}/r$, this contributes nothing to the final integration. The scattering-scattering term is $-2\ii k \frac{|f|^2}{r^2}$. The cross-term is
+    \begin{equation}
+        \frac{1+\ii k r}{r^2} \ee^{\ii \mathbf{k}\cdot\mathbf{r}} f^* \ee^{-\ii k r}+ \ee^{-\ii \mathbf{k}\cdot\mathbf{r}}\frac{\ii \mathbf{k}\cdot\mathbf{r}}{r} f \cdot\frac{\ee^{\ii kr}}{r}.
+    \end{equation}
+    Note that some of them are conjugate, and the imaginary part remaining is 
+    \begin{equation}
+        2\ii \cdot\mathrm{Im}\left[\frac{\ii k}{r}\ee^{\ii kr (1-\cos \theta)}f\right].
+    \end{equation}
+    Since $kr\gg 1$, the stationary phase method shows that the main contribution of integration is around $\theta=0$\footnote{Or we can use $\displaystyle \lim_{kr\rightarrow +\infty}\exp\left({\ii kr x}\right)=2\ii\delta(x)/(kr)$ directly.}.
+    \begin{equation}
+        \int \dd{\Omega}\left[\frac{\ii k}{r}\ee^{\ii kr (1-\cos \theta)}f\right]\approx -\frac{4\pi }{r^2} f(0).
+    \end{equation}
+    Finally, we have,
+    \begin{equation}
+        \sigma_{\text{tot}}=\int \dd{\Omega} |f(\theta)|^2=\frac{4\pi}{k}\mathrm{Im} f(0).
+    \end{equation}
+\end{proof}
+
+Now, our work is to determine $f(\theta)$. By solving the Schrödinger equation, $\psi_{\text{sc}}$ should have the form
+\begin{equation}\label{18.14}
+    \psi_{\text{sc}}=k\sum_{l} \ii^l (2l+1)a_l h_l (kr) P_l(\cos \theta),
+\end{equation}
+where $(a_l)_{l\in \mathbb{N}}$ is a family of constants and $h_l$ is the first Hankel function (formally we should write $h_l^{(1)}$).
+
+Also, $\psi_{\text{in}}$ can be expressed as
+\begin{equation}
+    \psi_{\text{in}}=\ee^{\ii kr \cos \theta}=\sum_{l} \ii^{l }(2l+1)j_{l}(kr) P_l(\cos \theta).
+\end{equation}
+Under the condition of dar field, Bessel function and Hankel function have their asymptotic formulas:
+\begin{equation}
+    j_{l}(kr)\approx \frac{\ee^{\ii(kr-l\pi/2)}-\ee^{-\ii(kr-l\pi/2)}}{2\ii kr},\ h_l(kr)\approx \frac{\ee^{\ii(kr-l\pi/2)}}{2\ii kr}.
+\end{equation}
+Then,
+\begin{equation}
+    \psi=\sum_{l=0}^{+\infty}\frac{(2l+1)\ii^{l}}{2\ii kr}P_l(\cos \theta)\left[\ee^{\ii kr }\left(1+2\ii k a_l\right)-(-1)^l\ee^{-\ii kr}\right].
+\end{equation}
+The magnitude of wave before and after scattering should be same, so
+\begin{equation}
+    |1+2\ii k a_l|=1.
+\end{equation}
+
+Let $1+2\ii k a_l=\exp(2\ii \delta_l)$, then
+\begin{equation}
+    a_l= \frac{\sin \delta_l}{k} \ee^{\ii \delta_l}.
+\end{equation}
+Plug into \eqref{18.14}, we have
+\begin{equation}
+    f(\theta)=\sum_{l=0}^{+\infty}\frac{2l+1}{k}\ee^{\ii \delta_l}\sin \delta_l P_l(\cos\theta)=\sum_{l=0}^{+\infty}\frac{\sqrt{4\pi(2l+1)}}{k}\sin \delta_l\ee^{\ii \delta_l}Y_{l0}(\cos \theta).
+\end{equation}
+Therefore,
+\begin{equation}
+    \sigma_{\text{tot}}=\frac{4\pi}{k^2}\sum_{l=0}^{+\infty}(2l+1)\sin^2(\delta_l).
+\end{equation}
+As for $\psi$,
+\begin{equation}
+    \psi=\sum_{l=0}^{+\infty}\sqrt{4\pi (2l+1)}\frac{\ii^l \ee^{\ii \delta_l}}{kr}\sin(kr-\frac{l\pi}{2}+\delta_l)Y_{l0}(\theta).
+\end{equation}
+$\delta_l$ is the shift phase.
 \end{document}

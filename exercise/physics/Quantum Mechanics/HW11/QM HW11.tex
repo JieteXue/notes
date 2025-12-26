@@ -1,5 +1,5 @@
 \documentclass{article}
-\newcommand{\mydate}{December 15, 2025}
+\newcommand{\mydate}{December 18, 2025}
 \newcommand{\mytitle}{QM HW11}
 \title{\textbf{\mytitle}}
 \author{Jiete XUE}
@@ -97,6 +97,217 @@ So,
 
 \begin{equation}
     \boxed{ G(x,t) = - e^{-i\pi/4} \sqrt{\frac{m}{2\pi \hbar^2 t}} \; \exp\left( \frac{i m x^2}{2\hbar^2 t} \right) }.
+\end{equation}
+\end{problem}
+\begin{problem}
+
+We start from the definition of the propagator in quantum mechanics:
+\begin{equation}
+iG(x_b, t_b; x_a, t_a) = \langle x_b | e^{-iH(t_b - t_a)} | x_a \rangle,
+\end{equation}
+with \( H = \frac{p^2}{2m} \) for a free particle.
+
+Divide the time interval into \( N \) equal segments:
+\begin{equation}
+\Delta t = \frac{t_b - t_a}{N}, \quad t_j = t_a + j\Delta t, \quad j = 0,1,\dots,N,
+\end{equation}
+where \( t_0 = t_a,\; t_N = t_b \), and correspondingly \( x_0 = x_a,\; x_N = x_b \).
+
+Insert \( N-1 \) completeness relations \( \int dx_j |x_j\rangle\langle x_j| = 1 \):
+\begin{equation}
+iG(x_b, t_b; x_a, t_a) = \int dx_1 \dots dx_{N-1} \prod_{j=1}^N \langle x_j | e^{-iH\Delta t} | x_{j-1} \rangle.
+\end{equation}
+
+For small \(\Delta t\), we use the approximation \( e^{-iH\Delta t} \approx e^{-i\frac{p^2}{2m}\Delta t} \) (since \( V=0 \)):
+\begin{equation}
+\langle x_j | e^{-i\frac{p^2}{2m}\Delta t} | x_{j-1} \rangle
+= \int \frac{dp}{2\pi} \, e^{ip(x_j - x_{j-1})} e^{-i\frac{p^2}{2m}\Delta t}.
+\end{equation}
+
+This is a Gaussian integral. Using the formula
+\[
+\int_{-\infty}^{\infty} dp \, e^{-ap^2 + bp} = \sqrt{\frac{\pi}{a}} \, e^{b^2/(4a)}, \quad \text{Re}(a) > 0,
+\]
+with \( a = \frac{i\Delta t}{2m},\; b = i(x_j - x_{j-1}) \), we get:
+\begin{equation}
+\langle x_j | e^{-i\frac{p^2}{2m}\Delta t} | x_{j-1} \rangle
+= \sqrt{\frac{m}{2\pi i \Delta t}} \,
+\exp\left[ i\frac{m}{2} \frac{(x_j - x_{j-1})^2}{\Delta t} \right].
+\end{equation}
+
+Thus the propagator becomes:
+\begin{equation}
+iG(x_b, t_b; x_a, t_a) = \left( \frac{m}{2\pi i \Delta t} \right)^{\!N/2}
+\int \prod_{j=1}^{N-1} dx_j \,
+\exp\left[ i\sum_{j=1}^N \frac{m}{2} \frac{(x_j - x_{j-1})^2}{\Delta t} \right].
+\end{equation}
+
+We now separate the classical path from fluctuations. Let
+\begin{equation}
+x_j = x_{\text{cl}}(t_j) + \delta x_j,
+\end{equation}
+where the classical path for a free particle is linear:
+\begin{equation}
+x_{\text{cl}}(t) = x_a + \frac{x_b - x_a}{t_b - t_a}(t - t_a).
+\end{equation}
+
+The boundary conditions are \(\delta x_0 = \delta x_N = 0\). The discretized action is:
+\begin{equation}
+S_N = \sum_{j=1}^N \frac{m}{2} \frac{(x_j - x_{j-1})^2}{\Delta t}
+= S_{\text{cl}} + S_{\text{fl}},
+\end{equation}
+where
+\begin{equation}
+S_{\text{cl}} = \frac{m}{2} \frac{(x_b - x_a)^2}{t_b - t_a},
+\end{equation}
+and the fluctuation part is
+\begin{equation}
+S_{\text{fl}} = \sum_{j=1}^N \frac{m}{2} \frac{(\delta x_j - \delta x_{j-1})^2}{\Delta t}.
+\end{equation}
+
+The linear cross term vanishes because the classical path satisfies the equation of motion.
+
+The propagator now factorizes:
+\begin{equation}
+iG(x_b, t_b; x_a, t_a) = \left( \frac{m}{2\pi i \Delta t} \right)^{\!N/2}
+e^{iS_{\text{cl}}} \int \prod_{j=1}^{N-1} d(\delta x_j) \,
+e^{i S_{\text{fl}}}.
+\end{equation}
+
+The fluctuation integral is Gaussian:
+\begin{equation}
+\int \prod_{j=1}^{N-1} d(\delta x_j) \,
+\exp\left[ i \frac{m}{2\Delta t} \sum_{j=1}^N (\delta x_j - \delta x_{j-1})^2 \right]
+= \left( \frac{2\pi i \Delta t}{m} \right)^{\!(N-1)/2} \frac{1}{\sqrt{N}}.
+\end{equation}
+This result follows from evaluating the determinant of the tridiagonal matrix
+\[
+M_{jk} = \frac{m}{i\Delta t}
+\begin{pmatrix}
+2 & -1 & & \\
+-1 & 2 & \ddots & \\
+& \ddots & \ddots & -1 \\
+& & -1 & 2
+\end{pmatrix}_{(N-1)\times(N-1)},
+\]
+with \(\det M = N\left( \frac{m}{i\Delta t} \right)^{\!N-1}\).
+
+Putting everything together:
+\begin{equation}
+iG(x_b, t_b; x_a, t_a) =
+\left( \frac{m}{2\pi i \Delta t} \right)^{\!N/2}
+\left( \frac{2\pi i \Delta t}{m} \right)^{\!(N-1)/2} \frac{1}{\sqrt{N}}
+e^{iS_{\text{cl}}}.
+\end{equation}
+
+Using \( N\Delta t = t_b - t_a \), we simplify:
+\begin{equation}
+iG(x_b, t_b; x_a, t_a) =
+\sqrt{\frac{m}{2\pi i (t_b - t_a)}} \,
+\exp\left[ i \frac{m}{2} \frac{(x_b - x_a)^2}{t_b - t_a} \right].
+\end{equation}
+
+Thus the free propagator obtained via the path integral method is
+\begin{equation}
+\boxed{ G(x_b, t_b; x_a, t_a) = -i\sqrt{\frac{m}{2\pi i (t_b - t_a)}} \,
+\exp\left[ i \frac{m}{2} \frac{(x_b - x_a)^2}{t_b - t_a} \right] }.
+\end{equation}
+This matches the result from Problem 1 (solving the Schrödinger equation directly).
+\end{problem}
+\begin{problem}
+    For infinitesimal $\varepsilon$, we have
+    \begin{equation}
+        e^{-\varepsilon H}=e^{-\frac{\varepsilon V(x)}{2}}e^{- \frac{\varepsilon p^2}{2m}}e^{-\frac{\varepsilon V(x)}{2}} +\mathcal{O}(\varepsilon^3).
+    \end{equation}
+    \begin{equation}
+        \langle x_{k+1} | e^{-\varepsilon H} | x_k \rangle
+\approx \sqrt{\frac{m}{2\pi \varepsilon}} 
+\exp\left[ -\frac{m}{2\varepsilon} (x_{k+1} - x_k)^2 
+- \varepsilon V(x_k) \right].
+    \end{equation}
+    So,
+    \begin{equation}
+        G(x_N, x_0; \beta) = 
+\left( \frac{m}{2\pi \varepsilon} \right)^{\frac{N}{2}}
+\int \prod_{k=1}^{N-1} dx_k \;
+\exp\left[ -\sum_{k=0}^{N-1} 
+\left( \frac{m}{2\varepsilon} (x_{k+1} - x_k)^2 
++ \varepsilon V(x_k) \right) \right].
+    \end{equation}
+    Taking the limit when $\varepsilon \rightarrow 0$, $N\rightarrow +\infty$, and let $x_N$ to be same as $x_0$, we get
+    \begin{equation}
+        G(x_0, x_0; \beta) = 
+\int_{x(0)=x_0}^{x(\beta)=x_0} \mathcal{D}x(\tau) \; e^{-S[x]}.
+    \end{equation}
+    Where,
+    \begin{equation}
+        S[x] = \int_0^\beta \dd{t} \; \left[ \frac{m}{2} \dot{x}^2 + V(x) \right].
+    \end{equation}
+Then, by definition,
+\begin{equation}
+    Z(\beta) = \int \dd{x} \, G(x, x; \beta)
+= \int \dd{x}
+\int_{x(0)=x}^{x(\beta)=x} \mathcal{D}x(\tau) \; e^{-S[x]}.
+\end{equation}
+
+\end{problem}
+\begin{problem}
+    The matrices of spin-1 operators are:
+    \begin{equation}
+        S_x = \frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+0 & 1 & 0 \\
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{pmatrix}
+,\quad
+S_y = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 & -i & 0 \\
+i & 0 & -i \\
+0 & i & 0
+\end{pmatrix}
+,\quad
+S_z = 
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -1
+\end{pmatrix}
+    \end{equation}
+Let 
+\begin{equation}
+    \ket{\hat{n},m}=e^{-i \phi S_z} e^{-i \theta S_y}\ket{\hat{z},m}.
+\end{equation}
+Then,
+\begin{equation}
+    \begin{split}
+        \nabla_{\hat{n}}\ket{\hat{n},m}&=\left(\frac{\pa}{\pa \theta}\ket{\hat{n},m},\frac{1}{\sin \theta}\frac{\pa }{\pa \phi} \ket{\hat{n},m}\right)\\
+        &=\left(-i S_y \ket{\hat{n},m},-\frac{i }{\sin \theta}S_z \ket{\hat{n},m}\right).
+    \end{split}
+\end{equation}
+Since
+\begin{equation}
+    [S_z, S_y]= - i S_x, [S_x , S_y]= i S_z.
+\end{equation}
+By Baker-Hausdorff lemma,
+\begin{equation}
+    e^{i \theta S_y} S_z e^{-i \theta S_y}= \cos \theta S_z - i \sin \theta S_x.
+\end{equation}
+So,
+\begin{equation}
+    A_\theta=-i\expval{-i S_y}{\hat{n},m}=-i\expval{e^{i \phi S_z} (-i S_y ) e^{-i \phi S_z}}{\hat{z},m}=0.
+\end{equation}
+\begin{equation}
+    A_\phi =-i \expval{-\frac{i}{\sin \theta}S_z}{\hat{n},m}= -\frac{1}{\sin \theta} \expval{S_z}{\hat{n},m}=-m \cot \theta.
+\end{equation}
+Thus,
+\begin{equation}
+    \hat{\mathbf{r}}\cdot(\nabla \times \mathbf{A})=-m.
+\end{equation}
+Therefore,
+\begin{equation}
+    q=-4\pi m.
 \end{equation}
 \end{problem}
 \end{document}
