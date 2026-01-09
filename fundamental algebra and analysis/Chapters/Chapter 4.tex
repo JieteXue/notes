@@ -25,7 +25,7 @@ $\dagger$This chapter was first written in pre-course,  then added some sections
 
 \end{definitionenv}
 \begin{definitionenv}
-    Let $\thicksim$ be an equivalent relation on $X$. For any $x\in X$,  we call the set $$[x]:=\{y\in X\mid y\thicksim x\}$$ the equivalent class of $x$ under $\thicksim$, we denote by $X/\thicksim$ the set $\{[x]\mid x\in X\}$ of all equivalent class.It is a subset of $\wp (X)$.Moreover,  since $\forall x\in X, x\in [x] $,  one has $$X=\bigcup_{A\in X/\thicksim}A.$$
+    Let $\thicksim$ be an equivalent relation on $X$. For any $x\in X$,  we call the set $$[x]:=\{y\in X\mid y\thicksim x\}$$ the equivalent class of $x$ under $\thicksim$, we denote by $X/\thicksim$ the set $\{[x]\mid x\in X\}$ of all equivalent class.It is a subset of $\mathscr{P} (X)$.Moreover,  since $\forall x\in X, x\in [x] $,  one has $$X=\bigcup_{A\in X/\thicksim}A.$$
 \end{definitionenv}
 \begin{propositionenv}
     $\forall (x, y)\in X\times X$,  either $[x]=[y]$ or $[x]\cap [y]=\varnothing$.
@@ -68,7 +68,7 @@ $\dagger$This chapter was first written in pre-course,  then added some sections
     \newline
     (1) $<$ on $\RR$.
     \newline
-    (2) $\subset $on$ \wp (X)$.
+    (2) $\subset$ on $ \mathscr{P} (X)$.
 \end{exampleenv}
 \begin{propositionenv}
     $R$ is the strict partial order associated with some partial order if and only if the following condition are satisfied:
@@ -92,7 +92,7 @@ $\dagger$This chapter was first written in pre-course,  then added some sections
 \end{proofenv}
 \section{Monotonic Functions}
 \begin{definitionenv}
-    Let$(I, \le)$ and $(X, \le)$ be partially ordered sets, and $f$ be a function from $I$
+    Let $(I, \le)$ and $(X, \le)$ be partially ordered sets, and $f$ be a function from $I$
  to $X$.
  \newline
  (1) If $\forall(x, y)\in \mathrm{Dom}(f)^2, x<y \Rightarrow f(x)\le f(y)$ we say that f is increasing.
@@ -103,7 +103,7 @@ $\dagger$This chapter was first written in pre-course,  then added some sections
 \newline
  (4) If $\forall (x, y)\in \mathrm{Dom}(f)^2, x<y \Rightarrow f(x)> f(y)$,  we say that $f$ is strictly decreasing.
  \newline
-increasing and decreasing functions are called \textbf{monotonic function},  strictly increasing and decreasing functions are called \textbf{strictly monotonic function}.
+\quad Increasing and decreasing functions are called \textbf{monotonic function},  strictly increasing and decreasing functions are called \textbf{strictly monotonic function}.
 \end{definitionenv}
 \begin{propositionenv}
     Let $f, g$ be functions between partially ordered sets.
@@ -116,10 +116,10 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     Let $f$ be a function between partially ordered set. If $f$ is monotonic and injective,  then $f$ is strictly monotonic.
 \end{propositionenv}
 \begin{propositionenv}
-    Let $I$ be a totally ordered set, $X$ be a partially ordered set , and $f$ be a function from $I$ to $X$. If $f$ is strictly monotonic,  then $f$ is injective.
+    Let $I$ be a totally ordered set, $X$ be a partially ordered set, and $f$ be a function from $I$ to $X$. If $f$ is strictly monotonic,  then $f$ is injective.
 \end{propositionenv}
 \begin{proofenv}
-    Let $(x, y)\in \mathrm{Dom}(f)^2$, such that $f(x)=f(y)$.Since $I$ is totally ordered,  then $x<y$ or $x>y$ or $x=y$. Suppose that $f$ is strictly increasing. If $x<y $, then $f(x)<f(y)$,  contradiction. If $x>y $, then $f(x)>f(y)$,  contradiction.
+    Let $(x, y)\in \mathrm{Dom}(f)^2$, such that $f(x)=f(y)$. Since $I$ is totally ordered,  then $x<y$ or $x>y$ or $x=y$. Suppose that $f$ is strictly increasing. If $x<y $, then $f(x)<f(y)$,  contradiction. If $x>y $, then $f(x)>f(y)$,  contradiction.
 \end{proofenv}
 \begin{propositionenv}
     Let $X$ be a totally ordered set,  $Y$ be an partially ordered set,  $f$ be an injective function from $X$ to $Y$. If $f$ is monotonic,  then $f^{-1}$ is also monotonic,  and they have the same monotonic direction.
@@ -136,13 +136,13 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     \newline
     (2) Let $m\in X$. If $\forall a \in A , m\le a$,  we say that $m$ is an lower bound of $A$. 
     \newline
-    Denote by $A^u$ the set of upper bounds of $A$ in $(X, \le)$.
+    Denote by $A^\mathrm{u}$ the set of upper bounds of $A$ in $(X, \le)$.
     \newline
-     Denote by $A^l$ the set of lower bounds of $A$ in $(X, \le)$.
+     Denote by $A^\mathrm{l}$ the set of lower bounds of $A$ in $(X, \le)$.
 
 \end{definitionenv}
 \begin{exampleenv}
-    $\Omega=\{1, 2, 3\}, X=\wp (\Omega).(X, \subseteq)$ forms a partially ordered set. Let $A=\{\{1\}, \{2\}, \{1, 2\}\}, A^\mathrm{u}=\{\{1, 2\}, \{1, 2, 3\}\}, A^\mathrm{l}=\{\varnothing\}$.
+    $\Omega=\{1, 2, 3\}, X=\mathscr{P} (\Omega).(X, \subseteq)$ forms a partially ordered set. Let $A=\{\{1\}, \{2\}, \{1, 2\}\}, A^\mathrm{u}=\{\{1, 2\}, \{1, 2, 3\}\}, A^\mathrm{l}=\{\varnothing\}$.
 \end{exampleenv}
 \begin{definitionenv}
     Let $(X, \le)$ be a partially ordered set , let $A$ be a subset of $X$.
@@ -154,7 +154,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     If there is not ambiguity on $\le$, we can also write as $\mathrm{max}A, \mathrm{min}A$.
 \end{definitionenv}
 \begin{definitionenv}
-    $A\subseteq Y\subseteq X$, let $A_Y^\mathrm{u}:=\{y\in Y|\forall a\in A, a\le y\}$ be the set of upper bounds of $A$ in $Y$.If $A_Y^\mathrm{u}$ has a least element , we call it the \textbf{supremum} of $A$ in $Y$,  denoted as $\mathrm{sup}_{(Y, \le)}A$,  if there's no ambiguity on $\le$ we can also write as $\mathrm{sup}_{Y}A$. Resp. \textbf{infimum}.
+    $A\subseteq Y\subseteq X$, let $A_Y^\mathrm{u}:=\{y\in Y\mid \forall a\in A, a\le y\}$ be the set of upper bounds of $A$ in $Y$.If $A_Y^\mathrm{u}$ has a least element, we call it the \textbf{supremum} of $A$ in $Y$,  denoted as $\mathrm{sup}_{(Y, \le)}A$,  if there's no ambiguity on $\le$ we can also write as $\mathrm{sup}_{Y}A$. Resp. \textbf{infimum}.
 \end{definitionenv}
 \begin{notationenv}\label{notation4.5.1}
     
@@ -165,7 +165,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 \begin{propositionenv}\label{proposition4.5.1}
     \quad
     \newline
-    Let $(X, \le)$ be a partially ordered set $(A, Z, Y)\in \wp (X)^3, A\subseteq Z\subseteq Y$.
+    Let $(X, \le)$ be a partially ordered set $(A, Z, Y)\in \mathscr{P} (X)^3, A\subseteq Z\subseteq Y$.
     \newline
    (1) If $\max A$ exists, then it is also the supremum of $A$ in $(Y, \le)$. Resp. infimum
     \newline
@@ -173,14 +173,14 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 \end{propositionenv}
 \begin{proofenv}
     \quad \newline
-   (1) By definition, $\max A $ is an upper bound of $A$. Since $A\subseteq Y,  \max A \in Y$, Hence $\max A\in A_Y^\mathrm{u}$.Let $M\in A_Y^\mathrm{u} $. Since $M$ is upper bound of $A$ and $\max A\in A, \max A\le M$. Then $\max A=\min A_Y^\mathrm{u}$.
+   (1) By definition, $\max A $ is an upper bound of $A$. Since $A\subseteq Y,  \max A \in Y$, Hence $\max A\in A_Y^\mathrm{u}$. Let $M\in A_Y^\mathrm{u} $. Since $M$ is upper bound of $A$ and $\max A\in A, \max A\le M$. Then $\max A=\min A_Y^\mathrm{u}$.
 \newline
-(2) Since $Z\subseteq Y, A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$.For any $M\in A_Z^\mathrm{u}$, one has $\sup _{Y, \le}A\le M$.If $\sup_{(Y, \le)}A\in Z$, then $\sup_{(Y, \le)}A\in A_Z^\mathrm{u}$. Hence $\sup _{(Y, \le)}A=\min A_Z^\mathrm{u}$.
+(2) Since $Z\subseteq Y, A_Z^\mathrm{u}\subseteq A_Y^\mathrm{u}$. For any $M\in A_Z^\mathrm{u}$, one has $\sup _{Y, \le}A\le M$. If $\sup_{(Y, \le)}A\in Z$, then $\sup_{(Y, \le)}A\in A_Z^\mathrm{u}$. Hence $\sup _{(Y, \le)}A=\min A_Z^\mathrm{u}$.
 \end{proofenv}
 \begin{propositionenv}\label{proposition4.5.2}
     \quad
     \newline
-    Let $(X, \le )$ be a partially ordered set, $(A, B, Y)\in \wp (X)^3, A\subseteq B\subseteq Y$.
+    Let $(X, \le )$ be a partially ordered set, $(A, B, Y)\in \mathscr{P} (X)^3, A\subseteq B\subseteq Y$.
     \newline
     (1) If $\sup_{(Y, \le)}A$ and $\sup_{(Y, \le)}B$ exist,  then $$\sup_{(Y, \le)}A \le \sup_{(Y, \le)}B.$$
     \newline
@@ -190,7 +190,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 \begin{proofenv}
     \quad
     \newline
-    (1) $\forall x\in A$, since $A\subseteq B, x\in B \le \sup B$, by definition,  $\sup B$ is an upper bound of $A$, $\sup B\in A_Y^\mathrm{u}$.$\sup A$ is the least in $A_Y^\mathrm{u}$. Hence, $\sup_{(Y, \le)}A \le \sup_{(Y, \le)}B$.
+    (1) $\forall x\in A$, since $A\subseteq B, x\in B \le \sup B$, by definition,  $\sup B$ is an upper bound of $A$, $\sup B\in A_Y^\mathrm{u}$. $\sup A$ is the least in $A_Y^\mathrm{u}$. Hence, $\sup_{(Y, \le)}A \le \sup_{(Y, \le)}B$.
 \end{proofenv}
 \begin{propositionenv}\label{proposition4.5.3}
     Let $(X, \le )$ be a partially ordered set, $f, g$ be elements of $X^I$ where $I$ is a set. Suppose that, $\forall i\in  I , f(i)\le g(i)$
@@ -215,14 +215,14 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     (1) $f(J)\subseteq f(I)$ Any upper bound of $f(I)$ is also an upper bound of $f(J)$, hence $f(I)^\mathrm{u}\subseteq f(J)^\mathrm{u}$. Let $M\in f(J)^\mathrm{u}$, for any $i\in I, \exists j\in J, i<j$. Hence $f(i)\le f(j)\le M$. So $M\in f(I)^\mathrm{u}$, $f(J)^\mathrm{u}\subseteq f(I)^\mathrm{u}$. Therefore, $f(I)^\mathrm{u}=f(J)^\mathrm{u}$.
 \end{proofenv}
 \begin{propositionenv}
-    Let $(X, \le)$ be a partially ordered set , $Y\subseteq X, I$ be a set,  and $(A_i)_{i\in I}\in \wp (Y)^I$. Let $\dis A=\bigcup _{i\in I}A_i$
+    Let $(X, \le)$ be a partially ordered set , $Y\subseteq X, I$ be a set,  and $(A_i)_{i\in I}\in \mathscr{P} (Y)^I$. Let $\dis A=\bigcup _{i\in I}A_i$
     \newline
     (1) Suppose that , $\forall i \in I, A_i$ has a supremum $y_i$ in $(Y, \le)$ and $\{y_i\mid i\in I\}$ has a supremum in $(Y, \le)$. Then $A$ has a supremum in $(Y, \le )$ and $$\sup_{(Y, \le)}A=\sup_{(Y, \le)}\{y_i\mid i\in I\}.$$
     \newline
     (2) Resp. inf.
 \end{propositionenv}
 \begin{proofenv}
-    Let $y=\sup_{(Y, \le)}\{y_i\mid i\in I\}, \forall a\in A , \exists i\in I, a\in A_i$. Hence $a\le y_i\le y$. Thus $y $ is an upper bound of $A$ in $Y$.Let $M\in A_Y^\mathrm{u}, \forall i \in I, M\in (A_i)_Y^\mathrm{u}$,  So $y_i \le M $ We then deduce that $y\le M$.
+    Let $y=\sup_{(Y, \le)}\{y_i\mid i\in I\}, \forall a\in A , \exists i\in I, a\in A_i$. Hence $a\le y_i\le y$. Thus $y $ is an upper bound of $A$ in $Y$. Let $M\in A_Y^\mathrm{u}, \forall i \in I, M\in (A_i)_Y^\mathrm{u}$.  So $y_i \le M $. We then deduce that $y\le M$.
 \end{proofenv}
 \begin{propositionenv}
     Let $(X, \le)$ be a partially ordered set , $Y\subseteq X$.$$\varnothing_Y^\mathrm{u}=\varnothing_Y^\mathrm{l}=Y.$$
@@ -233,8 +233,8 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 
 \begin{definitionenv}[Intervals]
     Let $(X, \le)$ be a partially ordered set.$\forall (a, b)\in X^2$,  let 
-    $$[a, b]:=\{x\in X|a\le x\le b \}, $$
-     $$\interval[open right]{a}{b}:=\{x\in X|a\le x <b\}.$$ 
+    $$[a, b]:=\{x\in X\mid a\le x\le b \}, $$
+     $$\interval[open right]{a}{b}:=\{x\in X\mid a\le x <b\}.$$ 
      We say that a subset is a \textbf{interval} if $\forall (a, b)\in I^2 , [a, b]\subseteq I$.
 \end{definitionenv}
 \begin{propositionenv}
@@ -277,7 +277,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     \newline
     (ii) if $a\in I,  b\notin I, I\subseteq\interval[open right]{a}{b}=[a, b]\backslash\{b\}$. Let $x\in \interval[open right]{a}{b}$,  since $x<b$,  $x$ is not an upper bound of $I$. Hence $\exists y\in I,  x<y$. Note that $[a, y]\subseteq I$,  hence $x\in I$,  therefore $\interval[open right]{a}{b}\subseteq I$. Similarly ,  is $b\in I, a\notin I$,  then $\interval[open left]{a}{b}=I$.
     \newline
-    (iii) if $\{a, b\}\cap I=\varnothing$,  then $I\subseteq\interval[open]{a}{b}$. $\forall x\in \interval[open]{a}{b}, \exists s, t\in I, s<x<t$ Hence $x\in [s, t]\subseteq I$. Therefore $\interval[open]{a}{b}=I$.
+    (iii) if $\{a, b\}\cap I=\varnothing$,  then $I\subseteq\interval[open]{a}{b}$. $\forall x\in \interval[open]{a}{b}, \exists s, t\in I, s<x<t$. Hence $x\in [s, t]\subseteq I$. Therefore $\interval[open]{a}{b}=I$.
 
 \end{proofenv}
 \begin{definitionenv}[Dense]
@@ -288,13 +288,13 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
 \end{propositionenv}
 \begin{proofenv}
     By definition,  $b$ is an upper bound of $I$,  since $(X, \le)$ is a totally ordered set, if $b$ is not the supremum of $I$ ,  $\exists M\in I^\mathrm{u}$ such that $M<b$.
-    Let $x\in I$, one has $x\le M <b$.Since $\interval[open right]{x}{b}\subseteq I, M\in I$,  hence $M=\max I$. Since $X$ is dense , pick $M'\in \interval[open]{M}{b}$.Since $M\in I, b=\sup I, \interval[open right]{M}{b}\subseteq I$. Hence $M'\in I, M'\le M$.This contradicts $M<M'$.
+    Let $x\in I$, one has $x\le M <b$. Since $\interval[open right]{x}{b}\subseteq I, M\in I$,  hence $M=\max I$. Since $X$ is dense , pick $M'\in \interval[open]{M}{b}$. Since $M\in I, b=\sup I, \interval[open right]{M}{b}\subseteq I$. Hence $M'\in I, M'\le M$. This contradicts $M<M'$.
 \end{proofenv}
 
 
 \section{Well-ordered Set}
 \begin{definitionenv}[Well-ordered]\label{4.7.1}
-    Let $(X, \le)$ be a partially ordered set. If $\forall A\in \wp(X), A\not=\varnothing\Rightarrow A$ has a least element, we say that $(X, \le)$ is a \textbf{well-ordered set}.
+    Let $(X, \le)$ be a partially ordered set. If $\forall A\in \mathscr{P}(X), A\not=\varnothing\Rightarrow A$ has a least element, we say that $(X, \le)$ is a \textbf{well-ordered set}.
 \end{definitionenv}
 \begin{axiomenv}
     $(\NN, \le)$ is a well-ordered set.
@@ -315,7 +315,7 @@ increasing and decreasing functions are called \textbf{monotonic function},  str
     $$ (\forall y\in X_{<m} , P(y))\Rightarrow P(m) \text{ and } P(m) \text{ have the same truth value.}$$
 \end{remark}
 \begin{proofenv}
-    Let $A=\{x\in X|\neg P(x)\}$. If $A\not=\varnothing, \exists x\in A$ which is the least element of $A$. By definition,  $(\forall y\in X_{<x} , P(y))$ is true. It contradicts to .
+    Let $A=\{x\in X\mid \neg P(x)\}$. If $A\not=\varnothing, \exists x\in A$ which is the least element of $A$. By definition,  $(\forall y\in X_{<x} , P(y))$ is true. It contradicts to .
 \end{proofenv}
 \begin{remark}
     We add a formal element $+\infty$ to $\mathbb{N}$ and require $\forall n\in \NN,  n<+\infty$.
@@ -340,11 +340,11 @@ partially ordered set is never empty.
     then $(\overline{\RR}, \le)$ is order complete.
 \end{axiomenv}
 \begin{exampleenv}
-    Let $\Omega$ be a set, $X=\wp(\Omega)$. Then $(X, \subseteq)$ is  order complete.
+    Let $\Omega$ be a set, $X=\mathscr{P}(\Omega)$. Then $(X, \subseteq)$ is  order complete.
 \end{exampleenv}
     \begin{proofenv}
-        Let $Y\subseteq X$.Then 
-        $$Y^{\mathrm{u}}=\{B\in\wp(\Omega)\mid \forall A\in Y, A\subseteq B\}.$$
+        Let $Y\subseteq X$. Then 
+        $$Y^{\mathrm{u}}=\{B\in\mathscr{P}(\Omega)\mid \forall A\in Y, A\subseteq B\}.$$
         $\displaystyle \bigcup_{A\in Y}A$ is the least upper bound of $Y$ in $X$. So $\dis \sup (Y)=\bigcup_{A\in Y}A$.
     \end{proofenv}
 \begin{propositionenv}
@@ -426,7 +426,7 @@ Here Huayi gave a notation which have been given in Notation\ref{notation4.5.1},
     Let $X$ and $Y$ be sets. Assume that there exists injective mappings $f:X\rightarrow Y$ and $g:Y\rightarrow X$. Then $X$ and $Y$ are equipotent.
 \end{theoremenv}
 \begin{proofenv}
-    Consider $\Phi:\wp(X)\rightarrow\wp(X), A\mapsto X\backslash g(Y\backslash f(A))$. If $(A, B)\in \wp(X)^2$ such that $A\subseteq B$,  then $f(A)\subseteq f(B), Y\backslash f(A)\supseteq  Y\backslash f(B), g(Y\backslash f(A))\supseteq g(Y\backslash f(A)) , \Phi(A)\subseteq\Phi(B)$. So $\Phi$ is increasing. By Knaster-Tarski theorem,  $\exists C\in \wp(X), C=\Phi(C)$. Then $h:X\rightarrow Y, h(x):=\left\{\begin{matrix}
+    Consider $\Phi:\mathscr{P}(X)\rightarrow\mathscr{P}(X), A\mapsto X\backslash g(Y\backslash f(A))$. If $(A, B)\in \mathscr{P}(X)^2$ such that $A\subseteq B$,  then $f(A)\subseteq f(B), Y\backslash f(A)\supseteq  Y\backslash f(B), g(Y\backslash f(A))\supseteq g(Y\backslash f(A)) , \Phi(A)\subseteq\Phi(B)$. So $\Phi$ is increasing. By Knaster-Tarski theorem,  $\exists C\in \mathscr{P}(X), C=\Phi(C)$. Then $h:X\rightarrow Y, h(x):=\left\{\begin{matrix}
  f(x), x\in C\\
 g^{-1}(x), x\in X\backslash C
 
@@ -437,19 +437,19 @@ is a bijection.
 \begin{lemmaenv}
     Let $(X, \le)$ is a partially ordered set.
     \newline
-    (1) Let $(A, B)\in \wp(X)^2$,  if $A\subseteq B$,  then $B^\mathrm{u}\subseteq A^\mathrm{u}, B^\mathrm{l}\subseteq A^\mathrm{l}$.
+    (1) Let $(A, B)\in \mathscr{P}(X)^2$,  if $A\subseteq B$,  then $B^\mathrm{u}\subseteq A^\mathrm{u}, B^\mathrm{l}\subseteq A^\mathrm{l}$.
     \newline
-    (2) $\forall A\in \wp(X), A\subseteq (A^\mathrm{u})^\mathrm{l}\cap (A^\mathrm{l})^\mathrm{u}$.
+    (2) $\forall A\in \mathscr{P}(X), A\subseteq (A^\mathrm{u})^\mathrm{l}\cap (A^\mathrm{l})^\mathrm{u}$.
 \end{lemmaenv}
 
 \begin{theoremenv}[Dedekind-MacNeille]
     \quad
     \newline
-    Let $(X, \le )$ be a partially ordered set. Let $\hat{X}:=\{A\in \wp (X)\mid (A^\mathrm{u})^\mathrm{l}=A\}$.
+    Let $(X, \le )$ be a partially ordered set. Let $\hat{X}:=\{A\in \mathscr{P} (X)\mid (A^\mathrm{u})^\mathrm{l}=A\}$.
 \newline
 (1) $(\hat{X}, \subseteq)$ is order complete.
 \newline
-(2) $\forall A\in \wp(X), A^\mathrm{l}\in \hat{X}$.
+(2) $\forall A\in \mathscr{P}(X), A^\mathrm{l}\in \hat{X}$.
 \newline
 (3) $X\rightarrow \hat{X}, x\mapsto \{x\}^\mathrm{l}$ is strictly increasing.
 \newline
@@ -457,17 +457,17 @@ is a bijection.
 $$A=\sup_{(\hat{X}, \subseteq)}\{\hat{x}\mid x\in A\}.$$
 (5) Let $A\in \hat{X}$. If $A^\mathrm{u}=\varnothing$,  then $A=X$. If $A^\mathrm{u}\not=\varnothing$, then 
 $$A=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\inf_{(\hat{X}, \subseteq)}\{\hat{x}\mid x\in A^\mathrm{u}\}, $$
-$$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\sup_{(\hat{X}, \subseteq)}\{\hat{x}\mid x \in A\}.$$
+$$A=\bigcup_{x\in A}\hat{x}=\sup_{(\mathscr{P}(X), \subseteq)}\{\hat{x}\mid x\in A\}=\sup_{(\hat{X}, \subseteq)}\{\hat{x}\mid x \in A\}.$$
 \end{theoremenv}
 \begin{remark}
-    We've know that $(\wp(X), \subseteq)$ is order complete. So for the sets not order complete,  we can build a relation between them to make it become order complete. And this theorem tell us how to do.
+    We've know that $(\mathscr{P}(X), \subseteq)$ is order complete. So for the sets not order complete,  we can build a relation between them to make it become order complete. And this theorem tell us how to do.
 \end{remark}
 \begin{proofenv}
     \quad
     \newline
-    (1) Consider $\Phi :\wp(X)\rightarrow\wp(X), A\mapsto(A^\mathrm{u})^\mathrm{l}$. By the lemma,  $\Phi $  is increasing. Since $\wp(X)$ is complete, and $\hat{X}$ is the set of fixed point of $\Phi$. By Knaster-Tarski fixed point theorem, $(\hat{X}, \subseteq)$ is order complete.
+    (1) Consider $\Phi :\mathscr{P}(X)\rightarrow\mathscr{P}(X), A\mapsto(A^\mathrm{u})^\mathrm{l}$. By the lemma,  $\Phi $  is increasing. Since $\mathscr{P}(X)$ is complete, and $\hat{X}$ is the set of fixed point of $\Phi$. By Knaster-Tarski fixed point theorem, $(\hat{X}, \subseteq)$ is order complete.
     \newline
-    (2) Let $A\in \wp(X)$,  we prove that $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$. Since $A\subseteq (A^\mathrm{l})^\mathrm{u}$ (by the lemma),  $((A^\mathrm{l})^\mathrm{u})^\mathrm{l}\subseteq A^\mathrm{l}$,  by (2) of the lemma applied to $A^\mathrm{l}$. Hence $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$
+    (2) Let $A\in \mathscr{P}(X)$,  we prove that $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$. Since $A\subseteq (A^\mathrm{l})^\mathrm{u}$ (by the lemma),  $((A^\mathrm{l})^\mathrm{u})^\mathrm{l}\subseteq A^\mathrm{l}$,  by (2) of the lemma applied to $A^\mathrm{l}$. Hence $A^\mathrm{l}=((A^\mathrm{l})^\mathrm{u})^\mathrm{l}$
     \newline
     (3) Let $x$ and $y$ be element of $X$ such that $x< y$ then $\{x\}^\mathrm{l}\subseteq\{y\}^\mathrm{l}$. In fact,  if $z\in \{x\}^\mathrm{l}, z\le x$. Since $x<y, z<y$. Moreover,  $y\in \{y\}^\mathrm{l}$,  but $y\notin \{x\}^\mathrm{l}$.
     \newline
@@ -475,11 +475,11 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
     Conversely,  $\forall x\in A,  x=\min (\{x\}^\mathrm{u})$. Hence $\{x\}^\mathrm{l}=(\{x\}^\mathrm{u})^\mathrm{l}\subseteq (A^\mathrm{u})^\mathrm{l}=A$. Therefore $\bigcup_{x\in A}\{x\}^\mathrm{l}\subseteq A$. Finally we get $\bigcup_{x\in A}\hat{x}=A\in \hat{X}$.
     \newline
     (5) If $A^\mathrm{u}=\varnothing$ then $A=(A^\mathrm{u})^\mathrm{l}=\varnothing^\mathrm{l}=X$. We assume that $A^\mathrm{u}\not=\varnothing$.
-    $$\inf _{(\wp(X), \subseteq)}\{\hat{x}|x\in A^\mathrm{u}\}=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\bigcap_{x\in A^\mathrm{u}}\{x\}^\mathrm{l}=(A^\mathrm{u})^\mathrm{l}=A.$$
-    So it is equal to $\inf_{(\hat{X}, \subseteq)}\{\hat{x}|x\in A ^\mathrm{u}\}$.
+    $$\inf _{(\mathscr{P}(X), \subseteq)}\{\hat{x}\mid x\in A^\mathrm{u}\}=\bigcap_{x\in A^\mathrm{u}}\hat{x}=\bigcap_{x\in A^\mathrm{u}}\{x\}^\mathrm{l}=(A^\mathrm{u})^\mathrm{l}=A.$$
+    So it is equal to $\dis\inf_{(\hat{X}, \subseteq)}\{\hat{x}\mid x\in A ^\mathrm{u}\}$.
 \end{proofenv}
 \begin{remark}
-    $\forall A\in \hat{X}, A=\{x\in X|\hat{x}\subseteq A\}, A^\mathrm{u}=\{x\in X|A\subseteq \hat{x}\}$.
+    $\forall A\in \hat{X}, A=\{x\in X\mid \hat{x}\subseteq A\}, A^\mathrm{u}=\{x\in X\mid A\subseteq \hat{x}\}$.
 \end{remark}
 \begin{definitionenv}
     $\hat{X}$ is called the Dedekind-MacNeille order completion of $(X, \le)$.
@@ -492,7 +492,7 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
     Let $(X, \le)$ be a totally ordered set,  $I, J$ be initial segments of $X$. Either $I\subseteq J$ or $J\subseteq I$.
 \end{propositionenv}
 \begin{proofenv}
-    Assume that $I\backslash J\not=\varnothing$, take $x\in I\backslash J, \forall y\in J$,  if $y\not\le x $, then $x<y$ and hence $x\in X_{<y}\subseteq J$, contradiction. Therefore $y\le x$. Then $y=x\in I$ or $y\in X_{<x}\subseteq I$.
+    Assume that $I\backslash J\not=\varnothing$, take $x\in I\backslash J$, for any $y\in J$,  if $y\not\le x $, then $x<y$ and hence $x\in X_{<y}\subseteq J$, contradiction. Therefore $y\le x$. Then $y=x\in I$ or $y\in X_{<x}\subseteq I$.
 \end{proofenv}
 \begin{propositionenv}
     Let $(X, \le)$ be a well-ordered set. $I$ be an initial segment of $X$,  such that $I\not=X$. There is a unique $a\in X$ such that $I=X_{<a}$.
@@ -510,16 +510,16 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
 \begin{proofenv}
     \quad
     \newline
-    Let $a\in I.\forall \lambda\in \Lambda, a\in I_\lambda$ and hence $X_{<a}\subseteq I_\lambda$. Therefore, $X_{<a}\subseteq\bigcap_{\lambda\in\Lambda}I_\lambda=I$.
+    Let $a\in I$. $\forall \lambda\in \Lambda, a\in I_\lambda$ and hence $X_{<a}\subseteq I_\lambda$. Therefore, $\dis X_{<a}\subseteq\bigcap_{\lambda\in\Lambda}I_\lambda=I$.
     \newline
-    Let $b\in J$.Then $\exists \lambda_0\in \Lambda$ such that $b\in I_{\lambda_0}$. So $X_{<b}\subseteq I_{\lambda_0}\subseteq \bigcup_{\lambda\in \Lambda}I_\lambda=J$. 
+    Let $b\in J$. Then $\exists \lambda_0\in \Lambda$ such that $b\in I_{\lambda_0}$. So $\dis X_{<b}\subseteq I_{\lambda_0}\subseteq \bigcup_{\lambda\in \Lambda}I_\lambda=J$. 
 \end{proofenv}
 \begin{theoremenv}[Recursive construction]
     Let $(X, \le)$ be a well ordered set,  and $Y$ be a set. For any $x\in X$ and any mapping $h:X_{<x}\rightarrow Y$,  we fix an element $\Phi(h)\in Y$. Then,  there exists a unique mapping $f:X\rightarrow Y$  such that 
     $$\forall x\in X,  f(x)=\Phi(f\mid_{X_{<x}}).$$
 \end{theoremenv}
 \begin{exampleenv}
-    For any $(a_0, \dots, a_{n-1})\in \RR^n$,  we fix an element $a_{n-1}+\varepsilon\in \RR$,  where $\varepsilon$ is a real number. There exists a unique mapping $(n\in \NN)\mapsto f(n)$ such that $f(n)=f(n-1)+\varepsilon$.($f(n):=n\varepsilon$).
+    For any $(a_0, \dots, a_{n-1})\in \RR^n$,  we fix an element $a_{n-1}+\varepsilon\in \RR$,  where $\varepsilon$ is a real number. There exists a unique mapping $(n\in \NN)\mapsto f(n)$ such that $f(n)=f(n-1)+\varepsilon$. ($f(n):=n\varepsilon$).
 \end{exampleenv}
 \begin{proofenv}
     \quad
@@ -559,9 +559,9 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
 \begin{propositionenv}
     Let $f:A\rightarrow B$ be a mapping.
     \newline
-    (1) If $f$ is injective and if $B$ is finite,  then $A$ is finite.(resp. countable)
+    (1) If $f$ is injective and if $B$ is finite,  then $A$ is finite. (resp. countable)
     \newline
-    (2) If $f$ is surjective and $A$ is finite,  then $B$ is finite.(resp countable)
+    (2) If $f$ is surjective and $A$ is finite,  then $B$ is finite. (resp countable)
 \end{propositionenv}
 \begin{proofenv}
     \quad
@@ -640,7 +640,9 @@ $$A=\bigcup_{x\in A}\hat{x}=\sup_{(\wp(X), \subseteq)}\{\hat{x}\mid x\in A\}=\su
     $$A:=\{x\in I\mid f(x)\not=x\}=\varnothing.$$
     If this set is non-empty,  it has a least element $n_0$. By definition,  $f(n_0)\not=n_0$. So either $n_0<f(n_0)$ or $n_0>f(n_0)$.
     \newline
-    If $f(n_0)<n_0$,  then $f(n_0)\notin A$,  and hence $f(n_0)=f(f(n_0))<f(n_0)$,  contradiction. So $n_0<f(n_0)$. For any $n\in I$,  if $n_0\le n$ then $f(n_0)\le f(n)$. If $n_0>n$,  then $n\notin A$ and $f(n)=n<n_0$.$(*)$Hence $f(n)\not=n_0$ for any $n\in I$. This contradicts the assumption that $f$ is bijective.
+    If $f(n_0)<n_0$,  then $f(n_0)\notin A$,  and hence $f(n_0)=f(f(n_0))<f(n_0)$, contradiction. So $n_0<f(n_0)$.
+    For any $n\in I$,  if $n_0\le n$ then $f(n_0)\le f(n)$. If $n_0>n$,  then $n\notin A$ and $f(n)=n<n_0$.$(*)$.
+    Hence $f(n)\neq n_0$ for any $n\in I$. This contradicts the assumption that $f$ is bijective.
     \newline
     (2) Suppose that $I$ is bounded from above,  and $f:I\rightarrow I$ is strictly increasing. We follow the same reasoning until $(*)$. $n_0<f(n_0)$ implies that $\forall k \in \NN,  f^k(n_0)<f^{k+1}(n_0)$,  that means 
     $$n_0<f(n_0)<\dots <f^{k+1}(n_0).$$
@@ -694,7 +696,8 @@ x&, &x\notin f(\NN).
 \end{matrix}\right. $$
 $g(X)\not=X$ since $f(0)\notin g(X)$ If $x\notin f(\NN), g(x)=x\notin f(\NN)$,  so $g(x)\not=f(0)$. If $x=f(n),  g(x)=f(n+1)\not=f(0)$ since $f$ is injective.
 \newline
-(3)$\Rightarrow$(2) Let $g:X\rightarrow X$ be injective with $g(X)\not=X$. We pick $x_0\in X\backslash g(X)$. We define a sequence $(x_n)_{n\in\NN}$ by letting $x_{n+1}:=g(x_n)$. Since $g$ is injective,  $x_n\in g^n(X)\backslash g^{n+1}(X)$. otherwise $\exists y\in X$,  such that $x_n=g^{n}(x_0)=g^{n+1}(y)$. Hence $x_0=g(y)\in g(x)$ contradiction. Then $x_0, x_1, \dots, $ are distinct,  which defines an injective mapping $\NN\rightarrow X, n\mapsto x_n$.
+(3)$\Rightarrow$(2) Let $g:X\rightarrow X$ be injective with $g(X)\not=X$. We pick $x_0\in X\backslash g(X)$. We define a sequence $(x_n)_{n\in\NN}$ by letting $x_{n+1}:=g(x_n)$. Since $g$ is injective,  $x_n\in g^n(X)\backslash g^{n+1}(X)$.
+Otherwise $\exists y\in X$,  such that $x_n=g^{n}(x_0)=g^{n+1}(y)$. Hence $x_0=g(y)\in g(x)$ contradiction. Then $x_0, x_1, \dots, $ are distinct,  which defines an injective mapping $\NN\rightarrow X, n\mapsto x_n$.
 \newline
 (2)$\Rightarrow$(1) If $X$ is finite,  $\exists g:X\rightarrow\NN$ injective with $g(x)$ bounded. Then $\NN\rightarrow X\overset{g}{\rightarrow}\NN$ is injective with $h(\NN)$ bounded from above.
 \end{proofenv}

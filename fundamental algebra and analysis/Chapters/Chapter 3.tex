@@ -9,7 +9,7 @@
 \begin{definitionenv}
     Let $f$ be a correspondence.We denote by $f^{-1}$ the correspondence defined as follows:
     $$\mathscr{D}_f^{-1}:=\mathscr{A}_f, \mathscr{A}_f^{-1}:=\mathscr{D}_f, $$
-    $$\Gamma_{f^{-1}}:=\{(y, x)\in \mathscr{D}_f\times \mathscr{A}_f|(x, y)\in \Gamma_f\}.$$
+    $$\Gamma_{f^{-1}}:=\{(y, x)\in \mathscr{D}_f\times \mathscr{A}_f\mid (x, y)\in \Gamma_f\}.$$
     The correspondence $f^{-1}$ is called the \textbf{inverse correspondence} of $f$. Clearly one has $$(f^{-1})^{-1}=f, $$
     namely $f$ is the inverse correspondence of $f^{-1}$.
 \end{definitionenv}
@@ -19,7 +19,7 @@
     Let $X, Y$ be sets , and $f$ be a correspondence from $X$ to $Y$. If $(x, y)$ is an element of $\Gamma_f$,  we say that $x$ is a \textbf{preimage } of $y$ under $f$,  and $y$ is an \textbf{image} of $x$ under $f$.
     \newline
     If $A$ is a set ,  we denote by $f(A)$ the set :
-    $$\{y\in \mathscr{A}_f|\exists x\in A , (x, y)\in \Gamma_f\}, $$
+    $$\{y\in \mathscr{A}_f\mid \exists x\in A , (x, y)\in \Gamma_f\}, $$
     called the image of $A$ by the correspondence $f$.
     \newline 
     If $B$ is a set , the set $f^{-1} (B)$ is called the \textbf{preimage of $B$ by the correspondence $f$}. Note that it is by definition the image of $B$ by the inverse correspondence $f^{-1}$.
@@ -42,8 +42,8 @@ $$\mathrm{Dom}(f)=\mathrm{Im}(f^{-1}), \mathrm{Im }(f)=\mathrm{Dom}(f^{-1}).$$
 \end{propositionenv}
 \begin{proofenv}
     \begin{align*}
-        f(B')&=\{y\in\mathrm{Im}(f)|\exists x\in B', (x, y)\in \Gamma_f\}\\
-        &\subseteq\{y\in\mathrm{Im}(f)|\exists x\in B, (x, y)\in \Gamma_f\}\\
+        f(B')&=\{y\in\mathrm{Im}(f)\mid \exists x\in B', (x, y)\in \Gamma_f\}\\
+        &\subseteq\{y\in\mathrm{Im}(f)\mid \exists x\in B, (x, y)\in \Gamma_f\}\\
         &=f(B).
     \end{align*}
 \end{proofenv}    
@@ -68,22 +68,22 @@ $$\mathrm{Dom}(f)=\mathrm{Im}(f^{-1}), \mathrm{Im }(f)=\mathrm{Dom}(f^{-1}).$$
 \end{propositionenv}
 \begin{proofenv}
    \begin{align*}
-         f\left( \bigcup_{i\in I}A_i\right)&=\left\{ y\in Y|\left( \bigcup_{i\in I}A_i\right)\cap f^{-1}(\{y\})\not=\varnothing  \right\}\\
-        &=\left\{ y\in Y|\bigcup_{i\in I}\left(A_i\cap f^{-1}(\{y\})\right)\not=\varnothing  \right\}\\
-        &=\left\{y\in Y|\exists i \in I, A_i\cap f^{-1}(\{y\})\not =\varnothing\right\}=\bigcup_{i\in I}f(A_i).
+         f\left( \bigcup_{i\in I}A_i\right)&=\left\{ y\in Y\mid \left( \bigcup_{i\in I}A_i\right)\cap f^{-1}(\{y\})\not=\varnothing  \right\}\\
+        &=\left\{ y\in Y\mid \bigcup_{i\in I}\left(A_i\cap f^{-1}(\{y\})\right)\not=\varnothing  \right\}\\
+        &=\left\{y\in Y\mid \exists i \in I, A_i\cap f^{-1}(\{y\})\not =\varnothing\right\}=\bigcup_{i\in I}f(A_i).
    \end{align*}
 
     \begin{align*}
-        f\left(\bigcap_{i\in I}A_i \right)&=\left\{ y\in Y|\left( \bigcap_{i\in I}A_i\right) \cap f^{-1}(\{y\})\not=\varnothing\right\}\\
-        &=\left\{ y\in Y| \bigcap_{i\in I}\left(A_i \cap f^{-1}(\{y\})\right)\not=\varnothing\right\}\\
-        &\subseteq \left\{  y\in Y|\forall i\in I,  A_i\cap f^{-1}(\{y\})\not=\varnothing\right\}\\
+        f\left(\bigcap_{i\in I}A_i \right)&=\left\{ y\in Y\mid \left( \bigcap_{i\in I}A_i\right) \cap f^{-1}(\{y\})\not=\varnothing\right\}\\
+        &=\left\{ y\in Y\mid  \bigcap_{i\in I}\left(A_i \cap f^{-1}(\{y\})\right)\neq\varnothing\right\}\\
+        &\subseteq \left\{  y\in Y\mid \forall i\in I,  A_i\cap f^{-1}(\{y\})\not=\varnothing\right\}\\
         &=\bigcap_{i\in I}f(A_i).
     \end{align*}
 \end{proofenv}
 \section{Composition}
 \begin{definitionenv}
     Let $f$ and $g$ be correspondences. We define the \textbf{composite } of $g$ and $f$ as the correspondence $g\circ f$ from $\mathscr{D}_f$  to $\mathscr{A}_g$ whose graph $\Gamma_{g\circ f }$ is composed of the element $(x, z)$ of $\mathscr{D}_f\times \mathscr{A}_g$ such that there exists some objet $y$ satisfying $(x, y)\in \Gamma_f $ and $(y, z)\in \Gamma_g$. In other words, 
-    $$\Gamma_{g\circ f }=\{(x, z)\in \mathscr{D}_f\times \mathscr{A}_g|\exists y\in \mathscr{A}_f\cap\mathscr{D}_g, (x, y)\in \Gamma_f \wedge (y, z)\in \Gamma_g\}.$$
+    $$\Gamma_{g\circ f }=\{(x, z)\in \mathscr{D}_f\times \mathscr{A}_g\mid \exists y\in \mathscr{A}_f\cap\mathscr{D}_g, (x, y)\in \Gamma_f \wedge (y, z)\in \Gamma_g\}.$$
 \end{definitionenv}
 \begin{propositionenv}
     Let $f$ and $g$ be correspondences. The following equality holds:
@@ -112,9 +112,9 @@ Propositions above can be proved by definition.
 \begin{proofenv}
     By definition, 
     \begin{align*}
-        (g\circ f )(A)&=\{z\in \mathscr{A}_g|\exists x\in A, (x, z)\in \Gamma_{g\circ f}\}\\
-        &=\{z\in \mathscr{A}_g|\exists x\in A, \exists y\in \mathscr{A}_f, (x, y)\in \Gamma_f, (y, z)\in \Gamma_g\}\\
-        &=\{z\in \mathscr{A}_g|\exists  y\in f(A), (y, z)\in \Gamma_g\}=g(f(A)).
+        (g\circ f )(A)&=\{z\in \mathscr{A}_g\mid \exists x\in A, (x, z)\in \Gamma_{g\circ f}\}\\
+        &=\{z\in \mathscr{A}_g\mid \exists x\in A, \exists y\in \mathscr{A}_f, (x, y)\in \Gamma_f, (y, z)\in \Gamma_g\}\\
+        &=\{z\in \mathscr{A}_g\mid \exists  y\in f(A), (y, z)\in \Gamma_g\}=g(f(A)).
     \end{align*}
     Applying this equality to the case where $A=\mathscr{D}_f$,  we obtain
     $$\mathrm{Im}(g\circ f)=(g\circ f)(\mathscr{D}_f)=g(f(\mathscr{D}_f))=g(\mathrm{Im}(f))\subseteq \mathrm{Im}(g).$$
@@ -293,7 +293,7 @@ In the case where \( X = \{1,  \ldots,  n\} \),  where \( n \) is a positive int
     \item Let \( X \) and \( Y \) be sets and \( y \) be an element of \( Y \). The mapping from \( X \) to \( Y \) sending any \( x \in X \) to \( y \) is called the \textbf{constant mapping with value \( y \)}.
     \item Let $X$ be a set and $A\subseteq X$,  we define $\mathbbm{1}_A:X\rightarrow \mathbb{R}$   
     $$\mathbbm{1}_A(x):=\begin{cases}
- 1,  \text{if}\space x \in A \\0, \text{if}\space x \notin A.
+ 1,  \text{ if }\space x \in A \\0, \text{ if }\space x \notin A.
 
 \end{cases}$$ 
 It is called \textbf{indicator function}

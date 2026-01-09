@@ -5,13 +5,13 @@
     Let $X$ be a set.
     \begin{enumerate}[ (i)]
         \item A \textbf{compositon law} on $X$ is a mapping
-        $$*:X\times X\rightarrow X, (x, y)\mapsto x * y$$
-        \item Let $Y\subseteq X$ be a set ,  $Y$ is \textbf{close under } $*$ if $\forall x, y \in Y,  x*y\in Y$
-        \item $*$ is \textbf{communitative} if $\forall (x, y)\in X^2, x*y=y*x$
+        $$*:X\times X\rightarrow X, (x, y)\mapsto x * y.$$
+        \item Let $Y\subseteq X$ be a set ,  $Y$ is \textbf{close under } $*$ if $\forall x, y \in Y,  x*y\in Y$.
+        \item $*$ is \textbf{communitative} if $\forall (x, y)\in X^2, x*y=y*x$.
         \item $*$ is \textbf{associative} if $\forall (x, y, z)\in X^3, (x*y)*z=x*(y*z)$.
         If $*$ is associative,  then we can define
-    $$x_1*x_2*\dots *x_n=(x_1*x_2*\dots *x_{n-1})*x_n$$
-    \item Let $G$ be a set ,  $*$ is a composition law on $G$. If $*$ is associative, then we say $(G, *)$ is a \textbf{semigroup}
+    $$x_1*x_2*\dots *x_n=(x_1*x_2*\dots *x_{n-1})*x_n.$$
+    \item Let $G$ be a set ,  $*$ is a composition law on $G$. If $*$ is associative, then we say $(G, *)$ is a \textbf{semigroup}.
     \end{enumerate}
     
     
@@ -21,9 +21,9 @@
     \quad
     \newline
     (1) Let $(X, *)$ be a composition law .We define $(X, \hat{*})$ satisfies:
-    $$\hat{*}:X\times X\rightarrow X,  (x, y)\mapsto y*x$$
-    By definition, $x=\hat{x}\Leftrightarrow *$ is communitative.If $*$ is associative,  then so does $\hat{*}$.
-    Let $\mathfrak{M} _X$ the set of all mapping from $X$ to $X$.On $\mathfrak{M} _X$, the composition of mapping defines a composition law:
+    $$\hat{*}:X\times X\rightarrow X,  (x, y)\mapsto y*x.$$
+    By definition, $x=\hat{x}\Leftrightarrow *$ is communitative. If $*$ is associative,  then so does $\hat{*}$.
+    Let $\mathfrak{M} _X$ the set of all mapping from $X$ to $X$. On $\mathfrak{M} _X$, the composition of mapping defines a composition law:
     $$\begin{matrix}
 \mathfrak{M} _X\times \mathfrak{M} _X\rightarrow\mathfrak{M} _X \\
 (f, g)\mapsto f\circ g
@@ -44,7 +44,7 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     $$x_1*\dots *x_{i+1}=(x_1*\dots *x_{i-1})*x_i*x_{i+1}=x_1*\dots *x_{i-1}*(x_i*x_{i+1})$$ 
 \end{proofenv}
 \begin{definitionenv}
-    Let $(G, *)$ be a set equipped with a composition law ,  $g\in G$
+    Let $(G, *)$ be a set equipped with a composition law, $g\in G$
     \newline
     If $\forall (x, y)\in G^2, g*x=g*y\Rightarrow x=y$, we say that $g$ is \textbf{left cancellative}.
     \newline
@@ -69,11 +69,11 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     Assume $(X, *)$ admits a neutral element,  then its neutral element is unique.
 \end{propositionenv}
 \begin{proofenv}
-    Let $e, e'\in X$ be neutral elements.Then 
+    Let $e, e'\in X$ be neutral elements. Then 
     $$e=e*e'=e'.$$
 \end{proofenv}
 \begin{definitionenv}
-    Let $(G, *)$ be a semigroup. If $(G, *)$ has a neutral element ,  then we say $(G, *)$ is \textbf{monoid}.
+    Let $(G, *)$ be a semigroup. If $(G, *)$ has a neutral element, then we say $(G, *)$ is \textbf{monoid}.
 \end{definitionenv}
 \begin{exampleenv}
     \quad
@@ -86,7 +86,7 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     Let $(G, *)$ be a monoid with the neutral element $e$. For any $ (x, y)\in G^2$,  if $x*y=e$ then we say $x$ is a \textbf{left inverse} of $y$,  and $y$ is the \textbf{right inverse} of $x$.
 \end{definitionenv}
 \begin{remark}
-    We say $x$ is \textbf{left invertible} if $x$ has a left inverse.(resp. right invertible)
+    We say $x$ is \textbf{left invertible} if $x$ has a left inverse. (resp. right invertible.)
 \end{remark}
 \begin{remark}
     $x$ is left invertible in $(G, *)\Leftrightarrow x $ is right invertible in $(G, \hat{*})$.
@@ -192,7 +192,8 @@ Let $f_a:x\mapsto a , f_b:x\mapsto b , \forall x\in X$ Then,  $f_a\circ f_b=f_a,
     Then $H$ is a subgroup of $M^\times$.
 \end{propositionenv}
 \begin{proofenv}
-    Let $e$ be the neutral element of $(M, *)$. By Proposition\ref{proposition5.3.1},  we obtain that $H$ forms a submonoid of $M^\times$.Moreover,  $\forall x \in H$,  one has $\iota(x)=e*\iota(x)\in H$.So $H$ is a subgroup of $M^\times$.
+    Let $e$ be the neutral element of $(M, *)$. By Proposition\ref{proposition5.3.1}, we obtain that $H$ forms a submonoid of $M^\times$.
+    Moreover, $\forall x \in H$, one has $\iota(x)=e*\iota(x)\in H$. So $H$ is a subgroup of $M^\times$.
 \end{proofenv}
 \begin{propositionenv}
     Let $(G, *)$ be a semigroup (resp. monoid, group),  $(H_i)_{i\in I}$ be a family of subsemigroups (resp. submonoids, subgroups), where $I$ is a non-empty set. Then 

@@ -9,27 +9,27 @@
     \newline
     (3) Two sets $A$ and $B$ are said to be \textbf{equal} if they have the same elements.We denoted by $A=B$ the statement ``A and B are equal".
     \newline
-    (4) If $A$ is a set and $x$ is an object,  $x \in A$ denotes $x$ is an element of $A$ (reads x belongs to A),  $x \notin A$ denotes ``x is NOT an element of A".
+    (4) If $A$ is a set and $x$ is an object,  $x \in A$ denotes $x$ is an element of $A$ (reads x belongs to A),  $x \notin A$ denotes ``$x$ is NOT an element of A".
 \end{definitionenv}
 \texttt{Notation Roster method: to be continue$\dots$}
 \begin{exampleenv}
-    \{1, 2, 3\}=\{3, 2, 1\}=\{1, 1, 2, 3\}
+    $\{1, 2, 3\}=\{3, 2, 1\}=\{1, 1, 2, 3\}$.
 \end{exampleenv}
 \begin{box2}
-More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  then the set of all $x_i$ is noted as $$\{x_i|i\in I\}.$$
+More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  then the set of all $x_i$ is noted as $$\{x_i\mid i\in I\}.$$
 \end{box2}
 \begin{exampleenv}
-    $$\{2k+1|k\in \ZZ\}.$$
+    $$\{2k+1\mid k\in \ZZ\}.$$
 \end{exampleenv}
 \section{Set-builder Notation}
 \begin{definitionenv}
     Let $A$ be a set. If for any $x\in A $ we fix a statement $P(x)$,  then we say that $P(\cdot)$ is a \textbf{condition} on $A$. 
 \end{definitionenv}
 \begin{exampleenv}
-    ``$n$ is even" is a condition on $\NN$,  ``$x>2$" is a condition on $\RR$.
+    ``$n$ is even" is a condition on $\NN$, ``$x>2$" is a condition on $\RR$.
 \end{exampleenv}
 \begin{definitionenv}
-    Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .If $x\in A$ is such that $P(x)$ is true,  then we say that $x$ satisfies the condition $P(\cdot)$.We noted by $$\{x \in A|P(x)\}$$the set of $x\in A$ that satisfies the condition $P(\cdot)$.
+    Let $A$ be a set and $P(\cdot)$ be a condition on $A$. If $x\in A$ is such that $P(x)$ is true,  then we say that $x$ satisfies the condition $P(\cdot)$. We noted by $$\{x \in A\mid P(x)\}$$the set of $x\in A$ that satisfies the condition $P(\cdot)$.
 \end{definitionenv}
 \begin{exampleenv}
     $\{x\in \RR|x>2\}$ denotes the set of real numbers that are $x>2$.
@@ -50,17 +50,16 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
 \begin{exampleenv}
     \quad
    \begin{itemize}
-    \item  We denote by $\varnothing $ the set that does not have any element.We consider it as a subset of any set.
-   \item  Let $A$ be a set , then $A\subseteq A$
+    \item  We denote by $\varnothing $ the set that does not have any element. We consider it as a subset of any set.
+    \item  Let $A$ be a set, then $A\subseteq A$.
     \end{itemize}
 \end{exampleenv}
 \begin{definitionenv}
-    Let $A$ be a set , we denote by $\wp  (A)$ the set of all subset of $A$,  called the power set of $A$.
+    Let $A$ be a set, we denote by $\mathscr{P}  (A)$ the set of all subset of $A$,  called the power set of $A$.
 \end{definitionenv}
 \begin{exampleenv}
-    $\wp (\varnothing)=\{\varnothing\}$
-    , 
-    $\wp (\wp (\varnothing))=\{\varnothing, \{\varnothing\}\}$.
+    $\mathscr{P} (\varnothing)=\{\varnothing\}$,
+    $\mathscr{P} (\mathscr{P} (\varnothing))=\{\varnothing, \{\varnothing\}\}$.
 \end{exampleenv}
 \begin{definitionenv}
     Let $A$ and $B$ be sets. We denote by $B \backslash A$ the set $$\{x\in B\mid x\notin A\}.$$ This is a subset of $B$ called the \textbf{set difference of $\mathbf{B}$ and $\mathbf{A}$}.
@@ -68,10 +67,11 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
     If in condition $A \subseteq B$,  we say that $B\backslash A$ is the complement of $A$ inside $B$.
 \end{definitionenv}
 \begin{exampleenv}
-    If $A$ is a set,  $P(\cdot)$ is  a condition on $A$,  then $$\{x\in A \mid \neg P(x)\}=A\backslash\{x\in A|P(x)\}.$$
+    If $A$ is a set, $P(\cdot)$ is  a condition on $A$,  then
+    $$\{x\in A \mid \neg P(x)\} = A\backslash\{x\in A\mid P(x)\}.$$
 \end{exampleenv}
 \begin{propositionenv}
-    Let $A$ and $B$ be sets.Then $$B\backslash A=\varnothing \Leftrightarrow B\subseteq A.$$
+    Let $A$ and $B$ be sets. Then $$B\backslash A=\varnothing \Leftrightarrow B\subseteq A.$$
     If in condition $A$ is the subset of $B$,  then $$B\backslash A=\varnothing \Leftrightarrow A=B.$$
 \end{propositionenv}
 
@@ -80,9 +80,9 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
 \begin{definitionenv}\label{2.4.1}
     Let $A$ be a set and $P(\cdot)$ be a condition on $A$ .We denote by 
     \newline
-    ``$\forall x\in A,  P(x)$" the statement $\{x\in A\mid P(x)\}=A$
+    ``$\forall x\in A,  P(x)$" the statement $\{x\in A\mid P(x)\}=A$.
     \newline
-    ``$\exists x\in A, P(x)$"denotes$\{x\in A\mid P(x)\}\not= \varnothing$.
+    ``$\exists x\in A, P(x)$" denotes$\{x\in A\mid P(x)\}\neq \varnothing$.
 \end{definitionenv}
 \begin{exampleenv}
     $\forall x\in \varnothing , P(x)$ is true ; $\exists x\in \varnothing, P(x)$ is false.
@@ -90,9 +90,9 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
 \begin{theoremenv}\label{theorem2.4.1}
     Let $A$ be a set and $P(\cdot)$ be a condition on $A$
     \newline
-    (1)$\exists x\in A, \neg P(x) $ and $ \forall x\in A, P(x)$ have opposite truth values.
+    (1) $\exists x\in A, \neg P(x) $ and $ \forall x\in A, P(x)$ have opposite truth values.
     \newline
-    (2)$\forall x\in A, \neg P(x)$ and $\exists x\in A, P(x)$ have opposite truth value.
+    (2) $\forall x\in A, \neg P(x)$ and $\exists x\in A, P(x)$ have opposite truth value.
 \end{theoremenv}
 
 
@@ -104,17 +104,17 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
     If $\{x\in A\mid P(x)\}=\{x\in A\mid Q(x)\}$, we say that $P(\cdot)$ and $Q(\cdot)$ are equivalent.
 \end{definitionenv}
 \begin{propositionenv}
-    Let $A$ be a set , $P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
+    Let $A$ be a set, $P(\cdot)$ and $Q(\cdot)$ be conditions on $A$.
     \newline
-    (1)$P(\cdot)$ is a sufficient condition of $Q(\cdot)$ iff.$\forall x\in A, P(x)\Rightarrow Q(x)$
+    (1) $P(\cdot)$ is a sufficient condition of $Q(\cdot)$ if and only if $\forall x\in A, P(x)\Rightarrow Q(x)$.
     \newline
-    (2)$P(\cdot) $ is a necessary condition of $Q(\cdot)$ iff.$\forall x\in A, Q(x)\Rightarrow P(x)$
+    (2) $P(\cdot) $ is a necessary condition of $Q(\cdot)$ if and only if $\forall x\in A, Q(x)\Rightarrow P(x)$.
     \newline
-    (3)$P(\cdot)$ and $Q(\cdot)$ are equivalent iff. $\forall x\in A, P(x)\Leftrightarrow Q(x)$
+    (3) $P(\cdot)$ and $Q(\cdot)$ are equivalent if and only if $\forall x\in A, P(x)\Leftrightarrow Q(x)$.
 \end{propositionenv}
 \begin{proofenv}
 \begin{align*}
-    \varnothing&=\{x\in A\mid P(x)\}- \{x\in A\mid Q(x)\}\\
+    \varnothing&=\{x\in A\mid P(x)\} \backslash \{x\in A\mid Q(x)\}\\
     &=\{x\in A\mid P(x)\wedge (\neg Q(x))\}\\
     &=A\backslash\{x\in A\mid (\neg P(x))\vee  Q(x)\}\\
     &=A\backslash\{x\in A \mid P(x)\Rightarrow Q(x)\}.
@@ -127,10 +127,16 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
 
 \section{Union}
 \begin{definitionenv}
-    Let $I$ be a set , and for any $i \in I$,  let $A_i$ be a set , we say that $(A_i)_{i\in I}$ is a family of sets parametrized by $I$.We denote by $\cup_{i \in I}A_i$ the set of all elements of all $A_i$.It is also called the \textbf{union} of the sets $A_i, i\in I$. By definition, a mathematical object $x$ belongs to $\cup_{i \in I}A_i$ if and only if $$\exists i\in I, x\in A_i.$$ 
+    Let $I$ be a set, and for any $i \in I$.
+    Let $A_i$ be a set, we say that $(A_i)_{i\in I}$ is a family of sets parametrized by $I$.
+    We denote by $\cup_{i \in I}A_i$ the set of all elements of all $A_i$.
+    It is also called the \textbf{union} of the sets $A_i$, $i\in I$.
+    By definition, a mathematical object $x$ belongs to $\dis \cup_{i \in I}A_i$ if and only if
+    $$\exists i\in I, x\in A_i.$$ 
 \end{definitionenv}
 \begin{propositionenv}
-    $ \displaystyle \bigcup_{i\in I}A_i\subseteq B$ if and only if $$\forall i\in I, A_i\subseteq B.$$
+    $ \displaystyle \bigcup_{i\in I}A_i\subseteq B$ if and only if
+    $$\forall i\in I, A_i\subseteq B.$$
 \end{propositionenv}
 \begin{corollaryenv}\label{corollary2.6.1}
     Let $P_i(\cdot) $ be a condition on $B$, then
@@ -141,17 +147,21 @@ More generally,  if $I$ is a set,  and for any $i \in I$,  we fix an $x_i$,  the
 \end{propositionenv}
 \section{Intersection}
 \begin{definitionenv}
-    Let $I$ be a \textbf{non-empty} set and $(A_i)_{i\in I} $ be a family os sets parametrized by $I$. We denote by $\displaystyle \bigcap_{i\in I}A_i $ the set of all common elements of $A_i, i\in I$.This set is called the \textbf{intersection} of $A_i, i\in I$.Note that, if $i_0$ is an arbitrary element of $I$, the set-builder notation ensure that
+    Let $I$ be a \textbf{non-empty} set and $(A_i)_{i\in I} $ be a family os sets parametrized by $I$. We denote by $\displaystyle \bigcap_{i\in I}A_i $ the set of all common elements of $A_i$, $i\in I$.
+    This set is called the \textbf{intersection} of $A_i, i\in I$.
+    Note that, if $i_0$ is an arbitrary element of $I$, the set-builder notation ensure that
     $$\{x\in A_{i_0}\mid \forall i\in I, x\in A_i\}$$ is a set. This set is the intersection of $(A_i)_{i\in I}$.
     \newline
-    By definition,  an mathematical object $x$ belongs to $\cap _{i\in I}A_i$ if and only if $$\forall i\in I , x\in A_i.$$
+    By definition, an mathematical object $x$ belongs to $\dis \cap _{i\in I}A_i$ if and only if $$\forall i\in I , x\in A_i.$$
     
 \end{definitionenv}
 \begin{remark}
-    In set theory,  it does not make sense to consider the intersection of an empty family of sets. In fact,  if such an intersection exists as a sets, for any mathematical object $x$,  since the statement $$\forall i\in \varnothing, x \in A_i$$is true,  we obtain that $x$ belongs to $\cap_{i\in \varnothing}A_i$. By Russell's paradox,  this is impossible.
+    In set theory,  it does not make sense to consider the intersection of an empty family of sets. In fact,  if such an intersection exists as a sets, for any mathematical object $x$,  since the statement
+    $$\forall i\in \varnothing, x \in A_i$$
+    is true, we obtain that $x$ belongs to $\dis \cap_{i\in \varnothing}A_i$. By Russell's paradox,  this is impossible.
 \end{remark}
 \begin{propositionenv}\label{proposition2.7.1}
-Let \( I \) be a non-empty set and \( (A_i)_{i \in I} \) be a set parametrised by \( I \). Let \( B \) be a set. Then \( B \subseteq \bigcap_{i \in I} A_i \) if and only if
+Let \( I \) be a non-empty set and \( (A_i)_{i \in I} \) be a set parametrised by \( I \). Let \( B \) be a set. Then \( \dis  B \subseteq \bigcap_{i \in I} A_i \) if and only if
 \[
 \forall\,  i \in I, \,  B \subseteq A_i.
 \]
@@ -159,7 +169,7 @@ Let \( I \) be a non-empty set and \( (A_i)_{i \in I} \) be a set parametrised b
 
 
 \begin{proofenv}
-Let \( A = \bigcap_{i \in I} A_i \).
+Let \( \dis A = \bigcap_{i \in I} A_i \).
 
 Suppose that \( B \subseteq A \). For any \( x \in B \),  one has \( x \in A \),  and hence
 \[

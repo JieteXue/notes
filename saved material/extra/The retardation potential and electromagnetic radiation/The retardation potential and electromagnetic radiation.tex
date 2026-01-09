@@ -1,0 +1,231 @@
+\documentclass{article}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{bm}
+\newcommand{\pa}{\partial}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\title{The Electromagnetic Radiation}
+\date{}
+\author{}
+\begin{document}
+\maketitle
+\section{Preamble and Notation}
+
+We start from D'Alembert equation considering the flat metric $\mathrm{diag}(-1,1,1,1)$:
+\begin{equation}
+        \pa^\mu \pa_\mu A^\alpha = -\mu_0 J^\alpha,
+\end{equation}
+where 
+\begin{equation}
+    x^\alpha=\left(ct,x^1,x^2,x^3\right),\, \pa_\mu = \frac{\pa}{ \pa x^\mu},
+\end{equation}
+\begin{equation}
+    A^\alpha=\left(\frac{\phi}{c},\mathbf{A}\right), J^\alpha = \left(\rho c, \mathbf{J}\right).
+\end{equation}
+The solution of the above equation is (suppose a Green function $G_R$).
+\begin{equation}\label{origin solution of D'Alembert equation}
+    A^\mu =\mu_0 \int \dd^4\mathbf{x}\,  G_R(\mathbf{x}, \mathbf{x}')J^\mu\left(\mathbf{x}'\right).
+\end{equation}
+$G_R$ is the solution of
+\begin{equation}
+    \pa^\mu \pa_\mu G_R(\mathbf{x},\mathbf{x}')= \delta^4 \left(\mathbf{x}-\mathbf{x}'\right).
+\end{equation}
+Since it should satisfies the law of causality, we pick\footnote{Another one is of the form: $t+r/c$, space and time is some sense dissymmetry since they take different sign, so when using Fourier transform to solve it, $1/(k^2-\frac{\omega^2}{c^2})$ contribute a pair of pole.}
+\begin{equation}
+    G_R(\mathbf{x}, \mathbf{x}') = \frac{\delta(t-t'-\frac{|\mathbf{r}-\mathbf{r}'|}{c})}{4\pi \left|\mathbf{r}-\mathbf{r}'\right|}.
+\end{equation}
+Let 
+\begin{equation}
+    \mathbf{R}= \mathbf{r}-\mathbf{r}',\ \tilde{t} = t-\frac{R}{c}.
+\end{equation}
+We agree that any time dependent variable $f(t)$ with\footnote{Some books or articles use $[\ \cdot\ ]$ to denote the retarded term.} $\tilde{}$ means replace $t$ as $\tilde{t}$. Which means $\tilde{f}(t)=f\left(\tilde{t}\right)$.
+Or\footnote{Seldom do that, since this operator is not a linear operator in the whole space. But it will help us clarify the relation of variables when doing complex work.} we will write it into the form of $\mathcal{R} [f(t)](\mathbf{r}_1,\mathbf{r}_2)= f(\tilde{t})$ to remind us that it is not a simple function.
+For convenience, if there won't be any confusion, we neglect $\mathbf{r}'$ that have appeared in the inner function $f(\mathbf{r}',t)$, and write the retarded term as $\mathcal{R}[f(\mathbf{r}',t)](\mathbf{r})$. We even neglect $\mathbf{r}$, which point out the position where we evaluate the retarded term.
+Also, sometimes we will use lower index ``ret'' to emphasize the expressions. 
+
+Deduce the term of time in \eqref{origin solution of D'Alembert equation}, we obtain,
+\begin{equation}\label{solution of D'Alembert equation in the form of 3D integral}
+    A^\mu (\mathbf{x}) = \mu_0 \int \frac{\tilde{J}^\mu(\mathbf{x}')}{4\pi R}\dd{\mathbf{r}'}.
+\end{equation}
+
+\section{Properties of Retardation Notation}
+Suppose $J=J(\mathbf{x})$, then
+\begin{equation}
+    \frac{\pa \mathcal{R}[J(\mathbf{r},t)]}{\pa x^\mu} = \frac{\pa \mathbf{r}}{\pa x^\mu} \cdot\nabla J(\mathbf{r},\tilde{t}) + \frac{\pa \tilde{t}}{\pa x^\mu}\cdot\frac{\pa J (\mathbf{r},\tilde{t})}{\pa \tilde{t}}.
+\end{equation}
+
+In particular,
+\begin{equation}\label{property1}
+    \frac{\pa}{\pa t} \mathcal{R}[J(\mathbf{r},t)] = \mathcal{R}\left[\frac{\pa }{\pa t}J(\mathbf{r},t)\right].
+\end{equation}
+\begin{equation}\label{property2}
+    \nabla \mathcal{R}[J(\mathbf{r},t)] = \mathcal{R}[\nabla J(\mathbf{r},t)] -  \mathcal{R}\left[\frac{1}{c}\frac{\pa J(\mathbf{r},t)}{\pa t}\right]\nabla R.
+\end{equation}
+Note that $\mathcal{R}$ is equipped with a position $\mathbf{r}_\mathcal{R}$, so we can define another derivative, which act on the position $\mathbf{r}_\mathcal{R}$.
+\begin{equation}\label{property3}
+    \nabla_{r_\mathcal{R}} \mathcal{R}[J(\mathbf{r},t)] = -\frac{1}{c}\frac{\pa J(\mathbf{r}, \tilde{t})}{\pa \tilde{t}}\cdot \nabla_{r_\mathcal{R}} R= -\mathcal{R}\left[\frac{1}{c}\frac{\pa J(\mathbf{r},t)}{\pa t}\right]\nabla_{r_\mathcal{R}}R.
+\end{equation}
+Since $\nabla R =- \nabla_{r_\mathcal{R}} R$, we have
+\begin{equation}\label{relation between two derivative}
+    \nabla \mathcal{R}[J(\mathbf{r},t)] + \nabla_{r_\mathcal{R}} \mathcal{R}[J(\mathbf{r},t)] = \mathcal{R} \left[\nabla J(\mathbf{r},t)\right]
+\end{equation}
+By symmetry of definition, 
+\begin{equation}\label{property5}
+    \nabla_1 \mathcal{R}[f](\mathbf{r}_1,\mathbf{r}_2)= - \nabla_2 \mathcal{R}[f](\mathbf{r}_1,\mathbf{r}_2).
+\end{equation}
+\textbf{Example:} \hspace{5pt} Verify that our solution \eqref{solution of D'Alembert equation in the form of 3D integral} satisfies Lorentz gauge.
+
+\begin{equation}
+    \frac{\pa \phi}{\pa t}= \int \frac{1}{4\pi \varepsilon_0 R}\cdot\frac{\pa \tilde{\rho}(\mathbf{r}',t)}{\pa t} \dd{V'} =\mathcal{R}\left[\int \frac{1}{4\pi \varepsilon_0 R}\cdot\frac{\pa \rho(\mathbf{r}',t)}{\pa t} \dd{V'}\right]
+\end{equation}
+\begin{equation}
+    \nabla\cdot\mathbf{A} = \frac{\mu_0}{4\pi} \int \nabla\cdot\left(\frac{\tilde{\mathbf{J}}(\mathbf{r}',t)}{R}\right) \dd{V}'.
+\end{equation}
+
+Use the conservation of charge to make a connection of two expressions above. By \eqref{relation between two derivative},
+\begin{equation}
+    -\mathcal{R}\left[ \frac{\pa \rho(\mathbf{r}',t)}{\pa t}\right]=\mathcal{R} \left[ \nabla' \cdot \mathbf{J}(\mathbf{r}',t)\right] =\nabla' \cdot \mathcal{R}\left[ \mathbf{J}(\mathbf{r}',t)\right] +\nabla \cdot \mathcal{R}\left[ \mathbf{J}(\mathbf{r}',t)\right].
+\end{equation}
+So,
+\begin{equation}
+    \begin{split}
+        \frac{1}{c^2} \frac{\pa \phi}{ \pa t} +\nabla \cdot\mathbf{A} =& \frac{\mu_0}{ 4\pi } \int \left[ -\frac{1}{R}\left(\nabla'\cdot \tilde{\mathbf{J}}+\nabla \cdot \tilde{\mathbf{J}}\right) + \left( \frac{\nabla \cdot \tilde{\mathbf{J}}}{R} -\frac{ \nabla R}{R^2} \cdot \tilde{\mathbf{J}}\right)\right] \dd{V'}\\
+        =& -\frac{ \mu_0}{4 \pi} \int \left[\frac{1}{R} \left(\nabla' \cdot \tilde{ \mathbf{J}}\right) + \nabla \left(\frac{1}{R}\right) \cdot\tilde{\mathbf{J}}\right]\dd{V'}\\
+        = & -\frac{\mu_0}{4 \pi }\int \left[\frac{\nabla'\cdot\tilde{\mathbf{J}}}{R} - \nabla' \cdot \left(\frac{1}{R}\right) \cdot\tilde{\mathbf{J}} \right] \dd{V}\\
+        = & -\frac{\mu_0}{4 \pi } \int \nabla'\cdot\left(\frac{\tilde{\mathbf{J}}}{R}\right)\dd{V'}= - \frac{\mu_0}{4\pi } \oint_S \frac{\tilde{J}\cdot\dd{\mathbf{S}}}{R}=0.
+    \end{split}
+\end{equation}
+
+
+\section{Distribution of Electromagnetic Field}
+\subsection{Precise Solution}
+By 
+\begin{equation}
+     \mathbf{E} = -\nabla \phi -\frac{\pa \mathbf{A}}{\pa t},\, \mathbf{B} = \nabla \times \mathbf{A},
+\end{equation}
+and \eqref{solution of D'Alembert equation in the form of 3D integral}
+\begin{equation}
+    \mathbf{E}(\mathbf{r},t) = \frac{1}{4\pi \varepsilon_0} \int \left[\frac{\rho_{\text{ret}}(\mathbf{r}',t)}{R^2} \nabla R + \frac{\nabla R}{cR} \frac{\pa \rho_{\text{ret}}(\mathbf{r}',t)}{\pa t} -\frac{1}{c^2 R} \frac{ \pa \mathbf{J}_{\text{ret}}}{\pa t}\right] \dd{V'},
+\end{equation}
+\begin{equation}
+    \mathbf{B}(\mathbf{r},t) =\frac{\mu_0}{4\pi} \int \left[\mathbf{J}_{\text{ret}}\times \frac{\nabla R}{R^2} -\frac{\nabla R}{cR}\times \frac{\pa \mathbf{J}_{\text{ret}}}{\pa t}\right]\dd{V'}.
+\end{equation}
+
+
+\subsection{Time-harmonic Solution}
+It is difficult to do the integral if there's some complicated retarded term, we try to solve some simple case. Suppose all the current evolute in the form of $\mathbf{j}_0 \ee^{-\ii \omega t}$, then
+\begin{equation}
+    \mathbf{A}=\frac{\mu_0 \ee^{- \ii \omega t}}{4 \pi }\int \frac{\mathbf{j}_0 \ee^{\ii k R} }{R} \dd{V'}.
+\end{equation}
+
+This is also difficult to calculate if the distribution is not simple. We can use different approximations in the following according to the specific case.
+\begin{itemize}[leftmargin=1em]
+    \item Near-field approximation: $kR\ll 1$, retardation effect can be neglected.
+    \item Far-field approximation: $R\approx r\gg r'$, $\mathbf{A}\approx \frac{\mu_0}{4\pi r} \ee^{\ii (kr-\omega t)} \int \mathbf{j}_0 \ee^{-\ii \mathbf{k}\cdot\mathbf{r}'}\dd{V'}.$
+    \item Long-wavelength approximation: In addition, $\mathbf{k}\cdot\mathbf{r}'\ll 1$, $\ee^{-\ii \mathbf{k}\cdot\mathbf{r}'}\approx 1-\ii \mathbf{k}\cdot\mathbf{r}'$.
+\end{itemize}
+\vspace{5pt}
+\textbf{Example:} \hspace{5pt} A linear antenna of length $d$ oscillates in a full-wave mode with angular frequency $\omega=\frac{2\pi c}{d}$. Find the radiated power per unit solid angle.
+
+To calculate the energy flux, we only need to consider a large sphere, so we take the far-field approximation,
+\begin{equation}
+    \begin{split}
+        \mathbf{A} =& \frac{\mu_0 I_0 }{4\pi r} \ee^{\ii (kr-\omega t)} \int_{-\frac{\lambda}{2}}^{+\frac{\lambda}{2}} \sin (kz') \ee^{-\ii k z' \cos \theta} \dd{z'}\mathbf{\hat{z}}\\
+        = & -\frac{\ii \mu_0 I_0 }{2\pi kr} \ee^{\ii (kr-\omega t)} \frac{\sin\left(\frac{\pi}{2}\cos\theta\right)}{\sin^2 \theta} \mathbf{\hat{z}}\\
+    \end{split}
+\end{equation}
+
+Retain the leading term of $\frac{1}{r}$ in $\mathbf{B}$ and $\mathbf{E}$, $\nabla\rightarrow \ii \mathbf{k}$,
+\begin{equation}
+    \mathbf{B}= -\frac{\mu_0 I_0}{2\pi r}\frac{\sin\left(\frac{\pi}{2} \cos \theta\right)}{\sin \theta} \ee^{\ii (kr-\omega t)} \bm{\hat{\varphi}},
+\end{equation}
+\begin{equation}
+    \mathbf{E}= \frac{\mu_0 I_0 c}{2\pi r}\frac{\sin\left(\frac{\pi}{2} \cos \theta\right)}{\sin \theta} \ee^{\ii (kr-\omega t)} \bm{\hat{\theta}}.
+\end{equation}
+\begin{equation}
+    \bar{\mathbf{S}}= \frac{c\mu_0 I_0^2}{8\pi^2 r^2} \left[\frac{\sin\left(\frac{\pi}{2} \cos \theta\right)}{\sin \theta}\right]^2 \mathbf{\hat{r}}.
+\end{equation}
+\begin{equation}
+    \frac{\dd{\bar{P}}}{\dd{\Omega}} = \frac{c\mu_0 I_0^2}{8\pi^2} \left[\frac{\sin\left(\frac{\pi}{2} \cos \theta\right)}{\sin \theta}\right]^2.
+\end{equation}
+
+
+\subsection{Multiple Expansion}
+If we have the condition of long-wavelength approximation, we can do the multiple expansion of the vector potential. Also, we retain the term of $\frac{1}{r}$.
+\begin{equation}
+    \mathbf{A}\approx \frac{\mu_0}{4\pi r}\int \tilde{\mathbf{J}} \dd{V'}.
+\end{equation}
+
+We first introduce two lemmas.
+\newline
+\rule{\textwidth}{0.8pt}
+\textbf{Lemma.}
+\begin{equation}
+    \int \mathbf{J} \dd{V} =\frac{\dd{\mathbf{p}}}{\dd{t}}.
+\end{equation}
+\rule{\textwidth}{0.4pt}
+\begin{proof}
+    \begin{equation}
+        \mathbf{J}=\mathbf{J}\cdot\nabla \mathbf{r} = \nabla\cdot\left(\mathbf{J}\mathbf{r}\right) - (\nabla\cdot\mathbf{J}) \mathbf{r} = \nabla\cdot\left(\mathbf{J}\mathbf{r}\right) +\frac{\pa \rho}{\pa t} \mathbf{r}.
+    \end{equation}
+    The following is easy.
+\end{proof}
+\hspace{-15pt}\rule{\textwidth}{0.8pt}
+\textbf{Lemma.}
+
+Let 
+\begin{equation}
+    \mathbf{m}= \frac{1}{2} \int\mathbf{r}\times \mathbf{J} \dd{V},\, \mathbf{D}=\int 3\rho \mathbf{r}\mathbf{r}\dd{V},
+\end{equation}
+then,
+\begin{equation}
+    \mathbf{F}\cdot\int \mathbf{r}\mathbf{J} \dd{V}= \frac{1}{6}\mathbf{F}\cdot \dot{\mathbf{D}} - \mathbf{F}\times \mathbf{m}.
+\end{equation}
+where $\mathbf{F}$ is an arbitrary vector.
+
+\hspace{-15pt}\rule{\textwidth}{0.4pt}
+\begin{proof}
+    We have
+    \begin{equation}
+        \nabla\cdot\left(\mathbf{J}\mathbf{r}\mathbf{r}\right)=\left(\nabla\cdot\mathbf{J}\right)\mathbf{r}\mathbf{r}+\mathbf{J}\mathbf{r}+\mathbf{r}\mathbf{J},
+    \end{equation}
+    \begin{equation}
+        \mathbf{F}\cdot\left(\mathbf{J}\mathbf{r}-\mathbf{r}\mathbf{J}\right)=\mathbf{F}\times \left(\mathbf{r}\times \mathbf{J}\right),
+    \end{equation}
+    So,
+    \begin{equation}
+        \mathbf{r}\mathbf{J}=\frac{\nabla\cdot\left(\mathbf{J}\mathbf{r}\mathbf{r}\right)+\frac{\pa \rho}{\pa t} \mathbf{r}\mathbf{r} + \left(\mathbf{r}\mathbf{J}-\mathbf{J}\mathbf{r}\right)}{2}.
+    \end{equation}
+    The following is easy.
+\end{proof}
+\hspace{-15pt}\rule{\textwidth}{0.8pt}
+
+Now we expand $\mathcal{R}[\mathbf{J}(\mathbf{r}',t)](\mathbf{r}''=\mathbf{r}',\mathbf{r})$ around $\mathbf{r}''=0$,
+\begin{equation}
+    \mathcal{R}[\mathbf{J}(\mathbf{r}',t)](\mathbf{r}) = \mathcal{R}[\mathbf{J}(\mathbf{r}',t)](0,\mathbf{r}) - \mathbf{r}'\cdot\nabla \mathcal{R}[\mathbf{J}(\mathbf{r}',t)](0,\mathbf{r}) + o(\mathbf{r}').
+\end{equation}
+
+The minus sign comes from exchanging the derivative of retardation positions. In this cases, it is convenient to use retard-time-transition operator $\mathcal{T}$ defined as $\left(\mathcal{T}_a f\right)(t)=f(t-a)$. Then
+\begin{equation}
+    \mathcal{R}[\mathbf{J}(\mathbf{r}',t)](\mathbf{r})=\mathcal{T}_{\frac{r}{c}}\mathbf{J}(\mathbf{r}',t) -\mathbf{r}'\cdot\nabla \left(\mathcal{T}_{\frac{r}{c}} \mathbf{J}(\mathbf{r}',t)\right)+ o(\mathbf{r}').
+\end{equation}
+
+By \eqref{property3},
+\begin{equation}
+    \mathcal{R}[\mathbf{J}]=\mathcal{T}\mathbf{J} + \mathbf{r}'\cdot \nabla r \frac{(\mathcal{T} \dot{\mathbf{J}})}{c} + o(\mathbf{r}').
+\end{equation}
+By two lemmas above, we have
+\begin{equation}
+    \mathbf{A} \approx \frac{\mu_0}{4\pi r}\mathcal{T}_{\frac{r}{c}} \left[\dot{\mathbf{p}} - \frac{\mathbf{\hat{r}}}{c}\times \dot{\mathbf{m}} + \frac{1}{6} \frac{\mathbf{\hat{r}}}{c}\cdot\ddot{\mathbf{D}}\right] .
+\end{equation}
+
+In the following part, we can use $\nabla\rightarrow -\frac{\mathbf{\hat{r}}}{c}\frac{\pa}{\pa t}$ to calculate $\mathbf{E}$ and $\mathbf{B}$ retaining the leading term of $\frac{1}{r}$.
+If we only consider the electric dipole term, the energy flow density is
+\begin{equation}
+    \mathbf{S}(t)=\mathcal{T}\left[\frac{\mu_0(\mathbf{\hat{r}}\times \ddot{\mathbf{p}})^2}{16 \pi^2 r^2 c} \mathbf{\hat{r}}\right].
+\end{equation}
+\end{document}

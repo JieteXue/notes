@@ -1,12 +1,12 @@
 \chapter{Basic Logic}
 \section{Statement}
 \begin{definitionenv}
-    We call statement a declarative sentence that is either true or false,  but not both(it can be potential).    
+    We call statement a declarative sentence that is either true or false,  but not both (it can be potential).    
 \end{definitionenv}
 \begin{exampleenv}
-    ``$2>1$"(True)\quad ``$1<0$"(False)
+    ``$2>1$" (True)\quad ``$1<0$" (False)
     \newline
-If we specify the value of x , then ``$x>2$"becomes a statement,  otherwise it is not a statement.
+If we specify the value of x , then ``$x>2$" becomes a statement,  otherwise it is not a statement.
 \end{exampleenv}
 \begin{definitionenv}
     In a mathematical theory, 
@@ -71,7 +71,7 @@ For any statement $p$,  $\neg \neg p$and $p$ have the same value.
 
 \section{Conditional statements}
 \begin{definitionenv}
-    Let $P$ and $Q$ be statements, we denote by $P\Rightarrow Q$ the statement(if P then Q).
+    Let $P$ and $Q$ be statements, we denote by $P\Rightarrow Q$ the statement (if P then Q).
 \end{definitionenv}
 \begin{remark}
     It has the same truth value as that of $(\neg P\vee Q)$, only when $P$ is true and $Q$ is false,  otherwise it's true .
@@ -103,28 +103,28 @@ For any statement $p$,  $\neg \neg p$and $p$ have the same value.
 
 \section{Biconditional statement}
 \begin{definitionenv}
-    Let $P$and $Q$ be statements. We denote by $P\Leftrightarrow Q$ the statement
+    Let $P$ and $Q$ be statements. We denote by $P\Leftrightarrow Q$ the statement
     \begin{center}
         ``$P$ if and only if $Q$"
     \end{center}
-    its true when$P$and $Q$have the same truth value, it's false when they have the opposite truth value.
+    its true when $P$ and $Q$ have the same truth value, it's false when they have the opposite truth value.
 \end{definitionenv}
 \begin{propositionenv}
-    Let P and Q be statements.$P \Leftrightarrow Q$ has the same truth value as 
+    Let P and Q be statements. $P \Leftrightarrow Q$ has the same truth value as 
     $$(P\Rightarrow Q)\wedge (Q\Rightarrow P).$$
 \end{propositionenv}
 \begin{exampleenv}
-    Let $n$ be an integer.$n$ is even if and only if $n^2$ is even.
+    Let $n$ be an integer. $n$ is even if and only if $n^2$ is even.
 \end{exampleenv}
 \begin{definitionenv}
     Let $P$ and $Q$ be statements.
     \newline
-    $Q\Rightarrow P$ is called the converse of$P\Rightarrow Q$.
+    $Q\Rightarrow P$ is called the converse of $P\Rightarrow Q$.
     \newline
-    $\neg P \Rightarrow \neg Q$is called the inverse of $P\Rightarrow Q$.
+    $\neg P \Rightarrow \neg Q$ is called the inverse of $P\Rightarrow Q$.
 \end{definitionenv}
 \begin{remark}
-    If one proves $P\Rightarrow Q$and $\neg P\Rightarrow \neg Q$, then $P \Leftrightarrow Q$ is true.
+    If one proves $P\Rightarrow Q$ and $\neg P\Rightarrow \neg Q$, then $P \Leftrightarrow Q$ is true.
 \end{remark}
 
 
@@ -132,14 +132,14 @@ For any statement $p$,  $\neg \neg p$and $p$ have the same value.
 
 \section{Proof by Contradiction}
 \begin{definitionenv}
-    Let $P$ be a statement.If we assume $\neg P$is true and deduce that a certain statement is both true and false,  then we say that a contradiction happens and the assumption $\neg P$ is false. Thus the statement $P$ is true. Such a reasoning is called proof by contradiction.
+    Let $P$ be a statement. If we assume $\neg P$ is true and deduce that a certain statement is both true and false,  then we say that a contradiction happens and the assumption $\neg P$ is false. Thus the statement $P$ is true. Such a reasoning is called proof by contradiction.
 \end{definitionenv}
 \begin{exampleenv}
     Prove that the equation $x^2=2$ does not have solution in $\mathbb{Q}$.
 \end{exampleenv}
     \begin{proofenv}
         By contradiction, we assume that $x:=\frac{p}{q}$ is a solution, where $p$ and $q$ are integers , which do not have common prime divisor. By $x^2=2$ we obtain $p^2=2q^2$
-        So $p^2$ is even, $p$ is even.Let $p_1\in \ZZ$ such that $p=2p_1$
+        So $p^2$ is even, $p$ is even. Let $p_1\in \ZZ$ such that $p=2p_1$.
         Then $p^2=4p_1^2=2q^2$,  hence $q$ is even. Therefore $2$ is a common prime divisor of $p$ and $q$, which leads to a contradiction.
     \end{proofenv}
 
