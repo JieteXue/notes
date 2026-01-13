@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "dcebafcbddc8f640",
+    "id": "9f88404c865afcb5",
     "type": "split",
     "children": [
       {
-        "id": "bfb358c4e769335a",
+        "id": "c985e28156fd64e3",
         "type": "tabs",
         "children": [
           {
-            "id": "15dfd2164a60b65d",
+            "id": "337b0216eee0d80b",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -23,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "76c5e7189a49ddb8",
+    "id": "dd13df0d1547a31e",
     "type": "split",
     "children": [
       {
-        "id": "4c668b659147dadc",
+        "id": "946993fd6f297c04",
         "type": "tabs",
         "children": [
           {
-            "id": "6bb6e0e0aad0a787",
+            "id": "f71f1beed267261f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +44,7 @@
             }
           },
           {
-            "id": "497709294935a637",
+            "id": "4342820899a50b50",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +61,7 @@
             }
           },
           {
-            "id": "bf53f354c02c4748",
+            "id": "4dd007529827720f",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -77,15 +77,15 @@
     "width": 300
   },
   "right": {
-    "id": "bdfceed2ed9d585c",
+    "id": "82b45dfd75b618b2",
     "type": "split",
     "children": [
       {
-        "id": "d7240895ba07af53",
+        "id": "df9aecc4e9d2df1c",
         "type": "tabs",
         "children": [
           {
-            "id": "ff0439cf1a87dc1a",
+            "id": "82fc6a913998da93",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -103,7 +103,7 @@
             }
           },
           {
-            "id": "2999beab2cd3699f",
+            "id": "bd1a94840035b0c4",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -116,7 +116,7 @@
             }
           },
           {
-            "id": "1caf2e7f34c56fe5",
+            "id": "15c299b5efeeac86",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -131,7 +131,7 @@
             }
           },
           {
-            "id": "c3e9aa9af68a091e",
+            "id": "8168c9c8ff470950",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -145,7 +145,7 @@
             }
           },
           {
-            "id": "87c6a3e3f501d43e",
+            "id": "5198c5a7706ae5d3",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -176,6 +176,6 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "15dfd2164a60b65d",
+  "active": "337b0216eee0d80b",
   "lastOpenFiles": []
 }

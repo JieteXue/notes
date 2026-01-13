@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{enumitem}
 \usepackage{bm}
+\usepackage{bbm}
 \newcommand{\pa}{\partial}
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\ee}{\mathrm{e}}
@@ -28,15 +29,19 @@ where
 \end{equation}
 The solution of the above equation is (suppose a Green function $G_R$).
 \begin{equation}\label{origin solution of D'Alembert equation}
-    A^\mu =\mu_0 \int \dd^4\mathbf{x}\,  G_R(\mathbf{x}, \mathbf{x}')J^\mu\left(\mathbf{x}'\right).
+    A^\mu(\mathbf{x}) =\mu_0 \int \dd{^4\mathbf{x}'}\,  G_R(\mathbf{x}, \mathbf{x}')J^\mu\left(\mathbf{x}'\right).
 \end{equation}
 $G_R$ is the solution of
 \begin{equation}
     \pa^\mu \pa_\mu G_R(\mathbf{x},\mathbf{x}')= \delta^4 \left(\mathbf{x}-\mathbf{x}'\right).
 \end{equation}
-Since it should satisfies the law of causality, we pick\footnote{Another one is of the form: $t+r/c$, space and time is some sense dissymmetry since they take different sign, so when using Fourier transform to solve it, $1/(k^2-\frac{\omega^2}{c^2})$ contribute a pair of pole.}
+Since it should satisfies the law of causality, we pick\footnote{Another one is of the form: $t+r/c$, space and time is some sense dissymmetry since they take different sign, so when using Fourier transform to solve it, $1/(k^2-\frac{\omega^2}{c^2})$ contribute a pair of pole. Heaviside step function $\Theta = \mathbbm{1}_{\mathbb{R}_{\ge 0}}$ ensure the causality law valid.}
 \begin{equation}
-    G_R(\mathbf{x}, \mathbf{x}') = \frac{\delta(t-t'-\frac{|\mathbf{r}-\mathbf{r}'|}{c})}{4\pi \left|\mathbf{r}-\mathbf{r}'\right|}.
+    G_R(\mathbf{x}, \mathbf{x}') = \frac{1}{2\pi} \Theta (t-t') \delta ((x^\mu -{{x'}^{\mu}})(x_\mu- {x'_{\mu}})),
+\end{equation}
+exactly,
+\begin{equation}
+    G_R(\mathbf{x},\mathbf{x}')=\frac{\delta(t-t'-\frac{|\mathbf{r}-\mathbf{r}'|}{c})}{4\pi \left|\mathbf{r}-\mathbf{r}'\right|}.
 \end{equation}
 Let 
 \begin{equation}
@@ -44,7 +49,8 @@ Let
 \end{equation}
 We agree that any time dependent variable $f(t)$ with\footnote{Some books or articles use $[\ \cdot\ ]$ to denote the retarded term.} $\tilde{}$ means replace $t$ as $\tilde{t}$. Which means $\tilde{f}(t)=f\left(\tilde{t}\right)$.
 Or\footnote{Seldom do that, since this operator is not a linear operator in the whole space. But it will help us clarify the relation of variables when doing complex work.} we will write it into the form of $\mathcal{R} [f(t)](\mathbf{r}_1,\mathbf{r}_2)= f(\tilde{t})$ to remind us that it is not a simple function.
-For convenience, if there won't be any confusion, we neglect $\mathbf{r}'$ that have appeared in the inner function $f(\mathbf{r}',t)$, and write the retarded term as $\mathcal{R}[f(\mathbf{r}',t)](\mathbf{r})$. We even neglect $\mathbf{r}$, which point out the position where we evaluate the retarded term.
+For convenience, if there won't be any confusion, we neglect $\mathbf{r}'$ that have appeared in the inner function $f(\mathbf{r}',t)$, and write the retarded term as $\mathcal{R}[f(\mathbf{r}',t)](\mathbf{r})$.
+We even neglect $\mathbf{r}$ that point out the position where we evaluate the retarded term.
 Also, sometimes we will use lower index ``ret'' to emphasize the expressions. 
 
 Deduce the term of time in \eqref{origin solution of D'Alembert equation}, we obtain,
@@ -228,4 +234,70 @@ If we only consider the electric dipole term, the energy flow density is
 \begin{equation}
     \mathbf{S}(t)=\mathcal{T}\left[\frac{\mu_0(\mathbf{\hat{r}}\times \ddot{\mathbf{p}})^2}{16 \pi^2 r^2 c} \mathbf{\hat{r}}\right].
 \end{equation}
+
+\section{Point Charge}
+Let the particle's worldline be parameterized by its proper time $\tau$:
+\begin{equation}
+    x_0^\mu (\tau)=\left(ct_0(\tau), \mathbf{r}_0(t(\tau))\right).
+\end{equation}
+The four-velocity is 
+\begin{equation}
+    U_0^\mu(\tau) = \frac{\dd{x}_0^\mu}{\dd{\tau}}=\gamma(\tau)\left(c,\mathbf{v}_0\right),
+\end{equation}
+with 
+\begin{equation}
+    \gamma(\tau)=\frac{\dd{t_0}}{\dd{\tau}}=\frac{1}{\sqrt{1-\frac{v_0^2}{c^2}}}.
+\end{equation}
+The four-current density of a point charge is
+\begin{equation}
+    J^\mu (\mathbf{x}') = qc \int_{-\infty}^{+\infty} U_0^\mu (\tau) \delta^{(4)}\left(\mathbf{x}' - \mathbf{x}_0(\tau)\right)\dd{\tau}
+\end{equation}
+
+Now we want to reduce the integral into 3D form, by the property of Dirac delta function,
+\begin{equation}
+     \delta(ct'-ct_0) = \frac{1}{c}\delta(t'-t_0),
+\end{equation}
+So,
+\begin{equation}
+    \begin{split}
+        J^\mu(\mathbf{x}')=&q\int_{-\infty}^{+\infty} U_0^\mu(t_0)\delta(t'-t_0)\delta^{(3)}(\mathbf{r}'-\mathbf{r_0})\frac{\dd{\tau}}{\dd{t_0}}\dd{t_0}\\
+         =& \frac{qU_0^\mu(t')}{\gamma(t')}\delta^{(3)}\left(\mathbf{r}'-\mathbf{r}_0(t')\right).
+    \end{split}
+\end{equation}
+Thus,
+\begin{equation}
+    \begin{split}
+        \mathbf{A}(\mathbf{x})=& \frac{\mu_0q}{2\pi} \int \frac{U_0^\mu(t')}{\gamma(t')}\Theta (t-t') \delta ((x^\mu -{{x'}^{\mu}})(x_\mu- {x'_{\mu}})) \delta^{(3)}(\mathbf{r'}-\mathbf{r}_0(t'))\, \dd^4{\mathbf{x}'}\\
+        =& \frac{\mu_0qc}{2\pi } \int \frac{U_0^\mu(t_0)}{\gamma(t_0)}\Theta (t-t_0) \delta ((x^\mu -{{x_0}^{\mu}})(x_\mu- {{x_0}_{\mu}}))\dd{t_0}.
+    \end{split}
+\end{equation}
+(The integral variable should be $t'$, but we substitute it as $t_0$ for convenience.)
+
+If we denote $R^\mu= x^\mu -{x}_0^\mu$, and the solution of $R^\mu(t_0)R_\mu(t_0)=0$, are $t_{\text{ret}}(\mathbf{x},\mathbf{r}_0)$ and $t_{\text{adv}}(\mathbf{x},\mathbf{r}_0)$, then
+\begin{equation}
+    \delta\left(R^\mu R_\mu\right) = \sum_{i = \text{ ret, adv}}\frac{\delta(t_0-t_i)}{\left|\frac{\dd{\tau}}{\dd{t_0}}\frac{\dd}{\dd{\tau}} \left(R^\mu(\tau) R_{\mu}(\tau)\right)\right|},
+\end{equation}
+\begin{equation}
+    \frac{\dd{}}{\dd{\tau}} \left[R^\mu(\tau)R_\mu(\tau)\right]= - 2 R_\mu(\tau) U_0^\mu(\tau).
+\end{equation}
+So,
+\begin{equation}
+    \Theta(t-t_0)\delta(R^\mu R_\mu)= \frac{\gamma(t_0)\delta(t_0-t_\text{ret})}{2|R_\mu U^\mu_0(t_0)|}.
+\end{equation}
+Hence,
+\begin{equation}
+    \begin{split}
+        A^\mu (\mathbf{x}) =& \frac{\mu_0 qc}{2\pi}\int \frac{U_0^\mu(t_0)}{\gamma(t_0)}\Theta(t-t_0)\delta(R^\mu R_\mu)\dd{t_0}\\
+        =&\frac{\mu_0 qc}{4\pi} \int \frac{U_0^\mu (t_0) \delta(t_0-t_\text{ret}(\mathbf{x},\mathbf{r}_0))}{\left|R_\sigma U_0^\sigma(t_0)\right|}\dd{t_0}\\
+        =& \frac{\mu_0 qc}{4\pi}\mathcal{R}\left[\frac{U^{\mu}_0(t)}{\left|R_\sigma U^\sigma_0(t)\right|}\right].
+    \end{split}
+\end{equation}
+
+Now we try to simplify it to a three-dimensional form.
+
+We have $R^\alpha=\left(c\Delta t,\mathbf{R}\right)$, with $c\Delta t = R$, $R_\sigma U_0^\sigma = c \gamma \left[(\mathbf{R}\cdot\mathbf{v}_0)-R\right]$, so,
+\begin{equation}
+    \mathbf{A}^\alpha (\mathbf{x})= \frac{\mu_0 q}{4\pi} \mathcal{R}\left[\frac{\left(c,\mathbf{v}_0\right)}{R - \mathbf{R}\cdot\mathbf{v}_0/c}\right].
+\end{equation}
+This is called the Liénard-Wiechert potential.
 \end{document}
