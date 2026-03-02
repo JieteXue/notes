@@ -1,0 +1,99 @@
+\chapter{Language of Category Theory}
+\section{Universe}
+\begin{definitionenv}
+    We call \textbf{universe} any set $\mathcal{U}$ whose elements are sets, satisfying the following conditions:
+    \begin{enumerate}[label=(\alph*)]
+        \item $\varnothing \in \mathcal{U}$.
+        \item If $A\in \mathcal{U}$ and $B\in A$, then $B\in \mathcal{U}$.
+        \item If $A\in \mathcal{U}$, then $\mathcal{P}(A)\in \mathcal{U}$.
+        \item If $I\in \mathcal{U}$ and $(A_i)_{i\in I}\in \mathcal{U}^{I}$, then $$\bigcup_{i\in I} A_i\in \mathcal{U}.$$
+    \end{enumerate}
+\end{definitionenv}
+\begin{axiomenv}
+Every set belongs to some universe.
+\end{axiomenv}
+\begin{propositionenv}
+    Let $\mathcal{U}$ be a universe
+    \begin{enumerate}[label=(\arabic*)]
+        \item If $A\in \mathcal{U}$ and $B\subseteq A$, then $B\in \mathcal{U}$.
+        \item For any $A\in \mathcal{U}$, one has $\{A\}\in \mathcal{U}$.
+        \item If $A,B\in \mathcal{U}$, then $\{A,B\}\in \mathcal{U}$.
+        \item If $A,B\in \mathcal{U}$, then $(A,B)\in \mathcal{U}$, where $$ (A,B)\coloneq \{\{A\},\{A,B\}\}.$$
+        \item If $X,Y\in \mathcal{U}$, then the Cartesian product $X\times Y\in \mathcal{U}$, where $$ X\times Y\coloneq \{(x,y)\mid x\in X, y\in Y\}.$$
+        \item If $X,Y\in \mathcal{U}$, then the set of all correspondences from $X$ to $Y$ belongs to $\mathcal{U}$.
+        \item If $X,Y\in \mathcal{U}$, then $Y^X\in \mathcal{U}$.
+        \item Let $I\in \mathcal{U}$, $(X_i)_{i\in I}\in \mathcal{U}^I$, then $$\prod_{i\in I} X_i \in \mathcal{U}.$$
+    \end{enumerate}
+\end{propositionenv}
+\begin{proofenv}
+\quad
+\begin{enumerate}[label=(\arabic*)]
+    \item By (c), $\mathcal{P}(A)\in \mathcal{U}$ and as $B\in \mathcal{P}(A)$ then from (b), we get $B\in \mathcal{U}$.
+    \item By (c), $\mathcal{P}(A)\in \mathcal{U}$, as $\{A\}\subseteq \mathcal{P}(A)$ one can deduce from (1) $\{A\}\in \mathcal{U}$.
+    \item By (c) and (a) $$\mathcal{P}(\mathcal{P}(\varnothing))=\{\varnothing,\{\varnothing\}\}\in \mathcal{U}.$$ $A,B\in \mathcal{U}$ then by (2), $\{A\},\{B\}\in \mathcal{U}$, by (d), $\{A,B\}=\{A\}\cup\{B\}\in \mathcal{U}.$
+    \item By (2), $\{A\}\in \mathcal{U}$, by (3) $\{A,B\}\in \mathcal{U}$ and again by (3), $\{\{A\},\{A,B\}\}\in \mathcal{U}$.
+    \item $X,Y\in\mathcal{U}$, so for $x\in X$, $y\in Y$, by (b), $x,y\in U$. By (4), $(x,y)\in \mathcal{U}$, by (2), $\{(x,y)\}\in \mathcal{U}$ and therefore $$\{x\}\times Y = \bigcup_{y\in Y} \{(x,y)\}\in \mathcal{U}.$$ Still by (2), $\dis X\times Y = \bigcup_{x\in X}\{x\}\times Y\in \mathcal{U}$.
+    \item A correspondence from $X$ to $Y$ is of the form $f = ((X,Y), \Gamma)$, where $\Gamma \subseteq X\times Y$. By (5) and (c) and (b) $\Gamma \in \mathcal{U}$. By (4), $f \in \mathcal{U}$, and by (2) $\{(X,Y),\Gamma\}\in \mathcal{U}.$ Finally, by (d) $$\bigcup_{\Gamma \in \mathcal{P}(X\times Y)}\{((X,Y),\Gamma)\} \in \mathcal{U}.$$
+    \item $Y^X$ is a subset of the set of correspondences from $X$ to $Y$, so by (1) and (b), $Y^X\in \mathcal{U}$.
+    \item Let $\dis X=\bigcup_{i\in I}X_i \in \mathcal{U}$, note that $\dis \prod_{i\in I}X_i \subseteq X^I.$ So by (1) and (7), $\dis \prod_{i\in I}X_i \in \mathcal{U}$.
+\end{enumerate}
+\end{proofenv}
+\begin{remark}
+    All we have mentioned are sets. And here the ordered pair $(A,B)$ is given by $(A,B)=\{A,\{A,B\}\}$, we can regard it as a kind of coding method, then we can also regard the tuple $(A,B)$ as a set. This makes the problem easy to discuss.
+\end{remark}
+\section{Category}
+\begin{definitionenv}
+    Let $\mathcal{U}$ be a universe. We call $\mathcal{U}$-category $\mathcal{C}$ the data consist of
+    \begin{enumerate}[label=(\roman*)]
+        \item A set $\Obj(\mathcal{C})$. (The elements of which are called objects.)
+        \item For any $(X,Y) \in \Obj(\mathcal{C})\times \Obj(\mathcal{C})$ a set $\mathcal{C}(X,Y)\in \mathcal{U}$. (The elements of which are called morphisms from $X$ to $Y$.)
+        \item For any $(X,Y,Z)\in \Obj(\mathcal{C})^3$, we have a composition mapping
+$$
+            \begin{array}{rcl}
+            \mathcal{C}(X,Y)\times \mathcal{C}(Y,Z) &\rightarrow &\mathcal{C}(X,Z)\\ 
+            (f,g)&\mapsto & g\circ f
+            \end{array}
+$$
+            satisfying the following axioms:
+            \begin{enumerate}[label=(\alph*)]
+                \item For any $X\in \Obj(\mathcal{C})$, there exists $\mathrm{Id}_X\in \mathcal{C}(X\times X)$ (called the identity morphism of $X$) such that $Y\in \Obj(\mathcal{C})$, one has
+                $$\forall f\in \mathcal{C}(X,Y), f\circ \mathrm{Id}_X = f\ ,\forall g\in \mathcal{C}(Y,X), \mathrm{Id}_X\circ g = g$$
+                \item For any $(X,Y,Z,W)\in \Obj(\mathcal{C})^4$, $f\in \mathcal{C}(X,Y)$, $g\in \mathcal{C}(Y,Z)$, $h\in \mathcal{C}(Z,W)$, one has $$ h\circ(g\circ f) = (h\circ g)\circ f.$$
+                    If $\Obj(\mathcal{C})\in \mathcal{U}$, then we say that $\mathcal{C}$ is \textbf{$\mathcal{U}$-small}. If $\Obj(\mathcal{C})$ is finite and $\mathcal{C}(X,Y)$ is finite for any $X,Y\in \Obj(\mathcal{C})$, then we say that $\mathcal{C}$ is a \textbf{finite category}.
+            \end{enumerate}
+    \end{enumerate}
+\end{definitionenv}
+\begin{exampleenv}
+    Let $\mathcal{U}$ be a universe. The elements of $\mathcal{U}$ are sets (by definition). Together with (standard set theoretic) mappings as morphism form a category denote by $\mathcal{U}$-set. The objects of $\mathcal{U}$-set are the elements of $\mathcal{U}$ and for any $A,B\in \mathcal{U}$, 
+    $$ \mathcal{U}\text{-}\mathrm{set}(A,B)$$
+    is just the set of all mappings from $A$ to $B$.
+\end{exampleenv}
+\begin{remark}
+    In practice, we often emit the mention of the universe $\mathcal{U}$ in which we consider the category theory. With this abbreviation, a $\mathcal{U}$-category is simply called a category. A $\mathcal{U}$-small category is called a small category. Similarly $\mathcal{U}$-set is typically denoted as set.
+\end{remark}
+\begin{notationenv}[also exmaple]
+    \quad
+\begin{enumerate}[label=(\arabic*)]
+    \item $\mathrm{Top} = \{\text{topological spaces with continuous mappings between them}\}$
+    \item $\mathrm{Gp} = \{\text{groups, homomorphisms of monoids}\}$
+    
+        $\mathrm{Mon} = \{\text{monoid, homomorphisim of monoids}\}$
+
+        $\mathrm{Ab}= \{\text{abelian groups, homomorphisms of groups}\}$
+    \item $\mathrm{Ring} = \{\text{Unitary rings, homomorphisms of unitary rings}\}$
+    \item $\mathrm{K}\text{-}\mathrm{Mod} = \{\text{left-K-modules, }\mathrm{Hom}_K(M,N)\}$, where $K$ is a unitary ring and $M,N$ left $K$-modules.
+    \item $\mathrm{Alg}_K=\{K\text{-algebras, homomorphisms of }K\text{ algebras}\}$, where $K$ is a commutative unitary ring.
+        Also, $\mathrm{CAlg}$ for those commutative.
+\end{enumerate}
+\end{notationenv}
+\begin{remark}
+    Let $K$ be a commutative unitary ring. Recall that a $K$-algebra is a $K$-module $A$ together with a bilinear mapping $$A\times A\rightarrow A$$ such that $A$ equipped with this bilinear mapping forms a unitary ring.
+\end{remark}
+\begin{notationenv}
+    Let $\mathcal{C}$ be a category, $X,Y\in \Obj(\mathcal{C})$. We often write 
+    $$ f: X\rightarrow Y \text{ or } X\overset{f}{\longrightarrow} Y$$
+    to denote $f\in \mathcal{C}(X,Y)$.
+\end{notationenv}
+\begin{propositionenv}
+    Let $\mathcal{C}$ be a category, $X\in \Obj(\mathcal{C})$. The identity morphism of $X$ is unique. (Since $ \Id_X = \Id_X \circ \Id_X' = \Id_X'.$)
+\end{propositionenv}
