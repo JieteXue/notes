@@ -39,7 +39,7 @@ Every set belongs to some universe.
 \end{enumerate}
 \end{proofenv}
 \begin{remark}
-    All we have mentioned are sets. And here the ordered pair $(A,B)$ is given by $(A,B)=\{A,\{A,B\}\}$, we can regard it as a kind of coding method, then we can also regard the tuple $(A,B)$ as a set. This makes the problem easy to discuss.
+    All we have mentioned are sets. And here the ordered pair $(A,B)$ is given by $(A,B)=\{\{A\},\{A,B\}\}$, we can regard it as a kind of coding method, then we can also regard the tuple $(A,B)$ as a set. This makes the problem easy to discuss.
 \end{remark}
 \section{Category}
 \begin{definitionenv}
@@ -74,16 +74,16 @@ $$
 \begin{notationenv}[also exmaple]
     \quad
 \begin{enumerate}[label=(\arabic*)]
-    \item $\mathrm{Top} = \{\text{topological spaces with continuous mappings between them}\}$
-    \item $\mathrm{Gp} = \{\text{groups, homomorphisms of monoids}\}$
+    \item $\mathbf{Top} = \{\text{topological spaces with continuous mappings between them}\}$
+    \item $\mathbf{Gp} = \{\text{groups, homomorphisms of monoids}\}$
     
-        $\mathrm{Mon} = \{\text{monoid, homomorphisim of monoids}\}$
+        $\mathbf{Mon} = \{\text{monoid, homomorphisim of monoids}\}$
 
-        $\mathrm{Ab}= \{\text{abelian groups, homomorphisms of groups}\}$
-    \item $\mathrm{Ring} = \{\text{Unitary rings, homomorphisms of unitary rings}\}$
-    \item $\mathrm{K}\text{-}\mathrm{Mod} = \{\text{left-K-modules, }\mathrm{Hom}_K(M,N)\}$, where $K$ is a unitary ring and $M,N$ left $K$-modules.
-    \item $\mathrm{Alg}_K=\{K\text{-algebras, homomorphisms of }K\text{ algebras}\}$, where $K$ is a commutative unitary ring.
-        Also, $\mathrm{CAlg}$ for those commutative.
+        $\mathbf{Ab}= \{\text{abelian groups, homomorphisms of groups}\}$
+    \item $\mathbf{Ring} = \{\text{Unitary rings, homomorphisms of unitary rings}\}$
+    \item $\mathbf{K}\text{-}\mathbf{Mod} = \{\text{left-K-modules, }\mathrm{Hom}_K(M,N)\}$, where $K$ is a unitary ring and $M,N$ left $K$-modules.
+    \item $\mathbf{Alg}_K=\{K\text{-algebras, homomorphisms of }K\text{ algebras}\}$, where $K$ is a commutative unitary ring.
+        Also, $\mathbf{CAlg}$ for those commutative.
 \end{enumerate}
 \end{notationenv}
 \begin{remark}
@@ -95,5 +95,284 @@ $$
     to denote $f\in \mathcal{C}(X,Y)$.
 \end{notationenv}
 \begin{propositionenv}
-    Let $\mathcal{C}$ be a category, $X\in \Obj(\mathcal{C})$. The identity morphism of $X$ is unique. (Since $ \Id_X = \Id_X \circ \Id_X' = \Id_X'.$)
+    Let $\mathcal{C}$ be a category, $X\in \Obj(\mathcal{C})$. The identity morphism of $X$ is unique.
 \end{propositionenv}
+\begin{proofenv}
+    $ \Id_X = \Id_X \circ \Id_X' = \Id_X'.$
+\end{proofenv}
+\begin{definitionenv}
+    Let $\mathcal{C}$ be a category and $f:X\rightarrow Y$ be a morphism. We say that $f$ is left invertible if there exists $g:Y\rightarrow X$ such that $g\circ f=\Id_X$. We say that $f$ is right invertible if there exists $h:Y\rightarrow X$ such that $f\circ h=\Id_Y$.
+\end{definitionenv}
+\begin{propositionenv}
+    Suppose that $f$ is left invertible and right invertible. Then $f$ has only one left inverse and only one inverse, and they are equal.
+\end{propositionenv}
+\begin{proofenv}
+    Let $g$ be a left inverse and $h$ be a right inverse of $f$.
+    $$g = g\circ \Id_Y = g\circ \left(f\circ h\right)= \left(g\circ f\right)\circ h = \Id_X\circ h = h.$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $\mathcal{C}$ be a category and $f:X\rightarrow Y$ be a morphism in $\mathcal{C}$. If $f$ is left and right invertible, there exists a unique morphism $f^{-1}:Y\rightarrow X$ such that
+    $$f\circ f^{-1}=\Id_{Y}, f^{-1}\circ f=\Id_{X}.$$
+    In this case, we say that $f$ is invertible (or is an isomorphism) and $f^{-1}$ is called the inverse of $f$.
+\end{definitionenv}
+\begin{exampleenv}
+    $\Obj(\mathcal{C})=\{*\}$, $\mathcal{C}(*,*)=(M,\cdot)$ a monoid.
+    $$\begin{array}{rcl}
+        \mathcal{C}(*,*)\times\mathcal{C}(*,*)&\rightarrow&\mathcal{C}(*,*)\\
+        (a,b)&\mapsto& ab
+    \end{array}$$
+    identity morphism $\Id_X$ is given by the neutral element of $M$.
+\end{exampleenv}
+\begin{propositionenv}
+    Let $\mathcal{C}$ be a category. $X\overset{f}{\rightarrow}Y\overset{g}{\rightarrow}Z$ be a morphism of $\mathcal{C}$. If $f$ and $g$ are isomorphism, so is $g\circ f$. Moreover,
+    $$\left(g\circ f\right)^{-1} = f^{-1}\circ g^{-1}.$$
+\end{propositionenv}
+\begin{proofenv}
+    $$\left(f^{-1}\circ g^{-1}\right) \circ\left(g\circ f\right) = f^{-1} \circ \left(g^{-1}\circ g\right)\circ f = f^{-1} \circ \Id_{Y} \circ f = f^{-1}\circ f = \Id_{X}.$$
+    $$\left(g\circ f\right)^{-1} \circ \left(f^{-1}\circ g^{-1} \right) = g\circ\left(f\circ f^{-1}\right)\circ g^{-1} = g \circ \Id_{Y} \circ g^{-1} = g\circ g^{-1} =\Id_Z.$$
+\end{proofenv}
+\begin{definitionenv}
+    Let $\mathcal{C}$ be a category. We denote by $\mathcal{C}^{\op}$ the following category
+    \begin{itemize}
+        \item $\Obj(\mathcal{C}^{\op}) = \Obj(\mathcal{C})$.
+        \item $\forall (X,Y)\in \Obj(\mathcal{C})^2$, $\mathcal{C}^{\op}(X,Y) = \mathcal{C}(Y,X).$
+        \item $$\begin{array}{rcl}
+            \mathcal{C}^{\op}(X,Y)\times \mathcal{C}^{\op}(Y,Z)&\rightarrow&\mathcal{C}^{op}(X,Z)\\
+            (f,g)&\mapsto&f\circ g.
+        \end{array}$$
+    \end{itemize}
+        \begin{center}
+    \begin{tikzcd}
+X \arrow[r,  "f"] \arrow[dr,  swap,  "f\circ g"] &\displaystyle Y \arrow[d,  "g"] \\
+& Z
+\end{tikzcd}
+\end{center}
+\end{definitionenv}
+\begin{definitionenv}
+    A diagram of morphism in a category $\mathcal{C}$ is a directed graph whose vertices are objects and arrows are morphisms.
+
+    \quad We say that a diagram is commutative if for any pair of vertices $(X,Y)$, the morphism obtained by composing along different paths linking $X$ to $Y$ are the same.
+\end{definitionenv}
+\begin{exampleenv}
+    \quad \newline
+    Commutative if $g\circ f =h$.
+    \begin{center}
+    \begin{tikzcd}
+X \arrow[r,  "f"] \arrow[dr,  swap,  "h"] &\displaystyle Y \arrow[d,  "g"] \\
+& Z
+\end{tikzcd}
+\end{center}
+Commutative if $g\circ f =k\circ h$.
+    \begin{center}
+    \begin{tikzcd}
+X \arrow[r,  "f"] \arrow[d,  swap,  "h"] &\displaystyle Y \arrow[d,  "g"] \\
+Z \arrow[r,"k"]& W
+\end{tikzcd}
+\end{center}
+\end{exampleenv}
+\newpage
+\section{Functors}
+\begin{definitionenv}
+    Let $\mathcal{C}$ and $\mathcal{D}$ be categories. We call \textbf{functor} from $\mathcal{C}$ to $\mathcal{D}$ the following data:
+    \begin{enumerate}[label=(\alph*)]
+        \item A mapping $$\begin{array}{rcl}
+            \Obj(\mathcal{C})&\rightarrow&\Obj(\mathcal{D})\\
+            X&\mapsto & F(X).
+        \end{array}$$
+        \item $\forall(X,Y)$ couple of objects in $\mathcal{C}$, a mapping
+        $$\begin{array}{rcl}
+            \mathcal{C}(X,Y)&\rightarrow&\mathcal{D}(F(X),F(Y))\\
+            f&\mapsto & F(f).
+        \end{array}$$
+        which satisfy the following axioms
+        \begin{enumerate}[label=(\roman*)]
+            \item $\forall X\in \Obj(\mathcal{C})$, $F(\Id_X)=\Id_{F(X)}$.
+            \item For any morphism $X\overset{f}{\rightarrow}Y\overset{g}{\rightarrow}Z$ in $\mathcal{C}$,
+            $$F\left(g\circ f\right) = F(g)\circ F(f).$$
+        \end{enumerate}
+    \end{enumerate}
+    We use the expression $F:\mathcal{C}\rightarrow\mathcal{D}$ to denote a functor from $\mathcal{C}$ to $\mathcal{D}$.
+\end{definitionenv}
+\begin{exampleenv}
+    $P:\underline{\mathrm{CRing}}\rightarrow\underline{\mathrm{Set}}$.
+    
+    $\forall A\in \Obj(\mathbf{CRing})$,
+    $$P(A)=\{(x,y,z)\in A^3\mid x^2+y^2=z^2\},$$
+    $\forall f:A\rightarrow B$,
+    $$ \begin{array}{rrcl}
+        P(f):&P(A)&\rightarrow& P(B)\\
+        &(x,y,z)&\mapsto&(f(x),f(y),f(z)).
+    \end{array}
+    $$
+\end{exampleenv}
+\begin{exampleenv}
+    Let $\mathcal{C}$ be a category and $X\in\Obj\left(\mathcal{C}\right)$. We denote by $h_X:\mathcal{C}\rightarrow\underline{\mathrm{Set}}$, sending $Y\in \Obj(\mathcal{C})$ to $\mathcal{C}(X,Y)$.
+
+    If $f:Y\rightarrow Z$ is a morphism in $\mathcal{C}$,
+    $$\begin{array}{rrcl}
+        h_X(f):& \mathcal{C}(X,Y)&\rightarrow &\mathcal{C}(X,Z)\\
+        & g&\mapsto&f\circ g\\
+        \Id_{\mathcal{C}(X,Y)}=h_X(\Id_Y):&\mathcal{C}(X,Y)&\rightarrow & \mathcal{C}(X,Y)\\
+        & g&\mapsto& \Id_Y\circ g = g
+    \end{array}
+    $$
+        \begin{center}
+    \begin{tikzcd}
+Y \arrow[r,  "\mu"] \arrow[dr,  swap,  "\nu\circ\mu"] &Z \arrow[d,  "\nu"] \\
+& W
+\end{tikzcd}
+\end{center}
+$$\begin{array}{rrcl}
+    h_X\left(\nu\circ\mu\right):&\mathcal{C}(X,Y) & \rightarrow &\mathcal{C}(X,W)\\
+    & g &\rightarrow &\left(\nu\circ\mu\right)\circ g = \nu\circ \left(\mu\circ g\right)
+\end{array}
+$$
+$$\mu\circ g = h_X(\mu)(g),$$
+so,
+$$\nu\circ\left(\mu\circ g\right) = h_X(\nu)\left(h_X(\mu)(g)\right),\ h_X(\nu\circ\mu) = h_X(\nu)\circ h_X(\mu).$$
+\end{exampleenv}
+\begin{exampleenv}
+    Let $\mathcal{C}$ be a category. $\Id_\mathcal{C}$ that sends $X\in \Obj(C)$ to $X$ and $f:X\rightarrow Y$ to $f$. This is a functor.
+\end{exampleenv}
+\begin{exampleenv}
+    Let $\mathcal{C}$, $\mathcal{D}$, $\mathcal{E}$ be categories, $F:\mathcal{C}\rightarrow\mathcal{D}$ and $G:\mathcal{D}\rightarrow\mathcal{E}$ be functors. We define a functor
+    $$G\circ F:\mathcal{C}\rightarrow \mathcal{E}$$
+    such that 
+    $$\forall X\in \Obj(\mathcal{C}),\ \left(G\circ F\right)(X)=G(F(X)),$$
+    $$\forall f:X\rightarrow Y,\ \left(G\circ F\right)(f) = G(F(f)).$$
+\end{exampleenv}
+\begin{definitionenv}
+    Let $\mathcal{C}$ and $\mathcal{D}$ be categories, and $F:\mathcal{C}\rightarrow \mathcal{D}$ and $G:\mathcal{C}\rightarrow\mathcal{D}$ be functors. We call natural transformation (morphism of function) from $F$ to $G$ any family
+    $$\varphi=\left(\varphi_X\right)_{X\in \Obj(\mathcal{C})}$$
+    where $\varphi_X:F(X)\rightarrow G(X)$ is a morphism (in $\mathcal{D}$) such that from any morphism $f:X\rightarrow Y$ in $\mathcal{C}$, the following diagram is commutative:
+    \begin{center}
+    \begin{tikzcd}
+F(X) \arrow[r,  "F(f)"] \arrow[d,  swap,  "\varphi_{X}"] &\displaystyle F(Y) \arrow[d,  "\varphi_Y"] \\
+G(X) \arrow[r,"G(f)"]& G(Y)
+\end{tikzcd}
+\end{center}
+$$G(f)\circ \varphi_X=\varphi_Y\circ F(f).$$
+\end{definitionenv}
+\begin{exampleenv}
+    Let $\Id_F$ be the family $\left(\Id_{F(X)}\right)_{X\in \Obj(\mathcal{C})}$. This is a morphism of functors from $F$ to $F$, called the identity morphism.
+    \begin{center}
+    \begin{tikzcd}
+F(X) \arrow[r,  "F(f)"] \arrow[d,  swap,  "\Id_{F(X)}"] &\displaystyle F(Y) \arrow[d,  "\Id_{F(Y)}"] \\
+F(X) \arrow[r,"F(f)"]& F(Y)
+\end{tikzcd}
+\end{center}
+$$F(f)\circ \Id_{F(X)} = F(f) =\Id_{F(Y)}\circ F(f).$$
+\end{exampleenv}
+\begin{exampleenv}
+    Let $F$, $G$ and $H$ be functors from $\mathcal{C}$ to $\mathcal{D}$, $\varphi: F\rightarrow G$, $\psi:G\rightarrow H$ be natural transformations. We define
+    $$\psi\circ \varphi: F\rightarrow H$$
+    as the family 
+    $$ \left(\psi_X\circ\varphi_X\right)_{X\in \Obj(\mathcal{C})},\ F(X)\overset{\varphi_X}{\longrightarrow}G(X)\overset{\psi_X}{\longrightarrow}H(X).$$
+    It is called the composite of $\psi$ and $\varphi$.
+\end{exampleenv}
+\begin{remark}
+    Let $\mathcal{C}$ and $\mathcal{D}$ be categories. Let $\underline{\mathrm{Fun}}(\mathcal{C},\mathcal{D})$ be the data that is composite of
+    \begin{itemize}
+        \item The set of all functors from $\mathcal{C}$ to $\mathcal{D}$
+        \item Natural transformations.
+    \end{itemize}
+    Then $\underline{\mathrm{Fun}}(\mathcal{C},\mathcal{D})$ forms a category (is some suitable universe). It is called the category of functors from $\mathcal{C}$ to $\mathcal{D}$. If $F$ and $G$ are two functors from $\mathcal{C}$ to $\mathcal{D}$ such that there exists an isomorphism from $F$ to $G$ in $\underline{\mathrm{Fun}}(\mathcal{C},\mathcal{D})$. We say that $F$ and $G$ are isomorphic.
+\end{remark}
+\begin{propositionenv}
+    Let $\mathcal{U}$ be a universe, $\mathcal{C}$ be a $\mathcal{U}$-small category, and $\mathcal{D}$ be a $\mathcal{U}$-category. For any functors $F$ and $G$ from $\mathcal{C}$ to $\mathcal{D}$, the set $\mathrm{Nat}(F,G)$ of natural transformation from $F$ to $G$ belongs to $\mathcal{U}$.
+\end{propositionenv}
+\begin{proofenv}
+    $\mathrm{Nat}(F,G)$ is a subset of $\dis \prod_{X\in \Obj(\mathcal{C})}\mathcal{D}(F(X),G(X))\in \mathcal{U}$.
+\end{proofenv}
+\begin{notationenv}
+    If $\mathcal{C}$ is a category, then $\underline{\mathrm{Fun}}(\mathcal{C},\underline{\mathrm{Set}})$ is denoted as $\hat{\mathcal{C}}$.
+\end{notationenv}
+
+\section{Yoneda Lemma}
+\begin{theoremenv}
+    Let $\mathcal{C}$ be a category, $F:\mathcal{C}\rightarrow \underline{\mathrm{Set}}$ be a functor and $X\in \Obj(\mathcal{C})$. Then
+    $$\begin{array}{rrcl}
+        \beta:&\mathrm{Nat}(h_X,F)&\rightarrow& F(X)\\
+        & \psi&\mapsto&\psi_X(\Id_X)\footnote{$\psi_X:h_X(X)=\mathcal{C}(X,X)\rightarrow F(X)$.}
+    \end{array}$$
+    is a bijection.
+\end{theoremenv}
+\begin{proofenv}
+    We construct a mapping
+    $$\begin{array}{rrcl}
+        \alpha:&F(X)&\rightarrow&\mathrm{Nat}(h_X,F)\\
+        &x&\mapsto&\alpha(x)=(\alpha(x)_Y)_{Y\in \Obj(\mathcal{C})}
+    \end{array}
+    $$
+    where $\alpha(x)_{Y}:h_X(Y)=\mathcal{C}(X,Y)\rightarrow F(Y)$, $f\mapsto F(f)(x)$. We need to check that $\alpha(x)$ is a natural transformation.
+    Namely, for any $ \mu:A\rightarrow B$ in $\mathcal{C}$, we have a commutative diagram
+    \begin{center}
+    \begin{tikzcd}
+\mathcal{C}(X,A)   &\displaystyle \mathcal{C}(X,B) \arrow[l, swap, "h_X(\mu)"] \\
+F(A) \arrow[u, "\alpha(x)_A"]& F(B) \arrow[l,"F(\mu)"] \arrow[u,  swap,"\alpha(x)_B"]
+\end{tikzcd}
+\end{center}
+In fact, 
+$\forall f\in \mathcal{C}(X,A)$, $$\alpha(x)_B(h_X(\mu)(f))=\alpha(x)_B(\mu\circ f)=F(\mu\circ f)(x),$$
+$$F(\mu)\left(\alpha(x)_A(f)\right) = F(\mu)\left(F(f)(x)\right)=F(\mu\circ f)(x).$$
+We then check that $\alpha$ and $\beta$ are inverse of each other.
+\begin{itemize}
+    \item Let $\psi:h_X\rightarrow F$ be a natural transformation and $x=\psi_X(\Id_X)$. For any $f:X\rightarrow Y$ in $\mathcal{C}$,
+    $$\alpha(x)_{Y}(f) = F(f)(x) = F(f)\left(\psi_X(\Id_X)\right)=\psi_Y\left(h_X(f)(\Id_X)\right)=\psi_Y(f).$$
+    So, $\alpha(x)=\psi$.
+    \item For any $x\in F(x)$,
+    $$ \beta\left(\alpha(x)\right)=\alpha(x)_X\left(\Id_X\right)= F(\Id_X)(x) = \Id_{F(X)}(x)=x.$$
+\end{itemize}
+    \begin{center}
+    \begin{tikzcd}
+h_X(X) \arrow[r,  "F(f)"] \arrow[d,  swap,  "\psi_X"] &\displaystyle F(Y) \arrow[d,  "\psi_Y"] \\
+F(X) \arrow[r,"F(f)"]& F(Y)
+\end{tikzcd}
+\end{center}
+\end{proofenv}
+\begin{notationenv}
+    Let $\mathcal{C}$ be a category, and $f:Y\rightarrow X$ be a morphism in $\mathcal{C}$.
+    $$\begin{array}{rcl}
+        \mathrm{Nat}(h_X,h_Y)&\rightarrow &h_Y(X)=\mathcal{C}(Y,X)\\
+        \psi&\mapsto&\psi_X(\Id_X).
+    \end{array}$$
+    We denote by $\upsilon(f):h_X\rightarrow h_Y$ the natural transformation that corresponds to $f$ by this bijection. ($\upsilon(f)= \left(\upsilon(f)_Z\right)_{Z\in \Obj(\mathcal{C})}$)
+    $$ \begin{array}{rrcl}
+        \upsilon(f)_{Z} :& \mathcal{C}(X,Z)&\rightarrow&\mathcal{C}(Y,Z)\\
+        &\mu&\mapsto& h_Y(\mu)(f)=\mu\circ f.
+    \end{array}
+    $$
+\end{notationenv}
+\begin{propositionenv}
+    $\upsilon: \mathcal{C}^{\op}\rightarrow\hat{\mathcal{C}}$ is a functor.
+\end{propositionenv}
+\begin{proofenv}
+    Let $X\in \Obj(\mathcal{C})$. For any $Z\in \Obj(\mathcal{C})$
+    $$\begin{array}{rrcl}
+        \Id_{\mathcal{C}(X,Z)}=\upsilon(\Id_{X})_Z:&\mathcal{C}(X,Z)&\rightarrow&\mathcal{C}(X,Z)\\
+        &\mu&\mapsto&\mu\circ\Id_X=\mu.
+    \end{array}
+    $$
+    Let $Z\overset{g}{\longrightarrow}Y\overset{f}{\longrightarrow}X$ be morphisms in $\mathcal{C}$.
+    $$g\circ_{\mathcal{C}^\op} f=f\circ_{\mathcal{C}} g.$$
+    $$\begin{array}{rrcl}
+        \upsilon\left(g\circ_{\mathcal{C}^\op} f\right)_{W}= \upsilon\left(f\circ_{\mathcal{C}}g\right)_{W} :& \mathcal{C}(X,W)&\rightarrow &\mathcal{C}(Z,W)\\
+        &\mu &\mapsto & \mu\circ \left(f\circ g\right)= \left(\mu\circ f\right)\circ g.
+    \end{array}
+    $$
+    $$\upsilon(g)\left(\upsilon(f)(\mu)\right) = \upsilon(g)\left(\mu\circ f\right) = \left(\mu\circ f\right)\circ g.$$
+\end{proofenv}
+\begin{propositionenv}
+    Let $\mathcal{C}$ be a category and $f:Y\rightarrow X$ be a morphism. Then $f$ is an isomorphism if and only if $\upsilon(f)$ is an isomorphism in $\hat{\mathcal{C}}$.
+
+    Moreover, $$\upsilon(f)^{-1} = \upsilon(f^{-1}).$$
+\end{propositionenv}
+\begin{proofenv}\quad \newline
+    ``$\Rightarrow$'' If $f$ is an isomorphism,
+    $$ \upsilon(f)\circ \upsilon(f^{-1}) = \upsilon(f^{-1}\circ f) = \upsilon(\Id_Y) = \Id_{h_Y},$$
+    $$ \upsilon(f^{-1})\circ \upsilon(f) = \upsilon(f\circ f^{-1}) = \upsilon(\Id_X) =\Id_{h_X}.$$
+    ``$\Leftarrow$'' If $\upsilon(f)$ if invertible and $\varphi = \upsilon(f)^{-1}$. Let $g:y\rightarrow X$ such that $\varphi=\upsilon(g)$.
+    $$\upsilon(f\circ g) =\upsilon(g)\circ \upsilon(f) =\Id_{h_X},$$
+    $$\upsilon(g\circ f) = \upsilon(f)\circ \upsilon(g) = \Id_{h_Y}.$$
+\end{proofenv}
+
