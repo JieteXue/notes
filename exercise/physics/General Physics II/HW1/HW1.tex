@@ -1,0 +1,282 @@
+\documentclass{article}
+\newcommand{\mydate}{March 5, 2026}
+\newcommand{\mytitle}{GP2 HW1}
+\title{\textbf{\mytitle}}
+\author{Jiete XUE\thanks{ID: 20253121013}}
+\date{\mydate}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\mytitle }
+\fancyhead[R]{Jiete Xue}
+\fancyhead[L]{\mydate}
+\fancyfoot[C]{\thepage}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.markings}
+\usepackage{float}
+
+%% 右矢
+%\ket{\psi}          % 输出：|ψ⟩
+%\ket{\psi(t)}       % 输出：|ψ(t)⟩
+%
+%% 左矢
+%\bra{\phi}          % 输出：⟨φ|
+%
+%% 期望值
+%\expval{\hat{A}}    % 输出：⟨Â⟩
+%\expval{\hat{A}}{\psi}  % 输出：⟨ψ|Â|ψ⟩
+%
+%% 对易子
+%\comm{\hat{A}}{\hat{B}}  % 输出：[Â, B̂]
+\newtheoremstyle{1}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{1}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+\usepackage{chngcntr}
+\counterwithin{equation}{problem}
+
+\setlist[enumerate]{label=(\arabic*), leftmargin=*, align=left}
+
+\newcommand{\pa}{\partial}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+
+\begin{document}
+\maketitle
+\begin{center}
+    {\Large\textbf{Why these boring maths…}}
+\end{center}
+\begin{problem}[Levi-Civita symbol, Kronecker symbol and repeated
+symbol represents summation]
+
+
+\hspace{12pt} $\varepsilon_{ijk}$, $\varepsilon_{jki}$, $\varepsilon_{kij}$ have a relation of even permutations, by definition, they should have the same value.
+
+One has
+\begin{equation}
+    \varepsilon^{ijk} \varepsilon_{lmn} = \delta^{\left[i\right.}_{l}\delta^{j}_{m}\delta^{\left.k\right]}_{n}.
+\end{equation}
+
+When $i=l$, that is
+\begin{equation}
+    \delta^{\left[i\right.}_{i}\delta^{j}_{m}\delta^{\left.k\right]}_{n} = (3-1)! \delta^{\left[j\right.}_{m}\delta^{\left.k\right]}_{n} = \delta^j_m \delta^k_n - \delta^k_m \delta^j_n.
+\end{equation}
+By substituting $(i,j,k)$ with $(k,i,j)$, we obtain another form.
+\end{problem}
+\begin{problem}[Vector algebra]
+    \quad
+    \begin{enumerate}[label=\arabic*.]
+        \item 
+
+    \begin{enumerate}
+\item \(\vec{A} \cdot (\vec{B} \times \vec{C}) = \vec{B} \cdot (\vec{C} \times \vec{A}) = \vec{C} \cdot (\vec{A} \times \vec{B})\)
+
+Left-hand side:
+\begin{equation}
+\vec{A} \cdot (\vec{B} \times \vec{C}) = A_i (\vec{B} \times \vec{C})_i
+\end{equation}
+\begin{equation}
+(\vec{B} \times \vec{C})_i = \varepsilon_{ijk} B_j C_k
+\end{equation}
+Thus,
+\begin{equation}
+\vec{A} \cdot (\vec{B} \times \vec{C}) = A_i \varepsilon_{ijk} B_j C_k = \varepsilon_{ijk} A_i B_j C_k
+\end{equation}
+
+Similarly,
+\begin{equation}
+\vec{B} \cdot (\vec{C} \times \vec{A}) = B_i (\vec{C} \times \vec{A})_i = B_i \varepsilon_{ijk} C_j A_k
+\end{equation}
+Rename indices: \(i \to j, j \to k, k \to i\):
+\begin{equation}
+= \varepsilon_{jki} B_j C_k A_i
+\end{equation}
+Since \(\varepsilon_{jki} = \varepsilon_{ijk}\) (cyclic permutation does not change the sign in 3D):
+\begin{equation}
+= \varepsilon_{ijk} A_i B_j C_k
+\end{equation}
+The third expression follows the same way.
+
+\begin{equation}
+\boxed{\vec{A} \cdot (\vec{B} \times \vec{C}) = \vec{B} \cdot (\vec{C} \times \vec{A}) = \vec{C} \cdot (\vec{A} \times \vec{B})}
+\end{equation}
+
+\item \(\vec{A} \times (\vec{B} \times \vec{C}) = \vec{B}(\vec{A} \cdot \vec{C}) - \vec{C}(\vec{A} \cdot \vec{B})\)
+
+Let \(\vec{D} = \vec{B} \times \vec{C}\). Then
+\begin{equation}
+D_i = \varepsilon_{ijk} B_j C_k
+\end{equation}
+\begin{equation}
+[\vec{A} \times \vec{D}]_m = \varepsilon_{mni} A_n D_i
+\end{equation}
+Substitute \(D_i\):
+\begin{equation}
+[\vec{A} \times (\vec{B} \times \vec{C})]_m = \varepsilon_{mni} A_n \varepsilon_{ijk} B_j C_k
+\end{equation}
+Use \(\varepsilon_{mni} = \varepsilon_{imn}\) and the identity \(\varepsilon_{imn} \varepsilon_{ijk} = \delta_{mj}\delta_{nk} - \delta_{mk}\delta_{nj}\):
+\begin{equation}
+= (\delta_{mj}\delta_{nk} - \delta_{mk}\delta_{nj}) A_n B_j C_k
+\end{equation}
+Expand:
+\begin{equation}
+= \delta_{mj}\delta_{nk} A_n B_j C_k - \delta_{mk}\delta_{nj} A_n B_j C_k
+\end{equation}
+First term: \(\delta_{mj}\delta_{nk} A_n B_j C_k\):  
+\(\delta_{mj} B_j = B_m\), \(\delta_{nk} C_k = C_n\), and \(A_n C_n = \vec{A} \cdot \vec{C}\).  
+So first term = \(B_m (\vec{A} \cdot \vec{C})\).
+
+Second term: \(\delta_{mk}\delta_{nj} A_n B_j C_k\):  
+\(\delta_{mk} C_k = C_m\), \(\delta_{nj} B_j = B_n\), and \(A_n B_n = \vec{A} \cdot \vec{B}\).  
+So second term = \(C_m (\vec{A} \cdot \vec{B})\).
+
+Thus,
+\begin{equation}
+[\vec{A} \times (\vec{B} \times \vec{C})]_m = B_m (\vec{A} \cdot \vec{C}) - C_m (\vec{A} \cdot \vec{B})
+\end{equation}
+
+\begin{equation}
+\boxed{\vec{A} \times (\vec{B} \times \vec{C}) = \vec{B}(\vec{A} \cdot \vec{C}) - \vec{C}(\vec{A} \cdot \vec{B})}
+\end{equation}
+
+\item \((\vec{A} \times \vec{B}) \times \vec{C} = -\vec{A}(\vec{B} \cdot \vec{C}) + \vec{B}(\vec{A} \cdot \vec{C})\)
+
+Let \(\vec{D} = \vec{A} \times \vec{B}\). Then
+\begin{equation}
+D_k = \varepsilon_{kij} A_i B_j
+\end{equation}
+\begin{equation}
+[\vec{D} \times \vec{C}]_m = \varepsilon_{mkl} D_k C_l
+\end{equation}
+Substitute \(D_k\):
+\begin{equation}
+[(\vec{A} \times \vec{B}) \times \vec{C}]_m = \varepsilon_{mkl} \varepsilon_{kij} A_i B_j C_l
+\end{equation}
+Use \(\varepsilon_{mkl} = -\varepsilon_{kml}\), so:
+\begin{equation}
+= -\varepsilon_{kml} \varepsilon_{kij} A_i B_j C_l
+\end{equation}
+Apply \(\varepsilon_{kml} \varepsilon_{kij} = \delta_{mi}\delta_{lj} - \delta_{mj}\delta_{li}\):
+\begin{equation}
+= - (\delta_{mi}\delta_{lj} - \delta_{mj}\delta_{li}) A_i B_j C_l
+\end{equation}
+\begin{equation}
+= -\delta_{mi}\delta_{lj} A_i B_j C_l + \delta_{mj}\delta_{li} A_i B_j C_l
+\end{equation}
+First term: \(- A_m B_l C_l = -A_m (\vec{B} \cdot \vec{C})\)  
+Second term: \(+ B_m A_l C_l = +B_m (\vec{A} \cdot \vec{C})\)
+
+Thus:
+\begin{equation}
+[(\vec{A} \times \vec{B}) \times \vec{C}]_m = B_m (\vec{A} \cdot \vec{C}) - A_m (\vec{B} \cdot \vec{C})
+\end{equation}
+Therefore:
+\begin{equation}
+\boxed{(\vec{A} \times \vec{B}) \times \vec{C} = \vec{B}(\vec{A} \cdot \vec{C}) - \vec{A}(\vec{B} \cdot \vec{C})}
+\end{equation}
+
+\item \((\vec{A} \times \vec{B}) \cdot (\vec{C} \times \vec{D}) = (\vec{A} \cdot \vec{C})(\vec{B} \cdot \vec{D}) - (\vec{A} \cdot \vec{D})(\vec{B} \cdot \vec{C})\)
+
+Let \(\vec{P} = \vec{A} \times \vec{B}\), \(\vec{Q} = \vec{C} \times \vec{D}\).
+
+Then
+\begin{equation}
+P_i = \varepsilon_{ijk} A_j B_k,\quad Q_i = \varepsilon_{ilm} C_l D_m
+\end{equation}
+\begin{equation}
+\vec{P} \cdot \vec{Q} = P_i Q_i = \varepsilon_{ijk} A_j B_k \cdot \varepsilon_{ilm} C_l D_m
+\end{equation}
+\begin{equation}
+= \varepsilon_{ijk} \varepsilon_{ilm} A_j B_k C_l D_m
+\end{equation}
+Using \(\varepsilon_{ijk} \varepsilon_{ilm} = \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl}\):
+\begin{equation}
+= (\delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl}) A_j B_k C_l D_m
+\end{equation}
+First term: \(\delta_{jl}\delta_{km} A_j B_k C_l D_m = A_j C_j \cdot B_k D_k = (\vec{A} \cdot \vec{C})(\vec{B} \cdot \vec{D})\).
+
+Second term: \(-\delta_{jm}\delta_{kl} A_j B_k C_l D_m = - A_j D_j \cdot B_k C_k = -(\vec{A} \cdot \vec{D})(\vec{B} \cdot \vec{C})\).
+
+Thus:
+\begin{equation}
+\boxed{(\vec{A} \times \vec{B}) \cdot (\vec{C} \times \vec{D}) = (\vec{A} \cdot \vec{C})(\vec{B} \cdot \vec{D}) - (\vec{A} \cdot \vec{D})(\vec{B} \cdot \vec{C})}
+\end{equation}
+    \end{enumerate}
+\item \begin{enumerate}
+    \item \textbf{Similarly:} Both transform like vectors under proper rotations (determinant = +1).
+    \item \textbf{Difference:} Under spatial inversion, Polar vector changes sign, but pseudovector does not change sign.
+    \item \textbf{Examples of pseudovectors:} Angular momentum, Torque.
+\end{enumerate}
+\end{enumerate}
+\end{problem}
+\begin{problem}[The vector calculus]
+    \quad
+    \begin{enumerate}
+        \item \begin{equation}
+            \pa_i(fg) = \pa_i f g + f\pa_i g.
+        \end{equation}
+        \begin{equation}
+            \pa_i\left(\frac{f}{g}\right) = \pa_i f \frac{1}{g} + f \pa_i \left(\frac{1}{g}\right) = \frac{\pa_i f}{g} - f\left( \frac{\pa_i g}{g^2}\right).
+        \end{equation}
+        \item \begin{equation}
+            \pa_i \left(f A_i\right) =  f\left(\pa_i A_i\right)  + \pa_i f A_i = f \left(\nabla \cdot \vec{A}\right) + \nabla f \cdot\vec{A}.
+        \end{equation}
+        \begin{equation}
+            \pa_i \left(f A_j\right) \varepsilon_{ijk} = \pa_i f A_j \varepsilon_{ijk} + f \pa_i A_j \varepsilon_{ijk}= \left[f\left(\nabla \times \vec{A}\right)  - \vec{A} \times\left(\nabla f\right)\right]_{k}.
+        \end{equation}
+        \begin{equation}
+            \pa_k \left(A_i B_j \varepsilon_{ijk}\right) = \left(\pa_k A_i B_j +A_i \pa_k B_j\right) \varepsilon_{ijk} = \vec{B} \cdot\left(\nabla \times \vec{A}\right) - \vec{A} \cdot\left( \nabla \times \vec{B}\right).
+        \end{equation}
+        \item Similarly.
+    \end{enumerate}
+\end{problem}
+\begin{problem}[Fundamental theorems of vector calculus]
+    \begin{enumerate}
+        \item Under the spherical system,
+        \begin{equation}
+            \nabla \cdot\left(\frac{q}{r^2}\hat{\mathbf{r}}\right) = \frac{\pa}{\pa r}\left(q\right) = 0.\ (r\neq 0)
+        \end{equation}
+        It doesn't violate Gauss's theorem.
+        \item Since $\vec{E}$ is isotropic, $\nabla \times \vec{E}=0$. By Stokes' theorem, we have
+        \begin{equation}
+            \oint_C \vec{E}\cdot\dd{\vec{l}} = 0.
+        \end{equation}
+        Let
+        \begin{equation}
+            \phi = \frac{q}{r},
+        \end{equation}
+        then, $\vec{E} = -\nabla \phi$.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[Multi-valued functions]
+    \quad
+    \begin{enumerate}
+
+        \item One has,
+        \begin{equation}
+            \dd{\mathbf{r}}\cdot\nabla \theta = \dd{\theta}
+        \end{equation}
+        So,
+        \begin{equation}
+            \oint \dd{\mathbf{r}}\cdot\nabla \theta = \oint \dd{\theta } =2\pi n,
+        \end{equation}
+        where $n$ is the number of circuit goes around the origin.
+        \item By Stokes theorem, 
+        \begin{equation}
+            \oint \dd{\mathbf{r}} \cdot \nabla\theta = \iint \dd{\mathbf{S}}\cdot \nabla\times\nabla\theta.
+        \end{equation}
+        
+        While left-hand side is a constant, right-hand side is range dependent, which lead to
+        \begin{equation}
+            \nabla\times\nabla\theta = 2\pi n\delta^2(0).
+        \end{equation}
+    \end{enumerate}
+\end{problem}
+\end{document}

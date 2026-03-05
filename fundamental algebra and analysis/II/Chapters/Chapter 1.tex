@@ -244,7 +244,7 @@ $$\nu\circ\left(\mu\circ g\right) = h_X(\nu)\left(h_X(\mu)(g)\right),\ h_X(\nu\c
 \begin{definitionenv}
     Let $\mathcal{C}$ and $\mathcal{D}$ be categories, and $F:\mathcal{C}\rightarrow \mathcal{D}$ and $G:\mathcal{C}\rightarrow\mathcal{D}$ be functors. We call natural transformation (morphism of function) from $F$ to $G$ any family
     $$\varphi=\left(\varphi_X\right)_{X\in \Obj(\mathcal{C})}$$
-    where $\varphi_X:F(X)\rightarrow G(X)$ is a morphism (in $\mathcal{D}$) such that from any morphism $f:X\rightarrow Y$ in $\mathcal{C}$, the following diagram is commutative:
+    where $\varphi_X:F(X)\rightarrow G(X)$ is a morphism (in $\mathcal{D}$) such that for any morphism $f:X\rightarrow Y$ in $\mathcal{C}$, the following diagram is commutative:
     \begin{center}
     \begin{tikzcd}
 F(X) \arrow[r,  "F(f)"] \arrow[d,  swap,  "\varphi_{X}"] &\displaystyle F(Y) \arrow[d,  "\varphi_Y"] \\
@@ -308,8 +308,8 @@ $$F(f)\circ \Id_{F(X)} = F(f) =\Id_{F(Y)}\circ F(f).$$
     Namely, for any $ \mu:A\rightarrow B$ in $\mathcal{C}$, we have a commutative diagram
     \begin{center}
     \begin{tikzcd}
-\mathcal{C}(X,A)   &\displaystyle \mathcal{C}(X,B) \arrow[l, swap, "h_X(\mu)"] \\
-F(A) \arrow[u, "\alpha(x)_A"]& F(B) \arrow[l,"F(\mu)"] \arrow[u,  swap,"\alpha(x)_B"]
+\mathcal{C}(X,A) \arrow[d, swap, "\alpha(x)_A"]  \arrow[r, "h_X(\mu)"]& \mathcal{C}(X,B) \arrow[d,  "\alpha(x)_B"] \\
+F(A) \arrow[r,"F(\mu)"]& F(B)  
 \end{tikzcd}
 \end{center}
 In fact, 
@@ -331,7 +331,7 @@ F(X) \arrow[r,"F(f)"]& F(Y)
 \end{center}
 \end{proofenv}
 \begin{notationenv}
-    Let $\mathcal{C}$ be a category, and $f:Y\rightarrow X$ be a morphism in $\mathcal{C}$.
+    Let $\mathcal{C}$ be a category, and $f:Y\rightarrow X$ be a morphism in $\mathcal{C}$. By the theorem, we have a bijection
     $$\begin{array}{rcl}
         \mathrm{Nat}(h_X,h_Y)&\rightarrow &h_Y(X)=\mathcal{C}(Y,X)\\
         \psi&\mapsto&\psi_X(\Id_X).
@@ -375,4 +375,3 @@ F(X) \arrow[r,"F(f)"]& F(Y)
     $$\upsilon(f\circ g) =\upsilon(g)\circ \upsilon(f) =\Id_{h_X},$$
     $$\upsilon(g\circ f) = \upsilon(f)\circ \upsilon(g) = \Id_{h_Y}.$$
 \end{proofenv}
-
