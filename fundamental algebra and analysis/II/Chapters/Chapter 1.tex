@@ -77,7 +77,7 @@ $$
     \item $\mathbf{Top} = \{\text{topological spaces with continuous mappings between them}\}$
     \item $\mathbf{Gp} = \{\text{groups, homomorphisms of monoids}\}$
     
-        $\mathbf{Mon} = \{\text{monoid, homomorphisim of monoids}\}$
+        $\mathbf{Mon} = \{\text{monoid, homomorphism of monoids}\}$
 
         $\mathbf{Ab}= \{\text{abelian groups, homomorphisms of groups}\}$
     \item $\mathbf{Ring} = \{\text{Unitary rings, homomorphisms of unitary rings}\}$
@@ -375,3 +375,98 @@ F(X) \arrow[r,"F(f)"]& F(Y)
     $$\upsilon(f\circ g) =\upsilon(g)\circ \upsilon(f) =\Id_{h_X},$$
     $$\upsilon(g\circ f) = \upsilon(f)\circ \upsilon(g) = \Id_{h_Y}.$$
 \end{proofenv}
+
+\section{Representable Functors}
+\begin{definitionenv}
+    Let $\mathcal{C}$ be a category, $F:\mathcal{C}\rightarrow\underline{\mathrm{Set}}$ be a functor.
+    
+    \quad If there exists an object $X$ in $\mathcal{C}$ such that $F$ and $h_X$ are isomorphic, then we say that the functor $F$ is \textbf{representable} and $X$ is an object that represents the functor $F$.
+    
+    \quad An isomorphism from $h_X$ to $F$ is called a \textbf{representation} of the functor $F$ by the object $X$.
+
+    \quad Let $F:\mathcal{C}\rightarrow \set$ be a representable functor and $X\in \mathcal{C}$ be an object that represents $F$. Let $\psi: h_X\rightarrow F$ be an isomorphism (of functors). Then the element $\psi_X\left(\Id_X\right)\in F(X)$ is called the \textbf{universal object} of the representation $\psi$.
+\end{definitionenv}
+\begin{propositionenv}\label{1.5.2}
+    Let $\mathcal{C}$ be a category, $F:\mathcal{C}\rightarrow\set$ be a functor. Assume that $F$ is representable by $X\in \mathcal{C}$ and $\varphi:h_X \rightarrow F$ be the representing isomorphism. Denote $x$ the universal object of $\varphi$
+    $$ x\coloneq \varphi_X\left(\Id_X\right).$$
+    Then for any $Y\in \Obj(\mathcal{C})$ and any $y\in F(Y)$, there exists a unique morphism $f:X\rightarrow Y$ such that
+    $$
+    F(f)(x) = y.
+    $$
+    Actually, the morphism $f$ is given by $\varphi^{-1}_{Y}(y)$.
+\end{propositionenv}
+\begin{proofenv}
+    Uniqueness: 
+\begin{center}
+\begin{tikzcd}
+h_X(X) \arrow[r,  "\varphi_X"] \arrow[d,  swap,  "h_X (f)"] &F(X) \arrow[d,  "F(f)"] \\
+h_X(Y) \arrow[r,"\varphi_Y"]& F(Y)
+\end{tikzcd}
+\end{center}
+can be also written as
+\begin{center}
+\begin{tikzcd}
+\mathcal{C}(X,X) \arrow[r,  "\varphi_X"] \arrow[d,  swap,  "f\circ(\ )"] &F(X) \arrow[d,  "F(f)"] \\
+\mathcal{C}(X,Y) \arrow[r,"\varphi_Y"]& F(Y)
+\end{tikzcd}
+\end{center}
+$$
+y = F(f)(x) = F(f) \left(\varphi_X(\Id_X)\right) =\varphi_Y\left(f\circ\Id_X\right) = \varphi_Y(f).
+$$
+So, $$f = \varphi_Y^{-1}(y).$$
+It remains to check that $\varphi^{-1}_Y(y)$ works.
+\end{proofenv}
+\begin{corollaryenv}
+    Let $\mathcal{C}$ be a category, $F:\mathcal{C}\rightarrow \set$ representable.
+    The object representing $F$ is unique up to a unique isomorphism.
+    
+    \quad Namely, if $X$ and $Y$ are two objects of $\mathcal{C}$ representing $F$ and $\varphi:h_X\rightarrow F$ are corresponding representations, then there exists a unique isomorphism $f:X\rightarrow Y$ such that $F(f)$ sends the universal object $x\in X$ of $\varphi$ to the universal object of $y\in Y$ of $\psi$.
+\end{corollaryenv}
+\begin{proofenv}
+    By proposition\ref{1.5.2}, $f = \varphi_Y^{-1}(y)$ is unique in $\mathcal{C}(X,Y)$ such that $F(f)(x) = y$. It remains to check that $f$ is an isomorphism. 
+    
+    \quad By proposition\ref{1.5.2}, $g:\psi^{-1}_{X}(x)$ is the unique morphism in $\mathcal{C}(Y,X)$ such that $F(g)(y) = x$.
+    $$
+    F\left(g\circ f\right)(x) = \left(F(g)\circ F(f)\right)(x) = F(g)\left(F(f)(x)\right) = F(g)(y) = x.
+    $$
+    By proposition\ref{1.5.2}, $g\circ f = \Id_X$. Similarly, 
+    $$
+    F\left(f\circ g\right) = F(f)\left(F(g)(y)\right) = F(f)(x) = y.
+    $$
+    $f\circ g = \Id_Y$, by proposition\ref{1.5.2}. So $f$ is a isomorphism.
+\end{proofenv}
+\begin{exampleenv}[The forgetful functor]
+    Let $F:\mathbf{Mon}\rightarrow\mathbf{Set}$ that sends any monoid $M$ to its underlying set and any homomorphism of monoids $f:M\rightarrow N$ to itself (viewed as a mapping of sets).
+
+    \quad This functor is representable by the additive monoid $(\NN,+)$ (neutral number with addition). Indeed, for any element $x\in M$, there exists a unique homomorphism of monoids $\NN\rightarrow M$ that sends $1$ to $x$. Therefore the mapping
+    $$ \begin{array}{rrcl}
+        \varphi_{M} :& h_{\NN}(M) = \mathbf{Mon}(\NN,M) &\rightarrow & F(M) = M\\
+        & f & \mapsto &f(1)
+    \end{array}
+    $$
+    is a bijection, and the family $\varphi = \left(\varphi_M\right)_{M\in \mathbf{Mon}}$ forms a representation of the forgetful functor $F:\mathbf{Mon} \rightarrow\mathbf{Set}$.
+\end{exampleenv}
+\begin{exampleenv}
+    Let $K$ be a commutable unitary ring and $I$ be a set. Let $F:\mathbf{Mon}\rightarrow\mathbf{Set}$ be a functor that is representable by the direct sum $K^{\oplus I}$.
+    $$ \begin{array}{rrcl}
+        F: & \mathbf{Mod}_K & \rightarrow & \mathbf{Set}\\
+        & W & \mapsto & W^I.
+    \end{array}
+    $$
+
+    \quad For any $K$ module $W$, the following mapping
+    $$ \begin{array}{rcl}
+        W^I & \rightarrow & \mathbf{Mod}_{K}\left(K^I, W\right)\\
+        \left(x_i\right)_{i\in I} & \mapsto & \left(\left(a_i\right)_{i\in I} \in K^{\oplus I} \mapsto \sum_{i\in I} a_i x_i\right)
+    \end{array}
+    $$
+    is a bijection. These mappings define an isomorphism from the functor $F$ to the functor $h_{K^{\oplus I}}$.
+\end{exampleenv}
+\begin{exampleenv}
+    Let $K$ be a unitary ring, $V$ be a $K$ module, $V'$ right $K$ submodule of $V$.
+    $$ F:\mathbf{Mod}_{K} \rightarrow \mathbf{Set}$$
+    sends $W$ to the set of $f\in \mathbf{Mod}_K(V,W)$ such that $\forall x\in V'$, $f(x) = 0_W$.
+    This functor is representable by $V/V'$. Indeed, for any $f\in F(W)$, there exists a unique homomorphism of right $K$ module.
+    $\tilde{f}:V/V'\rightarrow W$ such that 
+    $$ \forall x\in V,\ \tilde{f}\left([x]\right) =f(x).$$
+\end{exampleenv}
